@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origination Command Center | Lighttower</title>
+    <style>
+        :root {
+            --bg: #F5F4F0;
+            --text: #121212;
+            --accent: #C5A059;
+            --line: rgba(0, 0, 0, 0.06);
+            --font-serif: "Playfair Display", serif;
+            --font-sans: "Space Grotesk", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 40px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .target-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--line);
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 2fr 2fr 1.5fr 3fr 1fr;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-color: var(--accent);
+        }
+
+        .col-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.5;
+            margin-bottom: 5px;
+        }
+
+        .sponsor-name {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+        }
+
+        .principal-link {
+            text-decoration: none;
+            color: var(--text);
+            border-bottom: 1px solid var(--accent);
+            font-size: 0.95rem;
+        }
+
+        .asset-info {
+            font-size: 0.95rem;
+        }
+
+        .signal-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #ffebeb;
+            color: #d32f2f;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .signal-text {
+            font-size: 0.85rem;
+            color: #555;
+            display: block;
+        }
+
+        .action-btn {
+            background: var(--text);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .no-signal {
+            opacity: 0.5;
+            font-style: italic;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 1000px) {
+            .card {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <div class="subtitle">AI Origination Agent</div>
+            <h1>Target Command Center</h1>
+        </div>
+        <div style="text-align: right">
+            <div class="subtitle">Live Monitoring</div>
+            <div id="target-count" style="font-size: 1.5rem; font-family: var(--font-serif);">0 Targets</div>
+        </div>
+    </header>
+
+    <div id="target-list" class="target-grid">
+        <!-- Cards injected via JS -->
+    </div>
+
+    <script>
+        async function loadTargets() {
+            try {
+                const response = await fetch('data/targets.json');
+                const targets = await response.json();
+
+                document.getElementById('target-count').textContent = targets.length + " Targets";
+
+                const container = document.getElementById('target-list');
+
+                targets.forEach(t => {
+                    const signalHtml = t.signal_summary
+                        ? `<div>
+                             <span class="signal-badge">⚠️ ${t.signal_type.toUpperCase()} (Sev: ${t.signal_severity})</span>
+                             <span class="signal-text">${t.signal_summary}</span>
+                           </div>`
+                        : `<div class="no-signal">No active signals detected</div>`;
+
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div>
+                            <span class="col-label">Sponsor Group</span>
+                            <div class="sponsor-name">${t.company}</div>
+                        </div>
+                        <div>
+                            <span class="col-label">Key Principal</span>
+                            <a href="${t.linkedin_url}" target="_blank" class="principal-link">${t.principal_name} ↗</a>
+                        </div>
+                        <div>
+                            <span class="col-label">Asset (Target Market)</span>
+                            <div class="asset-info">
+                                <b>${t.asset_name}</b><br>
+                                ${t.city}, ${t.state}<br>
+                                ${t.units ? t.units + ' Units' : ''}
+                            </div>
+                        </div>
+                        <div>
+                             <span class="col-label">Intelligence / Signals</span>
+                             ${signalHtml}
+                        </div>
+                        <div style="text-align: right;">
+                             <button class="action-btn" onclick="window.location.href='mailto:?subject=Off Market Inquiry: ${t.asset_name}'">Draft Email</button>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (e) {
+                console.error("Error loading targets:", e);
+                document.getElementById('target-list').innerHTML = "<p>Error loading data. Run 'export_targets.py' first.</p>";
+            }
+        }
+
+        loadTargets();
+    </script>
+
+</body>
+
+</html>
