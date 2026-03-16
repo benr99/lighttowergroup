@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Insights Admin — Light Tower Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5F4F0; --text: #121212; --accent: #C5A059;
+      --line: rgba(0,0,0,0.08); --line-strong: rgba(0,0,0,0.14);
+      --white: #fff; --dark: #0E0E0E; --mid: #555;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Space Grotesk', sans-serif;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+
+    /* Auth */
+    #auth-screen {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem;
+    }
+    #auth-screen h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; }
+    #auth-screen p { color: var(--mid); font-size: 0.9rem; }
+    #pw-input { border: 1px solid var(--line-strong); background: var(--white); padding: 0.75rem 1.25rem; font-family: var(--font-body); font-size: 0.95rem; width: 280px; outline: none; }
+    #pw-input:focus { border-color: var(--accent); }
+    #pw-btn { background: var(--text); color: var(--white); border: none; padding: 0.75rem 2rem; font-family: var(--font-body); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; transition: background 0.2s; }
+    #pw-btn:hover { background: var(--accent); }
+    #pw-error { color: #c0392b; font-size: 0.8rem; display: none; }
+
+    /* App */
+    #app { display: none; }
+    .app-header { background: var(--dark); color: #fff; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .app-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; }
+    .app-subtitle { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); }
+    .app-nav { display: flex; gap: 1.5rem; }
+    .app-nav a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); }
+    .app-nav a:hover { color: var(--accent); }
+
+    .app-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: calc(100vh - 56px); }
+
+    /* LEFT — Composer */
+    .composer { padding: 2.5rem; border-right: 1px solid var(--line); overflow-y: auto; }
+    .composer-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 2rem; }
+
+    .field { margin-bottom: 1.75rem; }
+    .field label { display: block; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.18em; color: #999; font-weight: 600; margin-bottom: 0.5rem; }
+    .field input, .field select, .field textarea {
+      width: 100%; border: none; border-bottom: 1px solid var(--line-strong);
+      background: transparent; padding: 0.45rem 0 0.6rem;
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
+      outline: none; appearance: none; -webkit-appearance: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-bottom-color: var(--accent); }
+    .field textarea { resize: vertical; min-height: 120px; line-height: 1.65; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .field-hint { font-size: 0.68rem; color: #aaa; margin-top: 0.4rem; }
+    .field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.5rem center; padding-right: 1.5rem; }
+
+    .content-toolbar {
+      display: flex; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;
+    }
+    .toolbar-btn {
+      background: transparent; border: 1px solid var(--line-strong); padding: 0.3rem 0.7rem;
+      font-family: var(--font-body); font-size: 0.7rem; color: #666;
+      cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;
+    }
+    .toolbar-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .generate-btn {
+      width: 100%; background: var(--text); color: var(--white); border: none;
+      padding: 1rem; font-family: var(--font-body); font-size: 0.78rem;
+      text-transform: uppercase; letter-spacing: 0.18em; cursor: pointer;
+      transition: background 0.2s; margin-top: 2rem;
+    }
+    .generate-btn:hover { background: var(--accent); }
+
+    /* RIGHT — Output */
+    .output-panel { padding: 2.5rem; overflow-y: auto; background: #faf9f5; }
+    .output-panel-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .output-panel-sub { font-size: 0.8rem; color: var(--mid); margin-bottom: 2rem; }
+
+    .output-block { margin-bottom: 2.5rem; }
+    .output-block-label {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .output-block-name { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); font-weight: 600; }
+    .output-block-filename { font-size: 0.65rem; color: #aaa; font-family: monospace; }
+
+    .copy-btn {
+      background: transparent; border: 1px solid var(--line-strong); padding: 0.3rem 0.9rem;
+      font-family: var(--font-body); font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 0.12em; color: #888; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .copy-btn.copied { border-color: #27ae60; color: #27ae60; }
+
+    .output-code {
+      background: var(--dark); color: #e0ddd8; padding: 1.25rem;
+      font-family: 'Courier New', monospace; font-size: 0.72rem;
+      line-height: 1.7; overflow-x: auto; white-space: pre-wrap; word-break: break-all;
+      max-height: 340px; overflow-y: auto; border-radius: 2px;
+    }
+
+    .output-instructions {
+      margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--line-strong); background: var(--white);
+    }
+    .output-instructions h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 400; margin-bottom: 1rem; }
+    .output-instructions ol { padding-left: 1.5rem; }
+    .output-instructions li { font-size: 0.85rem; color: var(--mid); line-height: 1.7; margin-bottom: 0.5rem; }
+    .output-instructions code { background: rgba(0,0,0,0.06); padding: 0.1em 0.4em; font-size: 0.82em; border-radius: 2px; }
+
+    .empty-state {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 60vh; text-align: center; gap: 1rem; color: #aaa;
+    }
+    .empty-state-icon { font-size: 2.5rem; }
+    .empty-state p { font-size: 0.88rem; max-width: 300px; line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .app-body { grid-template-columns: 1fr; }
+      .composer { border-right: none; border-bottom: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Auth screen -->
+<div id="auth-screen">
+  <div>
+    <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:1rem;">Light Tower Group</p>
+    <h1>Insights Admin</h1>
+    <p style="margin-top:0.5rem;">Internal post creation tool. Enter your access password to continue.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;">
+    <input type="password" id="pw-input" placeholder="Password" autocomplete="current-password">
+    <button id="pw-btn" onclick="checkAuth()">Enter</button>
+    <p id="pw-error">Incorrect password.</p>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app">
+  <div class="app-header">
+    <div>
+      <div class="app-title">Insights Admin</div>
+      <div class="app-subtitle">Light Tower Group — Post Composer</div>
+    </div>
+    <div class="app-nav">
+      <a href="insights.html" target="_blank">View Insights ↗</a>
+      <a href="index.html" target="_blank">View Site ↗</a>
+    </div>
+  </div>
+
+  <div class="app-body">
+
+    <!-- Left: Composer -->
+    <div class="composer">
+      <p class="composer-title">New Post</p>
+
+      <div class="field">
+        <label>Post Title *</label>
+        <input type="text" id="f-title" placeholder="CRE Equity Markets: Why JV Structures Are Changing" oninput="autoSlug()">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Category *</label>
+          <select id="f-category">
+            <option value="" disabled selected>Select</option>
+            <option>Market Commentary</option>
+            <option>Capital Markets</option>
+            <option>Debt</option>
+            <option>Equity</option>
+            <option>Strategy</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Publish Date *</label>
+          <input type="date" id="f-date">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>URL Slug *</label>
+          <input type="text" id="f-slug" placeholder="auto-generated from title">
+          <p class="field-hint">insights/<span id="slug-preview">your-slug-here</span>.html</p>
+        </div>
+        <div class="field">
+          <label>Read Time (minutes)</label>
+          <input type="number" id="f-readtime" placeholder="5" min="1" max="60" value="5">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Excerpt (1–2 sentences for the listing card) *</label>
+        <textarea id="f-excerpt" rows="3" placeholder="What the reader will learn or take away from this piece..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Article Content *</label>
+        <div class="content-toolbar">
+          <button class="toolbar-btn" onclick="wrap('h2')">H2</button>
+          <button class="toolbar-btn" onclick="wrap('h3')">H3</button>
+          <button class="toolbar-btn" onclick="wrap('p')">P</button>
+          <button class="toolbar-btn" onclick="wrap('blockquote')">Quote</button>
+          <button class="toolbar-btn" onclick="wrap('strong')">Bold</button>
+          <button class="toolbar-btn" onclick="insertList()">List</button>
+          <button class="toolbar-btn" onclick="insertDivider()">Divider</button>
+          <button class="toolbar-btn" onclick="insertLinkedIn()">LinkedIn Post</button>
+        </div>
+        <textarea id="f-content" rows="20" placeholder="Write your article here. Use the toolbar above to insert HTML tags, or paste formatted HTML directly. You can also paste in your LinkedIn post text and format it here.&#10;&#10;Example:&#10;&lt;p&gt;Your opening paragraph...&lt;/p&gt;&#10;&#10;&lt;h2&gt;Section Heading&lt;/h2&gt;&#10;&#10;&lt;p&gt;More content...&lt;/p&gt;"></textarea>
+        <p class="field-hint">HTML is supported. Use &lt;p&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;blockquote&gt;&lt;p&gt;...&lt;/p&gt;&lt;/blockquote&gt;, &lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;, &lt;strong&gt;, &lt;hr class="post-divider"&gt;</p>
+      </div>
+
+      <button class="generate-btn" onclick="generate()">Generate Post Files →</button>
+    </div>
+
+    <!-- Right: Output -->
+    <div class="output-panel">
+      <p class="output-panel-title">Generated Files</p>
+      <p class="output-panel-sub">Fill out the form and click Generate. Copy each output to the right file.</p>
+
+      <div id="output-content">
+        <div class="empty-state">
+          <div class="empty-state-icon">✦</div>
+          <p>Your generated HTML and JSON will appear here after you click Generate.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ── Auth ────────────────────────────────────────────────
+  // Change this password — it's stored client-side so keep it simple,
+  // this is just to keep the page from being accidentally indexed/used.
+  const ADMIN_PASSWORD = 'ltg2026';
+
+  function checkAuth() {
+    const val = document.getElementById('pw-input').value;
+    if (val === ADMIN_PASSWORD) {
+      document.getElementById('auth-screen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      document.getElementById('f-date').value = new Date().toISOString().slice(0,10);
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+    }
+  }
+  document.getElementById('pw-input').addEventListener('keydown', e => { if (e.key === 'Enter') checkAuth(); });
+
+  // ── Slug auto-gen ────────────────────────────────────────
+  function autoSlug() {
+    const title = document.getElementById('f-title').value;
+    const slug = title.toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+    document.getElementById('f-slug').value = slug;
+    document.getElementById('slug-preview').textContent = slug || 'your-slug-here';
+  }
+
+  document.getElementById('f-slug').addEventListener('input', function() {
+    document.getElementById('slug-preview').textContent = this.value || 'your-slug-here';
+  });
+
+  // ── Toolbar helpers ──────────────────────────────────────
+  function wrap(tag) {
+    const ta = document.getElementById('f-content');
+    const start = ta.selectionStart;
+    const end = ta.selectionEnd;
+    const sel = ta.value.substring(start, end);
+    let replacement;
+    if (tag === 'blockquote') {
+      replacement = `<blockquote>\n  <p>${sel || 'Your quote here.'}</p>\n</blockquote>`;
+    } else {
+      replacement = `<${tag}>${sel || '...'}</${tag}>`;
+    }
+    ta.value = ta.value.substring(0, start) + '\n\n' + replacement + '\n\n' + ta.value.substring(end);
+    ta.focus();
+  }
+
+  function insertList() {
+    const ta = document.getElementById('f-content');
+    const pos = ta.selectionStart;
+    const insert = '\n\n<ul>\n  <li>Item one</li>\n  <li>Item two</li>\n  <li>Item three</li>\n</ul>\n\n';
+    ta.value = ta.value.substring(0, pos) + insert + ta.value.substring(pos);
+    ta.focus();
+  }
+
+  function insertDivider() {
+    const ta = document.getElementById('f-content');
+    const pos = ta.selectionStart;
+    ta.value = ta.value.substring(0, pos) + '\n\n<hr class="post-divider">\n\n' + ta.value.substring(pos);
+    ta.focus();
+  }
+
+  function insertLinkedIn() {
+    const ta = document.getElementById('f-content');
+    const pos = ta.selectionStart;
+    const template = '\n\n<!-- PASTE LINKEDIN POST BELOW, then wrap each paragraph in <p> tags -->\n<p>Your LinkedIn post opening...</p>\n\n<p>Continue here...</p>\n\n';
+    ta.value = ta.value.substring(0, pos) + template + ta.value.substring(pos);
+    ta.focus();
+  }
+
+  // ── Format date ──────────────────────────────────────────
+  function formatDate(d) {
+    return new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+
+  // ── Generate ─────────────────────────────────────────────
+  function generate() {
+    const title    = document.getElementById('f-title').value.trim();
+    const category = document.getElementById('f-category').value;
+    const date     = document.getElementById('f-date').value;
+    const slug     = document.getElementById('f-slug').value.trim();
+    const readTime = document.getElementById('f-readtime').value || '5';
+    const excerpt  = document.getElementById('f-excerpt').value.trim();
+    const content  = document.getElementById('f-content').value.trim();
+
+    if (!title || !category || !date || !slug || !excerpt || !content) {
+      alert('Please fill out all required fields before generating.');
+      return;
+    }
+
+    const displayDate = formatDate(date);
+    const isoDate = date;
+    const url = `https://lighttowergroup.co/insights/${slug}.html`;
+
+    // ── 1. Generate HTML for the post page ──────────────────
+    const postHTML = `<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <title>${escHtml(title)} | Light Tower Group</title>
+  <meta name="title" content="${escHtml(title)} | Light Tower Group">
+  <meta name="description" content="${escHtml(excerpt)}">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Benjamin Rohr, Light Tower Group">
+  <link rel="canonical" href="${url}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${escHtml(title)}">
+  <meta property="og:description" content="${escHtml(excerpt)}">
+  <meta property="og:image" content="https://lighttowergroup.co/network.jpg">
+  <meta property="article:published_time" content="${isoDate}">
+  <meta property="article:author" content="Benjamin Rohr">
+  <meta property="article:section" content="${escHtml(category)}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "${escJson(title)}",
+    "description": "${escJson(excerpt)}",
+    "author": {
+      "@type": "Person",
+      "name": "Benjamin Rohr",
+      "url": "https://lighttowergroup.co/#principal"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Light Tower Group",
+      "url": "https://lighttowergroup.co"
+    },
+    "datePublished": "${isoDate}",
+    "dateModified": "${isoDate}",
+    "url": "${url}",
+    "mainEntityOfPage": "${url}",
+    "image": "https://lighttowergroup.co/network.jpg",
+    "articleSection": "${escJson(category)}"
+  }
+  <\/script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #F5F4F0; --text: #121212; --accent: #C5A059; --accent-hover: #D4AF6B;
+      --line: rgba(0,0,0,0.06); --line-strong: rgba(0,0,0,0.12);
+      --white: #ffffff; --dark: #0E0E0E; --mid: #555555;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --container: 1200px; --nav-h: 64px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 3rem; }
+    @media (max-width: 1024px) { .container { padding: 0 2rem; } }
+    @media (max-width: 768px)  { .container { padding: 0 1.5rem; } }
+    @media (max-width: 480px)  { .container { padding: 0 1.25rem; } }
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(245,244,240,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line-strong); height: var(--nav-h); }
+    .nav-inner { max-width: var(--container); margin: 0 auto; padding: 0 3rem; height: 100%; display: flex; justify-content: space-between; align-items: center; }
+    @media (max-width: 768px) { .nav-inner { padding: 0 1.5rem; } }
+    @media (max-width: 480px) { .nav-inner { padding: 0 1.25rem; } }
+    .nav-logo { font-family: var(--font-body); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta { background: var(--text) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; font-size: 0.7rem !important; }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+    @media (max-width: 860px) { .nav-hide { display: none; } }
+    .post-header { padding: 4rem 0 3rem; border-bottom: 1px solid var(--line); max-width: 860px; margin: 0 auto; }
+    .post-back { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: #888; margin-bottom: 2.5rem; transition: color 0.2s; }
+    .post-back:hover { color: var(--accent); }
+    .post-category { display: inline-block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); font-weight: 600; margin-bottom: 1.25rem; }
+    .post-title { font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 2rem; }
+    .post-meta { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; font-size: 0.72rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; }
+    .post-meta-author { color: var(--text); font-weight: 600; }
+    .post-meta-sep { width: 20px; height: 1px; background: var(--line-strong); }
+    .post-body { max-width: 720px; margin: 0 auto; padding: 3.5rem 3rem; }
+    @media (max-width: 768px) { .post-body { padding: 2.5rem 1.5rem; } }
+    @media (max-width: 480px) { .post-body { padding: 2rem 1.25rem; } }
+    .post-body p { font-size: 1.05rem; color: #404040; line-height: 1.85; margin-bottom: 1.75rem; }
+    .post-body h2 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 400; margin: 3rem 0 1.25rem; color: var(--text); }
+    .post-body h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; margin: 2rem 0 0.75rem; color: var(--text); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 2rem; margin: 2.5rem 0; }
+    .post-body blockquote p { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; line-height: 1.6; color: var(--text); margin-bottom: 0; }
+    .post-body ul, .post-body ol { margin: 1rem 0 1.75rem 1.5rem; }
+    .post-body li { font-size: 1.02rem; color: #404040; line-height: 1.75; margin-bottom: 0.5rem; }
+    .post-body strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--accent); border-bottom: 1px solid rgba(197,160,89,0.4); }
+    .post-body a:hover { border-bottom-color: var(--accent); }
+    .post-divider { border: none; border-top: 1px solid var(--line); margin: 3rem 0; }
+    .post-cta { max-width: 720px; margin: 0 auto; padding: 3rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    @media (max-width: 768px) { .post-cta { padding: 2rem 1.5rem; } }
+    .post-cta-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); font-weight: 600; display: block; margin-bottom: 1rem; }
+    .post-cta-text { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; line-height: 1.4; margin-bottom: 1.5rem; }
+    .btn-primary { display: inline-block; background: var(--text); color: var(--white); padding: 0.9rem 2rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500; transition: background 0.3s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: var(--accent); color: var(--white); }
+    .footer { background: var(--dark); color: var(--white); padding: 5rem 0 2.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    @media (max-width: 860px) { .footer-top { grid-template-columns: 1fr; gap: 2.5rem; padding-bottom: 2.5rem; } }
+    .footer-brand-name { font-family: var(--font-display); font-size: 1.9rem; font-weight: 400; color: rgba(255,255,255,0.88); margin-bottom: 1.25rem; }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.38); line-height: 1.78; max-width: 300px; }
+    .footer-col-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.2em; color: #444; margin-bottom: 1.5rem; display: block; }
+    .footer-link { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.42); margin-bottom: 0.7rem; transition: color 0.2s; }
+    .footer-link:hover { color: var(--accent); }
+    .footer-contact-link { display: block; font-family: var(--font-display); font-size: 1.3rem; color: rgba(255,255,255,0.65); margin-bottom: 0.75rem; transition: all 0.2s; }
+    .footer-contact-link:hover { color: var(--accent); padding-left: 6px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 2.5rem; gap: 2rem; flex-wrap: wrap; }
+    .copyright { font-size: 0.62rem; color: #3a3a3a; text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer-disclaimer { font-size: 0.62rem; color: #333; max-width: 480px; line-height: 1.65; text-align: right; }
+    @media (max-width: 860px) { .footer-disclaimer { text-align: left; } }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Light Tower Group home">Light Tower Group</a>
+      <div class="nav-links">
+        <a href="/#practice" class="nav-hide">The Practice</a>
+        <a href="/#advantage" class="nav-hide">The Advantage</a>
+        <a href="/#leadership" class="nav-hide">Leadership</a>
+        <a href="/#faq" class="nav-hide">FAQ</a>
+        <a href="/insights.html" class="nav-hide active">Insights</a>
+        <a href="/#contact" class="nav-hide">Contact</a>
+        <a href="/#contact" class="nav-cta">Initiate Mandate</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="container">
+      <header class="post-header">
+        <a href="/insights.html" class="post-back">\u2190 All Insights</a>
+        <span class="post-category">${escHtml(category)}</span>
+        <h1 class="post-title">${escHtml(title)}</h1>
+        <div class="post-meta">
+          <span class="post-meta-author">Benjamin Rohr</span>
+          <span class="post-meta-sep" aria-hidden="true"></span>
+          <span>${displayDate}</span>
+          <span class="post-meta-sep" aria-hidden="true"></span>
+          <span>${readTime} min read</span>
+        </div>
+      </header>
+    </div>
+
+    <article>
+      <div class="post-body">
+${content}
+      </div>
+    </article>
+
+    <div class="container">
+      <div class="post-cta">
+        <span class="post-cta-label">Work with Light Tower Group</span>
+        <p class="post-cta-text">Working on a mandate that requires this kind of capital market precision? Let's talk through your deal.</p>
+        <a href="/#contact" class="btn-primary">Initiate a Mandate</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-name">Light Tower Group</div>
+          <p>Institutional capital advisory for complex commercial real estate mandates. Debt placement, equity structuring, and investment advisory \u2014 nationwide.</p>
+        </div>
+        <nav aria-label="Site navigation">
+          <span class="footer-col-label">Navigate</span>
+          <a href="/#about" class="footer-link">The Mandate</a>
+          <a href="/#practice" class="footer-link">The Practice</a>
+          <a href="/#advantage" class="footer-link">The Advantage</a>
+          <a href="/#leadership" class="footer-link">Leadership</a>
+          <a href="/insights.html" class="footer-link">Insights</a>
+        </nav>
+        <div>
+          <span class="footer-col-label">Contact</span>
+          <a href="mailto:ben@lighttowergroup.co" class="footer-contact-link">ben@lighttowergroup.co</a>
+          <a href="tel:+13475540093" class="footer-contact-link">(347) 554-0093</a>
+          <a href="https://www.linkedin.com/in/benrohr/" target="_blank" rel="noopener" class="footer-contact-link">LinkedIn \u2197</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Light Tower Group &nbsp;\u00b7&nbsp; All Rights Reserved</p>
+        <p class="footer-disclaimer">Light Tower Group is a commercial real estate capital advisory firm. Not a licensed securities dealer or registered investment advisor.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>`;
+
+    // ── 2. JSON entry ────────────────────────────────────────
+    const jsonEntry = JSON.stringify({
+      slug,
+      title,
+      date: isoDate,
+      category,
+      excerpt,
+      readTime: parseInt(readTime)
+    }, null, 2);
+
+    // ── Render output ────────────────────────────────────────
+    document.getElementById('output-content').innerHTML = `
+      <div class="output-block">
+        <div class="output-block-label">
+          <div>
+            <div class="output-block-name">1. Post HTML File</div>
+            <div class="output-block-filename">insights/${slug}.html</div>
+          </div>
+          <button class="copy-btn" onclick="copyCode('html-output', this)">Copy HTML</button>
+        </div>
+        <pre class="output-code" id="html-output">${escHtml(postHTML)}</pre>
+      </div>
+
+      <div class="output-block">
+        <div class="output-block-label">
+          <div>
+            <div class="output-block-name">2. JSON Entry (add to insights.json)</div>
+            <div class="output-block-filename">insights.json → add to array</div>
+          </div>
+          <button class="copy-btn" onclick="copyCode('json-output', this)">Copy JSON</button>
+        </div>
+        <pre class="output-code" id="json-output">${escHtml(jsonEntry)}</pre>
+      </div>
+
+      <div class="output-instructions">
+        <h3>How to publish this post</h3>
+        <ol>
+          <li><strong>Copy the HTML</strong> above and save it as a new file: <code>insights/${slug}.html</code></li>
+          <li><strong>Open <code>insights.json</code></strong> and add the JSON entry to the array (use a comma to separate entries)</li>
+          <li><strong>Open your terminal</strong> in the site folder and run:<br>
+            <code>git add insights/${slug}.html insights.json</code><br>
+            <code>git commit -m "Add insight: ${escHtml(title)}"</code><br>
+            <code>git push</code>
+          </li>
+          <li>The post will be live at <code>${url}</code> within ~60 seconds</li>
+          <li>The post will appear automatically on the <a href="insights.html" target="_blank">Insights listing page</a></li>
+        </ol>
+      </div>
+    `;
+  }
+
+  function copyCode(elId, btn) {
+    const text = document.getElementById(elId).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = btn.textContent.includes('HTML') ? 'Copy HTML' : 'Copy JSON'; btn.classList.remove('copied'); btn.textContent = 'Copy'; }, 2000);
+    });
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function escJson(s) {
+    return String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n');
+  }
+</script>
+
+</body>
+</html>
