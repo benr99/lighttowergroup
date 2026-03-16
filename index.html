@@ -847,19 +847,126 @@
       font-weight: 600;
     }
 
-    .mandate-form {
+    /* Wizard container */
+    .wizard { position: relative; }
+
+    .wizard-progress {
+      height: 2px;
+      background: rgba(197,160,89,0.15);
+      margin-bottom: 1.5rem;
+      border-radius: 1px;
+    }
+
+    .wizard-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 1px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 33.333%;
+    }
+
+    .wizard-steps-label {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #aaa;
+      margin-bottom: 2rem;
+    }
+
+    .wizard-step {
+      display: none;
+      animation: wSlideIn 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .wizard-step.active { display: block; }
+
+    .wizard-step.slide-back { animation: wSlideInBack 0.38s cubic-bezier(0.4, 0, 0.2, 1); }
+
+    @keyframes wSlideIn {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes wSlideInBack {
+      from { opacity: 0; transform: translateX(-28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .wizard-question {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* Step 1 — option cards */
+    .wizard-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 560px) { .wizard-cards { grid-template-columns: 1fr; gap: 0.75rem; } }
+
+    .wizard-card {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      align-items: flex-start;
+      padding: 1.75rem 1.4rem;
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s, transform 0.18s;
+      font-family: var(--font-body);
     }
 
-    .form-row {
+    .wizard-card:hover {
+      border-color: var(--accent);
+      background: rgba(197,160,89,0.04);
+      transform: translateY(-3px);
+    }
+
+    .wizard-card.selected {
+      border-color: var(--accent);
+      background: rgba(197,160,89,0.08);
+    }
+
+    .wizard-card-icon {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .wizard-card-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .wizard-card-sub {
+      display: block;
+      font-size: 0.68rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+    }
+
+    /* Step 2 & 3 fields */
+    .wizard-fields {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0 2rem;
+      gap: 0 2.5rem;
     }
 
-    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .wizard-fields { grid-template-columns: 1fr; } }
 
     .form-field {
       position: relative;
@@ -867,9 +974,7 @@
       margin-bottom: 2rem;
     }
 
-    .form-field:focus-within {
-      border-bottom-color: var(--accent);
-    }
+    .form-field:focus-within { border-bottom-color: var(--accent); }
 
     .form-field label {
       display: block;
@@ -916,31 +1021,73 @@
     .form-field input::placeholder,
     .form-field textarea::placeholder { color: #ccc; }
 
-    .form-submit {
-      margin-top: 1rem;
+    /* Nav */
+    .wizard-nav {
       display: flex;
       align-items: center;
       gap: 2rem;
+      margin-top: 0.5rem;
       flex-wrap: wrap;
     }
 
-    .form-note {
-      font-size: 0.72rem;
-      color: #aaa;
+    .wizard-back {
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: #888;
+      cursor: pointer;
+      padding: 0;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
+      transition: color 0.2s;
     }
 
-    .form-success {
+    .wizard-back:hover { color: var(--text); }
+
+    .wizard-next {
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .wizard-next:hover { background: var(--accent); color: var(--white); }
+
+    /* Success */
+    .wizard-success {
       display: none;
-      padding: 2rem;
+      text-align: center;
+      padding: 3rem 2rem;
       border: 1px solid var(--accent);
       background: rgba(197,160,89,0.05);
+    }
+
+    .wizard-success-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .wizard-success-headline {
       font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
       color: var(--text);
-      line-height: 1.6;
+    }
+
+    .wizard-success-sub {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.8;
     }
 
     /* ===================== CTA SECTION ===================== */
@@ -1627,51 +1774,64 @@
             </div>
           </div>
 
-          <div>
-            <!-- Formspree form — sign up free at formspree.io, replace YOUR_FORM_ID -->
-            <form class="mandate-form" id="mandate-form"
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST">
+          <!-- 3-step wizard -->
+          <div class="wizard" id="mandate-wizard">
 
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="f-name">Full Name *</label>
-                  <input type="text" id="f-name" name="name" placeholder="John Smith" required>
-                </div>
-                <div class="form-field">
-                  <label for="f-company">Company / Sponsor *</label>
-                  <input type="text" id="f-company" name="company" placeholder="Acme Capital" required>
-                </div>
+            <!-- Progress bar -->
+            <div class="wizard-progress" aria-hidden="true">
+              <div class="wizard-progress-fill" id="wizard-progress-fill"></div>
+            </div>
+            <div class="wizard-steps-label" aria-live="polite">
+              <span id="wizard-step-label">Step 1 of 3</span>
+            </div>
+
+            <!-- Step 1: Capital need -->
+            <div class="wizard-step active" data-step="1">
+              <p class="wizard-question">What are you looking to raise capital for?</p>
+              <div class="wizard-cards">
+                <button class="wizard-card" data-value="Debt Placement" onclick="wizardSelectCard(this, 'capital_need')">
+                  <span class="wizard-card-icon">▲</span>
+                  <span class="wizard-card-label">Debt</span>
+                  <span class="wizard-card-sub">Senior · Bridge · Construction · Mezz</span>
+                </button>
+                <button class="wizard-card" data-value="Equity Placement" onclick="wizardSelectCard(this, 'capital_need')">
+                  <span class="wizard-card-icon">◆</span>
+                  <span class="wizard-card-label">Equity</span>
+                  <span class="wizard-card-sub">JV Equity · Preferred · Recap</span>
+                </button>
+                <button class="wizard-card" data-value="Advisory" onclick="wizardSelectCard(this, 'capital_need')">
+                  <span class="wizard-card-icon">✦</span>
+                  <span class="wizard-card-label">Advisory</span>
+                  <span class="wizard-card-sub">Full Stack · Strategy · Restructure</span>
+                </button>
               </div>
+            </div>
 
-              <div class="form-row">
+            <!-- Step 2: Deal details -->
+            <div class="wizard-step" data-step="2">
+              <p class="wizard-question">Tell us about the deal.</p>
+              <div class="wizard-fields">
                 <div class="form-field">
-                  <label for="f-email">Email *</label>
-                  <input type="email" id="f-email" name="email" placeholder="you@company.com" required>
-                </div>
-                <div class="form-field">
-                  <label for="f-phone">Phone</label>
-                  <input type="tel" id="f-phone" name="phone" placeholder="(212) 000-0000">
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="f-type">Capital Need *</label>
-                  <select id="f-type" name="capital_need" required>
-                    <option value="" disabled selected>Select one</option>
-                    <option>Debt Placement — Senior / Bridge</option>
-                    <option>Debt Placement — Construction</option>
-                    <option>Equity Placement — JV Equity</option>
-                    <option>Equity Placement — Preferred Equity</option>
-                    <option>Equity Placement — Mezzanine</option>
-                    <option>Investment Advisory</option>
-                    <option>Full Capital Stack</option>
+                  <label for="w-asset">Asset Type *</label>
+                  <select id="w-asset" name="asset_type">
+                    <option value="" disabled selected>Select asset class</option>
+                    <option>Multifamily</option>
+                    <option>Office</option>
+                    <option>Retail</option>
+                    <option>Industrial / Logistics</option>
+                    <option>Hospitality</option>
+                    <option>Mixed-Use</option>
+                    <option>Land / Development</option>
+                    <option>Self-Storage</option>
+                    <option>Senior Housing / Medical</option>
+                    <option>Data Center / Life Sciences</option>
+                    <option>Portfolio</option>
+                    <option>Other</option>
                   </select>
                 </div>
                 <div class="form-field">
-                  <label for="f-size">Approximate Deal Size *</label>
-                  <select id="f-size" name="deal_size" required>
+                  <label for="w-size">Approximate Deal Size *</label>
+                  <select id="w-size" name="deal_size">
                     <option value="" disabled selected>Select range</option>
                     <option>$5M – $20M</option>
                     <option>$20M – $50M</option>
@@ -1681,22 +1841,56 @@
                   </select>
                 </div>
               </div>
-
-              <div class="form-field">
-                <label for="f-message">Brief Description</label>
-                <textarea id="f-message" name="message" placeholder="Asset type, location, current status, timeline..."></textarea>
+              <div class="wizard-nav">
+                <button type="button" class="wizard-back" onclick="wizardGoBack()">← Back</button>
+                <button type="button" class="wizard-next" onclick="wizardNext(2)">Continue →</button>
               </div>
-
-              <div class="form-submit">
-                <button type="submit" class="btn-primary">Submit Mandate</button>
-                <span class="form-note">Confidential · No obligation</span>
-              </div>
-
-            </form>
-
-            <div class="form-success" id="form-success">
-              "Thank you. Benjamin will be in touch personally within one business day."
             </div>
+
+            <!-- Step 3: Contact info -->
+            <div class="wizard-step" data-step="3">
+              <p class="wizard-question">How can Benjamin reach you?</p>
+              <form id="mandate-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <!-- Hidden carry-forward values -->
+                <input type="hidden" name="capital_need" id="h-capital-need">
+                <input type="hidden" name="asset_type" id="h-asset-type">
+                <input type="hidden" name="deal_size" id="h-deal-size">
+                <div class="wizard-fields">
+                  <div class="form-field">
+                    <label for="w-name">Full Name *</label>
+                    <input type="text" id="w-name" name="name" placeholder="John Smith" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="w-company">Company / Sponsor *</label>
+                    <input type="text" id="w-company" name="company" placeholder="Acme Capital" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="w-email">Email *</label>
+                    <input type="email" id="w-email" name="email" placeholder="you@company.com" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="w-phone">Phone</label>
+                    <input type="tel" id="w-phone" name="phone" placeholder="(212) 000-0000">
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="w-message">Brief Description</label>
+                  <textarea id="w-message" name="message" placeholder="Location, current status, timeline..."></textarea>
+                </div>
+                <div class="wizard-nav">
+                  <button type="button" class="wizard-back" onclick="wizardGoBack()">← Back</button>
+                  <button type="submit" class="btn-primary">Submit Mandate</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Success state -->
+            <div class="wizard-success" id="wizard-success" aria-live="polite">
+              <div class="wizard-success-icon">✦</div>
+              <p class="wizard-success-headline">Mandate received.</p>
+              <p class="wizard-success-sub">Benjamin will be in touch personally within one business day. Every conversation is confidential.</p>
+            </div>
+
           </div>
 
         </div>
@@ -1778,23 +1972,73 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => observer.observe(el));
 
-    // Contact form — AJAX submit via Formspree
-    const form = document.getElementById('mandate-form');
-    if (form) {
-      form.addEventListener('submit', async (e) => {
+    // ── Mandate Wizard ──────────────────────────────────────────
+    const wizardData = { capital_need: '', asset_type: '', deal_size: '' };
+    let wizardCurrentStep = 1;
+
+    const progressFill  = document.getElementById('wizard-progress-fill');
+    const stepLabel     = document.getElementById('wizard-step-label');
+    const progressPcts  = ['33.333%', '66.666%', '100%'];
+
+    function wizardSetStep(n, back) {
+      const steps = document.querySelectorAll('.wizard-step');
+      steps.forEach(s => {
+        s.classList.remove('active', 'slide-back');
+        if (parseInt(s.dataset.step) === n) {
+          s.classList.add('active');
+          if (back) s.classList.add('slide-back');
+        }
+      });
+      progressFill.style.width = progressPcts[n - 1];
+      stepLabel.textContent = 'Step ' + n + ' of 3';
+      wizardCurrentStep = n;
+    }
+
+    function wizardSelectCard(btn, field) {
+      // Highlight selection, store value, auto-advance
+      btn.closest('.wizard-cards').querySelectorAll('.wizard-card').forEach(c => c.classList.remove('selected'));
+      btn.classList.add('selected');
+      wizardData[field] = btn.dataset.value;
+      setTimeout(() => wizardSetStep(2, false), 220);
+    }
+
+    function wizardNext(fromStep) {
+      if (fromStep === 2) {
+        const asset = document.getElementById('w-asset');
+        const size  = document.getElementById('w-size');
+        if (!asset.value) { asset.focus(); return; }
+        if (!size.value)  { size.focus();  return; }
+        wizardData.asset_type = asset.value;
+        wizardData.deal_size  = size.value;
+        // Carry hidden values into step 3 form
+        document.getElementById('h-capital-need').value = wizardData.capital_need;
+        document.getElementById('h-asset-type').value   = wizardData.asset_type;
+        document.getElementById('h-deal-size').value    = wizardData.deal_size;
+        wizardSetStep(3, false);
+      }
+    }
+
+    function wizardGoBack() {
+      wizardSetStep(wizardCurrentStep - 1, true);
+    }
+
+    // AJAX submit on step 3
+    const mandateForm = document.getElementById('mandate-form');
+    if (mandateForm) {
+      mandateForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'Sending...';
+        const btn = mandateForm.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending…';
         btn.disabled = true;
         try {
-          const res = await fetch(form.action, {
+          const res = await fetch(mandateForm.action, {
             method: 'POST',
-            body: new FormData(form),
+            body: new FormData(mandateForm),
             headers: { 'Accept': 'application/json' }
           });
           if (res.ok) {
-            form.style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('mandate-wizard').querySelectorAll('.wizard-step, .wizard-progress, .wizard-steps-label').forEach(el => el.style.display = 'none');
+            document.getElementById('wizard-success').style.display = 'block';
           } else {
             btn.textContent = 'Submit Mandate';
             btn.disabled = false;
