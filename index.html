@@ -213,11 +213,11 @@
     .container {
       max-width: var(--container);
       margin: 0 auto;
-      padding: 0 3rem;
+      padding: 0 5rem;
     }
 
-    @media (max-width: 1280px) { .container { padding: 0 2.5rem; } }
-    @media (max-width: 1024px) { .container { padding: 0 2rem; } }
+    @media (max-width: 1280px) { .container { padding: 0 4rem; } }
+    @media (max-width: 1024px) { .container { padding: 0 3rem; } }
 
     .section {
       padding: var(--phi-4) 0;   /* φ⁴ = 6.854rem */
@@ -250,7 +250,7 @@
     .nav-inner {
       max-width: var(--container);
       margin: 0 auto;
-      padding: 0 3rem;
+      padding: 0 5rem;
       height: 100%;
       display: flex;
       justify-content: space-between;
@@ -298,12 +298,12 @@
 
     /* ===================== HERO ===================== */
     .hero-section {
-      min-height: calc(61.8vh - var(--nav-h));   /* φ-derived: 61.8% of viewport = golden ratio */
+      min-height: calc(72vh - var(--nav-h));
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       border-bottom: 1px solid var(--line);
-      padding: 3rem 0 4rem;
+      padding: 5rem 0 6rem;
     }
 
     .hero-meta-bar {
@@ -323,7 +323,7 @@
 
     .hero-name {
       font-family: var(--font-display);
-      font-size: clamp(3.8rem, 9.5vw, 11rem);
+      font-size: clamp(3rem, 6.5vw, 7.5rem);
       line-height: 0.88;
       font-weight: 400;
       color: var(--text);
@@ -1287,14 +1287,14 @@
 
     /* Mobile — up to 768px */
     @media (max-width: 768px) {
-      .container { padding: 0 1.5rem; }
-      .nav-inner { padding: 0 1.5rem; }
+      .container { padding: 0 1.75rem; }
+      .nav-inner { padding: 0 1.75rem; }
 
       .section { padding: 4rem 0; }
 
-      .hero-section { padding: 2rem 0 2.5rem; min-height: auto; }
+      .hero-section { padding: 3rem 0 3.5rem; min-height: auto; }
       .hero-meta-bar { margin-bottom: 2rem; }
-      .hero-name { font-size: clamp(2.8rem, 13vw, 5rem); }
+      .hero-name { font-size: clamp(2.6rem, 10vw, 4rem); }
       .hero-statement p { font-size: 1rem; }
       .hero-bottom { gap: 1.5rem; margin-top: 2rem; }
 
@@ -1323,12 +1323,12 @@
 
     /* Small phones — up to 480px */
     @media (max-width: 480px) {
-      .container { padding: 0 1.25rem; }
-      .nav-inner { padding: 0 1.25rem; }
+      .container { padding: 0 1.5rem; }
+      .nav-inner { padding: 0 1.5rem; }
 
       .section { padding: 3rem 0; }
 
-      .hero-name { font-size: clamp(2.4rem, 11vw, 3.5rem); }
+      .hero-name { font-size: clamp(2.2rem, 10vw, 3rem); }
       .hero-roles { gap: 1rem; font-size: 0.75rem; }
       .role-sep { width: 20px; }
 
