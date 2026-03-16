@@ -3,5 +3,6 @@ data/
 agent/
 *.py
 !scripts/*.py
+.env
 .DS_Store
 Thumbs.db

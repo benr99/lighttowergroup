@@ -29,9 +29,22 @@ import re
 import sys
 import time
 import argparse
+import os
 from datetime import date
 from pathlib import Path
 from textwrap import dedent
+
+# Force UTF-8 output on Windows
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+# Load .env from the same directory as this script
+_env = Path(__file__).parent / ".env"
+if _env.exists():
+    for _line in _env.read_text().splitlines():
+        if "=" in _line and not _line.startswith("#"):
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 SITE_ROOT     = Path(__file__).parent.parent
@@ -511,12 +524,14 @@ def build_data_summary(b: dict) -> str:
     if b.get("year_alter2"):
         lines.append(f"2ND ALTERATION:   {b['year_alter2']}")
 
+    bldg_area_str = f"{b['bldg_area_sf']:,} SF" if b['bldg_area_sf'] else 'Unknown'
+    lot_area_str  = f"{b['lot_area_sf']:,} SF"  if b['lot_area_sf']  else 'Unknown'
     lines += [
         f"FLOORS:           {b['num_floors'] or 'Unknown'}",
         f"RESIDENTIAL UNITS:{b['units_res'] or 'Unknown'}",
         f"TOTAL UNITS:      {b['units_total'] or 'Unknown'}",
-        f"BUILDING AREA:    {f'{b[\"bldg_area_sf\"]:,} SF' if b['bldg_area_sf'] else 'Unknown'}",
-        f"LOT AREA:         {f'{b[\"lot_area_sf\"]:,} SF' if b['lot_area_sf'] else 'Unknown'}",
+        f"BUILDING AREA:    {bldg_area_str}",
+        f"LOT AREA:         {lot_area_str}",
         f"LOT TYPE:         {b['lot_type'] or 'Standard'}",
         f"ZONING:           {b['zoning'] or 'Unknown'}",
         f"BUILT FAR:        {b['far'] or 'Unknown'}",
@@ -690,7 +705,7 @@ def build_sidebar_rows(b: dict) -> str:
 
 
 def render_html(b: dict, c: dict) -> str:
-    today     = date.today().strftime("%B %-d, %Y")
+    today     = date.today().strftime("%B %d, %Y").replace(" 0", " ")
     today_iso = date.today().isoformat()
     year      = date.today().year
     url       = f"https://lighttowergroup.co/insights/{c['slug']}.html"
@@ -966,19 +981,19 @@ def update_manifest(c: dict, b: dict) -> None:
         "readTime": 8,
     })
     INSIGHTS_JSON.write_text(json.dumps(manifest, indent=2))
-    print(f"  ✓ Updated insights.json  ({len(manifest)} total entries)")
+    print(f"  [OK]Updated insights.json  ({len(manifest)} total entries)")
 
 
 # ── Entry Point ────────────────────────────────────────────────────────────────
 
 def generate(address: str) -> None:
-    print(f"\n→ {address}")
+    print(f"\n>> {address}")
 
     print("  Fetching PLUTO data...")
     raw      = fetch_pluto(address)
     building = parse_pluto(raw)
     print(
-        f"  ✓ {building['address']}, {building['borough']}  |  "
+        f"  [OK]{building['address']}, {building['borough']}  |  "
         f"Built {building['year_built'] or '?'}  |  "
         f"{building['num_floors'] or '?'} floors  |  "
         f"{building['units_res'] or '?'} units  |  "
@@ -989,15 +1004,15 @@ def generate(address: str) -> None:
 
     print("  Generating editorial content (Claude)...")
     content = generate_content(building)
-    print(f"  ✓ Title: {content['title']}")
+    print(f"  [OK]Title: {content['title']}")
 
     INSIGHTS_DIR.mkdir(exist_ok=True)
     out = INSIGHTS_DIR / f"{content['slug']}.html"
     out.write_text(render_html(building, content), encoding="utf-8")
-    print(f"  ✓ Saved: {out.relative_to(SITE_ROOT)}")
+    print(f"  [OK]Saved: {out.relative_to(SITE_ROOT)}")
 
     update_manifest(content, building)
-    print(f"  → /insights/{content['slug']}.html\n")
+    print(f"  >> /insights/{content['slug']}.html\n")
 
 
 def main():
