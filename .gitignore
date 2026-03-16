@@ -2,5 +2,6 @@ memory/
 data/
 agent/
 *.py
+!scripts/*.py
 .DS_Store
 Thumbs.db
