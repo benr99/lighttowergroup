@@ -388,7 +388,7 @@ Return ONLY valid JSON with exactly these keys \u2014 no markdown, no prose outs
   "sources": [
     {{"name": "source display name", "url": "https://..."}}
   ],
-  "linkedin_hook":    "3 sentences for LinkedIn. Lead with a sharp fact. Explain the implication. End with why CRE capital markets professionals should care. No hashtags.",
+  "linkedin_hook":    "Write a LinkedIn post for a 30,000-follower CRE capital markets audience. Format with line breaks between each thought — LinkedIn renders these as separate lines. Structure: Line 1 = the scroll-stopper: one bold, specific, counterintuitive or provocative statement (a number, a name, a contradiction) — must make someone stop mid-scroll. Do NOT start with 'I' or 'We'. Lines 2-4 = 3 short punchy lines, each a standalone insight that builds tension or stakes. Final line = one open question that invites a comment from a developer, lender, or investor. No hashtags. No filler. No 'In conclusion'. Total length 100-160 words.",
   "twitter_hook":     "Tweet under 240 chars. Sharp, specific, no filler."
 }}\
 """
@@ -839,9 +839,13 @@ def post_to_linkedin(article: dict, dry_run: bool = False) -> bool:
 
     page_url = f"{SITE_URL}/insights/{article['slug']}.html"
 
-    # Build post text: hook + blank line + hashtags
+    # Build post text: hook + hashtags
+    # Note: URL is carried by the article card — omitting from text body improves reach
     hashtags = " ".join(LINKEDIN_HASHTAGS[:6])
-    post_text = f"{article.get('linkedin_hook', article['title'])}\n\n{hashtags}"
+    hook = article.get('linkedin_hook', article['title'])
+    # Ensure each sentence is on its own line for LinkedIn's algorithm
+    hook = re.sub(r'\. ([A-Z])', r'.\n\n\1', hook)
+    post_text = f"{hook}\n\n{hashtags}"
 
     payload = {
         "author":         LINKEDIN_PERSON_URN,

@@ -101,11 +101,9 @@ FEED_DESCRIPTION = (
 
 # LinkedIn hashtags appended to every post
 LINKEDIN_HASHTAGS = [
+    "#CREFinance",
+    "#CapitalMarkets",
     "#NYCRealEstate",
     "#CommercialRealEstate",
-    "#CapitalMarkets",
-    "#CREFinance",
-    "#Multifamily",
-    "#CRE",
-    "#NYC",
+    "#RealEstateInvesting",
 ]
