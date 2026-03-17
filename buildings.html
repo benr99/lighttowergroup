@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYC Building Intelligence | Light Tower Group</title>
+  <meta name="description" content="Data-driven capital structure analysis on 274 qualifying NYC multifamily buildings — free-market, 100+ units, built 1990+, with loans maturing 2026–2028.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lighttowergroup.co/buildings.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate" type="application/rss+xml" title="Light Tower Group Insights" href="https://lighttowergroup.co/feed.xml">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="NYC Building Intelligence | Light Tower Group">
+  <meta property="og:description" content="Capital structure profiles on 274 qualifying NYC multifamily buildings with loans maturing 2026–2028.">
+  <meta property="og:url"         content="https://lighttowergroup.co/buildings.html">
+  <meta property="og:image"       content="https://lighttowergroup.co/network.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #F5F4F0; --text: #121212; --accent: #C5A059; --accent-hover: #D4AF6B;
+      --line: rgba(0,0,0,0.06); --line-strong: rgba(0,0,0,0.12);
+      --white: #ffffff; --dark: #0E0E0E; --mid: #555555;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --container: 1200px; --nav-h: 64px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 5rem; }
+    @media (max-width: 1280px) { .container { padding: 0 4rem; } }
+    @media (max-width: 1024px) { .container { padding: 0 3rem; } }
+    @media (max-width: 768px)  { .container { padding: 0 2rem; } }
+    @media (max-width: 480px)  { .container { padding: 0 1.5rem; } }
+
+    /* NAV */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,244,240,0.96); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line-strong); height: var(--nav-h);
+    }
+    .nav-inner {
+      max-width: var(--container); margin: 0 auto; padding: 0 5rem;
+      height: 100%; display: flex; justify-content: space-between; align-items: center;
+    }
+    @media (max-width: 1280px) { .nav-inner { padding: 0 4rem; } }
+    @media (max-width: 1024px) { .nav-inner { padding: 0 3rem; } }
+    @media (max-width: 768px)  { .nav-inner { padding: 0 2rem; } }
+    @media (max-width: 480px)  { .nav-inner { padding: 0 1.5rem; } }
+    .nav-logo { font-family: var(--font-body); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta { background: var(--text) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; font-size: 0.7rem !important; }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+    .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }
+    .nav-menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); transition: all 0.25s; }
+    @media (max-width: 860px) { .nav-hide { display: none; } .nav-menu-btn { display: flex; } }
+    .nav-mobile { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(245,244,240,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line-strong); padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-mobile a:hover { color: var(--text); }
+
+    /* HERO */
+    .page-hero { padding: 5rem 0 4rem; border-bottom: 1px solid var(--line); }
+    .index-header { font-family: var(--font-body); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--accent); margin-bottom: 2rem; display: block; font-weight: 600; }
+    .page-headline { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.5rem; }
+    .page-sub { font-size: 1.05rem; color: var(--mid); line-height: 1.75; max-width: 600px; }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex; gap: 3rem; padding: 2rem 0;
+      border-bottom: 1px solid var(--line); flex-wrap: wrap;
+    }
+    .stat-item {}
+    .stat-num { font-family: var(--font-display); font-size: 2rem; color: var(--text); font-weight: 400; }
+    .stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--mid); margin-top: 0.2rem; }
+
+    /* CONTROLS */
+    .controls-bar {
+      padding: 2rem 0; border-bottom: 1px solid var(--line);
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    }
+    .search-input {
+      border: 1px solid var(--line-strong); background: transparent;
+      padding: 0.55rem 1.1rem; font-family: var(--font-body);
+      font-size: 0.8rem; color: var(--text); outline: none;
+      transition: border-color 0.2s; width: 280px;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: #aaa; }
+    .filter-btn {
+      border: 1px solid var(--line-strong); background: transparent;
+      padding: 0.5rem 1.1rem; font-family: var(--font-body);
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: #888; cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(197,160,89,0.05); }
+    .results-count { margin-left: auto; font-size: 0.72rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; }
+    @media (max-width: 600px) { .search-input { width: 100%; } .results-count { margin-left: 0; } }
+
+    /* GRID */
+    .buildings-section { padding: 3rem 0 6rem; }
+    .buildings-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--line); border: 1px solid var(--line);
+    }
+    @media (max-width: 900px) { .buildings-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .buildings-grid { grid-template-columns: 1fr; } }
+
+    .building-card {
+      background: var(--bg); padding: 2rem 2.25rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      transition: background 0.2s; cursor: pointer;
+    }
+    .building-card:hover { background: var(--white); }
+    .building-card:hover .building-address { color: var(--accent); }
+
+    .building-borough {
+      font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--accent); font-weight: 600;
+    }
+    .building-address {
+      font-family: var(--font-display); font-size: 1.15rem;
+      font-weight: 400; line-height: 1.3; color: var(--text); transition: color 0.2s;
+    }
+    .building-excerpt { font-size: 0.85rem; color: var(--mid); line-height: 1.65; flex: 1; }
+    .building-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 1rem; border-top: 1px solid var(--line); margin-top: auto;
+    }
+    .building-date { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; }
+    .building-cta { font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .buildings-empty {
+      padding: 5rem 2.5rem; text-align: center;
+      font-family: var(--font-display); font-size: 1.2rem; color: #aaa;
+      grid-column: 1 / -1;
+    }
+
+    /* FOOTER */
+    .footer { background: var(--dark); color: var(--white); padding: 5rem 0 2.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    @media (max-width: 860px) { .footer-top { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .footer-brand-name { font-family: var(--font-display); font-size: 1.9rem; font-weight: 400; color: rgba(255,255,255,0.88); margin-bottom: 1.25rem; }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.38); line-height: 1.78; max-width: 300px; }
+    .footer-col-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.2em; color: #444; margin-bottom: 1.5rem; display: block; }
+    .footer-link { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.42); margin-bottom: 0.7rem; transition: color 0.2s; }
+    .footer-link:hover { color: var(--accent); }
+    .footer-contact-link { display: block; font-family: var(--font-display); font-size: 1.3rem; color: rgba(255,255,255,0.65); margin-bottom: 0.75rem; transition: all 0.2s; }
+    .footer-contact-link:hover { color: var(--accent); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 2.5rem; gap: 2rem; flex-wrap: wrap; }
+    .copyright { font-size: 0.62rem; color: #3a3a3a; text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer-disclaimer { font-size: 0.62rem; color: #333; max-width: 480px; line-height: 1.65; text-align: right; }
+    @media (max-width: 860px) { .footer-disclaimer { text-align: left; } }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Light Tower Group</a>
+      <div class="nav-links">
+        <a href="insights.html" class="nav-hide">Insights</a>
+        <a href="buildings.html" class="nav-hide active">Buildings</a>
+        <a href="about.html" class="nav-hide">About</a>
+        <a href="/#contact" class="nav-hide">Contact</a>
+        <a href="/#contact" class="nav-cta">Initiate Mandate</a>
+      </div>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="insights.html">Insights</a>
+      <a href="buildings.html">Buildings</a>
+      <a href="about.html">About</a>
+      <a href="/#contact">Contact</a>
+      <a href="/#contact">Initiate Mandate</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero container">
+      <span class="index-header">NYC Building Intelligence</span>
+      <h1 class="page-headline">274 Buildings.<br>One Refinancing Window.</h1>
+      <p class="page-sub">Free-market multifamily, 100+ units, built 1990 or later — with mortgages likely maturing between 2026 and 2028. Each profile covers capital structure, debt stack, zoning, and what happens next.</p>
+    </div>
+
+    <div class="stats-bar container">
+      <div class="stat-item"><div class="stat-num" id="stat-total">274</div><div class="stat-label">Buildings Profiled</div></div>
+      <div class="stat-item"><div class="stat-num">Manhattan + Brooklyn</div><div class="stat-label">Markets Covered</div></div>
+      <div class="stat-item"><div class="stat-num">2026 – 2028</div><div class="stat-label">Maturity Window</div></div>
+      <div class="stat-item"><div class="stat-num">100+</div><div class="stat-label">Units Per Building</div></div>
+    </div>
+
+    <div class="controls-bar container">
+      <input type="search" class="search-input" id="search-input" placeholder="Search by address…" aria-label="Search buildings">
+      <button class="filter-btn active" data-borough="all">All</button>
+      <button class="filter-btn" data-borough="manhattan">Manhattan</button>
+      <button class="filter-btn" data-borough="brooklyn">Brooklyn</button>
+      <span class="results-count" id="results-count"></span>
+    </div>
+
+    <section class="buildings-section container">
+      <div class="buildings-grid" id="buildings-grid">
+        <div class="buildings-empty">Loading buildings…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-name">Light Tower Group</div>
+          <p>Institutional capital advisory for complex commercial real estate mandates. Debt placement, equity structuring, and investment advisory — nationwide.</p>
+        </div>
+        <nav aria-label="Site navigation">
+          <span class="footer-col-label">Navigate</span>
+          <a href="/insights.html" class="footer-link">Insights</a>
+          <a href="/buildings.html" class="footer-link">Buildings</a>
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="/#contact" class="footer-link">Contact</a>
+        </nav>
+        <div>
+          <span class="footer-col-label">Contact</span>
+          <a href="mailto:ben@lighttowergroup.co" class="footer-contact-link">ben@lighttowergroup.co</a>
+          <a href="tel:+13475540093" class="footer-contact-link">(347) 554-0093</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Light Tower Group &nbsp;&middot;&nbsp; All Rights Reserved</p>
+        <p class="footer-disclaimer">Light Tower Group is a commercial real estate capital advisory firm. Services are provided to qualified sponsors and institutional clients.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    document.getElementById('nav-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-mobile').classList.toggle('open');
+    });
+
+    const grid        = document.getElementById('buildings-grid');
+    const searchInput = document.getElementById('search-input');
+    const countEl     = document.getElementById('results-count');
+    const statTotal   = document.getElementById('stat-total');
+
+    let allBuildings = [];
+    let activeBorough = 'all';
+    let searchTerm    = '';
+
+    function slugToAddress(slug) {
+      // Strip borough suffix
+      let addr = slug.replace(/-manhattan$/, '').replace(/-brooklyn$/, '');
+      // Replace hyphens with spaces and title-case
+      return addr.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    }
+
+    function slugToBorough(slug) {
+      if (slug.endsWith('-manhattan')) return 'Manhattan';
+      if (slug.endsWith('-brooklyn'))  return 'Brooklyn';
+      return 'NYC';
+    }
+
+    function formatDate(d) {
+      return new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    }
+
+    function renderGrid(buildings) {
+      countEl.textContent = buildings.length + ' building' + (buildings.length !== 1 ? 's' : '');
+
+      if (!buildings.length) {
+        grid.innerHTML = '<div class="buildings-empty">No buildings match that search.</div>';
+        return;
+      }
+
+      grid.innerHTML = buildings.map(b => {
+        const href    = 'insights/' + b.slug + '.html';
+        const address = slugToAddress(b.slug);
+        const borough = slugToBorough(b.slug);
+        return `<a href="${href}" class="building-card" aria-label="${address}">
+          <span class="building-borough">${borough}</span>
+          <p class="building-address">${address}</p>
+          <p class="building-excerpt">${b.excerpt || ''}</p>
+          <div class="building-meta">
+            <span class="building-date">${formatDate(b.date)}</span>
+            <span class="building-cta">Read Analysis →</span>
+          </div>
+        </a>`;
+      }).join('');
+    }
+
+    function applyFilters() {
+      let filtered = allBuildings;
+      if (activeBorough !== 'all') {
+        filtered = filtered.filter(b => slugToBorough(b.slug).toLowerCase() === activeBorough);
+      }
+      if (searchTerm) {
+        const q = searchTerm.toLowerCase();
+        filtered = filtered.filter(b =>
+          slugToAddress(b.slug).toLowerCase().includes(q) ||
+          (b.excerpt || '').toLowerCase().includes(q)
+        );
+      }
+      renderGrid(filtered);
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn[data-borough]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn[data-borough]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeBorough = btn.dataset.borough;
+        applyFilters();
+      });
+    });
+
+    // Search
+    searchInput.addEventListener('input', () => {
+      searchTerm = searchInput.value.trim();
+      applyFilters();
+    });
+
+    // Load data
+    fetch('insights.json')
+      .then(r => r.json())
+      .then(data => {
+        allBuildings = data
+          .filter(p => p.category === 'Architecture & Capital Markets')
+          .sort((a, b) => slugToAddress(a.slug).localeCompare(slugToAddress(b.slug)));
+
+        statTotal.textContent = allBuildings.length;
+        renderGrid(allBuildings);
+      })
+      .catch(() => {
+        grid.innerHTML = '<div class="buildings-empty">Unable to load building data.</div>';
+      });
+  </script>
+
+  <script src="/chat-widget.js"></script>
+</body>
+</html>

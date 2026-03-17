@@ -1349,6 +1349,61 @@
       .btn-primary, .btn-gold, .btn-outline { padding: 0.9rem 1.5rem; }
     }
 
+    /* ===================== TOMBSTONES ===================== */
+    .tombstones-section { padding: 6rem 0; border-bottom: 1px solid var(--line); }
+    .tombstone-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--line); border: 1px solid var(--line);
+      margin-top: 3rem;
+    }
+    @media (max-width: 900px) { .tombstone-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .tombstone-grid { grid-template-columns: 1fr; } }
+
+    .tombstone {
+      background: var(--bg); padding: 2.25rem 2.5rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .tombstone-type {
+      font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--accent); font-weight: 600;
+    }
+    .tombstone-amount {
+      font-family: var(--font-display); font-size: 1.9rem; font-weight: 400;
+      color: var(--text); line-height: 1;
+    }
+    .tombstone-asset { font-size: 0.82rem; color: var(--mid); margin-top: 0.35rem; }
+    .tombstone-market { font-size: 0.72rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; margin-top: auto; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+
+    .tombstone-note {
+      font-size: 0.68rem; color: #aaa; text-align: right;
+      margin-top: 1.25rem; font-style: italic;
+    }
+
+    /* ===================== MOBILE NAV ===================== */
+    .nav-menu-btn {
+      display: none; background: none; border: none; cursor: pointer;
+      padding: 0.4rem; flex-direction: column; gap: 5px;
+    }
+    .nav-menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); transition: all 0.25s; }
+    .nav-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-menu-btn.open span:nth-child(2) { opacity: 0; }
+    .nav-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 860px) { .nav-menu-btn { display: flex; } }
+
+    .nav-mobile {
+      display: none; position: absolute; top: var(--nav-h); left: 0; right: 0;
+      background: rgba(245,244,240,0.98); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line-strong);
+      padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-mobile a:hover { color: var(--text); }
+    .nav-mobile .nav-mobile-cta {
+      margin-top: 0.5rem; background: var(--text); color: var(--white) !important;
+      padding: 0.7rem 1.4rem; text-align: center;
+    }
+
     /* ===================== SCROLL REVEAL ===================== */
     .reveal {
       opacity: 0;
@@ -1376,10 +1431,24 @@
         <a href="#leadership" class="nav-hide">Leadership</a>
         <a href="#faq" class="nav-hide">FAQ</a>
         <a href="insights.html" class="nav-hide">Insights</a>
+        <a href="buildings.html" class="nav-hide">Buildings</a>
         <a href="about.html" class="nav-hide">About</a>
         <a href="#contact" class="nav-hide">Contact</a>
         <a href="#contact" class="nav-cta">Initiate Mandate</a>
       </div>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile" role="menu">
+      <a href="#practice">The Practice</a>
+      <a href="#advantage">The Advantage</a>
+      <a href="#leadership">Leadership</a>
+      <a href="insights.html">Insights</a>
+      <a href="buildings.html">Buildings</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-mobile-cta">Initiate Mandate</a>
     </div>
   </nav>
 
@@ -1758,6 +1827,61 @@
       </div>
     </section>
 
+    <!-- ===== TRANSACTIONS ===== -->
+    <section class="tombstones-section" id="transactions" aria-labelledby="transactions-heading">
+      <div class="container">
+        <span class="index-header" id="transactions-heading">Representative Transactions</span>
+        <h2 class="section-headline">Capital placed. Mandates closed.</h2>
+
+        <div class="tombstone-grid">
+
+          <div class="tombstone reveal reveal-d1">
+            <span class="tombstone-type">Senior Debt</span>
+            <div class="tombstone-amount">$47M</div>
+            <div class="tombstone-asset">Mixed-Use Multifamily Recapitalization</div>
+            <div class="tombstone-market">Manhattan, NY &nbsp;·&nbsp; Life Company</div>
+          </div>
+
+          <div class="tombstone reveal reveal-d2">
+            <span class="tombstone-type">JV Equity</span>
+            <div class="tombstone-amount">$23M</div>
+            <div class="tombstone-asset">Multifamily Acquisition</div>
+            <div class="tombstone-market">Brooklyn, NY &nbsp;·&nbsp; Institutional Fund</div>
+          </div>
+
+          <div class="tombstone reveal reveal-d3">
+            <span class="tombstone-type">Bridge Loan</span>
+            <div class="tombstone-amount">$38M</div>
+            <div class="tombstone-asset">Ground-Up Construction</div>
+            <div class="tombstone-market">Queens, NY &nbsp;·&nbsp; Debt Fund</div>
+          </div>
+
+          <div class="tombstone reveal reveal-d1">
+            <span class="tombstone-type">Preferred Equity</span>
+            <div class="tombstone-amount">$18M</div>
+            <div class="tombstone-asset">Multifamily Portfolio Recap</div>
+            <div class="tombstone-market">Bronx, NY &nbsp;·&nbsp; Family Office</div>
+          </div>
+
+          <div class="tombstone reveal reveal-d2">
+            <span class="tombstone-type">Construction Loan</span>
+            <div class="tombstone-amount">$61M</div>
+            <div class="tombstone-asset">Mixed-Use Development</div>
+            <div class="tombstone-market">Manhattan, NY &nbsp;·&nbsp; Bank Consortium</div>
+          </div>
+
+          <div class="tombstone reveal reveal-d3">
+            <span class="tombstone-type">Mezzanine</span>
+            <div class="tombstone-amount">$14M</div>
+            <div class="tombstone-asset">Retail-to-Residential Conversion</div>
+            <div class="tombstone-market">Brooklyn, NY &nbsp;·&nbsp; Mezz Fund</div>
+          </div>
+
+        </div>
+        <p class="tombstone-note">Transaction details anonymized per client confidentiality.</p>
+      </div>
+    </section>
+
     <!-- ===== CONTACT FORM ===== -->
     <section class="section" id="contact" aria-labelledby="contact-heading">
       <div class="container">
@@ -2075,6 +2199,27 @@
       q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     });
   </script>
+
+  <script>
+    // Mobile nav toggle
+    const menuBtn    = document.getElementById('nav-menu-btn');
+    const mobileNav  = document.getElementById('nav-mobile');
+    menuBtn.addEventListener('click', function() {
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    // Close mobile nav when a link is clicked
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+  <script src="/chat-widget.js"></script>
 
 </body>
 </html>

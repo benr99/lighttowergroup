@@ -610,9 +610,21 @@ def render_html(article: dict) -> str:
     .site-footer a {{ color: var(--gold); text-decoration: none; }}
     .site-footer a:hover {{ text-decoration: underline; }}
 
+    .nav-menu-btn {{ display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }}
+    .nav-menu-btn span {{ display: block; width: 22px; height: 2px; background: var(--white); transition: all 0.25s; }}
+    .nav-menu-btn.open span:nth-child(1) {{ transform: translateY(7px) rotate(45deg); }}
+    .nav-menu-btn.open span:nth-child(2) {{ opacity: 0; }}
+    .nav-menu-btn.open span:nth-child(3) {{ transform: translateY(-7px) rotate(-45deg); }}
+    .nav-mobile {{ display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(8,12,20,0.98); padding: 5rem 2rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 200; }}
+    .nav-mobile.open {{ display: flex; }}
+    .nav-mobile a {{ font-size: 1rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; }}
+    .nav-mobile a:hover {{ color: var(--white); }}
+    .nav-mobile-close {{ position: absolute; top: 1.4rem; right: 1.5rem; background: none; border: none; color: var(--muted); font-size: 1.5rem; cursor: pointer; }}
+
     @media (max-width: 640px) {{
       .nav {{ padding: 1rem 1.5rem; }}
       .nav-links {{ display: none; }}
+      .nav-menu-btn {{ display: flex; }}
       .article-wrap {{ padding: 2rem 1.25rem 4rem; }}
     }}
   </style>
@@ -623,12 +635,22 @@ def render_html(article: dict) -> str:
     <a href="/" class="nav-logo">Light Tower Group</a>
     <div class="nav-links">
       <a href="/insights.html">Insights</a>
-      <a href="/index.html#services">Services</a>
+      <a href="/buildings.html">Buildings</a>
       <a href="/about.html">About</a>
       <a href="/index.html#contact">Contact</a>
       <a href="/feed.xml" title="RSS Feed">RSS</a>
     </div>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">&times;</button>
+    <a href="/insights.html">Insights</a>
+    <a href="/buildings.html">Buildings</a>
+    <a href="/about.html">About</a>
+    <a href="/index.html#contact">Contact</a>
+  </div>
 
   <div class="article-wrap">
     <article itemscope itemtype="https://schema.org/NewsArticle">
@@ -682,6 +704,21 @@ def render_html(article: dict) -> str:
     </p>
     <p>&copy; {year} Light Tower Group. All rights reserved.</p>
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById('nav-menu-btn');
+    const mobileNav = document.getElementById('nav-mobile');
+    const closeBtn = document.getElementById('nav-mobile-close');
+    menuBtn.addEventListener('click', function() {{
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.classList.toggle('open', open);
+    }});
+    if (closeBtn) closeBtn.addEventListener('click', function() {{
+      mobileNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+    }});
+  </script>
+  <script src="/chat-widget.js"></script>
 
 </body>
 </html>"""

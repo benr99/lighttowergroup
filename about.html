@@ -205,9 +205,20 @@
     .site-footer a { color: var(--gold); }
     .site-footer a:hover { text-decoration: underline; }
 
+    .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }
+    .nav-menu-btn span { display: block; width: 22px; height: 2px; background: var(--white); transition: all 0.25s; }
+    .nav-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-menu-btn.open span:nth-child(2) { opacity: 0; }
+    .nav-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile { display: none; position: absolute; top: 64px; left: 0; right: 0; background: rgba(8,12,20,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--gold-dim); padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
+    .nav-mobile a:hover { color: var(--white); }
+
     @media (max-width: 720px) {
       .nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
+      .nav-menu-btn { display: flex; }
       .page-wrap { padding: 3rem 1.25rem 5rem; }
       .profile-grid { grid-template-columns: 1fr; gap: 2rem; }
       .profile-photo { max-width: 220px; }
@@ -221,11 +232,21 @@
     <a href="/" class="nav-logo">Light Tower Group</a>
     <div class="nav-links">
       <a href="/insights.html">Insights</a>
+      <a href="/buildings.html">Buildings</a>
       <a href="/index.html#services">Services</a>
       <a href="/about.html" class="active">About</a>
       <a href="/index.html#contact">Contact</a>
     </div>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="/insights.html">Insights</a>
+    <a href="/buildings.html">Buildings</a>
+    <a href="/about.html">About</a>
+    <a href="/index.html#contact">Contact</a>
+  </div>
 
   <div class="page-wrap">
 
@@ -331,6 +352,17 @@
     </p>
     <p>&copy; 2026 Light Tower Group. All rights reserved.</p>
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById('nav-menu-btn');
+    const mobileNav = document.getElementById('nav-mobile');
+    menuBtn.addEventListener('click', function() {
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.classList.toggle('open', open);
+    });
+  </script>
+
+  <script src="/chat-widget.js"></script>
 
 </body>
 </html>

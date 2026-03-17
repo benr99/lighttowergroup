@@ -78,6 +78,17 @@
     .nav-cta { background: var(--text) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; font-size: 0.7rem !important; }
     .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
     @media (max-width: 860px) { .nav-hide { display: none; } }
+    .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }
+    .nav-menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); transition: all 0.25s; }
+    .nav-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-menu-btn.open span:nth-child(2) { opacity: 0; }
+    .nav-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 860px) { .nav-menu-btn { display: flex; } }
+    .nav-mobile { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(245,244,240,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line-strong); padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-mobile a:hover { color: var(--text); }
+    .nav-mobile .nav-mobile-cta { margin-top: 0.5rem; background: var(--text); color: var(--white) !important; padding: 0.7rem 1.4rem; text-align: center; }
 
     /* HERO */
     .insights-hero {
@@ -224,6 +235,16 @@
         <a href="/#contact" class="nav-hide">Contact</a>
         <a href="/#contact" class="nav-cta">Initiate Mandate</a>
       </div>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="insights.html">Insights</a>
+      <a href="buildings.html">Buildings</a>
+      <a href="about.html">About</a>
+      <a href="/#contact">Contact</a>
+      <a href="/#contact" class="nav-mobile-cta">Initiate Mandate</a>
     </div>
   </nav>
 
@@ -267,6 +288,8 @@
           <a href="/#advantage" class="footer-link">The Advantage</a>
           <a href="/#leadership" class="footer-link">Leadership</a>
           <a href="insights.html" class="footer-link">Insights</a>
+          <a href="buildings.html" class="footer-link">Buildings</a>
+          <a href="about.html" class="footer-link">About</a>
         </nav>
         <div>
           <span class="footer-col-label">Contact</span>
@@ -353,6 +376,18 @@
         grid.innerHTML = '<div class="insights-empty">Unable to load insights.</div>';
       });
   </script>
+
+  <script>
+    const menuBtn = document.getElementById('nav-menu-btn');
+    const mobileNav = document.getElementById('nav-mobile');
+    menuBtn.addEventListener('click', function() {
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+  <script src="/chat-widget.js"></script>
 
 </body>
 </html>
