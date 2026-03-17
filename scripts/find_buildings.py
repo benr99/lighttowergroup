@@ -253,7 +253,7 @@ def main():
     )
     args = parser.parse_args()
 
-    borough_code = BOROUGH_CODES[args.borough]
+    borough_code = args.borough   # pass the name, not the translated code
     print(f"\nLight Tower Group — Building Finder")
     print(f"{'='*50}")
     print(f"Borough:      {args.borough.title()}")

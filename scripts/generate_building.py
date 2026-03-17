@@ -131,17 +131,37 @@ def fmt_date(iso: str) -> str:
 # ── PLUTO ──────────────────────────────────────────────────────────────────────
 
 def fetch_pluto(address: str) -> dict:
-    """Fetch the best-matching PLUTO record for a given NYC address."""
-    clean = re.sub(r"\s+", " ", address.strip().upper())
-    # Try exact prefix match first, then broad LIKE
+    """Fetch the best-matching PLUTO record for a given NYC address.
+
+    Accepts addresses with optional borough suffix like '395 Carroll St, Brooklyn'
+    or '75 West End Avenue, Manhattan'.  The borough suffix is stripped before
+    querying PLUTO and used as an additional borocode filter when available.
+    """
+    # Split optional ", Borough" suffix
+    BOROUGH_CODES_INV = {v: k for k, v in BOROUGH_NAMES.items()}
+    boro_filter = ""
+    street_part = address.strip()
+    if ", " in street_part:
+        parts = street_part.rsplit(", ", 1)
+        maybe_boro = parts[1].strip().title()
+        if maybe_boro in BOROUGH_CODES_INV:
+            street_part = parts[0].strip()
+            boro_code   = BOROUGH_CODES_INV[maybe_boro]
+            boro_filter = f" AND borocode='{boro_code}'"
+
+    clean = re.sub(r"\s+", " ", street_part.upper())
+
+    # Try exact match first, then progressively looser LIKE queries
     for where in [
+        f"upper(address) = '{clean}'{boro_filter}",
+        f"upper(address) like '{clean}%'{boro_filter}",
+        f"upper(address) like '%{clean}%'{boro_filter}",
+        # Fallback without borough filter
         f"upper(address) = '{clean}'",
         f"upper(address) like '{clean}%'",
-        f"upper(address) like '%{clean}%'",
     ]:
         results = get(PLUTO_API, {"$where": where, "$limit": 10, "$order": "unitsres DESC"})
         if results:
-            # Prefer the record with the most residential units
             return max(results, key=lambda r: int(r.get("unitsres") or 0))
     raise ValueError(f"No PLUTO record found for: {address}")
 
