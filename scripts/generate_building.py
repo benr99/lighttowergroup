@@ -782,6 +782,8 @@ def render_html(b: dict, c: dict) -> str:
   <meta property="article:author"         content="Benjamin Rohr">
   <meta property="article:section"        content="Architecture &amp; Capital Markets">
 
+  <link rel="alternate" type="application/rss+xml" title="Light Tower Group Insights" href="https://lighttowergroup.co/feed.xml">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -907,6 +909,16 @@ def render_html(b: dict, c: dict) -> str:
     .copyright {{ font-size: 0.62rem; color: #3a3a3a; text-transform: uppercase; letter-spacing: 0.1em; }}
     .footer-disclaimer {{ font-size: 0.62rem; color: #333; max-width: 480px; line-height: 1.65; text-align: right; }}
     @media (max-width: 860px) {{ .footer-disclaimer {{ text-align: left; }} }}
+    /* ── Share bar ── */
+    .share-bar {{ display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin: 1.25rem 0 0.5rem; }}
+    .share-label {{ font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-right: 0.2rem; font-family: var(--font-ui); }}
+    .share-btn {{ font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.04em; padding: 0.38rem 0.9rem; border-radius: 2px; cursor: pointer; text-decoration: none; border: 1px solid; transition: all 0.18s; background: transparent; }}
+    .share-li  {{ color: #5b9bd5; border-color: rgba(91,155,213,0.4); }}
+    .share-li:hover  {{ background: rgba(91,155,213,0.1); color: #7fb3e8; }}
+    .share-tw  {{ color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }}
+    .share-tw:hover  {{ background: rgba(255,255,255,0.06); }}
+    .share-copy {{ color: var(--accent); border-color: rgba(201,168,76,0.35); }}
+    .share-copy:hover {{ background: rgba(201,168,76,0.08); }}
   </style>
 </head>
 
@@ -939,6 +951,15 @@ def render_html(b: dict, c: dict) -> str:
         <span>Benjamin Rohr</span>
         <span class="post-meta-sep"></span>
         <span>8 min read</span>
+      </div>
+      <div class="share-bar">
+        <span class="share-label">Share</span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={requests.utils.quote(url, safe='')}"
+           target="_blank" rel="noopener" class="share-btn share-li">LinkedIn</a>
+        <a href="https://twitter.com/intent/tweet?url={requests.utils.quote(url, safe='')}&text={requests.utils.quote(c['title'][:100], safe='')}"
+           target="_blank" rel="noopener" class="share-btn share-tw">X / Twitter</a>
+        <button class="share-btn share-copy"
+                onclick="navigator.clipboard.writeText('{url}').then(function(){{this.textContent='Copied!'}}.bind(this))">Copy Link</button>
       </div>
     </div>
 
