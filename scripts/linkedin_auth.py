@@ -79,15 +79,16 @@ def main():
         )
         sys.exit(1)
 
-    state    = secrets.token_urlsafe(16)
-    auth_url = (
+    # state is a CSRF token: we generate it, send it, and verify it matches on return
+    csrf_state = secrets.token_urlsafe(16)
+    auth_url   = (
         "https://www.linkedin.com/oauth/v2/authorization?"
         + urlencode({
             "response_type": "code",
             "client_id":     client_id,
             "redirect_uri":  REDIRECT_URI,
             "scope":         SCOPES,
-            "state":         state,
+            "state":         csrf_state,
         })
     )
 
@@ -113,6 +114,19 @@ def main():
     if error:
         desc = params.get("error_description", [""])[0]
         print(f"\nLinkedIn returned an error: {error}\n{desc}")
+        sys.exit(1)
+
+    # ── CSRF state verification ───────────────────────────────────────────────
+    # The returned state must match what we sent to prevent CSRF attacks.
+    returned_state = params.get("state", [None])[0]
+    if returned_state != csrf_state:
+        print(
+            "\nSecurity error: state mismatch.\n"
+            "Expected: " + csrf_state + "\n"
+            "Received: " + str(returned_state) + "\n\n"
+            "This could indicate a CSRF attempt. Do not proceed.\n"
+            "Re-run this script to start a fresh authorization."
+        )
         sys.exit(1)
 
     auth_code = params.get("code", [None])[0]
@@ -143,8 +157,10 @@ def main():
         print(f"\nFailed to get access token.\nResponse: {token_data}")
         sys.exit(1)
 
+    from datetime import datetime, timedelta
     expiry_days = expires_in // 86400
-    print(f"Access token received (expires in ~{expiry_days} days)")
+    expiry_date = (datetime.now() + timedelta(seconds=expires_in)).strftime("%Y-%m-%d")
+    print(f"Access token received (expires {expiry_date} — {expiry_days} days from now)")
 
     # Fetch LinkedIn person ID — try OpenID userinfo first, fall back to v2/me
     person_id, name = "", ""
@@ -181,12 +197,13 @@ def main():
     # Save to .env
     print()
     save_env_key("LINKEDIN_ACCESS_TOKEN", access_token)
+    save_env_key("LINKEDIN_TOKEN_EXPIRY", expiry_date)
     if person_urn:
         save_env_key("LINKEDIN_PERSON_URN", person_urn)
 
     print(
         f"\nAll done! The daily agent will now post to LinkedIn as {name or 'you'}.\n"
-        f"Token expires in ~{expiry_days} days. Re-run this script to refresh it.\n\n"
+        f"Token expires on {expiry_date} ({expiry_days} days). Re-run this script before then.\n\n"
         f"Test with:\n"
         f"  python daily_news_agent.py --dry-run\n"
     )

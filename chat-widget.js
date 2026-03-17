@@ -1,6 +1,11 @@
 (function () {
   'use strict';
 
+  // ── Constants ─────────────────────────────────────────────────────────────
+  const MAX_TURNS    = 20;    // max user messages per session
+  const MAX_CHARS    = 1000;  // max chars per user message
+  const WARN_CHARS   = 800;   // show counter when approaching limit
+
   // ── Styles ────────────────────────────────────────────────────────────────
   const css = `
     #ltg-chat-btn {
@@ -89,10 +94,22 @@
     @keyframes ltgDot { 0%,80%,100% { opacity: 0.3; } 40% { opacity: 1; } }
 
     .ltg-chat-input-row {
-      padding: 0.75rem 1rem;
+      padding: 0.6rem 1rem 0.5rem;
       border-top: 1px solid rgba(201,168,76,0.18);
+      display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .ltg-input-inner {
       display: flex; gap: 0.5rem; align-items: flex-end;
     }
+    .ltg-char-counter {
+      font-size: 0.6rem; color: rgba(138,155,176,0.5);
+      text-align: right; height: 0.8rem; line-height: 0.8rem;
+      opacity: 0; transition: opacity 0.15s;
+    }
+    .ltg-char-counter.visible { opacity: 1; }
+    .ltg-char-counter.warn    { color: #c9a84c; opacity: 1; }
+    .ltg-char-counter.over    { color: #e05c5c; opacity: 1; font-weight: 600; }
+
     .ltg-chat-input {
       flex: 1; background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.12); border-radius: 3px;
@@ -156,30 +173,36 @@
       <div class="ltg-chat-messages" id="ltg-chat-messages"></div>
 
       <div class="ltg-chat-input-row">
-        <textarea
-          class="ltg-chat-input" id="ltg-chat-input"
-          placeholder="Tell us about your deal…"
-          rows="1" aria-label="Message input"
-        ></textarea>
-        <button class="ltg-chat-send" id="ltg-chat-send" aria-label="Send message">
-          <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
-        </button>
+        <div class="ltg-input-inner">
+          <textarea
+            class="ltg-chat-input" id="ltg-chat-input"
+            placeholder="Tell us about your deal…"
+            rows="1" aria-label="Message input"
+            maxlength="1000"
+          ></textarea>
+          <button class="ltg-chat-send" id="ltg-chat-send" aria-label="Send message">
+            <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+          </button>
+        </div>
+        <div class="ltg-char-counter" id="ltg-char-counter" aria-live="polite"></div>
       </div>
       <div class="ltg-chat-footer">Light Tower Group &nbsp;&middot;&nbsp; Capital Advisory</div>
     </div>
   `);
 
   // ── State ─────────────────────────────────────────────────────────────────
-  const messages = [];    // conversation history for Claude
-  let isOpen   = false;
-  let isWaiting = false;
+  const messages  = [];   // conversation history for Claude
+  let isOpen      = false;
+  let isWaiting   = false;
+  let userTurns   = 0;    // count of user messages sent
 
-  const panel   = document.getElementById('ltg-chat-panel');
-  const btn     = document.getElementById('ltg-chat-btn');
-  const closeBtn = document.getElementById('ltg-chat-close');
-  const msgBox  = document.getElementById('ltg-chat-messages');
-  const input   = document.getElementById('ltg-chat-input');
-  const sendBtn = document.getElementById('ltg-chat-send');
+  const panel      = document.getElementById('ltg-chat-panel');
+  const btn        = document.getElementById('ltg-chat-btn');
+  const closeBtn   = document.getElementById('ltg-chat-close');
+  const msgBox     = document.getElementById('ltg-chat-messages');
+  const input      = document.getElementById('ltg-chat-input');
+  const sendBtn    = document.getElementById('ltg-chat-send');
+  const charCount  = document.getElementById('ltg-char-counter');
 
   // ── Helpers ───────────────────────────────────────────────────────────────
   function togglePanel() {
@@ -194,6 +217,7 @@
   function addMessage(text, role) {
     const el = document.createElement('div');
     el.className = 'ltg-msg ' + (role === 'user' ? 'ltg-msg-user' : 'ltg-msg-bot');
+    // textContent is safe — no innerHTML, no XSS risk
     el.textContent = text;
     msgBox.appendChild(el);
     msgBox.scrollTop = msgBox.scrollHeight;
@@ -214,6 +238,12 @@
     if (el) el.remove();
   }
 
+  function lockInput(reason) {
+    sendBtn.disabled = true;
+    input.disabled   = true;
+    input.placeholder = reason;
+  }
+
   async function greet() {
     showTyping();
     await delay(700);
@@ -223,14 +253,34 @@
 
   function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
 
+  // ── Send ──────────────────────────────────────────────────────────────────
   async function sendMessage() {
-    const text = input.value.trim();
+    const raw  = input.value;
+    const text = raw.trim();
     if (!text || isWaiting) return;
+
+    // Hard length check (belt-and-suspenders alongside maxlength attr)
+    if (text.length > MAX_CHARS) {
+      addMessage(`Please keep messages under ${MAX_CHARS} characters.`, 'bot');
+      return;
+    }
+
+    // Turn cap — after MAX_TURNS user messages, route to email
+    if (userTurns >= MAX_TURNS) {
+      addMessage(
+        "We've covered a lot — please email ben@lighttowergroup.co to continue this conversation directly.",
+        'bot'
+      );
+      lockInput('Email ben@lighttowergroup.co to continue');
+      return;
+    }
 
     input.value = '';
     input.style.height = 'auto';
+    updateCharCounter('');
     addMessage(text, 'user');
     messages.push({ role: 'user', content: text });
+    userTurns++;
 
     isWaiting = true;
     sendBtn.disabled = true;
@@ -246,6 +296,15 @@
       const data = await res.json();
       removeTyping();
 
+      if (res.status === 429) {
+        addMessage(
+          "We've reached the end of what I can help with here — please email ben@lighttowergroup.co directly.",
+          'bot'
+        );
+        lockInput('Email ben@lighttowergroup.co to continue');
+        return;
+      }
+
       const reply = data.reply || "I'm having a moment — please email ben@lighttowergroup.co directly.";
       addMessage(reply, 'bot');
       messages.push({ role: 'assistant', content: reply });
@@ -260,6 +319,25 @@
     input.focus();
   }
 
+  // ── Character counter ─────────────────────────────────────────────────────
+  function updateCharCounter(value) {
+    const len  = value.length;
+    const left = MAX_CHARS - len;
+    charCount.classList.remove('visible', 'warn', 'over');
+    if (len === 0) {
+      charCount.textContent = '';
+      return;
+    }
+    charCount.textContent = `${left} remaining`;
+    if (left < 0) {
+      charCount.classList.add('over');
+    } else if (len >= WARN_CHARS) {
+      charCount.classList.add('warn');
+    } else {
+      charCount.classList.add('visible');
+    }
+  }
+
   // ── Global API (used by "Initiate Mandate" buttons sitewide) ─────────────
   window.openLTGChat = function() {
     if (!isOpen) togglePanel();
@@ -268,7 +346,6 @@
   // ── Event listeners ───────────────────────────────────────────────────────
   btn.addEventListener('click', togglePanel);
   closeBtn.addEventListener('click', togglePanel);
-
   sendBtn.addEventListener('click', sendMessage);
 
   input.addEventListener('keydown', (e) => {
@@ -278,10 +355,11 @@
     }
   });
 
-  // Auto-resize textarea
+  // Auto-resize textarea + character counter
   input.addEventListener('input', () => {
     input.style.height = 'auto';
     input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+    updateCharCounter(input.value);
   });
 
 })();

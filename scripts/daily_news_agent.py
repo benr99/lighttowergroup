@@ -38,6 +38,7 @@ import argparse
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from html import escape
+from html.parser import HTMLParser
 
 # Force UTF-8 on Windows
 if hasattr(sys.stdout, "reconfigure"):
@@ -311,7 +312,9 @@ def _extract_nyc_addresses(text: str) -> list:
 def enrich_story(story: dict) -> dict:
     """Fetch full text and surface any NYC address context."""
     print(f"  Full-text fetch: {story['url'][:70]}...")
-    story["full_text"] = _fetch_full_text(story["url"])
+    raw_text = _fetch_full_text(story["url"])
+    # Scrub prompt-injection patterns before this text is embedded in a Claude prompt
+    story["full_text"] = scrub_prompt_injection(raw_text)
     chars = len(story["full_text"])
     print(f"  Extracted {chars:,} chars of article text")
 
@@ -417,6 +420,98 @@ Return ONLY valid JSON with exactly these keys \u2014 no markdown, no prose outs
     return article
 
 
+# ── Security utilities ────────────────────────────────────────────────────────
+
+# Tags and attributes permitted in article body HTML (allowlist approach)
+_SAFE_TAGS  = {'p', 'strong', 'em', 'b', 'i', 'ul', 'ol', 'li', 'blockquote', 'br', 'a', 'span'}
+_SAFE_ATTRS = {'a': ['href', 'target', 'rel']}
+
+
+class _HtmlSanitizer(HTMLParser):
+    """Strip unsafe tags and attributes from Claude-generated article HTML."""
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.out = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in _SAFE_TAGS:
+            return
+        attr_dict = dict(attrs)
+        safe = []
+        for attr in _SAFE_ATTRS.get(tag, []):
+            val = attr_dict.get(attr, '')
+            if not val:
+                continue
+            if attr == 'href':
+                if re.match(r'^\s*(javascript|data|vbscript)\s*:', val, re.IGNORECASE):
+                    continue
+                safe.append(f'href="{escape(val)}"')
+            elif attr == 'target':
+                safe.append('target="_blank"')
+            elif attr == 'rel':
+                safe.append('rel="noopener noreferrer"')
+        if tag == 'a' and 'target="_blank"' in safe and 'rel="noopener noreferrer"' not in safe:
+            safe.append('rel="noopener noreferrer"')
+        attr_str = (' ' + ' '.join(safe)) if safe else ''
+        if tag == 'br':
+            self.out.append('<br>')
+        else:
+            self.out.append(f'<{tag}{attr_str}>')
+
+    def handle_endtag(self, tag):
+        if tag in _SAFE_TAGS and tag != 'br':
+            self.out.append(f'</{tag}>')
+
+    def handle_data(self, data):
+        self.out.append(escape(data))
+
+    def handle_entityref(self, name):
+        self.out.append(f'&{name};')
+
+    def handle_charref(self, name):
+        self.out.append(f'&#{name};')
+
+    def get_output(self):
+        return ''.join(self.out)
+
+
+def sanitize_html(raw: str) -> str:
+    """
+    Sanitize Claude-generated article HTML before writing to disk.
+    Allowlists safe structural tags; strips script, style, event handlers,
+    iframes, javascript: URIs, and any other dangerous constructs.
+    """
+    parser = _HtmlSanitizer()
+    parser.feed(raw or '')
+    return parser.get_output()
+
+
+# Regex patterns that signal an adversarial prompt injection attempt embedded
+# in untrusted RSS/article content that flows into Claude prompts.
+_INJECTION_RE = re.compile(
+    r'(ignore\s+(?:all\s+)?(?:previous|prior|above)\s+instructions?'
+    r'|system\s*:\s*you\s+are'
+    r'|<\s*/?system\s*>'
+    r'|forget\s+(?:all\s+)?(?:previous|prior)\s+instructions?'
+    r'|you\s+are\s+now\s+(?:a\s+)?(?:an?\s+)?(?:different|new|evil|jailbreak)'
+    r'|disregard\s+(?:all\s+)?(?:previous|prior)\s+instructions?'
+    r'|\[INST\]|\[\/INST\]'
+    r'|<\|(?:im_start|im_end)\|>)',
+    re.IGNORECASE,
+)
+
+
+def scrub_prompt_injection(text: str) -> str:
+    """
+    Strip known prompt-injection patterns from untrusted article text before
+    embedding it in a Claude prompt. Logs a warning if anything was removed.
+    """
+    cleaned = _INJECTION_RE.sub('[removed]', text)
+    if cleaned != text:
+        print("  [SECURITY] Prompt-injection pattern scrubbed from article text")
+    return cleaned
+
+
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 # PHASE 6: PUBLISH
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -427,15 +522,16 @@ def _share_buttons(page_url: str, title: str) -> str:
     enc_title = requests.utils.quote(title[:100], safe="")
     li_href   = f"https://www.linkedin.com/sharing/share-offsite/?url={enc_url}"
     tw_href   = f"https://twitter.com/intent/tweet?url={enc_url}&text={enc_title}"
-    # Escape single quotes in URL for onclick handler
-    safe_url  = page_url.replace("'", "\\'")
+    # json.dumps() produces a fully safe JS string literal (handles quotes,
+    # backslashes, angle brackets, and all other injection vectors)
+    js_url = json.dumps(page_url)
     return f"""\
     <div class="share-bar">
       <span class="share-label">Share</span>
-      <a href="{li_href}" target="_blank" rel="noopener" class="share-btn share-li">LinkedIn</a>
-      <a href="{tw_href}" target="_blank" rel="noopener" class="share-btn share-tw">X / Twitter</a>
+      <a href="{li_href}" target="_blank" rel="noopener noreferrer" class="share-btn share-li">LinkedIn</a>
+      <a href="{tw_href}" target="_blank" rel="noopener noreferrer" class="share-btn share-tw">X / Twitter</a>
       <button class="share-btn share-copy"
-              onclick="navigator.clipboard.writeText('{safe_url}').then(function(){{this.textContent='Copied!'}}.bind(this))">Copy Link</button>
+              onclick="navigator.clipboard.writeText({js_url}).then(function(){{this.textContent='Copied!'}}.bind(this))">Copy Link</button>
     </div>"""
 
 
@@ -685,7 +781,7 @@ def render_html(article: dict) -> str:
       <hr class="article-rule">
 
       <div class="article-body" itemprop="articleBody">
-        {article['body_html']}
+        {sanitize_html(article['body_html'])}
       </div>
 
       <div class="article-tags">{tags_html}</div>
@@ -881,6 +977,23 @@ def post_to_linkedin(article: dict, dry_run: bool = False) -> bool:
             "         or run: python linkedin_auth.py"
         )
         return False
+
+    # Warn if the token is known to be expired
+    token_expiry = os.environ.get("LINKEDIN_TOKEN_EXPIRY", "")
+    if token_expiry:
+        try:
+            expiry_date = datetime.strptime(token_expiry, "%Y-%m-%d").date()
+            days_left   = (expiry_date - datetime.now().date()).days
+            if days_left <= 0:
+                print(
+                    f"  [WARN] LinkedIn token expired on {token_expiry}.\n"
+                    "         Re-run: python linkedin_auth.py"
+                )
+                return False
+            elif days_left <= 7:
+                print(f"  [WARN] LinkedIn token expires in {days_left} day(s) — refresh soon.")
+        except ValueError:
+            pass
 
     page_url = f"{SITE_URL}/insights/{article['slug']}.html"
 

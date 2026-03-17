@@ -3,3 +3,71 @@
 
 [functions]
   node_bundler = "esbuild"
+
+# ── Force HTTPS ──────────────────────────────────────────────────────────────
+[[redirects]]
+  from   = "http://lighttowergroup.co/*"
+  to     = "https://lighttowergroup.co/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "http://www.lighttowergroup.co/*"
+  to     = "https://lighttowergroup.co/:splat"
+  status = 301
+  force  = true
+
+# ── Security headers (all pages) ─────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent MIME-type sniffing
+    X-Content-Type-Options = "nosniff"
+
+    # Clickjacking — also reinforced by CSP frame-ancestors below
+    X-Frame-Options = "DENY"
+
+    # Don't leak full referring URL to third parties
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Disable browser features not used by this site
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+    # Force HTTPS for 2 years; include subdomains; eligible for browser preload list
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+    # Content Security Policy
+    # - script-src unsafe-inline: required because pages use inline <script> blocks and onclick handlers
+    # - style-src unsafe-inline: required for inline <style> blocks
+    # - fonts.googleapis.com / fonts.gstatic.com: Google Fonts
+    # - connect-src 'self': chat widget calls /.netlify/functions/chat (same origin)
+    # - img-src 'self' https: data:: profile photo + any HTTPS images + data URIs
+    # - frame-ancestors 'none': no framing allowed (clickjacking protection)
+    # - base-uri 'self': prevent base tag hijacking
+    # - form-action 'self': prevent form exfiltration to external domains
+    # - object-src 'none': block Flash/plugin execution
+    # - upgrade-insecure-requests: auto-upgrade any stray HTTP sub-resource calls
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;"
+
+# ── Cache static assets aggressively ─────────────────────────────────────────
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/chat-widget.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Netlify function: no caching ─────────────────────────────────────────────
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Content-Type-Options = "nosniff"
