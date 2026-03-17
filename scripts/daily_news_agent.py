@@ -624,6 +624,7 @@ def render_html(article: dict) -> str:
     <div class="nav-links">
       <a href="/insights.html">Insights</a>
       <a href="/index.html#services">Services</a>
+      <a href="/about.html">About</a>
       <a href="/index.html#contact">Contact</a>
       <a href="/feed.xml" title="RSS Feed">RSS</a>
     </div>
@@ -637,8 +638,10 @@ def render_html(article: dict) -> str:
       <p class="article-subtitle">{esc(article.get('subtitle',''))}</p>
 
       <div class="article-byline">
-        <span itemprop="author" itemscope itemtype="https://schema.org/Organization">
-          <span itemprop="name">Light Tower Group Research</span>
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <a href="/about.html" itemprop="url" style="color:inherit;text-decoration:none;">
+            <span itemprop="name">Ben Rohr</span>
+          </a>
         </span>
         <span>
           <time itemprop="datePublished" datetime="{article['date_iso']}">
@@ -673,6 +676,7 @@ def render_html(article: dict) -> str:
     <p>
       <a href="/">Light Tower Group</a> &nbsp;&middot;&nbsp;
       <a href="/insights.html">All Insights</a> &nbsp;&middot;&nbsp;
+      <a href="/about.html">About</a> &nbsp;&middot;&nbsp;
       <a href="/feed.xml">RSS Feed</a> &nbsp;&middot;&nbsp;
       <a href="/index.html#contact">Contact</a>
     </p>
@@ -723,7 +727,7 @@ def update_feed_xml():
 
     items = []
     for e in data:
-        url = f"{SITE_URL}{e['url']}"
+        url = f"{SITE_URL}{e.get('url') or '/insights/' + e['slug'] + '.html'}"
         # Parse date for RSS pubDate format
         try:
             d = datetime.strptime(e.get("date", ""), "%B %d, %Y")

@@ -91,7 +91,7 @@ EXCLUDE_KEYWORDS = [
 ]
 
 # ── Site Configuration ─────────────────────────────────────────────────────────
-SITE_URL         = "https://lighttowergroup.com"
+SITE_URL         = "https://lighttowergroup.co"
 SITE_NAME        = "Light Tower Group"
 FEED_TITLE       = "Light Tower Group \u2014 NYC CRE Capital Markets Insights"
 FEED_DESCRIPTION = (

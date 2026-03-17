@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Ben Rohr — Light Tower Group</title>
+  <meta name="description" content="Ben Rohr is the Principal and Founder of Light Tower Group, a New York-based institutional commercial real estate capital advisory firm specializing in debt and equity placement for complex mandates nationwide.">
+  <meta name="author" content="Benjamin Rohr, Light Tower Group">
+  <link rel="canonical" href="https://lighttowergroup.co/about.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate" type="application/rss+xml" title="Light Tower Group Insights" href="https://lighttowergroup.co/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="profile">
+  <meta property="og:title"       content="Ben Rohr — Light Tower Group">
+  <meta property="og:description" content="Principal and Founder of Light Tower Group. Institutional capital advisory for complex commercial real estate mandates — debt placement, equity structuring, and investment advisory nationwide.">
+  <meta property="og:url"         content="https://lighttowergroup.co/about.html">
+  <meta property="og:site_name"   content="Light Tower Group">
+  <meta property="og:image"       content="https://lighttowergroup.co/benjamin-rohr.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Ben Rohr — Light Tower Group">
+  <meta name="twitter:description" content="Principal and Founder of Light Tower Group. Institutional CRE capital advisory — debt placement, equity structuring, investment advisory nationwide.">
+  <meta name="twitter:image"       content="https://lighttowergroup.co/benjamin-rohr.jpg">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://lighttowergroup.co/#principal",
+    "name": "Benjamin Rohr",
+    "alternateName": "Ben Rohr",
+    "url": "https://lighttowergroup.co/about.html",
+    "image": "https://lighttowergroup.co/benjamin-rohr.jpg",
+    "jobTitle": "Principal & Founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Light Tower Group",
+      "url": "https://lighttowergroup.co"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/benrohr/",
+      "https://benrohr.co"
+    ],
+    "email": "ben@lighttowergroup.co",
+    "telephone": "+13475540093",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Brooklyn",
+      "addressRegion": "NY",
+      "addressCountry": "US"
+    },
+    "knowsAbout": [
+      "Commercial Real Estate Finance",
+      "Capital Markets",
+      "Debt Placement",
+      "Equity Structuring",
+      "Mezzanine Financing",
+      "Preferred Equity",
+      "Joint Venture Equity",
+      "NYC Real Estate"
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:    #080c14;
+      --navy:     #0d1826;
+      --gold:     #c9a84c;
+      --gold-dim: rgba(201,168,76,0.25);
+      --white:    #f4f0e8;
+      --muted:    #8a9bb0;
+      --body-txt: rgba(244,240,232,0.88);
+      --serif:    'Playfair Display', Georgia, serif;
+      --sans:     'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: var(--sans); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; transition: color 0.2s; }
+
+    /* ── Navigation ── */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 4rem;
+      border-bottom: 1px solid var(--gold-dim);
+    }
+    .nav-logo {
+      font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.18em;
+      color: var(--gold); text-decoration: none; text-transform: uppercase; font-weight: 600;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--white); }
+
+    /* ── Page wrap ── */
+    .page-wrap { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 8rem; }
+
+    /* ── Header ── */
+    .about-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem; display: block;
+    }
+    .about-name {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400; line-height: 1.1;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .about-title {
+      font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 3rem;
+    }
+
+    /* ── Profile grid ── */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(20%) contrast(1.05);
+      border: 1px solid var(--gold-dim);
+    }
+    .profile-bio { display: flex; flex-direction: column; justify-content: flex-start; }
+    .bio-text {
+      font-size: 1.05rem; line-height: 1.85;
+      color: var(--body-txt);
+      margin-bottom: 1.6rem;
+    }
+    .bio-text + .bio-text { margin-top: 0; }
+
+    /* ── Divider ── */
+    .rule { border: none; border-top: 1px solid var(--gold-dim); margin: 3rem 0; }
+
+    /* ── Details grid ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .detail-block {}
+    .detail-label {
+      font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.4rem; display: block;
+    }
+    .detail-value {
+      font-size: 0.92rem; color: var(--white); line-height: 1.5;
+    }
+    .detail-value a { color: var(--gold); }
+    .detail-value a:hover { text-decoration: underline; }
+
+    /* ── Expertise list ── */
+    .expertise-section { margin-bottom: 3.5rem; }
+    .section-heading {
+      font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1.25rem; display: block;
+    }
+    .expertise-grid {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .expertise-tag {
+      font-size: 0.72rem; letter-spacing: 0.08em;
+      color: var(--muted); border: 1px solid rgba(138,155,176,0.28);
+      padding: 0.32rem 0.75rem; border-radius: 2px;
+    }
+
+    /* ── Insights callout ── */
+    .insights-callout {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid var(--gold-dim);
+      padding: 2rem 2.5rem;
+    }
+    .insights-callout p {
+      font-size: 1rem; color: var(--body-txt); line-height: 1.75; margin-bottom: 1rem;
+    }
+    .insights-callout p:last-child { margin-bottom: 0; }
+    .callout-link {
+      color: var(--gold); font-size: 0.8rem; letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 500;
+    }
+    .callout-link:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    .site-footer {
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 2.5rem 4rem; text-align: center;
+    }
+    .site-footer p { font-size: 0.75rem; color: var(--muted); line-height: 2; }
+    .site-footer a { color: var(--gold); }
+    .site-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 720px) {
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-wrap { padding: 3rem 1.25rem 5rem; }
+      .profile-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .profile-photo { max-width: 220px; }
+      .site-footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">Light Tower Group</a>
+    <div class="nav-links">
+      <a href="/insights.html">Insights</a>
+      <a href="/index.html#services">Services</a>
+      <a href="/about.html" class="active">About</a>
+      <a href="/index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <span class="about-eyebrow">Principal &amp; Founder</span>
+    <h1 class="about-name">Ben Rohr</h1>
+    <p class="about-title">Light Tower Group &nbsp;·&nbsp; New York</p>
+
+    <div class="profile-grid">
+      <img
+        src="/benjamin-rohr.jpg"
+        alt="Ben Rohr — Principal, Light Tower Group"
+        class="profile-photo"
+        itemprop="image"
+      >
+      <div class="profile-bio">
+        <p class="bio-text">
+          Ben Rohr is the Principal and Founder of Light Tower Group, a New York-based institutional
+          capital advisory firm focused on commercial real estate debt and equity placement. He works
+          with sponsors, developers, and operators on complex mandates — from ground-up construction
+          and bridge financing to joint venture equity and preferred equity structuring — drawing on a
+          platform of more than 250,000 capital sources across banks, debt funds, life companies,
+          agency lenders, and institutional equity.
+        </p>
+        <p class="bio-text">
+          Light Tower Group operates with a principal-led model: Ben is directly engaged on every
+          mandate from initial strategy through closing. The firm's coverage spans all major
+          commercial real estate asset classes and U.S. markets, with particular depth in New York
+          City multifamily, mixed-use, and development finance.
+        </p>
+        <p class="bio-text">
+          In addition to advisory work, Ben writes Light Tower Group's capital markets research —
+          analytical coverage of significant NYC CRE transactions, financing trends, and market
+          intelligence published to the firm's Insights feed.
+        </p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="details-grid">
+      <div class="detail-block">
+        <span class="detail-label">Location</span>
+        <span class="detail-value">Brooklyn, New York</span>
+      </div>
+      <div class="detail-block">
+        <span class="detail-label">Contact</span>
+        <span class="detail-value">
+          <a href="mailto:ben@lighttowergroup.co">ben@lighttowergroup.co</a>
+        </span>
+      </div>
+      <div class="detail-block">
+        <span class="detail-label">LinkedIn</span>
+        <span class="detail-value">
+          <a href="https://www.linkedin.com/in/benrohr/" target="_blank" rel="noopener">linkedin.com/in/benrohr</a>
+        </span>
+      </div>
+      <div class="detail-block">
+        <span class="detail-label">Founded</span>
+        <span class="detail-value">Light Tower Group, Est. 2024</span>
+      </div>
+    </div>
+
+    <div class="expertise-section">
+      <span class="section-heading">Areas of Focus</span>
+      <div class="expertise-grid">
+        <span class="expertise-tag">Senior Debt Placement</span>
+        <span class="expertise-tag">Bridge Financing</span>
+        <span class="expertise-tag">Construction Lending</span>
+        <span class="expertise-tag">CMBS</span>
+        <span class="expertise-tag">Agency Lending</span>
+        <span class="expertise-tag">Life Company Financing</span>
+        <span class="expertise-tag">Joint Venture Equity</span>
+        <span class="expertise-tag">Preferred Equity</span>
+        <span class="expertise-tag">Mezzanine Financing</span>
+        <span class="expertise-tag">Co-GP Capital</span>
+        <span class="expertise-tag">Recapitalization</span>
+        <span class="expertise-tag">NYC Multifamily</span>
+        <span class="expertise-tag">Mixed-Use Development</span>
+        <span class="expertise-tag">Capital Markets Analysis</span>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="insights-callout">
+      <p>
+        Light Tower Group publishes ongoing capital markets research covering significant NYC
+        commercial real estate transactions, financing activity, and market intelligence. Each piece
+        is written by Ben Rohr with the analytical depth of institutional sell-side research.
+      </p>
+      <a href="/insights.html" class="callout-link">Browse all Insights &rarr;</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      <a href="/">Light Tower Group</a> &nbsp;&middot;&nbsp;
+      <a href="/insights.html">Insights</a> &nbsp;&middot;&nbsp;
+      <a href="/about.html">About</a> &nbsp;&middot;&nbsp;
+      <a href="/feed.xml">RSS Feed</a> &nbsp;&middot;&nbsp;
+      <a href="/index.html#contact">Contact</a>
+    </p>
+    <p>&copy; 2026 Light Tower Group. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
