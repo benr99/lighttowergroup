@@ -60,7 +60,7 @@
     .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--accent); }
-    .nav-cta { background: var(--text) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; font-size: 0.7rem !important; }
+    .nav-cta { background: var(--text) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; font-size: 0.7rem !important; border: none; cursor: pointer; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
     .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
     .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }
     .nav-menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); transition: all 0.25s; }
@@ -174,7 +174,7 @@
         <a href="buildings.html" class="nav-hide active">Buildings</a>
         <a href="about.html" class="nav-hide">About</a>
         <a href="/#contact" class="nav-hide">Contact</a>
-        <a href="/#contact" class="nav-cta">Initiate Mandate</a>
+        <button onclick="openLTGChat()" class="nav-cta">Initiate Mandate</button>
       </div>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -185,7 +185,7 @@
       <a href="buildings.html">Buildings</a>
       <a href="about.html">About</a>
       <a href="/#contact">Contact</a>
-      <a href="/#contact">Initiate Mandate</a>
+      <button onclick="openLTGChat()" class="nav-mobile-cta">Initiate Mandate</button>
     </div>
   </nav>
 

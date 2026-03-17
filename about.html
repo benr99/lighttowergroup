@@ -101,6 +101,13 @@
     .nav-links a { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
     .nav-links a:hover { color: var(--white); }
     .nav-links a.active { color: var(--white); }
+    .nav-cta {
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold); padding: 0.45rem 1.1rem;
+      background: none; border-radius: 2px; cursor: pointer; font-family: var(--sans);
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
 
     /* ── Page wrap ── */
     .page-wrap { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 8rem; }
@@ -233,9 +240,9 @@
     <div class="nav-links">
       <a href="/insights.html">Insights</a>
       <a href="/buildings.html">Buildings</a>
-      <a href="/index.html#services">Services</a>
       <a href="/about.html" class="active">About</a>
       <a href="/index.html#contact">Contact</a>
+      <button class="nav-cta" onclick="openLTGChat()">Initiate Mandate</button>
     </div>
     <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -246,6 +253,7 @@
     <a href="/buildings.html">Buildings</a>
     <a href="/about.html">About</a>
     <a href="/index.html#contact">Contact</a>
+    <button class="nav-cta" onclick="openLTGChat();document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-menu-btn').classList.remove('open');">Initiate Mandate</button>
   </div>
 
   <div class="page-wrap">

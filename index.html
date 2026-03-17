@@ -287,6 +287,9 @@
       color: var(--white) !important;
       padding: 0.6rem 1.4rem;
       font-size: 0.7rem !important;
+      border: none; cursor: pointer;
+      font-family: var(--font-body);
+      text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500;
     }
 
     .nav-cta:hover {
@@ -1434,7 +1437,7 @@
         <a href="buildings.html" class="nav-hide">Buildings</a>
         <a href="about.html" class="nav-hide">About</a>
         <a href="#contact" class="nav-hide">Contact</a>
-        <a href="#contact" class="nav-cta">Initiate Mandate</a>
+        <button onclick="openLTGChat()" class="nav-cta">Initiate Mandate</button>
       </div>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1448,7 +1451,7 @@
       <a href="buildings.html">Buildings</a>
       <a href="about.html">About</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="nav-mobile-cta">Initiate Mandate</a>
+      <button onclick="openLTGChat()" class="nav-mobile-cta">Initiate Mandate</button>
     </div>
   </nav>
 

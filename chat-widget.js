@@ -260,6 +260,11 @@
     input.focus();
   }
 
+  // ── Global API (used by "Initiate Mandate" buttons sitewide) ─────────────
+  window.openLTGChat = function() {
+    if (!isOpen) togglePanel();
+  };
+
   // ── Event listeners ───────────────────────────────────────────────────────
   btn.addEventListener('click', togglePanel);
   closeBtn.addEventListener('click', togglePanel);

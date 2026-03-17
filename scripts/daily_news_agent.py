@@ -518,6 +518,13 @@ def render_html(article: dict) -> str:
       text-decoration: none; letter-spacing: 0.05em;
     }}
     .nav-links a:hover {{ color: var(--white); }}
+    .nav-cta {{
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold); padding: 0.45rem 1.1rem;
+      background: none; border-radius: 2px; cursor: pointer; font-family: var(--sans);
+      transition: background 0.2s, color 0.2s;
+    }}
+    .nav-cta:hover {{ background: var(--gold); color: var(--black); }}
 
     /* ── Article layout ── */
     .article-wrap {{ max-width: 740px; margin: 0 auto; padding: 4rem 2rem 7rem; }}
@@ -638,7 +645,7 @@ def render_html(article: dict) -> str:
       <a href="/buildings.html">Buildings</a>
       <a href="/about.html">About</a>
       <a href="/index.html#contact">Contact</a>
-      <a href="/feed.xml" title="RSS Feed">RSS</a>
+      <button class="nav-cta" onclick="openLTGChat()">Initiate Mandate</button>
     </div>
     <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -650,6 +657,7 @@ def render_html(article: dict) -> str:
     <a href="/buildings.html">Buildings</a>
     <a href="/about.html">About</a>
     <a href="/index.html#contact">Contact</a>
+    <button class="nav-cta" onclick="openLTGChat();document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-menu-btn').classList.remove('open');">Initiate Mandate</button>
   </div>
 
   <div class="article-wrap">
