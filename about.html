@@ -240,6 +240,17 @@
       .site-footer { padding: 2rem 1.5rem; }
     }
   </style>
+  <!-- OneSignal Web Push — replace YOUR_APP_ID with your OneSignal App ID -->
+  <!-- Setup: onesignal.com → New App → Web Push → get App ID, then uncomment -->
+  <!--
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({ appId: "YOUR_APP_ID" });
+    });
+  </script>
+  -->
 </head>
 <body>
 
