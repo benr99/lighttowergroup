@@ -4,6 +4,13 @@
 [functions]
   node_bundler = "esbuild"
 
+# ── Block public access to internal tool ────────────────────────────────────
+[[redirects]]
+  from   = "/origination.html"
+  to     = "/"
+  status = 302
+  force  = true
+
 # ── Force HTTPS ──────────────────────────────────────────────────────────────
 [[redirects]]
   from   = "http://lighttowergroup.co/*"

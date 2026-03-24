@@ -309,6 +309,22 @@
       addMessage(reply, 'bot');
       messages.push({ role: 'assistant', content: reply });
 
+      // Fire deal screener when bot signals conversation complete
+      const closingSignals = [
+        'ben will', 'ben rohr will', 'will be in touch', 'will reach out',
+        'will contact you', 'expect to hear', 'look forward to speaking',
+      ];
+      const replyLower = reply.toLowerCase();
+      if (closingSignals.some(s => replyLower.includes(s))) {
+        try {
+          fetch('/.netlify/functions/deal-notify', {
+            method : 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body   : JSON.stringify({ messages }),
+          }).catch(() => {});
+        } catch (_) {}
+      }
+
     } catch {
       removeTyping();
       addMessage("Network issue — please email ben@lighttowergroup.co directly.", 'bot');

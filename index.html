@@ -172,8 +172,8 @@
     :root {
       --bg: #F5F4F0;
       --text: #121212;
-      --accent: #C5A059;
-      --accent-hover: #D4AF6B;
+      --accent: #C9A84C;
+      --accent-hover: #d9b85c;
       --line: rgba(0,0,0,0.06);
       --line-strong: rgba(0,0,0,0.12);
       --white: #ffffff;
@@ -1420,6 +1420,18 @@
     .reveal-d3 { transition-delay: 0.3s; }
     .reveal-d4 { transition-delay: 0.4s; }
   </style>
+
+  <!-- OneSignal Web Push — replace YOUR_APP_ID with your OneSignal App ID -->
+  <!-- Setup: onesignal.com → New App → Web Push → get App ID, then uncomment -->
+  <!--
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({ appId: "YOUR_APP_ID" });
+    });
+  </script>
+  -->
 </head>
 
 <body>
@@ -1435,6 +1447,7 @@
         <a href="#faq" class="nav-hide">FAQ</a>
         <a href="insights.html" class="nav-hide">Insights</a>
         <a href="buildings.html" class="nav-hide">Buildings</a>
+        <a href="services.html" class="nav-hide">Services</a>
         <a href="about.html" class="nav-hide">About</a>
         <a href="#contact" class="nav-hide">Contact</a>
         <button onclick="openLTGChat()" class="nav-cta">Initiate Mandate</button>
@@ -1449,6 +1462,7 @@
       <a href="#leadership">Leadership</a>
       <a href="insights.html">Insights</a>
       <a href="buildings.html">Buildings</a>
+      <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="#contact">Contact</a>
       <button onclick="openLTGChat()" class="nav-mobile-cta">Initiate Mandate</button>

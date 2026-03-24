@@ -64,6 +64,26 @@ SITE_ROOT     = SCRIPT_DIR.parent
 INSIGHTS_DIR  = SITE_ROOT / "insights"
 INSIGHTS_JSON = SITE_ROOT / "insights.json"
 FEED_XML      = SITE_ROOT / "feed.xml"
+SITEMAP_XML   = SITE_ROOT / "sitemap.xml"
+
+# Static pages included in every sitemap rebuild
+_SITEMAP_STATIC = [
+    ("/",                           "1.0", "weekly"),
+    ("/insights.html",              "0.9", "daily"),
+    ("/buildings.html",             "0.8", "weekly"),
+    ("/services.html",              "0.9", "monthly"),
+    ("/about.html",                 "0.7", "monthly"),
+    ("/transactions.html",          "0.7", "monthly"),
+    ("/research.html",              "0.7", "monthly"),
+    ("/senior-debt.html",           "0.8", "monthly"),
+    ("/bridge-financing.html",      "0.8", "monthly"),
+    ("/construction-financing.html","0.8", "monthly"),
+    ("/cmbs.html",                  "0.8", "monthly"),
+    ("/agency-lending.html",        "0.8", "monthly"),
+    ("/joint-venture-equity.html",  "0.8", "monthly"),
+    ("/preferred-equity.html",      "0.8", "monthly"),
+    ("/life-company-financing.html","0.8", "monthly"),
+]
 LOG_FILE      = SCRIPT_DIR / "agent_log.json"
 
 ANTHROPIC_API_KEY     = os.environ.get("ANTHROPIC_API_KEY", "")
@@ -731,6 +751,16 @@ def render_html(article: dict) -> str:
       .article-wrap {{ padding: 2rem 1.25rem 4rem; }}
     }}
   </style>
+  <!-- OneSignal Web Push — uncomment after adding YOUR_APP_ID from onesignal.com -->
+  <!--
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {{
+      await OneSignal.init({{ appId: "YOUR_APP_ID" }});
+    }});
+  </script>
+  -->
 </head>
 <body>
 
@@ -739,6 +769,7 @@ def render_html(article: dict) -> str:
     <div class="nav-links">
       <a href="/insights.html">Insights</a>
       <a href="/buildings.html">Buildings</a>
+      <a href="/services.html">Services</a>
       <a href="/about.html">About</a>
       <a href="/index.html#contact">Contact</a>
       <button class="nav-cta" onclick="openLTGChat()">Initiate Mandate</button>
@@ -751,6 +782,7 @@ def render_html(article: dict) -> str:
     <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">&times;</button>
     <a href="/insights.html">Insights</a>
     <a href="/buildings.html">Buildings</a>
+    <a href="/services.html">Services</a>
     <a href="/about.html">About</a>
     <a href="/index.html#contact">Contact</a>
     <button class="nav-cta" onclick="openLTGChat();document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-menu-btn').classList.remove('open');">Initiate Mandate</button>
@@ -924,6 +956,56 @@ def update_feed_xml():
     print(f"  feed.xml updated ({len(items)} entries)")
 
 
+def update_sitemap_xml():
+    """Regenerate sitemap.xml from static pages + all article entries in insights.json."""
+    data = []
+    if INSIGHTS_JSON.exists():
+        try:
+            data = json.loads(INSIGHTS_JSON.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    url_blocks = []
+
+    for path, priority, freq in _SITEMAP_STATIC:
+        url_blocks.append(
+            f"  <url>\n"
+            f"    <loc>{SITE_URL}{path}</loc>\n"
+            f"    <lastmod>{today}</lastmod>\n"
+            f"    <changefreq>{freq}</changefreq>\n"
+            f"    <priority>{priority}</priority>\n"
+            f"  </url>"
+        )
+
+    for article in data:
+        slug = article.get("slug", "")
+        if not slug:
+            continue
+        try:
+            d = datetime.strptime(article.get("date", ""), "%B %d, %Y")
+            lastmod = d.strftime("%Y-%m-%d")
+        except Exception:
+            lastmod = today
+        url_blocks.append(
+            f"  <url>\n"
+            f"    <loc>{SITE_URL}/insights/{slug}.html</loc>\n"
+            f"    <lastmod>{lastmod}</lastmod>\n"
+            f"    <changefreq>never</changefreq>\n"
+            f"    <priority>0.6</priority>\n"
+            f"  </url>"
+        )
+
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "\n".join(url_blocks)
+        + "\n</urlset>"
+    )
+    SITEMAP_XML.write_text(sitemap, encoding="utf-8")
+    print(f"  sitemap.xml updated ({len(url_blocks)} URLs)")
+
+
 def git_commit_push(article: dict, dry_run: bool = False):
     """Commit new article files and push to trigger Netlify deploy."""
     if dry_run:
@@ -931,7 +1013,7 @@ def git_commit_push(article: dict, dry_run: bool = False):
         return
 
     slug  = article["slug"]
-    files = [f"insights/{slug}.html", "insights.json", "feed.xml"]
+    files = [f"insights/{slug}.html", "insights.json", "feed.xml", "sitemap.xml"]
 
     try:
         subprocess.run(["git", "add"] + files, cwd=SITE_ROOT, check=True, capture_output=True)
@@ -1157,6 +1239,7 @@ def main():
         print(f"  Saved: insights/{article['slug']}.html")
         update_manifest(article)
         update_feed_xml()
+        update_sitemap_xml()
         git_commit_push(article, dry_run=False)
     else:
         print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")
