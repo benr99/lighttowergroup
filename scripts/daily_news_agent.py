@@ -57,6 +57,7 @@ from news_sources import (
     NEWSAPI_QUERIES, SITE_URL, SITE_NAME,
     FEED_TITLE, FEED_DESCRIPTION, LINKEDIN_HASHTAGS,
 )
+from enhanced_prompts import SYSTEM_PROMPT_ENHANCED, USER_PROMPT_TEMPLATE
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -87,6 +88,7 @@ _SITEMAP_STATIC = [
 LOG_FILE      = SCRIPT_DIR / "agent_log.json"
 
 ANTHROPIC_API_KEY     = os.environ.get("ANTHROPIC_API_KEY", "")
+DEEPSEEK_API_KEY      = os.environ.get("DEEPSEEK_API_KEY", "")
 NEWSAPI_KEY           = os.environ.get("NEWSAPI_KEY", "")
 LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
 LINKEDIN_PERSON_URN   = os.environ.get("LINKEDIN_PERSON_URN", "")
@@ -237,19 +239,17 @@ def already_published(slug: str) -> bool:
 
 def score_stories(stories: list) -> list:
     """
-    Single Claude call to rank all candidates by significance.
+    Single DeepSeek call to rank all candidates by significance.
     Returns stories sorted highest-score first.
     """
     if not stories:
         return []
 
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-
     story_list = "\n\n".join(
         f"[{i+1}] SOURCE: {s['source']}\n"
         f"    TITLE:   {s['title']}\n"
         f"    SUMMARY: {s['summary'][:220]}"
-        for i, s in enumerate(stories[:60])
+        for i, s in enumerate(stories[:100])
     )
 
     prompt = f"""You are a senior editor at a Wall Street Journal-style CRE capital markets publication.
@@ -270,12 +270,20 @@ Stories to score:
 {story_list}"""
 
     try:
-        resp = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=2000,
-            messages=[{"role": "user", "content": prompt}],
+        resp = requests.post(
+            "https://api.deepseek.com/v1/chat/completions",
+            headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
+            json={
+                "model": "deepseek-chat",
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 3500,
+                "temperature": 0.2,
+            },
+            timeout=60,
         )
-        raw = resp.content[0].text.strip()
+        resp.raise_for_status()
+        data = resp.json()
+        raw = data["choices"][0]["message"]["content"].strip()
         m = re.search(r"\[[\s\S]*\]", raw)
         if not m:
             raise ValueError("No JSON array found in scoring response")
@@ -371,8 +379,9 @@ Voice rules:
 
 
 def generate_article(story: dict) -> dict:
-    """Call Claude to produce a full editorial article from the enriched story."""
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    """Call DeepSeek to produce a full editorial article from the enriched story."""
+
+    now_utc = datetime.now(timezone.utc).replace(microsecond=0)
 
     full_text_block = (
         story["full_text"][:3500] if story.get("full_text")
@@ -383,58 +392,45 @@ def generate_article(story: dict) -> dict:
         if story.get("mentioned_addresses") else ""
     )
 
-    user_prompt = f"""\
-SOURCE STORY
-Title:   {story['title']}
-Source:  {story['source']}
-URL:     {story['url']}
-Summary: {story['summary']}
-
-FULL ARTICLE TEXT:
-{full_text_block}
-
-{addresses_block}
-
-TODAY: {datetime.now().strftime('%B %d, %Y')}
-
-Write a full Light Tower Group editorial on this story.
-Return ONLY valid JSON with exactly these keys \u2014 no markdown, no prose outside the JSON:
-
-{{
-  "title":            "Sharp WSJ headline, under 90 characters, specific not vague",
-  "subtitle":         "One sentence that delivers the 'so what' \u2014 under 140 characters",
-  "slug":             "kebab-case-url-slug-max-6-words",
-  "category":         "one of: Capital Markets | Market Analysis | Debt & Equity | Policy & Regulation | Deal Intelligence",
-  "meta_description": "155-char SEO meta \u2014 specific, data-forward, no empty superlatives",
-  "tags":             ["tag1", "tag2", "tag3", "tag4", "tag5"],
-  "body_html":        "<p>Full article as HTML. Use only <p> tags \u2014 no headings. 700\u20131000 words. WSJ voice.</p>",
-  "sources": [
-    {{"name": "source display name", "url": "https://..."}}
-  ],
-  "linkedin_hook":    "Write a LinkedIn post for a 30,000-follower CRE capital markets audience. Format with line breaks between each thought — LinkedIn renders these as separate lines. Structure: Line 1 = the scroll-stopper: one bold, specific, counterintuitive or provocative statement (a number, a name, a contradiction) — must make someone stop mid-scroll. Do NOT start with 'I' or 'We'. Lines 2-4 = 3 short punchy lines, each a standalone insight that builds tension or stakes. Final line = one open question that invites a comment from a developer, lender, or investor. No hashtags. No filler. No 'In conclusion'. Total length 100-160 words.",
-  "twitter_hook":     "Tweet under 240 chars. Sharp, specific, no filler."
-}}\
-"""
-
-    resp = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=4500,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_prompt}],
+    user_prompt = USER_PROMPT_TEMPLATE.format(
+        title=story['title'],
+        source=story['source'],
+        url=story['url'],
+        published_date=story.get('published', 'Unknown'),
+        summary=story['summary'],
+        full_text=full_text_block,
+        addresses_block=addresses_block,
+        today=now_utc.strftime('%B %d, %Y')
     )
 
-    raw = resp.content[0].text.strip()
+    resp = requests.post(
+        "https://api.deepseek.com/v1/chat/completions",
+        headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
+        json={
+            "model": "deepseek-chat",
+            "max_tokens": 4500,
+            "temperature": 0.2,
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT_ENHANCED},
+                {"role": "user", "content": user_prompt},
+            ],
+        },
+        timeout=120,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+    raw = data["choices"][0]["message"]["content"].strip()
     # Strip markdown code fences if present
     raw = re.sub(r"^```(?:json)?\s*", "", raw)
     raw = re.sub(r"\s*```$", "", raw)
 
     m = re.search(r"\{[\s\S]*\}", raw)
     if not m:
-        raise ValueError("No JSON object found in Claude article response")
+        raise ValueError("No JSON object found in DeepSeek article response")
 
     article = json.loads(m.group())
-    article["date"]       = datetime.now().strftime("%B %d, %Y")
-    article["date_iso"]   = datetime.now(timezone.utc).isoformat()
+    article["date"]       = now_utc.strftime("%B %d, %Y")
+    article["date_iso"]   = now_utc.isoformat()
     article["source_url"] = story["url"]
     article["source_name"] = story["source"]
     return article
@@ -530,6 +526,21 @@ def scrub_prompt_injection(text: str) -> str:
     if cleaned != text:
         print("  [SECURITY] Prompt-injection pattern scrubbed from article text")
     return cleaned
+
+
+def _parse_manifest_date(date_str: str) -> datetime:
+    """
+    Parse a date from insights.json, handling both legacy and new formats.
+    Legacy: "April 29, 2026" (old agent runs)
+    New:    "2026-04-29"     (current agent)
+    Returns a datetime at midnight UTC. Falls back to today if unparseable.
+    """
+    for fmt in ("%Y-%m-%d", "%B %d, %Y"):
+        try:
+            return datetime.strptime(date_str, fmt).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+    return datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
 
 
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -869,10 +880,13 @@ def update_manifest(article: dict):
         except Exception:
             data = []
 
+    date_short = article["date_iso"][:10]   # Extract YYYY-MM-DD from ISO timestamp
+
     entry = {
         "title":    article["title"],
         "slug":     article["slug"],
-        "date":     article["date"],
+        "date":     date_short,
+        "readTime": 7,
         "category": article["category"],
         "excerpt":  article["meta_description"],
         "url":      f"/insights/{article['slug']}.html",
@@ -901,14 +915,10 @@ def update_feed_xml():
     items = []
     for e in data:
         url = f"{SITE_URL}{e.get('url') or '/insights/' + e['slug'] + '.html'}"
-        # Parse date for RSS pubDate format
-        try:
-            d = datetime.strptime(e.get("date", ""), "%B %d, %Y")
-            pub_rss = d.strftime("%a, %d %b %Y 07:00:00 +0000")
-            pub_iso = d.strftime("%Y-%m-%dT07:00:00Z")
-        except Exception:
-            pub_rss = datetime.now().strftime("%a, %d %b %Y 07:00:00 +0000")
-            pub_iso = datetime.now().strftime("%Y-%m-%dT07:00:00Z")
+        # Parse date for RSS pubDate format — handles both new "YYYY-MM-DD" and legacy "Month DD, YYYY"
+        d = _parse_manifest_date(e.get("date", ""))
+        pub_rss = d.strftime("%a, %d %b %Y 07:00:00 +0000")
+        pub_iso = d.strftime("%Y-%m-%dT07:00:00Z")
 
         keywords = ", ".join(e.get("tags", [e.get("category", "")]))
 
@@ -982,11 +992,8 @@ def update_sitemap_xml():
         slug = article.get("slug", "")
         if not slug:
             continue
-        try:
-            d = datetime.strptime(article.get("date", ""), "%B %d, %Y")
-            lastmod = d.strftime("%Y-%m-%d")
-        except Exception:
-            lastmod = today
+        d = _parse_manifest_date(article.get("date", ""))
+        lastmod = d.strftime("%Y-%m-%d")
         url_blocks.append(
             f"  <url>\n"
             f"    <loc>{SITE_URL}/insights/{slug}.html</loc>\n"
@@ -1006,24 +1013,31 @@ def update_sitemap_xml():
     print(f"  sitemap.xml updated ({len(url_blocks)} URLs)")
 
 
-def git_commit_push(article: dict, dry_run: bool = False):
+def git_commit_push(articles: list, dry_run: bool = False):
     """Commit new article files and push to trigger Netlify deploy."""
     if dry_run:
         print("  [DRY-RUN] Skipping git commit/push")
         return
 
-    slug  = article["slug"]
-    files = [f"insights/{slug}.html", "insights.json", "feed.xml", "sitemap.xml"]
+    if not articles:
+        return
+
+    files = [f"insights/{a['slug']}.html" for a in articles]
+    files += ["insights.json", "feed.xml", "sitemap.xml"]
+
+    titles = "; ".join(a["title"][:40] for a in articles[:3])
+    if len(articles) > 3:
+        titles += f" (+{len(articles)-3} more)"
 
     try:
         subprocess.run(["git", "add"] + files, cwd=SITE_ROOT, check=True, capture_output=True)
         subprocess.run(
             ["git", "commit", "-m",
-             f"Daily CRE analysis: {article['title'][:65]}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"],
+             f"Daily CRE analysis ({len(articles)} articles): {titles}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"],
             cwd=SITE_ROOT, check=True, capture_output=True,
         )
         subprocess.run(["git", "push", "origin", "main"], cwd=SITE_ROOT, check=True, capture_output=True)
-        print("  Git: committed and pushed \u2192 Netlify deploying")
+        print(f"  Git: committed {len(articles)} articles and pushed \u2192 Netlify deploying")
     except subprocess.CalledProcessError as e:
         stderr = e.stderr.decode(errors="replace") if e.stderr else ""
         print(f"  [WARN] Git failed: {stderr[:200]}")
@@ -1161,7 +1175,10 @@ def main():
                         help="Score and write the article but do not publish or post")
     parser.add_argument("--force", action="store_true",
                         help="Skip the duplicate-slug check")
+    parser.add_argument("--articles", type=int, default=5, metavar="N",
+                        help="Number of articles to publish per run (default: 5, max: 10)")
     args = parser.parse_args()
+    MAX_ARTICLES = max(1, min(args.articles, 10))
 
     start    = datetime.now(timezone.utc)
     run_data = {"run_at": start.isoformat(), "status": "started", "dry_run": args.dry_run}
@@ -1173,12 +1190,12 @@ def main():
     print(f"{'='*62}\n")
 
     # \u2500 Phase 1: Gather \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("[1/7] Gathering stories...")
+    print("[1/8] Gathering stories...")
     all_stories = fetch_rss_stories() + fetch_newsapi_stories()
     run_data["raw_count"] = len(all_stories)
 
     # \u2500 Phase 2: Triage \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("\n[2/7] Triaging...")
+    print("\n[2/8] Triaging...")
     candidates = triage(all_stories)
     run_data["candidate_count"] = len(candidates)
 
@@ -1189,77 +1206,112 @@ def main():
         return
 
     # \u2500 Phase 3: Score \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print(f"\n[3/7] Scoring {len(candidates)} stories...")
+    print(f"\n[3/8] Scoring {len(candidates)} stories...")
     ranked = score_stories(candidates)
 
     # \u2500 Phase 4: Enrich \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("\n[4/7] Enriching winner...")
-    winner = None
-    for candidate in ranked[:5]:
-        # Quick slug preview to check duplicates before full enrichment
+    print(f"\n[4/8] Enriching up to {MAX_ARTICLES} candidates...")
+    enriched_candidates = []
+    checked = 0
+    for candidate in ranked[:20]:  # scan top 20 to find MAX_ARTICLES non-dupes
+        if len(enriched_candidates) >= MAX_ARTICLES:
+            break
+        checked += 1
         preview_slug = re.sub(r"[^a-z0-9]+", "-", candidate["title"].lower())[:50].strip("-")
         if not args.force and already_published(preview_slug):
-            print(f"  Already published (slug preview '{preview_slug[:35]}'), skipping...")
+            print(f"  [{checked}] Already published (slug preview '{preview_slug[:35]}'), skipping...")
             continue
-        winner = enrich_story(candidate)
-        break
+        print(f"  [{checked}] Enriching: {candidate['title'][:65]}")
+        enriched_candidates.append(enrich_story(candidate))
 
-    if not winner:
-        print("  Top stories all recently published or enrichment failed. Exiting.")
+    if not enriched_candidates:
+        print("  No fresh stories found after duplicate check. Exiting.")
         run_data["status"] = "already_published"
         write_log(run_data)
         return
 
-    # \u2500 Phase 5: Write \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("\n[5/7] Generating article...")
-    article = generate_article(winner)
-    print(f"  Title:    {article['title']}")
-    print(f"  Slug:     {article['slug']}")
-    print(f"  Category: {article['category']}")
+    print(f"  Collected {len(enriched_candidates)} candidate(s) for article generation")
 
-    if not args.force and already_published(article["slug"]):
-        print("  Slug already published. Use --force to override. Exiting.")
+    # \u2500 Phase 5: Write \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+    print(f"\n[5/8] Generating {len(enriched_candidates)} article(s)...")
+    articles = []
+    for i, candidate in enumerate(enriched_candidates, 1):
+        print(f"  Generating article {i}/{len(enriched_candidates)}: {candidate['title'][:60]}")
+        try:
+            article = generate_article(candidate)
+        except Exception as e:
+            print(f"  [WARN] Article {i} generation failed: {e} — skipping")
+            continue
+
+        if not args.force and already_published(article["slug"]):
+            print(f"  Slug '{article['slug']}' already published, skipping...")
+            continue
+
+        print(f"  [{i}] Title:    {article['title']}")
+        print(f"  [{i}] Slug:     {article['slug']}")
+        print(f"  [{i}] Category: {article['category']}")
+        articles.append(article)
+
+    if not articles:
+        print("  All generated articles had slug collisions or failed. Exiting.")
         run_data["status"] = "slug_collision"
         write_log(run_data)
         return
 
+    print(f"  Successfully generated {len(articles)} article(s)")
+
+    run_data["articles"] = [
+        {"title": a["title"], "slug": a["slug"],
+         "source": enriched_candidates[i]["source"],
+         "source_url": enriched_candidates[i]["url"]}
+        for i, a in enumerate(articles)
+    ]
     run_data.update({
-        "title":      article["title"],
-        "slug":       article["slug"],
-        "source":     winner["source"],
-        "source_url": winner["url"],
+        "title":      articles[0]["title"],
+        "slug":       articles[0]["slug"],
+        "source":     enriched_candidates[0]["source"],
+        "source_url": enriched_candidates[0]["url"],
     })
 
     # \u2500 Phase 6: Publish \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("\n[6/7] Publishing...")
+    print(f"\n[6/8] Publishing {len(articles)} article(s)...")
     if not args.dry_run:
         INSIGHTS_DIR.mkdir(exist_ok=True)
-        out = INSIGHTS_DIR / f"{article['slug']}.html"
-        out.write_text(render_html(article), encoding="utf-8")
-        print(f"  Saved: insights/{article['slug']}.html")
-        update_manifest(article)
+
+        for article in articles:
+            out = INSIGHTS_DIR / f"{article['slug']}.html"
+            out.write_text(render_html(article), encoding="utf-8")
+            print(f"  Saved: insights/{article['slug']}.html")
+            update_manifest(article)
+
         update_feed_xml()
         update_sitemap_xml()
-        git_commit_push(article, dry_run=False)
+        git_commit_push(articles, dry_run=False)
     else:
-        print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")
-        print(f"  [DRY-RUN] LinkedIn hook:\n  {article.get('linkedin_hook','')}")
+        for article in articles:
+            print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")
+        print(f"  [DRY-RUN] LinkedIn hook (article 1):\n  {articles[0].get('linkedin_hook','')}")
 
     # \u2500 Phase 7: LinkedIn \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("\n[7/7] LinkedIn...")
-    li_ok = post_to_linkedin(article, dry_run=args.dry_run)
+    print("\n[7/8] LinkedIn (top-ranked article only)...")
+    li_ok = post_to_linkedin(articles[0], dry_run=args.dry_run)
     run_data["linkedin_posted"] = li_ok
 
     # \u2500 Log \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     elapsed = round((datetime.now(timezone.utc) - start).total_seconds())
-    run_data.update({"status": "success", "elapsed_seconds": elapsed})
+    run_data.update({
+        "status":           "success",
+        "elapsed_seconds":  elapsed,
+        "articles_count":   len(articles),
+    })
     write_log(run_data)
 
     print(f"\n{'='*62}")
-    print(f"  DONE in {elapsed}s")
+    print(f"  DONE in {elapsed}s — published {len(articles)} article(s)")
     if not args.dry_run:
-        print(f"  Article: {SITE_URL}/insights/{article['slug']}.html")
-        print(f"  LinkedIn: {'posted' if li_ok else 'skipped/failed'}")
+        for a in articles:
+            print(f"  Article: {SITE_URL}/insights/{a['slug']}.html")
+        print(f"  LinkedIn: {'posted (article 1)' if li_ok else 'skipped/failed'}")
     print(f"{'='*62}\n")
 
 

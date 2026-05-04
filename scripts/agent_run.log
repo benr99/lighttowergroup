@@ -1,0 +1,1381 @@
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-18 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 162 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 162 raw → 46 relevant → 46 unique
+
+[3/7] Scoring 46 stories...
+  [WARN] Scoring failed (No JSON array found in scoring response), using raw order
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/03/17/industrious-increasing-to-...
+  Extracted 2,042 chars of article text
+  NYC addresses found: ['12 East 49th Street']
+
+[5/7] Generating article...
+  Title:    Industrious Doubles Down at Tower 49, Nearing 300,000 Sq Ft
+  Slug:     industrious-tower-49-expansion-kato
+  Category: Deal Intelligence
+
+[6/7] Publishing...
+  Saved: insights/industrious-tower-49-expansion-kato.html
+  insights.json updated (276 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (291 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 2588s
+  Article: https://lighttowergroup.co/insights/industrious-tower-49-expansion-kato.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-19 11:27 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 164 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 164 raw → 40 relevant → 40 unique
+
+[3/7] Scoring 40 stories...
+  Top 3 stories:
+    #1 [82/100] The Real Deal: PMG, Carlyle refinance 517-unit development in Gowanus
+    #2 [78/100] Commercial Observer: Fed Maintains Interest Rates as CRE Confronts New Uncertainty Fro
+    #3 [72/100] The Real Deal: Murray Hill multifamily transfers to special servicing over $48M 
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/03/18/pmg-carlyle-refinance-517-...
+  Extracted 2,079 chars of article text
+
+[5/7] Generating article...
+  Title:    Brookfield Writes $370M Check for Gowanus, Betting on Brooklyn's Newest Renter Hub
+  Slug:     brookfield-370m-gowanus-society-brooklyn
+  Category: Debt & Equity
+
+[6/7] Publishing...
+  Saved: insights/brookfield-370m-gowanus-society-brooklyn.html
+  insights.json updated (277 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (292 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 111s
+  Article: https://lighttowergroup.co/insights/brookfield-370m-gowanus-society-brooklyn.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-20 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 165 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 165 raw → 32 relevant → 31 unique
+
+[3/7] Scoring 31 stories...
+  Top 3 stories:
+    #1 [72/100] The Real Deal: Top Rock staves off Fifth Avenue foreclosure with Chapter 11 fili
+    #2 [58/100] The Real Deal: Dynamic Star files second bankruptcy for Fordham Landing megaproj
+    #3 [55/100] Commercial Observer: Prologis, GIC Form $1.6B Industrial Build-to-Suit Joint Venture
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/03/19/top-rock-llc-staves-off-mi...
+  Extracted 2,344 chars of article text
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 435, in generate_article
+    article = json.loads(m.group())
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 8 column 3264 (char 3857)
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-22 00:48 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 158 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 158 raw → 19 relevant → 19 unique
+
+[3/7] Scoring 19 stories...
+  Top 3 stories:
+    #1 [82/100] Commercial Observer: SL Green Refinances and Modifies $2B Credit Facility at Lower Rat
+    #2 [74/100] Commercial Observer: BHI Provides $88M Bridge Loan for 845 Third Avenue’s Office-to-Re
+    #3 [65/100] Commercial Observer: BrightSpire Sells LIC Office Building to Pearl Realty at $36M Dis
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/03/sl-green-refinances-modifies-2b...
+  Extracted 2,067 chars of article text
+
+[5/7] Generating article...
+  Title:    SL Green Cuts Borrowing Cost 25 bps on $2B Credit Revamp
+  Slug:     sl-green-2b-credit-facility-refinance
+  Category: Debt & Equity
+
+[6/7] Publishing...
+  Saved: insights/sl-green-2b-credit-facility-refinance.html
+  insights.json updated (278 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (293 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 85s
+  Article: https://lighttowergroup.co/insights/sl-green-2b-credit-facility-refinance.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-22 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 170 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 170 raw → 2 relevant → 2 unique
+
+[3/7] Scoring 2 stories...
+  Top 3 stories:
+    #1 [12/100] The Real Deal: Think twice before lying about real estate
+    #2 [8/100] The Real Deal: Compass, Zillow shake things up — just not in NYC
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/03/21/lawmakers-must-think-twice...
+  Extracted 3,042 chars of article text
+
+[5/7] Generating article...
+  Title:    Albany's SEQRA Fight Exposes the Real Cost of Environmental Review Theater
+  Slug:     seqra-reform-housing-cost-albany
+  Category: Policy & Regulation
+
+[6/7] Publishing...
+  Saved: insights/seqra-reform-housing-cost-albany.html
+  insights.json updated (279 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (294 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 70s
+  Article: https://lighttowergroup.co/insights/seqra-reform-housing-cost-albany.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-23 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 150 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 150 raw → 5 relevant → 5 unique
+
+[3/7] Scoring 5 stories...
+  Top 3 stories:
+    #1 [61/100] Axios Cities: Trump to Iran: Open Hormuz in 48 hours or U.S. bombs power plants
+    #2 [52/100] Commercial Observer: Sunday Summary: War, Oil Blockades, Interest Rates — Oh My!
+    #3 [28/100] Axios Cities: Washington ignores America's fiscal cliff
+
+[4/7] Enriching winner...
+  Full-text fetch: https://www.axios.com/2026/03/22/trump-iran-48-hour-ultimatum-strait-o...
+  Extracted 0 chars of article text
+
+[5/7] Generating article...
+  Title:    Trump's 48-Hour Hormuz Ultimatum Sends Oil Markets Into Crisis Mode
+  Slug:     trump-hormuz-ultimatum-cre-capital-markets
+  Category: Market Analysis
+
+[6/7] Publishing...
+  Saved: insights/trump-hormuz-ultimatum-cre-capital-markets.html
+  insights.json updated (280 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (295 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 82s
+  Article: https://lighttowergroup.co/insights/trump-hormuz-ultimatum-cre-capital-markets.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-24 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 154 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 154 raw → 32 relevant → 32 unique
+
+[3/7] Scoring 32 stories...
+  Top 3 stories:
+    #1 [92/100] The Real Deal: SL Green nears $1.7B refi at fully leased One Madison
+    #2 [88/100] The Real Deal: Tishman Speyer’s Jacx loan sent to special servicing
+    #3 [85/100] Commercial Observer: Simon Property Group CEO David Simon Dies at 64
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/03/23/sl-green-nears-1-7b-refi-a...
+  Extracted 2,615 chars of article text
+  NYC addresses found: ['65 East 55th Street']
+
+[5/7] Generating article...
+  Title:    SL Green Lines Up $1.7B CMBS Refi at 100%-Leased One Madison
+  Slug:     sl-green-1-7b-refi-one-madison
+  Category: Debt & Equity
+
+[6/7] Publishing...
+  Saved: insights/sl-green-1-7b-refi-one-madison.html
+  insights.json updated (281 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (296 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 97s
+  Article: https://lighttowergroup.co/insights/sl-green-1-7b-refi-one-madison.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-25 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 155 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 155 raw → 34 relevant → 34 unique
+
+[3/7] Scoring 34 stories...
+  Top 3 stories:
+    #1 [82/100] Commercial Observer: Affinius Provides $300M to Refi 102 Fleet Street in Downtown Broo
+    #2 [80/100] Commercial Observer: Wider Commercial Mortgage-Backed Securities Spreads Signal Invest
+    #3 [78/100] Commercial Observer: Five- and 10-Year CMBS Loans: Which Vintage Might Crash the Offic
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/03/affinius-capital-300m-refi-102-...
+  Extracted 1,842 chars of article text
+
+[5/7] Generating article...
+  Title:    Affinius Capital Bets $300M on Downtown Brooklyn's Lease-Up Race
+  Slug:     affinius-300m-102-fleet-street-brooklyn
+  Category: Deal Intelligence
+
+[6/7] Publishing...
+  Saved: insights/affinius-300m-102-fleet-street-brooklyn.html
+  insights.json updated (282 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (297 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 103s
+  Article: https://lighttowergroup.co/insights/affinius-300m-102-fleet-street-brooklyn.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-26 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 153 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 153 raw → 40 relevant → 40 unique
+
+[3/7] Scoring 40 stories...
+  Top 3 stories:
+    #1 [91/100] Commercial Observer: SL Green Secures $1.65B Refi for Historic NYC Office Tower
+    #2 [82/100] The Real Deal: Jay Group scores $300M refi for DoBro project
+    #3 [74/100] The Real Deal: Two Sigma, Kaufman Investments pay $52M for boutique Flatiron off
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/03/sl-green-1-65b-refi-one-madison...
+  Extracted 3,215 chars of article text
+
+[5/7] Generating article...
+  Title:    SL Green's $1.65B One Madison Refi Tests Office CMBS Appetite
+  Slug:     sl-green-one-madison-cmbs-refi
+  Category: Capital Markets
+
+[6/7] Publishing...
+  Saved: insights/sl-green-one-madison-cmbs-refi.html
+  insights.json updated (283 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (298 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 109s
+  Article: https://lighttowergroup.co/insights/sl-green-one-madison-cmbs-refi.html
+  LinkedIn: skipped/failed
+==============================================================
+
+^C
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-28 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 154 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 154 raw → 23 relevant → 23 unique
+
+[3/7] Scoring 23 stories...
+  Top 3 stories:
+    #1 [91/100] The Real Deal: Lenders backed big Manhattan office towers in February
+    #2 [85/100] Commercial Observer: Home Mortgage Rates Hit Seven-Month High, Refinancings Drop Since
+    #3 [78/100] The Real Deal: CIM Group sells former WeWork building after foreclosure
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/03/27/nycs-top-commercial-real-e...
+  Extracted 4,508 chars of article text
+
+[5/7] Generating article...
+  Title:    Manhattan's Trophy Office Market Attracts $2.1B in February Loans
+  Slug:     manhattan-office-loans-february-2026
+  Category: Capital Markets
+
+[6/7] Publishing...
+  Saved: insights/manhattan-office-loans-february-2026.html
+  insights.json updated (284 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (299 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 91s
+  Article: https://lighttowergroup.co/insights/manhattan-office-loans-february-2026.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-03-29 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 148 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 148 raw → 5 relevant → 5 unique
+
+[3/7] Scoring 5 stories...
+  Top 3 stories:
+    #1 [64/100] The Real Deal: MTA tests rezoning upside with Pacific Street offering
+    #2 [58/100] The Real Deal: Record Wall Street bonuses could mean a luxury buying spree in NY
+    #3 [52/100] The Real Deal: The Daily Dirt: Trouble behind the glass at 1 St. Mark’s?
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/03/28/mta-tests-rezoning-upside-...
+  Extracted 4,438 chars of article text
+
+[5/7] Generating article...
+  Title:    MTA Bets a Brooklyn Parking Lot Can Fund Its Next Capital Push
+  Slug:     mta-pacific-street-brooklyn-rezoning
+  Category: Deal Intelligence
+
+[6/7] Publishing...
+  Saved: insights/mta-pacific-street-brooklyn-rezoning.html
+  insights.json updated (285 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (300 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 73s
+  Article: https://lighttowergroup.co/insights/mta-pacific-street-brooklyn-rezoning.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-13 00:06 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 0 raw stories from 20 feeds
+  [WARN] NewsAPI query 'NYC commercial real estate mor': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=NYC+commercial+real+estate+mortgage+2026&from=2026-04-12&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001805A133A10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Manhattan multifamily loan mat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Manhattan+multifamily+loan+maturity&from=2026-04-12&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001805A320B90>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Brooklyn commercial real estat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Brooklyn+commercial+real+estate+deal&from=2026-04-12&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001805A321590>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 0 raw → 0 relevant → 0 unique
+  No relevant CRE stories found today. Exiting.
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-13 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 163 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 163 raw → 4 relevant → 4 unique
+
+[3/7] Scoring 4 stories...
+  Top 3 stories:
+    #1 [61/100] Commercial Observer: Commercial Real Estate Notables On Zohran Mamdani’s First 100 Day
+    #2 [52/100] Commercial Observer: Property-Focused Real Estate Investment Trusts Are Proving Resili
+    #3 [28/100] Propmodo: New Ruling Shows That Commission Lawsuits May Not End Legal Risk 
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/04/mamdani-100-days-commercial-rea...
+  Extracted 5,000 chars of article text
+
+[5/7] Generating article...
+  Title:    Mamdani at 100 Days: NYC CRE Scores a Mayor in Progress
+  Slug:     mamdani-100-days-cre-grades
+  Category: Policy & Regulation
+
+[6/7] Publishing...
+  Saved: insights/mamdani-100-days-cre-grades.html
+  insights.json updated (286 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (301 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 72s
+  Article: https://lighttowergroup.co/insights/mamdani-100-days-cre-grades.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-14 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 168 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 168 raw → 34 relevant → 34 unique
+
+[3/7] Scoring 34 stories...
+  Top 3 stories:
+    #1 [88/100] Commercial Observer: Sovereign Partners, HudsonPoint Capital to Buy 575 Fifth Avenue f
+    #2 [82/100] The Real Deal: Sovereign Partners buying 575 Fifth Ave for $380M
+    #3 [74/100] Commercial Observer: CRE Loan Distress Concentrated in Specific Markets, Sectors
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/04/sovereign-partners-hudsonpoint-...
+  Extracted 3,956 chars of article text
+  NYC addresses found: ['126 East 56th Street']
+
+[5/7] Generating article...
+  Title:    575 Fifth Avenue Changes Hands at $385M, a Discount to Its 2005 Price
+  Slug:     575-fifth-avenue-385m-sale
+  Category: Deal Intelligence
+
+[6/7] Publishing...
+  Saved: insights/575-fifth-avenue-385m-sale.html
+  insights.json updated (287 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (302 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 99s
+  Article: https://lighttowergroup.co/insights/575-fifth-avenue-385m-sale.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-15 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 0 raw stories from 20 feeds
+  [WARN] NewsAPI query 'NYC commercial real estate mor': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=NYC+commercial+real+estate+mortgage+2026&from=2026-04-14&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000015363C83A10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Manhattan multifamily loan mat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Manhattan+multifamily+loan+maturity&from=2026-04-14&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000015363E70B90>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Brooklyn commercial real estat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Brooklyn+commercial+real+estate+deal&from=2026-04-14&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000015363E71590>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 0 raw → 0 relevant → 0 unique
+  No relevant CRE stories found today. Exiting.
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-17 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 172 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 172 raw → 36 relevant → 36 unique
+
+[3/7] Scoring 36 stories...
+  Top 3 stories:
+    #1 [82/100] The Real Deal: NYC pension funds to deploy $4B for affordable developments
+    #2 [79/100] The Real Deal: Hochul outmaneuvers real estate with surprise pied-à-terre tax
+    #3 [78/100] Commercial Observer: W&D Provides $1.7B Refi for Starwood Affordable Housing Portfolio
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/16/nyc-pension-funds-to-deplo...
+  Extracted 2,193 chars of article text
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 435, in generate_article
+    article = json.loads(m.group())
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 8 column 1941 (char 2597)
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-18 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 169 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 169 raw → 27 relevant → 27 unique
+
+[3/7] Scoring 27 stories...
+  Top 3 stories:
+    #1 [78/100] Commercial Observer: CSC Real Estate Secures $108M Construction Loan for Conversion at
+    #2 [72/100] The Real Deal: Nussbaum Lowinger files for Chapter 11 bankruptcy
+    #3 [68/100] The Real Deal: HPD floats fix for distressed landlords, but not the one they wan
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/04/csc-real-estate-construction-lo...
+  Extracted 3,214 chars of article text
+  NYC addresses found: ['300 East 42nd Street']
+
+[5/7] Generating article...
+  Title:    Scale Lending Bets $108M on Murray Hill Office Conversion
+  Slug:     scale-lending-murray-hill-conversion-loan
+  Category: Deal Intelligence
+
+[6/7] Publishing...
+  Saved: insights/scale-lending-murray-hill-conversion-loan.html
+  insights.json updated (288 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (303 URLs)
+  [WARN] Git failed: fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+bash: line 1: /dev/tty: No such device or address
+error: failed to
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 83s
+  Article: https://lighttowergroup.co/insights/scale-lending-murray-hill-conversion-loan.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-19 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 158 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 158 raw → 6 relevant → 6 unique
+
+[3/7] Scoring 6 stories...
+  Top 3 stories:
+    #1 [62/100] The Real Deal: Pied-à-terre tax proposal rankles real estate
+    #2 [58/100] The Real Deal: NYC’s top deals: West Village office property trades for $51M — 1
+    #3 [55/100] The Real Deal: What NYC can learn from other cities with pied-a-terre taxes
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/18/pied-a-terre-tax-proposal-...
+  Extracted 5,000 chars of article text
+
+[5/7] Generating article...
+  Title:    Albany's $500M Pied-à-Terre Tax Bet Puts Luxury Market on Edge
+  Slug:     pied-a-terre-tax-luxury-market-risk
+  Category: Policy & Regulation
+
+[6/7] Publishing...
+  Saved: insights/pied-a-terre-tax-luxury-market-risk.html
+  insights.json updated (289 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (304 URLs)
+  [WARN] Git failed: fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+bash: line 1: /dev/tty: No such device or address
+error: failed to
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 67s
+  Article: https://lighttowergroup.co/insights/pied-a-terre-tax-luxury-market-risk.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-20 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 158 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 158 raw → 8 relevant → 8 unique
+
+[3/7] Scoring 8 stories...
+  Top 3 stories:
+    #1 [78/100] Commercial Observer: MAG Partners Secures $149M Refi for the Mabel in Chelsea
+    #2 [42/100] Commercial Observer: Quinn Barton Is a True Expert of CMBS
+    #3 [35/100] NY Post Real Estate: NYC developer Stephen Ross conquering West Palm Beach
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/04/mag-partners-refi-mabel-chelsea...
+  Extracted 2,466 chars of article text
+  NYC addresses found: ['300 East 50th Street', '243 West 28th Street']
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 435, in generate_article
+    article = json.loads(m.group())
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 8 column 2122 (char 2702)
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-21 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 164 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 164 raw → 30 relevant → 30 unique
+
+[3/7] Scoring 30 stories...
+  Top 3 stories:
+    #1 [82/100] Commercial Observer: CRE Loan Spreads Tighten Across Property Sectors
+    #2 [80/100] The Real Deal: Brodsky launches $500M debt venture with French asset manager
+    #3 [78/100] The Real Deal: CSC nabs financing for another NYC conversion
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/04/cre-loan-spreads-tighten-across...
+  Extracted 3,099 chars of article text
+
+[5/7] Generating article...
+  Title:    CRE Loan Spreads Hit Post-Rate-Shock Lows, Office Still the Outlier
+  Slug:     cre-loan-spreads-tighten-q1-2026
+  Category: Capital Markets
+
+[6/7] Publishing...
+  Saved: insights/cre-loan-spreads-tighten-q1-2026.html
+  insights.json updated (290 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (305 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 84s
+  Article: https://lighttowergroup.co/insights/cre-loan-spreads-tighten-q1-2026.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-22 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 169 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 169 raw → 34 relevant → 34 unique
+
+[3/7] Scoring 34 stories...
+  Top 3 stories:
+    #1 [72/100] Commercial Observer: Why Fannie Mae and Freddie Mac for the First Time Aren’t on Power
+    #2 [62/100] The Real Deal: Spear Street snags West Village office for $51M
+    #3 [58/100] The Real Deal: Developers scoop up site at center of Brooklyn rezoning fight
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/04/fannie-mae-freddie-mac-power-fi...
+  Extracted 3,058 chars of article text
+
+[5/7] Generating article...
+  Title:    Fannie and Freddie Hit Pause: A $30B Privatization Bet Stalls
+  Slug:     fannie-freddie-privatization-stalls-2026
+  Category: Policy & Regulation
+
+[6/7] Publishing...
+  Saved: insights/fannie-freddie-privatization-stalls-2026.html
+  insights.json updated (291 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (306 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 1291s
+  Article: https://lighttowergroup.co/insights/fannie-freddie-privatization-stalls-2026.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-23 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 165 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 165 raw → 36 relevant → 36 unique
+
+[3/7] Scoring 36 stories...
+  Top 3 stories:
+    #1 [82/100] The Real Deal: SL Green’s 1515 Broadway downgraded as owner feels the sting of c
+    #2 [78/100] NY Post Real Estate: Meet Manhattan’s new apex-office aiming to smash leasing price re
+    #3 [74/100] Commercial Observer: PCCP Provides $130M Construction Loan for Mott Haven Mixed-Use Pr
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/22/sl-greens-1515-broadway-do...
+  Extracted 1,781 chars of article text
+
+[5/7] Generating article...
+  Title:    S&P Cuts 1515 Broadway as Paramount Exit Risk Clouds $675M Refi
+  Slug:     sl-green-1515-broadway-downgrade
+  Category: Debt & Equity
+
+[6/7] Publishing...
+  Saved: insights/sl-green-1515-broadway-downgrade.html
+  insights.json updated (292 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (307 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 95s
+  Article: https://lighttowergroup.co/insights/sl-green-1515-broadway-downgrade.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-24 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 169 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 169 raw → 28 relevant → 28 unique
+
+[3/7] Scoring 28 stories...
+  Top 3 stories:
+    #1 [82/100] Commercial Observer: Blackstone Reports Record $1.3T AUM, Earnings Increases of 25% in
+    #2 [78/100] Commercial Observer: G4 Capital Takes Over Site of Williamsburg Trader Joe’s for $65M
+    #3 [72/100] The Real Deal: Extell files plans for 430-unit project at former Disney campus
+
+[4/7] Enriching winner...
+  Full-text fetch: https://commercialobserver.com/2026/04/blackstone-first-quarter-2026-e...
+  Extracted 5,000 chars of article text
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 435, in generate_article
+    article = json.loads(m.group())
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 8 column 2934 (char 3478)
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-25 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 167 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 167 raw → 26 relevant → 26 unique
+
+[3/7] Scoring 26 stories...
+  Top 3 stories:
+    #1 [82/100] The Real Deal: Mamdani cools on $2B Hudson Yards platform financing
+    #2 [74/100] The Real Deal: Brace for impact: Flagstar puts a number on rent freeze costs
+    #3 [72/100] Commercial Observer: BridgeCity Capital Lends $47M for Prospect Heights Apartments
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/24/mamdani-cools-on-2b-hudson...
+  Extracted 2,157 chars of article text
+
+[5/7] Generating article...
+  Title:    NYC Pulls Back From $2B Hudson Yards Rail Deck Deal With Related
+  Slug:     mamdani-hudson-yards-platform-financing
+  Category: Policy & Regulation
+
+[6/7] Publishing...
+  Saved: insights/mamdani-hudson-yards-platform-financing.html
+  insights.json updated (293 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (308 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 85s
+  Article: https://lighttowergroup.co/insights/mamdani-hudson-yards-platform-financing.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-26 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 159 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 159 raw → 4 relevant → 4 unique
+
+[3/7] Scoring 4 stories...
+  Top 3 stories:
+    #1 [72/100] The Real Deal: NYC’s top deals: Sovereign Partners Buys 575 Fifth Avenue Office 
+    #2 [18/100] NY Times Real Estate: Rejected by a Co-op Board: Do They Have to Tell You Why?
+    #3 [12/100] Axios Cities: Term-limited Trump mortgages GOP's future
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/25/new-york-top-real-estate-d...
+  Extracted 1,342 chars of article text
+  NYC addresses found: ['20 East 76th Street']
+
+[5/7] Generating article...
+  Title:    Sovereign Partners Pays $378M for 575 Fifth Avenue in Grand Central Bet
+  Slug:     sovereign-partners-575-fifth-avenue
+  Category: Deal Intelligence
+
+[6/7] Publishing...
+  Saved: insights/sovereign-partners-575-fifth-avenue.html
+  insights.json updated (294 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (309 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 66s
+  Article: https://lighttowergroup.co/insights/sovereign-partners-575-fifth-avenue.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-27 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 157 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 157 raw → 4 relevant → 4 unique
+
+[3/7] Scoring 4 stories...
+  Top 3 stories:
+    #1 [62/100] Propmodo: Federal Housing Bill Freezes Financing for Build-to-Rent Projects
+    #2 [22/100] Propmodo: Cities and Developers Are Working Together to Increase Housing Su
+    #3 [18/100] Commercial Observer: How Commercial Real Estate Investment Fueled Detroit’s Urban Come
+
+[4/7] Enriching winner...
+  Full-text fetch: https://propmodo.com/federal-housing-bill-freezes-financing-for-build-...
+  Extracted 2,323 chars of article text
+
+[5/7] Generating article...
+  Title:    Senate's Seven-Year Sell-Off Clause Halts BTR Lending Nationwide
+  Slug:     senate-bill-freezes-btr-financing
+  Category: Policy & Regulation
+
+[6/7] Publishing...
+  Saved: insights/senate-bill-freezes-btr-financing.html
+  insights.json updated (295 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (310 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 60s
+  Article: https://lighttowergroup.co/insights/senate-bill-freezes-btr-financing.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-28 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 160 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 160 raw → 27 relevant → 27 unique
+
+[3/7] Scoring 27 stories...
+  Top 3 stories:
+    #1 [88/100] The Real Deal: Debt flooded NYC’s development pipeline in March
+    #2 [85/100] Commercial Observer: Debt Yields Rebound as Negative Leverage Persists Across CMBS
+    #3 [80/100] Propmodo: Commercial Mortgage Delinquencies Reach 4% as Early-Stage Default
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/27/nycs-top-commercial-real-e...
+  Extracted 4,082 chars of article text
+
+[5/7] Generating article...
+  Title:    NYC Lenders Deployed $2.1B in Five March Deals as Office Bets Return
+  Slug:     nyc-march-2026-cre-debt-surge
+  Category: Deal Intelligence
+
+[6/7] Publishing...
+  Saved: insights/nyc-march-2026-cre-debt-surge.html
+  insights.json updated (296 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (311 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 111s
+  Article: https://lighttowergroup.co/insights/nyc-march-2026-cre-debt-surge.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-29 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 162 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 162 raw → 28 relevant → 28 unique
+
+[3/7] Scoring 28 stories...
+  Top 3 stories:
+    #1 [74/100] The Real Deal: As legal challenges mount, what’s next for the Chetrits?
+    #2 [72/100] The Real Deal: NYC’s top construction permits: Week ending April 24, 2026
+    #3 [70/100] Commercial Observer: Alexandria Real Estate Reports Increased Losses, Slow Leasing in 
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/28/chetrit-family-business-le...
+  Extracted 5,000 chars of article text
+  NYC addresses found: ['255 West 34th Street']
+
+[5/7] Generating article...
+  Title:    Chetrit's $132 Million Reckoning: How a Four-Decade Empire Cracks
+  Slug:     chetrit-empire-maverick-judgment-collapse
+  Category: Capital Markets
+
+[6/7] Publishing...
+  Saved: insights/chetrit-empire-maverick-judgment-collapse.html
+  insights.json updated (297 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (312 URLs)
+  Git: committed and pushed → Netlify deploying
+
+[7/7] LinkedIn...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 84s
+  Article: https://lighttowergroup.co/insights/chetrit-empire-maverick-judgment-collapse.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-04-30 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 161 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 161 raw → 33 relevant → 33 unique
+
+[3/7] Scoring 33 stories...
+  [WARN] Scoring failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CaZqiULBLoDYVKgNjqRti'}), using raw order
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/29/menin-insurance-plan-flops...
+  Extracted 5,000 chars of article text
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 419, in generate_article
+    resp = client.messages.create(
+        model="claude-sonnet-4-6",
+    ...<2 lines>...
+        messages=[{"role": "user", "content": user_prompt}],
+    )
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_utils\_utils.py", line 282, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\resources\messages\messages.py", line 996, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1364, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1137, in request
+    raise self._make_status_error_from_response(err.response) from None
+anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CaZqiY8PAyXWBe526dELF'}
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-01 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 163 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 163 raw → 36 relevant → 36 unique
+
+[3/7] Scoring 36 stories...
+  [WARN] Scoring failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabjUiUtrtiv4b99YohXS'}), using raw order
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/04/30/pied-a-terre-tax-swings-bi...
+  Extracted 5,000 chars of article text
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 419, in generate_article
+    resp = client.messages.create(
+        model="claude-sonnet-4-6",
+    ...<2 lines>...
+        messages=[{"role": "user", "content": user_prompt}],
+    )
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_utils\_utils.py", line 282, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\resources\messages\messages.py", line 996, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1364, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1137, in request
+    raise self._make_status_error_from_response(err.response) from None
+anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabjUn7vbZdcFGZcPbs4u'}
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-02 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 165 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 165 raw → 27 relevant → 27 unique
+
+[3/7] Scoring 27 stories...
+  [WARN] Scoring failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CaddHa1uYMMk8eKi3P8W8'}), using raw order
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/05/01/pied-a-terre-tax-more-ques...
+  Extracted 5,000 chars of article text
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 419, in generate_article
+    resp = client.messages.create(
+        model="claude-sonnet-4-6",
+    ...<2 lines>...
+        messages=[{"role": "user", "content": user_prompt}],
+    )
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_utils\_utils.py", line 282, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\resources\messages\messages.py", line 996, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1364, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1137, in request
+    raise self._make_status_error_from_response(err.response) from None
+anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CaddHdUX26SYsTxbE2jQ9'}
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-03 11:00 UTC
+==============================================================
+
+[1/7] Gathering stories...
+  RSS: 161 raw stories from 20 feeds
+  NewsAPI: 0 additional stories
+
+[2/7] Triaging...
+  Triage: 161 raw → 5 relevant → 5 unique
+
+[3/7] Scoring 5 stories...
+  [WARN] Scoring failed (Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CafX6RhM5fwwnFLZKTfur'}), using raw order
+
+[4/7] Enriching winner...
+  Full-text fetch: https://therealdeal.com/new-york/2026/05/02/nyc-housing-lotteries-frus...
+  Extracted 4,153 chars of article text
+
+[5/7] Generating article...
+Traceback (most recent call last):
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 1215, in main
+    article = generate_article(winner)
+  File "C:\Users\Ben\Downloads\Lighttowergroupsite\scripts\daily_news_agent.py", line 419, in generate_article
+    resp = client.messages.create(
+        model="claude-sonnet-4-6",
+    ...<2 lines>...
+        messages=[{"role": "user", "content": user_prompt}],
+    )
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_utils\_utils.py", line 282, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\resources\messages\messages.py", line 996, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1364, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1137, in request
+    raise self._make_status_error_from_response(err.response) from None
+anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CafX6V13ANDWFowuNQQpc'}
