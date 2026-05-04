@@ -58,6 +58,7 @@ from news_sources import (
     FEED_TITLE, FEED_DESCRIPTION, LINKEDIN_HASHTAGS,
 )
 from enhanced_prompts import SYSTEM_PROMPT_ENHANCED, USER_PROMPT_TEMPLATE
+from social_image_generator import generate_article_image
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -1282,6 +1283,13 @@ def main():
             out = INSIGHTS_DIR / f"{article['slug']}.html"
             out.write_text(render_html(article), encoding="utf-8")
             print(f"  Saved: insights/{article['slug']}.html")
+
+            # Generate branded social media image
+            img_path = INSIGHTS_DIR / f"{article['slug']}_social.png"
+            if generate_article_image(article['title'], article['subtitle'], img_path):
+                article['social_image'] = str(img_path)
+                print(f"  Image: insights/{article['slug']}_social.png")
+
             update_manifest(article)
 
         update_feed_xml()

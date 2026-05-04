@@ -1379,3 +1379,91 @@ Traceback (most recent call last):
   File "C:\Users\Ben\AppData\Local\Programs\Python\Python313\Lib\site-packages\anthropic\_base_client.py", line 1137, in request
     raise self._make_status_error_from_response(err.response) from None
 anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CafX6V13ANDWFowuNQQpc'}
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-04 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 440 raw stories from 88 feeds
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 440 raw → 22 relevant → 18 unique
+
+[3/8] Scoring 18 stories...
+  Top 3 stories:
+    #1 [85/100] Bloomberg Real Estate: Bond Traders Look to Treasury Refunding, Fed Speakers and Jobs
+    #2 [78/100] New York YIMBY: 149-Unit Residential Development Planned For 122 Varick Street In
+    #3 [75/100] Institutional Real Estate: Hines’ Steve Luthman: Real estate M&A reflects shift to operation
+
+[4/8] Enriching up to 5 candidates...
+  [1] Enriching: Bond Traders Look to Treasury Refunding, Fed Speakers and Jobs
+  Full-text fetch: https://www.bloomberg.com/news/articles/2026-05-03/bond-traders-look-t...
+  Extracted 0 chars of article text
+  [2] Enriching: 149-Unit Residential Development Planned For 122 Varick Street In
+  Full-text fetch: https://newyorkyimby.com/2026/05/149-unit-residential-development-plan...
+  Extracted 1,415 chars of article text
+  [3] Enriching: Hines’ Steve Luthman: Real estate M&A reflects shift to operation
+  Full-text fetch: https://irei.com/news/hines-steve-luthman-real-estate-ma-reflects-shif...
+  Extracted 956 chars of article text
+  [4] Enriching: Tighter FHA Loss Mitigation Rules Could Push 250,000 Into Sales o
+  Full-text fetch: https://propmodo.com/tighter-fha-loss-mitigation-rules-could-push-2500...
+  Extracted 1,943 chars of article text
+  [5] Enriching: Vertical integration and the operator mindset: Castle Peak’s Ben 
+  Full-text fetch: https://irei.com/news/vertical-integration-and-the-operator-mindset-ca...
+  Extracted 979 chars of article text
+  Collected 5 candidate(s) for article generation
+
+[5/8] Generating 5 article(s)...
+  Generating article 1/5: Bond Traders Look to Treasury Refunding, Fed Speakers and Jo
+  [1] Title:    Bond Market Braces for Treasury Refunding, Fed Speakers, Jobs Data
+  [1] Slug:     bond-market-treasury-refunding-fed-speakers-jobs
+  [1] Category: Capital Markets
+  Generating article 2/5: 149-Unit Residential Development Planned For 122 Varick Stre
+  [2] Title:    Global Holdings, MAG Partners Plan 149-Unit Tower on Trinity Church Ground Lease in Hudson Square
+  [2] Slug:     global-holdings-mag-partners-122-varick
+  [2] Category: Deal Intelligence
+  Generating article 3/5: Hines’ Steve Luthman: Real estate M&A reflects shift to oper
+  [3] Title:    Hines’ Luthman: M&A Surge Signals End of Financial Engineering Era
+  [3] Slug:     hines-luthman-ma-operational-value
+  [3] Category: Market Analysis
+  Generating article 4/5: Tighter FHA Loss Mitigation Rules Could Push 250,000 Into Sa
+  [4] Title:    FHA Loss Mitigation Cuts Threaten 250,000 Borrowers With Forced Sales
+  [4] Slug:     fha-loss-mitigation-cuts-250000-forced-sales
+  [4] Category: Policy & Regulation
+  Generating article 5/5: Vertical integration and the operator mindset: Castle Peak’s
+  [5] Title:    Castle Peak's Weinberg: Vertical Integration Is the Only Hedge Against Hospitality's Margin Squeeze
+  [5] Slug:     castle-peak-vertical-integration-hospitality
+  [5] Category: Market Analysis
+  Successfully generated 5 article(s)
+
+[6/8] Publishing 5 article(s)...
+  Saved: insights/bond-market-treasury-refunding-fed-speakers-jobs.html
+  insights.json updated (298 total entries)
+  Saved: insights/global-holdings-mag-partners-122-varick.html
+  insights.json updated (299 total entries)
+  Saved: insights/hines-luthman-ma-operational-value.html
+  insights.json updated (300 total entries)
+  Saved: insights/fha-loss-mitigation-cuts-250000-forced-sales.html
+  insights.json updated (301 total entries)
+  Saved: insights/castle-peak-vertical-integration-hospitality.html
+  insights.json updated (302 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (317 URLs)
+  Git: committed 5 articles and pushed → Netlify deploying
+
+[7/8] LinkedIn (top-ranked article only)...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 148s — published 5 article(s)
+  Article: https://lighttowergroup.co/insights/bond-market-treasury-refunding-fed-speakers-jobs.html
+  Article: https://lighttowergroup.co/insights/global-holdings-mag-partners-122-varick.html
+  Article: https://lighttowergroup.co/insights/hines-luthman-ma-operational-value.html
+  Article: https://lighttowergroup.co/insights/fha-loss-mitigation-cuts-250000-forced-sales.html
+  Article: https://lighttowergroup.co/insights/castle-peak-vertical-integration-hospitality.html
+  LinkedIn: skipped/failed
+==============================================================
+
