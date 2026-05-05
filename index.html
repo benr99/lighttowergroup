@@ -259,21 +259,22 @@
 
     .nav-logo {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 1.1rem;
       text-transform: uppercase;
       letter-spacing: 0.22em;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text);
+      margin-right: auto;
     }
 
     .nav-links {
       display: flex;
-      gap: 3rem;
+      gap: 2.8rem;
       align-items: center;
     }
 
     .nav-links a {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: #888;
@@ -327,9 +328,9 @@
 
     .hero-name {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 6.5vw, 7.5rem);
-      line-height: 0.88;
-      font-weight: 400;
+      font-size: clamp(3.5rem, 8vw, 9rem);
+      line-height: 0.85;
+      font-weight: 500;
       color: var(--text);
       letter-spacing: -0.03em;
       opacity: 0;
@@ -344,9 +345,10 @@
     }
 
     .hero-statement p {
-      font-size: 1.15rem;
-      line-height: 1.75;
+      font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+      line-height: 1.85;
       color: #505050;
+      font-weight: 400;
     }
 
     .hero-bottom {
@@ -363,10 +365,11 @@
       gap: 2rem;
       align-items: center;
       flex-wrap: wrap;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: #666;
+      font-weight: 600;
     }
 
     .role-sep {
@@ -387,11 +390,11 @@
       display: inline-block;
       background: var(--text);
       color: var(--white);
-      padding: 1rem 2rem;
-      font-size: 0.75rem;
+      padding: 1.1rem 2.4rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      font-weight: 500;
+      font-weight: 600;
       transition: background 0.3s;
     }
 
@@ -399,12 +402,13 @@
 
     .btn-ghost {
       display: inline-block;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--text);
-      font-size: 0.75rem;
+      padding: 1.1rem 0;
+      border-bottom: 2px solid var(--text);
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--text);
+      font-weight: 600;
     }
 
     .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
@@ -440,19 +444,20 @@
 
     .metric-number {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
       font-weight: 400;
       color: var(--accent);
       line-height: 1;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
     }
 
     .metric-label {
-      font-size: 0.7rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.5);
       line-height: 1.6;
+      font-weight: 500;
     }
 
     @media (max-width: 860px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } .metric-item { border-left: none; padding-left: 0; } }
@@ -488,16 +493,16 @@
 
     .split-content h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
       font-weight: 400;
       line-height: 1.25;
       margin-bottom: 2.5rem;
     }
 
     .body-text {
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       color: #484848;
-      line-height: 1.82;
+      line-height: 1.85;
       margin-bottom: 1.75rem;
     }
 
@@ -509,9 +514,9 @@
 
     .gold-quote p {
       font-family: var(--font-display);
-      font-size: 1.35rem;
+      font-size: 1.6rem;
       font-style: italic;
-      line-height: 1.55;
+      line-height: 1.65;
       color: var(--text);
     }
 
@@ -535,22 +540,23 @@
     }
 
     .service-num {
-      font-size: 0.82rem;
-      color: #ccc;
+      font-size: 0.95rem;
+      color: #aaa;
       padding-top: 0.4rem;
+      font-weight: 600;
     }
 
     .service-title {
       font-family: var(--font-display);
-      font-size: clamp(1.65rem, 2.5vw, 2.1rem);
+      font-size: clamp(1.85rem, 3vw, 2.4rem);
       font-weight: 400;
       margin-bottom: 1rem;
     }
 
     .service-desc {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: #555;
-      line-height: 1.78;
+      line-height: 1.85;
     }
 
     .service-tags {
@@ -561,8 +567,9 @@
     }
 
     .service-tag {
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 0.1em;
       color: var(--accent);
       font-weight: 500;

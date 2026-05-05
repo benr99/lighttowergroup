@@ -642,13 +642,13 @@ def render_html(article: dict) -> str:
       border-bottom: 1px solid var(--gold-dim);
     }}
     .nav-logo {{
-      font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.18em;
+      font-family: var(--sans); font-size: 1.1rem; letter-spacing: 0.18em;
       color: var(--gold); text-decoration: none; text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700; margin-right: auto;
     }}
-    .nav-links {{ display: flex; gap: 2.5rem; }}
+    .nav-links {{ display: flex; gap: 2.8rem; }}
     .nav-links a {{
-      font-family: var(--sans); font-size: 0.8rem; color: var(--muted);
+      font-family: var(--sans); font-size: 0.9rem; color: var(--muted);
       text-decoration: none; letter-spacing: 0.05em;
     }}
     .nav-links a:hover {{ color: var(--white); }}
@@ -661,26 +661,27 @@ def render_html(article: dict) -> str:
     .nav-cta:hover {{ background: var(--gold); color: var(--black); }}
 
     /* ── Article layout ── */
-    .article-wrap {{ max-width: 740px; margin: 0 auto; padding: 4rem 2rem 7rem; }}
+    .article-wrap {{ max-width: 780px; margin: 0 auto; padding: 5rem 2.5rem 8rem; }}
 
     /* ── Header ── */
     .article-category {{
-      font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem;
+      font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.3rem;
+      font-weight: 600;
     }}
     .article-title {{
       font-family: var(--serif);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: normal; line-height: 1.18;
-      color: var(--white); margin-bottom: 0.9rem;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: normal; line-height: 1.15;
+      color: var(--white); margin-bottom: 1rem;
     }}
     .article-subtitle {{
-      font-size: 1.35rem; color: var(--muted); font-style: italic;
-      line-height: 1.5; margin-bottom: 1.6rem;
+      font-size: 1.6rem; color: var(--muted); font-style: italic;
+      line-height: 1.65; margin-bottom: 1.8rem;
     }}
     .article-byline {{
-      font-family: var(--sans); font-size: 0.9rem; color: var(--muted);
-      display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.75rem;
+      font-family: var(--sans); font-size: 1rem; color: var(--muted);
+      display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem;
     }}
     .article-rule {{
       border: none; border-top: 1px solid var(--gold-dim); margin: 1.75rem 0;
@@ -709,7 +710,7 @@ def render_html(article: dict) -> str:
     .share-copy:hover {{ background: rgba(201,168,76,0.1); }}
 
     /* ── Body ── */
-    .article-body {{ font-size: 1.15rem; line-height: 1.82; }}
+    .article-body {{ font-size: 1.3rem; line-height: 1.9; }}
     .article-body p {{
       margin-bottom: 1.45rem; color: var(--body-txt);
     }}
@@ -717,25 +718,27 @@ def render_html(article: dict) -> str:
     .article-body a {{ color: var(--gold); }}
 
     /* ── Tags ── */
-    .article-tags {{ display: flex; gap: 0.45rem; flex-wrap: wrap; margin: 2rem 0 1rem; }}
+    .article-tags {{ display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 2.5rem 0 1.5rem; }}
     .tag {{
-      font-family: var(--sans); font-size: 0.67rem; letter-spacing: 0.1em;
+      font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted);
-      border: 1px solid rgba(138,155,176,0.28); padding: 0.28rem 0.65rem;
+      border: 1px solid rgba(138,155,176,0.28); padding: 0.35rem 0.8rem;
       border-radius: 2px;
+      font-weight: 500;
     }}
 
     /* ── Sources ── */
     .sources-block {{
-      margin-top: 3rem; padding-top: 1.75rem;
+      margin-top: 3.5rem; padding-top: 2rem;
       border-top: 1px solid var(--gold-dim);
     }}
     .sources-block h3 {{
-      font-family: var(--sans); font-size: 0.67rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 0.65rem;
+      font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
+      font-weight: 600;
     }}
     .sources-block ul {{ list-style: none; }}
-    .sources-block li {{ font-size: 0.85rem; margin-bottom: 0.3rem; }}
+    .sources-block li {{ font-size: 0.95rem; margin-bottom: 0.5rem; }}
     .sources-block a {{ color: var(--gold); text-decoration: none; }}
     .sources-block a:hover {{ text-decoration: underline; }}
 
