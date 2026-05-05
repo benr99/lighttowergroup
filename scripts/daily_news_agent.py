@@ -570,6 +570,7 @@ def _share_buttons(page_url: str, title: str) -> str:
 def render_html(article: dict) -> str:
     """Render a full standalone HTML page for a news article."""
     page_url = f"{SITE_URL}/insights/{article['slug']}.html"
+    social_image_url = f"{SITE_URL}/insights/{article['slug']}_social.png"
     esc      = lambda s: escape(str(s or ""))
 
     sources_html = "\n".join(
@@ -605,12 +606,17 @@ def render_html(article: dict) -> str:
   <meta property="og:description" content="{esc(article['meta_description'])}">
   <meta property="og:url"         content="{page_url}">
   <meta property="og:site_name"   content="Light Tower Group">
+  <meta property="og:image"       content="{social_image_url}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt"   content="{esc(article['title'])}">
   <meta property="article:published_time" content="{article['date_iso']}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="{esc(article['title'])}">
   <meta name="twitter:description" content="{esc(article['meta_description'])}">
+  <meta name="twitter:image"       content="{social_image_url}">
 
   <style>
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
