@@ -642,13 +642,13 @@ def render_html(article: dict) -> str:
       border-bottom: 1px solid var(--gold-dim);
     }}
     .nav-logo {{
-      font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.18em;
+      font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.18em;
       color: var(--gold); text-decoration: none; text-transform: uppercase;
       font-weight: 600;
     }}
-    .nav-links {{ display: flex; gap: 2rem; }}
+    .nav-links {{ display: flex; gap: 2.5rem; }}
     .nav-links a {{
-      font-family: var(--sans); font-size: 0.75rem; color: var(--muted);
+      font-family: var(--sans); font-size: 0.8rem; color: var(--muted);
       text-decoration: none; letter-spacing: 0.05em;
     }}
     .nav-links a:hover {{ color: var(--white); }}
@@ -670,16 +670,16 @@ def render_html(article: dict) -> str:
     }}
     .article-title {{
       font-family: var(--serif);
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: normal; line-height: 1.18;
       color: var(--white); margin-bottom: 0.9rem;
     }}
     .article-subtitle {{
-      font-size: 1.1rem; color: var(--muted); font-style: italic;
+      font-size: 1.35rem; color: var(--muted); font-style: italic;
       line-height: 1.5; margin-bottom: 1.6rem;
     }}
     .article-byline {{
-      font-family: var(--sans); font-size: 0.75rem; color: var(--muted);
+      font-family: var(--sans); font-size: 0.9rem; color: var(--muted);
       display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.75rem;
     }}
     .article-rule {{
@@ -709,7 +709,7 @@ def render_html(article: dict) -> str:
     .share-copy:hover {{ background: rgba(201,168,76,0.1); }}
 
     /* ── Body ── */
-    .article-body {{ font-size: 1.05rem; line-height: 1.82; }}
+    .article-body {{ font-size: 1.15rem; line-height: 1.82; }}
     .article-body p {{
       margin-bottom: 1.45rem; color: var(--body-txt);
     }}

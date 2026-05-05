@@ -26,8 +26,8 @@ IMAGE_WIDTH = 1200
 IMAGE_HEIGHT = 628
 
 # Padding and layout
-PADDING_H = 60  # Horizontal padding
-PADDING_V = 50  # Vertical padding
+PADDING_H = 40  # Horizontal padding (reduced for bigger text)
+PADDING_V = 35  # Vertical padding (reduced for bigger text)
 
 
 def get_fonts():
@@ -50,9 +50,9 @@ def get_fonts():
 
     # Fall back to default system fonts
     try:
-        fonts["title"] = ImageFont.truetype("arial.ttf", 56)
-        fonts["subtitle"] = ImageFont.truetype("arial.ttf", 28)
-        fonts["branding"] = ImageFont.truetype("arial.ttf", 20)
+        fonts["title"] = ImageFont.truetype("arial.ttf", 72)
+        fonts["subtitle"] = ImageFont.truetype("arial.ttf", 40)
+        fonts["branding"] = ImageFont.truetype("arial.ttf", 28)
     except Exception:
         # If TrueType fonts unavailable, use default
         fonts["title"] = ImageFont.load_default()
@@ -121,7 +121,7 @@ def generate_article_image(title, subtitle, output_path):
         title_lines = wrap_text(title, fonts["title"], content_width, draw)
 
         y = PADDING_V
-        line_height = 70
+        line_height = 85
 
         for line in title_lines[:3]:  # Max 3 lines for title
             draw.text(
@@ -133,14 +133,14 @@ def generate_article_image(title, subtitle, output_path):
             y += line_height
 
         # Add accent line separator
-        y += 20
+        y += 15
         draw.rectangle(
-            [(PADDING_H, y), (PADDING_H + 80, y + 4)],
+            [(PADDING_H, y), (PADDING_H + 100, y + 5)],
             fill=BRAND_ACCENT
         )
 
         # Draw subtitle
-        y += 25
+        y += 20
         subtitle_lines = wrap_text(subtitle, fonts["subtitle"], content_width, draw)
 
         for line in subtitle_lines[:2]:  # Max 2 lines for subtitle
@@ -150,7 +150,7 @@ def generate_article_image(title, subtitle, output_path):
                 font=fonts["subtitle"],
                 fill=BRAND_TEXT
             )
-            y += 45
+            y += 55
 
         # Draw branding at bottom
         branding_text = "Light Tower Group — Capital Markets Advisory"
@@ -159,7 +159,7 @@ def generate_article_image(title, subtitle, output_path):
 
         # Right-align branding
         branding_x = IMAGE_WIDTH - PADDING_H - branding_width
-        branding_y = IMAGE_HEIGHT - PADDING_V - 30
+        branding_y = IMAGE_HEIGHT - PADDING_V - 40
 
         draw.text(
             (branding_x, branding_y),
@@ -170,7 +170,7 @@ def generate_article_image(title, subtitle, output_path):
 
         # Draw small brand accent line at bottom
         draw.rectangle(
-            [(branding_x - 10, branding_y - 15), (branding_x, branding_y - 10)],
+            [(branding_x - 12, branding_y - 18), (branding_x - 2, branding_y - 12)],
             fill=BRAND_ACCENT
         )
 
