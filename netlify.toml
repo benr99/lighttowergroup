@@ -4,6 +4,12 @@
 [functions]
   node_bundler = "esbuild"
 
+[[redirects]]
+  from   = "/linkedin_essay_queue.json"
+  to     = "/"
+  status = 404
+  force  = true
+
 # ── Block public access to internal tool ────────────────────────────────────
 [[redirects]]
   from   = "/origination.html"

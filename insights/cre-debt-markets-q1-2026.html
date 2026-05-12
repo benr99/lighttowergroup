@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -78,7 +78,7 @@
     .nav-inner { max-width: var(--container); margin: 0 auto; padding: 0 3rem; height: 100%; display: flex; justify-content: space-between; align-items: center; }
     @media (max-width: 768px) { .nav-inner { padding: 0 1.5rem; } }
     @media (max-width: 480px) { .nav-inner { padding: 0 1.25rem; } }
-    .nav-logo { font-family: var(--font-body); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; }
+    .nav-logo { font-family: var(--font-body); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 600; white-space: nowrap; }
     .nav-links { display: flex; gap: 2.5rem; align-items: center; }
     .nav-links a { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
     .nav-links a:hover { color: var(--text); }
@@ -219,23 +219,42 @@
     .footer-disclaimer { font-size: 0.62rem; color: #333; max-width: 480px; line-height: 1.65; text-align: right; }
     @media (max-width: 860px) { .footer-disclaimer { text-align: left; } }
   </style>
+  <link rel="stylesheet" href="/site.css">
+  <script src="/site.js" defer></script>
 </head>
 
 <body>
 
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="Light Tower Group home">Light Tower Group</a>
       <div class="nav-links">
-        <a href="/#practice" class="nav-hide">The Practice</a>
-        <a href="/#advantage" class="nav-hide">The Advantage</a>
-        <a href="/#leadership" class="nav-hide">Leadership</a>
-        <a href="/#faq" class="nav-hide">FAQ</a>
-        <a href="/insights.html" class="nav-hide active">Insights</a>
-        <a href="/services.html" class="nav-hide">Services</a>
-        <a href="/#contact" class="nav-hide">Contact</a>
-        <a href="/#contact" class="nav-cta">Initiate Mandate</a>
+        <a href="/#practice">Practice</a>
+        <a href="/#advantage">Advantage</a>
+        <a href="/#leadership">Leadership</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/insights.html">Insights</a>
+        <a href="/buildings.html">Buildings</a>
+        <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
+        <a href="/#contact">Contact</a>
+        <button onclick="openLTGChat()" class="nav-cta">Initiate Mandate</button>
       </div>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile" role="menu">
+      <a href="/#practice">Practice</a>
+      <a href="/#advantage">Advantage</a>
+      <a href="/#leadership">Leadership</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/insights.html">Insights</a>
+      <a href="/buildings.html">Buildings</a>
+      <a href="/services.html">Services</a>
+      <a href="/about.html">About</a>
+      <a href="/#contact">Contact</a>
+      <button onclick="openLTGChat()" class="nav-mobile-cta">Initiate Mandate</button>
     </div>
   </nav>
 

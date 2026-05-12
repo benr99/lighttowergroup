@@ -54,11 +54,12 @@ if _env.exists():
 
 from news_sources import (
     RSS_FEEDS, CRE_KEYWORDS, EXCLUDE_KEYWORDS,
-    NEWSAPI_QUERIES, SITE_URL, SITE_NAME,
-    FEED_TITLE, FEED_DESCRIPTION, LINKEDIN_HASHTAGS,
+    NEWSAPI_QUERIES, SITE_URL,
+    FEED_TITLE, FEED_DESCRIPTION,
 )
 from enhanced_prompts import SYSTEM_PROMPT_ENHANCED, USER_PROMPT_TEMPLATE
 from social_image_generator import generate_article_image
+from linkedin_essay_agent import ESSAY_QUEUE, generate_essay_package, save_to_queue
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -621,13 +622,13 @@ def render_html(article: dict) -> str:
   <style>
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
     :root {{
-      --black:    #080c14;
-      --navy:     #0d1826;
+      --black: #f5f4f0;
+      --navy: #ffffff;
       --gold:     #c9a84c;
-      --gold-dim: rgba(201,168,76,0.25);
-      --white:    #f4f0e8;
-      --muted:    #8a9bb0;
-      --body-txt: rgba(244,240,232,0.88);
+      --gold-dim: rgba(0,0,0,0.08);
+      --white: #121212;
+      --muted: #555555;
+      --body-txt: #333333;
       --serif:    Georgia, 'Times New Roman', serif;
       --sans:     -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }}
@@ -704,7 +705,7 @@ def render_html(article: dict) -> str:
     }}
     .share-li  {{ color: #5b9bd5; border-color: rgba(91,155,213,0.45); }}
     .share-li:hover  {{ background: rgba(91,155,213,0.12); color: #7fb3e8; }}
-    .share-tw  {{ color: var(--white); border-color: rgba(255,255,255,0.25); }}
+    .share-tw  {{ color: var(--white); border-color: rgba(0,0,0,0.18); }}
     .share-tw:hover  {{ background: rgba(255,255,255,0.07); }}
     .share-copy {{ color: var(--gold); border-color: var(--gold-dim); }}
     .share-copy:hover {{ background: rgba(201,168,76,0.1); }}
@@ -759,7 +760,7 @@ def render_html(article: dict) -> str:
     .nav-menu-btn.open span:nth-child(1) {{ transform: translateY(7px) rotate(45deg); }}
     .nav-menu-btn.open span:nth-child(2) {{ opacity: 0; }}
     .nav-menu-btn.open span:nth-child(3) {{ transform: translateY(-7px) rotate(-45deg); }}
-    .nav-mobile {{ display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(8,12,20,0.98); padding: 5rem 2rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 200; }}
+    .nav-mobile {{ display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(245,244,240,0.98); padding: 5rem 2rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 200; }}
     .nav-mobile.open {{ display: flex; }}
     .nav-mobile a {{ font-size: 1rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; }}
     .nav-mobile a:hover {{ color: var(--white); }}
@@ -782,32 +783,43 @@ def render_html(article: dict) -> str:
     }});
   </script>
   -->
+  <link rel="stylesheet" href="/site.css">
+  <script src="/site.js" defer></script>
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="/" class="nav-logo">Light Tower Group</a>
-    <div class="nav-links">
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Light Tower Group home">Light Tower Group</a>
+      <div class="nav-links">
+        <a href="/#practice">Practice</a>
+        <a href="/#advantage">Advantage</a>
+        <a href="/#leadership">Leadership</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/insights.html">Insights</a>
+        <a href="/buildings.html">Buildings</a>
+        <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
+        <a href="/#contact">Contact</a>
+        <button class="nav-cta" onclick="openLTGChat()">Initiate Mandate</button>
+      </div>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile" role="menu">
+      <a href="/#practice">Practice</a>
+      <a href="/#advantage">Advantage</a>
+      <a href="/#leadership">Leadership</a>
+      <a href="/#faq">FAQ</a>
       <a href="/insights.html">Insights</a>
       <a href="/buildings.html">Buildings</a>
       <a href="/services.html">Services</a>
       <a href="/about.html">About</a>
-      <a href="/index.html#contact">Contact</a>
-      <button class="nav-cta" onclick="openLTGChat()">Initiate Mandate</button>
+      <a href="/#contact">Contact</a>
+      <button class="nav-mobile-cta" onclick="openLTGChat()">Initiate Mandate</button>
     </div>
-    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
-  <div class="nav-mobile" id="nav-mobile">
-    <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">&times;</button>
-    <a href="/insights.html">Insights</a>
-    <a href="/buildings.html">Buildings</a>
-    <a href="/services.html">Services</a>
-    <a href="/about.html">About</a>
-    <a href="/index.html#contact">Contact</a>
-    <button class="nav-cta" onclick="openLTGChat();document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-menu-btn').classList.remove('open');">Initiate Mandate</button>
-  </div>
 
   <div class="article-wrap">
     <article itemscope itemtype="https://schema.org/NewsArticle">
@@ -857,7 +869,7 @@ def render_html(article: dict) -> str:
       <a href="/insights.html">All Insights</a> &nbsp;&middot;&nbsp;
       <a href="/about.html">About</a> &nbsp;&middot;&nbsp;
       <a href="/feed.xml">RSS Feed</a> &nbsp;&middot;&nbsp;
-      <a href="/index.html#contact">Contact</a>
+      <a href="/#contact">Contact</a>
     </p>
     <p>&copy; {year} Light Tower Group. All rights reserved.</p>
   </footer>
@@ -1034,6 +1046,8 @@ def git_commit_push(articles: list, dry_run: bool = False):
 
     files = [f"insights/{a['slug']}.html" for a in articles]
     files += ["insights.json", "feed.xml", "sitemap.xml"]
+    if ESSAY_QUEUE.exists():
+        files.append(str(ESSAY_QUEUE.relative_to(SITE_ROOT)))
 
     titles = "; ".join(a["title"][:40] for a in articles[:3])
     if len(articles) > 3:
@@ -1072,9 +1086,29 @@ def post_to_linkedin(article: dict, dry_run: bool = False) -> bool:
     Token expiry: LinkedIn access tokens expire after ~60 days.
     Re-run linkedin_auth.py when the token expires.
     """
+    package = article.get("linkedin_essay_package") or {}
+    essay_text = (
+        package.get("linkedin_essay")
+        or article.get("linkedin_essay")
+        or article.get("linkedin_hook")
+        or article["title"]
+    )
+    essay_text = essay_text.strip()
+    if len(essay_text) > 2950:
+        essay_text = essay_text[:2940].rstrip()
+
     if dry_run:
-        print(f"  [DRY-RUN] LinkedIn post text:\n  {article.get('linkedin_hook','')[:120]}...")
+        print(f"  [DRY-RUN] LinkedIn essay text:\n  {essay_text[:700]}...")
         return False
+
+    if package:
+        overall_score = ((package.get("quality_score") or {}).get("overall") or 0)
+        if package.get("fallback") or overall_score < 8:
+            print(
+                "  [SKIP] LinkedIn Essay Desk package did not meet the 8/10 quality gate; "
+                "saved to queue for review instead."
+            )
+            return False
 
     if not LINKEDIN_ACCESS_TOKEN or not LINKEDIN_PERSON_URN:
         print(
@@ -1103,13 +1137,9 @@ def post_to_linkedin(article: dict, dry_run: bool = False) -> bool:
 
     page_url = f"{SITE_URL}/insights/{article['slug']}.html"
 
-    # Build post text: hook + hashtags
-    # Note: URL is carried by the article card — omitting from text body improves reach
-    hashtags = " ".join(LINKEDIN_HASHTAGS[:6])
-    hook = article.get('linkedin_hook', article['title'])
-    # Ensure each sentence is on its own line for LinkedIn's algorithm
-    hook = re.sub(r'\. ([A-Z])', r'.\n\n\1', hook)
-    post_text = f"{hook}\n\n{hashtags}"
+    # The Essay Desk writes the social-native post. The URL is carried by the
+    # article card; the richer first comment is saved in the content queue.
+    post_text = essay_text
 
     payload = {
         "author":         LINKEDIN_PERSON_URN,
@@ -1187,6 +1217,11 @@ def main():
                         help="Skip the duplicate-slug check")
     parser.add_argument("--articles", type=int, default=5, metavar="N",
                         help="Number of articles to publish per run (default: 5, max: 10)")
+    parser.add_argument("--linkedin-length", choices=["standard", "edge", "compressed"],
+                        default="standard",
+                        help="Essay Desk length mode for LinkedIn output")
+    parser.add_argument("--auto-post-linkedin", action="store_true",
+                        help="Post the Essay Desk LinkedIn essay automatically after publishing")
     args = parser.parse_args()
     MAX_ARTICLES = max(1, min(args.articles, 10))
 
@@ -1270,6 +1305,40 @@ def main():
 
     print(f"  Successfully generated {len(articles)} article(s)")
 
+    # ─ Phase 5b: LinkedIn Essay Desk ─────────────────────────────────────
+    print(f"\n[5b/8] Generating LinkedIn Essay Desk package(s)...")
+    essay_packages = []
+    for i, article in enumerate(articles, 1):
+        try:
+            package = generate_essay_package(
+                article,
+                length_mode=args.linkedin_length,
+                api_key=DEEPSEEK_API_KEY,
+                site_url=SITE_URL,
+            )
+        except Exception as e:
+            print(f"  [WARN] Essay Desk failed for article {i}: {e} — using fallback package")
+            package = generate_essay_package(
+                article,
+                length_mode=args.linkedin_length,
+                api_key="",
+                site_url=SITE_URL,
+            )
+
+        article["linkedin_essay_package"] = package
+        article["linkedin_essay"] = package.get("linkedin_essay", "")
+        article["linkedin_hook"] = article["linkedin_essay"] or article.get("linkedin_hook", "")
+        article["linkedin_first_comment"] = package.get("first_comment", "")
+        essay_packages.append(package)
+
+        score = (package.get("quality_score") or {}).get("overall", "?")
+        print(f"  [{i}] Essay Desk: {package.get('archetype', 'unknown')} | score {score}/10")
+        if not args.dry_run:
+            save_to_queue(package)
+
+    if args.dry_run and essay_packages:
+        print(f"  [DRY-RUN] Essay package (article 1):\n{json.dumps(essay_packages[0], indent=2, ensure_ascii=False)[:1600]}...")
+
     run_data["articles"] = [
         {"title": a["title"], "slug": a["slug"],
          "source": enriched_candidates[i]["source"],
@@ -1281,6 +1350,7 @@ def main():
         "slug":       articles[0]["slug"],
         "source":     enriched_candidates[0]["source"],
         "source_url": enriched_candidates[0]["url"],
+        "linkedin_essay_queue": str(ESSAY_QUEUE.relative_to(SITE_ROOT)),
     })
 
     # \u2500 Phase 6: Publish \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1307,12 +1377,19 @@ def main():
     else:
         for article in articles:
             print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")
-        print(f"  [DRY-RUN] LinkedIn hook (article 1):\n  {articles[0].get('linkedin_hook','')}")
+        print(f"  [DRY-RUN] LinkedIn essay (article 1):\n  {articles[0].get('linkedin_essay','')}")
 
     # \u2500 Phase 7: LinkedIn \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("\n[7/8] LinkedIn (top-ranked article only)...")
-    li_ok = post_to_linkedin(articles[0], dry_run=args.dry_run)
+    print("\n[7/8] LinkedIn review queue...")
+    if args.auto_post_linkedin:
+        print("  Auto-post enabled for top-ranked article.")
+        li_ok = post_to_linkedin(articles[0], dry_run=args.dry_run)
+    else:
+        li_ok = False
+        print("  Auto-post disabled. Review/edit from the Insight share modal before posting.")
+        print(f"  Queue: {ESSAY_QUEUE.relative_to(SITE_ROOT)}")
     run_data["linkedin_posted"] = li_ok
+    run_data["linkedin_review_required"] = not args.auto_post_linkedin
 
     # \u2500 Log \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     elapsed = round((datetime.now(timezone.utc) - start).total_seconds())
@@ -1328,7 +1405,7 @@ def main():
     if not args.dry_run:
         for a in articles:
             print(f"  Article: {SITE_URL}/insights/{a['slug']}.html")
-        print(f"  LinkedIn: {'posted (article 1)' if li_ok else 'skipped/failed'}")
+        print(f"  LinkedIn: {'posted (article 1)' if li_ok else 'queued for review'}")
     print(f"{'='*62}\n")
 
 

@@ -1467,3 +1467,534 @@ anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type':
   LinkedIn: skipped/failed
 ==============================================================
 
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-05 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 445 raw stories from 88 feeds
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 445 raw → 91 relevant → 84 unique
+
+[3/8] Scoring 84 stories...
+  Top 3 stories:
+    #1 [75/100] Propmodo: REIT IPO Targets $1.7 Billion to Build Blackstone’s Data Center P
+    #2 [72/100] The Real Deal: Court revives Eli Karp’s loan-to-own claim against Madison Realty
+    #3 [70/100] Propmodo: Tighter FHA Loss Mitigation Rules Could Push 250,000 Into Sales o
+
+[4/8] Enriching up to 5 candidates...
+  [1] Enriching: REIT IPO Targets $1.7 Billion to Build Blackstone’s Data Center P
+  Full-text fetch: https://propmodo.com/reit-ipo-targets-1-7-billion-to-build-blackstones...
+  Extracted 1,523 chars of article text
+  [2] Enriching: Court revives Eli Karp’s loan-to-own claim against Madison Realty
+  Full-text fetch: https://therealdeal.com/new-york/2026/05/04/court-revives-eli-karps-ma...
+  Extracted 2,342 chars of article text
+  [3] Enriching: Tighter FHA Loss Mitigation Rules Could Push 250,000 Into Sales o
+  Full-text fetch: https://propmodo.com/tighter-fha-loss-mitigation-rules-could-push-2500...
+  Extracted 1,943 chars of article text
+  [4] Enriching: April’s largest lease in Manhattan not all it seems to be
+  Full-text fetch: https://therealdeal.com/new-york/2026/05/04/cleary-gottliebs-475k-sf-l...
+  Extracted 1,974 chars of article text
+  [5] Enriching: Developers piece together opportunity in NYC’s rezoned Garment Di
+  Full-text fetch: https://therealdeal.com/magazine/may-2026/midtown-souths-patchwork-pla...
+  Extracted 5,000 chars of article text
+  NYC addresses found: ['29 West 35th Street']
+  Collected 5 candidate(s) for article generation
+
+[5/8] Generating 5 article(s)...
+  Generating article 1/5: REIT IPO Targets $1.7 Billion to Build Blackstone’s Data Cen
+  [1] Title:    Blackstone's $1.7B Data Center REIT IPO: AI Demand Meets Permanent Capital
+  [1] Slug:     blackstone-data-center-reit-ipo-1-7-billion
+  [1] Category: Capital Markets
+  Generating article 2/5: Court revives Eli Karp’s loan-to-own claim against Madison R
+  [2] Title:    Brooklyn Appellate Court Revives Karp’s Loan-to-Own Claim Against Madison Realty Capital
+  [2] Slug:     karp-madison-realty-capital-loan-to-own
+  [2] Category: Debt & Equity
+  Generating article 3/5: Tighter FHA Loss Mitigation Rules Could Push 250,000 Into Sa
+  [3] Title:    FHA Rule Change Pushes 250,000 Borrowers Toward Default, Forced Sale
+  [3] Slug:     fha-loss-mitigation-rules-default-wave
+  [3] Category: Policy & Regulation
+  Generating article 4/5: April’s largest lease in Manhattan not all it seems to be
+  [4] Title:    Cleary Gottlieb's 475K SF Lease: Manhattan's Largest Is Actually a Downsizing
+  [4] Slug:     cleary-gottlieb-lease-downsizing
+  [4] Category: Market Analysis
+  Generating article 5/5: Developers piece together opportunity in NYC’s rezoned Garme
+  [5] Title:    Garment District Rezoning: 1% of Housing Goal, 100% of Developer Headaches
+  [5] Slug:     garment-district-rezoning-485x-margins
+  [5] Category: Policy & Regulation
+  Successfully generated 5 article(s)
+
+[6/8] Publishing 5 article(s)...
+  Saved: insights/blackstone-data-center-reit-ipo-1-7-billion.html
+  Image: insights/blackstone-data-center-reit-ipo-1-7-billion_social.png
+  insights.json updated (303 total entries)
+  Saved: insights/karp-madison-realty-capital-loan-to-own.html
+  Image: insights/karp-madison-realty-capital-loan-to-own_social.png
+  insights.json updated (304 total entries)
+  Saved: insights/fha-loss-mitigation-rules-default-wave.html
+  Image: insights/fha-loss-mitigation-rules-default-wave_social.png
+  insights.json updated (305 total entries)
+  Saved: insights/cleary-gottlieb-lease-downsizing.html
+  Image: insights/cleary-gottlieb-lease-downsizing_social.png
+  insights.json updated (306 total entries)
+  Saved: insights/garment-district-rezoning-485x-margins.html
+  Image: insights/garment-district-rezoning-485x-margins_social.png
+  insights.json updated (307 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (322 URLs)
+  Git: committed 5 articles and pushed → Netlify deploying
+
+[7/8] LinkedIn (top-ranked article only)...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 196s — published 5 article(s)
+  Article: https://lighttowergroup.co/insights/blackstone-data-center-reit-ipo-1-7-billion.html
+  Article: https://lighttowergroup.co/insights/karp-madison-realty-capital-loan-to-own.html
+  Article: https://lighttowergroup.co/insights/fha-loss-mitigation-rules-default-wave.html
+  Article: https://lighttowergroup.co/insights/cleary-gottlieb-lease-downsizing.html
+  Article: https://lighttowergroup.co/insights/garment-district-rezoning-485x-margins.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-06 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 449 raw stories from 88 feeds
+  NewsAPI: 1 additional stories
+
+[2/8] Triaging...
+  Triage: 450 raw → 78 relevant → 73 unique
+
+[3/8] Scoring 73 stories...
+  Top 3 stories:
+    #1 [85/100] Propmodo: Vornado Declares Manhattan Office Recovery While Warning Politics
+    #2 [85/100] RE Business Online: Cleary Gottlieb Signs 475,000 SF Office Lease Renewal in Lower Ma
+    #3 [80/100] The Real Deal: Steve Roth calls Mamdani video “irresponsible and dangerous”
+
+[4/8] Enriching up to 5 candidates...
+  [1] Enriching: Vornado Declares Manhattan Office Recovery While Warning Politics
+  Full-text fetch: https://propmodo.com/vornado-declares-manhattan-office-recovery-while-...
+  Extracted 5,000 chars of article text
+  [2] Enriching: Cleary Gottlieb Signs 475,000 SF Office Lease Renewal in Lower Ma
+  Full-text fetch: https://rebusinessonline.com/cleary-gottlieb-signs-475000-sf-office-le...
+  Extracted 531 chars of article text
+  [3] Enriching: Steve Roth calls Mamdani video “irresponsible and dangerous”
+  Full-text fetch: https://therealdeal.com/new-york/2026/05/05/steve-roth-calls-mamdani-v...
+  Extracted 2,985 chars of article text
+  [4] Enriching: Manhattan’s Tech Sector Notched a Record Number of Lease Deals in
+  Full-text fetch: https://commercialobserver.com/2026/05/manhattan-tech-ai-sector-leasin...
+  Extracted 2,871 chars of article text
+  [5] Enriching: Q1 2026 Quarterly Data Review: Cracks Remain, but CRE Lending Gai
+  Full-text fetch: https://www.trepp.com/trepptalk/q1-2026-quarterly-data-review...
+  Extracted 3,406 chars of article text
+  Collected 5 candidate(s) for article generation
+
+[5/8] Generating 5 article(s)...
+  Generating article 1/5: Vornado Declares Manhattan Office Recovery While Warning Pol
+  [1] Title:    Vornado Declares Manhattan Office Recovery—But Warns Politics Could Undermine It
+  [1] Slug:     vornado-manhattan-office-recovery-politics
+  [1] Category: Market Analysis
+  Generating article 2/5: Cleary Gottlieb Signs 475,000 SF Office Lease Renewal in Low
+  [2] Title:    Brookfield Lands 20-Year, 475K SF Renewal at One Liberty as Law Firm Doubles Down on Lower Manhattan
+  [2] Slug:     cleary-gottlieb-one-liberty-renewal
+  [2] Category: Deal Intelligence
+  Generating article 3/5: Steve Roth calls Mamdani video “irresponsible and dangerous”
+  [3] Title:    Steve Roth’s Penn District Bet Hangs on a Pied-à-Terre Tax Spat
+  [3] Slug:     roth-mamdani-pied-a-terre-tax-350-park
+  [3] Category: Policy & Regulation
+  Generating article 4/5: Manhattan’s Tech Sector Notched a Record Number of Lease Dea
+  [4] Title:    Manhattan Tech Leasing Shatters Record in 2025, AI Drives 2026 Surge
+  [4] Slug:     manhattan-tech-leasing-record-2025-ai
+  [4] Category: Market Analysis
+  Generating article 5/5: Q1 2026 Quarterly Data Review: Cracks Remain, but CRE Lendin
+  [5] Title:    CMBS Issuance Hits $32.7B in Q1 2026 as Distress Rises to 7.55%
+  [5] Slug:     cmbs-issuance-q1-2026-distress-rises
+  [5] Category: Capital Markets
+  Successfully generated 5 article(s)
+
+[6/8] Publishing 5 article(s)...
+  Saved: insights/vornado-manhattan-office-recovery-politics.html
+  Image: insights/vornado-manhattan-office-recovery-politics_social.png
+  insights.json updated (308 total entries)
+  Saved: insights/cleary-gottlieb-one-liberty-renewal.html
+  Image: insights/cleary-gottlieb-one-liberty-renewal_social.png
+  insights.json updated (309 total entries)
+  Saved: insights/roth-mamdani-pied-a-terre-tax-350-park.html
+  Image: insights/roth-mamdani-pied-a-terre-tax-350-park_social.png
+  insights.json updated (310 total entries)
+  Saved: insights/manhattan-tech-leasing-record-2025-ai.html
+  Image: insights/manhattan-tech-leasing-record-2025-ai_social.png
+  insights.json updated (311 total entries)
+  Saved: insights/cmbs-issuance-q1-2026-distress-rises.html
+  Image: insights/cmbs-issuance-q1-2026-distress-rises_social.png
+  insights.json updated (312 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (327 URLs)
+  Git: committed 5 articles and pushed → Netlify deploying
+
+[7/8] LinkedIn (top-ranked article only)...
+  [WARN] LinkedIn 422: {"message":"ERROR :: /author :: \"urn:li:person:159599983\" does not match urn:li:company:\\d+|urn:li:member:\\d+\n","status":422}
+
+==============================================================
+  DONE in 174s — published 5 article(s)
+  Article: https://lighttowergroup.co/insights/vornado-manhattan-office-recovery-politics.html
+  Article: https://lighttowergroup.co/insights/cleary-gottlieb-one-liberty-renewal.html
+  Article: https://lighttowergroup.co/insights/roth-mamdani-pied-a-terre-tax-350-park.html
+  Article: https://lighttowergroup.co/insights/manhattan-tech-leasing-record-2025-ai.html
+  Article: https://lighttowergroup.co/insights/cmbs-issuance-q1-2026-distress-rises.html
+  LinkedIn: skipped/failed
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-07 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 469 raw stories from 88 feeds
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 469 raw → 96 relevant → 90 unique
+
+[3/8] Scoring 90 stories...
+  Top 3 stories:
+    #1 [82/100] Commercial Observer: Brooklyn Heights Walgreens to Become High-Rise After $30M Sale
+    #2 [80/100] Commercial Observer: Alchemy Properties Buys Vacant Tribeca Parking Garage for $57M
+    #3 [78/100] The Real Deal: Madison Realty Capital sells 16 Fifth Ave penthouse for 36% off
+
+[4/8] Enriching up to 5 candidates...
+  [1] Enriching: Brooklyn Heights Walgreens to Become High-Rise After $30M Sale
+  Full-text fetch: https://commercialobserver.com/2026/05/brooklyn-heights-walgreens-proj...
+  Extracted 2,859 chars of article text
+  [2] Enriching: Alchemy Properties Buys Vacant Tribeca Parking Garage for $57M
+  Full-text fetch: https://commercialobserver.com/2026/05/alchemy-properties-buys-vacant-...
+  Extracted 2,810 chars of article text
+  [3] Enriching: Madison Realty Capital sells 16 Fifth Ave penthouse for 36% off
+  Full-text fetch: https://therealdeal.com/new-york/2026/05/06/penthouse-at-16-fifth-ave-...
+  Extracted 2,434 chars of article text
+  [4] Enriching: RAMSA’s 16 Fifth Avenue Completes Construction in Greenwich Villa
+  Full-text fetch: https://newyorkyimby.com/2026/05/ramsas-16-fifth-avenue-completes-cons...
+  Extracted 2,209 chars of article text
+  [5] Enriching: JLL Arranges $150 Million in Financing for Bay Terrace Shopping C
+  Full-text fetch: https://shoppingcenterbusiness.com/jll-arranges-150-million-in-financi...
+  Extracted 1,386 chars of article text
+  Collected 5 candidate(s) for article generation
+
+[5/8] Generating 5 article(s)...
+  Generating article 1/5: Brooklyn Heights Walgreens to Become High-Rise After $30M Sa
+  [1] Title:    Rogers Equities Pays $30M for Brooklyn Heights Walgreens, Plans 75-Unit Tower
+  [1] Slug:     rogers-equities-brooklyn-heights-walgreens-sale
+  [1] Category: Deal Intelligence
+  Generating article 2/5: Alchemy Properties Buys Vacant Tribeca Parking Garage for $5
+  [2] Title:    Alchemy Pays $57M for Tribeca Garage, Betting on Ultra-Luxury Condo Demand
+  [2] Slug:     alchemy-tribeca-garage-condo-bet
+  [2] Category: Deal Intelligence
+  Generating article 3/5: Madison Realty Capital sells 16 Fifth Ave penthouse for 36% 
+  [3] Title:    Madison Realty Cuts Penthouse Price 36% as Greenwich Village Sellout Lags
+  [3] Slug:     madison-realty-penthouse-discount-greenwich-village
+  [3] Category: Market Analysis
+  Generating article 4/5: RAMSA’s 16 Fifth Avenue Completes Construction in Greenwich 
+  [4] Title:    Madison Realty Capital Delivers 16 Fifth Avenue: A Bet on Greenwich Village Luxury Condos
+  [4] Slug:     madison-realty-capital-16-fifth-avenue
+  [4] Category: Deal Intelligence
+  Generating article 5/5: JLL Arranges $150 Million in Financing for Bay Terrace Shopp
+  [5] Title:    Cord Meyer Secures $150M New York Life Loan for Queens Retail as Grocery-Anchored Assets Draw Institutional Capital
+  [5] Slug:     cord-meyer-150m-queens-retail-loan
+  [5] Category: Debt & Equity
+  Successfully generated 5 article(s)
+
+[5b/8] Generating LinkedIn Essay Desk package(s)...
+  [1] Essay Desk: Deal-as-signal | score 9/10
+  [2] Essay Desk: Capital stack | score 9/10
+  [3] Essay Desk: Deal-as-signal | score 9/10
+  [4] Essay Desk: Capital stack | score 9/10
+  [5] Essay Desk: Deal-as-signal | score 9/10
+
+[6/8] Publishing 5 article(s)...
+  Saved: insights/rogers-equities-brooklyn-heights-walgreens-sale.html
+  Image: insights/rogers-equities-brooklyn-heights-walgreens-sale_social.png
+  insights.json updated (313 total entries)
+  Saved: insights/alchemy-tribeca-garage-condo-bet.html
+  Image: insights/alchemy-tribeca-garage-condo-bet_social.png
+  insights.json updated (314 total entries)
+  Saved: insights/madison-realty-penthouse-discount-greenwich-village.html
+  Image: insights/madison-realty-penthouse-discount-greenwich-village_social.png
+  insights.json updated (315 total entries)
+  Saved: insights/madison-realty-capital-16-fifth-avenue.html
+  Image: insights/madison-realty-capital-16-fifth-avenue_social.png
+  insights.json updated (316 total entries)
+  Saved: insights/cord-meyer-150m-queens-retail-loan.html
+  Image: insights/cord-meyer-150m-queens-retail-loan_social.png
+  insights.json updated (317 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (332 URLs)
+  Git: committed 5 articles and pushed → Netlify deploying
+
+[7/8] LinkedIn review queue...
+  Auto-post disabled. Review/edit from the Insight share modal before posting.
+  Queue: linkedin_essay_queue.json
+
+==============================================================
+  DONE in 368s — published 5 article(s)
+  Article: https://lighttowergroup.co/insights/rogers-equities-brooklyn-heights-walgreens-sale.html
+  Article: https://lighttowergroup.co/insights/alchemy-tribeca-garage-condo-bet.html
+  Article: https://lighttowergroup.co/insights/madison-realty-penthouse-discount-greenwich-village.html
+  Article: https://lighttowergroup.co/insights/madison-realty-capital-16-fifth-avenue.html
+  Article: https://lighttowergroup.co/insights/cord-meyer-150m-queens-retail-loan.html
+  LinkedIn: queued for review
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-08 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 0 raw stories from 88 feeds
+  [WARN] NewsAPI query 'NYC commercial real estate mor': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=NYC+commercial+real+estate+mortgage+2026&from=2026-05-07&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000155568092B0>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Manhattan multifamily loan mat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Manhattan+multifamily+loan+maturity&from=2026-05-07&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000015556884E10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Brooklyn commercial real estat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Brooklyn+commercial+real+estate+deal&from=2026-05-07&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000015556887B10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 0 raw → 0 relevant → 0 unique
+  No relevant CRE stories found today. Exiting.
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-09 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 0 raw stories from 88 feeds
+  [WARN] NewsAPI query 'NYC commercial real estate mor': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=NYC+commercial+real+estate+mortgage+2026&from=2026-05-08&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000236282C52B0>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Manhattan multifamily loan mat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Manhattan+multifamily+loan+maturity&from=2026-05-08&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000023628344E10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Brooklyn commercial real estat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Brooklyn+commercial+real+estate+deal&from=2026-05-08&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000023628347B10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 0 raw → 0 relevant → 0 unique
+  No relevant CRE stories found today. Exiting.
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-10 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 0 raw stories from 88 feeds
+  [WARN] NewsAPI query 'NYC commercial real estate mor': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=NYC+commercial+real+estate+mortgage+2026&from=2026-05-09&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DF0F2492B0>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Manhattan multifamily loan mat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Manhattan+multifamily+loan+maturity&from=2026-05-09&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DF0F2C8E10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  [WARN] NewsAPI query 'Brooklyn commercial real estat': HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?q=Brooklyn+commercial+real+estate+deal&from=2026-05-09&sortBy=publishedAt&language=en&pageSize=10&apiKey=f1e6e15b400f484c89feb2790110a168 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DF0F2CBB10>: Failed to resolve 'newsapi.org' ([Errno 11001] getaddrinfo failed)"))
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 0 raw → 0 relevant → 0 unique
+  No relevant CRE stories found today. Exiting.
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-11 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 445 raw stories from 88 feeds
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 445 raw → 34 relevant → 28 unique
+
+[3/8] Scoring 28 stories...
+  Top 3 stories:
+    #1 [90/100] Institutional Real Estate: NYSCRF commits $900m to real estate vehicles in March
+    #2 [85/100] NY Post Real Estate: Real estate execs still in on Park Ave. project to be anchored by
+    #3 [78/100] NY Post Real Estate: New AI office leases stoking hot Manhattan market
+
+[4/8] Enriching up to 5 candidates...
+  [1] Enriching: NYSCRF commits $900m to real estate vehicles in March
+  Full-text fetch: https://irei.com/news/nyscrf-commits-900m-to-real-estate-vehicles-in-m...
+  Extracted 976 chars of article text
+  [2] Enriching: Real estate execs still in on Park Ave. project to be anchored by
+  Full-text fetch: https://nypost.com/2026/05/10/business/real-estate-execs-still-in-on-p...
+  Extracted 1,471 chars of article text
+  [3] Enriching: New AI office leases stoking hot Manhattan market
+  Full-text fetch: https://nypost.com/2026/05/10/business/new-ai-office-leases-stoking-ho...
+  Extracted 1,258 chars of article text
+  [4] Enriching: New Renderings Revealed For Wrey At 222 Broadway in Financial Dis
+  Full-text fetch: https://newyorkyimby.com/2026/05/new-renderings-revealed-for-wrey-at-2...
+  Extracted 2,388 chars of article text
+  [5] Enriching: A Rare Offering of Scale: 325,000 RSF at 1285 Avenue of the Ameri
+  Full-text fetch: https://commercialobserver.com/2026/05/a-rare-offering-of-scale-325000...
+  Extracted 3,198 chars of article text
+  Collected 5 candidate(s) for article generation
+
+[5/8] Generating 5 article(s)...
+  Generating article 1/5: NYSCRF commits $900m to real estate vehicles in March
+  [1] Title:    NYSCRF Pours $900M Into Real Estate Funds in Single Month
+  [1] Slug:     nyscrf-900m-real-estate-commits
+  [1] Category: Capital Markets
+  Generating article 2/5: Real estate execs still in on Park Ave. project to be anchor
+  [2] Title:    Griffin's 350 Park Ave. Commitment Hinges on July Deadline as Mayor's Rhetoric Escalates
+  [2] Slug:     griffin-350-park-ave-commitment-july-deadline
+  [2] Category: Deal Intelligence
+  Generating article 3/5: New AI office leases stoking hot Manhattan market
+  [3] Title:    AI Tenants Push Manhattan Office Leasing Past Apocalypse Narrative
+  [3] Slug:     ai-tenants-manhattan-office-leasing
+  [3] Category: Market Analysis
+  Generating article 4/5: New Renderings Revealed For Wrey At 222 Broadway in Financia
+  [4] Title:    TPG, GFP Score $288M for 222 Broadway Office-to-Resi Conversion at 70% Basis Discount
+  [4] Slug:     tpg-gfp-222-broadway-office-resi-conversion
+  [4] Category: Deal Intelligence
+  Generating article 5/5: A Rare Offering of Scale: 325,000 RSF at 1285 Avenue of the 
+  [5] Title:    RXR Markets 325,000 RSF at 1285 Sixth Avenue: A Bet on Flight-to-Quality
+  [5] Slug:     rxr-1285-sixth-avenue-325k-rsf
+  [5] Category: Market Analysis
+  Successfully generated 5 article(s)
+
+[5b/8] Generating LinkedIn Essay Desk package(s)...
+  [1] Essay Desk: Deal-as-signal | score 9/10
+  [2] Essay Desk: Deal-as-signal | score 9/10
+  [3] Essay Desk: Deal-as-signal | score 9/10
+  [4] Essay Desk: Deal-as-signal | score 9/10
+  [5] Essay Desk: Deal-as-signal | score 9/10
+
+[6/8] Publishing 5 article(s)...
+  Saved: insights/nyscrf-900m-real-estate-commits.html
+  Image: insights/nyscrf-900m-real-estate-commits_social.png
+  insights.json updated (318 total entries)
+  Saved: insights/griffin-350-park-ave-commitment-july-deadline.html
+  Image: insights/griffin-350-park-ave-commitment-july-deadline_social.png
+  insights.json updated (319 total entries)
+  Saved: insights/ai-tenants-manhattan-office-leasing.html
+  Image: insights/ai-tenants-manhattan-office-leasing_social.png
+  insights.json updated (320 total entries)
+  Saved: insights/tpg-gfp-222-broadway-office-resi-conversion.html
+  Image: insights/tpg-gfp-222-broadway-office-resi-conversion_social.png
+  insights.json updated (321 total entries)
+  Saved: insights/rxr-1285-sixth-avenue-325k-rsf.html
+  Image: insights/rxr-1285-sixth-avenue-325k-rsf_social.png
+  insights.json updated (322 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (337 URLs)
+  Git: committed 5 articles and pushed → Netlify deploying
+
+[7/8] LinkedIn review queue...
+  Auto-post disabled. Review/edit from the Insight share modal before posting.
+  Queue: linkedin_essay_queue.json
+
+==============================================================
+  DONE in 343s — published 5 article(s)
+  Article: https://lighttowergroup.co/insights/nyscrf-900m-real-estate-commits.html
+  Article: https://lighttowergroup.co/insights/griffin-350-park-ave-commitment-july-deadline.html
+  Article: https://lighttowergroup.co/insights/ai-tenants-manhattan-office-leasing.html
+  Article: https://lighttowergroup.co/insights/tpg-gfp-222-broadway-office-resi-conversion.html
+  Article: https://lighttowergroup.co/insights/rxr-1285-sixth-avenue-325k-rsf.html
+  LinkedIn: queued for review
+==============================================================
+
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-12 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 450 raw stories from 88 feeds
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 450 raw → 76 relevant → 69 unique
+
+[3/8] Scoring 69 stories...
+  Top 3 stories:
+    #1 [85/100] New York YIMBY: 2 World Trade Center Resumes Construction in Financial District, 
+    #2 [75/100] CNBC Real Estate: The wealthy keep buying Manhattan real estate despite potential p
+    #3 [72/100] The Real Deal: Brooklyn dealmaker Bert I. Dweck faces barrage of lawsuits over m
+
+[4/8] Enriching up to 5 candidates...
+  [1] Enriching: 2 World Trade Center Resumes Construction in Financial District, 
+  Full-text fetch: https://newyorkyimby.com/2026/05/2-world-trade-center-resumes-construc...
+  Extracted 3,330 chars of article text
+  [2] Enriching: The wealthy keep buying Manhattan real estate despite potential p
+  Full-text fetch: https://www.cnbc.com/2026/05/11/luxury-real-estate-manhattan-mamdani-p...
+  Extracted 3,521 chars of article text
+  [3] Enriching: Brooklyn dealmaker Bert I. Dweck faces barrage of lawsuits over m
+  Full-text fetch: https://therealdeal.com/new-york/2026/05/11/bert-dweck-faces-mounting-...
+  Extracted 5,000 chars of article text
+  [4] Enriching: A Rare Offering of Scale: 325,000 RSF at 1285 Avenue of the Ameri
+  Full-text fetch: https://commercialobserver.com/2026/05/a-rare-offering-of-scale-325000...
+  Extracted 3,198 chars of article text
+  [5] Enriching: Digital Realty charts major private fundraising push
+  Full-text fetch: https://www.perenews.com/digital-realty-charts-major-private-fundraisi...
+  Extracted 473 chars of article text
+  Collected 5 candidate(s) for article generation
+
+[5/8] Generating 5 article(s)...
+  Generating article 1/5: 2 World Trade Center Resumes Construction in Financial Distr
+  [1] Title:    2 World Trade Center Rises From 14-Year Pause as Amex Commits to 1.95M SF
+  [1] Slug:     2-world-trade-center-construction-resumes
+  [1] Category: Deal Intelligence
+  Generating article 2/5: The wealthy keep buying Manhattan real estate despite potent
+  [2] Title:    Manhattan Luxury Sales Surge 80% as Pied-à-Terre Tax Looms
+  [2] Slug:     manhattan-luxury-sales-pied-a-terre-tax
+  [2] Category: Market Analysis
+  Generating article 3/5: Brooklyn dealmaker Bert I. Dweck faces barrage of lawsuits o
+  [3] Title:    Bert Dweck Faces $14.4M in Lawsuits as Escrow Allegations Mount
+  [3] Slug:     bert-dweck-lawsuits-escrow-allegations
+  [3] Category: Market Analysis
+  Generating article 4/5: A Rare Offering of Scale: 325,000 RSF at 1285 Avenue of the 
+  Slug 'rxr-1285-sixth-avenue-325k-rsf' already published, skipping...
+  Generating article 5/5: Digital Realty charts major private fundraising push
+  [5] Title:    Digital Realty Targets $3B Cornerstone Raise for US Open-End Fund
+  [5] Slug:     digital-realty-3b-cornerstone-raise
+  [5] Category: Capital Markets
+  Successfully generated 4 article(s)
+
+[5b/8] Generating LinkedIn Essay Desk package(s)...
+  [1] Essay Desk: Deal-as-signal | score 9/10
+  [2] Essay Desk: Deal-as-signal | score 9/10
+  [3] Essay Desk: Distress-before-headline | score 9/10
+  [4] Essay Desk: Capital stack | score 9/10
+
+[6/8] Publishing 4 article(s)...
+  Saved: insights/2-world-trade-center-construction-resumes.html
+  Image: insights/2-world-trade-center-construction-resumes_social.png
+  insights.json updated (323 total entries)
+  Saved: insights/manhattan-luxury-sales-pied-a-terre-tax.html
+  Image: insights/manhattan-luxury-sales-pied-a-terre-tax_social.png
+  insights.json updated (324 total entries)
+  Saved: insights/bert-dweck-lawsuits-escrow-allegations.html
+  Image: insights/bert-dweck-lawsuits-escrow-allegations_social.png
+  insights.json updated (325 total entries)
+  Saved: insights/digital-realty-3b-cornerstone-raise.html
+  Image: insights/digital-realty-3b-cornerstone-raise_social.png
+  insights.json updated (326 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (341 URLs)
+  Git: committed 4 articles and pushed → Netlify deploying
+
+[7/8] LinkedIn review queue...
+  Auto-post disabled. Review/edit from the Insight share modal before posting.
+  Queue: linkedin_essay_queue.json
+
+==============================================================
+  DONE in 327s — published 4 article(s)
+  Article: https://lighttowergroup.co/insights/2-world-trade-center-construction-resumes.html
+  Article: https://lighttowergroup.co/insights/manhattan-luxury-sales-pied-a-terre-tax.html
+  Article: https://lighttowergroup.co/insights/bert-dweck-lawsuits-escrow-allegations.html
+  Article: https://lighttowergroup.co/insights/digital-realty-3b-cornerstone-raise.html
+  LinkedIn: queued for review
+==============================================================
+

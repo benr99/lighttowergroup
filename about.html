@@ -81,13 +81,13 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black:    #080c14;
-      --navy:     #0d1826;
+      --black: #f5f4f0;
+      --navy: #ffffff;
       --gold:     #c9a84c;
-      --gold-dim: rgba(201,168,76,0.25);
-      --white:    #f4f0e8;
-      --muted:    #8a9bb0;
-      --body-txt: rgba(244,240,232,0.88);
+      --gold-dim: rgba(0,0,0,0.08);
+      --white: #121212;
+      --muted: #555555;
+      --body-txt: #333333;
       --serif:    'Playfair Display', Georgia, serif;
       --sans:     'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -103,7 +103,7 @@
     }
     .nav-logo {
       font-family: var(--sans); font-size: 1.1rem; letter-spacing: 0.18em;
-      color: var(--gold); text-decoration: none; text-transform: uppercase; font-weight: 700; margin-right: auto;
+      color: var(--gold); text-decoration: none; text-transform: uppercase; font-weight: 700; margin-right: auto; white-space: nowrap;
     }
     .nav-links { display: flex; gap: 2.8rem; }
     .nav-links a { font-size: 0.9rem; color: var(--muted); letter-spacing: 0.05em; }
@@ -225,7 +225,7 @@
     .nav-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-menu-btn.open span:nth-child(2) { opacity: 0; }
     .nav-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .nav-mobile { display: none; position: absolute; top: 64px; left: 0; right: 0; background: rgba(8,12,20,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--gold-dim); padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
+    .nav-mobile { display: none; position: absolute; top: 64px; left: 0; right: 0; background: rgba(245,244,240,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--gold-dim); padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
     .nav-mobile.open { display: flex; }
     .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
     .nav-mobile a:hover { color: var(--white); }
@@ -251,31 +251,43 @@
     });
   </script>
   -->
+  <link rel="stylesheet" href="/site.css">
+  <script src="/site.js" defer></script>
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="/" class="nav-logo">Light Tower Group</a>
-    <div class="nav-links">
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Light Tower Group home">Light Tower Group</a>
+      <div class="nav-links">
+        <a href="/#practice">Practice</a>
+        <a href="/#advantage">Advantage</a>
+        <a href="/#leadership">Leadership</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/insights.html">Insights</a>
+        <a href="/buildings.html">Buildings</a>
+        <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
+        <a href="/#contact">Contact</a>
+        <button onclick="openLTGChat()" class="nav-cta">Initiate Mandate</button>
+      </div>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile" role="menu">
+      <a href="/#practice">Practice</a>
+      <a href="/#advantage">Advantage</a>
+      <a href="/#leadership">Leadership</a>
+      <a href="/#faq">FAQ</a>
       <a href="/insights.html">Insights</a>
       <a href="/buildings.html">Buildings</a>
       <a href="/services.html">Services</a>
-      <a href="/about.html" class="active">About</a>
-      <a href="/index.html#contact">Contact</a>
-      <button class="nav-cta" onclick="openLTGChat()">Initiate Mandate</button>
+      <a href="/about.html">About</a>
+      <a href="/#contact">Contact</a>
+      <button onclick="openLTGChat()" class="nav-mobile-cta">Initiate Mandate</button>
     </div>
-    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
-  <div class="nav-mobile" id="nav-mobile">
-    <a href="/insights.html">Insights</a>
-    <a href="/buildings.html">Buildings</a>
-    <a href="/services.html">Services</a>
-    <a href="/about.html">About</a>
-    <a href="/index.html#contact">Contact</a>
-    <button class="nav-cta" onclick="openLTGChat();document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-menu-btn').classList.remove('open');">Initiate Mandate</button>
-  </div>
 
   <div class="page-wrap">
 
@@ -377,7 +389,7 @@
       <a href="/insights.html">Insights</a> &nbsp;&middot;&nbsp;
       <a href="/about.html">About</a> &nbsp;&middot;&nbsp;
       <a href="/feed.xml">RSS Feed</a> &nbsp;&middot;&nbsp;
-      <a href="/index.html#contact">Contact</a>
+      <a href="/#contact">Contact</a>
     </p>
     <p>&copy; 2026 Light Tower Group. All rights reserved.</p>
   </footer>
