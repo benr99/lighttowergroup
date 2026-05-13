@@ -1,8 +1,13 @@
 """
 Generate branded social media images for Light Tower Group articles.
-Creates 1200x628px images for LinkedIn sharing with title, subtitle, and branding.
+Creates 1200x628px images for LinkedIn sharing with WSJ-inspired design:
+- Large serif headline (Playfair Display Bold)
+- Gold separator rule
+- Clean sans-serif subtitle (Space Grotesk Regular)
+- Brand name at bottom (Space Grotesk Bold)
 
 Requires: pip install Pillow
+          python scripts/setup_fonts.py (to download brand fonts)
 """
 
 try:
@@ -12,65 +17,76 @@ except ImportError:
     PILLOW_AVAILABLE = False
 
 from pathlib import Path
-import textwrap
 
 # Brand colors (from index.html :root)
 BRAND_BG = "#F5F4F0"        # Light cream background
 BRAND_ACCENT = "#C9A84C"    # Gold accent
 BRAND_TEXT = "#121212"      # Near-black text
-BRAND_DARK = "#0E0E0E"      # Very dark (logo)
-BRAND_WHITE = "#FFFFFF"
+BRAND_MUTED = "#555555"     # Muted gray for subtitle
 
 # LinkedIn image standard: 1200x628px (1.91:1 ratio)
 IMAGE_WIDTH = 1200
 IMAGE_HEIGHT = 628
 
-# Padding and layout
-PADDING_H = 40  # Horizontal padding (reduced for bigger text)
-PADDING_V = 35  # Vertical padding (reduced for bigger text)
+# Layout constants
+TOP_PADDING = 52
+BOTTOM_PADDING = 48
+SIDE_PADDING = 60
+RULE_WIDTH = 60
+RULE_HEIGHT = 3
+RULE_GAP = 20
 
 
 def get_fonts():
-    """Load brand fonts or fall back to system fonts."""
+    """Load brand fonts from scripts/fonts/ directory with Arial fallback."""
     script_dir = Path(__file__).parent
+    fonts_dir = script_dir / "fonts"
 
-    # Try to load Google Fonts (if downloaded locally)
     fonts = {
-        "title": None,      # Playfair Display Bold for titles
-        "subtitle": None,   # Space Grotesk Regular for subtitles
-        "branding": None,   # Space Grotesk for branding text
+        "title": None,      # Playfair Display Bold for titles (72px)
+        "subtitle": None,   # Space Grotesk Regular for subtitles (34px)
+        "branding": None,   # Space Grotesk Bold for brand name (40px)
     }
 
-    # Try common font paths on Windows
-    font_paths = [
-        Path("C:/Windows/Fonts/playfair-display-bold.ttf"),
-        Path("C:/Windows/Fonts/PlayfairDisplay-Bold.ttf"),
-        Path("C:/Windows/Fonts/arial.ttf"),
-    ]
+    try:
+        # Try to load from local fonts directory (downloaded by setup_fonts.py)
+        fonts["title"] = ImageFont.truetype(
+            str(fonts_dir / "PlayfairDisplay-Bold.ttf"), 72
+        )
+        fonts["subtitle"] = ImageFont.truetype(
+            str(fonts_dir / "SpaceGrotesk-Regular.ttf"), 34
+        )
+        fonts["branding"] = ImageFont.truetype(
+            str(fonts_dir / "SpaceGrotesk-Bold.ttf"), 40
+        )
+        return fonts
+    except Exception:
+        pass
 
-    # Fall back to default system fonts
+    # Fallback to system fonts
     try:
         fonts["title"] = ImageFont.truetype("arial.ttf", 72)
-        fonts["subtitle"] = ImageFont.truetype("arial.ttf", 40)
-        fonts["branding"] = ImageFont.truetype("arial.ttf", 28)
+        fonts["subtitle"] = ImageFont.truetype("arial.ttf", 34)
+        fonts["branding"] = ImageFont.truetype("arial.ttf", 40)
+        return fonts
     except Exception:
-        # If TrueType fonts unavailable, use default
-        fonts["title"] = ImageFont.load_default()
-        fonts["subtitle"] = ImageFont.load_default()
-        fonts["branding"] = ImageFont.load_default()
-
-    return fonts
+        # Last resort: system default
+        default_font = ImageFont.load_default()
+        fonts["title"] = default_font
+        fonts["subtitle"] = default_font
+        fonts["branding"] = default_font
+        return fonts
 
 
 def wrap_text(text, font, max_width, draw):
-    """Wrap text to fit within a maximum width."""
+    """Wrap text to fit within a maximum width, respecting line breaks."""
     lines = []
-    for line in text.split('\n'):
-        if not line.strip():
+    for paragraph in text.split('\n'):
+        if not paragraph.strip():
             lines.append("")
             continue
 
-        words = line.split()
+        words = paragraph.split()
         current = []
 
         for word in words:
@@ -94,10 +110,11 @@ def wrap_text(text, font, max_width, draw):
 def generate_article_image(title, subtitle, output_path):
     """
     Generate a branded social media image for a Light Tower Group article.
+    WSJ-inspired design: large serif title, gold rule, sans-serif subtitle, branding at bottom.
 
     Args:
-        title (str): Article title (max 90 chars, but will be wrapped)
-        subtitle (str): Article subtitle (one sentence, max 140 chars)
+        title (str): Article title (will be wrapped to max ~3 lines)
+        subtitle (str): Article subtitle (will be wrapped to max ~2 lines)
         output_path (str|Path): Where to save the PNG image
 
     Returns:
@@ -114,64 +131,59 @@ def generate_article_image(title, subtitle, output_path):
 
         fonts = get_fonts()
 
-        # Calculate available width for text
-        content_width = IMAGE_WIDTH - (2 * PADDING_H)
+        # Content width (both sides)
+        content_width = IMAGE_WIDTH - (2 * SIDE_PADDING)
 
-        # Wrap and draw title
+        # ===== TITLE (Playfair Display Bold, 72px) =====
         title_lines = wrap_text(title, fonts["title"], content_width, draw)
+        title_lines = title_lines[:3]  # Max 3 lines
 
-        y = PADDING_V
-        line_height = 85
+        y = TOP_PADDING
+        title_line_height = 80  # Tight leading (72px font + 8px gap)
 
-        for line in title_lines[:3]:  # Max 3 lines for title
+        for line in title_lines:
             draw.text(
-                (PADDING_H, y),
+                (SIDE_PADDING, y),
                 line,
                 font=fonts["title"],
                 fill=BRAND_TEXT
             )
-            y += line_height
+            y += title_line_height
 
-        # Add accent line separator
-        y += 15
+        # ===== GOLD SEPARATOR RULE =====
+        y += RULE_GAP
+        rule_y = y
         draw.rectangle(
-            [(PADDING_H, y), (PADDING_H + 100, y + 5)],
+            [(SIDE_PADDING, rule_y), (SIDE_PADDING + RULE_WIDTH, rule_y + RULE_HEIGHT)],
             fill=BRAND_ACCENT
         )
 
-        # Draw subtitle
-        y += 20
+        # ===== SUBTITLE (Space Grotesk Regular, 34px, muted) =====
+        y = rule_y + RULE_GAP + RULE_HEIGHT
         subtitle_lines = wrap_text(subtitle, fonts["subtitle"], content_width, draw)
+        subtitle_lines = subtitle_lines[:2]  # Max 2 lines
 
-        for line in subtitle_lines[:2]:  # Max 2 lines for subtitle
+        subtitle_line_height = 50  # 34px font + gap
+
+        for line in subtitle_lines:
             draw.text(
-                (PADDING_H, y),
+                (SIDE_PADDING, y),
                 line,
                 font=fonts["subtitle"],
-                fill=BRAND_TEXT
+                fill=BRAND_MUTED
             )
-            y += 55
+            y += subtitle_line_height
 
-        # Draw branding at bottom
-        branding_text = "Light Tower Group — Capital Markets Advisory"
-        branding_bbox = draw.textbbox((0, 0), branding_text, font=fonts["branding"])
-        branding_width = branding_bbox[2] - branding_bbox[0]
-
-        # Right-align branding
-        branding_x = IMAGE_WIDTH - PADDING_H - branding_width
-        branding_y = IMAGE_HEIGHT - PADDING_V - 40
+        # ===== BRANDING (Space Grotesk Bold, 40px, bottom-left) =====
+        # "LIGHT TOWER GROUP." with uppercase letter-spacing matching nav logo
+        branding_text = "LIGHT TOWER GROUP."
+        branding_y = IMAGE_HEIGHT - BOTTOM_PADDING
 
         draw.text(
-            (branding_x, branding_y),
+            (SIDE_PADDING, branding_y),
             branding_text,
             font=fonts["branding"],
-            fill=BRAND_ACCENT
-        )
-
-        # Draw small brand accent line at bottom
-        draw.rectangle(
-            [(branding_x - 12, branding_y - 18), (branding_x - 2, branding_y - 12)],
-            fill=BRAND_ACCENT
+            fill=BRAND_TEXT
         )
 
         # Save the image

@@ -1998,3 +1998,104 @@ anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type':
   LinkedIn: queued for review
 ==============================================================
 
+
+==============================================================
+  Light Tower Group — Daily News Agent
+  2026-05-13 11:00 UTC
+==============================================================
+
+[1/8] Gathering stories...
+  RSS: 455 raw stories from 88 feeds
+  NewsAPI: 0 additional stories
+
+[2/8] Triaging...
+  Triage: 455 raw → 95 relevant → 89 unique
+
+[3/8] Scoring 89 stories...
+  Top 3 stories:
+    #1 [90/100] Mortgage Professional: Inflation jumps again, likely pushing back Fed rate cuts
+    #2 [85/100] Commercial Observer: Mamdani, Hochul Close Municipal Budget Gaps ‘Completely’ With Alb
+    #3 [85/100] Mortgage Professional: What the latest inflation upsurge means for the mortgage market
+
+[4/8] Enriching up to 5 candidates...
+  [1] Enriching: Inflation jumps again, likely pushing back Fed rate cuts
+  Full-text fetch: https://www.mpamag.com/us/mortgage-industry/industry-trends/inflation-...
+  Extracted 4,076 chars of article text
+  [2] Enriching: Mamdani, Hochul Close Municipal Budget Gaps ‘Completely’ With Alb
+  Full-text fetch: https://commercialobserver.com/2026/05/mamdani-hochul-close-nyc-budget...
+  Extracted 3,560 chars of article text
+  [3] Enriching: What the latest inflation upsurge means for the mortgage market
+  Full-text fetch: https://www.mpamag.com/us/mortgage-industry/industry-trends/what-the-l...
+  Extracted 4,209 chars of article text
+  [4] Enriching: Bond Traders Renew Bearish Treasuries Bets on Inflation
+  Full-text fetch: https://www.bloomberg.com/news/articles/2026-05-12/bond-bears-reload-f...
+  Extracted 0 chars of article text
+  [5] Enriching: CMBS Special Servicing Rate Rises in April, Mainly Driven by Offi
+  Full-text fetch: https://www.trepp.com/trepptalk/cmbs-special-servicing-rate-rises-in-a...
+  Extracted 1,537 chars of article text
+  Collected 5 candidate(s) for article generation
+
+[5/8] Generating 5 article(s)...
+  Generating article 1/5: Inflation jumps again, likely pushing back Fed rate cuts
+  [1] Title:    April CPI Surge to 3.8% Locks Fed Hold, Raises Rate-Hike Odds to 30%
+  [1] Slug:     april-cpi-surge-fed-rate-hike-odds
+  [1] Category: Policy & Regulation
+  Generating article 2/5: Mamdani, Hochul Close Municipal Budget Gaps ‘Completely’ Wit
+  [2] Title:    Albany’s $8B Bailout Lets Mamdani Avoid Property Tax Hike, Targets Second Homes
+  [2] Slug:     albany-8b-bailout-mamdani-budget
+  [2] Category: Policy & Regulation
+  Generating article 3/5: What the latest inflation upsurge means for the mortgage mar
+  [3] Title:    Inflation Hits 3.8%, Mortgage Rate Relief Off the Table as Fed Hike Risk Emerges
+  [3] Slug:     inflation-3-8-percent-mortgage-rate-outlook
+  [3] Category: Market Analysis
+  Generating article 4/5: Bond Traders Renew Bearish Treasuries Bets on Inflation
+  [4] Title:    Bond Bears Reload: Rate Hike Bets Return as Inflation Sticks
+  [4] Slug:     bond-bears-reload-rate-hike-bets
+  [4] Category: Capital Markets
+  Generating article 5/5: CMBS Special Servicing Rate Rises in April, Mainly Driven by
+  [5] Title:    Office Loans Drive CMBS Special Servicing Rate to 11.38% in April
+  [5] Slug:     cmbs-special-servicing-rate-april-2026
+  [5] Category: Market Analysis
+  Successfully generated 5 article(s)
+
+[5b/8] Generating LinkedIn Essay Desk package(s)...
+  [1] Essay Desk: Capital stack | score 9/10
+  [2] Essay Desk: Future of cities | score 9/10
+  [3] Essay Desk: Capital stack | score 9/10
+  [4] Essay Desk: Capital stack | score 9/10
+  [5] Essay Desk: Distress-before-headline | score 9/10
+
+[6/8] Publishing 5 article(s)...
+  Saved: insights/april-cpi-surge-fed-rate-hike-odds.html
+  Image: insights/april-cpi-surge-fed-rate-hike-odds_social.png
+  insights.json updated (327 total entries)
+  Saved: insights/albany-8b-bailout-mamdani-budget.html
+  Image: insights/albany-8b-bailout-mamdani-budget_social.png
+  insights.json updated (328 total entries)
+  Saved: insights/inflation-3-8-percent-mortgage-rate-outlook.html
+  Image: insights/inflation-3-8-percent-mortgage-rate-outlook_social.png
+  insights.json updated (329 total entries)
+  Saved: insights/bond-bears-reload-rate-hike-bets.html
+  Image: insights/bond-bears-reload-rate-hike-bets_social.png
+  insights.json updated (330 total entries)
+  Saved: insights/cmbs-special-servicing-rate-april-2026.html
+  Image: insights/cmbs-special-servicing-rate-april-2026_social.png
+  insights.json updated (331 total entries)
+  feed.xml updated (50 entries)
+  sitemap.xml updated (346 URLs)
+  Git: committed 5 articles and pushed → Netlify deploying
+
+[7/8] LinkedIn review queue...
+  Auto-post disabled. Review/edit from the Insight share modal before posting.
+  Queue: linkedin_essay_queue.json
+
+==============================================================
+  DONE in 250s — published 5 article(s)
+  Article: https://lighttowergroup.co/insights/april-cpi-surge-fed-rate-hike-odds.html
+  Article: https://lighttowergroup.co/insights/albany-8b-bailout-mamdani-budget.html
+  Article: https://lighttowergroup.co/insights/inflation-3-8-percent-mortgage-rate-outlook.html
+  Article: https://lighttowergroup.co/insights/bond-bears-reload-rate-hike-bets.html
+  Article: https://lighttowergroup.co/insights/cmbs-special-servicing-rate-april-2026.html
+  LinkedIn: queued for review
+==============================================================
+
