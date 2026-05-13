@@ -160,8 +160,21 @@ def generate_article_image(title, subtitle, output_path):
 
         # ===== SUBTITLE (Space Grotesk Regular, 34px, muted) =====
         y = rule_y + RULE_GAP + RULE_HEIGHT
-        subtitle_lines = wrap_text(subtitle, fonts["subtitle"], content_width, draw)
-        subtitle_lines = subtitle_lines[:2]  # Max 2 lines
+        all_subtitle_lines = wrap_text(subtitle, fonts["subtitle"], content_width, draw)
+        was_truncated = len(all_subtitle_lines) > 2
+        subtitle_lines = all_subtitle_lines[:2]
+
+        # If text was cut, trim the last word of line 2 and append ellipsis,
+        # ensuring the ellipsis fits within content_width
+        if was_truncated and subtitle_lines:
+            last_line = subtitle_lines[-1]
+            ellipsis_line = last_line + '…'
+            bbox = draw.textbbox((0, 0), ellipsis_line, font=fonts["subtitle"])
+            while bbox[2] - bbox[0] > content_width and last_line:
+                last_line = last_line.rsplit(' ', 1)[0]
+                ellipsis_line = last_line + '…'
+                bbox = draw.textbbox((0, 0), ellipsis_line, font=fonts["subtitle"])
+            subtitle_lines[-1] = ellipsis_line
 
         subtitle_line_height = 50  # 34px font + gap
 
@@ -175,8 +188,8 @@ def generate_article_image(title, subtitle, output_path):
             y += subtitle_line_height
 
         # ===== BRANDING (Space Grotesk Bold, 40px, bottom-left) =====
-        # "LIGHT TOWER GROUP." with uppercase letter-spacing matching nav logo
-        branding_text = "LIGHT TOWER GROUP."
+        # "LIGHT TOWER GROUP" with uppercase letter-spacing matching nav logo
+        branding_text = "LIGHT TOWER GROUP"
         branding_y = IMAGE_HEIGHT - BOTTOM_PADDING
 
         draw.text(
@@ -205,6 +218,6 @@ if __name__ == "__main__":
     test_output = Path("test_social_image.png")
 
     if generate_article_image(test_title, test_subtitle, test_output):
-        print(f"✓ Test image generated: {test_output}")
+        print(f"[OK] Test image generated: {test_output}")
     else:
-        print("✗ Test image generation failed")
+        print("[ERROR] Test image generation failed")
