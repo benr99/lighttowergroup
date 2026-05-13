@@ -51,27 +51,6 @@ def write_html(path, content):
         return False
 
 
-def insert_social_image(html_content, slug):
-    """
-    Insert the social image into the article after the header section.
-    Looks for the article-rule (hr) and inserts the image after it.
-    """
-    image_url = f"/insights/{slug}_social.png"
-    image_html = (
-        f'\n      <figure class="article-image">\n'
-        f'        <img src="{image_url}" alt="Article summary image" '
-        f'style="width: 100%; height: auto; display: block; margin: 2rem 0; border-radius: 2px;">\n'
-        f'      </figure>\n'
-    )
-
-    # Find the article-rule (hr) and insert the image after it
-    # Pattern: <hr class="article-rule"> ... <div class="article-body"
-    pattern = r'(<hr class="article-rule">)\s*(?=<div class="article-body")'
-    html_content = re.sub(pattern, r'\1' + image_html, html_content, count=1)
-
-    return html_content
-
-
 def update_og_tags(html_content, slug, title, subtitle):
     """
     Update Open Graph meta tags in HTML with proper format for LinkedIn sharing.
@@ -196,8 +175,6 @@ def main():
             if html_content:
                 # Update og: meta tags
                 updated_html = update_og_tags(html_content, slug, title, subtitle)
-                # Insert the social image into the article
-                updated_html = insert_social_image(updated_html, slug)
 
                 if write_html(html_path, updated_html):
                     updated_html_count += 1

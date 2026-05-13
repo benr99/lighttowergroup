@@ -243,21 +243,110 @@
   function enhanceShareBars() {
     var slug = currentInsightSlug();
     if (!slug) return;
-    if (!essayDeskToken()) return;
 
     document.querySelectorAll('.share-bar').forEach(function (bar) {
       if (bar.dataset.essayEnhanced === 'true') return;
       bar.dataset.essayEnhanced = 'true';
 
       var linkedIn = bar.querySelector('.share-li');
-      if (linkedIn) {
+      if (!linkedIn) return;
+
+      if (essayDeskToken()) {
         linkedIn.textContent = 'LinkedIn Essay';
         linkedIn.addEventListener('click', function (event) {
           event.preventDefault();
           findEssayPackage(slug).then(openEssayModal);
         });
+      } else {
+        linkedIn.addEventListener('click', function (event) {
+          event.preventDefault();
+          openShareModal();
+        });
       }
     });
+  }
+
+  function ensureShareModal() {
+    var existing = document.getElementById('ltg-share-modal');
+    if (existing) return existing;
+
+    var modal = document.createElement('div');
+    modal.id = 'ltg-share-modal';
+    modal.className = 'share-modal';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML = [
+      '<div class="share-modal-backdrop" data-share-close></div>',
+      '<section class="share-modal-panel" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">',
+      '  <header class="share-modal-header">',
+      '    <div>',
+      '      <span class="share-modal-eyebrow">Share to LinkedIn</span>',
+      '      <h2 id="share-modal-title">Post with Image</h2>',
+      '    </div>',
+      '    <button type="button" class="share-modal-close" data-share-close aria-label="Close">Close</button>',
+      '  </header>',
+      '  <img class="share-modal-image" id="share-modal-image" src="" alt="Social preview image">',
+      '  <span class="share-modal-section-label">Opening paragraph — paste into your LinkedIn post</span>',
+      '  <div class="share-modal-paragraph" id="share-modal-paragraph"></div>',
+      '  <div class="share-modal-actions">',
+      '    <button type="button" class="share-modal-btn" id="share-copy-text">Copy Text</button>',
+      '    <button type="button" class="share-modal-btn" id="share-download-image">Download Image</button>',
+      '  </div>',
+      '  <div class="share-modal-actions">',
+      '    <button type="button" class="share-modal-btn primary" id="share-open-linkedin">Open LinkedIn</button>',
+      '  </div>',
+      '  <p class="share-modal-note">On LinkedIn: tap the image icon, upload the image, paste the text above, then add the article link in your first comment for full reach.</p>',
+      '</section>'
+    ].join('');
+    document.body.appendChild(modal);
+
+    modal.querySelectorAll('[data-share-close]').forEach(function (el) {
+      el.addEventListener('click', closeShareModal);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeShareModal();
+    });
+
+    modal.querySelector('#share-copy-text').addEventListener('click', function () {
+      var text = document.getElementById('share-modal-paragraph').textContent;
+      copyText(text, this, 'Copied');
+    });
+
+    modal.querySelector('#share-download-image').addEventListener('click', function () {
+      var imgSrc = document.getElementById('share-modal-image').src;
+      var a = document.createElement('a');
+      a.href = imgSrc;
+      a.download = imgSrc.split('/').pop();
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+
+    modal.querySelector('#share-open-linkedin').addEventListener('click', function () {
+      window.open('https://www.linkedin.com/feed/', '_blank', 'noopener,noreferrer');
+    });
+
+    return modal;
+  }
+
+  function openShareModal() {
+    var modal = ensureShareModal();
+    var slug = currentInsightSlug();
+    document.getElementById('share-modal-image').src = '/insights/' + slug + '_social.png';
+    var bodyEl = document.querySelector('.article-body');
+    var firstP = bodyEl ? bodyEl.querySelector('p') : null;
+    document.getElementById('share-modal-paragraph').textContent =
+      firstP ? firstP.textContent.trim() : '';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('essay-modal-open');
+  }
+
+  function closeShareModal() {
+    var modal = document.getElementById('ltg-share-modal');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('essay-modal-open');
   }
 
   document.addEventListener('DOMContentLoaded', function () {

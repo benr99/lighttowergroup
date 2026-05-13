@@ -632,3 +632,86 @@ body.essay-modal-open {
     width: 100%;
   }
 }
+
+/* ── LinkedIn Share Modal ── */
+.share-modal {
+  display: none; position: fixed; inset: 0; z-index: 3100; color: var(--ltg-text);
+}
+.share-modal.open { display: block; }
+.share-modal-backdrop {
+  position: absolute; inset: 0; background: rgba(18,18,18,0.5);
+}
+.share-modal-panel {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(640px, calc(100vw - 32px));
+  max-height: min(90vh, calc(100vh - 32px));
+  overflow: auto; background: var(--ltg-bg);
+  border: 1px solid var(--ltg-line-strong);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.28);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.share-modal-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 1.5rem; border-bottom: 1px solid var(--ltg-line);
+  padding-bottom: 1.25rem; margin-bottom: 1.5rem;
+}
+.share-modal-eyebrow {
+  display: block; font-family: var(--ltg-font-body); font-size: 0.74rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ltg-accent); font-weight: 700; margin-bottom: 0.35rem;
+}
+.share-modal-header h2 {
+  margin: 0; font-family: var(--ltg-font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.1;
+  font-weight: 400; color: var(--ltg-text);
+}
+.share-modal-close {
+  border: 1px solid var(--ltg-line-strong); background: transparent;
+  color: var(--ltg-text); padding: 0.72rem 1rem;
+  font-family: var(--ltg-font-body); font-size: 0.78rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 700; cursor: pointer; flex-shrink: 0;
+}
+.share-modal-close:hover { background: var(--ltg-line); }
+.share-modal-image {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--ltg-line); margin-bottom: 1.5rem;
+}
+.share-modal-section-label {
+  display: block; font-family: var(--ltg-font-body);
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ltg-muted); margin-bottom: 0.75rem; font-weight: 700;
+}
+.share-modal-paragraph {
+  background: rgba(201,168,76,0.05); border: 1px solid var(--ltg-line);
+  padding: 1rem 1.25rem; font-size: 1rem; line-height: 1.75;
+  color: var(--ltg-text); margin-bottom: 1.5rem;
+  user-select: text; cursor: text;
+}
+.share-modal-actions {
+  display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 0.75rem;
+}
+.share-modal-btn {
+  border: 1px solid var(--ltg-line-strong); background: transparent;
+  color: var(--ltg-text); padding: 0.72rem 1.2rem;
+  font-family: var(--ltg-font-body); font-size: 0.78rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 700; cursor: pointer; transition: all 0.18s;
+}
+.share-modal-btn:hover { background: var(--ltg-line); }
+.share-modal-btn.primary {
+  background: var(--ltg-accent); border-color: var(--ltg-accent);
+  color: #121212; flex: 1;
+}
+.share-modal-btn.primary:hover { background: #d9b85c; border-color: #d9b85c; }
+.share-modal-note {
+  font-size: 0.82rem; color: var(--ltg-muted); line-height: 1.6;
+  border-top: 1px solid var(--ltg-line); padding-top: 1rem; margin-top: 0.5rem;
+}
+@media (max-width: 640px) {
+  .share-modal-panel {
+    width: calc(100vw - 18px); max-height: calc(100vh - 18px); padding: 1rem;
+  }
+  .share-modal-header { flex-direction: column; gap: 0.75rem; }
+  .share-modal-btn { width: 100%; }
+}
