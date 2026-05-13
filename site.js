@@ -322,7 +322,8 @@
     });
 
     modal.querySelector('#share-open-linkedin').addEventListener('click', function () {
-      window.open('https://www.linkedin.com/feed/', '_blank', 'noopener,noreferrer');
+      var url = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(insightUrl());
+      window.open(url, '_blank', 'noopener,noreferrer');
     });
 
     return modal;
