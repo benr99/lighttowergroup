@@ -11,13 +11,16 @@
  *   FROM_EMAIL       — verified sender domain, e.g. noreply@lighttowergroup.co
  */
 
-const ALLOWED_ORIGIN  = 'https://lighttowergroup.co';
+const ALLOWED_ORIGINS = new Set([
+  'https://lighttowergroup.co',
+  'https://www.lighttowergroup.co',
+]);
 const MAX_BODY_BYTES  = 30_000;
 const MAX_MSG_CHARS   = 2000;
 const MAX_MESSAGES    = 40;
 
 const corsHeaders = (origin) => ({
-  'Access-Control-Allow-Origin' : origin === ALLOWED_ORIGIN ? origin : '',
+  'Access-Control-Allow-Origin' : ALLOWED_ORIGINS.has(origin) ? origin : '',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Vary': 'Origin',
@@ -32,7 +35,7 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' };
   }
-  if (origin && origin !== ALLOWED_ORIGIN) {
+  if (origin && !ALLOWED_ORIGINS.has(origin)) {
     return { statusCode: 403, headers: corsHeaders(origin), body: JSON.stringify({ error: 'Forbidden' }) };
   }
   if (event.body && event.body.length > MAX_BODY_BYTES) {
@@ -50,8 +53,11 @@ exports.handler = async (event) => {
   }
 
   let messages;
+  let source = 'chat-widget';
+  let page = '';
+  let leadFields = {};
   try {
-    ({ messages } = JSON.parse(event.body));
+    ({ messages, source = 'chat-widget', page = '', leadFields = {} } = JSON.parse(event.body));
   } catch {
     return { statusCode: 400, headers: corsHeaders(origin), body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
@@ -80,6 +86,15 @@ exports.handler = async (event) => {
     timeStyle: 'short',
   });
 
+  const metaRows = [
+    ['Source', source],
+    ['Page', page],
+    ...Object.entries(leadFields || {}).map(([key, value]) => [key, value]),
+  ]
+    .filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== '')
+    .map(([key, value]) => `<p style="margin:0 0 0.35rem"><strong>${escapeHtml(key)}:</strong> ${escapeHtml(value)}</p>`)
+    .join('');
+
   const html = `
 <!DOCTYPE html>
 <html>
@@ -91,6 +106,7 @@ exports.handler = async (event) => {
   </div>
   <div style="background:#fff;padding:2rem;border:1px solid #e5e3df">
     <p style="font-size:0.8rem;color:#888;margin:0 0 1.5rem">Received ${timestamp} via lighttowergroup.co chatbot</p>
+    ${metaRows ? `<div style="margin:0 0 1.5rem;padding:1rem;background:#f9f8f5;border-left:3px solid #c9a84c;font-size:0.82rem;color:#555">${metaRows}</div>` : ''}
     <h2 style="font-size:1rem;font-weight:600;margin:0 0 1.5rem;border-bottom:1px solid #eee;padding-bottom:0.75rem">Conversation Transcript</h2>
     <div style="font-size:0.9rem;line-height:1.75;color:#333">
       ${transcript}

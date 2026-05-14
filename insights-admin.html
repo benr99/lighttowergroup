@@ -138,12 +138,12 @@
   <div>
     <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--accent);font-weight:600;margin-bottom:1rem;">Light Tower Group</p>
     <h1>Insights Admin</h1>
-    <p style="margin-top:0.5rem;">Internal post creation tool. Enter your access password to continue.</p>
+    <p style="margin-top:0.5rem;">Internal post creation tool disabled for production. Use the local content pipeline or enable server-side authentication before reactivating.</p>
   </div>
   <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;">
-    <input type="password" id="pw-input" placeholder="Password" autocomplete="current-password">
+    <input type="password" id="pw-input" placeholder="Disabled" autocomplete="off" disabled>
     <button id="pw-btn" onclick="checkAuth()">Enter</button>
-    <p id="pw-error">Incorrect password.</p>
+    <p id="pw-error">This tool is disabled in production.</p>
   </div>
 </div>
 
@@ -242,20 +242,10 @@
 </div>
 
 <script>
-  // ── Auth ────────────────────────────────────────────────
-  // Change this password — it's stored client-side so keep it simple,
-  // this is just to keep the page from being accidentally indexed/used.
-  const ADMIN_PASSWORD = 'ltg2026';
-
+  // Internal tool is intentionally disabled in production. Client-side
+  // passwords are not authentication; re-enable only behind server-side auth.
   function checkAuth() {
-    const val = document.getElementById('pw-input').value;
-    if (val === ADMIN_PASSWORD) {
-      document.getElementById('auth-screen').style.display = 'none';
-      document.getElementById('app').style.display = 'block';
-      document.getElementById('f-date').value = new Date().toISOString().slice(0,10);
-    } else {
-      document.getElementById('pw-error').style.display = 'block';
-    }
+    document.getElementById('pw-error').style.display = 'block';
   }
   document.getElementById('pw-input').addEventListener('keydown', e => { if (e.key === 'Enter') checkAuth(); });
 

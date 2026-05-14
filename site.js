@@ -1,6 +1,12 @@
 (function () {
   var essayQueueCache = null;
 
+  window.ltgTrack = window.ltgTrack || function (eventName, params) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, params || {});
+    }
+  };
+
   function closeMenu(menuBtn, mobileNav) {
     if (!menuBtn || !mobileNav) return;
     mobileNav.classList.remove('open');
@@ -312,13 +318,41 @@
     });
 
     modal.querySelector('#share-download-image').addEventListener('click', function () {
-      var imgSrc = document.getElementById('share-modal-image').src;
-      var a = document.createElement('a');
-      a.href = imgSrc;
-      a.download = imgSrc.split('/').pop();
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      var btn = this;
+      var img = document.getElementById('share-modal-image');
+      var imgSrc = img ? img.getAttribute('src') || img.src : '';
+      if (!imgSrc) return;
+
+      var old = btn.textContent;
+      btn.textContent = 'Preparing Image';
+      btn.disabled = true;
+
+      fetch(imgSrc, { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Image not found');
+          return response.blob();
+        })
+        .then(function (blob) {
+          var objectUrl = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = objectUrl;
+          a.download = imgSrc.split('/').pop() || 'light-tower-insight.png';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(objectUrl); }, 1000);
+          btn.textContent = 'Image Downloaded';
+          setTimeout(function () { btn.textContent = old; }, 1400);
+        })
+        .catch(function () {
+          var absolute = img ? img.src : imgSrc;
+          window.open(absolute, '_blank', 'noopener,noreferrer');
+          btn.textContent = 'Opened Image';
+          setTimeout(function () { btn.textContent = old; }, 1600);
+        })
+        .finally(function () {
+          btn.disabled = false;
+        });
     });
 
     modal.querySelector('#share-open-linkedin').addEventListener('click', function () {
@@ -354,6 +388,34 @@
     var menuBtn = document.getElementById('nav-menu-btn');
     var mobileNav = document.getElementById('nav-mobile');
     enhanceShareBars();
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+      if (link.dataset.ltgEmailTracked === 'true') return;
+      link.dataset.ltgEmailTracked = 'true';
+      link.addEventListener('click', function () {
+        window.ltgTrack('email_click', { page_path: window.location.pathname });
+      });
+    });
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+      if (link.dataset.ltgPhoneTracked === 'true') return;
+      link.dataset.ltgPhoneTracked = 'true';
+      link.addEventListener('click', function () {
+        window.ltgTrack('phone_click', { page_path: window.location.pathname });
+      });
+    });
+
+    document.querySelectorAll('button[onclick*="openLTGChat"], a[href="#contact"], a[href="/#contact"]').forEach(function (el) {
+      if (el.dataset.ltgCtaTracked === 'true') return;
+      el.dataset.ltgCtaTracked = 'true';
+      el.addEventListener('click', function () {
+        window.ltgTrack('service_cta_click', {
+          page_path: window.location.pathname,
+          label: (el.textContent || '').trim()
+        });
+      });
+    });
+
     if (!menuBtn || !mobileNav || menuBtn.dataset.ltgBound === 'true') return;
 
     menuBtn.dataset.ltgBound = 'true';

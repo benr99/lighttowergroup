@@ -19,7 +19,7 @@ Usage:
 
 Requirements:
   pip install anthropic requests
-  export ANTHROPIC_API_KEY=sk-ant-...
+  export ANTHROPIC_API_KEY=<your Anthropic API key>
 """
 
 import anthropic
@@ -787,6 +787,7 @@ def render_html(b: dict, c: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="/site.js" defer></script>
 
   <script type="application/ld+json">
   {{
@@ -1031,6 +1032,7 @@ def render_html(b: dict, c: dict) -> str:
     </div>
   </footer>
 
+  <script src="/chat-widget.js"></script>
 </body>
 </html>"""
 

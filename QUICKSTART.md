@@ -1,4 +1,4 @@
-# Light Tower Group News Agent — QUICKSTART
+﻿# Light Tower Group News Agent — QUICKSTART
 
 **Status: ✓ PRODUCTION READY**  
 **Last Updated: May 4, 2026**  
@@ -14,7 +14,7 @@ Your automated news agent is **live and running**:
 - **Ranks stories:** DeepSeek AI scores by capital markets impact
 - **Writes 5 articles:** Institutional-grade editorials (750–950 words each)
 - **Publishes:** HTML + JSON + RSS/sitemap + git push → Netlify deploy
-- **Social media:** Branded 1200×628px images + LinkedIn hook auto-generated
+- **Social media:** Branded 1200x628px images + LinkedIn hook auto-generated
 - **Monitoring:** Check `insights.html` or `agent_log.json` after each run
 
 ---
@@ -22,14 +22,14 @@ Your automated news agent is **live and running**:
 ## What's Running Right Now
 
 ```
-✓ DeepSeek API        — Ranking & article generation (sk-551...ac80)
+✓ DeepSeek API        - Ranking & article generation (key stored in scripts/.env)
 ✓ 88 RSS feeds        — 5 tiers: NYC, National, Capital Markets, Business, Research
 ✓ Enhanced prompts    — WSJ "Heard on the Street" editorial voice
 ✓ 5 articles/day      — Top 5 ranked stories published
-✓ Social images       — Branded PNG for LinkedIn (1200×628px)
+✓ Social images       — Branded PNG for LinkedIn (1200x628px)
 ✓ Scheduled task      — Daily 7:00 AM via Windows Task Scheduler
-✓ LinkedIn posting    — Auto-post top article + hook
-✓ Git automation      — Push → Netlify deploy (automatic)
+✓ LinkedIn review     - Essay package queued for human review
+✓ Git automation      - Push triggers Netlify deploy when credentials are configured
 ```
 
 ---
@@ -108,7 +108,7 @@ Review:
 - 5 runs completed (no errors)
 - 25 total articles published (5 per day)
 - Consistent elapsed time (~5–6 minutes)
-- LinkedIn posts appearing on schedule
+- LinkedIn essay packages appearing in the review queue
 
 ### Monthly
 
@@ -171,7 +171,7 @@ Full pipeline: gather → score → write → publish → LinkedIn → log.
 |-------|-----|
 | **Pillow not installed** | `pip install Pillow>=10.0.0` |
 | **Social images not generated** | Install Pillow, re-run |
-| **LinkedIn post missing** | Check `LINKEDIN_ACCESS_TOKEN` in `.env` |
+| **LinkedIn package missing** | Check Essay Desk generation and `linkedin_essay_queue.json` |
 | **Scheduled task not running** | Verify in Task Scheduler: `Win+R → taskschd.msc` |
 | **No articles published** | Check `scripts/agent_run.log` for errors |
 | **Articles show "Invalid Date"** | This shouldn't happen (fixed in codebase) |
@@ -195,10 +195,10 @@ Full pipeline: gather → score → write → publish → LinkedIn → log.
 |---------|--------|--------------|
 | **DeepSeek** | ✓ Active | `scripts/.env` `DEEPSEEK_API_KEY` |
 | **NewsAPI** | ✓ Active | `scripts/.env` `NEWSAPI_KEY` |
-| **LinkedIn** | ✓ Active | `scripts/.env` `LINKEDIN_ACCESS_TOKEN` |
+| **LinkedIn** | Optional auto-post only; default is review queue | `scripts/.env` `LINKEDIN_ACCESS_TOKEN` |
 | **Anthropic** | (inactive) | For reference only |
 
-All keys are in `scripts/.env` (git-ignored for security).
+All keys are in `scripts/.env` (git-ignored for security). If a key-bearing log was ever pushed or shared, rotate the exposed key.
 
 ---
 
@@ -225,12 +225,12 @@ All keys are in `scripts/.env` (git-ignored for security).
                    Update insights.json + feed.xml + sitemap.xml
                    Git commit & push → Netlify auto-deploys
   ↓
-[PHASE 7] LINKEDIN — Post top article link + hook + hashtags
+[PHASE 7] LINKEDIN — Queue top article essay package for review
   ↓
 [PHASE 8] LOG — Record metrics: elapsed time, article count, status
                 Save to agent_log.json
   ↓
-~5–6 min TOTAL — All complete, site live, LinkedIn post published
+~5–6 min TOTAL — All complete, site live, LinkedIn package queued
 ```
 
 ---
@@ -241,9 +241,9 @@ All keys are in `scripts/.env` (git-ignored for security).
 |---------|---------|--------|
 | 100 RSS feeds (was 20) | Today | ✓ Live |
 | 5 articles/day (was 1) | Today | ✓ Live |
-| DeepSeek API (ranking + writing) | Today | ✓ Live |
+| DeepSeek API        - Ranking & article generation (key stored in scripts/.env)
 | Enhanced prompts (sophisticated voice) | Today | ✓ Live |
-| Branded social images (1200×628px) | Today | ✓ Live |
+| Branded social images (1200x628px) | Today | ✓ Live |
 | Date/timestamp fixes (no microseconds) | Today | ✓ Live |
 | Automated deployment (git → Netlify) | Previous | ✓ Live |
 
@@ -277,7 +277,7 @@ Next run: **Tomorrow at 7:00 AM**
 
 **Verify afterward:**
 1. Check `insights.html` (5 new articles)
-2. Check LinkedIn (top article posted)
+2. Check LinkedIn review queue (top article package queued)
 3. Check `agent_log.json` (success status)
 
 ---

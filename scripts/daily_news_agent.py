@@ -96,6 +96,34 @@ LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
 LINKEDIN_PERSON_URN   = os.environ.get("LINKEDIN_PERSON_URN", "")
 
 
+def redact_secret_text(value: object) -> str:
+    """Return log-safe text with API keys and bearer tokens removed."""
+    text = str(value)
+    text = re.sub(
+        r"([?&](?:apiKey|key|token|access_token)=)[^&\s)]+",
+        r"\1[REDACTED]",
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(r"(Bearer\s+)[A-Za-z0-9._~+/=-]+", r"\1[REDACTED]", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bsk-[A-Za-z0-9._-]+", "sk-[REDACTED]", text)
+    return text
+
+
+MOJIBAKE_RE = re.compile("[" + chr(0x00E2) + chr(0x00C3) + chr(0xFFFD) + "]")
+
+
+def assert_no_mojibake(label: str, payload: object) -> None:
+    """Fail fast when generated user-visible content has obvious encoding damage."""
+    text = json.dumps(payload, ensure_ascii=False) if not isinstance(payload, str) else payload
+    match = MOJIBAKE_RE.search(text)
+    if match:
+        start = max(match.start() - 40, 0)
+        end = min(match.end() + 40, len(text))
+        snippet = text[start:end].replace("\n", " ")
+        raise ValueError(f"{label} contains possible mojibake near: {snippet}")
+
+
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 # PHASE 1: GATHER
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -136,7 +164,7 @@ def fetch_rss_stories() -> list:
                         "published": _parse_entry_date(entry),
                     })
         except Exception as e:
-            print(f"  [WARN] RSS {source_name}: {e}")
+            print(f"  [WARN] RSS {source_name}: {redact_secret_text(e)}")
         time.sleep(0.05)
 
     print(f"  RSS: {len(stories)} raw stories from {len(RSS_FEEDS)} feeds")
@@ -177,7 +205,7 @@ def fetch_newsapi_stories() -> list:
                         "published": art.get("publishedAt", datetime.now(timezone.utc).isoformat()),
                     })
         except Exception as e:
-            print(f"  [WARN] NewsAPI query '{query[:30]}': {e}")
+            print(f"  [WARN] NewsAPI query '{query[:30]}': {redact_secret_text(e)}")
         time.sleep(0.5)
 
     print(f"  NewsAPI: {len(stories)} additional stories")
@@ -302,7 +330,7 @@ Stories to score:
         return [stories[i] for i in ranked_idx]
 
     except Exception as e:
-        print(f"  [WARN] Scoring failed ({e}), using raw order")
+        print(f"  [WARN] Scoring failed ({redact_secret_text(e)}), using raw order")
         return stories
 
 
@@ -324,7 +352,7 @@ def _fetch_full_text(url: str) -> str:
             if text and len(text) > 150:
                 return text[:5000]
     except Exception as e:
-        print(f"  [WARN] trafilatura failed for {url[:50]}: {e}")
+        print(f"  [WARN] trafilatura failed for {url[:50]}: {redact_secret_text(e)}")
     return ""
 
 
@@ -589,6 +617,30 @@ def render_html(article: dict) -> str:
     share_top  = _share_buttons(page_url, article["title"])
     share_bot  = _share_buttons(page_url, article["title"])
     year       = datetime.now().year
+    schema_json = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": article["title"],
+        "description": article["meta_description"],
+        "url": page_url,
+        "datePublished": article["date_iso"],
+        "dateModified": article["date_iso"],
+        "author": {
+            "@type": "Person",
+            "name": "Benjamin Rohr",
+            "url": f"{SITE_URL}/#principal",
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Light Tower Group",
+            "url": SITE_URL,
+            "logo": f"{SITE_URL}/favicon.svg",
+        },
+        "image": social_image_url,
+        "mainEntityOfPage": page_url,
+        "articleSection": article.get("category", "Market Analysis"),
+        "keywords": article.get("tags", []),
+    }, ensure_ascii=False, indent=2)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -597,6 +649,8 @@ def render_html(article: dict) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{esc(article['title'])} | Light Tower Group</title>
   <meta name="description" content="{esc(article['meta_description'])}">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Benjamin Rohr, Light Tower Group">
   <link rel="canonical" href="{page_url}">
   <link rel="alternate" type="application/rss+xml"
         title="Light Tower Group Insights" href="{SITE_URL}/feed.xml">
@@ -618,6 +672,10 @@ def render_html(article: dict) -> str:
   <meta name="twitter:title"       content="{esc(article['title'])}">
   <meta name="twitter:description" content="{esc(article['meta_description'])}">
   <meta name="twitter:image"       content="{social_image_url}">
+
+  <script type="application/ld+json">
+{schema_json}
+  </script>
 
   <style>
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -914,11 +972,14 @@ def update_manifest(article: dict):
         "url":      f"/insights/{article['slug']}.html",
         "tags":     article.get("tags", []),
     }
+    assert_no_mojibake("manifest entry", entry)
     # Remove any existing entry with same slug
     data = [e for e in data if e.get("slug") != article["slug"]]
     data.insert(0, entry)
 
-    INSIGHTS_JSON.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    manifest_json = json.dumps(data, indent=2, ensure_ascii=False)
+    assert_no_mojibake("insights.json", manifest_json)
+    INSIGHTS_JSON.write_text(manifest_json, encoding="utf-8")
     print(f"  insights.json updated ({len(data)} total entries)")
 
 
@@ -1064,7 +1125,7 @@ def git_commit_push(articles: list, dry_run: bool = False):
         print(f"  Git: committed {len(articles)} articles and pushed \u2192 Netlify deploying")
     except subprocess.CalledProcessError as e:
         stderr = e.stderr.decode(errors="replace") if e.stderr else ""
-        print(f"  [WARN] Git failed: {stderr[:200]}")
+        print(f"  [WARN] Git failed: {redact_secret_text(stderr)[:200]}")
 
 
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1182,9 +1243,9 @@ def post_to_linkedin(article: dict, dry_run: bool = False) -> bool:
                 "         Re-run: python linkedin_auth.py"
             )
         else:
-            print(f"  [WARN] LinkedIn {resp.status_code}: {resp.text[:200]}")
+            print(f"  [WARN] LinkedIn {resp.status_code}: {redact_secret_text(resp.text)[:200]}")
     except Exception as e:
-        print(f"  [WARN] LinkedIn request failed: {e}")
+        print(f"  [WARN] LinkedIn request failed: {redact_secret_text(e)}")
 
     return False
 
@@ -1285,7 +1346,13 @@ def main():
         try:
             article = generate_article(candidate)
         except Exception as e:
-            print(f"  [WARN] Article {i} generation failed: {e} — skipping")
+            print(f"  [WARN] Article {i} generation failed: {redact_secret_text(e)} — skipping")
+            continue
+
+        try:
+            assert_no_mojibake(f"article {i}", article)
+        except ValueError as e:
+            print(f"  [WARN] Article {i} failed content QA: {redact_secret_text(e)} -- skipping")
             continue
 
         if not args.force and already_published(article["slug"]):
@@ -1317,7 +1384,7 @@ def main():
                 site_url=SITE_URL,
             )
         except Exception as e:
-            print(f"  [WARN] Essay Desk failed for article {i}: {e} — using fallback package")
+            print(f"  [WARN] Essay Desk failed for article {i}: {redact_secret_text(e)} — using fallback package")
             package = generate_essay_package(
                 article,
                 length_mode=args.linkedin_length,
@@ -1360,7 +1427,9 @@ def main():
 
         for article in articles:
             out = INSIGHTS_DIR / f"{article['slug']}.html"
-            out.write_text(render_html(article), encoding="utf-8")
+            html = render_html(article)
+            assert_no_mojibake(f"html {article['slug']}", html)
+            out.write_text(html, encoding="utf-8")
             print(f"  Saved: insights/{article['slug']}.html")
 
             # Generate branded social media image

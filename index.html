@@ -2156,6 +2156,8 @@
       btn.closest('.wizard-cards').querySelectorAll('.wizard-card').forEach(c => c.classList.remove('selected'));
       btn.classList.add('selected');
       wizardData[field] = btn.dataset.value;
+      if (window.ltgTrack) window.ltgTrack('mandate_form_start', { capital_need: wizardData[field] });
+      if (window.ltgTrack) window.ltgTrack('mandate_form_step_1', { capital_need: wizardData[field] });
       setTimeout(() => wizardSetStep(2, false), 220);
     }
 
@@ -2171,6 +2173,11 @@
         document.getElementById('h-capital-need').value = wizardData.capital_need;
         document.getElementById('h-asset-type').value   = wizardData.asset_type;
         document.getElementById('h-deal-size').value    = wizardData.deal_size;
+        if (window.ltgTrack) window.ltgTrack('mandate_form_step_2', {
+          capital_need: wizardData.capital_need,
+          asset_type: wizardData.asset_type,
+          deal_size: wizardData.deal_size
+        });
         wizardSetStep(3, false);
       }
     }
@@ -2196,6 +2203,11 @@
           if (res.ok) {
             document.getElementById('mandate-wizard').querySelectorAll('.wizard-step, .wizard-progress, .wizard-steps-label').forEach(el => el.style.display = 'none');
             document.getElementById('wizard-success').style.display = 'block';
+            if (window.ltgTrack) window.ltgTrack('mandate_form_submit', {
+              capital_need: wizardData.capital_need,
+              asset_type: wizardData.asset_type,
+              deal_size: wizardData.deal_size
+            });
           } else {
             btn.textContent = 'Submit Mandate';
             btn.disabled = false;

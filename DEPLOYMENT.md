@@ -1,4 +1,4 @@
-# Light Tower Group News Agent — Deployment Guide
+﻿# Light Tower Group News Agent — Deployment Guide
 
 ## Production Status: ✓ LIVE
 
@@ -15,47 +15,47 @@
 
 ```
 GATHER (Phase 1)
-  └─ 88 RSS feeds + NewsAPI
-     └─ 80+ raw stories/day
+  - 88 RSS feeds + NewsAPI
+     - 80+ raw stories/day
 
 TRIAGE (Phase 2)
-  └─ Filter: CRE-relevant, last 36h, deduplicate
-     └─ 20-30 qualified candidates
+  - Filter: CRE-relevant, last 36h, deduplicate
+     - 20-30 qualified candidates
 
 SCORE (Phase 3)
-  └─ DeepSeek ranks by: capital markets impact (30 pts),
+  - DeepSeek ranks by: capital markets impact (30 pts),
      NYC relevance (25 pts), deal scale (20 pts),
      originality (15 pts), timeliness (10 pts)
-     └─ Ranked 1-20
+     - Ranked 1-20
 
 ENRICH (Phase 4)
-  └─ Fetch full text (Trafilatura)
-  └─ Extract NYC addresses
-     └─ Top 5 enriched stories
+  - Fetch full text (Trafilatura)
+  - Extract NYC addresses
+     - Top 5 enriched stories
 
 WRITE (Phase 5)
-  └─ DeepSeek generates 5 editorial pieces
-  └─ System prompt: SYSTEM_PROMPT_ENHANCED (sophisticated CRE voice)
-  └─ User template: USER_PROMPT_TEMPLATE (consistent structure)
-  └─ Output: 750-950 words each, institutional-grade
-     └─ JSON: title, subtitle, slug, category, meta_description,
+  - DeepSeek generates 5 editorial pieces
+  - System prompt: SYSTEM_PROMPT_ENHANCED (sophisticated CRE voice)
+  - User template: USER_PROMPT_TEMPLATE (consistent structure)
+  - Output: 750-950 words each, institutional-grade
+     - JSON: title, subtitle, slug, category, meta_description,
        tags, body_html, sources, linkedin_hook, twitter_hook
 
 PUBLISH (Phase 6)
-  └─ Save 5 .html files to /insights/
-  └─ Update insights.json manifest (5 new entries)
-  └─ Rebuild feed.xml (RSS feed)
-  └─ Rebuild sitemap.xml
-  └─ Git commit + push to origin/main
-     └─ Triggers Netlify build & deploy
+  - Save 5 .html files to /insights/
+  - Update insights.json manifest (5 new entries)
+  - Rebuild feed.xml (RSS feed)
+  - Rebuild sitemap.xml
+  - Git commit + push to origin/main
+     - Triggers Netlify build & deploy
 
 LINKEDIN (Phase 7)
-  └─ Post top-ranked article link + hook
-     └─ 30,000-follower CRE capital markets audience
+  - Queue top-ranked article essay package for human LinkedIn review
+     - 30,000-follower CRE capital markets audience
 
 LOG (Phase 8)
-  └─ Append run record to agent_log.json
-     └─ Metrics: elapsed_seconds, articles_count, status, etc.
+  - Append run record to agent_log.json
+     - Metrics: elapsed_seconds, articles_count, status, etc.
 ```
 
 ---
@@ -65,11 +65,13 @@ LOG (Phase 8)
 ### API Keys (scripts/.env)
 
 ```
-ANTHROPIC_API_KEY=sk-ant-api03-...         [unused, kept for reference]
-DEEPSEEK_API_KEY=sk-5515636d3d0c4f5e...   [active — article ranking & writing]
-NEWSAPI_KEY=f1e6e15b400f484c...            [story gathering]
-LINKEDIN_ACCESS_TOKEN=AQXOl2jGsSXF2n...   [LinkedIn posting]
+ANTHROPIC_API_KEY=<optional, Netlify chat assistant>
+DEEPSEEK_API_KEY=<article ranking, writing, and LinkedIn Essay Desk>
+NEWSAPI_KEY=<story gathering>
+LINKEDIN_ACCESS_TOKEN=<optional, only for manual --auto-post-linkedin runs>
 ```
+
+Security note: if any log containing a real API key was ever pushed or shared, rotate that key immediately. Operational logs must never include full request URLs with key query parameters.
 
 ### DeepSeek Integration
 
@@ -190,7 +192,7 @@ python daily_news_agent.py --dry-run
 **Output:**
 - `[dry-run]` tag in all logs
 - Articles generated in memory only (no files saved)
-- No git push or LinkedIn post
+- No git push or LinkedIn queue update
 - Useful for: verifying API keys, checking article quality, debugging
 
 ### Force Publish (Skip Duplicate Check)
@@ -231,7 +233,7 @@ python daily_news_agent.py
 | TRIAGE | <5s | 2-4s |
 | SCORE (DeepSeek) | <60s | 45-58s |
 | ENRICH | <10s | 5-8s |
-| WRITE (5× articles) | <300s | 200-280s |
+| WRITE (5x articles) | <300s | 200-280s |
 | PUBLISH | <30s | 15-25s |
 | LINKEDIN | <10s | 3-7s |
 | LOG | <5s | 1-2s |
@@ -261,12 +263,12 @@ python daily_news_agent.py
 - **Banned phrases:** "in recent years", "going forward", "stakeholders", "paradigm", "ecosystem"
 
 ### JSON Output Validation
-- **title:** ≤90 chars, specific not vague
-- **subtitle:** ≤140 chars, delivers "so what"
+- **title:** <=90 chars, specific not vague
+- **subtitle:** <=140 chars, delivers "so what"
 - **slug:** kebab-case, max 6 words, lowercase letters + hyphens
 - **body_html:** Only `<p>` tags, no `<h1>`, `<strong>`, etc.
 - **linkedin_hook:** 100–160 words, no hashtags, no emojis
-- **twitter_hook:** ≤240 chars, sharp and specific
+- **twitter_hook:** <=240 chars, sharp and specific
 
 ---
 
@@ -298,7 +300,7 @@ git push origin main --force
 
 - [ ] A/B test scoring weights (capital markets impact vs. NYC relevance)
 - [ ] Add backtesting: score last 30 days of stories, measure predictive accuracy
-- [ ] Expand LinkedIn posting: include all 5 articles (not just top 1)
+- [ ] Expand LinkedIn review workflow: package all 5 articles with approval status
 - [ ] Add article versioning: keep prior versions, show update history
 - [ ] Implement dynamic prompts: adjust voice based on story category
 - [ ] Add analytics: track read times, shares, engagement per article

@@ -4,6 +4,12 @@ agent/
 *.py
 !scripts/*.py
 .env
+scripts/.env
 .DS_Store
 Thumbs.db
 scripts/agent_log.json
+scripts/agent_run.log
+scripts/__pycache__/
+*.pyc
+test_social_image.png
+scripts/test_social_image.png

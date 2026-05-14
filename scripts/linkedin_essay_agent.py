@@ -30,6 +30,7 @@ INSIGHTS_DIR = SITE_ROOT / "insights"
 ESSAY_QUEUE = SITE_ROOT / "linkedin_essay_queue.json"
 SITE_URL = os.environ.get("SITE_URL", "https://lighttowergroup.co").rstrip("/")
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+MOJIBAKE_RE = re.compile("[" + chr(0x00E2) + chr(0x00C3) + chr(0xFFFD) + "]")
 
 
 _env = SCRIPT_DIR / ".env"
@@ -43,6 +44,16 @@ DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", DEEPSEEK_API_KEY)
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
+def assert_no_mojibake(label: str, payload: Any) -> None:
+    text = json.dumps(payload, ensure_ascii=False) if not isinstance(payload, str) else payload
+    match = MOJIBAKE_RE.search(text)
+    if match:
+        start = max(match.start() - 40, 0)
+        end = min(match.end() + 40, len(text))
+        snippet = text[start:end].replace("\n", " ")
+        raise ValueError(f"{label} contains possible mojibake near: {snippet}")
 
 
 class _TextExtractor(HTMLParser):
@@ -376,6 +387,7 @@ def decorate_package(
 
 
 def save_to_queue(package: dict[str, Any], queue_path: Path = ESSAY_QUEUE) -> None:
+    assert_no_mojibake("essay package", package)
     queue_path.parent.mkdir(parents=True, exist_ok=True)
     queue: list[dict[str, Any]] = []
     if queue_path.exists():
@@ -387,7 +399,9 @@ def save_to_queue(package: dict[str, Any], queue_path: Path = ESSAY_QUEUE) -> No
     queue = [item for item in queue if item.get("slug") != slug]
     queue.insert(0, package)
     queue = queue[:200]
-    queue_path.write_text(json.dumps(queue, indent=2, ensure_ascii=False), encoding="utf-8")
+    queue_json = json.dumps(queue, indent=2, ensure_ascii=False)
+    assert_no_mojibake("essay queue", queue_json)
+    queue_path.write_text(queue_json, encoding="utf-8")
 
 
 def load_manifest() -> list[dict[str, Any]]:

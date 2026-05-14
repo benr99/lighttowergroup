@@ -195,6 +195,7 @@
   let isOpen      = false;
   let isWaiting   = false;
   let userTurns   = 0;    // count of user messages sent
+  let leadNotified = false;
 
   const panel      = document.getElementById('ltg-chat-panel');
   const btn        = document.getElementById('ltg-chat-btn');
@@ -209,6 +210,7 @@
     isOpen = !isOpen;
     panel.classList.toggle('open', isOpen);
     if (isOpen) {
+      if (window.ltgTrack) window.ltgTrack('chat_open', { page_path: window.location.pathname });
       input.focus();
       if (messages.length === 0) greet();
     }
@@ -253,6 +255,40 @@
 
   function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
 
+  function transcriptText() {
+    return messages.map(m => m.content || '').join('\n');
+  }
+
+  function shouldNotifyLead(reply) {
+    const allText = (transcriptText() + '\n' + (reply || '')).toLowerCase();
+    const hasEmail = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(allText);
+    const hasDealSignal = /(debt|equity|loan|refi|refinance|bridge|construction|multifamily|office|retail|industrial|hotel|hospitality|development|acquisition|recap|capital|cmbs)/i.test(allText);
+    const hasSizeSignal = /\$\s?\d|\d+\s?(m|mm|million)/i.test(allText);
+    const closingSignals = [
+      'ben will', 'ben rohr will', 'will be in touch', 'will reach out',
+      'will contact you', 'expect to hear', 'look forward to speaking',
+    ];
+    return hasEmail && (hasDealSignal || hasSizeSignal || closingSignals.some(s => allText.includes(s)));
+  }
+
+  function notifyLeadOnce(reply) {
+    if (leadNotified || !shouldNotifyLead(reply)) return;
+    leadNotified = true;
+    if (window.ltgTrack) window.ltgTrack('chat_lead_captured', { page_path: window.location.pathname });
+    try {
+      fetch('/.netlify/functions/deal-notify', {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body   : JSON.stringify({
+          source: 'chat-widget',
+          page: window.location.href,
+          leadFields: { detected_email: true, detected_deal_signal: true },
+          messages
+        }),
+      }).catch(() => {});
+    } catch (_) {}
+  }
+
   // ── Send ──────────────────────────────────────────────────────────────────
   async function sendMessage() {
     const raw  = input.value;
@@ -281,6 +317,7 @@
     addMessage(text, 'user');
     messages.push({ role: 'user', content: text });
     userTurns++;
+    if (window.ltgTrack) window.ltgTrack('chat_message_sent', { page_path: window.location.pathname, turn: userTurns });
 
     isWaiting = true;
     sendBtn.disabled = true;
@@ -309,21 +346,7 @@
       addMessage(reply, 'bot');
       messages.push({ role: 'assistant', content: reply });
 
-      // Fire deal screener when bot signals conversation complete
-      const closingSignals = [
-        'ben will', 'ben rohr will', 'will be in touch', 'will reach out',
-        'will contact you', 'expect to hear', 'look forward to speaking',
-      ];
-      const replyLower = reply.toLowerCase();
-      if (closingSignals.some(s => replyLower.includes(s))) {
-        try {
-          fetch('/.netlify/functions/deal-notify', {
-            method : 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body   : JSON.stringify({ messages }),
-          }).catch(() => {});
-        } catch (_) {}
-      }
+      notifyLeadOnce(reply);
 
     } catch {
       removeTyping();
