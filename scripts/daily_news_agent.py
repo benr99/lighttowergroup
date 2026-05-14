@@ -592,7 +592,7 @@ def _share_buttons(page_url: str, title: str) -> str:
       <a href="{li_href}" target="_blank" rel="noopener noreferrer" class="share-btn share-li">LinkedIn</a>
       <a href="{tw_href}" target="_blank" rel="noopener noreferrer" class="share-btn share-tw">X / Twitter</a>
       <button class="share-btn share-copy"
-              onclick="navigator.clipboard.writeText({js_url}).then(function(){{this.textContent='Copied!'}}.bind(this))">Copy Link</button>
+              onclick='navigator.clipboard.writeText({js_url}).then(function(){{this.textContent="Copied!"}}.bind(this))'>Copy Link</button>
     </div>"""
 
 
