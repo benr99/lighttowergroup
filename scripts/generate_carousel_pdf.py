@@ -142,7 +142,7 @@ class CarouselPDFGenerator:
         pdf.set_font("Times", "B", 18)
         pdf.set_text_color(*text_rgb)
         pdf.set_xy(15, 60)
-        theme_text = data['publication']['theme']
+        theme_text = self._sanitize_text(data['publication']['theme'])
         pdf.multi_cell(180, 8, theme_text, align="C")
 
         # Table of contents
@@ -151,7 +151,7 @@ class CarouselPDFGenerator:
         pdf.set_xy(15, 130)
 
         for i, story in enumerate(data['stories'], 1):
-            headline = story['headline'][:45]
+            headline = self._sanitize_text(story['headline'][:45])
             pdf.cell(10, 6, f"{i:02d}", ln=False)
             pdf.cell(170, 6, headline, ln=True)
 
@@ -194,20 +194,20 @@ class CarouselPDFGenerator:
         pdf.set_font("Times", "B", 16)
         pdf.set_text_color(*text_rgb)
         pdf.set_xy(15, 25)
-        pdf.multi_cell(100, 6, story['headline'])
+        pdf.multi_cell(100, 6, self._sanitize_text(story['headline']))
 
         # Deck
         pdf.set_font("Times", "I", 10)
         pdf.set_text_color(*muted_rgb)
         pdf.set_xy(15, pdf.get_y() + 3)
-        pdf.multi_cell(100, 5, story['deck'])
+        pdf.multi_cell(100, 5, self._sanitize_text(story['deck']))
 
         # Opening paragraph
         pdf.set_font("Helvetica", "", 9)
         pdf.set_text_color(*text_rgb)
         pdf.set_xy(15, pdf.get_y() + 4)
         if story['paragraphs']:
-            pdf.multi_cell(100, 4, story['paragraphs'][0])
+            pdf.multi_cell(100, 4, self._sanitize_text(story['paragraphs'][0]))
 
         # Right column: Key figures
         pdf.set_font("Times", "B", 20)
@@ -216,10 +216,10 @@ class CarouselPDFGenerator:
 
         if story.get('key_figures'):
             for fig in story['key_figures'][:2]:
-                pdf.cell(0, 8, fig['number'], ln=True)
+                pdf.cell(0, 8, self._sanitize_text(fig['number']), ln=True)
                 pdf.set_font("Helvetica", "", 8)
                 pdf.set_text_color(*muted_rgb)
-                pdf.cell(0, 3, fig['label'], ln=True)
+                pdf.cell(0, 3, self._sanitize_text(fig['label']), ln=True)
                 pdf.ln(2)
                 pdf.set_font("Times", "B", 20)
                 pdf.set_text_color(*gold_rgb)
@@ -228,9 +228,9 @@ class CarouselPDFGenerator:
         pdf.set_font("Helvetica", "B", 8)
         pdf.set_text_color(*muted_rgb)
         pdf.set_xy(120, 180)
-        pdf.cell(0, 4, f"{story['dateline']} - {story['date']}", ln=True)
+        pdf.cell(0, 4, f"{self._sanitize_text(story['dateline'])} - {self._sanitize_text(story['date'])}", ln=True)
         pdf.set_font("Helvetica", "", 7)
-        pdf.cell(0, 4, story['source'], ln=True)
+        pdf.cell(0, 4, self._sanitize_text(story['source']), ln=True)
 
         # Footer
         pdf.set_font("Helvetica", "", 7)
@@ -269,13 +269,13 @@ class CarouselPDFGenerator:
         pdf.set_font("Times", "B", 14)
         pdf.set_text_color(*text_rgb)
         pdf.set_xy(15, 150)
-        pdf.multi_cell(180, 6, story['headline'][:60], align="C")
+        pdf.multi_cell(180, 6, self._sanitize_text(story['headline'][:60]), align="C")
 
         # Category
         pdf.set_font("Helvetica", "", 8)
         pdf.set_text_color(*self._hex_to_rgb(self.colors['text_muted_dark']))
         pdf.set_xy(15, pdf.get_y() + 5)
-        pdf.cell(0, 4, story['category'], align="C", ln=True)
+        pdf.cell(0, 4, self._sanitize_text(story['category']), align="C", ln=True)
 
         return pdf
 
@@ -304,7 +304,7 @@ class CarouselPDFGenerator:
         pdf.set_font("Helvetica", "B", 8)
         pdf.set_text_color(*gold_rgb)
         pdf.set_xy(15, 15)
-        pdf.cell(0, 4, f"{story['headline'][:30].upper()} (CONT'D)", ln=True)
+        pdf.cell(0, 4, f"{self._sanitize_text(story['headline'][:30]).upper()} (CONT'D)", ln=True)
 
         pdf.line(15, pdf.get_y() + 1, 195, pdf.get_y() + 1)
         pdf.ln(3)
@@ -315,7 +315,7 @@ class CarouselPDFGenerator:
         pdf.set_xy(15, 25)
 
         remaining_text = ' '.join(story['paragraphs'][1:])
-        pdf.multi_cell(180, 4, remaining_text)
+        pdf.multi_cell(180, 4, self._sanitize_text(remaining_text))
 
         # Pull quote
         if story.get('pull_quote'):
@@ -323,7 +323,7 @@ class CarouselPDFGenerator:
             pdf.set_font("Times", "I", 11)
             pdf.set_text_color(*muted_rgb)
             pdf.set_xy(25, pdf.get_y())
-            pdf.multi_cell(160, 5, f'"{story["pull_quote"]}"')
+            pdf.multi_cell(160, 5, f'"{self._sanitize_text(story["pull_quote"])}"')
             pdf.set_font("Helvetica", "", 7)
             pdf.set_text_color(*muted_rgb)
             pdf.cell(0, 3, "- LTG Capital Intelligence", ln=True)
@@ -423,15 +423,7 @@ class CarouselPDFGenerator:
 
             # Merge all pages into one PDF
             pdf = pages[0]
-            for page_pdf in pages[1:]:
-                # Copy pages from each PDF
-                for page_num in range(1, page_pdf.page):
-                    page_pdf.set_page(page_num)
-                # Note: fpdf2 doesn't support page merging directly
-                # We'll use a workaround by recreating everything
 
-            # For now, just use the first page as proof of concept
-            # In production, we'd need a proper merger
             if len(pages) == 1:
                 pdf.output(str(output_path))
             else:

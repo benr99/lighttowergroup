@@ -296,6 +296,7 @@
       '  <div class="share-modal-actions">',
       '    <button type="button" class="share-modal-btn" id="share-copy-text">Copy Text</button>',
       '    <button type="button" class="share-modal-btn" id="share-download-image">Download Image</button>',
+      '    <button type="button" class="share-modal-btn pdf-download-btn" id="share-download-pdf" style="display:none;">📄 PDF</button>',
       '  </div>',
       '  <div class="share-modal-actions">',
       '    <button type="button" class="share-modal-btn primary" id="share-open-linkedin">Open LinkedIn</button>',
@@ -360,6 +361,40 @@
       window.open(url, '_blank', 'noopener,noreferrer');
     });
 
+    modal.querySelector('#share-download-pdf').addEventListener('click', function () {
+      var btn = this;
+      var slug = currentInsightSlug();
+      var pdfPath = '/insights/' + slug + '_carousel.pdf';
+      var old = btn.textContent;
+      btn.textContent = 'Downloading...';
+      btn.disabled = true;
+
+      fetch(pdfPath, { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('PDF not found');
+          return response.blob();
+        })
+        .then(function (blob) {
+          var objectUrl = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = objectUrl;
+          a.download = slug + '_carousel.pdf';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(objectUrl); }, 1000);
+          btn.textContent = 'PDF Downloaded';
+          setTimeout(function () { btn.textContent = old; }, 1400);
+        })
+        .catch(function () {
+          btn.textContent = 'PDF Not Ready';
+          setTimeout(function () { btn.textContent = old; }, 2000);
+        })
+        .finally(function () {
+          btn.disabled = false;
+        });
+    });
+
     return modal;
   }
 
@@ -374,6 +409,21 @@
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('essay-modal-open');
+
+    // Check if PDF exists and show/hide button accordingly
+    var pdfPath = '/insights/' + slug + '_carousel.pdf';
+    var pdfBtn = document.getElementById('share-download-pdf');
+    fetch(pdfPath, { method: 'HEAD', cache: 'no-store' })
+      .then(function (response) {
+        if (response.ok) {
+          pdfBtn.style.display = 'inline-block';
+        } else {
+          pdfBtn.style.display = 'none';
+        }
+      })
+      .catch(function () {
+        pdfBtn.style.display = 'none';
+      });
   }
 
   function closeShareModal() {

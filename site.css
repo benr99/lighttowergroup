@@ -704,6 +704,15 @@ body.essay-modal-open {
   color: #121212; flex: 1;
 }
 .share-modal-btn.primary:hover { background: #d9b85c; border-color: #d9b85c; }
+.pdf-download-btn {
+  background: linear-gradient(135deg, #d4a574 0%, #c9975c 100%);
+  border-color: #c9975c;
+  color: #121212;
+}
+.pdf-download-btn:hover {
+  background: linear-gradient(135deg, #deb081 0%, #d9a876 100%);
+  border-color: #d9a876;
+}
 .share-modal-note {
   font-size: 0.82rem; color: var(--ltg-muted); line-height: 1.6;
   border-top: 1px solid var(--ltg-line); padding-top: 1rem; margin-top: 0.5rem;

@@ -39,6 +39,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from html import escape
 from html.parser import HTMLParser
+from pdf_queue import queue_pdf_generation
 
 # Force UTF-8 on Windows
 if hasattr(sys.stdout, "reconfigure"):
@@ -1443,6 +1444,15 @@ def main():
         update_feed_xml()
         update_sitemap_xml()
         git_commit_push(articles, dry_run=False)
+
+        # Queue PDF carousel generation in background (non-blocking)
+        for article in articles:
+            if article.get('body_html'):
+                queue_pdf_generation(
+                    article_html=article['body_html'],
+                    article_data=article,
+                    output_dir="insights"
+                )
     else:
         for article in articles:
             print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")
