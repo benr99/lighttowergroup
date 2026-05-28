@@ -226,14 +226,15 @@ class CarouselPDFGenerator:
 
     def _render_kicker(self, slide: dict[str, Any], slide_no: int) -> None:
         self._add_page("bg_primary")
-        self._label(slide.get("eyebrow", "LTG READ"), slide_no)
-        self._text(slide.get("headline", ""), x=MARGIN, y=28, w=88, h=7.5, size=21,
+        self._label(slide.get("eyebrow", "WHY IT MATTERS"), slide_no)
+        self._text(slide.get("headline", "Why it matters"), x=MARGIN, y=30, w=88, h=8, size=22,
                    style="B", font="Helvetica", color_key="text_primary")
-        self._text(slide.get("subhead", ""), x=MARGIN, y=66, w=88, h=4.5, size=10,
-                   color_key="text_muted_dark", fallback="#8A8A80")
-        self._text(slide.get("kicker", ""), x=MARGIN, y=91, w=88, h=5.5, size=13,
-                   style="B", color_key="accent_gold", fallback="#C9A84C", align="C")
-        self._text("LIGHT TOWER GROUP", x=MARGIN, y=112, w=88, h=4, size=9,
+        self.pdf.set_draw_color(*self._color("accent_gold", "#C9A84C"))
+        self.pdf.set_line_width(0.45)
+        self.pdf.line(MARGIN, 51, MARGIN + 23, 51)
+        self._text(slide.get("subhead", ""), x=MARGIN, y=62, w=88, h=5.6, size=13,
+                   color_key="text_primary", fallback="#F5F5F0")
+        self._text("LIGHT TOWER GROUP", x=MARGIN, y=108, w=88, h=4, size=9,
                    style="B", color_key="text_primary", align="C")
         self._footer()
 

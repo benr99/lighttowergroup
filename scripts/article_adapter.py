@@ -323,10 +323,15 @@ def build_carousel_slides(
     slides.append(
         make_slide(
             "kicker",
-            "LTG READ",
-            kicker_headline(final_sentence),
-            subhead="The headline is the transaction. The story is the structure.",
-            kicker="If the capital stack works, the deal becomes a signal. If it does not, it becomes a warning.",
+            "WHY IT MATTERS",
+            "Why it matters",
+            subhead=why_it_matters_text(
+                sentences=sentences,
+                analysis_sentences=analysis_sentences,
+                tension_sentences=tension_sentences,
+                final_sentence=final_sentence,
+            ),
+            subhead_limit=260,
             source="Light Tower Group",
         )
     )
@@ -364,6 +369,61 @@ def kicker_headline(sentence: str) -> str:
     if len(sentence) <= 96:
         return sentence
     return "The real story is what happens next."
+
+
+def why_it_matters_text(
+    *,
+    sentences: list[str],
+    analysis_sentences: list[str],
+    tension_sentences: list[str],
+    final_sentence: str,
+) -> str:
+    """Build a professional, article-specific closing implication."""
+    candidates = sentences + tension_sentences + analysis_sentences + [final_sentence]
+    avoid_terms = [
+        "ceo", "cfo", "president", "adviser", "role", "continuity", "said",
+        "told", "described", "managing director", "founder", "did not disclose",
+        "status is unclear",
+    ]
+    analytical_markers = [
+        "signals", "reflects", "reveals", "shows", "suggests", "means",
+        "takeaway", "pattern", "willing", "confidence", "implication",
+    ]
+    analytical_candidates = [
+        sentence for sentence in candidates
+        if any(marker in sentence.lower() for marker in analytical_markers)
+    ]
+    if analytical_candidates:
+        candidates = analytical_candidates
+    scored: list[tuple[int, str]] = []
+    for sentence in candidates:
+        sentence = clean_text(sentence)
+        lower = sentence.lower()
+        if not sentence:
+            continue
+        if len(sentence.split()) < 10:
+            continue
+        if any(word in lower for word in avoid_terms):
+            continue
+        score = 0
+        for word in ["capital", "debt", "loan", "lender", "financing", "refinancing"]:
+            if word in lower:
+                score += 4
+        for word in ["market", "valuation", "rate", "risk", "investor", "basis"]:
+            if word in lower:
+                score += 3
+        for word in ["signals", "reflects", "suggests", "means", "shows", "matters"]:
+            if word in lower:
+                score += 6
+        for word in ["private", "public"]:
+            if word in lower:
+                score += 1
+        if score:
+            scored.append((score, sentence))
+    if scored:
+        scored.sort(key=lambda item: item[0], reverse=True)
+        return compact_sentence(scored[0][1], 240)
+    return compact_sentence(final_sentence, 240) or "The takeaway is in the capital structure, not only the headline."
 
 
 def legacy_stories_from_slides(slides: list[dict[str, Any]], date: str, category: str, source: str) -> list[dict[str, Any]]:
