@@ -56,14 +56,39 @@ def compact(text: str, limit: int) -> str:
     return trimmed + "..."
 
 
+def compact_sentence(text: str, limit: int) -> str:
+    """Shorten text without leaving a visibly broken sentence fragment."""
+    text = clean_text(text)
+    if len(text) <= limit:
+        return text
+
+    sentences = re.split(r"(?<=[.!?])\s+", text)
+    kept: list[str] = []
+    total = ""
+    for sentence in sentences:
+        candidate = " ".join(kept + [sentence]).strip()
+        if len(candidate) <= limit:
+            kept.append(sentence)
+            total = candidate
+        else:
+            break
+    if total:
+        return total
+
+    trimmed = text[:limit].rsplit(" ", 1)[0].rstrip(" ,;:")
+    if not trimmed.endswith((".", "!", "?")):
+        trimmed += "."
+    return trimmed
+
+
 def paragraph_excerpt(paragraph: str, limit: int = 520) -> str:
     """Keep the article's prose intact enough to read as a narrative slide."""
-    return compact(paragraph, limit)
+    return compact_sentence(paragraph, limit)
 
 
 def extract_figures(text: str) -> list[dict[str, str]]:
     money = re.findall(
-        r"\$[\d,.]+(?:\.\d+)?\s?(?:T|B|M|K|trillion|billion|million)?",
+        r"\$[\d,.]+(?:\.\d+)?\s?(?:trillion|billion|million|T|B|M|K)?",
         text,
         flags=re.IGNORECASE,
     )
@@ -79,15 +104,51 @@ def extract_figures(text: str) -> list[dict[str, str]]:
 
 def figure_label(value: str, text: str) -> str:
     lower = value.lower()
-    if "$" in value and any(w in text.lower() for w in ["debt", "loan", "refi", "mortgage"]):
+    text_lower = text.lower()
+    window = context_window(value, text_lower)
+    nearby = context_window(value, text_lower, radius=60)
+    if "$" in value and "per share" in window:
+        return "Offer price"
+    if "$" in value and "fund" in window and any(w in window for w in ["close", "raise", "target"]):
+        return "Fund close"
+    if "$" in value and any(w in nearby for w in ["debt", "loan", "refi", "mortgage", "financing"]):
         return "Debt / financing"
-    if "$" in value and any(w in text.lower() for w in ["acquire", "sale", "buy", "purchase"]):
+    if "$" in value and any(w in window for w in ["acquire", "sale", "buy", "purchase", "transaction", "bid", "value"]):
         return "Transaction value"
     if "%" in value:
         return "Market move"
     if "unit" in lower or "asset" in lower or "propert" in lower:
         return "Portfolio scale"
     return "Key figure"
+
+
+def context_window(value: str, text: str, radius: int = 120) -> str:
+    normalized = clean_text(value).lower()
+    variants = {
+        normalized,
+        normalized.replace(" billion", " b"),
+        normalized.replace(" million", " m"),
+        normalized.replace(" trillion", " t"),
+    }
+    idx = -1
+    matched = normalized
+    for variant in variants:
+        idx = text.find(variant)
+        if idx >= 0:
+            matched = variant
+            break
+    if idx < 0:
+        return text[: radius * 2]
+
+    sentence_start = max(text.rfind(".", 0, idx), text.rfind("!", 0, idx), text.rfind("?", 0, idx))
+    sentence_end_candidates = [pos for pos in (text.find(".", idx), text.find("!", idx), text.find("?", idx)) if pos >= 0]
+    if radius >= 100 and sentence_end_candidates:
+        sentence_end = min(sentence_end_candidates)
+        return text[sentence_start + 1: sentence_end + 1].strip()
+
+    start = max(0, idx - radius)
+    end = min(len(text), idx + len(matched) + radius)
+    return text[start:end]
 
 
 def extract_entities(text: str) -> list[str]:
@@ -126,7 +187,7 @@ def select_sentences(sentences: list[str], keywords: list[str], count: int, excl
 
 
 def bullets_from_sentences(sentences: list[str], count: int = 3, limit: int = 92) -> list[str]:
-    return [compact(sentence, limit) for sentence in sentences[:count]]
+    return [compact_sentence(sentence, limit) for sentence in sentences[:count]]
 
 
 def extract_pull_quote(paragraphs: list[str]) -> str:
@@ -190,12 +251,12 @@ def make_slide(
     return {
         "system": system,
         "eyebrow": eyebrow,
-        "headline": compact(headline, 96),
-        "subhead": compact(subhead, subhead_limit),
+        "headline": compact_sentence(headline, 96),
+        "subhead": compact_sentence(subhead, subhead_limit),
         "bullets": bullets or [],
         "figures": figures or [],
-        "quote": compact(quote, 190),
-        "kicker": compact(kicker, 120),
+        "quote": compact_sentence(quote, 190),
+        "kicker": compact_sentence(kicker, 120),
         "source": source,
     }
 
@@ -222,9 +283,6 @@ def build_carousel_slides(
     tension_sentences = select_sentences(sentences, TENSION_WORDS, 4, used)
     used.update(tension_sentences[:2])
     analysis_sentences = select_sentences(sentences, ANALYSIS_WORDS, 4, used)
-    player_bullets = [f"{entity}: central to the transaction." for entity in entities[:3]]
-    if len(player_bullets) < 3:
-        player_bullets.extend(bullets_from_sentences(fact_sentences, 3 - len(player_bullets)))
 
     hero_headline = title
     analysis_one = analysis_sentences[0] if analysis_sentences else quote
@@ -235,7 +293,7 @@ def build_carousel_slides(
     slides = [
         make_slide(
             "hero",
-            category.upper(),
+            "CAPITAL INTELLIGENCE",
             hero_headline,
             subhead=paragraph_excerpt(narrative[0], 260),
             subhead_limit=260,
@@ -247,39 +305,18 @@ def build_carousel_slides(
             "THE MONEY",
             "The numbers tell the story",
             figures=figures[:3],
-            bullets=bullets_from_sentences(money_sentences, 2, 100),
             source=source,
         ),
     ]
 
-    labels = [
-        "WHAT HAPPENED",
-        "THE SETUP",
-        "THE PLAYERS",
-        "THE CAPITAL STACK",
-        "THE TENSION",
-        "THE MARKET READ",
-        "THE RISK",
-        "THE SIGNAL",
-        "THE TAKEAWAY",
-        "THE CLOSE",
-    ]
     for i, paragraph in enumerate(narrative):
-        slide_bullets: list[str] = []
-        if i == 0:
-            slide_bullets = bullets_from_sentences(fact_sentences, 2, 98)
-        elif i == 3:
-            slide_bullets = bullets_from_sentences(money_sentences, 2, 98)
-        elif i == 5:
-            slide_bullets = bullets_from_sentences(tension_sentences, 2, 98)
+        label = story_label(paragraph, i, len(narrative))
         slides.append(make_slide(
             "story",
-            labels[min(i, len(labels) - 1)],
-            headline_from_paragraph(paragraph, labels[min(i, len(labels) - 1)].title()),
+            f"STORY {i + 1:02d}",
+            label,
             subhead=paragraph_excerpt(paragraph, 520),
             subhead_limit=430,
-            bullets=slide_bullets,
-            quote=analysis_quote if i == 5 else "",
             source=source,
         ))
 
@@ -287,7 +324,7 @@ def build_carousel_slides(
         make_slide(
             "kicker",
             "LTG READ",
-            compact(final_sentence, 96),
+            kicker_headline(final_sentence),
             subhead="The headline is the transaction. The story is the structure.",
             kicker="If the capital stack works, the deal becomes a signal. If it does not, it becomes a warning.",
             source="Light Tower Group",
@@ -296,15 +333,37 @@ def build_carousel_slides(
     return slides
 
 
-def headline_from_paragraph(paragraph: str, fallback: str) -> str:
-    sentence = re.split(r"(?<=[.!?])\s+", clean_text(paragraph))[0].strip()
+def story_label(paragraph: str, index: int, total: int) -> str:
+    """Use complete, grammar-safe slide titles that match the paragraph's job."""
+    lower = paragraph.lower()
+    if index == 0:
+        return "What happened"
+    if index == total - 1:
+        return "The final read"
+    if any(word in lower for word in ["$", "billion", "million", "premium", "valuation", "price", "basis"]):
+        return "The money"
+    if any(word in lower for word in ["debt", "loan", "refinancing", "lender", "capital stack", "balance sheet"]):
+        return "The capital structure"
+    if any(word in lower for word in ["adviser", "ceo", "cfo", "president", "founder", "partner"]):
+        return "The people behind it"
+    if any(word in lower for word in ["shares", "stock", "market", "investors"]):
+        return "The market reaction"
+    if any(word in lower for word in ["risk", "pressure", "distress", "foreclosure", "default", "maturity"]):
+        return "The risk"
+    if any(word in lower for word in ["acquisition", "bought", "buy", "sold", "sale", "portfolio", "properties"]):
+        return "The transaction"
+    if any(word in lower for word in ["means", "signals", "shows", "reflects", "suggests", "matters"]):
+        return "Why it matters"
+    return "The story"
+
+
+def kicker_headline(sentence: str) -> str:
+    sentence = clean_text(sentence)
     if not sentence:
-        return fallback
-    # Keep the headline punchy, but article-specific.
-    words = sentence.split()
-    if len(words) > 11:
-        sentence = " ".join(words[:11])
-    return compact(sentence, 82)
+        return "The capital stack is the story."
+    if len(sentence) <= 96:
+        return sentence
+    return "The real story is what happens next."
 
 
 def legacy_stories_from_slides(slides: list[dict[str, Any]], date: str, category: str, source: str) -> list[dict[str, Any]]:
