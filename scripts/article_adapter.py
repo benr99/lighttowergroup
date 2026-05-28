@@ -1,240 +1,193 @@
 """
-Transform existing article format into PDF schema.
-
-Input: article data from daily_news_agent.py
-Output: structured JSON for PDF generation
+Transform Insight article HTML into the PDF carousel schema.
 """
 
+from __future__ import annotations
+
 import json
-import re
 import logging
+import re
 from datetime import datetime
+from html import unescape
 from pathlib import Path
-from typing import Dict, List
+from typing import Any
+
 
 logger = logging.getLogger(__name__)
 
+
+def clean_text(text: Any) -> str:
+    text = unescape(str(text or ""))
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
 def extract_pull_quote_from_html(html: str) -> str:
-    """
-    Extract pull quote from article HTML.
-
-    Convention: Author tags pull quote with <!-- PULL_QUOTE --> markers:
-    <!-- PULL_QUOTE -->Most analytical sentence<!-- /PULL_QUOTE -->
-
-    If no tag found: auto-extract most analytical sentence.
-    """
-    # Try explicit tag first
-    match = re.search(r'<!-- PULL_QUOTE -->(.*?)<!-- /PULL_QUOTE -->', html, re.DOTALL)
+    match = re.search(r"<!-- PULL_QUOTE -->(.*?)<!-- /PULL_QUOTE -->", html or "", re.DOTALL)
     if match:
-        return match.group(1).strip()
+        return clean_text(match.group(1))
 
-    # Fallback: auto-extract most analytical sentence
-    analytical_verbs = ['indicates', 'signals', 'suggests', 'means', 'reveals',
-                        'shows', 'demonstrates', 'underscores', 'reflects',
-                        'drives', 'determines', 'creates', 'establishes']
-
-    # Split into sentences
-    sentences = re.split(r'(?<=[.!?])\s+', html)
-    for sent in sentences:
-        # Remove HTML tags
-        clean = re.sub(r'<[^>]+>', '', sent).strip()
-        word_count = len(clean.split())
-
-        if 15 < word_count < 35:  # 15–35 words
-            if any(verb in clean.lower() for verb in analytical_verbs):
-                return clean
-
-    # Last resort: first sentence of second paragraph
-    paras = re.split(r'</p>', html)
-    if len(paras) > 1:
-        second_para = paras[1]
-        first_sent = re.split(r'(?<=[.!?])\s+', second_para)
-        if first_sent:
-            clean = re.sub(r'<[^>]+>', '', first_sent[0]).strip()
-            if clean:
-                return clean
-
-    return "LTG Capital Intelligence"  # Last resort fallback
+    analytical_verbs = [
+        "indicates", "signals", "suggests", "means", "reveals", "shows",
+        "demonstrates", "underscores", "reflects", "drives", "determines",
+        "creates", "establishes",
+    ]
+    text = re.sub(r"<[^>]+>", " ", html or "")
+    sentences = [clean_text(s) for s in re.split(r"(?<=[.!?])\s+", text) if clean_text(s)]
+    for sentence in sentences:
+        words = sentence.split()
+        if 15 < len(words) < 38 and any(v in sentence.lower() for v in analytical_verbs):
+            return sentence
+    return sentences[min(1, len(sentences) - 1)] if sentences else "LTG Capital Intelligence"
 
 
-def extract_key_figures(headline: str, paragraphs: List[str]) -> List[Dict]:
-    """
-    Extract 1–2 key data points from article.
-
-    Look for:
-    - Dollar amounts ($X.XB, $X.XM, $X.XK)
-    - Percentages (XX%)
-    """
-    figures = []
-
-    # Look in headline first for dollar amounts
-    dollar_match = re.search(r'\$[\d.]+[BMK]', headline)
-    if dollar_match:
-        figures.append({
-            "number": dollar_match.group(0),
-            "label": "Key Metric"
-        })
-
-    # Then first two paragraphs for more figures
-    text = ' '.join(paragraphs[:2])
-
-    # Dollar amounts
-    dollars = re.findall(r'\$[\d.]+[BMK]', text)
-    if dollars and len(figures) < 2:
-        # Skip if already in headline
-        if not dollar_match or dollars[0] != dollar_match.group(0):
-            figures.append({
-                "number": dollars[0],
-                "label": "Amount"
-            })
-
-    # Percentages
-    percents = re.findall(r'(\d+(?:\.\d+)?%)', text)
-    if percents and len(figures) < 2:
-        figures.append({
-            "number": percents[0],
-            "label": "Rate/Margin"
-        })
-
-    return figures[:2]  # Max 2
+def extract_key_figures(headline: str, paragraphs: list[str]) -> list[dict[str, str]]:
+    figures: list[dict[str, str]] = []
+    text = " ".join([headline] + paragraphs)
+    money = re.findall(
+        r"\$[\d,.]+(?:\.\d+)?\s?(?:T|B|M|K|trillion|billion|million)?",
+        text,
+        flags=re.IGNORECASE,
+    )
+    percents = re.findall(r"\b\d+(?:\.\d+)?%", text)
+    for value in list(dict.fromkeys(money + percents)):
+        label = "Key Metric" if value in headline else "Market Data"
+        figures.append({"number": clean_text(value), "label": label})
+        if len(figures) >= 3:
+            break
+    return figures
 
 
-def get_publication_metadata() -> dict:
-    """
-    Read publication metadata from publication-metadata.json.
-
-    Auto-increments volume if issue_date is > 30 days after last_issue_date.
-    """
-    metadata_path = Path(__file__).parent.parent / 'publication-metadata.json'
-
+def get_publication_metadata() -> dict[str, Any]:
+    metadata_path = Path(__file__).parent.parent / "publication-metadata.json"
     if not metadata_path.exists():
-        # First-time initialization
         initial = {
             "current_volume": 1,
             "last_issue_date": datetime.now().isoformat()[:10],
-            "publication_start": "2026-01-01"
+            "publication_start": "2026-01-01",
         }
-        metadata_path.write_text(json.dumps(initial, indent=2))
+        metadata_path.write_text(json.dumps(initial, indent=2), encoding="utf-8")
         return initial
 
-    with open(metadata_path) as f:
-        metadata = json.load(f)
-
-    # Check if we should increment volume
-    last_date = datetime.fromisoformat(metadata['last_issue_date'])
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    last_date = datetime.fromisoformat(metadata["last_issue_date"])
     today = datetime.now()
-    days_since = (today - last_date).days
-
-    if days_since > 30:  # Monthly or more frequent
-        metadata['current_volume'] += 1
-        metadata['last_issue_date'] = today.isoformat()[:10]
-        metadata_path.write_text(json.dumps(metadata, indent=2))
-        logger.info(f"Incremented publication volume to {metadata['current_volume']}")
-
+    if (today - last_date).days > 30:
+        metadata["current_volume"] += 1
+        metadata["last_issue_date"] = today.isoformat()[:10]
+        metadata_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+        logger.info("Incremented publication volume to %s", metadata["current_volume"])
     return metadata
+
+
+def split_into_sections(paragraphs: list[str], target: int = 5) -> list[list[str]]:
+    if len(paragraphs) <= target:
+        sections = [[p] for p in paragraphs]
+    else:
+        sections = []
+        base = len(paragraphs) // target
+        extra = len(paragraphs) % target
+        cursor = 0
+        for i in range(target):
+            size = base + (1 if i < extra else 0)
+            sections.append(paragraphs[cursor:cursor + size])
+            cursor += size
+    while sections and len(sections) < target:
+        sections.append([sections[-1][-1]])
+    return sections[:target]
+
+
+def headline_from_section(section: list[str], fallback: str) -> str:
+    first = clean_text(section[0] if section else fallback)
+    sentence = re.split(r"(?<=[.!?])\s+", first)[0].strip() or fallback
+    return sentence[:92].rstrip() + ("..." if len(sentence) > 92 else "")
+
+
+def deck_from_section(section: list[str], fallback: str) -> str:
+    text = " ".join(section)
+    sentences = [clean_text(s) for s in re.split(r"(?<=[.!?])\s+", text) if clean_text(s)]
+    deck = sentences[1] if len(sentences) > 1 else fallback
+    return deck[:170].rstrip() + ("..." if len(deck) > 170 else "")
+
+
+def infer_category(text: str, fallback: str = "Capital Markets") -> str:
+    categories = {
+        "Debt & Equity": ["debt", "loan", "refi", "financing", "mortgage", "credit"],
+        "Policy": ["policy", "regulation", "law", "bill", "fed", "rate", "treasury"],
+        "Transactions": ["acquisition", "sale", "deal", "sold", "purchased", "merger"],
+        "Development": ["development", "construction", "built", "building", "lease"],
+    }
+    lower = text.lower()
+    for category, keywords in categories.items():
+        if any(keyword in lower for keyword in keywords):
+            return category
+    return fallback
 
 
 def transform_article_to_pdf_schema(
     article_html: str,
-    article_data: dict,
-    theme: str = None
-) -> dict:
-    """
-    Transform existing article into PDF schema.
-
-    INPUT: article_data from daily_news_agent.py
-    {
-        "headline": "...",
-        "body": "<p>...</p><p>...</p>...",
-        "excerpt": "...",
-        "slug": "...",
-        "date": "2026-05-26"
-    }
-
-    OUTPUT: PDF schema for carousel generation
-    """
+    article_data: dict[str, Any],
+    theme: str | None = None,
+) -> dict[str, Any]:
     from bs4 import BeautifulSoup
 
-    soup = BeautifulSoup(article_data['body'], 'html.parser')
-
-    # Extract paragraphs
+    body_html = (
+        article_data.get("body")
+        or article_data.get("body_html")
+        or article_html
+        or ""
+    )
+    soup = BeautifulSoup(body_html, "html.parser")
     paragraphs = [
-        p.get_text(strip=True)
-        for p in soup.find_all('p')
-        if p.get_text(strip=True)
+        clean_text(p.get_text(" ", strip=True))
+        for p in soup.find_all("p")
+        if clean_text(p.get_text(" ", strip=True))
     ]
+    if len(paragraphs) < 2:
+        raise ValueError(f"Article has {len(paragraphs)} paragraphs, need at least 2")
 
-    if not paragraphs:
-        raise ValueError(f"No paragraphs found in article: {article_data.get('slug')}")
-
-    # Split 5 stories from the paragraphs
-    # NOTE: This assumes the article contains 5 distinct story sections
-    # In production, this would be more intelligent parsing
-    if len(paragraphs) < 5:
-        raise ValueError(f"Article has {len(paragraphs)} paragraphs, need ≥5 stories")
-
-    stories = []
-    category_patterns = {
-        'Capital Markets': ['REIT', 'equity', 'debt', 'capital', 'fund', 'financing', 'bond'],
-        'Policy': ['policy', 'regulation', 'law', 'bill', 'albany', 'senate'],
-        'Transactions': ['acquisition', 'sale', 'deal', 'sold', 'purchased', 'merger'],
-        'Development': ['development', 'construction', 'built', 'building', 'lease'],
-    }
-
-    for i in range(min(5, len(paragraphs))):
-        story_text = paragraphs[i]
-
-        # Extract category from headline or first paragraph
-        category = "Capital Markets"  # Default
-        for cat, keywords in category_patterns.items():
-            combined_text = (story_text + ' ' + article_data.get('headline', '')).lower()
-            if any(kw in combined_text for kw in keywords):
-                category = cat
-                break
-
-        # Extract headline from first sentence
-        first_sent = story_text.split('.')[0].strip()
-        headline = first_sent if len(first_sent) < 80 else first_sent[:77] + "..."
-
-        # Deck: second sentence if available
-        sentences = re.split(r'(?<=[.!?])\s+', story_text)
-        deck = sentences[1] if len(sentences) > 1 else ''
-        if len(deck) > 150:
-            deck = deck[:147] + "..."
-
-        stories.append({
-            "number": i + 1,
-            "category": category,
-            "headline": headline,
-            "deck": deck,
-            "dateline": "NEW YORK",
-            "date": article_data.get('date', datetime.now().isoformat()[:10]),
-            "source": "Light Tower Group Analysis",
-            "key_figures": extract_key_figures(headline, [story_text]),
-            "pull_quote": extract_pull_quote_from_html(article_html),
-            "paragraphs": [story_text]
-        })
-
-    # Get publication metadata
-    pub_meta = get_publication_metadata()
-    issue_date = datetime.fromisoformat(article_data.get('date', datetime.now().isoformat()[:10]))
+    title = (
+        article_data.get("headline")
+        or article_data.get("title")
+        or "Capital Markets Analysis"
+    )
+    category_fallback = article_data.get("category") or "Capital Markets"
+    raw_date = str(article_data.get("date") or article_data.get("date_iso") or datetime.now().isoformat()[:10])[:10]
+    issue_date = datetime.fromisoformat(raw_date)
     issue_month = issue_date.strftime("%B %Y")
 
-    if not theme:
-        # Auto-generate theme from main article headline
-        theme = f"{article_data.get('headline', 'Five Stories')} in {issue_month}"
+    stories = []
+    for i, section in enumerate(split_into_sections(paragraphs, target=5), 1):
+        section_text = " ".join(section)
+        headline = headline_from_section(section, title)
+        stories.append({
+            "number": i,
+            "category": infer_category(section_text + " " + title, category_fallback),
+            "headline": headline,
+            "deck": deck_from_section(
+                section,
+                article_data.get("subtitle") or article_data.get("meta_description") or "",
+            ),
+            "dateline": "NEW YORK",
+            "date": raw_date,
+            "source": article_data.get("source_name") or "Light Tower Group Analysis",
+            "key_figures": extract_key_figures(headline, section),
+            "pull_quote": extract_pull_quote_from_html(article_html or body_html),
+            "paragraphs": section,
+        })
 
+    pub_meta = get_publication_metadata()
     return {
         "publication": {
-            "volume": pub_meta['current_volume'],
-            "issue_date": article_data.get('date'),
+            "volume": pub_meta["current_volume"],
+            "issue_date": raw_date,
             "issue_month": issue_month,
-            "theme": theme
+            "theme": theme or f"{title} in {issue_month}",
         },
         "author": {
             "name": "Benjamin Rohr",
             "title": "Principal, Light Tower Group",
-            "email": "ben@lighttowergroup.co"
+            "email": "ben@lighttowergroup.co",
         },
-        "stories": stories
+        "stories": stories,
     }

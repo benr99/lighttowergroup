@@ -1,493 +1,294 @@
 """
-Generate LTG Capital Intelligence PDF carousels from article data.
+Generate LTG Capital Intelligence PDF carousels.
 
-Renders beautiful, editorially-rigorous multi-page PDFs optimized for LinkedIn.
-Uses fpdf2 for pure-Python PDF generation (no system dependencies).
+The renderer intentionally uses a single fpdf2 document end to end. Older
+versions built one PDF per page and merged them with pypdf, which made carousel
+generation fragile and dependent on an optional package.
 """
 
+from __future__ import annotations
+
+import asyncio
 import json
 import logging
+import re
+import unicodedata
 from pathlib import Path
-from typing import List, Dict
+from typing import Any
+
 from fpdf import FPDF
+
 
 logger = logging.getLogger(__name__)
 
-CANVAS_WIDTH = 210  # mm (A4 width, will scale to display size)
-CANVAS_HEIGHT = 297  # mm (A4 height)
-
-class LTGPDFCarousel(FPDF):
-    """Custom PDF class for LTG Capital Intelligence carousel."""
-
-    def __init__(self, colors: Dict[str, str]):
-        super().__init__(orientation='P', unit='mm', format='A4')
-        self.colors = colors
-        # Register fonts (fpdf2 can use system fonts via name)
-        self.set_auto_page_break(False)
-
-    def set_brand_colors(self):
-        """Configure drawing colors from brand palette."""
-        pass
-
-    def draw_page_header(self, section_label: str, accent_color: str = None):
-        """Draw standard page header with section label and rule."""
-        if accent_color is None:
-            accent_color = self.colors['accent_gold']
-
-        # Section label
-        self.set_font("Courier", "B", 8)
-        self.set_text_color(int(accent_color[1:3], 16), int(accent_color[3:5], 16), int(accent_color[5:7], 16))
-        self.cell(0, 4, section_label.upper(), ln=True)
-
-        # Thin rule
-        self.line(15, self.get_y() + 2, 195, self.get_y() + 2)
-        self.ln(4)
-
-    def draw_page_footer(self, page_num: str):
-        """Draw standard page footer with pagination."""
-        self.set_y(-15)
-        self.set_font("Courier", "", 7)
-        self.set_text_color(100, 100, 100)
-        self.cell(30, 10, page_num)
-        self.cell(135, 10, "* LTG Capital Intelligence", align="C")
-        self.cell(30, 10, "", align="R")
+PAGE_W = 210
+PAGE_H = 297
+MARGIN = 16
+CONTENT_W = PAGE_W - (MARGIN * 2)
 
 
 class CarouselPDFGenerator:
-    """Generate PDF carousel from article data."""
+    """Generate a polished vertical PDF carousel from structured article data."""
 
-    def __init__(self, colors: Dict[str, str]):
+    def __init__(self, colors: dict[str, str]):
         self.colors = colors
+        self.pdf = FPDF(orientation="P", unit="mm", format="A4")
+        self.pdf.set_auto_page_break(False)
+        self.page_count = 0
 
-    def _sanitize_text(self, text: str) -> str:
-        """Convert Unicode characters to ASCII equivalents for fpdf2 compatibility."""
-        if not text:
-            return text
+    def _hex_to_rgb(self, hex_color: str) -> tuple[int, int, int]:
+        color = (hex_color or "#000000").strip().lstrip("#")
+        if len(color) != 6:
+            color = "000000"
+        return tuple(int(color[i:i + 2], 16) for i in (0, 2, 4))
+
+    def _color(self, key: str, fallback: str = "#000000") -> tuple[int, int, int]:
+        return self._hex_to_rgb(self.colors.get(key, fallback))
+
+    def _sanitize_text(self, text: Any) -> str:
+        """Normalize text to the core-font encoding fpdf uses reliably."""
+        value = str(text or "")
         replacements = {
-            '—': '-', '–': '-', '•': '*', '"': '"', '"': '"',
-            ''': "'", ''': "'", '…': '...', '"': '"',
+            "\u2014": "-",
+            "\u2013": "-",
+            "\u2022": "*",
+            "\u2026": "...",
+            "\u2018": "'",
+            "\u2019": "'",
+            "\u201c": '"',
+            "\u201d": '"',
+            "\u00a0": " ",
+            "\u00b7": "-",
         }
-        for uni, ascii_char in replacements.items():
-            text = text.replace(uni, ascii_char)
-        try:
-            return text.encode('latin-1', errors='ignore').decode('latin-1')
-        except:
-            return text
+        for src, dst in replacements.items():
+            value = value.replace(src, dst)
+        value = unicodedata.normalize("NFKD", value)
+        value = value.encode("latin-1", errors="ignore").decode("latin-1")
+        value = re.sub(r"\s+", " ", value)
+        return value.strip()
 
-    def _hex_to_rgb(self, hex_color: str) -> tuple:
-        """Convert hex color to RGB tuple."""
-        hex_color = hex_color.lstrip('#')
-        return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+    def _add_page(self, bg_key: str = "bg_primary") -> None:
+        self.pdf.add_page()
+        self.page_count += 1
+        self.pdf.set_fill_color(*self._color(bg_key, "#0A0A0A"))
+        self.pdf.rect(0, 0, PAGE_W, PAGE_H, "F")
 
-    def build_pages(self, data: Dict) -> List[FPDF]:
-        """Build all PDF pages from article data."""
-        pages = []
+    def _line(self, x1: float, y: float, x2: float, color_key: str = "accent_gold") -> None:
+        self.pdf.set_draw_color(*self._color(color_key, "#C9A84C"))
+        self.pdf.set_line_width(0.25)
+        self.pdf.line(x1, y, x2, y)
 
-        # Page 1: Cover
-        pages.append(self._build_cover_page(data))
+    def _cell_text(
+        self,
+        text: str,
+        *,
+        x: float,
+        y: float,
+        w: float,
+        h: float,
+        font: str = "Helvetica",
+        style: str = "",
+        size: int = 10,
+        color_key: str = "text_primary",
+        fallback: str = "#F5F5F0",
+        align: str = "L",
+    ) -> float:
+        self.pdf.set_xy(x, y)
+        self.pdf.set_font(font, style, size)
+        self.pdf.set_text_color(*self._color(color_key, fallback))
+        self.pdf.multi_cell(w, h, self._sanitize_text(text), align=align)
+        return self.pdf.get_y()
 
-        # Pages 2+: Stories
-        for i, story in enumerate(data['stories'], 1):
-            is_dark_bg = i % 2 == 1
+    def _footer(self, label: str, dark: bool = True) -> None:
+        color_key = "text_muted_dark" if dark else "text_muted_light"
+        self.pdf.set_font("Helvetica", "", 7)
+        self.pdf.set_text_color(*self._color(color_key, "#8A8A80"))
+        self.pdf.set_xy(MARGIN, 282)
+        self.pdf.cell(40, 5, self._sanitize_text(label))
+        self.pdf.cell(105, 5, "LTG Capital Intelligence", align="C")
+        self.pdf.cell(40, 5, "lighttowergroup.co", align="R")
 
-            # Transition page (not before first story)
+    def _cover_page(self, data: dict[str, Any]) -> None:
+        pub = data["publication"]
+        self._add_page("bg_primary")
+        self._cell_text("LTG CAPITAL INTELLIGENCE", x=MARGIN, y=16, w=120, h=5, font="Helvetica",
+                        style="B", size=10, color_key="accent_gold", fallback="#C9A84C")
+        self._cell_text("Institutional Perspectives on CRE & Capital Markets", x=MARGIN, y=23,
+                        w=120, h=4, size=8, color_key="text_muted_dark", fallback="#8A8A80")
+        self._cell_text(f"Vol. {pub.get('volume', 1)}\n{pub.get('issue_month', '')}", x=150, y=16,
+                        w=44, h=4, size=8, color_key="text_muted_dark", fallback="#8A8A80", align="R")
+
+        self._line(MARGIN, 40, PAGE_W - MARGIN, "accent_gold")
+        self._cell_text(pub.get("theme", "Capital Markets Intelligence"), x=22, y=68, w=166, h=9,
+                        font="Times", style="B", size=22, color_key="text_primary",
+                        fallback="#F5F5F0", align="C")
+
+        self._cell_text("INSIDE THIS CAROUSEL", x=MARGIN, y=132, w=CONTENT_W, h=4,
+                        style="B", size=8, color_key="accent_gold", fallback="#C9A84C")
+        y = 143
+        for i, story in enumerate(data.get("stories", [])[:5], 1):
+            self.pdf.set_xy(MARGIN, y)
+            self.pdf.set_font("Helvetica", "B", 8)
+            self.pdf.set_text_color(*self._color("accent_gold", "#C9A84C"))
+            self.pdf.cell(12, 5, f"{i:02d}")
+            self.pdf.set_font("Helvetica", "", 8)
+            self.pdf.set_text_color(*self._color("text_muted_dark", "#8A8A80"))
+            self.pdf.cell(155, 5, self._sanitize_text(story.get("headline", ""))[:88])
+            y += 9
+
+        self._footer("Cover")
+
+    def _transition_page(self, story: dict[str, Any], num: int) -> None:
+        self._add_page("bg_primary")
+        self._cell_text("*", x=78, y=82, w=54, h=24, font="Helvetica", style="B", size=52,
+                        color_key="accent_gold", fallback="#C9A84C", align="C")
+        self._cell_text("NEXT", x=MARGIN, y=140, w=CONTENT_W, h=5, style="B", size=8,
+                        color_key="accent_gold", fallback="#C9A84C", align="C")
+        self._cell_text(story.get("headline", ""), x=24, y=152, w=162, h=7, font="Times",
+                        style="B", size=17, color_key="text_primary", fallback="#F5F5F0", align="C")
+        self._cell_text(story.get("category", ""), x=24, y=188, w=162, h=4, size=8,
+                        color_key="text_muted_dark", fallback="#8A8A80", align="C")
+        self._footer(f"Transition {num}")
+
+    def _story_opening_page(self, story: dict[str, Any], num: int, dark: bool) -> None:
+        bg_key = "bg_page" if dark else "bg_light"
+        text_key = "text_primary" if dark else "text_on_light"
+        muted_key = "text_muted_dark" if dark else "text_muted_light"
+        rule_key = "rule_dark" if dark else "rule_light"
+        self._add_page(bg_key)
+
+        self._cell_text(f"STORY {num:02d} OF 05 - {story.get('category', 'Capital Markets').upper()}",
+                        x=MARGIN, y=16, w=CONTENT_W, h=4, style="B", size=8,
+                        color_key="accent_gold", fallback="#C9A84C")
+        self._line(MARGIN, 24, PAGE_W - MARGIN, rule_key)
+
+        self._cell_text(story.get("headline", ""), x=MARGIN, y=35, w=112, h=7, font="Times",
+                        style="B", size=18, color_key=text_key, fallback="#F5F5F0")
+        y = self._cell_text(story.get("deck", ""), x=MARGIN, y=82, w=112, h=5,
+                            font="Times", style="I", size=11, color_key=muted_key, fallback="#8A8A80")
+        paragraphs = story.get("paragraphs", [])
+        if paragraphs:
+            self._cell_text(paragraphs[0], x=MARGIN, y=min(y + 6, 116), w=112, h=4.2,
+                            size=9, color_key=text_key, fallback="#F5F5F0")
+
+        x = 138
+        y = 42
+        for fig in story.get("key_figures", [])[:3]:
+            self._cell_text(fig.get("number", ""), x=x, y=y, w=54, h=8, font="Times", style="B",
+                            size=22, color_key="accent_gold", fallback="#C9A84C")
+            y += 10
+            self._cell_text(fig.get("label", "Key metric"), x=x, y=y, w=54, h=4, size=8,
+                            color_key=muted_key, fallback="#8A8A80")
+            y += 15
+
+        self._cell_text(f"{story.get('dateline', 'NEW YORK')} - {story.get('date', '')}",
+                        x=138, y=206, w=54, h=4, style="B", size=8,
+                        color_key=muted_key, fallback="#8A8A80")
+        self._cell_text(story.get("source", "Light Tower Group Analysis"), x=138, y=212,
+                        w=54, h=4, size=7, color_key=muted_key, fallback="#8A8A80")
+        self._footer(f"A-{num:02d}", dark=dark)
+
+    def _story_continuation_page(self, story: dict[str, Any], num: int, dark: bool) -> None:
+        bg_key = "bg_page" if dark else "bg_light"
+        text_key = "text_primary" if dark else "text_on_light"
+        muted_key = "text_muted_dark" if dark else "text_muted_light"
+        rule_key = "rule_dark" if dark else "rule_light"
+        self._add_page(bg_key)
+
+        short_headline = self._sanitize_text(story.get("headline", ""))[:54].upper()
+        self._cell_text(f"{short_headline} (CONT'D)", x=MARGIN, y=16, w=CONTENT_W, h=4,
+                        style="B", size=8, color_key="accent_gold", fallback="#C9A84C")
+        self._line(MARGIN, 24, PAGE_W - MARGIN, rule_key)
+
+        paragraphs = story.get("paragraphs", [])[1:] or story.get("paragraphs", [])
+        text = " ".join(paragraphs)
+        text = self._sanitize_text(text)
+        if len(text) > 1850:
+            text = text[:1847].rsplit(" ", 1)[0] + "..."
+        y = self._cell_text(text, x=MARGIN, y=36, w=CONTENT_W, h=4.5, size=10,
+                            color_key=text_key, fallback="#F5F5F0")
+
+        quote = self._sanitize_text(story.get("pull_quote", ""))
+        if quote and y < 222:
+            self._line(30, y + 10, 180, "accent_gold")
+            self._cell_text(f'"{quote}"', x=30, y=y + 16, w=150, h=5, font="Times",
+                            style="I", size=13, color_key=muted_key, fallback="#8A8A80", align="C")
+        self._footer(f"A-{num:02d}A", dark=dark)
+
+    def _closing_page(self, data: dict[str, Any]) -> None:
+        self._add_page("bg_primary")
+        self._line(MARGIN, 24, PAGE_W - MARGIN, "accent_gold")
+        self._cell_text("LIGHT TOWER GROUP", x=MARGIN, y=54, w=CONTENT_W, h=8, font="Times",
+                        style="B", size=24, color_key="text_primary", fallback="#F5F5F0", align="C")
+        self._cell_text("INSTITUTIONAL CAPITAL ADVISORY", x=MARGIN, y=66, w=CONTENT_W, h=4,
+                        style="B", size=9, color_key="accent_gold", fallback="#C9A84C", align="C")
+
+        self._cell_text("ABOUT", x=MARGIN, y=106, w=80, h=4, style="B", size=8,
+                        color_key="accent_gold", fallback="#C9A84C")
+        self._cell_text(
+            "Benjamin Rohr is the Principal of Light Tower Group, a New York-based "
+            "institutional capital advisory firm specializing in debt and equity "
+            "placement for complex commercial real estate transactions.",
+            x=MARGIN, y=113, w=82, h=4, size=8, color_key="text_muted_dark", fallback="#8A8A80",
+        )
+
+        self._cell_text("ENGAGE", x=112, y=106, w=82, h=4, style="B", size=8,
+                        color_key="accent_gold", fallback="#C9A84C")
+        self._cell_text(
+            "Principal-led execution. Debt placement, equity structuring, and "
+            "investment advisory for complex commercial real estate mandates.",
+            x=112, y=113, w=82, h=4, size=8, color_key="text_muted_dark", fallback="#8A8A80",
+        )
+        self._cell_text("ben@lighttowergroup.co\n(347) 554-0093\nlighttowergroup.co",
+                        x=112, y=146, w=82, h=5, style="B", size=10,
+                        color_key="accent_gold", fallback="#C9A84C")
+
+        self._cell_text(
+            "This publication is for informational purposes only and does not constitute investment advice.",
+            x=MARGIN, y=264, w=CONTENT_W, h=3, size=7, color_key="text_muted_dark",
+            fallback="#8A8A80", align="C",
+        )
+        self._footer("Closing")
+
+    def render(self, data: dict[str, Any]) -> FPDF:
+        self._cover_page(data)
+        for i, story in enumerate(data.get("stories", [])[:5], 1):
+            dark = i % 2 == 1
             if i > 1:
-                pages.append(self._build_transition_page(story, i))
-
-            # Story opening page
-            pages.append(self._build_story_opening_page(story, i, is_dark_bg))
-
-            # Continuation page
-            cont_page = self._build_continuation_page(story, i, is_dark_bg)
-            if cont_page:
-                pages.append(cont_page)
-
-        # Final page: Closing
-        pages.append(self._build_closing_page(data))
-
-        return pages
-
-    def _build_cover_page(self, data: Dict) -> FPDF:
-        """Build masthead/cover page (PAGE TYPE A)."""
-        pdf = FPDF(orientation='P', unit='mm', format='A4')
-        pdf.add_page()
-
-        # Colors
-        bg_rgb = self._hex_to_rgb(self.colors['bg_primary'])
-        text_rgb = self._hex_to_rgb(self.colors['text_primary'])
-        gold_rgb = self._hex_to_rgb(self.colors['accent_gold'])
-        muted_rgb = self._hex_to_rgb(self.colors['text_muted_dark'])
-
-        pdf.set_fill_color(*bg_rgb)
-        pdf.rect(0, 0, 210, 297, 'F')
-
-        # Header
-        pdf.set_font("Helvetica", "B", 10)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(15, 15)
-        pdf.cell(0, 5, "* LTG CAPITAL INTELLIGENCE", ln=True)
-
-        pdf.set_font("Helvetica", "", 8)
-        pdf.set_text_color(*muted_rgb)
-        pdf.cell(0, 4, "Institutional Perspectives on CRE & Capital Markets", ln=True)
-
-        # Right side: Volume info
-        pdf.set_font("Helvetica", "", 8)
-        pdf.set_xy(150, 15)
-        pdf.cell(45, 5, f"Vol. {data['publication']['volume']}", align="R")
-        pdf.set_xy(150, 20)
-        pdf.cell(45, 4, data['publication']['issue_month'], align="R")
-
-        # Theme section
-        pdf.set_font("Times", "B", 18)
-        pdf.set_text_color(*text_rgb)
-        pdf.set_xy(15, 60)
-        theme_text = self._sanitize_text(data['publication']['theme'])
-        pdf.multi_cell(180, 8, theme_text, align="C")
-
-        # Table of contents
-        pdf.set_font("Helvetica", "", 9)
-        pdf.set_text_color(*muted_rgb)
-        pdf.set_xy(15, 130)
-
-        for i, story in enumerate(data['stories'], 1):
-            headline = self._sanitize_text(story['headline'][:45])
-            pdf.cell(10, 6, f"{i:02d}", ln=False)
-            pdf.cell(170, 6, headline, ln=True)
-
-        # Footer
-        pdf.set_font("Helvetica", "", 7)
-        pdf.set_xy(15, 280)
-        pdf.cell(0, 5, "lighttowergroup.co  ·  ben@lighttowergroup.co", align="C")
-
-        return pdf
-
-    def _build_story_opening_page(self, story: Dict, num: int, is_dark_bg: bool) -> FPDF:
-        """Build story opening page (PAGE TYPE B)."""
-        pdf = FPDF(orientation='P', unit='mm', format='A4')
-        pdf.add_page()
-
-        bg = self.colors['bg_page'] if is_dark_bg else self.colors['bg_light']
-        text_color = self.colors['text_primary'] if is_dark_bg else self.colors['text_on_light']
-        muted_color = self.colors['text_muted_dark'] if is_dark_bg else self.colors['text_muted_light']
-
-        bg_rgb = self._hex_to_rgb(bg)
-        text_rgb = self._hex_to_rgb(text_color)
-        muted_rgb = self._hex_to_rgb(muted_color)
-        gold_rgb = self._hex_to_rgb(self.colors['accent_gold'])
-
-        # Background
-        pdf.set_fill_color(*bg_rgb)
-        pdf.rect(0, 0, 210, 297, 'F')
-
-        # Header
-        pdf.set_font("Helvetica", "B", 8)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(15, 15)
-        pdf.cell(0, 4, f"STORY {num:02d} OF 05 · {story['category'].upper()}", ln=True)
-
-        # Rule
-        pdf.line(15, pdf.get_y() + 1, 195, pdf.get_y() + 1)
-        pdf.ln(3)
-
-        # Headline
-        pdf.set_font("Times", "B", 16)
-        pdf.set_text_color(*text_rgb)
-        pdf.set_xy(15, 25)
-        pdf.multi_cell(100, 6, self._sanitize_text(story['headline']))
-
-        # Deck
-        pdf.set_font("Times", "I", 10)
-        pdf.set_text_color(*muted_rgb)
-        pdf.set_xy(15, pdf.get_y() + 3)
-        pdf.multi_cell(100, 5, self._sanitize_text(story['deck']))
-
-        # Opening paragraph
-        pdf.set_font("Helvetica", "", 9)
-        pdf.set_text_color(*text_rgb)
-        pdf.set_xy(15, pdf.get_y() + 4)
-        if story['paragraphs']:
-            pdf.multi_cell(100, 4, self._sanitize_text(story['paragraphs'][0]))
-
-        # Right column: Key figures
-        pdf.set_font("Times", "B", 20)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(120, 30)
-
-        if story.get('key_figures'):
-            for fig in story['key_figures'][:2]:
-                pdf.cell(0, 8, self._sanitize_text(fig['number']), ln=True)
-                pdf.set_font("Helvetica", "", 8)
-                pdf.set_text_color(*muted_rgb)
-                pdf.cell(0, 3, self._sanitize_text(fig['label']), ln=True)
-                pdf.ln(2)
-                pdf.set_font("Times", "B", 20)
-                pdf.set_text_color(*gold_rgb)
-
-        # Dateline
-        pdf.set_font("Helvetica", "B", 8)
-        pdf.set_text_color(*muted_rgb)
-        pdf.set_xy(120, 180)
-        pdf.cell(0, 4, f"{self._sanitize_text(story['dateline'])} - {self._sanitize_text(story['date'])}", ln=True)
-        pdf.set_font("Helvetica", "", 7)
-        pdf.cell(0, 4, self._sanitize_text(story['source']), ln=True)
-
-        # Footer
-        pdf.set_font("Helvetica", "", 7)
-        pdf.set_xy(15, 280)
-        pdf.cell(30, 5, f"A-{num:02d}")
-        pdf.cell(135, 5, "* LTG Capital Intelligence", align="C")
-
-        return pdf
-
-    def _build_transition_page(self, story: Dict, num: int) -> FPDF:
-        """Build transition page (PAGE TYPE D)."""
-        pdf = FPDF(orientation='P', unit='mm', format='A4')
-        pdf.add_page()
-
-        bg_rgb = self._hex_to_rgb(self.colors['bg_primary'])
-        text_rgb = self._hex_to_rgb(self.colors['text_primary'])
-        gold_rgb = self._hex_to_rgb(self.colors['accent_gold'])
-
-        # Background
-        pdf.set_fill_color(*bg_rgb)
-        pdf.rect(0, 0, 210, 297, 'F')
-
-        # Symbol
-        pdf.set_font("Helvetica", "B", 60)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(80, 80)
-        pdf.cell(50, 40, "*", align="C", ln=True)
-
-        # Next label
-        pdf.set_font("Helvetica", "B", 8)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(15, 140)
-        pdf.cell(180, 4, "NEXT", align="C", ln=True)
-
-        # Next headline
-        pdf.set_font("Times", "B", 14)
-        pdf.set_text_color(*text_rgb)
-        pdf.set_xy(15, 150)
-        pdf.multi_cell(180, 6, self._sanitize_text(story['headline'][:60]), align="C")
-
-        # Category
-        pdf.set_font("Helvetica", "", 8)
-        pdf.set_text_color(*self._hex_to_rgb(self.colors['text_muted_dark']))
-        pdf.set_xy(15, pdf.get_y() + 5)
-        pdf.cell(0, 4, self._sanitize_text(story['category']), align="C", ln=True)
-
-        return pdf
-
-    def _build_continuation_page(self, story: Dict, num: int, is_dark: bool) -> FPDF:
-        """Build continuation page (PAGE TYPE C)."""
-        if len(story['paragraphs']) < 2:
-            return None
-
-        pdf = FPDF(orientation='P', unit='mm', format='A4')
-        pdf.add_page()
-
-        bg = self.colors['bg_page'] if is_dark else self.colors['bg_light']
-        text_color = self.colors['text_primary'] if is_dark else self.colors['text_on_light']
-        muted_color = self.colors['text_muted_dark'] if is_dark else self.colors['text_muted_light']
-
-        bg_rgb = self._hex_to_rgb(bg)
-        text_rgb = self._hex_to_rgb(text_color)
-        muted_rgb = self._hex_to_rgb(muted_color)
-        gold_rgb = self._hex_to_rgb(self.colors['accent_gold'])
-
-        # Background
-        pdf.set_fill_color(*bg_rgb)
-        pdf.rect(0, 0, 210, 297, 'F')
-
-        # Header
-        pdf.set_font("Helvetica", "B", 8)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(15, 15)
-        pdf.cell(0, 4, f"{self._sanitize_text(story['headline'][:30]).upper()} (CONT'D)", ln=True)
-
-        pdf.line(15, pdf.get_y() + 1, 195, pdf.get_y() + 1)
-        pdf.ln(3)
-
-        # Body text
-        pdf.set_font("Helvetica", "", 9)
-        pdf.set_text_color(*text_rgb)
-        pdf.set_xy(15, 25)
-
-        remaining_text = ' '.join(story['paragraphs'][1:])
-        pdf.multi_cell(180, 4, self._sanitize_text(remaining_text))
-
-        # Pull quote
-        if story.get('pull_quote'):
-            pdf.ln(5)
-            pdf.set_font("Times", "I", 11)
-            pdf.set_text_color(*muted_rgb)
-            pdf.set_xy(25, pdf.get_y())
-            pdf.multi_cell(160, 5, f'"{self._sanitize_text(story["pull_quote"])}"')
-            pdf.set_font("Helvetica", "", 7)
-            pdf.set_text_color(*muted_rgb)
-            pdf.cell(0, 3, "- LTG Capital Intelligence", ln=True)
-
-        # Footer
-        pdf.set_font("Helvetica", "", 7)
-        pdf.set_xy(15, 280)
-        pdf.cell(30, 5, f"A-{num:02d}A")
-        pdf.cell(135, 5, "* LTG Capital Intelligence", align="C")
-
-        return pdf
-
-    def _build_closing_page(self, data: Dict) -> FPDF:
-        """Build closing page (PAGE TYPE E)."""
-        pdf = FPDF(orientation='P', unit='mm', format='A4')
-        pdf.add_page()
-
-        bg_rgb = self._hex_to_rgb(self.colors['bg_primary'])
-        text_rgb = self._hex_to_rgb(self.colors['text_primary'])
-        gold_rgb = self._hex_to_rgb(self.colors['accent_gold'])
-        muted_rgb = self._hex_to_rgb(self.colors['text_muted_dark'])
-
-        # Background
-        pdf.set_fill_color(*bg_rgb)
-        pdf.rect(0, 0, 210, 297, 'F')
-
-        # Header rule
-        pdf.line(15, 15, 195, 15)
-
-        # Masthead
-        pdf.set_font("Times", "B", 18)
-        pdf.set_text_color(*text_rgb)
-        pdf.set_xy(15, 30)
-        pdf.cell(0, 8, "* LIGHT TOWER GROUP", align="C", ln=True)
-
-        pdf.set_font("Helvetica", "B", 9)
-        pdf.set_text_color(*gold_rgb)
-        pdf.cell(0, 4, "INSTITUTIONAL CAPITAL ADVISORY", align="C", ln=True)
-
-        pdf.ln(5)
-
-        # Two-column layout
-        # Left column: About
-        pdf.set_font("Helvetica", "B", 8)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(15, 85)
-        pdf.cell(90, 4, "ABOUT THE AUTHOR", ln=True)
-
-        pdf.set_font("Helvetica", "", 8)
-        pdf.set_text_color(*muted_rgb)
-        pdf.set_xy(15, 90)
-        pdf.multi_cell(85, 3,
-            "Benjamin Rohr is the Principal of Light Tower Group, a New York-based institutional capital advisory firm specializing in debt and equity placement for complex commercial real estate transactions.")
-
-        # Right column: Engage
-        pdf.set_font("Helvetica", "B", 8)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(110, 85)
-        pdf.cell(85, 4, "ENGAGE WITH LTG", ln=True)
-
-        pdf.set_font("Helvetica", "", 8)
-        pdf.set_text_color(*muted_rgb)
-        pdf.set_xy(110, 90)
-        pdf.multi_cell(85, 3,
-            "We work on a success-only basis. No retainers. Direct principal engagement on every mandate.")
-
-        # Contact
-        pdf.set_font("Helvetica", "B", 9)
-        pdf.set_text_color(*gold_rgb)
-        pdf.set_xy(110, 120)
-        pdf.cell(0, 5, "ben@lighttowergroup.co", ln=True)
-        pdf.cell(0, 5, "(347) 554-0093", ln=True)
-        pdf.cell(0, 5, "lighttowergroup.co", ln=True)
-
-        # Footer
-        pdf.set_font("Helvetica", "", 6)
-        pdf.set_text_color(*muted_rgb)
-        pdf.set_xy(15, 265)
-        pdf.multi_cell(180, 2,
-            "© 2026 Light Tower Group · LTG Capital Intelligence · All rights reserved. This publication is for informational purposes only and does not constitute investment advice.",
-            align="C")
-
-        return pdf
-
-    async def generate_pdf(self, data: Dict, output_path: str) -> bool:
-        """Generate complete multi-page PDF from article data."""
+                self._transition_page(story, i)
+            self._story_opening_page(story, i, dark)
+            self._story_continuation_page(story, i, dark)
+        self._closing_page(data)
+        return self.pdf
+
+    async def generate_pdf(self, data: dict[str, Any], output_path: str) -> bool:
         try:
-            pages = self.build_pages(data)
-
-            if not pages:
-                logger.error("No pages generated")
-                return False
-
-            # Create output directory
-            output_path = Path(output_path)
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-
-            # Merge all pages into one PDF
-            pdf = pages[0]
-
-            if len(pages) == 1:
-                pdf.output(str(output_path))
-            else:
-                # Create combined PDF using pypdf
-                from pypdf import PdfWriter, PdfReader
-                from io import BytesIO
-
-                writer = PdfWriter()
-
-                for page_pdf in pages:
-                    # Output each page to bytes
-                    pdf_bytes = BytesIO()
-                    page_pdf.output(pdf_bytes)
-                    pdf_bytes.seek(0)
-
-                    # Read and add to writer
-                    reader = PdfReader(pdf_bytes)
-                    for page in reader.pages:
-                        writer.add_page(page)
-
-                # Write final PDF
-                with open(output_path, 'wb') as f:
-                    writer.write(f)
-
-            # Strip metadata
-            writer = PdfWriter()
-            reader = PdfReader(output_path)
-            for page in reader.pages:
-                writer.add_page(page)
-
-            writer.metadata = {
-                "/Title": "LTG Capital Intelligence",
-                "/Author": "Light Tower Group",
-            }
-
-            with open(output_path, 'wb') as f:
-                writer.write(f)
-
-            logger.info(f"* LTG Capital Intelligence PDF: {output_path} ({len(pages)} pages)")
+            output = Path(output_path)
+            output.parent.mkdir(parents=True, exist_ok=True)
+            pdf = self.render(data)
+            pdf.set_title("LTG Capital Intelligence")
+            pdf.set_author("Light Tower Group")
+            pdf.set_creator("Light Tower Group")
+            pdf.output(str(output))
+            logger.info("LTG Capital Intelligence PDF: %s (%s pages)", output, self.page_count)
             return True
-
-        except Exception as e:
-            logger.error(f"PDF generation failed: {e}", exc_info=True)
+        except Exception as exc:
+            logger.error("PDF generation failed: %s", exc, exc_info=True)
             return False
 
 
-if __name__ == '__main__':
-    import asyncio
+if __name__ == "__main__":
     import sys
     from fetch_brand_colors import fetch_brand_colors
-    from article_adapter import transform_article_to_pdf_schema
 
     if len(sys.argv) < 2:
-        print("Usage: python generate_carousel_pdf.py <article_data.json> [output.pdf]")
+        print("Usage: python generate_carousel_pdf.py <pdf_schema.json> [output.pdf]")
         sys.exit(1)
 
-    article_json_path = sys.argv[1]
-    output_path = sys.argv[2] if len(sys.argv) > 2 else "output.pdf"
+    with open(sys.argv[1], encoding="utf-8") as f:
+        schema = json.load(f)
 
-    with open(article_json_path) as f:
-        data = json.load(f)
-
-    colors = fetch_brand_colors()
-    generator = CarouselPDFGenerator(colors)
-
-    success = asyncio.run(generator.generate_pdf(data, output_path))
-    sys.exit(0 if success else 1)
+    out = sys.argv[2] if len(sys.argv) > 2 else "output.pdf"
+    generator = CarouselPDFGenerator(fetch_brand_colors())
+    ok = asyncio.run(generator.generate_pdf(schema, out))
+    sys.exit(0 if ok else 1)
