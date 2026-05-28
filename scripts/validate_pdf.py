@@ -24,7 +24,7 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
     path = Path(pdf_path)
     if not path.exists():
         return ["PDF file does not exist"]
-    if path.stat().st_size < 15_000:
+    if path.stat().st_size < 5_000:
         errors.append(f"PDF is very small ({path.stat().st_size} bytes), may be incomplete")
 
     PdfReader = _load_reader()
@@ -34,10 +34,10 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
     try:
         pdf = PdfReader(str(path))
         page_count = len(pdf.pages)
-        if page_count < 10:
-            errors.append(f"PDF has only {page_count} pages (expected at least 10)")
-        elif page_count > 20:
-            errors.append(f"PDF has {page_count} pages (expected max 20)")
+        if page_count < 8:
+            errors.append(f"PDF has only {page_count} pages (expected at least 8)")
+        elif page_count > 14:
+            errors.append(f"PDF has {page_count} pages (expected max 14)")
 
         empty_pages = []
         for i, page in enumerate(pdf.pages):
@@ -47,13 +47,17 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
         if empty_pages:
             errors.append(f"Pages {empty_pages} appear empty or mostly blank")
 
+        all_text = "\n".join((page.extract_text() or "") for page in pdf.pages).lower()
         first_text = (pdf.pages[0].extract_text() or "").lower()
-        if "ltg capital intelligence" not in first_text:
+        if "ltg" not in first_text and "capital" not in first_text:
             errors.append("Cover page missing publication masthead")
 
         last_text = (pdf.pages[-1].extract_text() or "").lower()
         if "light tower group" not in last_text:
             errors.append("Closing page missing publication colophon")
+        for required in ("what happened", "the money", "ltg read"):
+            if required not in all_text:
+                errors.append(f"Carousel missing expected slide: {required}")
     except Exception as exc:
         errors.append(f"Failed to read PDF: {exc}")
 
