@@ -163,6 +163,24 @@ class CarouselPDFGenerator:
         self._bullet_list(slide.get("bullets", []), x=MARGIN, y=55, w=88, dark=dark, size=10)
         self._footer(dark)
 
+    def _render_story(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
+        self._add_page("bg_page" if dark else "bg_light")
+        self._label(slide.get("eyebrow", "STORY"), slide_no, dark)
+        text_key = "text_primary" if dark else "text_on_light"
+        muted_key = "text_muted_dark" if dark else "text_muted_light"
+        headline = slide.get("headline", "")
+        size = self._fit_font_size(headline, 88, 18, 13)
+        y = self._text(headline, x=MARGIN, y=23, w=88, h=6, size=size,
+                       style="B", color_key=text_key, fallback="#F5F5F0")
+        subhead = slide.get("subhead", "")
+        if subhead:
+            y = self._text(subhead, x=MARGIN, y=max(y + 8, 48), w=88, h=4.7, size=10.5,
+                           color_key=text_key, fallback="#F5F5F0")
+        # Add supporting bullets only when there is room; the prose is the core.
+        if slide.get("bullets") and y < 96:
+            self._bullet_list(slide["bullets"][:2], x=MARGIN, y=y + 7, w=88, dark=dark, size=7.8)
+        self._footer(dark)
+
     def _render_data(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
         self._add_page("bg_primary" if dark else "bg_light")
         self._label(slide.get("eyebrow", "THE MONEY"), slide_no, dark)
@@ -217,8 +235,6 @@ class CarouselPDFGenerator:
                    style="B", color_key="accent_gold", fallback="#C9A84C", align="C")
         self._text("LIGHT TOWER GROUP", x=MARGIN, y=112, w=88, h=4, size=9,
                    style="B", color_key="text_primary", align="C")
-        self._text("Debt & Equity Placement", x=MARGIN, y=117, w=88, h=3.5, size=7,
-                   color_key="text_muted_dark", fallback="#8A8A80", align="C")
         self._footer()
 
     def render(self, data: dict[str, Any]) -> FPDF:
@@ -232,6 +248,8 @@ class CarouselPDFGenerator:
                 self._render_hero(slide, i)
             elif system == "briefing":
                 self._render_briefing(slide, i, dark)
+            elif system == "story":
+                self._render_story(slide, i, dark)
             elif system == "data":
                 self._render_data(slide, i, dark)
             elif system == "kicker":

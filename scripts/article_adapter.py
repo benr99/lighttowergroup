@@ -56,6 +56,11 @@ def compact(text: str, limit: int) -> str:
     return trimmed + "..."
 
 
+def paragraph_excerpt(paragraph: str, limit: int = 520) -> str:
+    """Keep the article's prose intact enough to read as a narrative slide."""
+    return compact(paragraph, limit)
+
+
 def extract_figures(text: str) -> list[dict[str, str]]:
     money = re.findall(
         r"\$[\d,.]+(?:\.\d+)?\s?(?:T|B|M|K|trillion|billion|million)?",
@@ -180,12 +185,13 @@ def make_slide(
     quote: str = "",
     kicker: str = "",
     source: str = "",
+    subhead_limit: int = 180,
 ) -> dict[str, Any]:
     return {
         "system": system,
         "eyebrow": eyebrow,
         "headline": compact(headline, 96),
-        "subhead": compact(subhead, 180),
+        "subhead": compact(subhead, subhead_limit),
         "bullets": bullets or [],
         "figures": figures or [],
         "quote": compact(quote, 190),
@@ -225,20 +231,15 @@ def build_carousel_slides(
     analysis_quote = "" if clean_text(analysis_one).lower() == clean_text(quote).lower() else quote
     final_sentence = sentences[-1] if sentences else quote
 
-    return [
+    narrative = paragraphs[:10]
+    slides = [
         make_slide(
             "hero",
             category.upper(),
             hero_headline,
-            subhead=subtitle or (paragraphs[0] if paragraphs else ""),
+            subhead=paragraph_excerpt(narrative[0], 260),
+            subhead_limit=260,
             figures=figures[:1],
-            source=source,
-        ),
-        make_slide(
-            "briefing",
-            "WHAT HAPPENED",
-            "The clean read",
-            bullets=bullets_from_sentences(fact_sentences, 3),
             source=source,
         ),
         make_slide(
@@ -249,45 +250,40 @@ def build_carousel_slides(
             bullets=bullets_from_sentences(money_sentences, 2, 100),
             source=source,
         ),
-        make_slide(
-            "analysis",
-            "WHY IT MATTERS",
-            "This is a capital stack story",
-            subhead=analysis_one,
-            bullets=bullets_from_sentences(analysis_sentences[1:] + tension_sentences, 2, 98),
-            quote=analysis_quote,
+    ]
+
+    labels = [
+        "WHAT HAPPENED",
+        "THE SETUP",
+        "THE PLAYERS",
+        "THE CAPITAL STACK",
+        "THE TENSION",
+        "THE MARKET READ",
+        "THE RISK",
+        "THE SIGNAL",
+        "THE TAKEAWAY",
+        "THE CLOSE",
+    ]
+    for i, paragraph in enumerate(narrative):
+        slide_bullets: list[str] = []
+        if i == 0:
+            slide_bullets = bullets_from_sentences(fact_sentences, 2, 98)
+        elif i == 3:
+            slide_bullets = bullets_from_sentences(money_sentences, 2, 98)
+        elif i == 5:
+            slide_bullets = bullets_from_sentences(tension_sentences, 2, 98)
+        slides.append(make_slide(
+            "story",
+            labels[min(i, len(labels) - 1)],
+            headline_from_paragraph(paragraph, labels[min(i, len(labels) - 1)].title()),
+            subhead=paragraph_excerpt(paragraph, 520),
+            subhead_limit=430,
+            bullets=slide_bullets,
+            quote=analysis_quote if i == 5 else "",
             source=source,
-        ),
-        make_slide(
-            "briefing",
-            "THE PLAYERS",
-            "Who is moving the market",
-            bullets=player_bullets[:3],
-            source=source,
-        ),
-        make_slide(
-            "analysis",
-            "THE TENSION",
-            "Where the deal can break",
-            bullets=bullets_from_sentences(tension_sentences, 3, 96),
-            source=source,
-        ),
-        make_slide(
-            "data",
-            "CAPITAL READ",
-            "What lenders and investors notice",
-            figures=figures[1:4] or figures[:3],
-            bullets=bullets_from_sentences(money_sentences + analysis_sentences, 2, 98),
-            source=source,
-        ),
-        make_slide(
-            "analysis",
-            "MARKET SIGNAL",
-            "The broader implication",
-            subhead=analysis_sentences[1] if len(analysis_sentences) > 1 else (tension_sentences[0] if tension_sentences else quote),
-            bullets=bullets_from_sentences(analysis_sentences[2:] + tension_sentences, 2, 98),
-            source=source,
-        ),
+        ))
+
+    slides.append(
         make_slide(
             "kicker",
             "LTG READ",
@@ -295,8 +291,20 @@ def build_carousel_slides(
             subhead="The headline is the transaction. The story is the structure.",
             kicker="If the capital stack works, the deal becomes a signal. If it does not, it becomes a warning.",
             source="Light Tower Group",
-        ),
-    ]
+        )
+    )
+    return slides
+
+
+def headline_from_paragraph(paragraph: str, fallback: str) -> str:
+    sentence = re.split(r"(?<=[.!?])\s+", clean_text(paragraph))[0].strip()
+    if not sentence:
+        return fallback
+    # Keep the headline punchy, but article-specific.
+    words = sentence.split()
+    if len(words) > 11:
+        sentence = " ".join(words[:11])
+    return compact(sentence, 82)
 
 
 def legacy_stories_from_slides(slides: list[dict[str, Any]], date: str, category: str, source: str) -> list[dict[str, Any]]:
