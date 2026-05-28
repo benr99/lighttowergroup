@@ -9,27 +9,27 @@ from pathlib import Path
 
 
 def build_linkedin_post_text(article_data: dict) -> str:
-    """Generate concise LinkedIn copy to accompany a PDF carousel."""
-    stories = article_data["stories"]
+    """Generate concise LinkedIn copy to accompany a single-article carousel."""
+    slides = article_data.get("slides", [])
+    hero = slides[0] if slides else {}
+    close = slides[-1] if slides else {}
 
-    hook = (
-        "Five institutional capital developments shaping CRE allocation this week. "
-        "What structural shifts are you tracking?"
-    )
+    hook = (hero.get("headline") or article_data.get("publication", {}).get("theme") or "").strip()
     if len(hook) > 210:
-        hook = hook[:207] + "..."
+        hook = hook[:207].rsplit(" ", 1)[0].rstrip(" ,;:") + "..."
 
-    story_insights = []
-    for story in stories[:5]:
-        deck = (story.get("deck") or "").strip()
-        if deck:
-            story_insights.append(deck.rstrip(".") + ".")
-    body = " ".join(story_insights[:3])
+    implication = (close.get("subhead") or hero.get("subhead") or "").strip()
+    if len(implication) > 260:
+        implication = implication[:257].rsplit(" ", 1)[0].rstrip(" ,;:") + "..."
 
-    closing = (
-        "\nFull analysis attached - swipe through the PDF carousel above for all five stories."
-        "\n\n#CRE #CapitalMarkets #RealEstateFinance"
+    body = (
+        "The attached carousel breaks down the transaction, the numbers, "
+        "and why it matters for capital markets."
     )
+    if implication:
+        body = implication.rstrip(".") + ".\n\n" + body
+
+    closing = "\n\n#CRE #CapitalMarkets #RealEstateFinance"
     return hook + "\n\n" + body + closing
 
 

@@ -37,6 +37,7 @@ Voice:
 - Wall Street Journal clarity.
 - Light Tower Group capital-markets intelligence.
 - Precise, direct, vivid, and professional.
+- Strategic and pattern-seeking, with calm high conviction.
 - Written for owners, developers, lenders, brokers, private-equity investors,
   family offices, and capital markets professionals.
 - The reader should feel the economic tension, not a marketing pitch.
@@ -56,6 +57,18 @@ Editorial rules:
 
 Write like a sharp markets reporter who understands incentives, leverage,
 basis, timing, risk transfer, and why capital chooses one deal over another.
+
+Voice calibration:
+Bad: "The deal matters because it shows a shift in the market."
+Better: "The buyer is not just acquiring assets. It is underwriting a view on
+where capital still has room to move."
+
+Bad: "The money tells the story."
+Better: "The price is only the first number. The structure is where the risk lives."
+
+Bad: "This is an important transaction."
+Better: "The transaction is notable because the capital is moving before
+consensus has fully returned."
 """
 
 CAROUSEL_USER_TEMPLATE = """\
@@ -74,10 +87,18 @@ Slide copy:
 - Data slide: highlight the key figures with clean labels.
 - Story slides: translate the article into a swipeable narrative.
 - Final slide: one professional, article-specific market implication.
+- Story slide body copy must be 35 to 75 words.
+- Hero subhead must be 25 to 45 words.
+- Final slide body must be 25 to 55 words.
 - Body copy should be 35 to 75 words on story slides.
 - Use complete sentences.
 - Avoid repeated sentence openings.
 - Make it engaging, but never promotional or speculative beyond the article.
+- Do not use generic headlines like "The Deal", "The Money", "The Market",
+  "The Story", "Capital Stack", "The Takeaway", or "Market Reaction".
+- Do not end headlines with weak words like "with", "for", "into", "because",
+  "and", "the", "of", or "to".
+- Use only figures from the allowed figure list or article text.
 
 Output only valid JSON. No markdown. No commentary.
 
@@ -191,6 +212,7 @@ def generate_carousel_script(
             "model": MODEL_NAME,
             "fallback": False,
             "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            "validation_warnings": schema.pop("_carousel_validation_warnings", []),
         }
         return schema
     except Exception as exc:
@@ -228,6 +250,34 @@ def allowed_figures(schema: dict[str, Any]) -> list[dict[str, str]]:
             seen.add(key)
             deduped.append(fig)
     return deduped[:6]
+
+
+def canonical_figure(value: str) -> str:
+    text = clean_text(value).lower()
+    text = text.replace(",", "")
+    text = re.sub(r"\busd\b", "$", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    money = re.match(r"^\$?\s*([\d.]+)\s*(billion|bn|b|million|mm|m|trillion|tn|t|k)?$", text)
+    if money:
+        number, unit = money.groups()
+        unit_map = {
+            "billion": "b",
+            "bn": "b",
+            "b": "b",
+            "million": "m",
+            "mm": "m",
+            "m": "m",
+            "trillion": "t",
+            "tn": "t",
+            "t": "t",
+            "k": "k",
+            None: "",
+        }
+        return f"${number}{unit_map[unit]}"
+    percent = re.match(r"^([\d.]+)\s*percent$", text)
+    if percent:
+        return f"{percent.group(1)}%"
+    return text
 
 
 def normalize_carousel_schema(
@@ -274,13 +324,15 @@ def normalize_carousel_schema(
         })
 
     normalized = ensure_required_slides(normalized, fallback_schema)
-    validate_slides(normalized)
+    warnings = validate_slides(normalized)
+    warnings.extend(validate_fact_safety(normalized, fallback_schema, article_text))
 
     schema = dict(fallback_schema)
     schema["slides"] = normalized
     raw_date = schema.get("publication", {}).get("issue_date", "")
     category = fallback_schema.get("stories", [{}])[0].get("category", "Capital Markets")
     schema["stories"] = legacy_stories_from_slides(normalized, raw_date, category, source)
+    schema["_carousel_validation_warnings"] = warnings
     return schema
 
 
@@ -320,8 +372,9 @@ def story_number(slides: list[dict[str, Any]]) -> int:
 def normalize_figures(value: Any, fallback_figures: list[dict[str, str]], article_text: str) -> list[dict[str, str]]:
     if not isinstance(value, list):
         return []
-    allowed = {fig["number"].lower(): fig for fig in fallback_figures}
+    allowed = {canonical_figure(fig["number"]): fig for fig in fallback_figures}
     article_lower = article_text.lower()
+    article_figures = {canonical_figure(match) for match in extract_figures_from_text(article_text)}
     figures: list[dict[str, str]] = []
     for fig in value[:4]:
         if not isinstance(fig, dict):
@@ -329,9 +382,10 @@ def normalize_figures(value: Any, fallback_figures: list[dict[str, str]], articl
         number = clean_text(fig.get("number", ""))
         if not number:
             continue
-        if number.lower() not in article_lower and number.lower() not in allowed:
+        canonical = canonical_figure(number)
+        if number.lower() not in article_lower and canonical not in allowed and canonical not in article_figures:
             continue
-        label = clean_text(fig.get("label", "")) or allowed.get(number.lower(), {}).get("label", "Key figure")
+        label = clean_text(fig.get("label", "")) or allowed.get(canonical, {}).get("label", "Key figure")
         figures.append({"number": compact_sentence(number, 32), "label": compact_sentence(label, 36)})
     return figures
 
@@ -360,7 +414,8 @@ def ensure_required_slides(slides: list[dict[str, Any]], fallback_schema: dict[s
     return slides[:14]
 
 
-def validate_slides(slides: list[dict[str, Any]]) -> None:
+def validate_slides(slides: list[dict[str, Any]]) -> list[str]:
+    warnings: list[str] = []
     if not 8 <= len(slides) <= 14:
         raise ValueError(f"Carousel slide count {len(slides)} outside 8-14")
     if slides[0].get("system") != "hero":
@@ -371,13 +426,142 @@ def validate_slides(slides: list[dict[str, Any]]) -> None:
         raise ValueError("Final slide must be kicker")
 
     headlines: set[str] = set()
+    generic_headlines = {
+        "the deal", "the money", "the market", "the story", "capital stack",
+        "the takeaway", "market reaction", "what happened",
+    }
+    weak_endings = {"with", "for", "into", "because", "and", "the", "of", "to", "in", "on"}
     for i, slide in enumerate(slides, 1):
         headline = clean_text(slide.get("headline", ""))
-        if len(headline.split()) < 2:
+        if headline.lower() != "why it matters" and len(headline.split()) < 3:
             raise ValueError(f"Slide {i} headline too short")
+        if headline.lower() in generic_headlines:
+            raise ValueError(f"Slide {i} has generic headline: {headline}")
+        if headline.split() and headline.split()[-1].lower().strip(".,;:") in weak_endings:
+            raise ValueError(f"Slide {i} headline has weak ending: {headline}")
         key = headline.lower()
         if key in headlines and key not in {"why it matters"}:
             raise ValueError(f"Duplicate headline: {headline}")
         headlines.add(key)
         if slide.get("system") in {"hero", "story", "kicker"} and not clean_text(slide.get("subhead", "")):
             raise ValueError(f"Slide {i} missing body/subhead")
+        body_words = len(clean_text(slide.get("subhead", "")).split())
+        if slide.get("system") == "story" and not 25 <= body_words <= 95:
+            warnings.append(f"Slide {i} story body has {body_words} words")
+        if slide.get("system") == "hero" and body_words and not 18 <= body_words <= 55:
+            warnings.append(f"Hero subhead has {body_words} words")
+        if slide.get("system") == "kicker" and body_words and not 18 <= body_words <= 65:
+            warnings.append(f"Final slide body has {body_words} words")
+    return warnings
+
+
+def validate_fact_safety(
+    slides: list[dict[str, Any]],
+    fallback_schema: dict[str, Any],
+    article_text: str,
+) -> list[str]:
+    warnings: list[str] = []
+    source_text = source_truth_text(fallback_schema, article_text)
+    source_lower = source_text.lower()
+    allowed_entities = extract_allowed_entities(source_text)
+    allowed_figures = {canonical_figure(value) for value in extract_figures_from_text(source_text)}
+
+    unsupported_figures: list[str] = []
+    unsupported_entities: list[str] = []
+    for slide in slides:
+        text = " ".join([
+            clean_text(slide.get("headline", "")),
+            clean_text(slide.get("subhead", "")),
+            " ".join(clean_text(fig.get("number", "")) for fig in slide.get("figures", []) or []),
+        ])
+        for figure in extract_figures_from_text(text):
+            canonical = canonical_figure(figure)
+            if canonical and canonical not in allowed_figures:
+                unsupported_figures.append(figure)
+        for entity in extract_output_entities(text):
+            if entity.lower() not in allowed_entities and entity.lower() not in source_lower:
+                unsupported_entities.append(entity)
+
+    if unsupported_figures:
+        unique = sorted(set(unsupported_figures))
+        raise ValueError(f"Unsupported figures in carousel output: {unique}")
+    if unsupported_entities:
+        unique = sorted(set(unsupported_entities))
+        raise ValueError(f"Unsupported named entities in carousel output: {unique[:10]}")
+    if not any(slide.get("carousel_agent") for slide in []):
+        warnings.append("Fact safety checked with lexical entity/figure validation")
+    return warnings
+
+
+def source_truth_text(fallback_schema: dict[str, Any], article_text: str) -> str:
+    metadata = json.dumps(fallback_schema.get("publication", {}), ensure_ascii=False)
+    slides_text = " ".join(
+        " ".join([
+            clean_text(slide.get("headline", "")),
+            clean_text(slide.get("subhead", "")),
+            " ".join(clean_text(fig.get("number", "")) for fig in slide.get("figures", []) or []),
+        ])
+        for slide in fallback_schema.get("slides", [])
+    )
+    return f"{article_text}\n{metadata}\n{slides_text}"
+
+
+def extract_figures_from_text(text: str) -> list[str]:
+    money = re.findall(
+        r"\$[\d,.]+(?:\.\d+)?\s?(?:trillion|billion|million|bn|mm|tn|B|M|T|K)?",
+        text,
+        flags=re.IGNORECASE,
+    )
+    percents = re.findall(r"\b\d+(?:\.\d+)?\s?(?:%|percent)\b", text, flags=re.IGNORECASE)
+    return [clean_text(value) for value in money + percents]
+
+
+ENTITY_STOPWORDS = {
+    "The", "This", "That", "There", "These", "Those", "A", "An", "And", "But",
+    "For", "With", "Without", "Inside", "Why", "What", "When", "Where", "How",
+    "Capital", "Market", "Markets", "Real", "Estate", "Debt", "Equity", "Fund",
+    "Funds", "Loan", "Loans", "Office", "Retail", "Industrial", "Multifamily",
+    "Portfolio", "Properties", "Investors", "Lenders", "Developers", "Story",
+    "Light", "Tower", "Group", "CRE", "PDF", "LinkedIn",
+}
+
+ALLOWED_BRAND_ENTITIES = {
+    "light tower group", "light tower", "ltg", "cre", "pdf", "linkedin",
+    "wall street journal",
+}
+
+
+def extract_allowed_entities(text: str) -> set[str]:
+    entities = {entity.lower() for entity in extract_output_entities(text)}
+    entities.update(ALLOWED_BRAND_ENTITIES)
+    return entities
+
+
+def extract_output_entities(text: str) -> list[str]:
+    entities: list[str] = []
+    # Multi-word proper nouns: Bain Capital, Harbor Group International, New York.
+    for match in re.findall(r"\b(?:[A-Z][A-Za-z&.'-]+|[A-Z]{2,})(?:\s+(?:[A-Z][A-Za-z&.'-]+|[A-Z]{2,})){1,5}\b", text):
+        cleaned = clean_entity(match)
+        if cleaned:
+            entities.append(cleaned)
+    # Important single-word names/brands that are easy for models to invent.
+    for match in re.findall(r"\b[A-Z][A-Za-z&.'-]{3,}\b|\b[A-Z]{2,}\b", text):
+        cleaned = clean_entity(match)
+        if cleaned:
+            entities.append(cleaned)
+    return list(dict.fromkeys(entities))
+
+
+def clean_entity(value: str) -> str:
+    value = clean_text(value).strip(" ,.;:()[]{}")
+    if not value:
+        return ""
+    parts = [part for part in value.split() if part not in ENTITY_STOPWORDS]
+    if not parts:
+        return ""
+    cleaned = " ".join(parts)
+    if cleaned.lower() in ALLOWED_BRAND_ENTITIES:
+        return cleaned
+    if len(cleaned) < 3:
+        return ""
+    return cleaned
