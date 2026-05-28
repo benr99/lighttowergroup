@@ -109,12 +109,20 @@ def figure_label(value: str, text: str) -> str:
     nearby = context_window(value, text_lower, radius=60)
     if "$" in value and "per share" in window:
         return "Offer price"
+    if "$" in value and "assets under management" in window:
+        return "Assets under management"
+    if "$" in value and any(phrase in window for phrase in ["per square foot", "per sf"]):
+        return "Implied basis"
     if "$" in value and "fund" in window and any(w in window for w in ["close", "raise", "target"]):
         return "Fund close"
+    if "$" in value and any(w in window for w in ["acquisition", "acquired", "purchase", "bought", "transaction"]):
+        return "Acquisition price"
     if "$" in value and any(w in nearby for w in ["debt", "loan", "refi", "mortgage", "financing"]):
         return "Debt / financing"
     if "$" in value and any(w in window for w in ["acquire", "sale", "buy", "purchase", "transaction", "bid", "value"]):
         return "Transaction value"
+    if any(phrase in window for phrase in ["square feet", "sf"]):
+        return "Portfolio size"
     if "%" in value:
         return "Market move"
     if "unit" in lower or "asset" in lower or "propert" in lower:
@@ -302,18 +310,26 @@ def build_carousel_slides(
         ),
         make_slide(
             "data",
-            "THE MONEY",
-            "The numbers tell the story",
+            "THE FIGURES",
+            data_slide_headline(figures, title),
             figures=figures[:3],
             source=source,
         ),
     ]
 
+    used_headlines = {hero_headline.lower(), slides[1]["headline"].lower()}
     for i, paragraph in enumerate(narrative):
-        label = story_label(paragraph, i, len(narrative))
+        label = story_headline(
+            paragraph=paragraph,
+            index=i,
+            total=len(narrative),
+            title=title,
+            used=used_headlines,
+        )
+        used_headlines.add(label.lower())
         slides.append(make_slide(
             "story",
-            f"STORY {i + 1:02d}",
+            story_eyebrow(paragraph, i),
             label,
             subhead=paragraph_excerpt(paragraph, 520),
             subhead_limit=430,
@@ -338,28 +354,290 @@ def build_carousel_slides(
     return slides
 
 
-def story_label(paragraph: str, index: int, total: int) -> str:
-    """Use complete, grammar-safe slide titles that match the paragraph's job."""
+def data_slide_headline(figures: list[dict[str, str]], title: str) -> str:
+    if figures:
+        number = figures[0].get("number", "").strip()
+        if number:
+            lower = title.lower()
+            label = figures[0].get("label", "").lower()
+            if "fund" in label or any(word in lower for word in ["fund", "fundraise", "raise"]):
+                return f"The {number} close sets the stakes"
+            if any(word in lower for word in ["refi", "loan", "debt"]):
+                return f"Inside the {number} financing"
+            if any(word in lower for word in ["foreclosure", "distress", "default"]):
+                return f"The {number} pressure point"
+            if any(word in lower for word in ["acquisition", "buyout", "buys", "pay", "acquire"]):
+                return f"Inside the {number} deal"
+            return f"What {number} reveals"
+    return "The numbers behind the move"
+
+
+def story_eyebrow(paragraph: str, index: int) -> str:
+    return f"STORY {index + 1:02d}"
+
+
+def story_headline(
+    *,
+    paragraph: str,
+    index: int,
+    total: int,
+    title: str,
+    used: set[str],
+) -> str:
+    """Create complete, article-specific slide headlines without inventing facts."""
+    sentences = paragraph_sentences(paragraph)
+    lower = paragraph.lower()
+
+    if index == 0:
+        candidate = lead_headline(sentences, title)
+    elif index == total - 1:
+        candidate = final_read_headline(sentences)
+    elif any(word in lower for word in ["signals", "reflects", "reveals", "suggests", "shows", "means"]):
+        candidate = signal_headline(sentences)
+    elif any(word in lower for word in ["debt", "loan", "refinancing", "lender", "capital stack", "balance sheet"]):
+        candidate = structure_headline(sentences)
+    elif any(word in lower for word in ["$", "billion", "million", "premium", "valuation", "price", "basis"]):
+        candidate = money_headline(sentences)
+    elif any(word in lower for word in ["risk", "pressure", "distress", "foreclosure", "default", "maturity"]):
+        candidate = risk_headline(sentences)
+    else:
+        candidate = crisp_sentence_headline(sentences, title)
+
+    candidate = polish_headline(candidate)
+    if candidate.lower() in used or headline_has_weak_ending(candidate) or headline_needs_fallback(candidate):
+        candidate = alternate_headline(sentences, candidate)
+    if headline_has_weak_ending(candidate) or headline_needs_fallback(candidate):
+        candidate = thematic_fallback_headline(paragraph, index)
+    if candidate.lower() in used:
+        candidate = secondary_fallback_headline(paragraph, index)
+    return compact_sentence(candidate, 96)
+
+
+def paragraph_sentences(paragraph: str) -> list[str]:
+    return [
+        clean_text(sentence)
+        for sentence in re.split(r"(?<=[.!?])\s+", paragraph)
+        if clean_text(sentence)
+    ]
+
+
+def lead_headline(sentences: list[str], title: str) -> str:
+    first = sentences[0] if sentences else title
+    if ":" in first:
+        after_colon = first.split(":", 1)[1].strip()
+        if after_colon:
+            return after_colon
+    match = re.search(
+        r"(?:on\s+[^,]+,\s+)?(.+?)\s+(closed|acquired|bought|sold|provided|landed|raised|secured|won|took)\s+(.+)",
+        first,
+        flags=re.IGNORECASE,
+    )
+    if match:
+        actor = trim_actor(match.group(1))
+        verb = match.group(2).lower()
+        rest = match.group(3).rstrip(".")
+        return shorten_transaction_headline(actor, verb, rest)
+    return crisp_sentence_headline(sentences, title)
+
+
+def money_headline(sentences: list[str]) -> str:
+    for sentence in sentences:
+        if "$" in sentence or re.search(r"\b\d+(?:\.\d+)?%", sentence):
+            if any(word in sentence.lower() for word in ["premium", "discount", "valuation", "basis"]):
+                return sentence
+            if "$" in sentence:
+                return sentence
+    return crisp_sentence_headline(sentences, "The economics are the story")
+
+
+def structure_headline(sentences: list[str]) -> str:
+    for sentence in sentences:
+        lower = sentence.lower()
+        if any(word in lower for word in ["debt", "loan", "refinancing", "balance sheet", "capital"]):
+            return sentence
+    return crisp_sentence_headline(sentences, "The structure matters")
+
+
+def risk_headline(sentences: list[str]) -> str:
+    for sentence in sentences:
+        lower = sentence.lower()
+        if any(word in lower for word in ["risk", "pressure", "distress", "default", "maturity", "foreclosure"]):
+            return sentence
+    return crisp_sentence_headline(sentences, "The risk is in the details")
+
+
+def signal_headline(sentences: list[str]) -> str:
+    for sentence in sentences:
+        lower = sentence.lower()
+        if any(word in lower for word in ["signals", "reflects", "reveals", "suggests", "shows", "means"]):
+            return sentence
+    return crisp_sentence_headline(sentences, "The market signal is clear")
+
+
+def final_read_headline(sentences: list[str]) -> str:
+    for sentence in sentences:
+        lower = sentence.lower()
+        if any(word in lower for word in ["will determine", "question", "watch", "if ", "whether"]):
+            return sentence
+    return crisp_sentence_headline(sentences, "The final read")
+
+
+def crisp_sentence_headline(sentences: list[str], fallback: str) -> str:
+    for sentence in sentences:
+        words = sentence.split()
+        if 4 <= len(words) <= 13:
+            return sentence
+    return sentences[0] if sentences else fallback
+
+
+def trim_actor(actor: str) -> str:
+    actor = clean_text(actor)
+    actor = re.sub(r"^(?:on|by|after|this week),?\s+", "", actor, flags=re.IGNORECASE)
+    return actor.strip(" ,")
+
+
+def polish_headline(headline: str) -> str:
+    headline = clean_text(headline)
+    headline = re.sub(r"^On\s+[^,]+,\s+", "", headline)
+    headline = re.sub(r"\s+according to .+$", "", headline, flags=re.IGNORECASE)
+    headline = re.sub(r"\s+per .+$", "", headline, flags=re.IGNORECASE)
+    headline = headline.rstrip(".")
+    headline = sentence_case_headline(headline)
+    if len(headline) <= 96:
+        return headline
+    for separator in [":", ";"]:
+        if separator in headline:
+            right = headline.split(separator, 1)[1].strip()
+            if 18 <= len(right) <= 96:
+                return sentence_case_headline(right.rstrip("."))
+    for separator in [", but ", ", while ", ", as ", ", which ", " which ", " that ", ", and "]:
+        if separator in headline:
+            left = headline.split(separator, 1)[0].strip()
+            if 18 <= len(left) <= 96:
+                return sentence_case_headline(left.rstrip("."))
+    sentences = paragraph_sentences(headline)
+    if sentences and len(sentences[0]) <= 96:
+        return sentence_case_headline(sentences[0].rstrip("."))
+    return sentence_case_headline(headline_from_words(headline, 88))
+
+
+def alternate_headline(sentences: list[str], current: str) -> str:
+    for sentence in sentences[1:]:
+        candidate = polish_headline(sentence)
+        if candidate.lower() != current.lower() and not headline_has_weak_ending(candidate):
+            return candidate
+    return current
+
+
+def shorten_transaction_headline(actor: str, verb: str, rest: str) -> str:
+    rest = clean_text(rest)
+    actor = headline_from_words(actor, 36)
+    for marker in [" for ", " at ", " with ", " across ", " totaling ", " valued at "]:
+        if marker in rest.lower():
+            idx = rest.lower().find(marker)
+            before = rest[:idx].strip()
+            after = rest[idx:].strip()
+            candidate = f"{actor} {verb} {before}"
+            if len(candidate) >= 22:
+                return sentence_case_headline(candidate)
+            return sentence_case_headline(f"{candidate} {after.split()[0]}")
+    return sentence_case_headline(f"{actor} {verb} {headline_from_words(rest, 52)}")
+
+
+def headline_from_words(text: str, limit: int) -> str:
+    words = clean_text(text).split()
+    if not words:
+        return ""
+    kept: list[str] = []
+    for word in words:
+        candidate = " ".join(kept + [word])
+        if len(candidate) > limit:
+            break
+        kept.append(word)
+    headline = " ".join(kept).rstrip(" ,;:")
+    dangling = {
+        "a", "an", "the", "of", "for", "to", "with", "and", "or", "in", "on",
+        "at", "by", "that", "which", "who", "whose", "from", "into", "than",
+        "as", "but", "while", "amid", "about", "like", "including", "significant",
+        "absorbing", "requires", "require", "tracks", "track", "asset", "assets",
+        "sector", "sectors", "portfolio", "portfolios", "still", "residential",
+        "ability", "push",
+    }
+    while headline.split() and headline.split()[-1].lower() in dangling:
+        headline = " ".join(headline.split()[:-1])
+    return headline or clean_text(text)
+
+
+def sentence_case_headline(headline: str) -> str:
+    headline = clean_text(headline).strip(" ,;:")
+    if not headline:
+        return headline
+    return headline[0].upper() + headline[1:]
+
+
+def headline_has_weak_ending(headline: str) -> bool:
+    words = clean_text(headline).split()
+    if not words:
+        return True
+    last = words[-1].lower().strip(".,;:")
+    weak = {
+        "a", "an", "the", "of", "for", "to", "with", "and", "or", "in", "on",
+        "at", "by", "that", "which", "from", "into", "than", "as", "but",
+        "while", "amid", "about", "like", "including", "significant",
+        "absorbing", "requires", "require", "track", "asset", "sector",
+        "assets", "sectors", "still", "residential", "is", "without", "logistics",
+        "ability", "push", "sponsors", "sponsor",
+    }
+    return last.rstrip("'") in weak or last in weak or last.endswith("-asset")
+
+
+def headline_needs_fallback(headline: str) -> bool:
+    lower = headline.lower()
+    weak_phrases = [
+        "told commercial observer",
+        "he said",
+        "she said",
+        "the statement did not disclose",
+        "did not disclose",
+        "track record with",
+    ]
+    return any(phrase in lower for phrase in weak_phrases)
+
+
+def thematic_fallback_headline(paragraph: str, index: int) -> str:
     lower = paragraph.lower()
     if index == 0:
-        return "What happened"
-    if index == total - 1:
-        return "The final read"
-    if any(word in lower for word in ["$", "billion", "million", "premium", "valuation", "price", "basis"]):
-        return "The money"
-    if any(word in lower for word in ["debt", "loan", "refinancing", "lender", "capital stack", "balance sheet"]):
-        return "The capital structure"
-    if any(word in lower for word in ["adviser", "ceo", "cfo", "president", "founder", "partner"]):
-        return "The people behind it"
-    if any(word in lower for word in ["shares", "stock", "market", "investors"]):
-        return "The market reaction"
-    if any(word in lower for word in ["risk", "pressure", "distress", "foreclosure", "default", "maturity"]):
-        return "The risk"
-    if any(word in lower for word in ["acquisition", "bought", "buy", "sold", "sale", "portfolio", "properties"]):
-        return "The transaction"
-    if any(word in lower for word in ["means", "signals", "shows", "reflects", "suggests", "matters"]):
-        return "Why it matters"
-    return "The story"
+        return "The opening move is the story"
+    if any(word in lower for word in ["occupancy", "lease-up", "stabilize", "stabilization"]):
+        return "Lease-up risk is the test"
+    if "did not disclose" in lower or "no financing details" in lower:
+        return "The missing numbers matter"
+    if "track record" in lower:
+        return "Fertitta already knows the casino business"
+    if any(word in lower for word in ["construction debt", "refinancing", "loan", "lender"]):
+        return "The financing buys time"
+    if any(word in lower for word in ["fund", "limited partners", "commitments"]):
+        return "Capital is choosing scale"
+    if any(word in lower for word in ["logistics", "residential", "southern europe"]):
+        return "The strategy follows dislocation"
+    if any(word in lower for word in ["portfolio", "properties", "assets"]):
+        return "The asset mix matters"
+    if any(word in lower for word in ["market", "valuation", "rate", "investors"]):
+        return "The market is sending a signal"
+    return "The details change the read"
+
+
+def secondary_fallback_headline(paragraph: str, index: int) -> str:
+    lower = paragraph.lower()
+    if any(word in lower for word in ["occupancy", "lease-up", "stabilize", "stabilization"]):
+        return "The runway is not the same as certainty"
+    if any(word in lower for word in ["refinancing", "loan", "lender", "debt"]):
+        return "The debt tells the second story"
+    if any(word in lower for word in ["fund", "capital", "commitments"]):
+        return "Scale is becoming the advantage"
+    if any(word in lower for word in ["portfolio", "properties", "assets"]):
+        return "The portfolio is the proof point"
+    return f"The next read comes on slide {index + 1}"
 
 
 def kicker_headline(sentence: str) -> str:

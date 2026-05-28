@@ -55,7 +55,7 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
         last_text = (pdf.pages[-1].extract_text() or "").lower()
         if "light tower group" not in last_text:
             errors.append("Closing page missing publication colophon")
-        for required in ("what happened", "the money", "why it matters"):
+        for required in ("story 01", "the figures", "why it matters"):
             if required not in all_text:
                 errors.append(f"Carousel missing expected slide: {required}")
     except Exception as exc:
