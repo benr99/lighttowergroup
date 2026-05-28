@@ -13,6 +13,7 @@ from typing import Dict
 
 from fetch_brand_colors import fetch_brand_colors
 from article_adapter import transform_article_to_pdf_schema
+from carousel_script_agent import generate_carousel_script
 from generate_carousel_pdf import CarouselPDFGenerator
 from build_linkedin_post import build_linkedin_post_text, save_linkedin_post
 from validate_pdf import run_validation_report
@@ -40,10 +41,15 @@ async def generate_pdf_async(article_html: str, article_data: Dict, output_dir: 
     try:
         logger.info(f"[PDF] Starting carousel generation for: {slug}")
 
-        # 1. Transform article to PDF schema
-        pdf_schema = transform_article_to_pdf_schema(
+        # 1. Build deterministic schema, then let the carousel writer refine it.
+        fallback_schema = transform_article_to_pdf_schema(
             article_html,
             article_data
+        )
+        pdf_schema = generate_carousel_script(
+            article_html,
+            article_data,
+            fallback_schema,
         )
 
         # 2. Fetch live brand colors
