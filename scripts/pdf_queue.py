@@ -101,8 +101,9 @@ def queue_pdf_generation(article_html: str, article_data: Dict, output_dir: str)
         article_data: Article metadata
         output_dir: Directory to save outputs
     """
-    # Create task to run in background
-    # This requires being called from within an async context or event loop
+    # In the daily_news_agent this is called from a synchronous script. In that
+    # path we must run the coroutine to completion or the task can be abandoned
+    # before the process exits.
     try:
         loop = asyncio.get_event_loop()
         if loop.is_running():
@@ -111,8 +112,7 @@ def queue_pdf_generation(article_html: str, article_data: Dict, output_dir: str)
                 generate_pdf_async(article_html, article_data, output_dir)
             )
         else:
-            # Not in async context, schedule on event loop
-            asyncio.ensure_future(
+            loop.run_until_complete(
                 generate_pdf_async(article_html, article_data, output_dir)
             )
     except RuntimeError:
