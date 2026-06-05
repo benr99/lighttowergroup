@@ -1332,7 +1332,7 @@ def safe_queue_pdf_generation(article: dict):
         queue_pdf_generation(
             article_html=article["body_html"],
             article_data=article,
-            output_dir="insights",
+            output_dir=str(INSIGHTS_DIR),
         )
     except Exception as e:
         print(f"  [WARN] PDF queue failed for {article.get('slug')}: {redact_secret_text(e)}")
