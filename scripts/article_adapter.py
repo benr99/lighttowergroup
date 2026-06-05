@@ -333,7 +333,7 @@ def build_carousel_slides(
     slides = [
         make_slide(
             "hero",
-            "LTG ARTICLE DECK",
+            "",
             hero_headline,
             subhead=subtitle,
             subhead_limit=300,
@@ -345,7 +345,7 @@ def build_carousel_slides(
     for i, chunk in enumerate(chunks, 1):
         slides.append(make_slide(
             "article",
-            f"ARTICLE {i:02d}",
+            "",
             "",
             subhead=chunk,
             subhead_limit=900,

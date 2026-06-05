@@ -127,8 +127,6 @@ class CarouselPDFGenerator:
 
     def _footer(self, dark: bool = True) -> None:
         color_key = "text_muted_dark" if dark else "text_muted_light"
-        self._text("LTG Capital Intelligence", x=MARGIN, y=126, w=55, h=3, size=5.5,
-                   color_key=color_key, fallback="#8A8A80")
         self._text("lighttowergroup.co", x=72, y=126, w=27, h=3, size=5.5,
                    color_key=color_key, fallback="#8A8A80", align="R")
 
@@ -145,7 +143,6 @@ class CarouselPDFGenerator:
 
     def _render_hero(self, slide: dict[str, Any], slide_no: int) -> None:
         self._add_page("bg_primary")
-        self._label(slide.get("eyebrow", "MARKET MOVES"), slide_no)
         headline = slide.get("headline", "")
         size = self._fit_font_size(headline, 88, 21, 15)
         self._text(headline, x=MARGIN, y=28, w=90, h=7.5, size=size, style="B",
@@ -194,12 +191,11 @@ class CarouselPDFGenerator:
 
     def _render_article(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
         self._add_page("bg_page" if dark else "bg_light")
-        self._label(slide.get("eyebrow", "ARTICLE"), slide_no, dark)
         text_key = "text_primary" if dark else "text_on_light"
         body = slide.get("subhead", "")
         body_size = self._body_font_size(body, base_size=11.2)
         line_h = 4.45 if body_size < 9 else 4.85
-        self._text(body, x=MARGIN, y=26, w=88, h=line_h, size=body_size,
+        self._text(body, x=MARGIN, y=18, w=88, h=line_h, size=body_size,
                    color_key=text_key, fallback="#F5F5F0")
         self._footer(dark)
 
@@ -314,11 +310,11 @@ class CarouselPDFGenerator:
             output = Path(output_path)
             output.parent.mkdir(parents=True, exist_ok=True)
             pdf = self.render(data)
-            pdf.set_title("LTG Capital Intelligence")
+            pdf.set_title(str(data.get("publication", {}).get("theme") or "Light Tower Group"))
             pdf.set_author("Light Tower Group")
             pdf.set_creator("Light Tower Group")
             pdf.output(str(output))
-            logger.info("LTG Capital Intelligence PDF: %s (%s pages)", output, self.page_count)
+            logger.info("Light Tower Group PDF: %s (%s pages)", output, self.page_count)
             return True
         except Exception as exc:
             logger.error("PDF generation failed: %s", exc, exc_info=True)

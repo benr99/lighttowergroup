@@ -48,17 +48,8 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
             errors.append(f"Pages {empty_pages} appear empty or mostly blank")
 
         all_text = "\n".join((page.extract_text() or "") for page in pdf.pages).lower()
-        first_text = (pdf.pages[0].extract_text() or "").lower()
-        if "ltg" not in first_text and "capital" not in first_text:
-            errors.append("Cover page missing publication masthead")
-
         if "lighttowergroup.co" not in all_text and "light tower group" not in all_text:
             errors.append("PDF missing Light Tower Group footer/colophon")
-        for required in ("article 01",):
-            if required not in all_text:
-                errors.append(f"Article deck missing expected slide: {required}")
-        if "ltg article deck" not in all_text:
-            errors.append("Article deck missing expected masthead")
     except Exception as exc:
         errors.append(f"Failed to read PDF: {exc}")
 
