@@ -34,10 +34,10 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
     try:
         pdf = PdfReader(str(path))
         page_count = len(pdf.pages)
-        if page_count < 8:
-            errors.append(f"PDF has only {page_count} pages (expected at least 8)")
-        elif page_count > 14:
-            errors.append(f"PDF has {page_count} pages (expected max 14)")
+        if page_count < 6:
+            errors.append(f"PDF has only {page_count} pages (expected at least 6)")
+        elif page_count > 24:
+            errors.append(f"PDF has {page_count} pages (expected max 24)")
 
         empty_pages = []
         for i, page in enumerate(pdf.pages):
@@ -52,12 +52,13 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
         if "ltg" not in first_text and "capital" not in first_text:
             errors.append("Cover page missing publication masthead")
 
-        last_text = (pdf.pages[-1].extract_text() or "").lower()
-        if "light tower group" not in last_text:
-            errors.append("Closing page missing publication colophon")
-        for required in ("story 01", "the figures", "why it matters"):
+        if "lighttowergroup.co" not in all_text and "light tower group" not in all_text:
+            errors.append("PDF missing Light Tower Group footer/colophon")
+        for required in ("article 01",):
             if required not in all_text:
-                errors.append(f"Carousel missing expected slide: {required}")
+                errors.append(f"Article deck missing expected slide: {required}")
+        if "figures cited" not in all_text and "ltg article deck" not in all_text:
+            errors.append("Article deck missing expected masthead or figure context")
     except Exception as exc:
         errors.append(f"Failed to read PDF: {exc}")
 

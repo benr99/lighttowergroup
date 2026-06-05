@@ -1,9 +1,8 @@
 """
-Transform Insight article HTML into a LinkedIn-native carousel script.
+Transform Insight article HTML into a LinkedIn-native article deck.
 
-The PDF should read like a deliberately written swipe story, not like a report
-export. This adapter extracts the article's own facts, money, tension, and
-market read into repeatable slide systems.
+The PDF should preserve the generated article's own prose while formatting it
+as a bold, readable carousel for LinkedIn sharing.
 """
 
 from __future__ import annotations
@@ -84,6 +83,53 @@ def compact_sentence(text: str, limit: int) -> str:
 def paragraph_excerpt(paragraph: str, limit: int = 520) -> str:
     """Keep the article's prose intact enough to read as a narrative slide."""
     return compact_sentence(paragraph, limit)
+
+
+def article_chunks(paragraphs: list[str], max_words: int = 72) -> list[str]:
+    """Split article prose into ordered, sentence-preserving carousel chunks."""
+    chunks: list[str] = []
+    current: list[str] = []
+    current_words = 0
+
+    for paragraph in paragraphs:
+        sentences = [
+            clean_text(sentence)
+            for sentence in re.split(r"(?<=[.!?])\s+", paragraph)
+            if clean_text(sentence)
+        ]
+        if not sentences:
+            continue
+        for sentence in sentences:
+            words = len(sentence.split())
+            if current and current_words + words > max_words:
+                chunks.append(" ".join(current))
+                current = []
+                current_words = 0
+            if words > max_words:
+                if current:
+                    chunks.append(" ".join(current))
+                    current = []
+                    current_words = 0
+                chunks.append(sentence)
+                continue
+            current.append(sentence)
+            current_words += words
+
+    if current:
+        chunks.append(" ".join(current))
+    return chunks
+
+
+def article_slide_headline(chunk: str, index: int) -> str:
+    """Use the article's own words as a short display headline."""
+    sentence = clean_text(re.split(r"(?<=[.!?])\s+", chunk)[0] if chunk else "")
+    words = sentence.split()
+    if not words:
+        return f"Article, part {index}"
+    headline = " ".join(words[:9]).rstrip(" ,;:.")
+    if len(words) > 9:
+        headline += "..."
+    return sentence_case_headline(headline)
 
 
 def extract_figures(text: str) -> list[dict[str, str]]:
@@ -278,79 +324,44 @@ def build_carousel_slides(
     source: str,
 ) -> list[dict[str, Any]]:
     text = " ".join(paragraphs)
-    sentences = sentences_from_paragraphs(paragraphs)
     figures = extract_figures(text)
-    entities = extract_entities(text)
-    quote = extract_pull_quote(paragraphs)
-
-    used: set[str] = set()
-    fact_sentences = select_sentences(sentences, ["acquire", "buy", "sale", "deal", "close", "provide", "lend", "raise"], 4)
-    used.update(fact_sentences[:2])
-    money_sentences = select_sentences(sentences, ["$", "%", "debt", "loan", "valuation", "premium", "discount"], 3, used)
-    used.update(money_sentences[:2])
-    tension_sentences = select_sentences(sentences, TENSION_WORDS, 4, used)
-    used.update(tension_sentences[:2])
-    analysis_sentences = select_sentences(sentences, ANALYSIS_WORDS, 4, used)
 
     hero_headline = title
-    analysis_one = analysis_sentences[0] if analysis_sentences else quote
-    analysis_quote = "" if clean_text(analysis_one).lower() == clean_text(quote).lower() else quote
-    final_sentence = sentences[-1] if sentences else quote
+    chunks = article_chunks(paragraphs)
 
-    narrative = paragraphs[:10]
     slides = [
         make_slide(
             "hero",
-            "CAPITAL INTELLIGENCE",
+            "LTG ARTICLE DECK",
             hero_headline,
-            subhead=paragraph_excerpt(narrative[0], 260),
-            subhead_limit=260,
+            subhead=subtitle or (chunks[0] if chunks else ""),
+            subhead_limit=300,
             figures=figures[:1],
-            source=source,
-        ),
-        make_slide(
-            "data",
-            "THE FIGURES",
-            data_slide_headline(figures, title),
-            figures=figures[:3],
             source=source,
         ),
     ]
 
-    used_headlines = {hero_headline.lower(), slides[1]["headline"].lower()}
-    for i, paragraph in enumerate(narrative):
-        label = story_headline(
-            paragraph=paragraph,
-            index=i,
-            total=len(narrative),
-            title=title,
-            used=used_headlines,
+    if figures:
+        slides.append(
+            make_slide(
+                "data",
+                "FIGURES CITED",
+                data_slide_headline(figures, title),
+                figures=figures[:3],
+                source=source,
+            )
         )
-        used_headlines.add(label.lower())
+
+    for i, chunk in enumerate(chunks, 1):
         slides.append(make_slide(
             "story",
-            story_eyebrow(paragraph, i),
-            label,
-            subhead=paragraph_excerpt(paragraph, 520),
-            subhead_limit=430,
+            f"ARTICLE {i:02d}",
+            article_slide_headline(chunk, i),
+            subhead=chunk,
+            subhead_limit=900,
             source=source,
         ))
 
-    slides.append(
-        make_slide(
-            "kicker",
-            "WHY IT MATTERS",
-            "Why it matters",
-            subhead=why_it_matters_text(
-                sentences=sentences,
-                analysis_sentences=analysis_sentences,
-                tension_sentences=tension_sentences,
-                final_sentence=final_sentence,
-            ),
-            subhead_limit=260,
-            source="Light Tower Group",
-        )
-    )
     return slides
 
 

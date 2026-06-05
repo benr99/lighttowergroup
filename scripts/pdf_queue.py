@@ -8,6 +8,7 @@ Does not block article publishing.
 import asyncio
 import json
 import logging
+import os
 from pathlib import Path
 from typing import Dict
 
@@ -41,16 +42,26 @@ async def generate_pdf_async(article_html: str, article_data: Dict, output_dir: 
     try:
         logger.info(f"[PDF] Starting carousel generation for: {slug}")
 
-        # 1. Build deterministic schema, then let the carousel writer refine it.
+        # 1. Build a content-preserving article deck. The optional AI writer is
+        # kept behind a flag because LinkedIn PDFs should preserve the article's
+        # actual prose by default, not summarize or rewrite it.
         fallback_schema = transform_article_to_pdf_schema(
             article_html,
             article_data
         )
-        pdf_schema = generate_carousel_script(
-            article_html,
-            article_data,
-            fallback_schema,
-        )
+        if os.environ.get("LTG_ENABLE_AI_CAROUSEL_REWRITE") == "1":
+            pdf_schema = generate_carousel_script(
+                article_html,
+                article_data,
+                fallback_schema,
+            )
+        else:
+            pdf_schema = fallback_schema
+            pdf_schema["carousel_agent"] = {
+                "name": "article_text_deck",
+                "fallback": False,
+                "rewrite_disabled": True,
+            }
 
         # 2. Fetch live brand colors
         colors = fetch_brand_colors()

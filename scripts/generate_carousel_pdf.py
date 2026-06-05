@@ -78,6 +78,16 @@ class CarouselPDFGenerator:
             self.pdf.set_font("Helvetica", "B", size)
         return size
 
+    def _body_font_size(self, text: str, base_size: float = 10.8) -> float:
+        words = len(self._sanitize_text(text).split())
+        if words > 90:
+            return 8.4
+        if words > 76:
+            return 8.9
+        if words > 62:
+            return 9.5
+        return base_size
+
     def _add_page(self, bg_key: str = "bg_primary") -> None:
         self.pdf.add_page()
         self.page_count += 1
@@ -167,14 +177,15 @@ class CarouselPDFGenerator:
         self._add_page("bg_page" if dark else "bg_light")
         self._label(slide.get("eyebrow", "STORY"), slide_no, dark)
         text_key = "text_primary" if dark else "text_on_light"
-        muted_key = "text_muted_dark" if dark else "text_muted_light"
         headline = slide.get("headline", "")
-        size = self._fit_font_size(headline, 88, 18, 13)
-        y = self._text(headline, x=MARGIN, y=23, w=88, h=6, size=size,
+        size = self._fit_font_size(headline, 88, 17, 12)
+        y = self._text(headline, x=MARGIN, y=22, w=88, h=5.8, size=size,
                        style="B", color_key=text_key, fallback="#F5F5F0")
         subhead = slide.get("subhead", "")
         if subhead:
-            y = self._text(subhead, x=MARGIN, y=max(y + 8, 48), w=88, h=4.7, size=10.5,
+            body_size = self._body_font_size(subhead)
+            line_h = 4.35 if body_size < 9 else 4.7
+            y = self._text(subhead, x=MARGIN, y=max(y + 8, 43), w=88, h=line_h, size=body_size,
                            color_key=text_key, fallback="#F5F5F0")
         # Add supporting bullets only when there is room; the prose is the core.
         if slide.get("bullets") and y < 96:
