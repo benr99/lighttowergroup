@@ -39,7 +39,6 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from html import escape
 from html.parser import HTMLParser
-from pdf_queue import queue_pdf_generation
 
 # Force UTF-8 on Windows
 if hasattr(sys.stdout, "reconfigure"):
@@ -61,6 +60,18 @@ from news_sources import (
 from enhanced_prompts import SYSTEM_PROMPT_ENHANCED, USER_PROMPT_TEMPLATE
 from social_image_generator import generate_article_image
 from linkedin_essay_agent import ESSAY_QUEUE, generate_essay_package, save_to_queue
+from story_normalizer import normalize_stories
+from editorial_scoring import (
+    daily_top_news_selection,
+    generate_weekly_market_review,
+    print_daily_selection_report,
+    print_weekly_review_report,
+)
+from editorial_store import (
+    load_weekly_editorial_runs,
+    save_editorial_run,
+    save_weekly_review,
+)
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -251,6 +262,37 @@ def triage(stories: list) -> list:
     relevant = [s for s in stories if s["url"] and _is_cre_relevant(s) and _is_recent(s)]
     unique   = _deduplicate(relevant)
     print(f"  Triage: {len(stories)} raw \u2192 {len(relevant)} relevant \u2192 {len(unique)} unique")
+    return unique
+
+
+DAILY_TOP_NEWS_KEYWORDS = CRE_KEYWORDS + [
+    "bank", "banks", "banking", "credit", "loan losses", "loss reserves",
+    "private credit", "private equity", "fundraise", "fund closes", "debt fund",
+    "m&a", "merger", "acquisition", "takeover", "portfolio sale", "building sale",
+    "capital placement", "financing", "refinancing", "recapitalization",
+    "federal reserve", "fed", "rate cut", "rate hike", "treasury yield", "inflation",
+    "reit", "earnings", "guidance", "shares", "cmbs", "special servicing",
+    "default", "foreclosure", "bankruptcy", "distress", "note sale",
+    "blackstone", "brookfield", "apollo", "starwood", "ares", "kkr",
+    "jpmorgan", "goldman", "wells fargo", "morgan stanley", "sl green",
+]
+
+
+def _is_daily_top_news_relevant(story: dict) -> bool:
+    text = (story.get("title", "") + " " + story.get("summary", "")).lower()
+    if any(kw in text for kw in EXCLUDE_KEYWORDS):
+        return False
+    return any(kw in text for kw in DAILY_TOP_NEWS_KEYWORDS)
+
+
+def triage_daily_top_news(stories: list) -> list:
+    """Broader triage for daily top-news selection across CRE, banking, finance, and PE."""
+    relevant = [
+        s for s in stories
+        if s.get("url") and _is_daily_top_news_relevant(s) and _is_recent(s)
+    ]
+    unique = _deduplicate(relevant)
+    print(f"  Daily top-news triage: {len(stories)} raw \u2192 {len(relevant)} relevant \u2192 {len(unique)} unique")
     return unique
 
 
@@ -1106,7 +1148,17 @@ def git_commit_push(articles: list, dry_run: bool = False):
     if not articles:
         return
 
-    files = [f"insights/{a['slug']}.html" for a in articles]
+    files = []
+    for article in articles:
+        slug = article["slug"]
+        candidates = [
+            f"insights/{slug}.html",
+            f"insights/{slug}_social.png",
+            f"insights/{slug}_carousel.pdf",
+            f"insights/{slug}_carousel-data.json",
+            f"insights/linkedin-post-{slug}.txt",
+        ]
+        files.extend(path for path in candidates if (SITE_ROOT / path).exists())
     files += ["insights.json", "feed.xml", "sitemap.xml"]
     if ESSAY_QUEUE.exists():
         files.append(str(ESSAY_QUEUE.relative_to(SITE_ROOT)))
@@ -1267,6 +1319,35 @@ def write_log(run_data: dict):
     LOG_FILE.write_text(json.dumps(log, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+def safe_queue_pdf_generation(article: dict):
+    """Queue PDF generation if optional PDF dependencies are available."""
+    if not article.get("body_html"):
+        return
+    try:
+        from pdf_queue import queue_pdf_generation
+    except Exception as e:
+        print(f"  [WARN] PDF queue unavailable; skipping carousel for {article.get('slug')}: {redact_secret_text(e)}")
+        return
+    try:
+        queue_pdf_generation(
+            article_html=article["body_html"],
+            article_data=article,
+            output_dir="insights",
+        )
+    except Exception as e:
+        print(f"  [WARN] PDF queue failed for {article.get('slug')}: {redact_secret_text(e)}")
+
+
+def run_weekly_review(args) -> None:
+    today = datetime.now(timezone.utc).date().isoformat()
+    runs = load_weekly_editorial_runs()
+    print(f"\n[Weekly Review] Loaded {len(runs)} editorial run file(s) for this week")
+    review = generate_weekly_market_review(runs, api_key=DEEPSEEK_API_KEY, today=today)
+    path = save_weekly_review(review)
+    print_weekly_review_report(review)
+    print(f"\nSaved weekly review: {path.relative_to(SITE_ROOT)}")
+
+
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 # MAIN
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1284,7 +1365,15 @@ def main():
                         help="Essay Desk length mode for LinkedIn output")
     parser.add_argument("--auto-post-linkedin", action="store_true",
                         help="Post the Essay Desk LinkedIn essay automatically after publishing")
+    parser.add_argument("--selection-mode", choices=["legacy", "daily-top-news"],
+                        default="legacy",
+                        help="Story selection mode. legacy preserves current scheduled behavior.")
+    parser.add_argument("--weekly-review", action="store_true",
+                        help="Generate a Friday State of the Markets Review from this week's editorial runs")
     args = parser.parse_args()
+    if args.weekly_review:
+        run_weekly_review(args)
+        return
     MAX_ARTICLES = max(1, min(args.articles, 10))
 
     start    = datetime.now(timezone.utc)
@@ -1294,6 +1383,7 @@ def main():
     print(f"  Light Tower Group \u2014 Daily News Agent")
     print(f"  {start.strftime('%Y-%m-%d %H:%M UTC')}"
           + ("  [DRY-RUN]" if args.dry_run else ""))
+    print(f"  Selection mode: {args.selection_mode}")
     print(f"{'='*62}\n")
 
     # \u2500 Phase 1: Gather \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1303,8 +1393,12 @@ def main():
 
     # \u2500 Phase 2: Triage \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("\n[2/8] Triaging...")
-    candidates = triage(all_stories)
+    if args.selection_mode == "daily-top-news":
+        candidates = triage_daily_top_news(all_stories)
+    else:
+        candidates = triage(all_stories)
     run_data["candidate_count"] = len(candidates)
+    run_data["selection_mode"] = args.selection_mode
 
     if not candidates:
         print("  No relevant CRE stories found today. Exiting.")
@@ -1314,13 +1408,39 @@ def main():
 
     # \u2500 Phase 3: Score \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print(f"\n[3/8] Scoring {len(candidates)} stories...")
-    ranked = score_stories(candidates)
+    editorial_selection = None
+    if args.selection_mode == "daily-top-news":
+        normalized_candidates = normalize_stories(candidates)
+        print(f"  Normalized {len(normalized_candidates)} candidate(s) for daily top-news scoring")
+        editorial_selection = daily_top_news_selection(
+            normalized_candidates,
+            article_count=MAX_ARTICLES,
+            api_key=DEEPSEEK_API_KEY,
+            today=start.date().isoformat(),
+        )
+        print_daily_selection_report(editorial_selection, limit=MAX_ARTICLES)
+        audit_payload = {
+            "run_at": start.isoformat(),
+            "date": start.date().isoformat(),
+            "selection_mode": args.selection_mode,
+            "dry_run": args.dry_run,
+            "raw_count": len(all_stories),
+            "candidate_count": len(candidates),
+            "articles_requested": MAX_ARTICLES,
+            **editorial_selection,
+        }
+        audit_path = save_editorial_run(audit_payload, run_date=start.date())
+        print(f"  Editorial audit saved: {audit_path.relative_to(SITE_ROOT)}")
+        ranked = [item["candidate"] for item in editorial_selection["selected_stories"]]
+    else:
+        ranked = score_stories(candidates)
 
     # \u2500 Phase 4: Enrich \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print(f"\n[4/8] Enriching up to {MAX_ARTICLES} candidates...")
     enriched_candidates = []
     checked = 0
-    for candidate in ranked[:20]:  # scan top 20 to find MAX_ARTICLES non-dupes
+    candidate_pool = ranked if args.selection_mode == "daily-top-news" else ranked[:20]
+    for candidate in candidate_pool:  # scan top 20 legacy stories, or final daily top-news selections
         if len(enriched_candidates) >= MAX_ARTICLES:
             break
         checked += 1
@@ -1443,16 +1563,12 @@ def main():
 
         update_feed_xml()
         update_sitemap_xml()
-        git_commit_push(articles, dry_run=False)
 
-        # Queue PDF carousel generation in background (non-blocking)
+        print("\n[6b/8] Generating PDF carousel package(s)...")
         for article in articles:
-            if article.get('body_html'):
-                queue_pdf_generation(
-                    article_html=article['body_html'],
-                    article_data=article,
-                    output_dir="insights"
-                )
+            safe_queue_pdf_generation(article)
+
+        git_commit_push(articles, dry_run=False)
     else:
         for article in articles:
             print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")

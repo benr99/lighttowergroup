@@ -112,6 +112,46 @@ RSS_FEEDS = [
     ("National Law Review",     "https://www.natlawreview.com/rss/real-estate-law"),
 ]
 
+# Source metadata used by the Daily Top News editorial scorer. RSS_FEEDS remains
+# the canonical source list; this map adds ranking context without requiring every
+# source to be exhaustively described.
+SOURCE_METADATA = {
+    "The Real Deal": {"tier": 1, "domains": ["cre", "transactions", "distress", "nyc"]},
+    "The Real Deal National": {"tier": 1, "domains": ["cre", "transactions", "capital_markets"]},
+    "Commercial Observer": {"tier": 1, "domains": ["cre", "finance", "debt", "transactions"]},
+    "Bisnow New York": {"tier": 1, "domains": ["cre", "nyc", "transactions", "distress"]},
+    "Bisnow National": {"tier": 1, "domains": ["cre", "national", "capital_markets"]},
+    "CoStar News": {"tier": 1, "domains": ["cre", "transactions", "capital_markets"]},
+    "PERE News": {"tier": 1, "domains": ["private_equity", "institutional_capital", "funds"]},
+    "Trepp Blog": {"tier": 1, "domains": ["cmbs", "debt", "distress", "credit"]},
+    "CREFC": {"tier": 1, "domains": ["cmbs", "debt", "policy", "credit"]},
+    "American Banker": {"tier": 1, "domains": ["banking", "credit", "regulation"]},
+    "Bloomberg Real Estate": {"tier": 1, "domains": ["markets", "rates", "finance", "real_estate"]},
+    "Bloomberg Business": {"tier": 1, "domains": ["markets", "finance", "macro"]},
+    "Reuters Business": {"tier": 1, "domains": ["banking", "markets", "macro", "finance"]},
+    "Wall Street Journal": {"tier": 1, "domains": ["markets", "finance", "macro"]},
+    "CNBC Real Estate": {"tier": 2, "domains": ["real_estate", "markets"]},
+    "MarketWatch Real Estate": {"tier": 2, "domains": ["real_estate", "markets"]},
+    "NAREIT": {"tier": 1, "domains": ["reit", "public_markets", "institutional_capital"]},
+    "NMHC": {"tier": 1, "domains": ["multifamily", "policy", "capital_markets"]},
+    "MBA Newslink": {"tier": 1, "domains": ["mortgage", "banking", "debt"]},
+    "Mortgage News Daily": {"tier": 2, "domains": ["rates", "mortgage", "debt"]},
+    "Fannie Mae Perspectives": {"tier": 1, "domains": ["agency", "housing", "credit"]},
+    "Freddie Mac Perspectives": {"tier": 1, "domains": ["agency", "housing", "credit"]},
+    "HUD Exchange": {"tier": 1, "domains": ["policy", "housing", "affordable"]},
+    "Institutional Real Estate": {"tier": 1, "domains": ["institutional_capital", "private_equity", "funds"]},
+    "IREI News": {"tier": 1, "domains": ["institutional_capital", "private_equity", "funds"]},
+    "GlobeSt": {"tier": 2, "domains": ["cre", "capital_markets", "transactions"]},
+    "Connect CRE": {"tier": 2, "domains": ["cre", "transactions", "finance"]},
+    "Multi-Housing News": {"tier": 2, "domains": ["multifamily", "transactions", "finance"]},
+    "CP Executive": {"tier": 2, "domains": ["cre", "transactions", "finance"]},
+    "Affordable Housing Finance": {"tier": 2, "domains": ["affordable", "policy", "finance"]},
+    "HousingWire": {"tier": 2, "domains": ["housing", "mortgage", "finance"]},
+    "New York YIMBY": {"tier": 2, "domains": ["development", "nyc", "construction"]},
+    "NY Post Real Estate": {"tier": 2, "domains": ["nyc", "real_estate", "transactions"]},
+    "Crain's NY Business": {"tier": 2, "domains": ["nyc", "business", "real_estate"]},
+}
+
 # ── NewsAPI Keyword Queries ────────────────────────────────────────────────────
 # Used with NewsAPI.org free tier (100 req/day).
 # We run the first 3 only to stay well within limits.

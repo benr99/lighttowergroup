@@ -258,6 +258,20 @@ def _coerce_scores(package: dict[str, Any]) -> None:
     scores["overall"] = max(0, min(int(scores.get("overall") or round(sum(vals) / len(vals))), 10))
 
 
+def loads_model_json(raw_json: str) -> dict[str, Any]:
+    """
+    Parse model JSON with a small repair pass for common harmless syntax slips.
+
+    The Essay Desk asks for strict JSON, but models occasionally leave a trailing
+    comma before a closing object/array. Repair only that narrow case.
+    """
+    try:
+        return json.loads(raw_json)
+    except json.JSONDecodeError:
+        repaired = re.sub(r",\s*([}\]])", r"\1", raw_json)
+        return json.loads(repaired)
+
+
 def _fallback_package(article: dict[str, Any], site_url: str = SITE_URL) -> dict[str, Any]:
     url = insight_url(article, site_url)
     title = article.get("title", "Light Tower Insight")
@@ -360,7 +374,7 @@ def generate_essay_package(
     match = re.search(r"\{[\s\S]*\}", raw)
     if not match:
         raise ValueError("No JSON object found in Essay Desk response")
-    package = json.loads(match.group())
+    package = loads_model_json(match.group())
     return decorate_package(package, article, url, length_mode)
 
 
