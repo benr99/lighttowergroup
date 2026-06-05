@@ -253,11 +253,11 @@ class CarouselPDFGenerator:
     def _render_closing(self, slide: dict[str, Any], slide_no: int) -> None:
         self._add_page("bg_primary")
         self._frame(True)
-        self._text(slide.get("headline", "About Us"), x=MARGIN, y=28, w=88, h=8,
-                   size=21, style="B", font=self.font_display, color_key="text_primary")
+        self._text(slide.get("headline", "About Us"), x=MARGIN, y=22.5, w=88, h=7,
+                   size=19, style="B", font=self.font_display, color_key="text_primary")
         self.pdf.set_draw_color(*self._color("accent_gold", "#C9A84C"))
         self.pdf.set_line_width(0.45)
-        self.pdf.line(MARGIN, 49, MARGIN + 24, 49)
+        self.pdf.line(MARGIN, 41.5, MARGIN + 24, 41.5)
 
         blocks = str(slide.get("subhead", "")).split("\n\n")
         intro = blocks[0] if blocks else ""
@@ -265,24 +265,24 @@ class CarouselPDFGenerator:
         contact = blocks[2] if len(blocks) > 2 else ""
         contact_lines = [line.strip() for line in contact.splitlines() if line.strip()]
 
-        y = 58
-        y = self._text(intro, x=MARGIN, y=y, w=88, h=4.65, size=9.2,
+        y = 48
+        y = self._text(intro, x=MARGIN, y=y, w=88, h=3.95, size=8.15,
                        font=self.font_body, color_key="text_primary", fallback="#121212")
-        y = self._text(second, x=MARGIN, y=y + 7.5, w=88, h=4.65, size=9.2,
+        y = self._text(second, x=MARGIN, y=y + 5.2, w=88, h=3.95, size=8.15,
                        font=self.font_body, color_key="text_primary", fallback="#121212")
 
         if contact_lines:
-            y += 11
-            y = self._text(contact_lines[0], x=MARGIN, y=y, w=88, h=4.2, size=8.2,
+            y += 7.5
+            y = self._text(contact_lines[0], x=MARGIN, y=y, w=88, h=3.9, size=7.45,
                            font=self.font_body, style="B", color_key="text_muted_dark",
                            fallback="#555555")
             if len(contact_lines) > 1:
-                y = self._text(contact_lines[1], x=MARGIN, y=y + 3.5, w=88, h=5,
-                               size=10.5, font=self.font_body, style="B",
+                y = self._text(contact_lines[1], x=MARGIN, y=y + 2.4, w=88, h=4.4,
+                               size=9.5, font=self.font_body, style="B",
                                color_key="accent_gold", fallback="#C9A84C")
             if len(contact_lines) > 2:
-                self._text(contact_lines[2], x=MARGIN, y=y + 2, w=88, h=5,
-                           size=10.5, font=self.font_body, style="B",
+                self._text(contact_lines[2], x=MARGIN, y=y + 1.2, w=88, h=4.4,
+                           size=9.5, font=self.font_body, style="B",
                            color_key="accent_gold", fallback="#C9A84C")
 
     def _render_data(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
