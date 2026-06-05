@@ -368,7 +368,7 @@ def build_carousel_slides(
     closing_slide = make_slide(
         "closing",
         "",
-        "Light Tower Group",
+        "About Us",
         subhead=LTG_CLOSING_COPY,
         subhead_limit=900,
         headline_limit=80,
