@@ -723,6 +723,41 @@ def legacy_stories_from_slides(slides: list[dict[str, Any]], date: str, category
     return stories
 
 
+def parse_article_issue_date(article_data: dict[str, Any]) -> tuple[str, str]:
+    """Return YYYY-MM-DD and Month YYYY from generated article metadata."""
+    candidates = [
+        article_data.get("date_iso"),
+        article_data.get("date"),
+        datetime.now().isoformat(),
+    ]
+    formats = ("%Y-%m-%d", "%B %d, %Y", "%B %d %Y", "%b %d, %Y", "%b %d %Y")
+
+    parsed = None
+    for raw in candidates:
+        if not raw:
+            continue
+        value = str(raw).strip()
+        try:
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            break
+        except ValueError:
+            pass
+
+        for fmt in formats:
+            try:
+                parsed = datetime.strptime(value, fmt)
+                break
+            except ValueError:
+                continue
+        if parsed:
+            break
+
+    if parsed is None:
+        parsed = datetime.now()
+
+    return parsed.date().isoformat(), parsed.strftime("%B %Y")
+
+
 def transform_article_to_pdf_schema(
     article_html: str,
     article_data: dict[str, Any],
@@ -744,8 +779,7 @@ def transform_article_to_pdf_schema(
     subtitle = article_data.get("subtitle") or article_data.get("meta_description") or ""
     category = infer_category(" ".join(paragraphs) + " " + title, article_data.get("category") or "Capital Markets")
     source = article_data.get("source_name") or "Light Tower Group Analysis"
-    raw_date = str(article_data.get("date") or article_data.get("date_iso") or datetime.now().isoformat()[:10])[:10]
-    issue_month = datetime.fromisoformat(raw_date).strftime("%B %Y")
+    issue_date, issue_month = parse_article_issue_date(article_data)
     slides = build_carousel_slides(
         title=title,
         subtitle=subtitle,
@@ -758,7 +792,7 @@ def transform_article_to_pdf_schema(
     return {
         "publication": {
             "volume": pub_meta["current_volume"],
-            "issue_date": raw_date,
+            "issue_date": issue_date,
             "issue_month": issue_month,
             "theme": theme or title,
         },
@@ -768,5 +802,5 @@ def transform_article_to_pdf_schema(
             "email": "ben@lighttowergroup.co",
         },
         "slides": slides,
-        "stories": legacy_stories_from_slides(slides, raw_date, category, source),
+        "stories": legacy_stories_from_slides(slides, issue_date, category, source),
     }
