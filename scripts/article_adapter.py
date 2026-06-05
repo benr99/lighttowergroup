@@ -132,6 +132,19 @@ def article_slide_headline(chunk: str, index: int) -> str:
     return sentence_case_headline(headline)
 
 
+LTG_CLOSING_COPY = (
+    "Light Tower Group is a commercial real estate capital advisory firm helping "
+    "owners, developers, and investors structure and source debt, preferred equity, "
+    "joint venture equity, and other institutional capital solutions.\n\n"
+    "We work across acquisitions, refinancings, recapitalizations, and development "
+    "projects, with a focus on clear strategy, credible execution, and capital that "
+    "fits the deal.\n\n"
+    "To discuss a financing need, recapitalization, or capital strategy:\n"
+    "ben@lighttowergroup.co\n"
+    "lighttowergroup.co"
+)
+
+
 def extract_figures(text: str) -> list[dict[str, str]]:
     money = re.findall(
         r"\$[\d,.]+(?:\.\d+)?\s?(?:trillion|billion|million|T|B|M|K)?",
@@ -351,6 +364,18 @@ def build_carousel_slides(
             subhead_limit=900,
             source=source,
         ))
+
+    closing_slide = make_slide(
+        "closing",
+        "",
+        "Light Tower Group",
+        subhead=LTG_CLOSING_COPY,
+        subhead_limit=900,
+        headline_limit=80,
+        source="Light Tower Group",
+    )
+    closing_slide["subhead"] = LTG_CLOSING_COPY
+    slides.append(closing_slide)
 
     return slides
 

@@ -125,10 +125,23 @@ class CarouselPDFGenerator:
         self.pdf.set_line_width(0.2)
         self.pdf.line(MARGIN, 15, PAGE_W - MARGIN, 15)
 
-    def _footer(self, dark: bool = True) -> None:
+    def _frame(self, dark: bool = True) -> None:
+        gold = self._color("accent_gold", "#C9A84C")
         color_key = "text_muted_dark" if dark else "text_muted_light"
-        self._text("lighttowergroup.co", x=72, y=126, w=27, h=3, size=5.5,
+        self._text("LIGHT TOWER GROUP  |  CAPITAL MARKETS NOTE", x=MARGIN, y=7.2,
+                   w=84, h=3, size=5.8, style="B", color_key="accent_gold",
+                   fallback="#C9A84C")
+        self.pdf.set_draw_color(*gold)
+        self.pdf.set_line_width(0.35)
+        self.pdf.line(MARGIN, 14.5, PAGE_W - MARGIN, 14.5)
+        self.pdf.line(MARGIN, 121.5, PAGE_W - MARGIN, 121.5)
+        self._text("Light Tower Group", x=MARGIN, y=125.5, w=38, h=3, size=5.5,
+                   color_key=color_key, fallback="#8A8A80")
+        self._text("lighttowergroup.co", x=72, y=125.5, w=27, h=3, size=5.5,
                    color_key=color_key, fallback="#8A8A80", align="R")
+
+    def _footer(self, dark: bool = True) -> None:
+        self._frame(dark)
 
     def _bullet_list(self, bullets: list[str], *, x: float, y: float, w: float, dark: bool, size: int = 10) -> float:
         text_key = "text_primary" if dark else "text_on_light"
@@ -143,9 +156,10 @@ class CarouselPDFGenerator:
 
     def _render_hero(self, slide: dict[str, Any], slide_no: int) -> None:
         self._add_page("bg_primary")
+        self._frame(True)
         headline = slide.get("headline", "")
         size = self._fit_font_size(headline, 88, 21, 15)
-        self._text(headline, x=MARGIN, y=28, w=90, h=7.5, size=size, style="B",
+        self._text(headline, x=MARGIN, y=30, w=90, h=7.5, size=size, style="B",
                    font="Helvetica", color_key="text_primary")
         if slide.get("figures"):
             fig = slide["figures"][0]
@@ -153,9 +167,8 @@ class CarouselPDFGenerator:
                        style="B", font="Helvetica", color_key="accent_gold", fallback="#C9A84C")
             self._text(fig.get("label", ""), x=MARGIN, y=84, w=70, h=4, size=7,
                        color_key="text_muted_dark", fallback="#8A8A80")
-        self._text(slide.get("subhead", ""), x=MARGIN, y=94, w=88, h=4.4, size=10,
+        self._text(slide.get("subhead", ""), x=MARGIN, y=92, w=88, h=4.4, size=10,
                    color_key="text_muted_dark", fallback="#8A8A80")
-        self._footer()
 
     def _render_briefing(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
         self._add_page("bg_page" if dark else "bg_light")
@@ -191,13 +204,24 @@ class CarouselPDFGenerator:
 
     def _render_article(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
         self._add_page("bg_page" if dark else "bg_light")
+        self._frame(dark)
         text_key = "text_primary" if dark else "text_on_light"
         body = slide.get("subhead", "")
         body_size = self._body_font_size(body, base_size=11.2)
         line_h = 4.45 if body_size < 9 else 4.85
-        self._text(body, x=MARGIN, y=18, w=88, h=line_h, size=body_size,
+        self._text(body, x=MARGIN, y=22, w=88, h=line_h, size=body_size,
                    color_key=text_key, fallback="#F5F5F0")
-        self._footer(dark)
+
+    def _render_closing(self, slide: dict[str, Any], slide_no: int) -> None:
+        self._add_page("bg_primary")
+        self._frame(True)
+        self._text(slide.get("headline", "Light Tower Group"), x=MARGIN, y=30, w=88, h=8,
+                   size=22, style="B", font="Helvetica", color_key="text_primary")
+        self.pdf.set_draw_color(*self._color("accent_gold", "#C9A84C"))
+        self.pdf.set_line_width(0.45)
+        self.pdf.line(MARGIN, 53, MARGIN + 24, 53)
+        self._text(slide.get("subhead", ""), x=MARGIN, y=62, w=88, h=5.1, size=11.2,
+                   color_key="text_primary", fallback="#F5F5F0")
 
     def _render_data(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
         self._add_page("bg_primary" if dark else "bg_light")
@@ -271,6 +295,8 @@ class CarouselPDFGenerator:
                 self._render_story(slide, i, dark)
             elif system == "article":
                 self._render_article(slide, i, dark)
+            elif system == "closing":
+                self._render_closing(slide, i)
             elif system == "data":
                 self._render_data(slide, i, dark)
             elif system == "kicker":
