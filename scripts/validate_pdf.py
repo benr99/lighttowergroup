@@ -57,8 +57,8 @@ def validate_generated_pdf(pdf_path: str, expected_data: dict[str, Any] | None =
         for required in ("article 01",):
             if required not in all_text:
                 errors.append(f"Article deck missing expected slide: {required}")
-        if "figures cited" not in all_text and "ltg article deck" not in all_text:
-            errors.append("Article deck missing expected masthead or figure context")
+        if "ltg article deck" not in all_text:
+            errors.append("Article deck missing expected masthead")
     except Exception as exc:
         errors.append(f"Failed to read PDF: {exc}")
 

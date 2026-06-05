@@ -301,11 +301,12 @@ def make_slide(
     kicker: str = "",
     source: str = "",
     subhead_limit: int = 180,
+    headline_limit: int = 96,
 ) -> dict[str, Any]:
     return {
         "system": system,
         "eyebrow": eyebrow,
-        "headline": compact_sentence(headline, 96),
+        "headline": compact_sentence(headline, headline_limit),
         "subhead": compact_sentence(subhead, subhead_limit),
         "bullets": bullets or [],
         "figures": figures or [],
@@ -334,29 +335,18 @@ def build_carousel_slides(
             "hero",
             "LTG ARTICLE DECK",
             hero_headline,
-            subhead=subtitle or (chunks[0] if chunks else ""),
+            subhead=subtitle,
             subhead_limit=300,
-            figures=figures[:1],
+            headline_limit=150,
             source=source,
         ),
     ]
 
-    if figures:
-        slides.append(
-            make_slide(
-                "data",
-                "FIGURES CITED",
-                data_slide_headline(figures, title),
-                figures=figures[:3],
-                source=source,
-            )
-        )
-
     for i, chunk in enumerate(chunks, 1):
         slides.append(make_slide(
-            "story",
+            "article",
             f"ARTICLE {i:02d}",
-            article_slide_headline(chunk, i),
+            "",
             subhead=chunk,
             subhead_limit=900,
             source=source,
@@ -778,9 +768,10 @@ def transform_article_to_pdf_schema(
 
     body_html = article_data.get("body") or article_data.get("body_html") or article_html or ""
     soup = BeautifulSoup(body_html, "html.parser")
+    article_root = soup.select_one('[itemprop="articleBody"], .article-body') or soup
     paragraphs = [
         clean_text(p.get_text(" ", strip=True))
-        for p in soup.find_all("p")
+        for p in article_root.find_all("p")
         if clean_text(p.get_text(" ", strip=True))
     ]
     if len(paragraphs) < 2:

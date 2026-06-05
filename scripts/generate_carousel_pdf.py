@@ -192,6 +192,17 @@ class CarouselPDFGenerator:
             self._bullet_list(slide["bullets"][:2], x=MARGIN, y=y + 7, w=88, dark=dark, size=7.8)
         self._footer(dark)
 
+    def _render_article(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
+        self._add_page("bg_page" if dark else "bg_light")
+        self._label(slide.get("eyebrow", "ARTICLE"), slide_no, dark)
+        text_key = "text_primary" if dark else "text_on_light"
+        body = slide.get("subhead", "")
+        body_size = self._body_font_size(body, base_size=11.2)
+        line_h = 4.45 if body_size < 9 else 4.85
+        self._text(body, x=MARGIN, y=26, w=88, h=line_h, size=body_size,
+                   color_key=text_key, fallback="#F5F5F0")
+        self._footer(dark)
+
     def _render_data(self, slide: dict[str, Any], slide_no: int, dark: bool) -> None:
         self._add_page("bg_primary" if dark else "bg_light")
         self._label(slide.get("eyebrow", "THE MONEY"), slide_no, dark)
@@ -262,6 +273,8 @@ class CarouselPDFGenerator:
                 self._render_briefing(slide, i, dark)
             elif system == "story":
                 self._render_story(slide, i, dark)
+            elif system == "article":
+                self._render_article(slide, i, dark)
             elif system == "data":
                 self._render_data(slide, i, dark)
             elif system == "kicker":
