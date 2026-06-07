@@ -22,12 +22,10 @@ def build_linkedin_post_text(article_data: dict) -> str:
     if len(opening) > 280:
         opening = opening[:277].rsplit(" ", 1)[0].rstrip(" ,;:") + "..."
 
-    body = "Full Light Tower Group capital markets note attached as a PDF carousel."
-    if opening:
-        body = opening.rstrip(".") + ".\n\n" + body
+    body = opening.rstrip(".") + "." if opening else ""
 
     closing = "\n\n#CRE #CapitalMarkets #RealEstateFinance"
-    return hook + "\n\n" + body + closing
+    return (hook + ("\n\n" + body if body else "") + closing).strip()
 
 
 def save_linkedin_post(text: str, output_path: str) -> None:
