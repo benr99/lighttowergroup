@@ -1338,6 +1338,21 @@ def safe_queue_pdf_generation(article: dict):
         print(f"  [WARN] PDF queue failed for {article.get('slug')}: {redact_secret_text(e)}")
 
 
+def safe_post_linkedin_pdfs(articles: list, dry_run: bool = False) -> dict:
+    """Publish every generated carousel PDF as a native LinkedIn document post."""
+    try:
+        from linkedin_pdf_post import post_article_pdfs
+    except Exception as e:
+        print(f"  [WARN] LinkedIn PDF poster unavailable: {redact_secret_text(e)}")
+        return {"ok": False, "posted_count": 0, "attempted_count": len(articles), "error": str(e)}
+
+    try:
+        return post_article_pdfs(articles, dry_run=dry_run)
+    except Exception as e:
+        print(f"  [WARN] LinkedIn PDF batch failed: {redact_secret_text(e)}")
+        return {"ok": False, "posted_count": 0, "attempted_count": len(articles), "error": str(e)}
+
+
 def run_weekly_review(args) -> None:
     today = datetime.now(timezone.utc).date().isoformat()
     runs = load_weekly_editorial_runs()
@@ -1365,6 +1380,8 @@ def main():
                         help="Essay Desk length mode for LinkedIn output")
     parser.add_argument("--auto-post-linkedin", action="store_true",
                         help="Post the Essay Desk LinkedIn essay automatically after publishing")
+    parser.add_argument("--auto-post-linkedin-pdfs", action="store_true",
+                        help="Post every generated carousel PDF as a native LinkedIn document post")
     parser.add_argument("--selection-mode", choices=["legacy", "daily-top-news"],
                         default="legacy",
                         help="Story selection mode. legacy preserves current scheduled behavior.")
@@ -1575,16 +1592,27 @@ def main():
         print(f"  [DRY-RUN] LinkedIn essay (article 1):\n  {articles[0].get('linkedin_essay','')}")
 
     # \u2500 Phase 7: LinkedIn \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print("\n[7/8] LinkedIn review queue...")
+    print("\n[7/8] LinkedIn publishing...")
+    li_pdf_result = {"ok": False, "posted_count": 0, "attempted_count": len(articles), "dry_run": args.dry_run}
     if args.auto_post_linkedin:
         print("  Auto-post enabled for top-ranked article.")
         li_ok = post_to_linkedin(articles[0], dry_run=args.dry_run)
     else:
         li_ok = False
-        print("  Auto-post disabled. Review/edit from the Insight share modal before posting.")
+        print("  Link-share auto-post disabled.")
+
+    if args.auto_post_linkedin_pdfs:
+        print(f"  PDF auto-post enabled for {len(articles)} article(s).")
+        li_pdf_result = safe_post_linkedin_pdfs(articles, dry_run=args.dry_run)
+    else:
+        print("  PDF auto-post disabled. Review/edit carousel PDFs before posting.")
         print(f"  Queue: {ESSAY_QUEUE.relative_to(SITE_ROOT)}")
+
     run_data["linkedin_posted"] = li_ok
-    run_data["linkedin_review_required"] = not args.auto_post_linkedin
+    run_data["linkedin_pdf_posted_count"] = li_pdf_result.get("posted_count", 0)
+    run_data["linkedin_pdf_attempted_count"] = li_pdf_result.get("attempted_count", len(articles))
+    run_data["linkedin_pdf_results"] = li_pdf_result.get("results", [])
+    run_data["linkedin_review_required"] = not (args.auto_post_linkedin or args.auto_post_linkedin_pdfs)
 
     # \u2500 Log \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     elapsed = round((datetime.now(timezone.utc) - start).total_seconds())
@@ -1600,7 +1628,12 @@ def main():
     if not args.dry_run:
         for a in articles:
             print(f"  Article: {SITE_URL}/insights/{a['slug']}.html")
-        print(f"  LinkedIn: {'posted (article 1)' if li_ok else 'queued for review'}")
+        if args.auto_post_linkedin_pdfs:
+            posted = li_pdf_result.get("posted_count", 0)
+            attempted = li_pdf_result.get("attempted_count", len(articles))
+            print(f"  LinkedIn PDFs: posted {posted}/{attempted}")
+        else:
+            print(f"  LinkedIn: {'posted (article 1)' if li_ok else 'queued for review'}")
     print(f"{'='*62}\n")
 
 
