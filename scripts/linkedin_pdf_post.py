@@ -147,6 +147,70 @@ def initialize_document_upload(owner_urn: str) -> tuple[str, str]:
     return document_urn, upload_url
 
 
+def _response_summary(response: requests.Response) -> dict:
+    text = redact_secret_text(response.text or "")
+    return {
+        "status": response.status_code,
+        "body": text[:500],
+        "x_li_uuid": response.headers.get("x-li-uuid", ""),
+        "x_restli_id": response.headers.get("x-restli-id", ""),
+    }
+
+
+def diagnose_linkedin_access() -> dict:
+    load_env()
+    token, owner_urn = validate_linkedin_env()
+    warn_token_expiry()
+
+    print("LinkedIn PDF Access Diagnostic")
+    print("=" * 42)
+    print(f"  token_present: {bool(token)}")
+    print(f"  owner_urn_type: {'organization' if ':organization:' in owner_urn else 'person' if ':person:' in owner_urn else 'unknown'}")
+    print(f"  owner_urn_present: {bool(owner_urn)}")
+    print(f"  linkedin_version: {LINKEDIN_VERSION}")
+
+    checks = []
+    for label, url, headers in [
+        ("userinfo", "https://api.linkedin.com/v2/userinfo", {"Authorization": f"Bearer {token}"}),
+        ("me", "https://api.linkedin.com/v2/me", {"Authorization": f"Bearer {token}"}),
+    ]:
+        try:
+            response = requests.get(url, headers=headers, timeout=20)
+            summary = _response_summary(response)
+            checks.append({"check": label, **summary})
+            print(f"  {label}: {summary['status']}")
+        except Exception as exc:
+            error = redact_secret_text(exc)
+            checks.append({"check": label, "error": error})
+            print(f"  {label}: ERROR {error}")
+
+    try:
+        payload = {"initializeUploadRequest": {"owner": owner_urn}}
+        response = requests.post(
+            "https://api.linkedin.com/rest/documents?action=initializeUpload",
+            headers=linkedin_headers(),
+            json=payload,
+            timeout=30,
+        )
+        summary = _response_summary(response)
+        checks.append({"check": "documents.initializeUpload", **summary})
+        print(f"  documents.initializeUpload: {summary['status']}")
+        if response.status_code in (200, 201):
+            value = response.json().get("value", {})
+            print(f"  document_urn_returned: {bool(value.get('document'))}")
+            print(f"  upload_url_returned: {bool(value.get('uploadUrl'))}")
+        elif response.status_code == 403:
+            print("  interpretation: token is valid, but this app/token is not allowed to initialize document uploads.")
+        elif response.status_code == 401:
+            print("  interpretation: token is expired or invalid.")
+    except Exception as exc:
+        error = redact_secret_text(exc)
+        checks.append({"check": "documents.initializeUpload", "error": error})
+        print(f"  documents.initializeUpload: ERROR {error}")
+
+    return {"owner_urn_present": bool(owner_urn), "linkedin_version": LINKEDIN_VERSION, "checks": checks}
+
+
 def upload_pdf(upload_url: str, pdf_path: Path) -> None:
     response = requests.put(
         upload_url,
@@ -276,7 +340,21 @@ def main() -> int:
     parser.add_argument("--slug", action="append", help="Article slug to post. Repeat for multiple articles.")
     parser.add_argument("--latest", type=int, default=10, help="Post the latest N insights from insights.json.")
     parser.add_argument("--publish", action="store_true", help="Create real LinkedIn posts. Default is dry-run.")
+    parser.add_argument("--diagnose", action="store_true",
+                        help="Probe LinkedIn token and Documents API access without publishing.")
     args = parser.parse_args()
+
+    if args.diagnose:
+        try:
+            result = diagnose_linkedin_access()
+            blocked = any(
+                check.get("check") == "documents.initializeUpload" and check.get("status") == 403
+                for check in result["checks"]
+            )
+            return 2 if blocked else 0
+        except Exception as exc:
+            print(f"Diagnostic failed: {redact_secret_text(exc)}")
+            return 1
 
     articles = resolve_articles(args.slug, args.latest)
     if not articles:
