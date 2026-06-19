@@ -155,12 +155,15 @@ def _parse_entry_date(entry) -> str:
 def fetch_rss_stories() -> list:
     """Parse all configured RSS feeds and return normalised story dicts."""
     stories = []
+    failed_feeds = 0
     for source_name, feed_url in RSS_FEEDS:
         try:
             feed = feedparser.parse(
                 feed_url,
                 request_headers={"User-Agent": "LightTowerGroup-NewsAgent/1.0"},
             )
+            if getattr(feed, "bozo", False) and not getattr(feed, "entries", None):
+                failed_feeds += 1
             for entry in feed.entries[:20]:
                 title   = (entry.get("title") or "").strip()
                 url     = entry.get("link") or entry.get("id") or ""
@@ -176,20 +179,23 @@ def fetch_rss_stories() -> list:
                         "published": _parse_entry_date(entry),
                     })
         except Exception as e:
+            failed_feeds += 1
             print(f"  [WARN] RSS {source_name}: {redact_secret_text(e)}")
         time.sleep(0.05)
 
     print(f"  RSS: {len(stories)} raw stories from {len(RSS_FEEDS)} feeds")
+    if failed_feeds:
+        print(f"  [WARN] RSS feeds with no parseable entries: {failed_feeds}/{len(RSS_FEEDS)}")
     return stories
 
 
-def fetch_newsapi_stories() -> list:
+def fetch_newsapi_stories(lookback_hours: int = 24) -> list:
     """Supplement with NewsAPI.org keyword search (free tier: 100 req/day)."""
     if not NEWSAPI_KEY:
         return []
 
     stories = []
-    yesterday = (datetime.now(timezone.utc) - timedelta(hours=24)).strftime("%Y-%m-%d")
+    from_date = (datetime.now(timezone.utc) - timedelta(hours=lookback_hours)).strftime("%Y-%m-%d")
 
     for query in NEWSAPI_QUERIES[:3]:   # use only 3 of 5 to stay well under limit
         try:
@@ -197,7 +203,7 @@ def fetch_newsapi_stories() -> list:
                 "https://newsapi.org/v2/everything",
                 params={
                     "q":        query,
-                    "from":     yesterday,
+                    "from":     from_date,
                     "sortBy":   "publishedAt",
                     "language": "en",
                     "pageSize": 10,
@@ -258,8 +264,8 @@ def _deduplicate(stories: list) -> list:
     return unique
 
 
-def triage(stories: list) -> list:
-    relevant = [s for s in stories if s["url"] and _is_cre_relevant(s) and _is_recent(s)]
+def triage(stories: list, recent_hours: int = 36) -> list:
+    relevant = [s for s in stories if s["url"] and _is_cre_relevant(s) and _is_recent(s, recent_hours)]
     unique   = _deduplicate(relevant)
     print(f"  Triage: {len(stories)} raw \u2192 {len(relevant)} relevant \u2192 {len(unique)} unique")
     return unique
@@ -285,11 +291,11 @@ def _is_daily_top_news_relevant(story: dict) -> bool:
     return any(kw in text for kw in DAILY_TOP_NEWS_KEYWORDS)
 
 
-def triage_daily_top_news(stories: list) -> list:
+def triage_daily_top_news(stories: list, recent_hours: int = 36) -> list:
     """Broader triage for daily top-news selection across CRE, banking, finance, and PE."""
     relevant = [
         s for s in stories
-        if s.get("url") and _is_daily_top_news_relevant(s) and _is_recent(s)
+        if s.get("url") and _is_daily_top_news_relevant(s) and _is_recent(s, recent_hours)
     ]
     unique = _deduplicate(relevant)
     print(f"  Daily top-news triage: {len(stories)} raw \u2192 {len(relevant)} relevant \u2192 {len(unique)} unique")
@@ -1375,6 +1381,8 @@ def main():
                         help="Skip the duplicate-slug check")
     parser.add_argument("--articles", type=int, default=5, metavar="N",
                         help="Number of articles to publish per run (default: 5, max: 10)")
+    parser.add_argument("--lookback-hours", type=int, default=36, metavar="H",
+                        help="Story recency window in hours (default: 36; use 168 for a seven-day backfill)")
     parser.add_argument("--linkedin-length", choices=["standard", "edge", "compressed"],
                         default="standard",
                         help="Essay Desk length mode for LinkedIn output")
@@ -1392,6 +1400,7 @@ def main():
         run_weekly_review(args)
         return
     MAX_ARTICLES = max(1, min(args.articles, 10))
+    LOOKBACK_HOURS = max(1, args.lookback_hours)
 
     start    = datetime.now(timezone.utc)
     run_data = {"run_at": start.isoformat(), "status": "started", "dry_run": args.dry_run}
@@ -1401,19 +1410,21 @@ def main():
     print(f"  {start.strftime('%Y-%m-%d %H:%M UTC')}"
           + ("  [DRY-RUN]" if args.dry_run else ""))
     print(f"  Selection mode: {args.selection_mode}")
+    print(f"  Lookback window: {LOOKBACK_HOURS} hours")
     print(f"{'='*62}\n")
 
     # \u2500 Phase 1: Gather \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("[1/8] Gathering stories...")
-    all_stories = fetch_rss_stories() + fetch_newsapi_stories()
+    all_stories = fetch_rss_stories() + fetch_newsapi_stories(LOOKBACK_HOURS)
     run_data["raw_count"] = len(all_stories)
+    run_data["lookback_hours"] = LOOKBACK_HOURS
 
     # \u2500 Phase 2: Triage \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("\n[2/8] Triaging...")
     if args.selection_mode == "daily-top-news":
-        candidates = triage_daily_top_news(all_stories)
+        candidates = triage_daily_top_news(all_stories, LOOKBACK_HOURS)
     else:
-        candidates = triage(all_stories)
+        candidates = triage(all_stories, LOOKBACK_HOURS)
     run_data["candidate_count"] = len(candidates)
     run_data["selection_mode"] = args.selection_mode
 
