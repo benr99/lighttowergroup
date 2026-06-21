@@ -126,83 +126,83 @@ class CarouselPDFGenerator:
             pdf.rect(0, i * band_height, PAGE_W, band_height, "F")
 
     def _draw_cover(self, pdf: FPDF, slide: dict[str, Any]) -> None:
-        """Draw cover slide with headshot and bio."""
+        """Draw cover slide with headshot and bio (left-aligned in container)."""
         pdf.add_page()
         self._gradient_background(pdf)
 
-        y = 6
+        y = 7
 
-        # Headshot (centered, small circle)
-        headshot_size = 14
+        # Headshot (centered at top)
+        headshot_size = 16
         try:
             if self.headshot_path.exists():
                 x_pos = (PAGE_W - headshot_size) / 2
                 pdf.image(str(self.headshot_path), x_pos, y, w=headshot_size, h=headshot_size)
-                y += headshot_size + 2
+                y += headshot_size + 3
         except Exception:
-            y += 16
+            y += 19
 
         # Name (centered)
         r, g, b = self._hex_to_rgb(self.colors["text"])
         pdf.set_text_color(r, g, b)
-        pdf.set_font(self.font_body, "B", 8)
+        pdf.set_font(self.font_body, "B", 7.5)
         pdf.set_xy(MARGIN, y)
-        pdf.cell(PAGE_W - (MARGIN * 2), 3, "Benjamin Rohr", align="C")
-        y += 4
+        pdf.cell(PAGE_W - (MARGIN * 2), 2.5, "Benjamin Rohr", align="C")
+        y += 2.8
 
         # Title (centered, smaller)
         pdf.set_font(self.font_body, "", 6)
         r, g, b = self._hex_to_rgb(self.colors["muted"])
         pdf.set_text_color(r, g, b)
         pdf.set_xy(MARGIN, y)
-        pdf.cell(PAGE_W - (MARGIN * 2), 2.5, "Principal, Light Tower Group", align="C")
+        pdf.cell(PAGE_W - (MARGIN * 2), 2, "Principal, Light Tower Group", align="C")
 
-        # Main headline (large, serif, centered)
-        y = PAGE_H * 0.42
+        # Main headline (large, serif, LEFT-ALIGNED for readability)
+        y = PAGE_H * 0.36
         headline = self._sanitize(slide.get("headline", ""))
         r, g, b = self._hex_to_rgb(self.colors["text"])
         pdf.set_text_color(r, g, b)
-        pdf.set_font(self.font_display, "B", 20)
+        pdf.set_font(self.font_display, "B", 18)
         pdf.set_xy(MARGIN, y)
-        pdf.multi_cell(PAGE_W - (MARGIN * 2), 6.5, headline, align="C")
+        pdf.multi_cell(PAGE_W - (MARGIN * 2), 5.8, headline, align="L")
 
-        # Subtitle (gold accent)
-        y = PAGE_H * 0.75
+        # Subtitle (gold accent, LEFT-ALIGNED)
+        y = PAGE_H * 0.70
         body = self._sanitize(slide.get("body", ""))
         r, g, b = self._hex_to_rgb(self.colors["accent"])
         pdf.set_text_color(r, g, b)
-        pdf.set_font(self.font_body, "", 9)
+        pdf.set_font(self.font_body, "", 10)
         pdf.set_xy(MARGIN, y)
-        pdf.multi_cell(PAGE_W - (MARGIN * 2), 4, body, align="C")
+        pdf.multi_cell(PAGE_W - (MARGIN * 2), 4.3, body, align="L")
 
     def _draw_content(self, pdf: FPDF, slide: dict[str, Any]) -> None:
-        """Draw content slide (centered, large text)."""
+        """Draw content slide (left-aligned, large readable text)."""
         pdf.add_page()
         self._gradient_background(pdf)
 
-        # Eyebrow (small, centered, gold)
+        # Eyebrow (small, left-aligned, gold)
         eyebrow = self._sanitize(slide.get("eyebrow", ""))
         r, g, b = self._hex_to_rgb(self.colors["accent"])
         pdf.set_text_color(r, g, b)
-        pdf.set_font(self.font_body, "B", 7)
+        pdf.set_font(self.font_body, "B", 7.5)
         pdf.set_xy(MARGIN, 8)
-        pdf.multi_cell(PAGE_W - (MARGIN * 2), 2.5, eyebrow, align="C")
+        pdf.multi_cell(PAGE_W - (MARGIN * 2), 2.5, eyebrow, align="L")
 
-        # Headline (large serif, centered)
+        # Headline (large serif, left-aligned for easy reading)
         headline = self._sanitize(slide.get("headline", ""))
         r, g, b = self._hex_to_rgb(self.colors["text"])
         pdf.set_text_color(r, g, b)
-        pdf.set_font(self.font_display, "B", 17)
-        pdf.set_xy(MARGIN, 14)
-        pdf.multi_cell(PAGE_W - (MARGIN * 2), 5.5, headline, align="C")
+        pdf.set_font(self.font_display, "B", 16)
+        pdf.set_xy(MARGIN, 13)
+        pdf.multi_cell(PAGE_W - (MARGIN * 2), 5.2, headline, align="L")
 
-        # Body (readable, centered)
+        # Body (readable, left-aligned, bigger)
         body = self._sanitize(slide.get("body", ""))
-        r, g, b = self._hex_to_rgb(self.colors["text_light"])
+        r, g, b = self._hex_to_rgb(self.colors["text"])
         pdf.set_text_color(r, g, b)
-        pdf.set_font(self.font_body, "", 10.5)
-        pdf.set_xy(MARGIN, 38)
-        pdf.multi_cell(PAGE_W - (MARGIN * 2), 4.5, body, align="C")
+        pdf.set_font(self.font_body, "", 11)
+        pdf.set_xy(MARGIN, 37)
+        pdf.multi_cell(PAGE_W - (MARGIN * 2), 4.5, body, align="L")
 
 
 def main() -> None:
