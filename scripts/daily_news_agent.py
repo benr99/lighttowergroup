@@ -72,6 +72,7 @@ from editorial_store import (
     save_editorial_run,
     save_weekly_review,
 )
+from auto_carousel_generator import generate_carousel_for_article
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -1032,6 +1033,18 @@ def update_manifest(article: dict):
     print(f"  insights.json updated ({len(data)} total entries)")
 
 
+def generate_carousel_pdf(article_slug: str, dry_run: bool = False):
+    """Generate PDF carousel for article automatically after publishing."""
+    try:
+        pdf_path = generate_carousel_for_article(article_slug, dry_run=dry_run)
+        if pdf_path:
+            print(f"  ✓ Carousel PDF created: {article_slug}_carousel.pdf")
+        else:
+            print(f"  [WARN] Carousel PDF generation failed for {article_slug}")
+    except Exception as e:
+        print(f"  [WARN] Carousel PDF generation error: {e}")
+
+
 def update_feed_xml():
     """
     Regenerate feed.xml from insights.json.
@@ -1588,6 +1601,10 @@ def main():
                 print(f"  Image: insights/{article['slug']}_social.png")
 
             update_manifest(article)
+
+            # Generate PDF carousel for LinkedIn (new Ben Rohr voice system)
+            print(f"\n  Generating PDF carousel for {article['slug']}...")
+            generate_carousel_pdf(article['slug'], dry_run=False)
 
         update_feed_xml()
         update_sitemap_xml()
