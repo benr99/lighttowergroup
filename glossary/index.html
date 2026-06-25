@@ -1,0 +1,872 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRE Finance Glossary | Light Tower Group</title>
+    <meta name="description"
+        content="Definitions of key commercial real estate finance terms: bridge loans, DSCR, LTV, CMBS, mezzanine debt, cap rate, yield maintenance, and more. Your reference guide to CRE capital markets terminology.">
+    <meta name="keywords"
+        content="CRE glossary, commercial real estate terms, DSCR definition, LTV meaning, mezzanine debt, bridge loan definition, CMBS, cap rate, yield maintenance, CRE finance terms">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lighttowergroup.co/glossary/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lighttowergroup.co/glossary/">
+    <meta property="og:title" content="CRE Finance Glossary | Light Tower Group">
+    <meta property="og:description"
+        content="Plain-English definitions of key CRE capital markets terms. Bridge loans, DSCR, LTV, CMBS, mezzanine, cap rates, and more.">
+    <meta property="og:image" content="https://lighttowergroup.co/og/homepage-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Light Tower Group">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lighttowergroup">
+    <meta name="twitter:title" content="CRE Finance Glossary | Light Tower Group">
+    <meta name="twitter:description"
+        content="Plain-English definitions of CRE capital markets terms — bridge loans, DSCR, LTV, CMBS, mezzanine debt, and more.">
+    <meta name="twitter:image" content="https://lighttowergroup.co/og/homepage-og.jpg">
+
+    <!-- Favicon & Web App Manifest -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- RSS Feed Discovery -->
+    <link rel="alternate" type="application/rss+xml" title="Light Tower Group Insights"
+        href="https://lighttowergroup.co/feed.xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Google Analytics 4 (replace G-XXXXXXXXXX with your Measurement ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DefinedTermSet",
+        "name": "Commercial Real Estate Finance Glossary",
+        "description": "Key terms in CRE capital markets, debt, and equity",
+        "url": "https://lighttowergroup.co/glossary/",
+        "publisher": { "@id": "https://lighttowergroup.co/#organization" }
+    }
+    </script>
+
+    <style>
+        .glossary-hero {
+            padding: 5rem 0 3rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .glossary-hero__label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .glossary-hero__title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .glossary-hero__desc {
+            max-width: 600px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Alpha filter bar */
+        .glossary-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 2.5rem;
+            position: sticky;
+            top: 72px;
+            background: var(--bg);
+            z-index: 10;
+        }
+
+        .glossary-filter__btn {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.3rem 0.6rem;
+            background: none;
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s;
+            font-family: var(--font-body);
+        }
+
+        .glossary-filter__btn:hover,
+        .glossary-filter__btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+        }
+
+        /* Glossary letter sections */
+        .glossary-section {
+            margin-bottom: 3rem;
+        }
+
+        .glossary-section__letter {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        /* Individual term */
+        .glossary-term {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .glossary-term:last-child {
+            border-bottom: none;
+        }
+
+        .glossary-term__name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .glossary-term__category {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 2px;
+            padding: 0.15rem 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .glossary-term__def {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .glossary-term__def strong {
+            color: var(--text);
+        }
+
+        .glossary-term__related {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .glossary-term__related a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .glossary-term__related a:hover {
+            text-decoration: underline;
+        }
+
+        /* Search */
+        .glossary-search-wrap {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        #glossary-search {
+            width: 100%;
+            padding: 0.9rem 1.25rem;
+            background: var(--bg-alt, rgba(255, 255, 255, 0.04));
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        #glossary-search:focus {
+            border-color: var(--accent);
+        }
+
+        #no-results {
+            display: none;
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav" id="main-nav">
+        <div class="nav__inner">
+            <a href="/" class="nav__logo">Light Tower <span>Group</span></a>
+            <div class="nav__links">
+                <a href="/services/debt-capital-markets.html" class="nav__link">Services</a>
+                <a href="/track-record.html" class="nav__link">Track Record</a>
+                <a href="/insights/" class="nav__link active">Insights</a>
+                <a href="/about.html" class="nav__link">About</a>
+                <a href="/contact.html" class="nav__link">Contact</a>
+                <button class="nav__toggle-dm" id="dm-toggle" aria-label="Toggle dark mode">◐</button>
+                <a href="/submit-deal.html" class="nav__cta">Submit Deal →</a>
+            </div>
+            <button class="nav__hamburger" id="hamburger"
+                aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+        <div class="nav__mobile-menu" id="mobile-menu">
+            <a href="/services/debt-capital-markets.html" class="nav__mobile-link">Services</a>
+            <a href="/track-record.html" class="nav__mobile-link">Track Record</a>
+            <a href="/insights/" class="nav__mobile-link">Insights</a>
+            <a href="/resources/" class="nav__mobile-link">Resources</a>
+            <a href="/about.html" class="nav__mobile-link">About</a>
+            <a href="/contact.html" class="nav__mobile-link">Contact</a>
+            <a href="/submit-deal.html" class="nav__mobile-cta">Submit Deal →</a>
+        </div>
+    </nav>
+
+    <main class="container" role="main">
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+            <span>CRE Finance Glossary</span>
+        </div>
+
+        <section class="glossary-hero">
+            <p class="glossary-hero__label">Reference</p>
+            <h1 class="glossary-hero__title">CRE Finance Glossary</h1>
+            <p class="glossary-hero__desc">Plain-English definitions of the terms that matter in commercial real estate
+                capital markets — from bridge loans to yield maintenance, DSCR to mezz debt.</p>
+        </section>
+
+        <!-- Search -->
+        <div style="padding: 2rem 0 0;">
+            <div class="glossary-search-wrap">
+                <input type="search" id="glossary-search"
+                    placeholder="Search terms (e.g. DSCR, bridge loan, yield maintenance)…"
+                    aria-label="Search glossary terms">
+            </div>
+        </div>
+
+        <!-- Alpha Filter -->
+        <nav class="glossary-filter" aria-label="Filter by letter">
+            <button class="glossary-filter__btn active" data-letter="all">All</button>
+            <button class="glossary-filter__btn" data-letter="B">B</button>
+            <button class="glossary-filter__btn" data-letter="C">C</button>
+            <button class="glossary-filter__btn" data-letter="D">D</button>
+            <button class="glossary-filter__btn" data-letter="E">E</button>
+            <button class="glossary-filter__btn" data-letter="F">F</button>
+            <button class="glossary-filter__btn" data-letter="G">G</button>
+            <button class="glossary-filter__btn" data-letter="I">I</button>
+            <button class="glossary-filter__btn" data-letter="L">L</button>
+            <button class="glossary-filter__btn" data-letter="M">M</button>
+            <button class="glossary-filter__btn" data-letter="N">N</button>
+            <button class="glossary-filter__btn" data-letter="P">P</button>
+            <button class="glossary-filter__btn" data-letter="R">R</button>
+            <button class="glossary-filter__btn" data-letter="S">S</button>
+            <button class="glossary-filter__btn" data-letter="T">T</button>
+            <button class="glossary-filter__btn" data-letter="V">V</button>
+            <button class="glossary-filter__btn" data-letter="Y">Y</button>
+        </nav>
+
+        <div id="no-results">No terms match your search. Try a different term.</div>
+
+        <!-- B -->
+        <section class="glossary-section" data-section="B" id="B">
+            <h2 class="glossary-section__letter">B</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="bridge loan">
+                <h3 class="glossary-term__name" itemprop="name">Bridge Loan</h3>
+                <span class="glossary-term__category">Debt</span>
+                <p class="glossary-term__def" itemprop="description">A short-term, floating-rate loan secured by
+                    commercial real estate, typically used to finance transitional or value-add properties that don't
+                    yet qualify for permanent financing. Bridge loans usually carry <strong>12–36 month terms</strong>
+                    with one or two extension options, float over SOFR, and provide leverage up to 75–80% LTV. They're
+                    structured to be repaid when the property is either sold or refinanced into permanent debt after
+                    stabilization. <em>See also:</em> Permanent Loan, Rate Cap, SOFR.</p>
+                <p class="glossary-term__related">Related: <a href="#P">Permanent Loan</a> · <a href="#R">Rate Cap</a> ·
+                    <a href="#S">SOFR</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="basis points">
+                <h3 class="glossary-term__name" itemprop="name">Basis Points (bps)</h3>
+                <span class="glossary-term__category">General</span>
+                <p class="glossary-term__def" itemprop="description">A unit of measurement equal to <strong>1/100th of
+                        1%</strong>, commonly used in finance to describe interest rates, spreads, and fee changes. 100
+                    basis points = 1%. Used to avoid ambiguity: saying "the rate increased 25 basis points" is more
+                    precise than "the rate increased 0.25%". Lenders quote spreads, loan fees (origination points), and
+                    yield maintenance calculations in basis points.</p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="bad boy carve-outs">
+                <h3 class="glossary-term__name" itemprop="name">Bad Boy Carve-Outs</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">Specific exceptions to non-recourse protection that
+                    make a borrower <strong>personally liable</strong> for loan losses if they commit certain acts.
+                    Standard carve-outs include: fraud, misappropriation of rents, environmental contamination, filing
+                    for bankruptcy without lender consent, material misrepresentation, and waste or destruction of the
+                    property. Most non-recourse CRE loans include bad boy carve-outs.</p>
+                <p class="glossary-term__related">Related: <a href="#N">Non-Recourse</a> · <a href="#R">Recourse</a></p>
+            </div>
+        </section>
+
+        <!-- C -->
+        <section class="glossary-section" data-section="C" id="C">
+            <h2 class="glossary-section__letter">C</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="cap rate capitalization rate">
+                <h3 class="glossary-term__name" itemprop="name">Cap Rate (Capitalization Rate)</h3>
+                <span class="glossary-term__category">Valuation</span>
+                <p class="glossary-term__def" itemprop="description">The ratio of a property's <strong>Net Operating
+                        Income (NOI) to its market value</strong>, expressed as a percentage. Formula: Cap Rate = NOI ÷
+                    Value. A property generating $500,000 NOI with a market value of $10M has a 5.0% cap rate. Cap rates
+                    reflect risk and yield expectations — lower cap rates indicate higher valuations relative to income
+                    (growth assets or gateway markets); higher cap rates suggest more yield with greater risk or in
+                    secondary markets. <em>Compressed</em> cap rates mean values have risen relative to income.</p>
+                <p class="glossary-term__related">Related: <a href="#N">NOI</a> · <a href="#V">Value-Add</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="CMBS commercial mortgage-backed securities">
+                <h3 class="glossary-term__name" itemprop="name">CMBS (Commercial Mortgage-Backed Securities)</h3>
+                <span class="glossary-term__category">Debt</span>
+                <p class="glossary-term__def" itemprop="description">Fixed-rate commercial real estate loans that are
+                    pooled together and <strong>securitized into bonds</strong> sold to institutional investors. CMBS
+                    loans offer competitive fixed rates and are non-recourse, but come with rigid loan documents, yield
+                    maintenance or defeasance prepayment penalties, and limited post-closing flexibility. Best suited
+                    for stabilized, cash-flowing assets where the sponsor plans a long hold. Typical terms: 5, 7, or 10
+                    years. Loan sizes typically $5M+.</p>
+                <p class="glossary-term__related">Related: <a href="#Y">Yield Maintenance</a> · <a
+                        href="#D">Defeasance</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="construction loan">
+                <h3 class="glossary-term__name" itemprop="name">Construction Loan</h3>
+                <span class="glossary-term__category">Debt</span>
+                <p class="glossary-term__def" itemprop="description">A short-term loan that finances the construction of
+                    new commercial real estate. Funds are disbursed in <strong>tranches (draws)</strong> as construction
+                    milestones are met and inspected. Typically floating rate, interest-only during the construction
+                    period, with a term matching the project's expected construction timeline (12–36 months). Upon
+                    completion and stabilization, the loan is repaid through a permanent refinancing or sale. Also
+                    called a "construction-to-perm" or "C&amp;D" loan.</p>
+                <p class="glossary-term__related">Related: <a href="#B">Bridge Loan</a> · <a href="#P">Permanent
+                        Loan</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="cash-on-cash return">
+                <h3 class="glossary-term__name" itemprop="name">Cash-on-Cash Return</h3>
+                <span class="glossary-term__category">Returns</span>
+                <p class="glossary-term__def" itemprop="description">Annual pre-tax cash flow distributed to equity
+                    investors divided by the total equity invested, expressed as a percentage. Measures the
+                    <strong>current income yield</strong> of an investment, distinct from total return which includes
+                    appreciation. A property generating $200K in annual cash flow on $2M of equity has a 10%
+                    cash-on-cash return. Interest-only loan structures increase cash-on-cash return relative to
+                    amortizing loans at the same rate.</p>
+            </div>
+        </section>
+
+        <!-- D -->
+        <section class="glossary-section" data-section="D" id="D">
+            <h2 class="glossary-section__letter">D</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="DSCR debt service coverage ratio">
+                <h3 class="glossary-term__name" itemprop="name">DSCR (Debt Service Coverage Ratio)</h3>
+                <span class="glossary-term__category">Underwriting</span>
+                <p class="glossary-term__def" itemprop="description">The ratio of a property's Net Operating Income
+                    (NOI) to its annual <strong>debt service (principal + interest payments)</strong>. Formula: DSCR =
+                    NOI ÷ Annual Debt Service. A property with $600,000 NOI and $500,000 annual debt service has a 1.20x
+                    DSCR. Most permanent lenders require a minimum DSCR of 1.20x–1.30x. A DSCR below 1.0x means the
+                    property doesn't generate enough income to cover its debt payments — a "cash flow negative"
+                    situation.</p>
+                <p class="glossary-term__related">Related: <a href="#N">NOI</a> · <a href="#L">LTV</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="defeasance">
+                <h3 class="glossary-term__name" itemprop="name">Defeasance</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A prepayment mechanism, common in CMBS loans, that
+                    allows a borrower to prepay a fixed-rate loan by <strong>substituting government securities</strong>
+                    (Treasuries) for the mortgaged property. The borrower purchases a portfolio of Treasury securities
+                    that match the remaining loan cash flows. The cost of defeasance is effectively the present value of
+                    the rate differential between the loan rate and current Treasury yields. Can be extremely expensive
+                    if market rates have fallen since origination.</p>
+                <p class="glossary-term__related">Related: <a href="#C">CMBS</a> · <a href="#Y">Yield Maintenance</a>
+                </p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="debt yield">
+                <h3 class="glossary-term__name" itemprop="name">Debt Yield</h3>
+                <span class="glossary-term__category">Underwriting</span>
+                <p class="glossary-term__def" itemprop="description">A lender underwriting metric equal to a property's
+                    NOI divided by the total loan amount, expressed as a percentage. Formula: Debt Yield = NOI ÷ Loan
+                    Amount. Unlike DSCR, debt yield is not affected by interest rates or amortization schedules — it
+                    measures the lender's return on the principal invested if they took ownership of the property.
+                    Permanent lenders typically require minimum debt yields of <strong>7–9%</strong> depending on asset
+                    type. Increasingly used as the primary sizing constraint for CMBS.</p>
+            </div>
+        </section>
+
+        <!-- E -->
+        <section class="glossary-section" data-section="E" id="E">
+            <h2 class="glossary-section__letter">E</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="equity multiple">
+                <h3 class="glossary-term__name" itemprop="name">Equity Multiple</h3>
+                <span class="glossary-term__category">Returns</span>
+                <p class="glossary-term__def" itemprop="description">Total equity distributions received (including
+                    return of capital) divided by total equity invested. A 2.0x equity multiple means investors received
+                    <strong>twice their initial investment back</strong> over the hold period, including both income
+                    distributions and sale proceeds. Unlike IRR, equity multiple doesn't account for the time value of
+                    money — a 2.0x multiple in 3 years is far more attractive than a 2.0x multiple in 10 years.</p>
+                <p class="glossary-term__related">Related: <a href="#I">IRR</a> · <a href="#C">Cash-on-Cash Return</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- F -->
+        <section class="glossary-section" data-section="F" id="F">
+            <h2 class="glossary-section__letter">F</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="floating rate fixed rate">
+                <h3 class="glossary-term__name" itemprop="name">Floating Rate vs. Fixed Rate</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A <strong>floating rate</strong> loan (also called
+                    variable rate) has an interest rate that adjusts periodically based on a benchmark index (typically
+                    SOFR) plus a fixed spread. Bridge loans are almost always floating rate. A <strong>fixed
+                        rate</strong> loan maintains the same interest rate for the life of the loan, providing payment
+                    predictability. CMBS, agency (Fannie/Freddie), and life company loans are typically fixed rate.
+                    Fixed rate loans carry prepayment penalties (yield maintenance or defeasance) that protect lenders
+                    from reinvestment risk.</p>
+            </div>
+        </section>
+
+        <!-- G -->
+        <section class="glossary-section" data-section="G" id="G">
+            <h2 class="glossary-section__letter">G</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="guaranty personal guaranty">
+                <h3 class="glossary-term__name" itemprop="name">Guaranty (Personal Guaranty)</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A legal commitment by an individual (the guarantor,
+                    typically a sponsor or principal) to personally repay a loan if the borrowing entity defaults. A
+                    <strong>full recourse</strong> guaranty means the guarantor is personally liable for the entire loan
+                    balance. A <strong>limited guaranty</strong> caps personal exposure at a dollar amount or
+                    percentage, or limits it to specific events (bad boy carve-outs). Non-recourse loans have no
+                    personal guaranty beyond carve-outs.</p>
+                <p class="glossary-term__related">Related: <a href="#N">Non-Recourse</a> · <a href="#B">Bad Boy
+                        Carve-Outs</a></p>
+            </div>
+        </section>
+
+        <!-- I -->
+        <section class="glossary-section" data-section="I" id="I">
+            <h2 class="glossary-section__letter">I</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="IO interest only">
+                <h3 class="glossary-term__name" itemprop="name">IO (Interest-Only)</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A loan structure where monthly payments consist
+                    only of interest, with <strong>no principal reduction</strong> (amortization) during the IO period.
+                    The full original principal balance is due at maturity. IO periods can be partial-term (e.g., 5
+                    years IO then 25-year amortization on a 30-year loan) or full-term (IO for the entire loan
+                    duration). Full-term IO significantly reduces annual debt service, increasing DSCR and cash-on-cash
+                    return — a primary driver of underwriting and return modeling.</p>
+                <p class="glossary-term__related">Related: <a href="#D">DSCR</a> · <a href="#C">Cash-on-Cash Return</a>
+                </p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="IRR internal rate of return">
+                <h3 class="glossary-term__name" itemprop="name">IRR (Internal Rate of Return)</h3>
+                <span class="glossary-term__category">Returns</span>
+                <p class="glossary-term__def" itemprop="description">The annualized rate of return that makes the net
+                    present value (NPV) of all cash flows from an investment equal to zero. The IRR accounts for
+                    <strong>both the magnitude and timing of cash flows</strong>, making it the primary return metric in
+                    real estate private equity and institutional underwriting. Target IRRs for CRE investments typically
+                    range from 12–20%+ depending on risk profile. Heavily influenced by leverage, hold period, and exit
+                    cap rate assumptions.</p>
+            </div>
+        </section>
+
+        <!-- L -->
+        <section class="glossary-section" data-section="L" id="L">
+            <h2 class="glossary-section__letter">L</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="LTV loan to value">
+                <h3 class="glossary-term__name" itemprop="name">LTV (Loan-to-Value)</h3>
+                <span class="glossary-term__category">Underwriting</span>
+                <p class="glossary-term__def" itemprop="description">The ratio of the loan amount to the appraised value
+                    (or purchase price) of the property, expressed as a percentage. Formula: LTV = Loan Amount ÷
+                    Property Value. A $7M loan on a $10M property = 70% LTV. <strong>Maximum LTV limits</strong> vary by
+                    lender and loan type: agency permanent loans typically max at 75–80%; bridge loans at 75–80%; CMBS
+                    at 65–75%; life companies at 55–65%. Higher LTV = more leverage for the borrower = more risk for the
+                    lender.</p>
+                <p class="glossary-term__related">Related: <a href="#D">DSCR</a> · <a href="#D">Debt Yield</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="LTC loan to cost">
+                <h3 class="glossary-term__name" itemprop="name">LTC (Loan-to-Cost)</h3>
+                <span class="glossary-term__category">Underwriting</span>
+                <p class="glossary-term__def" itemprop="description">Used in construction and value-add lending, LTC is
+                    the ratio of the loan amount to the <strong>total project cost</strong> (purchase price + renovation
+                    or construction budget + soft costs). Formula: LTC = Loan Amount ÷ Total Project Cost. Lenders use
+                    LTC to measure their exposure relative to the sponsor's all-in investment. Construction lenders
+                    typically max at 65–75% LTC, ensuring the sponsor has meaningful equity at risk.</p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="life company life insurance company loan">
+                <h3 class="glossary-term__name" itemprop="name">Life Company (Life Insurance Company)</h3>
+                <span class="glossary-term__category">Debt Sources</span>
+                <p class="glossary-term__def" itemprop="description">Life insurance companies are among the most
+                    conservative and sought-after sources of <strong>permanent CRE financing</strong>. They invest
+                    insurance reserve funds in long-term, fixed-rate mortgages with conservative LTV (typically 55–65%)
+                    and strong DSCR requirements. Life company loans typically offer the lowest rates in the permanent
+                    market, non-recourse structure, flexible prepayment options, and fewer reserves compared to CMBS.
+                    Best for high-quality, stabilized assets with low leverage needs.</p>
+            </div>
+        </section>
+
+        <!-- M -->
+        <section class="glossary-section" data-section="M" id="M">
+            <h2 class="glossary-section__letter">M</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="mezzanine debt mezz">
+                <h3 class="glossary-term__name" itemprop="name">Mezzanine Debt (Mezz)</h3>
+                <span class="glossary-term__category">Debt</span>
+                <p class="glossary-term__def" itemprop="description">A layer of financing that sits <strong>between
+                        senior debt and equity</strong> in the capital stack. Mezzanine debt is typically structured as
+                    a loan secured not by a mortgage on the property, but by a pledge of the ownership interests (LLC
+                    membership interests) in the property-owning entity. Mezz lenders have the right to "cure" a senior
+                    loan default and foreclose on the ownership interests. Mezz carries higher interest rates than
+                    senior debt (often 10–14%+) reflecting its subordinate position and higher risk.</p>
+                <p class="glossary-term__related">Related: <a href="#P">Preferred Equity</a> · <a href="#L">LTV</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="maturity extension">
+                <h3 class="glossary-term__name" itemprop="name">Maturity / Extension</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">The scheduled date on which a loan's full principal
+                    balance becomes due. Bridge loans often include <strong>extension options</strong> (typically one to
+                    two 12-month extensions) that the borrower can exercise if certain conditions are met (minimum DSCR,
+                    minimum occupancy, purchase of a rate cap, payment of extension fees). Failure to repay or refinance
+                    at maturity results in a default.</p>
+            </div>
+        </section>
+
+        <!-- N -->
+        <section class="glossary-section" data-section="N" id="N">
+            <h2 class="glossary-section__letter">N</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="NOI net operating income">
+                <h3 class="glossary-term__name" itemprop="name">NOI (Net Operating Income)</h3>
+                <span class="glossary-term__category">Underwriting</span>
+                <p class="glossary-term__def" itemprop="description">A property's total revenue minus <strong>operating
+                        expenses</strong>, before debt service, capital expenditures, depreciation, and income taxes.
+                    Formula: NOI = Gross Revenue – Operating Expenses. NOI is the foundational metric in CRE
+                    underwriting — cap rates, DSCR, debt yield, and valuations all derive from NOI. Understanding what
+                    lenders include and exclude in their NOI calculation (management fees, reserves, vacancy
+                    assumptions) is critical to structuring a successful financing.</p>
+                <p class="glossary-term__related">Related: <a href="#C">Cap Rate</a> · <a href="#D">DSCR</a> · <a
+                        href="#D">Debt Yield</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="non-recourse">
+                <h3 class="glossary-term__name" itemprop="name">Non-Recourse</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A loan structure in which the lender's only remedy
+                    upon default is to <strong>foreclose on the property</strong> — they cannot pursue the borrower's
+                    other assets or personal balance sheet (except for bad boy carve-outs). Non-recourse is standard in
+                    CMBS, agency, and life company loans. Bridge loans may be non-recourse or full/limited recourse
+                    depending on the lender and deal. Non-recourse provides significant downside protection for sponsors
+                    with diversified portfolios.</p>
+                <p class="glossary-term__related">Related: <a href="#B">Bad Boy Carve-Outs</a> · <a
+                        href="#G">Guaranty</a></p>
+            </div>
+        </section>
+
+        <!-- P -->
+        <section class="glossary-section" data-section="P" id="P">
+            <h2 class="glossary-section__letter">P</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="permanent loan perm">
+                <h3 class="glossary-term__name" itemprop="name">Permanent Loan</h3>
+                <span class="glossary-term__category">Debt</span>
+                <p class="glossary-term__def" itemprop="description">A long-term, fixed-rate mortgage on a stabilized
+                    commercial property, typically with a <strong>5–30 year term</strong>. Common sources include agency
+                    lenders (Fannie Mae, Freddie Mac for multifamily), CMBS, life insurance companies, and commercial
+                    banks. Permanent loans require stabilized occupancy, proven cash flow, and conservative leverage
+                    (typically 55–75% LTV). They carry meaningful prepayment penalties to protect lenders from
+                    reinvestment risk. The "take-out" loan that replaces a bridge loan upon stabilization.</p>
+                <p class="glossary-term__related">Related: <a href="#B">Bridge Loan</a> · <a href="#C">CMBS</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="preferred equity pref equity">
+                <h3 class="glossary-term__name" itemprop="name">Preferred Equity</h3>
+                <span class="glossary-term__category">Equity</span>
+                <p class="glossary-term__def" itemprop="description">A hybrid capital instrument that sits
+                    <strong>between senior debt and common equity</strong> in the capital stack, structured as an equity
+                    interest rather than a mortgage loan. Preferred equity holders receive a fixed preferred return
+                    (often 8–14%) and have rights to receive distributions before common equity holders receive
+                    anything. Unlike mezzanine debt, preferred equity is structured as an equity investment — preferred
+                    holders don't foreclose through a mortgage but often have rights to remove the sponsor upon certain
+                    defaults.</p>
+                <p class="glossary-term__related">Related: <a href="#M">Mezzanine Debt</a></p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="prepayment penalty step-down">
+                <h3 class="glossary-term__name" itemprop="name">Prepayment Penalty / Step-Down</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A fee charged when a borrower repays a loan before
+                    its scheduled maturity. Common structures include: <strong>Yield Maintenance</strong> (make-whole to
+                    the lender's yield, most expensive); <strong>Defeasance</strong> (substitute government securities,
+                    common in CMBS); <strong>Step-Down</strong> (declining percentage: e.g., 5-4-3-2-1%, decreasing each
+                    year); and <strong>Spread Maintenance</strong> (calculated to maintain the lender's spread over a
+                    benchmark). Step-down structures are most flexible for sponsors with uncertain hold periods.</p>
+                <p class="glossary-term__related">Related: <a href="#Y">Yield Maintenance</a> · <a
+                        href="#D">Defeasance</a></p>
+            </div>
+        </section>
+
+        <!-- R -->
+        <section class="glossary-section" data-section="R" id="R">
+            <h2 class="glossary-section__letter">R</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="recourse">
+                <h3 class="glossary-term__name" itemprop="name">Recourse</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A loan in which the lender can pursue the
+                    <strong>borrower's personal assets</strong> beyond the mortgaged property in the event of a default.
+                    Full recourse means the borrower is personally liable for the entire loan balance if the property
+                    proceeds are insufficient. Common in smaller bank construction and bridge loans, especially for
+                    sponsors without established track records. The rate premium for non-recourse financing is almost
+                    always worth it for sponsors with diversified personal balance sheets.</p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="rate cap SOFR cap">
+                <h3 class="glossary-term__name" itemprop="name">Rate Cap</h3>
+                <span class="glossary-term__category">Risk Management</span>
+                <p class="glossary-term__def" itemprop="description">An interest rate derivative that limits the maximum
+                    interest rate a borrower pays on a <strong>floating rate loan</strong>. The borrower pays an upfront
+                    premium to a counterparty who agrees to compensate them if the benchmark rate exceeds the cap strike
+                    rate. Bridge lenders typically require rate caps as a loan condition. Cost and availability of caps
+                    are driven by current market rates, volatility, term, and cap strike level. In a rising rate
+                    environment, rate cap costs increase substantially.</p>
+            </div>
+        </section>
+
+        <!-- S -->
+        <section class="glossary-section" data-section="S" id="S">
+            <h2 class="glossary-section__letter">S</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="SOFR secured overnight financing rate">
+                <h3 class="glossary-term__name" itemprop="name">SOFR (Secured Overnight Financing Rate)</h3>
+                <span class="glossary-term__category">Market Rate</span>
+                <p class="glossary-term__def" itemprop="description">The primary <strong>floating rate
+                        benchmark</strong> used in U.S. commercial lending since replacing LIBOR in 2023. SOFR is based
+                    on overnight repurchase agreements backed by U.S. Treasury securities and is published by the
+                    Federal Reserve Bank of New York. Bridge loans price as "SOFR + spread" — for example, a loan at
+                    "SOFR + 300 bps" with SOFR at 5.30% means an all-in rate of 8.30%. SOFR varies daily; term SOFR
+                    rates (1-month, 3-month) are used for loan payment calculations.</p>
+            </div>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="spread">
+                <h3 class="glossary-term__name" itemprop="name">Spread</h3>
+                <span class="glossary-term__category">Pricing</span>
+                <p class="glossary-term__def" itemprop="description">The incremental interest rate charged by a lender
+                    <strong>above a benchmark index</strong>, representing the lender's margin for risk, operating
+                    costs, and profit. For fixed-rate loans, spread is quoted over a comparable-maturity Treasury yield
+                    (e.g., "T+175bps"). For floating rate loans, spread is over SOFR. Spread compression means lenders
+                    are accepting thinner margins — indicating high demand, competition, or improving credit conditions.
+                    Spread widening signals tightening credit markets or perceived risk increase.</p>
+            </div>
+        </section>
+
+        <!-- T -->
+        <section class="glossary-section" data-section="T" id="T">
+            <h2 class="glossary-section__letter">T</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="term sheet LOI letter of intent">
+                <h3 class="glossary-term__name" itemprop="name">Term Sheet / LOI</h3>
+                <span class="glossary-term__category">Process</span>
+                <p class="glossary-term__def" itemprop="description">A non-binding document issued by a lender or equity
+                    provider that <strong>outlines the proposed terms</strong> of a financing: loan amount, rate/spread,
+                    term, LTV, recourse, prepayment, reserves, fees, and major conditions. Term sheets are issued after
+                    initial review of the deal and indicate the lender's serious interest. They serve as the basis for
+                    negotiation before a commitment letter (binding) is issued. Key items to scrutinize: rate index and
+                    floor, fee structure, prepayment, and all reserve requirements.</p>
+            </div>
+        </section>
+
+        <!-- V -->
+        <section class="glossary-section" data-section="V" id="V">
+            <h2 class="glossary-section__letter">V</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm" data-term="value-add">
+                <h3 class="glossary-term__name" itemprop="name">Value-Add</h3>
+                <span class="glossary-term__category">Strategy</span>
+                <p class="glossary-term__def" itemprop="description">A real estate investment strategy that involves
+                    acquiring a property with <strong>below-market performance</strong> and improving it through
+                    renovation, lease-up, operational improvements, or repositioning to increase NOI and value.
+                    Value-add properties typically require bridge financing during the improvement phase, then refinance
+                    into permanent debt or sell at a higher cap-rate-implied value after stabilization. Risk is higher
+                    than core or core-plus strategies but returns should be commensurately higher.</p>
+            </div>
+        </section>
+
+        <!-- Y -->
+        <section class="glossary-section" data-section="Y" id="Y">
+            <h2 class="glossary-section__letter">Y</h2>
+
+            <div class="glossary-term" itemscope itemtype="https://schema.org/DefinedTerm"
+                data-term="yield maintenance">
+                <h3 class="glossary-term__name" itemprop="name">Yield Maintenance</h3>
+                <span class="glossary-term__category">Loan Structure</span>
+                <p class="glossary-term__def" itemprop="description">A prepayment penalty structure that compensates the
+                    lender for the <strong>interest income lost</strong> when a borrower repays a fixed-rate loan early.
+                    The calculation produces the present value of the remaining loan payments at the loan's contract
+                    rate, discounted at the current Treasury yield — effectively "making the lender whole" on their
+                    expected return. Yield maintenance can be extremely costly when prevailing interest rates have
+                    fallen significantly below the loan's contract rate, making early payoff very expensive and cash-out
+                    refinancings unattractive.</p>
+                <p class="glossary-term__related">Related: <a href="#D">Defeasance</a> · <a href="#P">Prepayment
+                        Penalty</a> · <a href="#C">CMBS</a></p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section fade-in" style="padding: 3rem 0; border-top: 1px solid var(--line); margin-top: 2rem;">
+            <h2 class="index-header">Have a Deal to Finance?</h2>
+            <p style="color: var(--text-muted); max-width: 560px; margin-bottom: 1.5rem;">Light Tower Group advises
+                sponsors on debt placement, equity structuring, and investment strategy. Submit your mandate for a
+                confidential capital advisory review.</p>
+            <a href="/submit-deal.html" class="btn-primary">Submit Deal →</a>
+            <a href="/insights/" class="btn-outline" style="margin-left: 1rem;">Read Insights →</a>
+        </section>
+
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div><span class="footer-label">Contact</span><a href="mailto:ben@lighttowergroup.co"
+                        class="contact-link">ben@lighttowergroup.co</a></div>
+                <nav><span class="footer-label">Connect</span><a href="https://www.linkedin.com/in/benrohr/"
+                        target="_blank" rel="noopener" class="contact-link">LinkedIn ↗</a></nav>
+                <nav><span class="footer-label">Reference</span><a href="/glossary/" class="contact-link active">CRE
+                        Glossary</a></nav>
+            </div>
+            <p class="copyright">&copy; 2026 Light Tower Group. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const dmToggle = document.getElementById('dm-toggle');
+        if (localStorage.getItem('ltg-dark-mode') === 'true') document.body.classList.add('dark-mode');
+        dmToggle.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); localStorage.setItem('ltg-dark-mode', document.body.classList.contains('dark-mode')); });
+        window.addEventListener('scroll', () => document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20));
+        document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
+        const faders = document.querySelectorAll('.fade-in');
+        const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
+        faders.forEach(el => obs.observe(el));
+
+        // Alpha filter
+        const filterBtns = document.querySelectorAll('.glossary-filter__btn');
+        const sections = document.querySelectorAll('.glossary-section');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const letter = btn.dataset.letter;
+                sections.forEach(s => {
+                    s.style.display = (letter === 'all' || s.dataset.section === letter) ? '' : 'none';
+                });
+                document.getElementById('glossary-search').value = '';
+                document.getElementById('no-results').style.display = 'none';
+                document.querySelectorAll('.glossary-term').forEach(t => t.style.display = '');
+            });
+        });
+
+        // Search
+        const searchInput = document.getElementById('glossary-search');
+        searchInput.addEventListener('input', function () {
+            const q = this.value.toLowerCase().trim();
+            if (!q) {
+                sections.forEach(s => s.style.display = '');
+                document.querySelectorAll('.glossary-term').forEach(t => t.style.display = '');
+                document.getElementById('no-results').style.display = 'none';
+                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelector('[data-letter="all"]').classList.add('active');
+                return;
+            }
+            let anyVisible = false;
+            sections.forEach(s => {
+                let sectionVisible = false;
+                s.querySelectorAll('.glossary-term').forEach(term => {
+                    const text = (term.dataset.term || '') + ' ' + term.textContent;
+                    const visible = text.toLowerCase().includes(q);
+                    term.style.display = visible ? '' : 'none';
+                    if (visible) { sectionVisible = true; anyVisible = true; }
+                });
+                s.style.display = sectionVisible ? '' : 'none';
+            });
+            document.getElementById('no-results').style.display = anyVisible ? 'none' : 'block';
+            filterBtns.forEach(b => b.classList.remove('active'));
+        });
+    </script>
+</body>
+
+</html>

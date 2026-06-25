@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Lenders Calculate Maximum Loan Size: NOI, Debt Yield, and DSCR Working Together | Light Tower Group
+    </title>
+    <meta name="description"
+        content="Lenders size CRE loans using three interlocking constraints: LTV, DSCR, and Debt Yield. Understand how they interact — and why your maximum loan amount is always the lowest of the three.">
+    <meta name="keywords"
+        content="how much can I borrow on a commercial property, how lenders size CRE loans, NOI loan amount CRE, DSCR loan sizing, debt yield loan sizing, commercial real estate loan maximum">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lighttowergroup.co/insights/how-lenders-size-cre-loans.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lighttowergroup.co/insights/how-lenders-size-cre-loans.html">
+    <meta property="og:title"
+        content="How Lenders Calculate Maximum Loan Size: NOI, Debt Yield, and DSCR Working Together">
+    <meta property="og:description"
+        content="Three constraints determine how much you can borrow on a commercial property. Most sponsors only know one of them. Here's how all three interact — and how to engineer the capital stack around them.">
+    <meta property="og:image" content="https://lighttowergroup.co/og/homepage-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Light Tower Group">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2026-02-24T00:00:00Z">
+    <meta property="article:author" content="https://lighttowergroup.co/about.html">
+    <meta property="article:section" content="Capital Structure">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lighttowergroup">
+    <meta name="twitter:creator" content="@benrohr">
+    <meta name="twitter:title"
+        content="How Lenders Calculate Maximum Loan Size: NOI, Debt Yield, and DSCR Working Together">
+    <meta name="twitter:description"
+        content="Three constraints determine how much you can borrow on a commercial property. Here's how all three interact.">
+    <meta name="twitter:image" content="https://lighttowergroup.co/og/homepage-og.jpg">
+
+    <!-- Favicon & Web App Manifest -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- RSS Feed Discovery -->
+    <link rel="alternate" type="application/rss+xml" title="Light Tower Group Insights"
+        href="https://lighttowergroup.co/feed.xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How Lenders Calculate Maximum Loan Size: NOI, Debt Yield, and DSCR Working Together",
+      "description": "Three constraints determine how much you can borrow on a commercial property. Most sponsors only know one of them. Here's how all three interact — and how to engineer the capital stack around them.",
+      "datePublished": "2026-02-24T00:00:00Z",
+      "dateModified": "2026-02-24T00:00:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "Benjamin Rohr",
+        "@id": "https://lighttowergroup.co/#benjamin-rohr",
+        "url": "https://lighttowergroup.co/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://lighttowergroup.co/#organization",
+        "name": "Light Tower Group",
+        "logo": {"@type": "ImageObject", "url": "https://lighttowergroup.co/og/logo.png"}
+      },
+      "mainEntityOfPage": "https://lighttowergroup.co/insights/how-lenders-size-cre-loans.html",
+      "image": "https://lighttowergroup.co/og/homepage-og.jpg",
+      "articleSection": "Capital Structure",
+      "keywords": ["loan sizing", "CRE underwriting", "DSCR", "debt yield", "LTV", "NOI", "commercial real estate financing"],
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lighttowergroup.co/"},
+          {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://lighttowergroup.co/insights/"},
+          {"@type": "ListItem", "position": 3, "name": "How Lenders Size CRE Loans", "item": "https://lighttowergroup.co/insights/how-lenders-size-cre-loans.html"}
+        ]
+      }
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent, #b8860b);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        .article-layout {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .article-toc {
+                display: none;
+            }
+        }
+
+        .article-body {
+            max-width: 700px;
+        }
+
+        .article-toc {
+            position: sticky;
+            top: 6rem;
+            align-self: start;
+        }
+
+        .toc-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.6rem;
+        }
+
+        .toc-list a {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 1.4;
+            display: block;
+        }
+
+        .toc-list a:hover,
+        .toc-list a.active {
+            color: var(--accent);
+        }
+
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 3rem 0 1rem;
+            line-height: 1.3;
+        }
+
+        .article-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 2rem 0 0.75rem;
+        }
+
+        .article-body p {
+            line-height: 1.85;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body li {
+            line-height: 1.75;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Formula callout */
+        .formula-box {
+            background: var(--bg-secondary, #f8f7f4);
+            border: 1px solid var(--border-light, #e8e4df);
+            border-radius: 6px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .formula-box__label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .formula-box__equation {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .formula-box__note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+        }
+
+        /* Data table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--bg-secondary, #f8f7f4);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-light, #e8e4df);
+        }
+
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-light, #e8e4df);
+            line-height: 1.5;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table .highlight {
+            background: rgba(184, 134, 11, 0.06);
+            font-weight: 600;
+        }
+
+        /* Callout box */
+        .callout-box {
+            background: var(--bg-secondary, #f8f7f4);
+            border-left: 3px solid var(--accent, #b8860b);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Key insight box */
+        .insight-box {
+            border: 1px solid var(--accent, #b8860b);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .insight-box__label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Author bio */
+        .author-bio {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            border-top: 1px solid var(--border-light, #e8e4df);
+            padding-top: 3rem;
+            margin-top: 4rem;
+        }
+
+        .author-bio img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-bio__name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-bio__title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .author-bio__desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Prev/next */
+        .article-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-light, #e8e4df);
+        }
+
+        .article-nav__item {
+            padding: 1.25rem 1.5rem;
+            border: 1px solid var(--border-light, #e8e4df);
+            border-radius: 4px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-nav__item:hover {
+            border-color: var(--accent);
+        }
+
+        .article-nav__label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-nav__title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .article-nav__next {
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            .article-nav {
+                grid-template-columns: 1fr;
+            }
+
+            .article-nav__next {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="reading-progress"></div>
+
+    <nav class="nav" id="main-nav">
+        <div class="nav__inner">
+            <a href="/" class="nav__logo">Light Tower <span>Group</span></a>
+            <div class="nav__links">
+                <a href="/services/debt-capital-markets.html" class="nav__link">Services</a>
+                <a href="/track-record.html" class="nav__link">Track Record</a>
+                <a href="/insights/" class="nav__link active">Insights</a>
+                <a href="/resources/" class="nav__link">Resources</a>
+                <a href="/about.html" class="nav__link">About</a>
+                <a href="/contact.html" class="nav__link">Contact</a>
+                <button class="nav__toggle-dm" id="dm-toggle" aria-label="Toggle dark mode">◐</button>
+                <a href="/submit-deal.html" class="nav__cta">Submit Deal →</a>
+            </div>
+            <button class="nav__hamburger" id="hamburger"
+                aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+        <div class="nav__mobile-menu" id="mobile-menu">
+            <a href="/services/debt-capital-markets.html" class="nav__mobile-link">Services</a>
+            <a href="/track-record.html" class="nav__mobile-link">Track Record</a>
+            <a href="/insights/" class="nav__mobile-link">Insights</a>
+            <a href="/resources/" class="nav__mobile-link">Resources</a>
+            <a href="/about.html" class="nav__mobile-link">About</a>
+            <a href="/contact.html" class="nav__mobile-link">Contact</a>
+            <a href="/submit-deal.html" class="nav__mobile-cta">Submit Deal →</a>
+        </div>
+    </nav>
+
+    <main role="main" style="padding-top: 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <div class="breadcrumb">
+                <a href="/">Home</a><span class="breadcrumb__sep">/</span>
+                <a href="/insights/">Insights</a><span class="breadcrumb__sep">/</span>
+                <span>How Lenders Size CRE Loans</span>
+            </div>
+
+            <header style="max-width: 700px; margin: 0 auto 3rem;">
+                <div class="card__label" style="margin-bottom: 1rem;">Capital Structure</div>
+                <h1
+                    style="font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 500; line-height: 1.25; margin-bottom: 1.5rem;">
+                    How Lenders Calculate Maximum Loan Size: NOI, Debt Yield, and DSCR Working Together</h1>
+                <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem;">Three
+                    separate constraints determine how much a lender will put on a commercial property. The loan amount
+                    you actually get is always the lowest of the three — even if two of them would support a much larger
+                    number. Here's how to understand and engineer all three.</p>
+                <div
+                    style="display: flex; align-items: center; gap: 2rem; font-size: 0.82rem; color: var(--text-muted); padding-bottom: 2rem; border-bottom: 1px solid var(--border-light, #e8e4df);">
+                    <span>By <a href="/about.html" style="color: inherit; text-decoration: underline;">Benjamin
+                            Rohr</a></span>
+                    <span>February 2026</span>
+                    <span>10 min read</span>
+                </div>
+            </header>
+        </div>
+
+        <div class="article-layout">
+            <!-- ToC -->
+            <aside class="article-toc" style="order: 2;">
+                <p class="toc-label">In This Article</p>
+                <ol class="toc-list">
+                    <li><a href="#intro">The Three-Constraint Framework</a></li>
+                    <li><a href="#ltv">Constraint 1: Loan-to-Value (LTV)</a></li>
+                    <li><a href="#dscr">Constraint 2: Debt Service Coverage Ratio</a></li>
+                    <li><a href="#debt-yield">Constraint 3: Debt Yield</a></li>
+                    <li><a href="#interaction">How They Interact: Worked Example</a></li>
+                    <li><a href="#by-lender-type">Minimums by Lender Type</a></li>
+                    <li><a href="#engineering">Engineering Around the Constraints</a></li>
+                    <li><a href="#conclusion">What This Means for Sponsors</a></li>
+                </ol>
+            </aside>
+
+            <!-- Article Body -->
+            <article class="article-body" style="order: 1;">
+
+                <section id="intro">
+                    <p>Most sponsors understand that lenders have a maximum <a href="/glossary/#ltv">LTV</a> — and
+                        assume that if their deal stays below it, they can get the loan. This is correct but incomplete.
+                        Lenders size loans using three interlocking constraints, and the actual loan amount is
+                        determined by whichever one is most restrictive.</p>
+                    <p>The three constraints are:</p>
+                    <ol>
+                        <li><strong>Loan-to-Value (LTV)</strong> — the loan as a percentage of appraised value</li>
+                        <li><strong>Debt Service Coverage Ratio (DSCR)</strong> — how much income coverage remains after
+                            debt payments</li>
+                        <li><strong><a href="/insights/debt-yield-vs-ltv-cre-underwriting.html">Debt Yield</a></strong>
+                            — the property's NOI as a percentage of the loan amount</li>
+                    </ol>
+                    <p>Each one constrains the loan from a different angle. LTV controls risk relative to collateral
+                        value. DSCR controls cash flow adequacy. Debt yield controls yield-on-cost to the lender — and
+                        is increasingly the dominant constraint in today's high-rate environment.</p>
+
+                    <div class="callout-box">
+                        <p><strong>The Rule:</strong> Your maximum loan amount is always the <em>lowest</em> number
+                            produced when you apply all three constraints independently. No amount of strength in two of
+                            them can overcome a fail in the third.</p>
+                    </div>
+                </section>
+
+                <section id="ltv">
+                    <h2>Constraint 1: Loan-to-Value (LTV)</h2>
+                    <p>Loan-to-value is the most intuitive constraint. The lender will lend up to a certain percentage
+                        of the appraised value — and not more, regardless of cash flow. This protects the lender in a
+                        foreclosure scenario: if they need to recover the loan from a distressed sale, the collateral
+                        should be worth enough to cover it.</p>
+
+                    <div class="formula-box">
+                        <div class="formula-box__label">Formula</div>
+                        <div class="formula-box__equation">LTV = Loan Amount ÷ Appraised Value</div>
+                        <div class="formula-box__note">A $6.5M loan on a $10M building = 65% LTV</div>
+                    </div>
+
+                    <p>Maximum LTV varies significantly by lender type, loan type, and market conditions. In 2026,
+                        typical maximum LTVs run from 55–65% for conservative permanent lenders (life companies) to
+                        75–80% for bridge lenders on transitional assets. Agency lenders on multifamily typically cap at
+                        75–80% LTV depending on loan program.</p>
+                    <p>The critical subtlety: LTV only matters as much as the appraisal is accurate. In falling markets,
+                        appraised values lag actual market values — which is why lenders added the other two constraints
+                        as backstops. A property can be at 65% LTV but still have insufficient cash flow to support the
+                        debt service, which is what DSCR protects against.</p>
+                </section>
+
+                <section id="dscr">
+                    <h2>Constraint 2: Debt Service Coverage Ratio (DSCR)</h2>
+                    <p>DSCR measures whether the property generates enough income to service its debt — with a cushion.
+                        A DSCR of 1.25x means the property generates $1.25 in net operating income for every $1.00 of
+                        annual debt service. The cushion protects against vacancy spikes, expense increases, or rent
+                        softness.</p>
+
+                    <div class="formula-box">
+                        <div class="formula-box__label">Formula</div>
+                        <div class="formula-box__equation">DSCR = NOI ÷ Annual Debt Service</div>
+                        <div class="formula-box__note">$650,000 NOI ÷ $490,000 Debt Service = 1.33x DSCR</div>
+                    </div>
+
+                    <p>Because DSCR constrains the loan via the debt service payment — which is a function of both loan
+                        amount and interest rate — it interacts with interest rates in powerful ways. When rates rise,
+                        the debt service on any given loan amount increases, which means DSCR falls, which means the
+                        maximum loan amount that satisfies the minimum DSCR also falls.</p>
+                    <p>This is the mechanism behind the denominator problem that reshaped the lending market in
+                        2022–2024: the same property with the same NOI suddenly required a materially smaller loan to
+                        stay within lender DSCR minimums, simply because rates had moved 300–400 basis points.</p>
+                    <p>To find the maximum loan from DSCR alone, you work backwards:</p>
+                    <ol>
+                        <li>Take your property's stabilized NOI</li>
+                        <li>Divide by the minimum DSCR (e.g. 1.25)</li>
+                        <li>That gives you the maximum allowable annual debt service</li>
+                        <li>Back into the loan amount using your interest rate and amortization</li>
+                    </ol>
+                    <p>For example: $650,000 NOI ÷ 1.25 minimum DSCR = $520,000 maximum allowable annual debt service.
+                        At a 6.5% I/O rate, that supports a maximum loan of $8,000,000.</p>
+                </section>
+
+                <section id="debt-yield">
+                    <h2>Constraint 3: Debt Yield</h2>
+                    <p><a href="/insights/debt-yield-vs-ltv-cre-underwriting.html">Debt yield</a> is the lender's
+                        measure of raw return on their capital — independent of appraised value and independent of
+                        interest rates. It compares what the property earns to what the lender has deployed.</p>
+
+                    <div class="formula-box">
+                        <div class="formula-box__label">Formula</div>
+                        <div class="formula-box__equation">Debt Yield = NOI ÷ Loan Amount</div>
+                        <div class="formula-box__note">$650,000 NOI ÷ $7,500,000 Loan = 8.67% Debt Yield</div>
+                    </div>
+
+                    <p>Why does this matter as a constraint? Because it's rate-independent. Unlike DSCR, debt yield
+                        doesn't move when rates change. It tells the lender: if I had to foreclose on this asset
+                        tomorrow and operate it, what return would I earn on my basis? Minimum debt yield floors
+                        (typically 7–10% depending on lender type and asset class) ensure the lender's yield-on-cost is
+                        always adequate regardless of what happens in the rate environment.</p>
+                    <p>To find the maximum loan from debt yield alone: divide your stabilized NOI by the minimum debt
+                        yield requirement. $650,000 NOI ÷ 9% minimum debt yield = $7,222,222 maximum loan.</p>
+                    <p>To increase the maximum loan that debt yield allows, you need to increase <a
+                            href="/glossary/#noi">NOI</a> — which is exactly why value-add business plans often improve
+                        borrowing capacity even beyond what appraised value alone would support.</p>
+                </section>
+
+                <section id="interaction">
+                    <h2>How They Interact: A Worked Example</h2>
+                    <p>Let's put all three constraints on a single property and see which one bites:</p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Property Detail</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Stabilized NOI</td>
+                                <td>$650,000</td>
+                            </tr>
+                            <tr>
+                                <td>Appraised Value</td>
+                                <td>$10,000,000</td>
+                            </tr>
+                            <tr>
+                                <td>Interest Rate</td>
+                                <td>6.5% (I/O)</td>
+                            </tr>
+                            <tr>
+                                <td>Annual Debt Service @ $7M loan</td>
+                                <td>$455,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p><strong>Now apply each constraint:</strong></p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Constraint</th>
+                                <th>Lender Minimum</th>
+                                <th>Calculation</th>
+                                <th>Max Loan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>LTV</td>
+                                <td>65%</td>
+                                <td>65% × $10,000,000</td>
+                                <td>$6,500,000</td>
+                            </tr>
+                            <tr>
+                                <td>DSCR</td>
+                                <td>1.25x</td>
+                                <td>$650K ÷ 1.25 = $520K max DS → ÷ 6.5%</td>
+                                <td>$8,000,000</td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Debt Yield</td>
+                                <td>9.0%</td>
+                                <td>$650,000 ÷ 9%</td>
+                                <td>$7,222,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="insight-box">
+                        <div class="insight-box__label">The Binding Constraint</div>
+                        <p>In this deal, <strong>LTV is the binding constraint</strong> at $6.5M — even though DSCR
+                            would allow $8M and debt yield would allow $7.2M. The sponsor's maximum loan is $6,500,000,
+                            regardless of what the other two metrics say.</p>
+                    </div>
+
+                    <p>This happens frequently when appraised values don't keep pace with NOI growth. The property may
+                        be generating excellent cash flow, but if the appraisal caps it, you're capped regardless.</p>
+                    <p>Now let's shift interest rates up 100 basis points to 7.5%:</p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Constraint</th>
+                                <th>At 6.5%</th>
+                                <th>At 7.5%</th>
+                                <th>Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>LTV Max</td>
+                                <td>$6,500,000</td>
+                                <td>$6,500,000</td>
+                                <td>No change</td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>DSCR Max</td>
+                                <td>$8,000,000</td>
+                                <td>$6,933,000</td>
+                                <td>−$1,067,000</td>
+                            </tr>
+                            <tr>
+                                <td>Debt Yield Max</td>
+                                <td>$7,222,000</td>
+                                <td>$7,222,000</td>
+                                <td>No change</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Rate sensitivity falls entirely on DSCR. Both LTV and debt yield are unaffected by rate changes —
+                        which is precisely why lenders use debt yield as a rate-independent underwriting floor. At 7.5%,
+                        DSCR now becomes the binding constraint on deals where it was previously permissive, compressing
+                        loan proceeds.</p>
+                </section>
+
+                <section id="by-lender-type">
+                    <h2>Minimum Thresholds by Lender Type</h2>
+                    <p>Different lenders use different minimums — and understanding who prices where is the job of your
+                        <a href="/services/debt-capital-markets.html">capital advisor</a>.</p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Lender Type</th>
+                                <th>Max LTV</th>
+                                <th>Min DSCR</th>
+                                <th>Min Debt Yield</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Agency (Fannie/Freddie)</td>
+                                <td>75–80%</td>
+                                <td>1.20–1.25x</td>
+                                <td>6.5–7.5%</td>
+                                <td>Multifamily only; best rates</td>
+                            </tr>
+                            <tr>
+                                <td>CMBS</td>
+                                <td>65–75%</td>
+                                <td>1.20–1.25x</td>
+                                <td>8.0–9.0%</td>
+                                <td>Non-recourse; prepayment restrictions</td>
+                            </tr>
+                            <tr>
+                                <td>Life Insurance Company</td>
+                                <td>55–65%</td>
+                                <td>1.40–1.50x</td>
+                                <td>8.0–9.5%</td>
+                                <td>Conservative; lowest rates for quality assets</td>
+                            </tr>
+                            <tr>
+                                <td>Regional Bank</td>
+                                <td>65–75%</td>
+                                <td>1.20–1.35x</td>
+                                <td>8.0–9.0%</td>
+                                <td>Recourse; relationship-driven; flexible</td>
+                            </tr>
+                            <tr>
+                                <td>Bridge/Debt Fund</td>
+                                <td>70–80%</td>
+                                <td>1.05–1.15x</td>
+                                <td>7.0–8.5%</td>
+                                <td>Higher rate; short-term; transitional assets</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>The gap between agency and life company on LTV is notable — an 80% LTV agency loan can generate
+                        substantially more proceeds than a 60% LTV life company loan on the same asset. But agency is
+                        limited to multifamily, and life company rates are often a full 50–100 basis points lower, so
+                        the after-debt-service cash position may be better at lower leverage. This is the capital
+                        structure tradeoff analysis your advisor should be running for every deal.</p>
+                </section>
+
+                <section id="engineering">
+                    <h2>Engineering Around the Constraints</h2>
+                    <p>Understanding the three constraints gives sponsors a framework for improving loan proceeds — not
+                        by gaming the underwriting, but by genuinely improving the deal's profile:</p>
+                    <h3>Increase NOI</h3>
+                    <p>NOI is the single lever that improves all three constraints simultaneously. Higher NOI lifts DSCR
+                        (more coverage at the same debt service), improves debt yield (more income relative to loan),
+                        and often increases appraised value (and therefore the LTV ceiling). Value-add strategies that
+                        lift rents through renovation are capital formation strategies — they directly expand borrowing
+                        capacity.</p>
+                    <h3>Right-Size the Loan Request</h3>
+                    <p>Some sponsors go to market asking for more leverage than the deal supports. A well-structured ask
+                        — one that comes in cleanly under all three constraints with room to spare — gets better
+                        execution. Lenders don't fight over deals that stress their underwriting. They compete
+                        aggressively for deals that underwrite cleanly.</p>
+                    <h3>Choose the Right Lender Type</h3>
+                    <p>Because different lenders have different constraint floors, the right lender for your deal is not
+                        always obvious. A life company that requires 9.5% debt yield may pass on a deal that a CMBS shop
+                        would happily fund at 8.5% debt yield — at a lower rate. Mapping your deal against the full
+                        lender universe reveals who should be competing for it. This is the work your <a
+                            href="/services/debt-capital-markets.html">CRE capital advisor</a> should be doing upfront.
+                    </p>
+                    <h3>Layer the Capital Stack</h3>
+                    <p>When senior loan proceeds are insufficient to make a deal work — because one or more constraints
+                        is binding — the solution is often <a href="/services/equity-placement.html">mezzanine debt or
+                            preferred equity</a> to fill the gap. A senior loan at 65% LTV plus mezzanine to 80% LTV
+                        brings total proceeds to the same place a bridge lender might go, but with different cost and
+                        structure characteristics. The right answer depends on the business plan and exit timing.</p>
+                </section>
+
+                <section id="conclusion">
+                    <h2>What This Means for Sponsors</h2>
+                    <p>The practical takeaway: every loan sizing conversation should start with three calculations, not
+                        one. Know your LTV ceiling, know your DSCR-implied maximum, know your debt yield-implied
+                        maximum. The binding constraint is your real answer — and it tells you exactly what you need to
+                        improve if you want more capital.</p>
+                    <p>The deeper insight: capital advisory is not just lender sourcing. It's constraint identification,
+                        structure engineering, and lender matching — run simultaneously. The right advisor understands
+                        not only who lends, but exactly what each lender needs to see, and how to position your specific
+                        deal so that the right lenders compete aggressively for it.</p>
+
+                    <div class="callout-box">
+                        <p><strong>Related Reading:</strong> For a deeper look at why debt yield has become the dominant
+                            constraint in today's market, see our full piece: <a
+                                href="/insights/debt-yield-vs-ltv-cre-underwriting.html">Debt Yield vs. LTV: The Metric
+                                Lenders Now Trust More</a>.</p>
+                    </div>
+                </section>
+
+                <!-- Author Bio -->
+                <div class="author-bio">
+                    <img src="/benjamin-rohr.jpg" alt="Benjamin Rohr" loading="lazy">
+                    <div>
+                        <div class="author-bio__name">Benjamin Rohr</div>
+                        <div class="author-bio__title">Principal, Light Tower Group</div>
+                        <p class="author-bio__desc">Benjamin advises commercial real estate sponsors on debt placement,
+                            equity structuring, and investment advisory. He writes on capital markets strategy, deal
+                            structuring, and institutional execution. <a href="/about.html"
+                                style="color: var(--accent);">About Benjamin →</a></p>
+                    </div>
+                </div>
+
+                <!-- Prev/Next Navigation -->
+                <nav class="article-nav" aria-label="Article navigation">
+                    <a href="/insights/how-to-choose-cre-capital-advisor.html"
+                        class="article-nav__item article-nav__prev">
+                        <div class="article-nav__label">← Previous</div>
+                        <div class="article-nav__title">How to Choose a CRE Capital Advisor: 7 Questions That Separate
+                            Good Brokers From Great Ones</div>
+                    </a>
+                    <a href="/insights/" class="article-nav__item article-nav__next">
+                        <div class="article-nav__label">All Insights →</div>
+                        <div class="article-nav__title">Back to Insights</div>
+                    </a>
+                </nav>
+            </article>
+        </div>
+    </main>
+
+    <section class="cta-banner" style="margin-top: 5rem;">
+        <div class="container">
+            <h2 class="cta-banner__title">Have a Deal That Needs to Pencil?</h2>
+            <p class="cta-banner__desc">We'll run the three-constraint analysis on your deal and tell you exactly where
+                the capital can go. Submit for a confidential review.</p>
+            <a href="/submit-deal.html" class="btn-primary">Submit Deal →</a>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div><span class="footer-label">Contact</span><a href="mailto:ben@lighttowergroup.co"
+                        class="contact-link">ben@lighttowergroup.co</a></div>
+                <nav><span class="footer-label">Connect</span><a href="https://www.linkedin.com/in/benrohr/"
+                        target="_blank" rel="noopener" class="contact-link">LinkedIn ↗</a></nav>
+                <nav><span class="footer-label">Reference</span><a href="/glossary/" class="contact-link">CRE
+                        Glossary</a></nav>
+            </div>
+            <p class="copyright">© 2026 Light Tower Group. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const bar = document.getElementById('reading-progress');
+        window.addEventListener('scroll', () => {
+            const el = document.documentElement;
+            bar.style.width = ((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100) + '%';
+        });
+        const dmToggle = document.getElementById('dm-toggle');
+        if (localStorage.getItem('ltg-dark-mode') === 'true') document.body.classList.add('dark-mode');
+        dmToggle.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); localStorage.setItem('ltg-dark-mode', document.body.classList.contains('dark-mode')); });
+        window.addEventListener('scroll', () => document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20));
+        document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
+        const sections = document.querySelectorAll('[id]');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+            tocLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+        });
+    </script>
+</body>
+
+</html>
