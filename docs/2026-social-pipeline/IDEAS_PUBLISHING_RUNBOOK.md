@@ -129,13 +129,30 @@ Private:
 5. Visually inspect desktop and mobile.
 6. Only then schedule `--publish --count 10`.
 
-## Scheduling
+## Scheduling And Deployment
 
 Batch runner:
 
 ```powershell
 scripts\run_ideas_daily.bat
 ```
+
+The scheduled runner calls:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_ideas_daily_deploy.ps1 -Count 3 -MaxFeeds 20
+```
+
+That deploy wrapper:
+
+1. Runs the Ideas publisher in `--publish` mode.
+2. Validates `sitemap.xml`, `ideas/feed.xml`, and `netlify.toml`.
+3. Scans public Ideas files for blocked placeholders, `noindex`, and secret-looking strings.
+4. Stages only `ideas/`, `ideas.html`, and `sitemap.xml`.
+5. Creates a dated daily Ideas commit if public files changed.
+6. Pushes `main` to `origin`, which triggers Netlify.
+
+Private artifacts under `data/ideas/` remain ignored and are not pushed.
 
 Preview the Windows scheduled task:
 
@@ -154,7 +171,7 @@ Default schedule:
 - Task name: `Light Tower Ideas Daily`
 - Time: `06:30`
 - Command: `scripts\run_ideas_daily.bat`
-- First-week behavior: publishes up to 3 Ideas articles/day from 20 feeds
+- First-week behavior: publishes, commits, and pushes up to 3 Ideas articles/day from 20 feeds
 
 To change the time:
 

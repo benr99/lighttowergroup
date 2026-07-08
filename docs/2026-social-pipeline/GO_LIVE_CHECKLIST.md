@@ -61,3 +61,5 @@ Required:
 - Public Ideas files contain no placeholders, `noindex`, stale generated test articles, or secret-looking strings.
 - Live AI failures are held under `data/ideas/held/`; they are not fallback-published.
 - Scheduler starts in first-week mode: up to 3 Ideas articles/day from 20 feeds.
+- Scheduler uses `scripts\run_ideas_daily.bat`, which calls `scripts\run_ideas_daily_deploy.ps1`.
+- Daily deploy wrapper commits only public Ideas files and pushes `main` to trigger Netlify.
