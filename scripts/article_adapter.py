@@ -339,46 +339,75 @@ def build_carousel_slides(
 ) -> list[dict[str, Any]]:
     text = " ".join(paragraphs)
     figures = extract_figures(text)
-
-    hero_headline = title
     chunks = article_chunks(paragraphs)
+    sentences = sentences_from_paragraphs(paragraphs)
+    analysis_sentences = [s for s in sentences if any(word in s.lower() for word in ANALYSIS_WORDS)]
+    tension_sentences = [s for s in sentences if any(word in s.lower() for word in TENSION_WORDS)]
+    final_sentence = sentences[-1] if sentences else "The capital stack is the story."
+
+    hero_subhead = subtitle or (sentences[0] if sentences else "A capital markets read on the latest commercial real estate move.")
+    data_subhead = (analysis_sentences or tension_sentences or sentences or [hero_subhead])[0]
 
     slides = [
         make_slide(
             "hero",
-            "",
-            hero_headline,
-            subhead=subtitle,
+            "CAPITAL INTELLIGENCE",
+            title,
+            subhead=hero_subhead,
             subhead_limit=300,
             headline_limit=150,
             source=source,
         ),
+        make_slide(
+            "data",
+            "THE FIGURES",
+            data_slide_headline(figures, title),
+            subhead=data_subhead,
+            subhead_limit=220,
+            figures=figures,
+            source=source,
+        ),
     ]
 
-    for i, chunk in enumerate(chunks, 1):
+    used_headlines = {slides[0]["headline"].lower(), slides[1]["headline"].lower()}
+    max_story_slides = 11
+    for i, chunk in enumerate(chunks[:max_story_slides]):
+        headline = story_headline(
+            paragraph=chunk,
+            index=i,
+            total=min(len(chunks), max_story_slides),
+            title=title,
+            used=used_headlines,
+        )
+        if len(headline.split()) < 3:
+            headline = secondary_fallback_headline(chunk, i)
+        used_headlines.add(headline.lower())
         slides.append(make_slide(
-            "article",
-            "",
-            "",
+            "story",
+            story_eyebrow(chunk, i),
+            headline,
             subhead=chunk,
-            subhead_limit=900,
+            subhead_limit=520,
             source=source,
         ))
 
-    closing_slide = make_slide(
-        "closing",
-        "",
-        "About Us",
-        subhead=LTG_CLOSING_COPY,
-        subhead_limit=900,
+    why_text = why_it_matters_text(
+        sentences=sentences,
+        analysis_sentences=analysis_sentences,
+        tension_sentences=tension_sentences,
+        final_sentence=final_sentence,
+    )
+    slides.append(make_slide(
+        "kicker",
+        "WHY IT MATTERS",
+        "Why it matters",
+        subhead=why_text,
+        subhead_limit=260,
         headline_limit=80,
         source="Light Tower Group",
-    )
-    closing_slide["subhead"] = LTG_CLOSING_COPY
-    slides.append(closing_slide)
+    ))
 
     return slides
-
 
 def data_slide_headline(figures: list[dict[str, str]], title: str) -> str:
     if figures:

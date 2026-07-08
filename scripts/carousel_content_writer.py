@@ -11,6 +11,7 @@ Output: JSON with slide content ready for PDF rendering.
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import json
 import os
 import re
@@ -291,14 +292,105 @@ def loads_carousel_json(raw_json: str) -> dict[str, Any]:
 
 def strip_html(html: str) -> str:
     """Extract plain text from HTML."""
-    text = re.sub(r"<[^>]+>", "", html)
-    text = re.sub(r"&nbsp;", " ", text)
-    text = re.sub(r"&quot;", '"', text)
-    text = re.sub(r"&apos;", "'", text)
-    text = re.sub(r"&amp;", "&", text)
+    match = re.search(
+        r'<div\s+class="article-body"[^>]*>([\s\S]*?)</div>',
+        html,
+        flags=re.IGNORECASE,
+    )
+    source = match.group(1) if match else html
+    source = re.sub(r"<script[\s\S]*?</script>", " ", source, flags=re.IGNORECASE)
+    source = re.sub(r"<style[\s\S]*?</style>", " ", source, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", " ", source)
+    text = html_lib.unescape(text)
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
+
+
+def _sentence_chunks(text: str, limit: int = 6) -> list[str]:
+    """Split article text into short slide-safe chunks."""
+    sentences = re.split(r"(?<=[.!?])\s+", text.strip())
+    chunks: list[str] = []
+    current = ""
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        if len((current + " " + sentence).split()) <= 42:
+            current = (current + " " + sentence).strip()
+        else:
+            if current:
+                chunks.append(current)
+            current = sentence
+        if len(chunks) >= limit:
+            break
+    if current and len(chunks) < limit:
+        chunks.append(current)
+    if len(chunks) < min(limit, 5):
+        words = text.split()
+        chunks = [
+            " ".join(words[index:index + 38])
+            for index in range(0, min(len(words), limit * 38), 38)
+            if words[index:index + 38]
+        ]
+    return chunks
+
+
+def _fallback_carousel_content(article_data: dict[str, Any], text: str) -> dict[str, Any]:
+    """Build deterministic carousel content without an AI call."""
+    title = article_data.get("title") or "Capital Markets Insight"
+    subtitle = article_data.get("excerpt") or article_data.get("subtitle") or ""
+    figures = re.findall(
+        r"\$[\d,.]+(?:\.\d+)?\s?(?:trillion|billion|million|bn|mm|tn|B|M|T|K)?|\b\d+(?:\.\d+)?\s?%",
+        text,
+        flags=re.IGNORECASE,
+    )
+    chunks = _sentence_chunks(text, limit=6)
+
+    slides: list[dict[str, Any]] = [
+        {
+            "slide_type": "cover",
+            "eyebrow": "CAPITAL INTELLIGENCE",
+            "headline": title,
+            "body": subtitle or "A practical read on what this means for commercial real estate capital.",
+        }
+    ]
+
+    if figures:
+        slides.append({
+            "slide_type": "content",
+            "eyebrow": "THE FIGURES",
+            "headline": "The numbers frame the capital story.",
+            "body": "Key figures referenced in the article: " + ", ".join(dict.fromkeys(figures[:5])) + ".",
+        })
+
+    for index, chunk in enumerate(chunks, 1):
+        headline = re.split(r"(?<=[.!?])\s+", chunk.strip())[0]
+        headline = re.sub(r"\s+", " ", headline).strip()
+        if len(headline.split()) > 12:
+            headline = " ".join(headline.split()[:12])
+        headline = headline.rstrip(".,;:")
+        slides.append({
+            "slide_type": "content",
+            "eyebrow": f"READ {index:02d}",
+            "headline": headline or "A useful way to read this",
+            "body": chunk,
+        })
+
+    slides.append({
+        "slide_type": "content",
+        "eyebrow": "WHY IT MATTERS",
+        "headline": "The capital stack is the real story.",
+        "body": "For sponsors and lenders, the practical question is how this affects timing, leverage, basis, and the next available source of capital.",
+    })
+
+    return {
+        "carousel_title": title,
+        "slides": slides[:10],
+        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "agent": "Light Tower Carousel Content Writer (Fallback)",
+        "fallback": True,
+    }
 
 
 def generate_carousel_content(
@@ -307,7 +399,7 @@ def generate_carousel_content(
     api_key: str | None = None,
 ) -> dict[str, Any]:
     """Generate carousel slide content using DeepSeek."""
-    api_key = api_key or DEEPSEEK_API_KEY
+    api_key = api_key if api_key is not None else DEEPSEEK_API_KEY
 
     # Get article text
     text = (article_text or article_data.get("body_text") or "").strip()
@@ -318,7 +410,7 @@ def generate_carousel_content(
     text = text[:6000]
 
     if not api_key:
-        raise ValueError("DEEPSEEK_API_KEY not set. Cannot generate carousel content.")
+        return _fallback_carousel_content(article_data, text)
 
     prompt = CAROUSEL_CONTENT_USER_TEMPLATE.format(
         title=article_data.get("title", ""),

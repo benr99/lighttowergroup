@@ -10,6 +10,7 @@ the corresponding HTML files with complete Open Graph meta tags.
 import json
 import re
 from pathlib import Path
+from html import escape
 from social_image_generator import generate_article_image
 
 ROOT = Path(__file__).parent.parent
@@ -65,16 +66,18 @@ def update_og_tags(html_content, slug, title, subtitle):
     - og:url
     """
     image_url = f"https://lighttowergroup.co/insights/{slug}_social.png"
+    title_attr = escape(title, quote=True)
+    subtitle_attr = escape(subtitle, quote=True)
 
     # Meta tag patterns to match and replace
     og_patterns = {
         'og:title': (
             r'<meta\s+property="og:title"\s+content="[^"]*"',
-            f'<meta property="og:title" content="{title.replace('"', '&quot;')}"'
+            f'<meta property="og:title" content="{title_attr}"'
         ),
         'og:description': (
             r'<meta\s+property="og:description"\s+content="[^"]*"',
-            f'<meta property="og:description" content="{subtitle.replace('"', '&quot;')}"'
+            f'<meta property="og:description" content="{subtitle_attr}"'
         ),
         'og:image': (
             r'<meta\s+property="og:image"\s+content="[^"]*"',

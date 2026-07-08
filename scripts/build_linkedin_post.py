@@ -17,14 +17,14 @@ def build_linkedin_post_text(article_data: dict) -> str:
     if len(hook) > 210:
         hook = hook[:207].rsplit(" ", 1)[0].rstrip(" ,;:") + "..."
 
-    article_slides = [slide for slide in slides if slide.get("system") == "article"]
+    article_slides = [slide for slide in slides if slide.get("system") in {"article", "story"}]
     opening = (article_slides[0].get("subhead") if article_slides else hero.get("subhead") or "").strip()
     if len(opening) > 280:
         opening = opening[:277].rsplit(" ", 1)[0].rstrip(" ,;:") + "..."
 
     body = opening.rstrip(".") + "." if opening else ""
 
-    closing = "\n\n#CRE #CapitalMarkets #RealEstateFinance"
+    closing = "\n\nI broke down the capital markets read in the attached carousel.\n\n#CRE #CapitalMarkets #RealEstateFinance"
     return (hook + ("\n\n" + body if body else "") + closing).strip()
 
 

@@ -104,8 +104,15 @@ class CarouselPDFGenerator:
     def _sanitize(self, text: str) -> str:
         """Clean problematic characters."""
         replacements = {
-            "—": "-", "–": "-", "'": "'", "'": "'",
-            """: '"', """: '"', "•": "*", "…": "...", " ": " ",
+            "\u2014": "-",
+            "\u2013": "-",
+            "\u2018": "'",
+            "\u2019": "'",
+            "\u201c": '"',
+            "\u201d": '"',
+            "\u2022": "*",
+            "\u2026": "...",
+            "\u00a0": " ",
         }
         for src, dst in replacements.items():
             text = text.replace(src, dst)
@@ -127,42 +134,42 @@ class CarouselPDFGenerator:
             pdf.rect(0, i * band_height, PAGE_W, band_height, "F")
 
     def _draw_cover(self, pdf: FPDF, slide: dict[str, Any]) -> None:
-        """Draw cover slide - content block centered, text left-aligned inside."""
+        """Draw cover slide - headshot LEFT, text RIGHT (side-by-side)."""
         pdf.add_page()
         self._gradient_background(pdf)
 
-        # Calculate centered content block position
+        # Calculate centered content block
         content_x = (PAGE_W - CONTENT_WIDTH) / 2
+        headshot_size = 18
+        headshot_x = content_x
+        text_x = content_x + headshot_size + 4  # Headshot + small gap
+        text_width = CONTENT_WIDTH - headshot_size - 4
 
-        y = 7
+        y = 20
 
-        # Headshot (centered at top)
-        headshot_size = 16
+        # Headshot (LEFT side)
         try:
             if self.headshot_path.exists():
-                x_pos = (PAGE_W - headshot_size) / 2
-                pdf.image(str(self.headshot_path), x_pos, y, w=headshot_size, h=headshot_size)
-                y += headshot_size + 3
+                pdf.image(str(self.headshot_path), headshot_x, y, w=headshot_size, h=headshot_size)
         except Exception:
-            y += 19
+            pass
 
-        # Name (centered above content block)
+        # Name (RIGHT side, next to headshot)
         r, g, b = self._hex_to_rgb(self.colors["text"])
         pdf.set_text_color(r, g, b)
-        pdf.set_font(self.font_body, "B", 7.5)
-        pdf.set_xy(content_x, y)
-        pdf.multi_cell(CONTENT_WIDTH, 2.5, "Benjamin Rohr", align="C")
-        y += 2.8
+        pdf.set_font(self.font_body, "B", 8)
+        pdf.set_xy(text_x, y + 1)
+        pdf.multi_cell(text_width, 2.5, "Benjamin Rohr", align="L")
 
-        # Title (centered above content block)
+        # Title (RIGHT side, next to headshot)
         pdf.set_font(self.font_body, "", 6)
         r, g, b = self._hex_to_rgb(self.colors["muted"])
         pdf.set_text_color(r, g, b)
-        pdf.set_xy(content_x, y)
-        pdf.multi_cell(CONTENT_WIDTH, 2, "Principal, Light Tower Group", align="C")
+        pdf.set_xy(text_x, y + 4)
+        pdf.multi_cell(text_width, 2, "Principal, Light Tower Group", align="L")
 
         # Main headline (large serif, LEFT-ALIGNED WITHIN centered block)
-        y = PAGE_H * 0.36
+        y = PAGE_H * 0.38
         headline = self._sanitize(slide.get("headline", ""))
         r, g, b = self._hex_to_rgb(self.colors["text"])
         pdf.set_text_color(r, g, b)
@@ -218,13 +225,14 @@ def main() -> None:
     parser.add_argument("--output", help="Output PDF path")
     args = parser.parse_args()
 
-    with open(args.content) as f:
+    with open(args.content, encoding="utf-8-sig") as f:
         carousel_content = json.load(f)
 
     generator = CarouselPDFGenerator()
     pdf_path = generator.create_carousel_pdf(carousel_content, output_path=args.output)
-    print(f"✓ PDF created: {pdf_path}")
+    print(f"PDF created: {pdf_path}")
 
 
 if __name__ == "__main__":
     main()
+
