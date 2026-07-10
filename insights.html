@@ -51,6 +51,10 @@
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
@@ -138,6 +142,31 @@
       border-color: var(--accent); color: var(--accent);
       background: rgba(197,160,89,0.05);
     }
+
+    .insights-tools {
+      max-width: var(--container); margin: 0 auto;
+      padding: 1.25rem 5rem 0; display: flex; align-items: center;
+      justify-content: space-between; gap: 1.5rem;
+    }
+    .insights-search {
+      width: min(100%, 410px); border: 1px solid var(--line-strong);
+      background: var(--bg); color: var(--text); padding: 0.78rem 1rem;
+      font: inherit; font-size: 0.9rem;
+    }
+    .insights-search:focus { border-color: var(--accent); outline: 2px solid rgba(197,160,89,0.2); outline-offset: 2px; }
+    .insights-count { color: var(--mid); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+    .insights-pagination { display: flex; justify-content: center; gap: 0.6rem; margin-top: 2rem; }
+    .insights-page-btn {
+      border: 1px solid var(--line-strong); background: transparent; color: var(--text);
+      padding: 0.7rem 1rem; font: inherit; font-size: 0.72rem; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer;
+    }
+    .insights-page-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+    .insights-page-btn:disabled { cursor: not-allowed; opacity: 0.35; }
+    @media (max-width: 1280px) { .insights-tools { padding-left: 4rem; padding-right: 4rem; } }
+    @media (max-width: 1024px) { .insights-tools { padding-left: 3rem; padding-right: 3rem; } }
+    @media (max-width: 768px) { .insights-tools { padding-left: 2rem; padding-right: 2rem; align-items: stretch; flex-direction: column; } }
+    @media (max-width: 480px) { .insights-tools { padding-left: 1.5rem; padding-right: 1.5rem; } .insights-count { white-space: normal; } }
 
     /* GRID */
     .insights-section { padding: 4rem 0 6rem; }
@@ -285,20 +314,26 @@
       <p class="insights-sub">Perspectives on the commercial real estate capital markets — from deal structure and credit conditions to macro trends shaping where capital flows next.</p>
     </div>
 
-    <div class="insights-filters" role="tablist" aria-label="Filter by category">
-      <button class="filter-btn active" data-cat="all" role="tab" aria-selected="true">All</button>
-      <button class="filter-btn" data-cat="Market Commentary" role="tab" aria-selected="false">Market Commentary</button>
-      <button class="filter-btn" data-cat="Capital Markets" role="tab" aria-selected="false">Capital Markets</button>
-      <button class="filter-btn" data-cat="Architecture & Capital Markets" role="tab" aria-selected="false">Architecture</button>
-      <button class="filter-btn" data-cat="Debt" role="tab" aria-selected="false">Debt</button>
-      <button class="filter-btn" data-cat="Equity" role="tab" aria-selected="false">Equity</button>
-      <button class="filter-btn" data-cat="Strategy" role="tab" aria-selected="false">Strategy</button>
+    <div class="insights-filters" aria-label="Filter Insights by research area">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Research</button>
+      <button class="filter-btn" data-filter="signals" aria-pressed="false">Market Signals</button>
+      <button class="filter-btn" data-filter="deals" aria-pressed="false">Deals</button>
+      <button class="filter-btn" data-filter="built-world" aria-pressed="false">Built World</button>
+      <button class="filter-btn" data-filter="financing" aria-pressed="false">Financing</button>
+      <button class="filter-btn" data-filter="policy" aria-pressed="false">Policy</button>
+    </div>
+
+    <div class="insights-tools">
+      <label class="sr-only" for="insights-search">Search Insights</label>
+      <input class="insights-search" id="insights-search" type="search" placeholder="Search deals, lenders, markets, or themes" autocomplete="off">
+      <p class="insights-count" id="insights-count" aria-live="polite">Loading research…</p>
     </div>
 
     <section class="insights-section container">
       <div class="insights-grid" id="insights-grid">
         <div class="insights-empty">Loading insights…</div>
       </div>
+      <nav class="insights-pagination" aria-label="Insights pagination" id="insights-pagination" hidden></nav>
     </section>
 
   </main>
@@ -337,8 +372,22 @@
 
   <script>
     const grid = document.getElementById('insights-grid');
+    const search = document.getElementById('insights-search');
+    const count = document.getElementById('insights-count');
+    const pagination = document.getElementById('insights-pagination');
+    const PAGE_SIZE = 18;
+    const FILTERS = {
+      all: null,
+      signals: ['Capital Markets', 'Capital Markets Research', 'Market Commentary'],
+      deals: ['Deal Intelligence'],
+      'built-world': ['Architecture & Capital Markets', 'Market Analysis'],
+      financing: ['Debt & Equity'],
+      policy: ['Policy & Regulation']
+    };
     let allPosts = [];
     let activeFilter = 'all';
+    let activeQuery = '';
+    let activePage = 1;
 
     function formatDate(d) {
       // Handle both "YYYY-MM-DD" (new) and "April 29, 2026" (legacy) formats
@@ -355,77 +404,130 @@
       return isNaN(t) ? 0 : t;
     }
 
-    function renderGrid(posts) {
-      if (!posts.length) {
-        grid.innerHTML = '<div class="insights-empty">No posts in this category yet.</div>';
-        return;
+    function safeHref(post) {
+      if (/^\/insights\/[a-z0-9-]+\.html$/i.test(post.url || '')) return post.url;
+      return '/insights/' + String(post.slug || '').replace(/[^a-z0-9-]/gi, '') + '.html';
+    }
+
+    function addText(parent, tag, className, value) {
+      const el = document.createElement(tag);
+      el.className = className;
+      el.textContent = value || '';
+      parent.appendChild(el);
+      return el;
+    }
+
+    function makeCard(post, featured) {
+      const card = document.createElement('a');
+      card.href = safeHref(post);
+      card.className = 'post-card' + (featured ? ' featured' : '');
+      card.setAttribute('aria-label', post.title || 'Read Light Tower Insight');
+      const category = document.createElement('span');
+      category.className = 'post-card-cat';
+      category.textContent = post.category || 'Capital Intelligence';
+      const meta = document.createElement('div');
+      meta.className = 'post-card-meta';
+      addText(meta, 'span', 'post-card-date', formatDate(post.date));
+      addText(meta, 'span', 'post-card-read', (post.readTime || 7) + ' min read');
+
+      if (featured) {
+        const left = document.createElement('div');
+        left.className = 'featured-left';
+        left.appendChild(category);
+        addText(left, 'p', 'post-card-title', post.title);
+        addText(left, 'p', 'post-card-excerpt', post.excerpt);
+        const right = document.createElement('div');
+        right.className = 'featured-right';
+        meta.style.cssText = 'border:none;padding:0;margin:0;';
+        right.appendChild(meta);
+        addText(right, 'p', 'post-card-read', 'Read the analysis →').style.paddingTop = '2rem';
+        card.append(left, right);
+      } else {
+        card.append(category);
+        addText(card, 'p', 'post-card-title', post.title);
+        addText(card, 'p', 'post-card-excerpt', post.excerpt);
+        card.appendChild(meta);
       }
-      grid.innerHTML = posts.map((p, i) => {
-        const href = 'insights/' + p.slug + '.html';
-        if (i === 0) {
-          return `<a href="${href}" class="post-card featured" aria-label="${p.title}">
-            <div class="featured-left">
-              <span class="post-card-cat">${p.category}</span>
-              <p class="post-card-title">${p.title}</p>
-              <p class="post-card-excerpt">${p.excerpt}</p>
-            </div>
-            <div class="featured-right">
-              <div class="post-card-meta" style="border:none;padding:0;margin:0;">
-                <span class="post-card-date">${formatDate(p.date)}</span>
-                <span class="post-card-read">${p.readTime || 7} min read</span>
-              </div>
-              <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--accent);margin-top:auto;padding-top:2rem;">Read →</p>
-            </div>
-          </a>`;
-        }
-        return `<a href="${href}" class="post-card" aria-label="${p.title}">
-          <span class="post-card-cat">${p.category}</span>
-          <p class="post-card-title">${p.title}</p>
-          <p class="post-card-excerpt">${p.excerpt}</p>
-          <div class="post-card-meta">
-            <span class="post-card-date">${formatDate(p.date)}</span>
-            <span class="post-card-read">${p.readTime || 7} min →</span>
-          </div>
-        </a>`;
-      }).join('');
+      return card;
+    }
+
+    function renderCuratedGrid() {
+      const categories = FILTERS[activeFilter];
+      const posts = allPosts.filter(function (post) {
+        const inCategory = !categories || categories.indexOf(post.category) !== -1;
+        const searchText = [post.title, post.excerpt, post.category].concat(post.tags || []).join(' ').toLowerCase();
+        return inCategory && searchText.indexOf(activeQuery) !== -1;
+      });
+      const pages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
+      activePage = Math.min(activePage, pages);
+      const start = (activePage - 1) * PAGE_SIZE;
+      const pagePosts = posts.slice(start, start + PAGE_SIZE);
+
+      grid.replaceChildren();
+      if (!pagePosts.length) {
+        const empty = document.createElement('div');
+        empty.className = 'insights-empty';
+        empty.textContent = 'No research matches this view. Try another topic or search term.';
+        grid.appendChild(empty);
+      } else {
+        pagePosts.forEach(function (post, index) { grid.appendChild(makeCard(post, index === 0)); });
+      }
+      count.textContent = posts.length + ' research ' + (posts.length === 1 ? 'item' : 'items') + (posts.length ? ' · ' + activePage + ' of ' + pages : '');
+
+      pagination.replaceChildren();
+      pagination.hidden = pages <= 1;
+      [['← Newer', activePage - 1], ['Older →', activePage + 1]].forEach(function (item) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'insights-page-btn';
+        button.textContent = item[0];
+        button.disabled = item[1] < 1 || item[1] > pages;
+        button.addEventListener('click', function () {
+          activePage = item[1];
+          renderCuratedGrid();
+          grid.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        });
+        pagination.appendChild(button);
+      });
     }
 
     function applyFilter(cat) {
       activeFilter = cat;
-      const filtered = cat === 'all' ? allPosts : allPosts.filter(p => p.category === cat);
-      renderGrid(filtered);
+      activePage = 1;
+      renderCuratedGrid();
     }
 
     // Filter buttons
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
         btn.classList.add('active');
-        btn.setAttribute('aria-selected','true');
-        applyFilter(btn.dataset.cat);
+        btn.setAttribute('aria-pressed', 'true');
+        applyFilter(btn.dataset.filter);
       });
+    });
+
+    search.addEventListener('input', function () {
+      activeQuery = search.value.trim().toLowerCase();
+      activePage = 1;
+      renderCuratedGrid();
     });
 
     // Load posts
-    fetch('insights.json')
+    fetch('/insights.json')
       .then(r => r.json())
       .then(data => {
-        allPosts = data.sort((a, b) => parseSortDate(b.date) - parseSortDate(a.date));
-        renderGrid(allPosts);
+        allPosts = Array.isArray(data) ? data.sort((a, b) => parseSortDate(b.date) - parseSortDate(a.date)) : [];
+        renderCuratedGrid();
       })
       .catch(() => {
-        grid.innerHTML = '<div class="insights-empty">Unable to load insights.</div>';
+        grid.replaceChildren();
+        const empty = document.createElement('div');
+        empty.className = 'insights-empty';
+        empty.textContent = 'Unable to load Insights right now. Please refresh or contact the team directly.';
+        grid.appendChild(empty);
+        count.textContent = 'Research temporarily unavailable';
       });
-  </script>
-
-  <script>
-    const menuBtn = document.getElementById('nav-menu-btn');
-    const mobileNav = document.getElementById('nav-mobile');
-    menuBtn.addEventListener('click', function() {
-      const open = mobileNav.classList.toggle('open');
-      menuBtn.classList.toggle('open', open);
-      menuBtn.setAttribute('aria-expanded', open);
-    });
   </script>
 
   <script src="/chat-widget.js"></script>

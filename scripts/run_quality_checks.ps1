@@ -1,0 +1,14 @@
+$ErrorActionPreference = "Stop"
+
+$RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+Set-Location $RepoRoot
+
+$Python = Join-Path $RepoRoot ".venv\Scripts\python.exe"
+if (-not (Test-Path $Python)) { $Python = "python" }
+
+$env:PYTHONDONTWRITEBYTECODE = "1"
+& $Python -m py_compile scripts\content_governance.py scripts\content_maintenance.py scripts\ideas_daily_agent.py scripts\daily_news_agent.py
+& $Python -m unittest discover -s tests -v
+& $Python -c "import xml.etree.ElementTree as ET, tomllib; ET.parse('sitemap.xml'); ET.parse('feed.xml'); tomllib.load(open('netlify.toml','rb')); print('public_artifacts_ok')"
+
+Write-Host "Light Tower quality checks passed."

@@ -7,6 +7,8 @@ import re
 from html.parser import HTMLParser
 from typing import Any
 
+from content_governance import independent_quality_issues
+
 PLACEHOLDER_PATTERNS = [
     "Essay body to be generated",
     "Excerpt to be generated",
@@ -77,8 +79,8 @@ def validate_article(article: dict[str, Any], dossier: dict[str, Any]) -> list[s
     if not article.get("sources"):
         errors.append("missing source URL")
 
-    if article.get("generation_mode") == "ai_failed_fallback":
-        errors.append("AI generation failed; fallback held for manual review")
+    if str(article.get("generation_mode", "")).endswith("fallback"):
+        errors.append("fallback writing held for editorial review")
 
     for pattern in PLACEHOLDER_PATTERNS:
         if pattern.lower() in serialized.lower():
@@ -126,7 +128,9 @@ def validate_article(article: dict[str, Any], dossier: dict[str, Any]) -> list[s
     if risk > 4.5:
         errors.append("risk score above threshold")
 
-    return errors
+    errors.extend(independent_quality_issues(article))
+
+    return list(dict.fromkeys(errors))
 
 
 def validate_html(html_doc: str) -> list[str]:

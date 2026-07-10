@@ -1,0 +1,10 @@
+# Validated direct dependencies for the editorial and PDF automation.
+# Refresh intentionally, then run scripts/run_quality_checks.ps1 before committing.
+anthropic==0.116.0
+requests==2.34.2
+feedparser==6.0.12
+trafilatura==2.1.0
+Pillow==12.3.0
+beautifulsoup4==4.15.0
+fpdf2==2.8.7
+pypdf==6.14.2

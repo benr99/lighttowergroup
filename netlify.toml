@@ -22,6 +22,19 @@
   status = 404
   force  = true
 
+# Canonicalize a duplicate article without breaking existing inbound links.
+[[redirects]]
+  from   = "/insights/construction-loan-fiDi-rental-tower.html"
+  to     = "/insights/grubb-fidi-construction-loan.html"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/insights/construction-loan-fidi-rental-tower.html"
+  to     = "/insights/grubb-fidi-construction-loan.html"
+  status = 301
+  force  = true
+
 # Block public access to internal tools
 [[redirects]]
   from   = "/origination.html"
@@ -99,10 +112,10 @@
     # - img-src 'self' https: data: profile photo + any HTTPS images + data URIs
     # - frame-ancestors 'none': no framing allowed (clickjacking protection)
     # - base-uri 'self': prevent base tag hijacking
-    # - form-action 'self': prevent form exfiltration to external domains
+    # - form-action includes the configured Formspree endpoint for the public mandate form
     # - object-src 'none': block Flash/plugin execution
     # - upgrade-insecure-requests: auto-upgrade any stray HTTP sub-resource calls
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'; upgrade-insecure-requests;"
 
 # Cache static assets aggressively
 [[headers]]
@@ -116,9 +129,44 @@
     Cache-Control = "public, max-age=86400"
 
 [[headers]]
+  for = "/site.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/site.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
   for = "/*.jpg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/insights.json"
+  [headers.values]
+    Cache-Control = "public, max-age=300, stale-while-revalidate=3600"
+
+[[headers]]
+  for = "/feed.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
 # Netlify functions: no caching
 [[headers]]

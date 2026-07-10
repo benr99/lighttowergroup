@@ -18,6 +18,9 @@ const ALLOWED_ORIGINS = new Set([
 const MAX_BODY_BYTES  = 30_000;
 const MAX_MSG_CHARS   = 2000;
 const MAX_MESSAGES    = 40;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const MAX_REQUESTS_PER_WINDOW = 12;
+const requestBuckets = new Map();
 
 const corsHeaders = (origin) => ({
   'Access-Control-Allow-Origin' : ALLOWED_ORIGINS.has(origin) ? origin : '',
@@ -25,6 +28,20 @@ const corsHeaders = (origin) => ({
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Vary': 'Origin',
 });
+
+function clientIp(event) {
+  const forwarded = event.headers['x-forwarded-for'] || event.headers['X-Forwarded-For'] || '';
+  return (event.headers['x-nf-client-connection-ip'] || event.headers['X-Nf-Client-Connection-Ip'] || forwarded.split(',')[0] || 'unknown').trim();
+}
+
+function isRateLimited(key) {
+  const now = Date.now();
+  const bucket = requestBuckets.get(key) || [];
+  const recent = bucket.filter((timestamp) => now - timestamp < RATE_WINDOW_MS);
+  recent.push(now);
+  requestBuckets.set(key, recent);
+  return recent.length > MAX_REQUESTS_PER_WINDOW;
+}
 
 exports.handler = async (event) => {
   const origin = event.headers.origin || '';
@@ -37,6 +54,9 @@ exports.handler = async (event) => {
   }
   if (origin && !ALLOWED_ORIGINS.has(origin)) {
     return { statusCode: 403, headers: corsHeaders(origin), body: JSON.stringify({ error: 'Forbidden' }) };
+  }
+  if (isRateLimited(clientIp(event))) {
+    return { statusCode: 429, headers: corsHeaders(origin), body: JSON.stringify({ error: 'Too many requests. Please try again shortly.' }) };
   }
   if (event.body && event.body.length > MAX_BODY_BYTES) {
     return { statusCode: 413, headers: corsHeaders(origin), body: JSON.stringify({ error: 'Request too large' }) };

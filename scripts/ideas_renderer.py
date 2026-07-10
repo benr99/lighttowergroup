@@ -160,6 +160,7 @@ def render_article(article: dict[str, Any]) -> str:
         "dateModified": article.get("updated_iso", date_iso),
         "author": {"@type": "Person", "name": "Benjamin Rohr", "url": f"{SITE_URL}/about.html"},
         "publisher": {"@type": "Organization", "name": "Light Tower Group", "url": SITE_URL, "logo": f"{SITE_URL}/favicon.svg"},
+        "image": f"{SITE_URL}/network.jpg",
         "mainEntityOfPage": page_url,
         "articleSection": "Light Tower Ideas",
         "keywords": tags,
@@ -181,11 +182,16 @@ def render_article(article: dict[str, Any]) -> str:
   <meta property="og:title" content="{esc(article['title'])}">
   <meta property="og:description" content="{esc(article['meta_description'])}">
   <meta property="og:image" content="{SITE_URL}/network.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt" content="{esc(article['title'])}">
   <meta property="article:published_time" content="{date_iso}">
+  <meta property="article:modified_time" content="{article.get('updated_iso', date_iso)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(article['title'])}">
   <meta name="twitter:description" content="{esc(article['meta_description'])}">
   <meta name="twitter:image" content="{SITE_URL}/network.jpg">
+  <meta name="twitter:image:alt" content="{esc(article['title'])}">
   <script type="application/ld+json">
 {json.dumps(schema, indent=2, ensure_ascii=False)}
   </script>
@@ -204,6 +210,7 @@ def render_article(article: dict[str, Any]) -> str:
       <div class="article-byline">
         <span itemprop="author" itemscope itemtype="https://schema.org/Person"><a href="/about.html" itemprop="url"><span itemprop="name">Ben Rohr</span></a></span>
         <span><time itemprop="datePublished" datetime="{date_iso}">{esc(article['date'])}</time></span>
+        <meta itemprop="dateModified" content="{article.get('updated_iso', date_iso)}">
         <span>{int(article.get('reading_time', 7))} min read</span>
       </div>
       <hr class="article-rule">

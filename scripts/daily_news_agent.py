@@ -73,6 +73,7 @@ from editorial_store import (
     save_weekly_review,
 )
 from auto_carousel_generator import generate_carousel_for_article
+from content_governance import independent_quality_issues, load_insight_records, near_duplicate_matches
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -1417,6 +1418,7 @@ def main():
 
     start    = datetime.now(timezone.utc)
     run_data = {"run_at": start.isoformat(), "status": "started", "dry_run": args.dry_run}
+    known_insights = load_insight_records(SITE_ROOT)
 
     print(f"\n{'='*62}")
     print(f"  Light Tower Group \u2014 Daily News Agent")
@@ -1517,6 +1519,13 @@ def main():
             print(f"  [WARN] Article {i} failed content QA: {redact_secret_text(e)} -- skipping")
             continue
 
+        independent_errors = independent_quality_issues(article, require_sections=False)
+        duplicate_errors = near_duplicate_matches(article.get("title", ""), known_insights)
+        if independent_errors or duplicate_errors:
+            reasons = independent_errors + duplicate_errors
+            print(f"  [WARN] Article {i} held by independent quality gate: {'; '.join(reasons[:2])}")
+            continue
+
         if not args.force and already_published(article["slug"]):
             print(f"  Slug '{article['slug']}' already published, skipping...")
             continue
@@ -1525,6 +1534,7 @@ def main():
         print(f"  [{i}] Slug:     {article['slug']}")
         print(f"  [{i}] Category: {article['category']}")
         articles.append(article)
+        known_insights.append(article)
 
     if not articles:
         print("  All generated articles had slug collisions or failed. Exiting.")

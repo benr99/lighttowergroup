@@ -15,6 +15,9 @@ const ALLOWED_ORIGINS = new Set([
 const MAX_MESSAGES   = 20;    // max turns per session
 const MAX_MSG_CHARS  = 2000;  // max chars per individual message
 const MAX_BODY_BYTES = 60_000; // max raw request body size (~30 long messages)
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const MAX_REQUESTS_PER_WINDOW = 24;
+const requestBuckets = new Map();
 
 const SYSTEM_PROMPT = `You are the mandate intake assistant for Light Tower Group, a New York-based institutional commercial real estate capital advisory firm founded by Ben Rohr.
 
@@ -66,6 +69,20 @@ function errorResponse(statusCode, message, corsHeaders) {
   };
 }
 
+function clientIp(event) {
+  const forwarded = event.headers['x-forwarded-for'] || event.headers['X-Forwarded-For'] || '';
+  return (event.headers['x-nf-client-connection-ip'] || event.headers['X-Nf-Client-Connection-Ip'] || forwarded.split(',')[0] || 'unknown').trim();
+}
+
+function isRateLimited(key) {
+  const now = Date.now();
+  const bucket = requestBuckets.get(key) || [];
+  const recent = bucket.filter((timestamp) => now - timestamp < RATE_WINDOW_MS);
+  recent.push(now);
+  requestBuckets.set(key, recent);
+  return recent.length > MAX_REQUESTS_PER_WINDOW;
+}
+
 // ── Handler ──────────────────────────────────────────────────────────────────
 
 exports.handler = async (event) => {
@@ -85,6 +102,10 @@ exports.handler = async (event) => {
   // Origin enforcement — block requests from unknown origins
   if (origin && !ALLOWED_ORIGINS.has(origin)) {
     return errorResponse(403, 'Forbidden', cors);
+  }
+
+  if (isRateLimited(clientIp(event))) {
+    return errorResponse(429, 'Too many requests. Please try again shortly.', cors);
   }
 
   // API key check
@@ -126,6 +147,12 @@ exports.handler = async (event) => {
 
   if (messages.length === 0) {
     return errorResponse(400, 'No valid messages', cors);
+  }
+
+  // Preserve the real chat sequence. A caller cannot insert a fabricated bot
+  // response into earlier context and steer the next model turn.
+  if (messages.some((message, index) => message.role !== (index % 2 === 0 ? 'user' : 'assistant'))) {
+    return errorResponse(400, 'Messages must alternate user and assistant roles', cors);
   }
 
   // Final message must be from user (prevents injecting assistant-role "confirmations")

@@ -1,5 +1,10 @@
 ﻿# Light Tower Group News Agent — Deployment Guide
 
+> Current editorial safeguards and publication policy are documented in
+> [`docs/EDITORIAL_GOVERNANCE.md`](docs/EDITORIAL_GOVERNANCE.md). This guide
+> describes the legacy delivery flow; the governance document takes precedence
+> where the two differ.
+
 ## Production Status: ✓ LIVE
 
 **Deployment Date:** May 3, 2026  

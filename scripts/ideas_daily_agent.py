@@ -70,6 +70,7 @@ from ideas_renderer import (
     write_json,
 )
 from story_normalizer import normalize_stories
+from content_governance import load_idea_records, near_duplicate_matches, sanitize_untrusted_source
 
 try:
     from news_sources import RSS_FEEDS, CRE_KEYWORDS, EXCLUDE_KEYWORDS
@@ -172,6 +173,7 @@ def main() -> int:
 
     articles = []
     held = []
+    known_records = load_idea_records(SITE_ROOT)
     for idx, idea in enumerate(selected, 1):
         if len(articles) >= count:
             break
@@ -180,6 +182,7 @@ def main() -> int:
         article = generate_article(dossier, no_ai=args.no_ai or args.offline)
         article = normalize_article(article, idea, dossier)
         errors = validate_article(article, dossier)
+        errors.extend(near_duplicate_matches(article["title"], known_records))
         if errors:
             held.append({"idea": idea, "article": article, "dossier": dossier, "errors": errors})
             write_json(DATA_ROOT / "held" / f"{article.get('slug','held')}.json", held[-1])
@@ -195,6 +198,7 @@ def main() -> int:
         article["_html"] = html_doc
         article["_dossier"] = dossier
         articles.append(article)
+        known_records.append(public_article(article))
         print(f"  OK: {article['slug']}")
 
     print(f"[5/7] Publishable: {len(articles)} | held: {len(held)}")
@@ -333,11 +337,14 @@ def fresh_selection(ranked: list[dict[str, Any]], count: int, *, force: bool) ->
 
 
 def create_dossier(idea: dict[str, Any]) -> dict[str, Any]:
-    text = f"{idea['title']} {idea.get('summary','')}"
-    source_text = fetch_article_text(idea.get("url", ""))
-    facts = [idea["title"]]
-    if idea.get("summary"):
-        facts.append(idea["summary"])
+    safe_title = clean_text(sanitize_untrusted_source(idea["title"]))
+    safe_summary = clean_text(sanitize_untrusted_source(idea.get("summary", "")))
+    safe_source = clean_text(sanitize_untrusted_source(idea.get("source", "Source")))
+    text = f"{safe_title} {safe_summary}"
+    source_text = sanitize_untrusted_source(fetch_article_text(idea.get("url", "")))
+    facts = [safe_title]
+    if safe_summary:
+        facts.append(safe_summary)
     if source_text:
         facts.append(source_text[:1200])
     facts.extend(idea.get("entities", {}).get("amounts", []))
@@ -346,11 +353,11 @@ def create_dossier(idea: dict[str, Any]) -> dict[str, Any]:
     score = idea.get("ideas_score", {})
     return {
         "source_story": {
-            "title": idea["title"],
-            "source": idea.get("source"),
+            "title": safe_title,
+            "source": safe_source,
             "url": idea.get("url"),
             "published": idea.get("published"),
-            "summary": idea.get("summary"),
+            "summary": safe_summary,
         },
         "reported_facts": list(dict.fromkeys(facts)),
         "source_urls": [idea.get("url")],
@@ -512,6 +519,10 @@ def save_run_log(start: datetime, args: argparse.Namespace, stories: list, candi
         "preview_count": len(articles) if not args.publish else 0,
         "held_count": len(held),
         "articles": [{"title": item["title"], "slug": item["slug"]} for item in articles],
+        "held_reasons": [
+            {"slug": item.get("article", {}).get("slug", "held"), "errors": item.get("errors", [])[:5]}
+            for item in held
+        ],
     }
     write_json(DATA_ROOT / "internal" / "logs" / f"{start.strftime('%Y-%m-%d-%H%M%S')}.json", payload)
 
