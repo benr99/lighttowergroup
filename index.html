@@ -346,11 +346,11 @@
       display: grid;
       grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
       gap: clamp(2rem, 7vw, 8rem);
-      align-items: end;
+      align-items: start;
     }
 
     .hero-signal-card {
-      align-self: stretch;
+      align-self: start;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -372,7 +372,7 @@
     }
     .hero-signal-card p { color: rgba(255,255,255,0.68); font-size: 0.93rem; line-height: 1.7; }
     .hero-signal-art {
-      width: 100%; aspect-ratio: 1.75 / 1; object-fit: cover; object-position: right center;
+      width: 100%; height: auto; max-height: 250px; aspect-ratio: 1.75 / 1; object-fit: cover; object-position: right center;
       margin: 1.5rem 0; border: 1px solid rgba(255,255,255,0.12);
       filter: saturate(0.86) contrast(1.04);
     }
@@ -468,6 +468,7 @@
       .hero-cta-group { flex-direction: column; align-items: flex-start; }
       .hero-intro { grid-template-columns: 1fr; }
       .hero-signal-card { min-height: 250px; }
+      .hero-signal-art { max-height: 210px; }
     }
 
     /* ===================== METRICS STRIP ===================== */
