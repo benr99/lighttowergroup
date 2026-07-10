@@ -2,8 +2,6 @@ memory/
 data/
 agent/
 *.py
-!tests/
-!tests/*.py
 !scripts/*.py
 .env
 scripts/.env
