@@ -19,6 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from article_adapter import clean_text, compact_sentence, legacy_stories_from_slides
+from editorial_voice import VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
 
 
 logger = logging.getLogger(__name__)
@@ -70,6 +71,8 @@ Bad: "This is an important transaction."
 Better: "The transaction is notable because the capital is moving before
 consensus has fully returned."
 """
+
+CAROUSEL_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
 
 CAROUSEL_USER_TEMPLATE = """\
 Create a LinkedIn PDF carousel script from this article.
@@ -140,6 +143,9 @@ Category: {category}
 Source: {source}
 Date: {date}
 
+Editorial brief (use it to vary the narrative; do not print its labels):
+{editorial_brief}
+
 Allowed figures from the source article:
 {figures_json}
 
@@ -161,6 +167,29 @@ def article_text_from_html(article_html: str, article_data: dict[str, Any]) -> s
     return clean_text(soup.get_text(" ", strip=True))
 
 
+def _review_carousel(schema: dict[str, Any], *, fallback: bool) -> dict[str, Any]:
+    copy = "\n".join(
+        " ".join(
+            [
+                str(slide.get("headline", "")),
+                str(slide.get("subhead", "")),
+            ]
+        )
+        for slide in schema.get("slides", [])
+        if isinstance(slide, dict)
+    )
+    issues = editorial_quality_issues(copy, min_characters=60)
+    if fallback:
+        issues.append("automated fallback is never publishable")
+    schema["editorial_review"] = {
+        "status": "ready_for_review" if not issues else "needs_revision",
+        "issues": list(dict.fromkeys(issues)),
+        "independent_checks": True,
+    }
+    schema["publish_ready"] = not issues
+    return schema
+
+
 def generate_carousel_script(
     article_html: str,
     article_data: dict[str, Any],
@@ -170,13 +199,16 @@ def generate_carousel_script(
 ) -> dict[str, Any]:
     """Return a PDF schema, using DeepSeek when available and fallback otherwise."""
     key = api_key if api_key is not None else DEEPSEEK_API_KEY
+    editorial_brief = select_editorial_brief(article_data)
     if not key:
         fallback_schema["carousel_agent"] = {
             "name": "deterministic_adapter",
             "fallback": True,
             "reason": "DEEPSEEK_API_KEY not set",
         }
-        return fallback_schema
+        fallback_schema["voice_mode"] = editorial_brief["name"]
+        fallback_schema["editorial_brief"] = editorial_brief
+        return _review_carousel(fallback_schema, fallback=True)
 
     article_text = article_text_from_html(article_html, article_data)[:9000]
     try:
@@ -188,6 +220,7 @@ def generate_carousel_script(
             date=article_data.get("date") or article_data.get("date_iso") or "",
             figures_json=json.dumps(allowed_figures(fallback_schema), ensure_ascii=True),
             article_text=article_text,
+            editorial_brief=json.dumps(editorial_brief, ensure_ascii=False),
         )
         resp = requests.post(
             "https://api.deepseek.com/v1/chat/completions",
@@ -214,7 +247,9 @@ def generate_carousel_script(
             "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             "validation_warnings": schema.pop("_carousel_validation_warnings", []),
         }
-        return schema
+        schema["voice_mode"] = editorial_brief["name"]
+        schema["editorial_brief"] = editorial_brief
+        return _review_carousel(schema, fallback=False)
     except Exception as exc:
         logger.warning("[PDF] DeepSeek carousel script failed, using fallback: %s", exc)
         fallback_schema["carousel_agent"] = {
@@ -222,7 +257,9 @@ def generate_carousel_script(
             "fallback": True,
             "reason": str(exc),
         }
-        return fallback_schema
+        fallback_schema["voice_mode"] = editorial_brief["name"]
+        fallback_schema["editorial_brief"] = editorial_brief
+        return _review_carousel(fallback_schema, fallback=True)
 
 
 def parse_model_json(raw: str) -> dict[str, Any]:

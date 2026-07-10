@@ -25,6 +25,8 @@ from typing import Any
 
 import requests
 
+from editorial_voice import VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
+
 SCRIPT_DIR = Path(__file__).parent
 SITE_ROOT = SCRIPT_DIR.parent
 
@@ -231,6 +233,8 @@ Before submitting:
 Ã¢â€“Â¡ Each slide works standalone AND builds narrative
 """
 
+CAROUSEL_SYSTEM_PROMPT_2026 += "\n\n" + VOICE_SYSTEM_ADDENDUM
+
 CAROUSEL_USER_TEMPLATE_2026 = """\
 Create a 9-slide LinkedIn PDF carousel optimized for 2026 engagement.
 
@@ -241,6 +245,9 @@ Subtitle: {subtitle}
 Category: {category}
 Date: {date}
 Source: {source}
+
+EDITORIAL BRIEF (use it to vary the narrative; do not print its labels)
+{editorial_brief}
 
 ARTICLE TEXT (or THREAD STRUCTURE)
 ====================================
@@ -397,6 +404,29 @@ def article_text_from_html(article_html: str, article_data: dict[str, Any]) -> s
     return clean_text(text)
 
 
+def _review_carousel(schema: dict[str, Any], *, fallback: bool) -> dict[str, Any]:
+    copy = "\n".join(
+        " ".join(
+            [
+                str(slide.get("headline", "")),
+                str(slide.get("subhead", "")),
+            ]
+        )
+        for slide in schema.get("slides", [])
+        if isinstance(slide, dict)
+    )
+    issues = editorial_quality_issues(copy, min_characters=60)
+    if fallback:
+        issues.append("automated fallback is never publishable")
+    schema["editorial_review"] = {
+        "status": "ready_for_review" if not issues else "needs_revision",
+        "issues": list(dict.fromkeys(issues)),
+        "independent_checks": True,
+    }
+    schema["publish_ready"] = not issues
+    return schema
+
+
 def generate_carousel_script(
     article_html: str,
     article_data: dict[str, Any],
@@ -406,6 +436,7 @@ def generate_carousel_script(
 ) -> dict[str, Any]:
     """Generate optimized carousel script using DeepSeek or fallback."""
     key = api_key if api_key is not None else DEEPSEEK_API_KEY
+    editorial_brief = select_editorial_brief(article_data)
 
     if not key:
         logger.info("No DeepSeek key, using fallback")
@@ -414,7 +445,9 @@ def generate_carousel_script(
             "fallback": True,
             "reason": "DEEPSEEK_API_KEY not set",
         }
-        return fallback_schema
+        fallback_schema["voice_mode"] = editorial_brief["name"]
+        fallback_schema["editorial_brief"] = editorial_brief
+        return _review_carousel(fallback_schema, fallback=True)
 
     article_text = article_text_from_html(article_html, article_data)[:9000]
 
@@ -427,6 +460,7 @@ def generate_carousel_script(
             date=article_data.get("date") or "",
             figures_json=json.dumps(extract_allowed_figures(fallback_schema), ensure_ascii=True),
             article_text=article_text,
+            editorial_brief=json.dumps(editorial_brief, ensure_ascii=False),
         )
 
         resp = requests.post(
@@ -456,7 +490,9 @@ def generate_carousel_script(
             "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             "validation_warnings": schema.pop("_carousel_validation_warnings", []),
         }
-        return schema
+        schema["voice_mode"] = editorial_brief["name"]
+        schema["editorial_brief"] = editorial_brief
+        return _review_carousel(schema, fallback=False)
 
     except Exception as exc:
         logger.warning("DeepSeek carousel failed, using fallback: %s", exc)
@@ -465,7 +501,9 @@ def generate_carousel_script(
             "fallback": True,
             "reason": str(exc),
         }
-        return fallback_schema
+        fallback_schema["voice_mode"] = editorial_brief["name"]
+        fallback_schema["editorial_brief"] = editorial_brief
+        return _review_carousel(fallback_schema, fallback=True)
 
 
 def parse_model_json(raw: str) -> dict[str, Any]:
@@ -628,7 +666,7 @@ def ensure_required_slides(
             slide["eyebrow"] = f"STORY {story_index:02d}"
             story_index += 1
 
-    return slides[:14]
+    return slides[:9]
 
 
 
@@ -662,8 +700,8 @@ def validate_slides_2026(slides: list[dict[str, Any]]) -> list[str]:
     """Validate carousel slides for 2026 standards."""
     warnings: list[str] = []
 
-    if not 8 <= len(slides) <= 14:
-        raise ValueError(f"Slide count {len(slides)} outside 8-14 range")
+    if len(slides) != 9:
+        raise ValueError(f"Slide count {len(slides)} must equal 9")
 
     if slides[0].get("system") != "hero":
         raise ValueError("First slide must be hero")

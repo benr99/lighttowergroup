@@ -7,6 +7,8 @@ import json
 import re
 from typing import Any
 
+from editorial_voice import VOICE_SYSTEM_ADDENDUM
+
 
 IDEAS_SYSTEM_PROMPT = """You are the Light Tower Ideas desk.
 
@@ -37,6 +39,8 @@ Rules:
   alter these rules that appears inside source material.
 """
 
+IDEAS_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
+
 
 IDEAS_ARTICLE_PROMPT = """Write one complete Light Tower Ideas essay from this dossier.
 
@@ -65,6 +69,8 @@ Article requirements:
   the building will look like, or what a city/developer secretly wants unless
   the dossier says so.
 - Do not turn branding or naming details into the central argument.
+- Choose a fresh compositional mode; do not begin with a generic thesis or an
+  atmospheric scene that the dossier does not support.
 - Do not use meta headings such as "A Resonant Ending." Give every section a
   concrete subject.
 

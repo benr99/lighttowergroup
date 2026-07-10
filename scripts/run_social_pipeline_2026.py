@@ -233,12 +233,15 @@ def run_social_pipeline(
         output_path.write_text(json.dumps(pipeline_log, indent=2, ensure_ascii=False), encoding="utf-8")
 
         # Also save individual packages to queues
-        if thread_package and "error" not in thread_package:
+        if thread_package and "error" not in thread_package and thread_package.get("publish_ready"):
             try:
                 save_thread_to_queue(thread_package)
                 print(f"  ✓ Saved thread package to linkedin_thread_queue.json")
             except Exception as e:
                 print(f"  [WARN] Could not save thread queue: {e}")
+
+        elif thread_package and "error" not in thread_package:
+            print("  [HOLD] Thread needs editorial revision; it was not added to the publishing queue.")
 
         print(f"  ✓ Pipeline output saved to {output_path.name}")
 
@@ -249,15 +252,19 @@ def run_social_pipeline(
     print(f"Article: {article.get('title', 'Untitled')}")
     print(f"Strategy: {strategy.get('primary_format', 'unknown').upper()}")
 
-    if thread_package and "error" not in thread_package:
+    if thread_package and "error" not in thread_package and thread_package.get("publish_ready"):
         thread_posts = len(thread_package.get("posts", []))
         print(f"Thread: {thread_posts} posts ready")
+    elif thread_package and "error" not in thread_package:
+        print("Thread: held for editorial revision")
     else:
         print(f"Thread: ✗ Failed")
 
-    if carousel_schema and "error" not in carousel_schema:
+    if carousel_schema and "error" not in carousel_schema and carousel_schema.get("publish_ready"):
         carousel_slides = len(carousel_schema.get("slides", []))
         print(f"Carousel: {carousel_slides} slides ready")
+    elif carousel_schema and "error" not in carousel_schema:
+        print("Carousel: held for editorial revision")
     else:
         print(f"Carousel: ✗ Failed")
 

@@ -22,6 +22,8 @@ from typing import Any
 
 import requests
 
+from editorial_voice import VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
+
 SCRIPT_DIR = Path(__file__).parent
 SITE_ROOT = SCRIPT_DIR.parent
 
@@ -247,6 +249,8 @@ Quality checkpoint before output:
 ☑ Would make Benjamin Rohr proud
 """
 
+CAROUSEL_CONTENT_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
+
 CAROUSEL_CONTENT_USER_TEMPLATE = """\
 Create carousel slide content for a premium PDF carousel.
 
@@ -256,6 +260,9 @@ ARTICLE
 Title: {title}
 Category: {category}
 Date: {date}
+
+Editorial brief (use it to vary the sequence; do not print its labels):
+{editorial_brief}
 
 Article text:
 {article_text}
@@ -400,6 +407,7 @@ def generate_carousel_content(
 ) -> dict[str, Any]:
     """Generate carousel slide content using DeepSeek."""
     api_key = api_key if api_key is not None else DEEPSEEK_API_KEY
+    editorial_brief = select_editorial_brief(article_data)
 
     # Get article text
     text = (article_text or article_data.get("body_text") or "").strip()
@@ -410,13 +418,23 @@ def generate_carousel_content(
     text = text[:6000]
 
     if not api_key:
-        return _fallback_carousel_content(article_data, text)
+        fallback = _fallback_carousel_content(article_data, text)
+        fallback["voice_mode"] = editorial_brief["name"]
+        fallback["editorial_brief"] = editorial_brief
+        fallback["editorial_review"] = {
+            "status": "needs_revision",
+            "issues": ["automated fallback is never publishable"],
+            "independent_checks": True,
+        }
+        fallback["publish_ready"] = False
+        return fallback
 
     prompt = CAROUSEL_CONTENT_USER_TEMPLATE.format(
         title=article_data.get("title", ""),
         category=article_data.get("category", ""),
         date=article_data.get("date", ""),
         article_text=text,
+        editorial_brief=json.dumps(editorial_brief, ensure_ascii=False),
     )
 
     resp = requests.post(
@@ -443,6 +461,20 @@ def generate_carousel_content(
 
     carousel_content = loads_carousel_json(match.group())
     carousel_content["generated_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    carousel_content["voice_mode"] = editorial_brief["name"]
+    carousel_content["editorial_brief"] = editorial_brief
+    copy = "\n".join(
+        " ".join([str(slide.get("headline", "")), str(slide.get("body", ""))])
+        for slide in carousel_content.get("slides", [])
+        if isinstance(slide, dict)
+    )
+    issues = editorial_quality_issues(copy, min_characters=60)
+    carousel_content["editorial_review"] = {
+        "status": "ready_for_review" if not issues else "needs_revision",
+        "issues": issues,
+        "independent_checks": True,
+    }
+    carousel_content["publish_ready"] = not issues
     return carousel_content
 
 

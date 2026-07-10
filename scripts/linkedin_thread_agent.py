@@ -27,6 +27,13 @@ from typing import Any
 
 import requests
 
+from editorial_voice import (
+    VOICE_SYSTEM_ADDENDUM,
+    editorial_quality_issues,
+    load_recent_packages,
+    select_editorial_brief,
+)
+
 SCRIPT_DIR = Path(__file__).parent
 SITE_ROOT = SCRIPT_DIR.parent
 INSIGHTS_JSON = SITE_ROOT / "insights.json"
@@ -177,6 +184,8 @@ CHECKPOINT BEFORE OUTPUT:
 Return only valid JSON. No markdown. No text outside the JSON.
 """
 
+THREAD_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
+
 THREAD_USER_TEMPLATE = """\
 LIGHT TOWER INSIGHT
 
@@ -189,10 +198,16 @@ ARTICLE TEXT
 
 {article_text}
 
+EDITORIAL BRIEF
+{editorial_brief}
+
 TASK
 
-Create a native LinkedIn thread: 5-8 posts written to spark engagement,
-debate, and authentic conversation among CRE capital markets professionals.
+Create a native LinkedIn thread: 5-8 posts written to spark useful
+conversation among CRE capital markets professionals. Follow the assigned
+editorial mode without naming it in the posts. Avoid the usual generated
+patterns: no "the real story," "the most important number is not," "who
+benefits," "who is exposed," or manufactured debate.
 
 Each post should work standalone but build narrative cohesion. Format your
 output as valid JSON:
@@ -218,7 +233,7 @@ output as valid JSON:
   "engagement_hooks": ["3 potential debate angles this thread might spark"],
   "final_cta": "The specific question that ends Post 8",
   "suitable_for_carousel": true,
-  "format_recommendation": "thread_only | carousel_primary | debate_thread"
+    "format_recommendation": "thread_only | carousel_primary | debate_thread"
 }}
 
 CRITICAL CONSTRAINTS:
@@ -337,6 +352,7 @@ def generate_thread_package(
     """Generate a LinkedIn thread package from an article."""
     api_key = api_key if api_key is not None else DEEPSEEK_API_KEY
     url = insight_url(article, site_url)
+    editorial_brief = select_editorial_brief(article, load_recent_packages(THREAD_QUEUE))
 
     # Get article text
     text = (article_text or article.get("body_text") or "").strip()
@@ -350,6 +366,14 @@ def generate_thread_package(
 
     if not api_key:
         package = _fallback_thread(article, site_url)
+        package["voice_mode"] = editorial_brief["name"]
+        package["editorial_brief"] = editorial_brief
+        package["editorial_review"] = {
+            "status": "needs_revision",
+            "issues": ["automated fallback is never publishable"],
+            "independent_checks": True,
+        }
+        package["publish_ready"] = False
         return package
 
     prompt = THREAD_USER_TEMPLATE.format(
@@ -358,6 +382,7 @@ def generate_thread_package(
         date=article.get("date", ""),
         insight_url=url,
         article_text=text,
+        editorial_brief=json.dumps(editorial_brief, ensure_ascii=False),
     )
 
     try:
@@ -390,16 +415,36 @@ def generate_thread_package(
         package["fallback"] = False
         package["slug"] = article.get("slug", "")
         package["insight_title"] = article.get("title", "")
+        package["voice_mode"] = editorial_brief["name"]
+        package["editorial_brief"] = editorial_brief
+        joined = "\n\n".join(str(post.get("post_text", "")) for post in package.get("posts", []) if isinstance(post, dict))
+        issues = editorial_quality_issues(joined, min_characters=350)
+        package["editorial_review"] = {
+            "status": "ready_for_review" if not issues else "needs_revision",
+            "issues": issues,
+            "independent_checks": True,
+        }
+        package["publish_ready"] = not issues
         return package
 
     except Exception as e:
         print(f"[WARN] Thread generation failed: {e}", file=sys.stderr)
         package = _fallback_thread(article, site_url)
+        package["voice_mode"] = editorial_brief["name"]
+        package["editorial_brief"] = editorial_brief
+        package["editorial_review"] = {
+            "status": "needs_revision",
+            "issues": ["automated fallback is never publishable"],
+            "independent_checks": True,
+        }
+        package["publish_ready"] = False
         return package
 
 
 def save_thread_to_queue(package: dict[str, Any], queue_path: Path = THREAD_QUEUE) -> None:
     """Save thread package to queue."""
+    if not package.get("publish_ready"):
+        raise ValueError("only independently approved thread packages may enter the publishing queue")
     queue_path.parent.mkdir(parents=True, exist_ok=True)
     queue: list[dict[str, Any]] = []
     if queue_path.exists():

@@ -7,7 +7,7 @@ $Python = Join-Path $RepoRoot ".venv\Scripts\python.exe"
 if (-not (Test-Path $Python)) { $Python = "python" }
 
 $env:PYTHONDONTWRITEBYTECODE = "1"
-& $Python -m py_compile scripts\content_governance.py scripts\content_maintenance.py scripts\ideas_daily_agent.py scripts\daily_news_agent.py
+& $Python -m py_compile scripts\content_governance.py scripts\content_maintenance.py scripts\editorial_voice.py scripts\enhanced_prompts.py scripts\linkedin_essay_agent.py scripts\linkedin_thread_agent.py scripts\carousel_script_agent.py scripts\carousel_script_agent_2026.py scripts\carousel_content_writer.py scripts\ideas_daily_agent.py scripts\daily_news_agent.py
 & $Python -m unittest discover -s tests -v
 & $Python -c "import xml.etree.ElementTree as ET, tomllib; ET.parse('sitemap.xml'); ET.parse('feed.xml'); tomllib.load(open('netlify.toml','rb')); print('public_artifacts_ok')"
 

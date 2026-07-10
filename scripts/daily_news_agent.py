@@ -74,6 +74,7 @@ from editorial_store import (
 )
 from auto_carousel_generator import generate_carousel_for_article
 from content_governance import independent_quality_issues, load_insight_records, near_duplicate_matches
+from editorial_voice import select_editorial_brief
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -473,6 +474,11 @@ def generate_article(story: dict) -> dict:
         if story.get("mentioned_addresses") else ""
     )
 
+    editorial_brief = select_editorial_brief({
+        "slug": story.get("url", ""),
+        "title": story.get("title", ""),
+        "category": "Capital Markets",
+    })
     user_prompt = USER_PROMPT_TEMPLATE.format(
         title=story['title'],
         source=story['source'],
@@ -481,7 +487,8 @@ def generate_article(story: dict) -> dict:
         summary=story['summary'],
         full_text=full_text_block,
         addresses_block=addresses_block,
-        today=now_utc.strftime('%B %d, %Y')
+        today=now_utc.strftime('%B %d, %Y'),
+        voice_brief=json.dumps(editorial_brief, ensure_ascii=False),
     )
 
     resp = requests.post(
@@ -1237,9 +1244,15 @@ def post_to_linkedin(article: dict, dry_run: bool = False) -> bool:
 
     if package:
         overall_score = ((package.get("quality_score") or {}).get("overall") or 0)
-        if package.get("fallback") or overall_score < 8:
+        review = package.get("editorial_review") or {}
+        if (
+            package.get("fallback")
+            or overall_score < 8
+            or not package.get("publish_ready")
+            or review.get("status") != "ready_for_review"
+        ):
             print(
-                "  [SKIP] LinkedIn Essay Desk package did not meet the 8/10 quality gate; "
+                "  [SKIP] LinkedIn Essay Desk package did not meet the independent editorial gate; "
                 "saved to queue for review instead."
             )
             return False
@@ -1564,14 +1577,21 @@ def main():
                 site_url=SITE_URL,
             )
 
+        review = package.get("editorial_review") or {}
+        approved = bool(package.get("publish_ready")) and review.get("status") == "ready_for_review"
         article["linkedin_essay_package"] = package
-        article["linkedin_essay"] = package.get("linkedin_essay", "")
+        article["linkedin_essay"] = package.get("linkedin_essay", "") if approved else ""
         article["linkedin_hook"] = article["linkedin_essay"] or article.get("linkedin_hook", "")
-        article["linkedin_first_comment"] = package.get("first_comment", "")
+        article["linkedin_first_comment"] = package.get("first_comment", "") if approved else ""
         essay_packages.append(package)
 
         score = (package.get("quality_score") or {}).get("overall", "?")
-        print(f"  [{i}] Essay Desk: {package.get('archetype', 'unknown')} | score {score}/10")
+        mode = package.get("voice_mode", "unknown")
+        if not approved:
+            reasons = "; ".join(review.get("issues", [])[:3]) or "independent review required"
+            print(f"  [{i}] Essay Desk HELD: {mode} | {reasons}")
+            continue
+        print(f"  [{i}] Essay Desk: {mode} | score {score}/10")
         if not args.dry_run:
             save_to_queue(package)
 
