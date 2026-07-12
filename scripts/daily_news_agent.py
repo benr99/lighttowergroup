@@ -1081,8 +1081,9 @@ def update_manifest(article: dict):
 
 
 def generate_carousel_pdf(article_slug: str, dry_run: bool = False):
-    """Generate PDF carousel for article automatically after publishing."""
+    """Legacy manual carousel command; the daily flow now creates article PDFs."""
     try:
+        from auto_carousel_generator import generate_carousel_for_article
         pdf_path = generate_carousel_for_article(article_slug, dry_run=dry_run)
         if pdf_path:
             print(f"  ✓ Carousel PDF created: {article_slug}_carousel.pdf")
