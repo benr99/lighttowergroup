@@ -102,6 +102,7 @@ _SITEMAP_STATIC = [
     ("/life-company-financing.html","0.8", "monthly"),
 ]
 LOG_FILE      = SCRIPT_DIR / "agent_log.json"
+LINKEDIN_PDF_QUEUE = SCRIPT_DIR / "linkedin_pdf_queue.json"
 
 ANTHROPIC_API_KEY     = os.environ.get("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY      = os.environ.get("DEEPSEEK_API_KEY", "")
@@ -1392,6 +1393,17 @@ def write_log(run_data: dict):
     LOG_FILE.write_text(json.dumps(log, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+def write_linkedin_pdf_queue(articles: list) -> None:
+    """Persist the exact daily article order for paced LinkedIn document posts."""
+    queue = {
+        "date": datetime.now().astimezone().date().isoformat(),
+        "slugs": [article["slug"] for article in articles],
+        "count": len(articles),
+    }
+    LINKEDIN_PDF_QUEUE.write_text(json.dumps(queue, indent=2), encoding="utf-8")
+    print(f"  LinkedIn PDF queue updated ({queue['count']} slots)")
+
+
 def safe_queue_pdf_generation(article: dict):
     """Create the final Insight as a LinkedIn-ready article document PDF."""
     if not article.get("body_html"):
@@ -1447,7 +1459,7 @@ def main():
     parser.add_argument("--force", action="store_true",
                         help="Skip the duplicate-slug check")
     parser.add_argument("--articles", type=int, default=5, metavar="N",
-                        help="Number of articles to publish per run (default: 5, max: 10)")
+                        help="Number of articles to publish per run (default: 5, max: 30)")
     parser.add_argument("--lookback-hours", type=int, default=36, metavar="H",
                         help="Story recency window in hours (default: 36; use 168 for a seven-day backfill)")
     parser.add_argument("--linkedin-length", choices=["standard", "edge", "compressed"],
@@ -1466,7 +1478,7 @@ def main():
     if args.weekly_review:
         run_weekly_review(args)
         return
-    MAX_ARTICLES = max(1, min(args.articles, 10))
+    MAX_ARTICLES = max(1, min(args.articles, 30))
     LOOKBACK_HOURS = max(1, args.lookback_hours)
 
     start    = datetime.now(timezone.utc)
@@ -1682,6 +1694,7 @@ def main():
         print("\n[6b/8] Generating LinkedIn article PDF package(s)...")
         for article in articles:
             safe_queue_pdf_generation(article)
+        write_linkedin_pdf_queue(articles)
 
         git_commit_push(articles, dry_run=False)
     else:
