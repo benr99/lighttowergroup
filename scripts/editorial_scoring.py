@@ -17,6 +17,9 @@ import requests
 
 
 MODEL_NAME = "deepseek-chat"
+MIN_PUBLISH_SCORE = 70
+MIN_CAPITAL_MARKETS_SCORE = 14
+MIN_SPECIFICITY_SCORE = 8
 
 DAILY_SCORE_KEYS = [
     "newsworthiness",
@@ -109,6 +112,16 @@ def _fallback_score(candidate: dict[str, Any], index: int) -> dict[str, Any]:
     }
 
 
+def is_publishable_daily_candidate(item: dict[str, Any]) -> bool:
+    """Hard eligibility floor: a ranked item is not automatically publishable."""
+    return (
+        _coerce_int(item.get("score")) >= MIN_PUBLISH_SCORE
+        and _coerce_int(item.get("capital_markets_significance")) >= MIN_CAPITAL_MARKETS_SCORE
+        and _coerce_int(item.get("specificity")) >= MIN_SPECIFICITY_SCORE
+        and _coerce_int(item.get("penalty")) < 20
+    )
+
+
 def _score_prompt(candidates: list[dict[str, Any]], today: str) -> str:
     story_list = "\n\n".join(
         f"[{c.get('_score_index', i+1)}] SOURCE: {c['source']} | tier {c.get('source_tier', 3)} | domains {', '.join(c.get('source_domains', []))}\n"
@@ -159,6 +172,12 @@ Apply penalties:
 - Non-U.S. without U.S. capital implication: -20
 - Duplicate/syndicated version of stronger source: -20
 - Thin summary and no publishable angle: -15
+
+Publication eligibility is deliberately strict. Do not award a score of 70 or
+higher unless the item has a concrete, defensible CRE, banking, or institutional
+private-capital transmission mechanism; adequate reported evidence; and a
+specific analysis angle. A dramatic general-news headline with only a vague
+connection to real estate is not eligible.
 
 Return ONLY a valid JSON object with this exact top-level shape:
 {{
@@ -255,15 +274,23 @@ def call_deepseek(
 
 
 def _normalize_score_row(row: dict[str, Any], candidate: dict[str, Any], index: int) -> dict[str, Any]:
-    result = _fallback_score(candidate, index)
+    baseline = _fallback_score(candidate, index)
+    result = dict(baseline)
     for key in list(result.keys()):
         if key in row:
             result[key] = row[key]
     for key in DAILY_SCORE_KEYS + ["score", "penalty"]:
         result[key] = _coerce_int(result.get(key), 0)
-    result["score"] = max(0, min(result["score"], 100))
+    model_score = _coerce_int(row.get("score"), baseline["score"])
+    # Blend explainable source-derived signals with the editor model's judgment.
+    # This reduces volatility from a single model response while retaining its
+    # ability to recognize a genuinely consequential story.
+    result["deterministic_score"] = baseline["score"]
+    result["model_score"] = model_score
+    result["score"] = max(0, min(round(0.40 * baseline["score"] + 0.60 * model_score), 100))
     result["index"] = index
     result["candidate"] = candidate
+    result["publishable"] = is_publishable_daily_candidate(result)
     return result
 
 
@@ -311,7 +338,8 @@ def select_final_daily_stories(
     api_key: str,
     today: str,
 ) -> dict[str, Any]:
-    top = scored[:25]
+    eligible = [item for item in scored if is_publishable_daily_candidate(item)]
+    top = eligible[:max(50, article_count * 2)]
     fallback_indices = [item["index"] for item in top[:article_count]]
     fallback = {
         "selected_indices": fallback_indices,
@@ -332,10 +360,11 @@ def select_final_daily_stories(
             json_mode=True,
         )
         data = _extract_json_object(raw)
+        permitted = {item["index"] for item in top}
         selected = [
             _coerce_int(idx, 0)
             for idx in data.get("selected_indices", [])
-            if _coerce_int(idx, 0)
+            if _coerce_int(idx, 0) in permitted
         ]
         if not selected:
             selected = fallback_indices
@@ -366,9 +395,9 @@ def daily_top_news_selection(
         for idx in selection.get("selected_indices", [])
         if idx in scored_by_index
     ]
-    if len(selected_items) < article_count:
-        existing = {item["index"] for item in selected_items}
-        selected_items.extend([item for item in scored if item["index"] not in existing][: article_count - len(selected_items)])
+    # Never fill a publishing quota with weaker stories. The number of selected
+    # items is intentionally allowed to be lower than the requested maximum.
+    selected_items = [item for item in selected_items if is_publishable_daily_candidate(item)]
 
     return {
         "selection_mode": "daily-top-news",
@@ -376,6 +405,7 @@ def daily_top_news_selection(
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "today": today,
         "candidate_count": len(candidates),
+        "publishable_candidate_count": sum(is_publishable_daily_candidate(item) for item in scored),
         "scored_candidates": scored,
         "selected_stories": selected_items[:article_count],
         "daily_editorial_theme": selection.get("daily_editorial_theme", ""),

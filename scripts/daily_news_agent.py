@@ -167,7 +167,10 @@ def fetch_rss_stories() -> list:
             )
             if getattr(feed, "bozo", False) and not getattr(feed, "entries", None):
                 failed_feeds += 1
-            for entry in feed.entries[:20]:
+            # Score every recent entry the source exposes. The 36-hour recency
+            # filter below, not an arbitrary per-feed headline cap, determines
+            # the daily candidate universe.
+            for entry in feed.entries:
                 title   = (entry.get("title") or "").strip()
                 url     = entry.get("link") or entry.get("id") or ""
                 summary = (entry.get("summary") or entry.get("description") or "")[:600]
@@ -286,12 +289,34 @@ DAILY_TOP_NEWS_KEYWORDS = CRE_KEYWORDS + [
     "jpmorgan", "goldman", "wells fargo", "morgan stanley", "sl green",
 ]
 
+_DAILY_FINANCE_SIGNALS = (
+    "bank", "credit", "loan", "lender", "private equity", "private credit",
+    "fund", "refinanc", "financ", "acquisition", "merger", "m&a", "reit",
+    "fed", "federal reserve", "treasury", "cmbs", "default", "distress",
+    "foreclosure", "bankruptcy", "policy", "zoning", "regulation",
+)
+_DAILY_PROPERTY_OR_MARKET_SIGNALS = (
+    "commercial real estate", "real estate", "multifamily", "office", "industrial",
+    "warehouse", "retail", "hotel", "data center", "housing", "development",
+    "mortgage", "agency debt", "fannie", "freddie", "hud", "cre ",
+)
+_DAILY_INSTITUTIONAL_SIGNALS = (
+    "blackstone", "brookfield", "apollo", "ares", "kkr", "starwood", "carlyle",
+    "jpmorgan", "goldman", "wells fargo", "morgan stanley", "bank of america",
+    "citigroup", "federal reserve", "fdic", "treasury", "reit", "sec ",
+)
+
 
 def _is_daily_top_news_relevant(story: dict) -> bool:
     text = (story.get("title", "") + " " + story.get("summary", "")).lower()
     if any(kw in text for kw in EXCLUDE_KEYWORDS):
         return False
-    return any(kw in text for kw in DAILY_TOP_NEWS_KEYWORDS)
+    has_finance = any(signal in text for signal in _DAILY_FINANCE_SIGNALS)
+    has_property_or_market = any(signal in text for signal in _DAILY_PROPERTY_OR_MARKET_SIGNALS)
+    has_institutional_actor = any(signal in text for signal in _DAILY_INSTITUTIONAL_SIGNALS)
+    # Require a real CRE/banking/PE transmission path. A passing keyword alone
+    # (for example, "industrial" in a defense story) is not enough.
+    return (has_property_or_market and has_finance) or (has_finance and has_institutional_actor)
 
 
 def triage_daily_top_news(stories: list, recent_hours: int = 36) -> list:
