@@ -25,6 +25,11 @@ autopsy, Lender's-eye memorandum, Counterparty map, City in the balance sheet,
 Consensus under cross-examination, Time as a cost of capital, and Operator's
 field note. Do not reuse a recent mode.
 
+Before drafting, identify the anchor, tension, cast, mechanism, claim, and
+reader consequence. A borrower, lender, buyer, developer, or regulator supplies
+the narrative turn only through a reported decision or constraint—never through
+invented color or a made-up personal story.
+
 ## Voice
 
 - Clear enough to read quickly; intellectually serious enough to save.

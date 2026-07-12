@@ -71,6 +71,7 @@ from ideas_renderer import (
 )
 from story_normalizer import normalize_stories
 from content_governance import load_idea_records, near_duplicate_matches, sanitize_untrusted_source
+from source_health import SourceHealthLedger
 
 try:
     from news_sources import RSS_FEEDS, CRE_KEYWORDS, EXCLUDE_KEYWORDS
@@ -135,6 +136,22 @@ PSYCH_KEYWORDS = [
     "community", "identity", "loneliness", "desire", "work", "home",
 ]
 
+# Ideas may interpret the built world broadly, but the automatic desk is not a
+# general news wire.  Stories in these categories require human editorial review.
+EDITORIAL_REVIEW_RE = re.compile(
+    r"\b(lawsuit|sues|sued|litigation|trade secret|theft|espionage|alleg(?:e|ed|ation)|"
+    r"murder|killed|assassination|criminal|indict(?:ed|ment)?|court hearing|campaign|"
+    r"election|president|congress|senator|maga|republican|democrat|administration)\b",
+    re.I,
+)
+BUILT_WORLD_ANCHOR_RE = re.compile(
+    r"\b(office(?: building| tower| conversion)?|apartment(?:s| building| complex)?|"
+    r"multifamily|housing|retail(?: space)?|warehouse|industrial|hotel|mixed-use|"
+    r"development|construction|zoning|rezoning|landmark|public housing|data center)\b",
+    re.I,
+)
+MIN_SOURCE_TEXT_CHARS = 600
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Light Tower Ideas daily publishing agent")
@@ -146,6 +163,11 @@ def main() -> int:
     parser.add_argument("--force", action="store_true", help="Allow regenerating existing slugs")
     parser.add_argument("--lookback-hours", type=int, default=72)
     parser.add_argument("--max-feeds", type=int, default=35, help="Maximum RSS feeds to scan in live mode")
+    parser.add_argument(
+        "--allow-partial-publish",
+        action="store_true",
+        help="Allow a publish run to write fewer than --count approved articles (manual use only)",
+    )
     args = parser.parse_args()
 
     if not args.publish:
@@ -178,21 +200,24 @@ def main() -> int:
         if len(articles) >= count:
             break
         print(f"[4/7] Writing {idx}/{len(selected)}: {idea['title'][:74]}")
-        dossier = create_dossier(idea)
+        dossier = create_dossier(idea, offline=args.offline)
+        evidence_error = source_evidence_error(dossier)
+        if evidence_error:
+            hold_candidate(held, idea, dossier, [evidence_error])
+            print(f"  HELD: {evidence_error}")
+            continue
         article = generate_article(dossier, no_ai=args.no_ai or args.offline)
         article = normalize_article(article, idea, dossier)
         errors = validate_article(article, dossier)
         errors.extend(near_duplicate_matches(article["title"], known_records))
         if errors:
-            held.append({"idea": idea, "article": article, "dossier": dossier, "errors": errors})
-            write_json(DATA_ROOT / "held" / f"{article.get('slug','held')}.json", held[-1])
+            hold_candidate(held, idea, dossier, errors, article)
             print(f"  HELD: {', '.join(errors[:3])}")
             continue
         html_doc = render_article(article)
         html_errors = validate_html(html_doc)
         if html_errors:
-            held.append({"idea": idea, "article": article, "dossier": dossier, "errors": html_errors})
-            write_json(DATA_ROOT / "held" / f"{article.get('slug','held')}.json", held[-1])
+            hold_candidate(held, idea, dossier, html_errors, article)
             print(f"  HELD HTML: {', '.join(html_errors[:3])}")
             continue
         article["_html"] = html_doc
@@ -202,7 +227,9 @@ def main() -> int:
         print(f"  OK: {article['slug']}")
 
     print(f"[5/7] Publishable: {len(articles)} | held: {len(held)}")
-    if args.publish and articles:
+    complete_target = publish_target_met(len(articles), count, args.allow_partial_publish)
+    published_to_public = bool(args.publish and articles and complete_target)
+    if published_to_public:
         publish_articles(articles)
     else:
         for article in articles:
@@ -212,8 +239,21 @@ def main() -> int:
             write_json(DATA_ROOT / "drafts" / f"{article['slug']}.json", public_article(article))
             print(f"  [DRY-RUN] Preview: {preview_path.relative_to(SITE_ROOT)}")
 
-    save_run_log(start, args, stories, candidates, ranked, articles, held)
+    save_run_log(
+        start,
+        args,
+        stories,
+        candidates,
+        ranked,
+        articles,
+        held,
+        target_count=count,
+        published_to_public=published_to_public,
+    )
     print("[7/7] Complete")
+    if args.publish and not complete_target:
+        print(f"  PUBLISH BLOCKED: approved {len(articles)}/{count}; public files were not changed.")
+        return 2
     if args.publish:
         for article in articles:
             print(f"  {SITE_URL}/ideas/{article['slug']}.html")
@@ -227,7 +267,12 @@ def gather_stories(args: argparse.Namespace) -> list[dict[str, Any]]:
         print("feedparser unavailable; use --offline or install dependencies")
         return []
     stories: list[dict[str, Any]] = []
+    health = SourceHealthLedger(DATA_ROOT / "internal" / "source-health.json")
     for source, url in RSS_FEEDS[: max(1, args.max_feeds)]:
+        if health.is_quarantined(source):
+            print(f"  [SKIP] {source}: temporarily quarantined after repeated feed failures")
+            continue
+        started = time.monotonic()
         try:
             if requests is not None:
                 response = requests.get(url, headers={"User-Agent": "LightTowerIdeas/1.0"}, timeout=8)
@@ -235,6 +280,7 @@ def gather_stories(args: argparse.Namespace) -> list[dict[str, Any]]:
                 feed = feedparser.parse(response.content)
             else:
                 feed = feedparser.parse(url, request_headers={"User-Agent": "LightTowerIdeas/1.0"})
+            source_story_count = 0
             for entry in feed.entries[:15]:
                 title = clean_text(entry.get("title"))
                 link = entry.get("link") or entry.get("id") or ""
@@ -247,9 +293,14 @@ def gather_stories(args: argparse.Namespace) -> list[dict[str, Any]]:
                         "source": source,
                         "published": parse_entry_date(entry),
                     })
+                    source_story_count += 1
+            health.record_success(source, source_story_count, int((time.monotonic() - started) * 1000))
         except Exception as exc:
-            print(f"  [WARN] {source}: {redact(exc)}")
+            message = redact(exc)
+            health.record_failure(source, message, int((time.monotonic() - started) * 1000))
+            print(f"  [WARN] {source}: {message}")
         time.sleep(0.03)
+    health.save()
     return stories
 
 
@@ -264,7 +315,8 @@ def filter_ideas_candidates(stories: list[dict[str, Any]], lookback_hours: int) 
             continue
         if EXCLUDE_KEYWORDS and any(word.lower() in text for word in EXCLUDE_KEYWORDS):
             continue
-        if not any(word in text for word in IDEAS_KEYWORDS):
+        eligible, _ = editorial_eligibility(item)
+        if not eligible:
             continue
         try:
             published = datetime.fromisoformat(str(item.get("published", "")).replace("Z", "+00:00"))
@@ -278,6 +330,26 @@ def filter_ideas_candidates(stories: list[dict[str, Any]], lookback_hours: int) 
         seen_urls.add(item["url"])
         filtered.append(item)
     return filtered
+
+
+def editorial_eligibility(item: dict[str, Any]) -> tuple[bool, str]:
+    """Keep the automatic queue focused on attributable built-world reporting."""
+    text = f"{item.get('title', '')} {item.get('summary', '')}"
+    if EDITORIAL_REVIEW_RE.search(text):
+        return False, "legal, crime, or political story requires editorial review"
+    anchors = item.get("entities", {}).get("asset_classes", [])
+    source_domains = set(item.get("source_domains", []))
+    has_anchor = bool(anchors) or bool(BUILT_WORLD_ANCHOR_RE.search(text))
+    if not has_anchor:
+        return False, "missing a concrete built-world anchor"
+    if source_domains == {"general"} and not any(word.lower() in text.lower() for word in CRE_KEYWORDS):
+        return False, "general-news source lacks explicit CRE relevance"
+    return True, "eligible"
+
+
+def publish_target_met(approved_count: int, target_count: int, allow_partial_publish: bool) -> bool:
+    """Automatic runs publish only complete batches unless explicitly overridden."""
+    return approved_count >= target_count or allow_partial_publish
 
 
 def rank_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -336,12 +408,19 @@ def fresh_selection(ranked: list[dict[str, Any]], count: int, *, force: bool) ->
     return selected
 
 
-def create_dossier(idea: dict[str, Any]) -> dict[str, Any]:
+def create_dossier(idea: dict[str, Any], *, offline: bool = False) -> dict[str, Any]:
     safe_title = clean_text(sanitize_untrusted_source(idea["title"]))
     safe_summary = clean_text(sanitize_untrusted_source(idea.get("summary", "")))
     safe_source = clean_text(sanitize_untrusted_source(idea.get("source", "Source")))
     text = f"{safe_title} {safe_summary}"
-    source_text = sanitize_untrusted_source(fetch_article_text(idea.get("url", "")))
+    # Offline fixtures must stay offline; never turn a local validation run into
+    # an accidental request to example.com or another source host.
+    source_fetch = (
+        {"text": safe_summary, "status": "fixture"}
+        if offline
+        else fetch_article_text(idea.get("url", ""))
+    )
+    source_text = sanitize_untrusted_source(source_fetch["text"])
     facts = [safe_title]
     if safe_summary:
         facts.append(safe_summary)
@@ -362,6 +441,12 @@ def create_dossier(idea: dict[str, Any]) -> dict[str, Any]:
         "reported_facts": list(dict.fromkeys(facts)),
         "source_urls": [idea.get("url")],
         "source_excerpt": source_text[:4000],
+        "source_evidence": {
+            "status": source_fetch["status"],
+            "http_status": source_fetch.get("http_status"),
+            "text_chars": len(source_text),
+            "required_min_chars": MIN_SOURCE_TEXT_CHARS,
+        },
         "known_entities": idea.get("entities", {}).get("companies", []),
         "physical_place_details": markets + assets,
         "capital_context": infer_phrase(text, CAPITAL_KEYWORDS, "capital, financing, or rent pressure visible in the story"),
@@ -373,6 +458,41 @@ def create_dossier(idea: dict[str, Any]) -> dict[str, Any]:
         "idea_score": score.get("total_score", 0),
         "risk_score": score.get("risk_score", 2),
     }
+
+
+def source_evidence_error(dossier: dict[str, Any]) -> str | None:
+    """Return a publish-blocking reason when the source cannot support an essay."""
+    evidence = dossier.get("source_evidence", {})
+    if evidence.get("status") == "fixture":
+        return None
+    if evidence.get("status") not in {"retrieved", "fixture"}:
+        status = evidence.get("http_status")
+        suffix = f" (HTTP {status})" if status else ""
+        return f"source evidence unavailable{suffix}"
+    text_chars = int(evidence.get("text_chars", 0))
+    minimum = int(evidence.get("required_min_chars", MIN_SOURCE_TEXT_CHARS))
+    if text_chars < minimum:
+        return f"source evidence too short ({text_chars}/{minimum} characters)"
+    return None
+
+
+def hold_candidate(
+    held: list[dict[str, Any]],
+    idea: dict[str, Any],
+    dossier: dict[str, Any],
+    errors: list[str],
+    article: dict[str, Any] | None = None,
+) -> None:
+    """Persist every hold in a consistent, reviewable format."""
+    record = {
+        "idea": idea,
+        "article": article or {"slug": slugify(idea.get("title", "held"))},
+        "dossier": dossier,
+        "errors": list(dict.fromkeys(errors)),
+    }
+    held.append(record)
+    slug = record["article"].get("slug") or slugify(idea.get("title", "held"))
+    write_json(DATA_ROOT / "held" / f"{slug}.json", record)
 
 
 def generate_article(dossier: dict[str, Any], *, no_ai: bool) -> dict[str, Any]:
@@ -395,20 +515,21 @@ def generate_article(dossier: dict[str, Any], *, no_ai: bool) -> dict[str, Any]:
     return article
 
 
-def fetch_article_text(url: str) -> str:
+def fetch_article_text(url: str) -> dict[str, Any]:
     if not url or requests is None:
-        return ""
+        return {"text": "", "status": "unavailable"}
     try:
         response = requests.get(url, headers={"User-Agent": "LightTowerIdeas/1.0"}, timeout=10)
         response.raise_for_status()
         if trafilatura is not None:
             extracted = trafilatura.extract(response.text, include_comments=False, include_tables=False)
             if extracted:
-                return clean_text(extracted)[:6000]
-        return clean_text(response.text)[:4000]
+                return {"text": clean_text(extracted)[:6000], "status": "retrieved", "http_status": response.status_code}
+        return {"text": clean_text(response.text)[:4000], "status": "retrieved", "http_status": response.status_code}
     except Exception as exc:
         print(f"  [WARN] Source fetch failed: {redact(exc)}")
-        return ""
+        http_status = getattr(getattr(exc, "response", None), "status_code", None)
+        return {"text": "", "status": "unavailable", "http_status": http_status}
 
 
 def call_deepseek(prompt: str, system: str, *, max_tokens: int) -> str:
@@ -506,7 +627,18 @@ def save_daily_ten(ranked: list[dict[str, Any]], start: datetime) -> None:
     write_json(DATA_ROOT / "internal" / "daily-ten" / f"{start.date().isoformat()}.json", payload)
 
 
-def save_run_log(start: datetime, args: argparse.Namespace, stories: list, candidates: list, ranked: list, articles: list, held: list) -> None:
+def save_run_log(
+    start: datetime,
+    args: argparse.Namespace,
+    stories: list,
+    candidates: list,
+    ranked: list,
+    articles: list,
+    held: list,
+    *,
+    target_count: int,
+    published_to_public: bool,
+) -> None:
     payload = {
         "run_at": start.isoformat(),
         "mode": "publish" if args.publish else "dry-run",
@@ -515,9 +647,13 @@ def save_run_log(start: datetime, args: argparse.Namespace, stories: list, candi
         "raw_count": len(stories),
         "candidate_count": len(candidates),
         "ranked_count": len(ranked),
-        "published_count": len(articles) if args.publish else 0,
-        "preview_count": len(articles) if not args.publish else 0,
+        "published_count": len(articles) if published_to_public else 0,
+        "preview_count": len(articles) if not published_to_public else 0,
         "held_count": len(held),
+        "target_count": target_count,
+        "target_met": len(articles) >= target_count,
+        "publish_permitted": publish_target_met(len(articles), target_count, args.allow_partial_publish),
+        "partial_publish_allowed": args.allow_partial_publish,
         "articles": [{"title": item["title"], "slug": item["slug"]} for item in articles],
         "held_reasons": [
             {"slug": item.get("article", {}).get("slug", "held"), "errors": item.get("errors", [])[:5]}

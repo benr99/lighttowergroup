@@ -19,14 +19,20 @@ PLACEHOLDER_PATTERNS = [
 ]
 
 SECRET_RE = re.compile(
-    r"(sk-[A-Za-z0-9._-]+|ANTHROPIC_API_KEY|DEEPSEEK_API_KEY|OPENAI_API_KEY|NEWS_API_KEY|Bearer\s+[A-Za-z0-9._~+/=-]+)",
+    # Require a token boundary and a realistic key length.  Without this,
+    # ordinary prose such as "risk-adjusted" matches the substring "sk-adjusted".
+    r"((?<![A-Za-z0-9])sk-[A-Za-z0-9._-]{20,}|ANTHROPIC_API_KEY|DEEPSEEK_API_KEY|OPENAI_API_KEY|NEWS_API_KEY|Bearer\s+[A-Za-z0-9._~+/=-]{12,})",
     re.I,
 )
 MOJIBAKE_RE = re.compile("[\u00e2\u00c3\ufffd]")
 FIGURE_RE = re.compile(r"(\$[\d,.]+(?:\.\d+)?\s?(?:billion|million|trillion|bn|mm|m|b)?|\b\d+(?:\.\d+)?\s?%)", re.I)
 QUOTE_RE = re.compile(r"(said|told|according to)\s+[\"']", re.I)
 VISIT_RE = re.compile(r"\b(I|we)\s+(visited|walked|saw|stood|sat)\b", re.I)
-HIGH_RISK_RE = re.compile(r"\b(fraud|criminal|corrupt|illegal|scam|bribery|indict|guilty|stole|lying)\b", re.I)
+HIGH_RISK_RE = re.compile(
+    r"\b(fraud|criminal|corrupt|illegal|scam|bribery|indict|guilty|stole|lying|"
+    r"lawsuit|sues|litigation|trade secret|theft|espionage|murder|assassination)\b",
+    re.I,
+)
 SPECULATIVE_RE = re.compile(
     r"\b(perhaps|almost certainly|will never know|more likely to|less likely to|unconscious confession|fictional kingdom|will be seen by|will hang|will not think|secretly|narcissism|slightly unsettling|not of this place|must live up to|this is what we meant all along|will be answered only when|laughter of children|mirror held up|inverted identity|architecture of inversion|spelled backward)\b",
     re.I,
@@ -107,7 +113,11 @@ def validate_article(article: dict[str, Any], dossier: dict[str, Any]) -> list[s
         errors.append("site-visit language requires manual review")
 
     if HIGH_RISK_RE.search(text) and not dossier.get("high_risk_allowed"):
-        errors.append("high-risk allegation language found")
+        errors.append("legal, crime, or high-risk allegation language requires editorial review")
+
+    evidence = dossier.get("source_evidence", {})
+    if evidence and evidence.get("status") not in {"retrieved", "fixture"}:
+        errors.append("source evidence was not retrieved")
 
     if SPECULATIVE_RE.search(serialized) or NAME_WORDPLAY_RE.search(serialized):
         errors.append("unsupported speculative or imagined-scene language found")

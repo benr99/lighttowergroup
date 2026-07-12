@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from editorial_voice import editorial_quality_issues, select_editorial_brief
+from editorial_voice import editorial_quality_issues, narrative_finance_issues, select_editorial_brief
 from enhanced_prompts import USER_PROMPT_TEMPLATE
 from linkedin_essay_agent import _revision_prompt, generate_essay_package, save_to_queue
 from linkedin_essay_agent import decorate_package
@@ -33,6 +33,14 @@ class EditorialVoiceTests(unittest.TestCase):
         self.assertTrue(any("canned" in issue for issue in issues))
         self.assertIn("possible character-encoding corruption", issues)
 
+    def test_quality_gate_rejects_reused_narrative_finance_pivots(self) -> None:
+        issues = editorial_quality_issues(
+            "This is not a distress story. The lender chose liquidity over hope.",
+            min_characters=1,
+        )
+        self.assertIn("formulaic 'not a story' pivot", issues)
+        self.assertIn("repeated 'liquidity over hope' close", issues)
+
     def test_fallback_essay_never_enters_publish_queue(self) -> None:
         article = {
             "slug": "sample-refi",
@@ -54,6 +62,18 @@ class EditorialVoiceTests(unittest.TestCase):
             {
                 "voice_mode": brief["name"],
                 "linkedin_essay": "A" * 800,
+                "narrative_ledger": {
+                    "anchor": "A reported financing.",
+                    "tension": "The debt comes due before the exit is certain.",
+                    "cast": ["Borrower: needs time."],
+                    "mechanism": "Maturity pressure changes refinancing choices.",
+                    "claim": "The structure transfers timing risk.",
+                    "reader_consequence": "Test the maturity against the operating plan.",
+                    "reported_facts": ["The loan matures in 2026."],
+                    "interpretations": ["The maturity may limit optionality."],
+                    "open_questions": ["Whether the lender will extend."],
+                    "scene": {"used": False, "detail": "", "source_basis": ""},
+                },
                 "alternate_hooks": ["The real story is the debt.", "A specific fresh observation."],
                 "strong_closing_lines": ["A complete, source-grounded implication."],
             },
@@ -63,6 +83,21 @@ class EditorialVoiceTests(unittest.TestCase):
             brief,
         )
         self.assertEqual(package["alternate_hooks"], ["A specific fresh observation."])
+
+    def test_scene_requires_source_provenance(self) -> None:
+        ledger = {
+            "anchor": "A recorded filing.",
+            "tension": "The extension deadline is close.",
+            "cast": ["Lender: deciding whether to extend."],
+            "mechanism": "Maturity pressure changes bargaining power.",
+            "claim": "Time is now part of the financing cost.",
+            "reader_consequence": "Test the extension path.",
+            "reported_facts": ["The loan matures in 2026."],
+            "interpretations": ["The borrower may need an extension."],
+            "open_questions": ["Whether the lender will grant one."],
+            "scene": {"used": True, "detail": "A dark lobby", "source_basis": ""},
+        }
+        self.assertIn("scene is used without source-supported provenance", narrative_finance_issues(ledger))
 
     def test_revision_prompt_carries_the_independent_findings(self) -> None:
         brief = select_editorial_brief({"slug": "sample", "title": "Sample"})

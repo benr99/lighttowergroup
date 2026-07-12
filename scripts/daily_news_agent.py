@@ -74,7 +74,7 @@ from editorial_store import (
 )
 from auto_carousel_generator import generate_carousel_for_article
 from content_governance import independent_quality_issues, load_insight_records, near_duplicate_matches
-from editorial_voice import select_editorial_brief
+from editorial_voice import narrative_finance_issues, select_editorial_brief
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -507,21 +507,61 @@ def generate_article(story: dict) -> dict:
     )
     resp.raise_for_status()
     data = resp.json()
-    raw = data["choices"][0]["message"]["content"].strip()
-    # Strip markdown code fences if present
-    raw = re.sub(r"^```(?:json)?\s*", "", raw)
-    raw = re.sub(r"\s*```$", "", raw)
-
-    m = re.search(r"\{[\s\S]*\}", raw)
-    if not m:
-        raise ValueError("No JSON object found in DeepSeek article response")
-
-    article = json.loads(m.group())
+    article = _extract_article_json(data["choices"][0]["message"]["content"])
+    ledger_issues = narrative_finance_issues(article.get("narrative_ledger"))
+    if ledger_issues:
+        revision = requests.post(
+            "https://api.deepseek.com/v1/chat/completions",
+            headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
+            json={
+                "model": "deepseek-chat",
+                "max_tokens": 4500,
+                "temperature": 0.2,
+                "messages": [
+                    {"role": "system", "content": SYSTEM_PROMPT_ENHANCED},
+                    {"role": "user", "content": user_prompt},
+                    {
+                        "role": "user",
+                        "content": _article_revision_prompt(article, ledger_issues),
+                    },
+                ],
+            },
+            timeout=120,
+        )
+        revision.raise_for_status()
+        article = _extract_article_json(revision.json()["choices"][0]["message"]["content"])
     article["date"]       = now_utc.strftime("%B %d, %Y")
     article["date_iso"]   = now_utc.isoformat()
     article["source_url"] = story["url"]
     article["source_name"] = story["source"]
     return article
+
+
+def _extract_article_json(raw: str) -> dict:
+    raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
+    raw = re.sub(r"\s*```$", "", raw)
+    match = re.search(r"\{[\s\S]*\}", raw)
+    if not match:
+        raise ValueError("No JSON object found in DeepSeek article response")
+    return json.loads(match.group())
+
+
+def _article_revision_prompt(article: dict, issues: list[str]) -> str:
+    return """\
+The previous article failed the narrative-finance control check. Rewrite the
+COMPLETE JSON article, preserving only source-grounded facts. Correct every
+listed issue and include a complete narrative_ledger. Do not explain the
+revision, invent a scene, invent a source, or use a generic template phrase.
+
+CONTROL FINDINGS
+{issues}
+
+CURRENT ARTICLE JSON
+{article}
+""".format(
+        issues=json.dumps(issues, ensure_ascii=False),
+        article=json.dumps(article, ensure_ascii=False),
+    )
 
 
 # ── Security utilities ────────────────────────────────────────────────────────
@@ -1533,11 +1573,15 @@ def main():
             continue
 
         independent_errors = independent_quality_issues(article, require_sections=False)
+        narrative_errors = narrative_finance_issues(article.get("narrative_ledger"))
         duplicate_errors = near_duplicate_matches(article.get("title", ""), known_insights)
-        if independent_errors or duplicate_errors:
-            reasons = independent_errors + duplicate_errors
+        if independent_errors or narrative_errors or duplicate_errors:
+            reasons = independent_errors + narrative_errors + duplicate_errors
             print(f"  [WARN] Article {i} held by independent quality gate: {'; '.join(reasons[:2])}")
             continue
+
+        # The ledger is editorial control data, not public-page content.
+        article.pop("narrative_ledger", None)
 
         if not args.force and already_published(article["slug"]):
             print(f"  Slug '{article['slug']}' already published, skipping...")

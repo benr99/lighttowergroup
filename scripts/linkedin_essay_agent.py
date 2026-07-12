@@ -23,10 +23,12 @@ from typing import Any
 import requests
 
 from editorial_voice import (
+    NARRATIVE_FINANCE_ADDENDUM,
     VOICE_SYSTEM_ADDENDUM,
     contains_mojibake,
     editorial_quality_issues,
     load_recent_packages,
+    narrative_finance_issues,
     select_editorial_brief,
 )
 
@@ -118,6 +120,8 @@ can link to the source Insight; the body itself has no URL or hashtags.
 
 {VOICE_SYSTEM_ADDENDUM}
 
+{NARRATIVE_FINANCE_ADDENDUM}
+
 Return only valid JSON. No markdown or prose outside the JSON.
 """
 
@@ -146,6 +150,12 @@ The assigned voice mode is a compositional constraint, not a label to repeat in
 the finished post. Select a real stance that could be challenged by a thoughtful
 CRE peer. Cite three or more facts from the supplied material in natural prose.
 
+Build a narrative-finance ledger before writing. It must separate reported
+facts, interpretations, and unresolved questions. If the essay uses a scene or
+physical image, identify exactly what source detail supports it; otherwise set
+scene.used to false. The ledger is internal control data and should not be
+printed in the LinkedIn essay.
+
 Do not use any of these repeated constructions: "the most important number is
 not", "the real story", "this is not a story about", "who benefits", "who is
 exposed", "in this cycle", or "the capital stack is becoming". Do not ask a
@@ -165,6 +175,18 @@ Output this exact JSON shape:
   "editorial_stance": "A source-grounded, arguable point of view in one sentence",
   "opening_move": "A concise description of how the first two lines work",
   "fact_anchors": ["3 to 5 exact facts or attributable details used in the essay"],
+  "narrative_ledger": {{
+    "anchor": "The reported deal, number, filing, building, or policy fact.",
+    "tension": "The economically consequential pressure or contradiction.",
+    "cast": ["Party: its need, constraint, or clock"],
+    "mechanism": "The basis, debt, liquidity, regulation, or operating mechanism.",
+    "claim": "A bounded, source-grounded interpretation.",
+    "reader_consequence": "What a market participant should test next.",
+    "reported_facts": ["Source-supported fact"],
+    "interpretations": ["Clearly marked inference"],
+    "open_questions": ["Unresolved question the source cannot establish"],
+    "scene": {{"used": false, "detail": "", "source_basis": ""}}
+  }},
   "technical_summary": ["5 concise bullets"],
   "hidden_thesis": "One sentence naming the deeper market thesis",
   "linkedin_essay": "The finished LinkedIn essay with line breaks. No hashtags or URL. Finish complete; stay inside the target rather than cutting.",
@@ -310,6 +332,18 @@ def _fallback_package(
         "editorial_stance": editorial_brief["stance"],
         "opening_move": editorial_brief["opening_move"],
         "fact_anchors": [excerpt or title],
+        "narrative_ledger": {
+            "anchor": title,
+            "tension": "No automated narrative interpretation is approved when the Essay Desk call fails.",
+            "cast": ["Editorial review: a human editor must supply the source-grounded analysis."],
+            "mechanism": "Unavailable until a source-grounded draft is written.",
+            "claim": "No automated claim is approved.",
+            "reader_consequence": "Hold for editorial review.",
+            "reported_facts": [excerpt or title],
+            "interpretations": ["No interpretation is approved in a fallback."],
+            "open_questions": ["What source-backed mechanism should the draft explain?"],
+            "scene": {"used": False, "detail": "", "source_basis": ""},
+        },
         "technical_summary": [excerpt or title],
         "hidden_thesis": "No automated thesis is approved when the Essay Desk call fails.",
         "linkedin_essay": essay[:2950],
@@ -447,6 +481,7 @@ def decorate_package(
 ) -> dict[str, Any]:
     essay = (package.get("linkedin_essay") or "").strip()
     issues = editorial_quality_issues(essay)
+    issues.extend(narrative_finance_issues(package.get("narrative_ledger")))
     for field in ("alternate_hooks", "strong_closing_lines"):
         variants = package.get(field)
         if not isinstance(variants, list):

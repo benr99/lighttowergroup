@@ -28,6 +28,7 @@ from typing import Any
 import requests
 
 from editorial_voice import (
+    NARRATIVE_FINANCE_ADDENDUM,
     VOICE_SYSTEM_ADDENDUM,
     editorial_quality_issues,
     load_recent_packages,
@@ -120,8 +121,8 @@ Posts 2-4 (Narrative): Build the story. One idea per post. Why does it matter?
            What does it reveal about capital, leverage, timing, or structure?
            2-4 sentences per post. Reference the hook, push forward.
 
-Posts 5-7 (Deep Cut): Who benefits? Who is exposed? What's the second-order effect?
-          What do lenders or sponsors need to watch next?
+Posts 5-7 (Deep Cut): Which party has the tighter constraint or clock? What is
+          the second-order effect? What do lenders or sponsors need to test next?
           This is where your CRE expertise shines. Actionable insight.
 
 Post 8 (Close + Question): Strong analytical close paired with ONE specific question
@@ -185,6 +186,7 @@ Return only valid JSON. No markdown. No text outside the JSON.
 """
 
 THREAD_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
+THREAD_SYSTEM_PROMPT += "\n\n" + NARRATIVE_FINANCE_ADDENDUM
 
 THREAD_USER_TEMPLATE = """\
 LIGHT TOWER INSIGHT

@@ -22,7 +22,7 @@ from typing import Any
 
 import requests
 
-from editorial_voice import VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
+from editorial_voice import NARRATIVE_FINANCE_ADDENDUM, VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
 
 SCRIPT_DIR = Path(__file__).parent
 SITE_ROOT = SCRIPT_DIR.parent
@@ -250,6 +250,7 @@ Quality checkpoint before output:
 """
 
 CAROUSEL_CONTENT_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
+CAROUSEL_CONTENT_SYSTEM_PROMPT += "\n\n" + NARRATIVE_FINANCE_ADDENDUM
 
 CAROUSEL_CONTENT_USER_TEMPLATE = """\
 Create carousel slide content for a premium PDF carousel.

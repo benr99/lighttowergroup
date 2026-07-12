@@ -7,7 +7,7 @@ import json
 import re
 from typing import Any
 
-from editorial_voice import VOICE_SYSTEM_ADDENDUM
+from editorial_voice import NARRATIVE_FINANCE_ADDENDUM, VOICE_SYSTEM_ADDENDUM
 
 
 IDEAS_SYSTEM_PROMPT = """You are the Light Tower Ideas desk.
@@ -40,6 +40,7 @@ Rules:
 """
 
 IDEAS_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
+IDEAS_SYSTEM_PROMPT += "\n\n" + NARRATIVE_FINANCE_ADDENDUM
 
 
 IDEAS_ARTICLE_PROMPT = """Write one complete Light Tower Ideas essay from this dossier.

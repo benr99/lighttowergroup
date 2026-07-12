@@ -40,6 +40,29 @@ professional could answer it from experience.
 """
 
 
+NARRATIVE_FINANCE_ADDENDUM = """\
+NARRATIVE-FINANCE REPORTING
+Make finance compelling by following the decision that reveals the system. Find
+the actor whose choice exposes the mechanism: a borrower seeking time, a lender
+deciding whether to extend, a buyer accepting a basis, a developer assembling a
+site, or a regulator changing the underwriting math. Describe the role and the
+decision accurately; never invent a biography, a conversation, or colorful
+deal lore.
+
+Before drafting, identify six things privately: (1) the anchor—a reported deal,
+number, filing, building, or policy action; (2) the tension; (3) the cast and
+their different needs or clocks; (4) the capital mechanism; (5) the defensible
+claim; and (6) the reader consequence. The article should explain what a
+financial tool permits or prevents, not merely name it.
+
+Keep causality clean. Separate reported facts, reasonable interpretations, and
+unresolved questions. A scene is allowed only when its concrete details appear
+in the supplied source material. Use controlled color sparingly: one precise
+image, metaphor, or dry aside may relieve density after the reporting has earned
+the reader's trust. Never use color as a substitute for a fact or a mechanism.
+"""
+
+
 VOICE_MODES: tuple[dict[str, str], ...] = (
     {
         "name": "Underwriting margin",
@@ -91,6 +114,9 @@ _AI_TELLS: tuple[tuple[str, str], ...] = (
     (r"\bthe capital stack is becoming\b", "repeated capital-stack close"),
     (r"\bin this cycle\b", "generic cycle marker"),
     (r"\bthe market is not short of capital\b", "repeated market aphorism"),
+    (r"\bthis is not a (?:[a-z-]+\s+){0,2}story\b", "formulaic 'not a story' pivot"),
+    (r"\bliquidity over hope\b", "repeated 'liquidity over hope' close"),
+    (r"\bregulatory rug\b", "clichéd regulatory-risk metaphor"),
     (r"\bwho benefits\?\b", "template stakeholder heading"),
     (r"\bwho is exposed\?\b", "template stakeholder heading"),
     (r"\[cut before posting\.\]", "automatic truncation marker"),
@@ -124,7 +150,7 @@ def load_recent_packages(queue_path: Path, limit: int = 8) -> list[dict[str, Any
 
 def select_editorial_brief(
     article: dict[str, Any], recent_packages: Iterable[dict[str, Any]] = (),
-) -> dict[str, str]:
+) -> dict[str, Any]:
     """Choose a deterministic mode while avoiding recently used structures."""
     recent = set(_recent_modes(recent_packages))
     candidates = [mode for mode in VOICE_MODES if mode["name"] not in recent] or list(VOICE_MODES)
@@ -139,7 +165,45 @@ def select_editorial_brief(
     mode = dict(candidates[index])
     mode["reader"] = "CRE owners, sponsors, lenders, capital partners, and operators"
     mode["craft_rule"] = "Use one concrete fact, one defensible interpretation, and one practical implication."
+    mode["narrative_finance_checklist"] = [
+        "Anchor: a reported deal, number, filing, building, or policy action.",
+        "Tension: the economically consequential pressure or contradiction.",
+        "Cast: parties with different needs, clocks, or risk positions.",
+        "Mechanism: the basis, debt, liquidity, regulation, or operating fact producing the pressure.",
+        "Claim: a bounded, source-grounded interpretation.",
+        "Reader consequence: what a market participant should test next.",
+    ]
+    mode["evidence_protocol"] = (
+        "Keep reported facts, interpretations, and open questions distinct. "
+        "Use a scene only when the source supports its details."
+    )
     return mode
+
+
+def narrative_finance_issues(ledger: Any) -> list[str]:
+    """Validate the model's explicit evidence and story-mechanism ledger."""
+    if not isinstance(ledger, dict):
+        return ["narrative-finance ledger is missing"]
+
+    issues: list[str] = []
+    for field in ("anchor", "tension", "mechanism", "claim", "reader_consequence"):
+        if not str(ledger.get(field, "")).strip():
+            issues.append(f"narrative-finance ledger is missing {field}")
+
+    for field in ("cast", "reported_facts", "interpretations", "open_questions"):
+        value = ledger.get(field)
+        if not isinstance(value, list) or not any(str(item).strip() for item in value):
+            issues.append(f"narrative-finance ledger is missing {field}")
+
+    scene = ledger.get("scene")
+    if not isinstance(scene, dict):
+        issues.append("narrative-finance ledger is missing scene provenance")
+    elif scene.get("used") and (
+        not str(scene.get("detail", "")).strip()
+        or not str(scene.get("source_basis", "")).strip()
+    ):
+        issues.append("scene is used without source-supported provenance")
+    return issues
 
 
 def editorial_quality_issues(text: str, *, min_characters: int = 700) -> list[str]:

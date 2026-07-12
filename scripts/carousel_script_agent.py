@@ -19,7 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from article_adapter import clean_text, compact_sentence, legacy_stories_from_slides
-from editorial_voice import VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
+from editorial_voice import NARRATIVE_FINANCE_ADDENDUM, VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
 
 
 logger = logging.getLogger(__name__)
@@ -73,6 +73,7 @@ consensus has fully returned."
 """
 
 CAROUSEL_SYSTEM_PROMPT += "\n\n" + VOICE_SYSTEM_ADDENDUM
+CAROUSEL_SYSTEM_PROMPT += "\n\n" + NARRATIVE_FINANCE_ADDENDUM
 
 CAROUSEL_USER_TEMPLATE = """\
 Create a LinkedIn PDF carousel script from this article.

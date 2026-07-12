@@ -25,7 +25,7 @@ from typing import Any
 
 import requests
 
-from editorial_voice import VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
+from editorial_voice import NARRATIVE_FINANCE_ADDENDUM, VOICE_SYSTEM_ADDENDUM, editorial_quality_issues, select_editorial_brief
 
 SCRIPT_DIR = Path(__file__).parent
 SITE_ROOT = SCRIPT_DIR.parent
@@ -228,12 +228,13 @@ Before submitting:
 Ã¢â€“Â¡ No generic headlines
 Ã¢â€“Â¡ Specific data points (names, amounts, locations)
 Ã¢â€“Â¡ At least one contrarian or "here's what people miss" moment
-Ã¢â€“Â¡ Final slide ends with specific question for sponsor/lender/developer
+Ã¢â€“Â¡ Final slide ends with a practical implication; use a question only when it invites a real professional answer
 Ã¢â€“Â¡ Visual rhythm and variety
 Ã¢â€“Â¡ Each slide works standalone AND builds narrative
 """
 
 CAROUSEL_SYSTEM_PROMPT_2026 += "\n\n" + VOICE_SYSTEM_ADDENDUM
+CAROUSEL_SYSTEM_PROMPT_2026 += "\n\n" + NARRATIVE_FINANCE_ADDENDUM
 
 CAROUSEL_USER_TEMPLATE_2026 = """\
 Create a 9-slide LinkedIn PDF carousel optimized for 2026 engagement.

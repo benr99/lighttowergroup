@@ -23,6 +23,15 @@ respect for the reader's time; and literary prose's attention to cadence and
 precise verbs. It does **not** imitate a particular author or fabricate a
 personal anecdote.
 
+## Narrative finance
+
+An Insight follows the people and decisions that expose a market mechanism: a
+borrower buying time, a lender choosing resolution, a buyer accepting a basis,
+or a policy decision changing what can pencil. The internal story engine records
+the anchor, tension, cast, mechanism, claim, and reader consequence; it also
+separates reported facts, interpretations, and open questions. See
+`docs/NARRATIVE_FINANCE_EDITORIAL_METHOD.md` for the operating method.
+
 ## Editorial modes
 
 The automation rotates through eight modes: Underwriting margin, Basis autopsy,

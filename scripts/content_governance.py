@@ -15,6 +15,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Iterable
 
+from editorial_voice import editorial_quality_issues
+
 
 PROMPT_INJECTION_RE = re.compile(
     r"(?:ignore\s+(?:all\s+)?(?:previous|prior|above)\s+instructions?"
@@ -130,6 +132,9 @@ def independent_quality_issues(article: dict[str, Any], *, require_sections: boo
         errors.append("independent quality gate: article needs at least two substantive sections")
     if require_sections and GENERIC_EDITORIAL_RE.search(text):
         errors.append("independent quality gate: generic boilerplate language detected")
+    for issue in editorial_quality_issues(text, min_characters=1):
+        if issue != "draft is below 1 characters":
+            errors.append(f"independent quality gate: {issue}")
 
     sources = article.get("sources") or []
     if not isinstance(sources, list) or not sources:
