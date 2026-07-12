@@ -4,6 +4,7 @@ agent/
 *.py
 !scripts/*.py
 !tests/test_ideas_publishing_safety.py
+!tests/test_article_pdf_generator.py
 .env
 scripts/.env
 .DS_Store

@@ -72,7 +72,6 @@ from editorial_store import (
     save_editorial_run,
     save_weekly_review,
 )
-from auto_carousel_generator import generate_carousel_for_article
 from content_governance import independent_quality_issues, load_insight_records, near_duplicate_matches
 from editorial_voice import narrative_finance_issues, select_editorial_brief
 
@@ -1221,8 +1220,8 @@ def git_commit_push(articles: list, dry_run: bool = False):
         candidates = [
             f"insights/{slug}.html",
             f"insights/{slug}_social.png",
-            f"insights/{slug}_carousel.pdf",
-            f"insights/{slug}_carousel-data.json",
+            f"insights/{slug}_article.pdf",
+            f"insights/{slug}_article-data.json",
             f"insights/linkedin-post-{slug}.txt",
         ]
         files.extend(path for path in candidates if (SITE_ROOT / path).exists())
@@ -1393,16 +1392,16 @@ def write_log(run_data: dict):
 
 
 def safe_queue_pdf_generation(article: dict):
-    """Queue PDF generation if optional PDF dependencies are available."""
+    """Create the final Insight as a LinkedIn-ready article document PDF."""
     if not article.get("body_html"):
         return
     try:
-        from pdf_queue import queue_pdf_generation
+        from pdf_queue import queue_article_pdf_generation
     except Exception as e:
-        print(f"  [WARN] PDF queue unavailable; skipping carousel for {article.get('slug')}: {redact_secret_text(e)}")
+        print(f"  [WARN] PDF queue unavailable; skipping article PDF for {article.get('slug')}: {redact_secret_text(e)}")
         return
     try:
-        queue_pdf_generation(
+        queue_article_pdf_generation(
             article_html=article["body_html"],
             article_data=article,
             output_dir=str(INSIGHTS_DIR),
@@ -1676,14 +1675,10 @@ def main():
 
             update_manifest(article)
 
-            # Generate PDF carousel for LinkedIn (new Ben Rohr voice system)
-            print(f"\n  Generating PDF carousel for {article['slug']}...")
-            generate_carousel_pdf(article['slug'], dry_run=False)
-
         update_feed_xml()
         update_sitemap_xml()
 
-        print("\n[6b/8] Generating PDF carousel package(s)...")
+        print("\n[6b/8] Generating LinkedIn article PDF package(s)...")
         for article in articles:
             safe_queue_pdf_generation(article)
 

@@ -103,22 +103,24 @@ def resolve_articles(slugs: Iterable[str] | None, latest: int | None) -> list[di
 
 
 def pdf_path_for(article: dict) -> Path:
-    return INSIGHTS_DIR / f"{article['slug']}_carousel.pdf"
+    article_pdf = INSIGHTS_DIR / f"{article['slug']}_article.pdf"
+    return article_pdf if article_pdf.exists() else INSIGHTS_DIR / f"{article['slug']}_carousel.pdf"
 
 
 def post_text_for(article: dict) -> str:
     slug = article["slug"]
+    article_metadata_path = INSIGHTS_DIR / f"{slug}_article-data.json"
     schema_path = INSIGHTS_DIR / f"{slug}_carousel-data.json"
     sidecar = INSIGHTS_DIR / f"linkedin-post-{slug}.txt"
 
-    if schema_path.exists():
+    if sidecar.exists():
+        text = sidecar.read_text(encoding="utf-8").strip()
+    elif schema_path.exists() and not article_metadata_path.exists():
         sys.path.insert(0, str(SCRIPT_DIR))
         from build_linkedin_post import build_linkedin_post_text
 
         schema = json.loads(schema_path.read_text(encoding="utf-8"))
         text = build_linkedin_post_text(schema).strip()
-    elif sidecar.exists():
-        text = sidecar.read_text(encoding="utf-8").strip()
     else:
         title = (article.get("title") or slug.replace("-", " ").title()).strip()
         text = f"{title}\n\nAttached as a Light Tower Group capital markets note."
