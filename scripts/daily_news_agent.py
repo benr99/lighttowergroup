@@ -508,21 +508,25 @@ def generate_article(story: dict) -> dict:
     resp.raise_for_status()
     data = resp.json()
     article = _extract_article_json(data["choices"][0]["message"]["content"])
-    ledger_issues = narrative_finance_issues(article.get("narrative_ledger"))
-    if ledger_issues:
+    # The writer's self-assessment is not trusted. Repair drafts against the
+    # same independent gate used immediately before publication.
+    for _ in range(2):
+        control_findings = _article_control_findings(article)
+        if not control_findings:
+            break
         revision = requests.post(
             "https://api.deepseek.com/v1/chat/completions",
             headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
             json={
                 "model": "deepseek-chat",
-                "max_tokens": 4500,
-                "temperature": 0.2,
+                "max_tokens": 5200,
+                "temperature": 0.15,
                 "messages": [
                     {"role": "system", "content": SYSTEM_PROMPT_ENHANCED},
                     {"role": "user", "content": user_prompt},
                     {
                         "role": "user",
-                        "content": _article_revision_prompt(article, ledger_issues),
+                        "content": _article_revision_prompt(article, control_findings),
                     },
                 ],
             },
@@ -548,10 +552,13 @@ def _extract_article_json(raw: str) -> dict:
 
 def _article_revision_prompt(article: dict, issues: list[str]) -> str:
     return """\
-The previous article failed the narrative-finance control check. Rewrite the
-COMPLETE JSON article, preserving only source-grounded facts. Correct every
-listed issue and include a complete narrative_ledger. Do not explain the
-revision, invent a scene, invent a source, or use a generic template phrase.
+The previous article failed an independent publication control check. Rewrite
+the COMPLETE JSON article, preserving only source-grounded facts. Correct every
+listed issue and include a complete narrative_ledger. The body_html must be
+800-1,050 words and never under 700 words. Expand through source-grounded
+analysis of mechanism, incentives, constraints, and open questions—not filler.
+Do not explain the revision, invent a scene, invent a source, or use a generic
+template phrase.
 
 CONTROL FINDINGS
 {issues}
@@ -560,8 +567,15 @@ CURRENT ARTICLE JSON
 {article}
 """.format(
         issues=json.dumps(issues, ensure_ascii=False),
-        article=json.dumps(article, ensure_ascii=False),
-    )
+    article=json.dumps(article, ensure_ascii=False),
+)
+
+
+def _article_control_findings(article: dict) -> list[str]:
+    """Return the independent publication checks a draft must clear."""
+    findings = independent_quality_issues(article, require_sections=False)
+    findings.extend(narrative_finance_issues(article.get("narrative_ledger")))
+    return list(dict.fromkeys(findings))
 
 
 # ── Security utilities ────────────────────────────────────────────────────────
@@ -1584,8 +1598,8 @@ def main():
             print(f"  [WARN] Article {i} failed content QA: {redact_secret_text(e)} -- skipping")
             continue
 
-        independent_errors = independent_quality_issues(article, require_sections=False)
-        narrative_errors = narrative_finance_issues(article.get("narrative_ledger"))
+        independent_errors = _article_control_findings(article)
+        narrative_errors = []
         duplicate_errors = near_duplicate_matches(article.get("title", ""), known_insights)
         if independent_errors or narrative_errors or duplicate_errors:
             reasons = independent_errors + narrative_errors + duplicate_errors

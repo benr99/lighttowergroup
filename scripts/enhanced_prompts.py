@@ -316,8 +316,9 @@ Strong: "Walker & Dunlop's Fannie Mae Lead Shows Multifamily Is Refinancing, Not
 Subtitles should state the thesis. Keep them compact enough for site layouts.
 
 LENGTH
-Target 750 to 950 words unless the source is thin. Thin-source stories should be
-500 to 700 words and sharper, not padded. Depth over length.
+Write 800 to 1,050 words. Never submit fewer than 700 words. If the source is
+thin, earn the length through careful analysis of the reported mechanism,
+incentives, constraints, and unanswered questions—never invented facts or filler.
 
 SILENT SELF-REVISION CHECKLIST
 Before final output, silently revise against this checklist:
@@ -397,8 +398,9 @@ from what is inferred. If the source does not support a vivid scene, set
 scene.used to false rather than inventing one.
 
 Do not invent facts, quotes, deal terms, cap rates, DSCR, LTV, rents, occupancy,
-or forecasts. If the source is thin, write a shorter, tighter analysis rather
-than padding.
+or forecasts. The published body must be 800 to 1,050 words. Build analytical
+depth from supported facts, explicitly labeled interpretations, constraints, and
+open questions. Do not use filler to reach the length requirement.
 
 Your output must be a single valid JSON object with the following keys. Return
 only JSON. No markdown, no explanations, no text outside the JSON.
@@ -416,7 +418,7 @@ only JSON. No markdown, no explanations, no text outside the JSON.
 
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
 
-  "body_html": "<p>Full article as HTML. Use ONLY <p> tags for paragraphs. No h1, h2, strong, links, bullets, or other formatting tags. Target 750-950 words, or 500-700 if the source is thin. Each paragraph should contain 1-4 sentences.</p>",
+  "body_html": "<p>Full article as HTML. Use ONLY <p> tags for paragraphs. No h1, h2, strong, links, bullets, or other formatting tags. Write 800-1,050 words; never fewer than 700. Each paragraph should contain 1-4 sentences.</p>",
 
   "sources": [
     {{"name": "Original source publication", "url": "https://full-source-url.example"}}
