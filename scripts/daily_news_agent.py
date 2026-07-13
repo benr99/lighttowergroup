@@ -60,7 +60,7 @@ from news_sources import (
 from enhanced_prompts import SYSTEM_PROMPT_ENHANCED, USER_PROMPT_TEMPLATE
 from social_image_generator import generate_article_image
 from linkedin_essay_agent import ESSAY_QUEUE, generate_essay_package, save_to_queue
-from story_normalizer import normalize_stories
+from story_normalizer import has_reported_amount_at_least_ten_million, normalize_stories
 from editorial_scoring import (
     daily_top_news_selection,
     generate_weekly_market_review,
@@ -291,20 +291,45 @@ DAILY_TOP_NEWS_KEYWORDS = CRE_KEYWORDS + [
 
 _DAILY_FINANCE_SIGNALS = (
     "bank", "credit", "loan", "lender", "private equity", "private credit",
-    "fund", "refinanc", "financ", "acquisition", "merger", "m&a", "reit",
+    "family office", "pension fund", "sovereign wealth", "fund", "refinanc", "financ",
+    "acquisition", "acquire", "purchased", "purchas", "merger", "m&a", "reit",
+    "equity investment", "equity commitment", "preferred equity", "mezzanine", "joint venture",
+    "recapitaliz", "invested", "invests", "capital commitment", "construction loan",
     "fed", "federal reserve", "treasury", "cmbs", "default", "distress",
     "foreclosure", "bankruptcy", "policy", "zoning", "regulation",
 )
 _DAILY_PROPERTY_OR_MARKET_SIGNALS = (
     "commercial real estate", "real estate", "multifamily", "office", "industrial",
-    "warehouse", "retail", "hotel", "data center", "housing", "development",
+    "warehouse", "retail", "hotel", "data center", "housing", "development", "apartment",
+    "student housing", "senior housing", "medical office", "life science", "self-storage",
+    "land parcel", "mixed-use", "shopping center", "manufactured housing",
     "mortgage", "agency debt", "fannie", "freddie", "hud", "cre ",
 )
 _DAILY_INSTITUTIONAL_SIGNALS = (
     "blackstone", "brookfield", "apollo", "ares", "kkr", "starwood", "carlyle",
     "jpmorgan", "goldman", "wells fargo", "morgan stanley", "bank of america",
-    "citigroup", "federal reserve", "fdic", "treasury", "reit", "sec ",
+    "citigroup", "federal reserve", "fdic", "treasury", "reit", "sec ", "family office",
+    "pension fund", "sovereign wealth", "investment management", "asset manager",
 )
+
+_DAILY_TRANSACTION_SIGNALS = (
+    "acquisition", "acquired", "acquires", "purchased", "purchases", "bought", "sale",
+    "sold", "investment", "invests", "invested", "loan", "lending", "financing",
+    "refinancing", "equity", "joint venture", "recapitalization", "capital commitment",
+)
+
+
+def _is_material_cre_transaction(text: str) -> bool:
+    """Allow concrete CRE deal announcements into scoring, without admitting generic finance news."""
+    has_property = any(signal in text for signal in _DAILY_PROPERTY_OR_MARKET_SIGNALS)
+    has_transaction = any(signal in text for signal in _DAILY_TRANSACTION_SIGNALS)
+    # $10M is the desk's normal transaction-intake threshold.  We also admit a
+    # named institutional transaction without an amount because RSS headlines
+    # often omit a figure that is present in the article itself; scoring still
+    # decides whether it is significant enough to publish.
+    has_material_amount = has_reported_amount_at_least_ten_million(text)
+    has_institution = any(signal in text for signal in _DAILY_INSTITUTIONAL_SIGNALS)
+    return has_property and has_transaction and (has_material_amount or has_institution)
 
 
 def _is_daily_top_news_relevant(story: dict) -> bool:
@@ -316,7 +341,11 @@ def _is_daily_top_news_relevant(story: dict) -> bool:
     has_institutional_actor = any(signal in text for signal in _DAILY_INSTITUTIONAL_SIGNALS)
     # Require a real CRE/banking/PE transmission path. A passing keyword alone
     # (for example, "industrial" in a defense story) is not enough.
-    return (has_property_or_market and has_finance) or (has_finance and has_institutional_actor)
+    return (
+        (has_property_or_market and has_finance)
+        or (has_finance and has_institutional_actor)
+        or _is_material_cre_transaction(text)
+    )
 
 
 def triage_daily_top_news(stories: list, recent_hours: int = 36) -> list:

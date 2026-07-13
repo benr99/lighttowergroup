@@ -30,13 +30,13 @@ KNOWN_INSTITUTIONS = [
 ]
 
 TOPIC_PATTERNS = {
-    "major_sale": r"\b(sale|sells|sold|buys|buys? stake|acquisition|acquires|disposition)\b",
-    "capital_placement": r"\b(refinanc|loan|mortgage|financ|debt|credit facility|capital raise|capital placement)\b",
+    "major_sale": r"\b(sale|sells|sold|buys|bought|buys? stake|acquisition|acquires|acquired|disposition|purchases?)\b",
+    "capital_placement": r"\b(refinanc|loan|mortgage|financ|debt|credit facility|capital raise|capital placement|equity investment|equity commitment|preferred equity|mezzanine|construction financing|joint venture capital)\b",
     "mna": r"\b(merger|acquisition|m&a|takeover|combination|joint venture)\b",
     "fed_rates": r"\b(federal reserve|fed|rate cut|rate hike|interest rate|treasury yield|sofr|inflation)\b",
     "bank_credit": r"\b(bank|lender|credit loss|loan loss|reserve|charge-off|commercial real estate exposure)\b",
     "private_credit": r"\b(private credit|debt fund|direct lending|alternative lender|bridge lender)\b",
-    "private_equity": r"\b(private equity|fundraise|fund closes|opportunistic fund|real estate fund)\b",
+    "private_equity": r"\b(private equity|family office|pension fund|sovereign wealth|fundraise|fund closes|opportunistic fund|real estate fund)\b",
     "distress": r"\b(default|distress|foreclosure|bankruptcy|receivership|workout|special servicing|note sale)\b",
     "cmbs": r"\b(cmbs|cre clo|securiti[sz]ation|special servicer|trepp)\b",
     "policy": r"\b(policy|regulation|zoning|tax|abatement|hud|fha|fannie|freddie|legislation)\b",
@@ -96,6 +96,45 @@ def _find_amounts(text: str) -> list[str]:
     return list(dict.fromkeys(item.strip() for item in found if item.strip()))[:8]
 
 
+def has_reported_amount_at_least_ten_million(text: str) -> bool:
+    """Return whether the text reports a dollar amount at or above $10 million."""
+    for match in re.finditer(
+        r"\$\s*([\d,.]+(?:\.\d+)?)\s*(million|billion|trillion|mm|bn|m|b)?\b",
+        text,
+        flags=re.IGNORECASE,
+    ):
+        raw_number, unit = match.groups()
+        try:
+            value = float(raw_number.replace(",", ""))
+        except ValueError:
+            continue
+        multiplier = {
+            "m": 1_000_000, "mm": 1_000_000, "million": 1_000_000,
+            "b": 1_000_000_000, "bn": 1_000_000_000, "billion": 1_000_000_000,
+            "trillion": 1_000_000_000_000,
+        }.get((unit or "").lower(), 1)
+        if value * multiplier >= 10_000_000:
+            return True
+    return False
+
+
+def _has_material_transaction(text: str, amounts: list[str], topics: list[str]) -> bool:
+    """Identify an announced CRE capital event worth elevating for editorial review.
+
+    This is an *intake* signal, not a publication decision: the editorial scorer
+    still requires reported evidence, a clear CRE connection, and a 70+ score.
+    """
+    transaction_topics = {"major_sale", "capital_placement", "mna", "private_equity", "development_finance"}
+    if not (set(topics) & transaction_topics):
+        return False
+    # The scorer/model verifies that the amount is actually tied to the deal.
+    return has_reported_amount_at_least_ten_million(text) and bool(re.search(
+        r"\b(acquir|purchas|buy|sold|sale|invest|commit|loan|lend|financ|refinanc|equity|joint venture|recapitaliz|development)\b",
+        text,
+        flags=re.IGNORECASE,
+    ))
+
+
 def _find_topics(text: str) -> list[str]:
     topics = [
         topic for topic, pattern in TOPIC_PATTERNS.items()
@@ -142,6 +181,7 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
     amounts = _find_amounts(text)
     institutions = _find_known_institutions(text)
     topics = _find_topics(text)
+    material_transaction = _has_material_transaction(text, amounts, topics)
     parsed = urlparse(url)
 
     return {
@@ -166,6 +206,7 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
             "has_big_number": bool(amounts),
             "has_known_institution": bool(institutions),
             "has_transaction_language": any(t in topics for t in ("major_sale", "capital_placement", "mna")),
+            "has_material_transaction": material_transaction,
             "has_distress_language": "distress" in topics,
             "has_policy_or_rate_language": any(t in topics for t in ("policy", "fed_rates")),
         },

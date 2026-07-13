@@ -75,6 +75,8 @@ def _fallback_score(candidate: dict[str, Any], index: int) -> dict[str, Any]:
         newsworthiness += 6
     if features.get("has_transaction_language"):
         newsworthiness += 5
+    if features.get("has_material_transaction"):
+        newsworthiness += 4
     if features.get("has_distress_language"):
         newsworthiness += 5
 
@@ -83,6 +85,8 @@ def _fallback_score(candidate: dict[str, Any], index: int) -> dict[str, Any]:
         capital += 12
     if topics & {"private_equity", "mna", "major_sale", "reit_public_markets"}:
         capital += 7
+    if features.get("has_material_transaction"):
+        capital += 3
 
     specificity = 5 + (5 if features.get("has_big_number") else 0) + (4 if features.get("has_known_institution") else 0)
     magnitude = 5 + (5 if features.get("has_big_number") else 0)
@@ -147,6 +151,10 @@ Newsworthiness / Attention: 30
 Capital Markets Significance: 25
 - Effects on capital availability, pricing, refinancing, risk, valuations, lender behavior,
   borrower options, private equity strategy, or debt/equity structure.
+- A reported $10M+ CRE acquisition, development capitalization, loan, equity investment,
+  family-office investment, or institutional placement is a first-class candidate when it
+  identifies the asset/market, parties, and capital consequence. Do not dismiss a concrete
+  transaction merely because it is not a macro story.
 
 Specificity / Evidence: 15
 - Named players, property names, dollar amounts, dates, filings, deals, lenders, buyers, sellers.
@@ -222,7 +230,8 @@ Choose the best final {article_count} news items for WSJ-style CRE capital marke
 
 Selection rules:
 - Pick specific news items, not abstract themes.
-- Favor major sales, capital placements, M&A, Fed/rates, banking news, private credit,
+- Favor major sales, $10M+ debt/equity placements, development capitalization, multifamily
+  or office acquisitions, institutional/family-office investments, M&A, Fed/rates, banking news, private credit,
   private equity, distress, REIT/public markets, CMBS, development finance, and policy.
 - Prefer stories with names, numbers, conflict, stakes, surprise, or clear market consequence.
 - Avoid duplicates or weaker syndicated versions of the same story.
