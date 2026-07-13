@@ -1643,6 +1643,42 @@ margin-bottom: 0;
   </script>
   -->
   <link rel="stylesheet" href="/site.css">
+  <style id="observatory-nav-override">
+    /* This must follow site.css: the shared navigation uses !important legacy tokens. */
+    body.observatory .site-nav {
+      background: rgba(7, 11, 17, .88) !important;
+      border-color: rgba(245, 241, 233, .12) !important;
+      color: #fffaf0 !important;
+    }
+    body.observatory .nav-logo { color: #fffaf0 !important; }
+    body.observatory .nav-links a { color: rgba(245, 241, 233, .72) !important; }
+    body.observatory .nav-links a:hover,
+    body.observatory .nav-links a.active { color: var(--accent) !important; }
+    body.observatory .nav-cta {
+      background: transparent !important;
+      color: var(--accent) !important;
+      border-color: rgba(215, 182, 101, .72) !important;
+    }
+    body.observatory .nav-cta:hover {
+      background: var(--accent) !important;
+      color: #071018 !important;
+    }
+    body.observatory .nav-menu-btn { border-color: rgba(245, 241, 233, .26) !important; }
+    body.observatory .nav-menu-btn span { background: #fffaf0 !important; }
+    body.observatory .nav-mobile {
+      background: rgba(7, 11, 17, .98) !important;
+      border-color: rgba(245, 241, 233, .12) !important;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .34) !important;
+    }
+    body.observatory .nav-mobile a { color: rgba(245, 241, 233, .78) !important; }
+    body.observatory .nav-mobile a:hover,
+    body.observatory .nav-mobile a.active { color: var(--accent) !important; }
+    body.observatory .nav-mobile-cta {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: #071018 !important;
+    }
+  </style>
   <script src="/site.js" defer></script>
 </head>
 
