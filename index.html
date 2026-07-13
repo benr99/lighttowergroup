@@ -1645,6 +1645,17 @@ margin-bottom: 0;
   <link rel="stylesheet" href="/site.css">
   <style id="observatory-nav-override">
     /* This must follow site.css: the shared navigation uses !important legacy tokens. */
+    html { background: #070b11 !important; }
+    body.observatory {
+      background: #070b11 !important;
+      color: #f5f1e9 !important;
+    }
+    body.observatory main { background: #070b11 !important; }
+    body.observatory .observatory-hero {
+      background: radial-gradient(circle at 78% 8%, rgba(180, 137, 48, .15), transparent 26%),
+                  radial-gradient(circle at 10% 42%, rgba(21, 64, 92, .20), transparent 31%),
+                  #070b11 !important;
+    }
     body.observatory .site-nav {
       background: rgba(7, 11, 17, .88) !important;
       border-color: rgba(245, 241, 233, .12) !important;
