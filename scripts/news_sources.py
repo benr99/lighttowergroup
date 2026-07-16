@@ -112,6 +112,45 @@ RSS_FEEDS = [
     ("National Law Review",     "https://www.natlawreview.com/rss/real-estate-law"),
 ]
 
+# Additive federal lane.  These sources run beside the existing NYC CRE lane;
+# they are not a replacement for it.  Official feeds are deliberately kept
+# separate so the editor can distinguish primary government action from
+# secondary reporting about that action.
+FEDERAL_RSS_FEEDS = [
+    ("Federal Reserve Press Releases", "https://www.federalreserve.gov/feeds/press_all.xml"),
+    ("Federal Reserve Monetary Policy", "https://www.federalreserve.gov/feeds/press_monetary.xml"),
+    ("Federal Reserve Banking Regulation", "https://www.federalreserve.gov/feeds/press_banking.xml"),
+    ("Federal Reserve Enforcement", "https://www.federalreserve.gov/feeds/press_enforcement.xml"),
+    ("Federal Reserve Speeches", "https://www.federalreserve.gov/feeds/speeches.xml"),
+    ("Federal Reserve Testimony", "https://www.federalreserve.gov/feeds/testimony.xml"),
+    ("Federal Reserve Credit and Liquidity", "https://www.federalreserve.gov/feeds/credit.xml"),
+    ("Federal Reserve H.8 Bank Data", "https://www.federalreserve.gov/feeds/h8.xml"),
+    ("OCC News Releases", "https://www.occ.gov/rss/occ_news.xml"),
+    ("OCC Bulletins", "https://www.occ.gov/rss/occ_bulletins.xml"),
+    ("SEC Press Releases", "https://www.sec.gov/news/pressreleases.rss"),
+    ("SEC Speeches and Statements", "https://www.sec.gov/news/speeches-statements.rss"),
+    ("SEC Testimony", "https://www.sec.gov/news/testimony.rss"),
+    ("SEC Litigation Releases", "https://www.sec.gov/enforcement-litigation/litigation-releases/rss"),
+    ("FDIC Press Releases", "https://public.govdelivery.com/topics/USFDIC_26/feed.rss"),
+]
+
+# Government/MSA is an additional classification layer.  Existing local and
+# regional feeds continue to supply the market reporting; these aliases let
+# the normalizer and scorer identify the ten-market government footprint even
+# when a story arrives through a business journal or CRE publication.
+TOP_MSA_GOVERNMENT_LANES = {
+    "new_york": ("New York", ("new york", "nyc", "manhattan", "brooklyn", "queens", "bronx")),
+    "los_angeles": ("Los Angeles", ("los angeles", "la county", "california")),
+    "chicago": ("Chicago", ("chicago", "cook county", "illinois")),
+    "dallas_fort_worth": ("Dallas-Fort Worth", ("dallas", "fort worth", "dfw", "north texas")),
+    "houston": ("Houston", ("houston", "harris county")),
+    "washington_dc": ("Washington", ("washington", "washington dc", "d.c.", "district of columbia", "northern virginia")),
+    "miami": ("Miami-Fort Lauderdale", ("miami", "fort lauderdale", "south florida", "miami-dade", "broward")),
+    "atlanta": ("Atlanta", ("atlanta", "fulton county", "georgia")),
+    "boston": ("Boston", ("boston", "massachusetts", "new england")),
+    "san_francisco": ("San Francisco", ("san francisco", "bay area", "oakland", "san mateo county")),
+}
+
 # Source metadata used by the Daily Top News editorial scorer. RSS_FEEDS remains
 # the canonical source list; this map adds ranking context without requiring every
 # source to be exhaustively described.
@@ -150,6 +189,21 @@ SOURCE_METADATA = {
     "New York YIMBY": {"tier": 2, "domains": ["development", "nyc", "construction"]},
     "NY Post Real Estate": {"tier": 2, "domains": ["nyc", "real_estate", "transactions"]},
     "Crain's NY Business": {"tier": 2, "domains": ["nyc", "business", "real_estate"]},
+    "Federal Reserve Press Releases": {"tier": 0, "domains": ["federal", "fed", "policy", "banking"], "lane": "federal", "authority": "primary"},
+    "Federal Reserve Monetary Policy": {"tier": 0, "domains": ["federal", "fed", "rates", "policy"], "lane": "federal", "authority": "primary"},
+    "Federal Reserve Banking Regulation": {"tier": 0, "domains": ["federal", "fed", "banking", "regulation"], "lane": "federal", "authority": "primary"},
+    "Federal Reserve Enforcement": {"tier": 0, "domains": ["federal", "fed", "banking", "enforcement"], "lane": "federal", "authority": "primary"},
+    "Federal Reserve Speeches": {"tier": 0, "domains": ["federal", "fed", "rates", "policy"], "lane": "federal", "authority": "primary"},
+    "Federal Reserve Testimony": {"tier": 0, "domains": ["federal", "fed", "banking", "policy"], "lane": "federal", "authority": "primary"},
+    "Federal Reserve Credit and Liquidity": {"tier": 0, "domains": ["federal", "fed", "credit", "liquidity"], "lane": "federal", "authority": "primary"},
+    "Federal Reserve H.8 Bank Data": {"tier": 0, "domains": ["federal", "fed", "banking", "credit", "data"], "lane": "federal", "authority": "primary"},
+    "OCC News Releases": {"tier": 0, "domains": ["federal", "occ", "banking", "regulation"], "lane": "federal", "authority": "primary"},
+    "OCC Bulletins": {"tier": 0, "domains": ["federal", "occ", "banking", "regulation"], "lane": "federal", "authority": "primary"},
+    "SEC Press Releases": {"tier": 0, "domains": ["federal", "sec", "markets", "regulation"], "lane": "federal", "authority": "primary"},
+    "SEC Speeches and Statements": {"tier": 0, "domains": ["federal", "sec", "markets", "policy"], "lane": "federal", "authority": "primary"},
+    "SEC Testimony": {"tier": 0, "domains": ["federal", "sec", "markets", "policy"], "lane": "federal", "authority": "primary"},
+    "SEC Litigation Releases": {"tier": 0, "domains": ["federal", "sec", "enforcement"], "lane": "federal", "authority": "primary"},
+    "FDIC Press Releases": {"tier": 0, "domains": ["federal", "fdic", "banking", "regulation"], "lane": "federal", "authority": "primary"},
 }
 
 # ── NewsAPI Keyword Queries ────────────────────────────────────────────────────
@@ -161,6 +215,11 @@ NEWSAPI_QUERIES = [
     "Brooklyn commercial real estate deal",
     "New York CMBS office distress",
     "NYC apartment building refinance",
+    "Federal Reserve commercial real estate bank credit",
+    "FDIC OCC bank commercial real estate risk",
+    "Treasury SEC FHFA housing finance policy",
+    "Los Angeles Chicago Dallas Houston Miami commercial real estate financing",
+    "Atlanta Boston San Francisco Washington commercial real estate policy",
 ]
 
 # ── CRE Relevance Filter ───────────────────────────────────────────────────────

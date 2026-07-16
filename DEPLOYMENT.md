@@ -76,6 +76,18 @@ NEWSAPI_KEY=<story gathering>
 LINKEDIN_ACCESS_TOKEN=<optional, only for manual --auto-post-linkedin runs>
 ```
 
+### Website lead notifications (Netlify environment variables)
+
+The chat lead notifier and confidential deal-review form both use Resend and deliver to `ben@lighttowergroup.co` by default. Set these variables in Netlify before deploying the lead paths:
+
+```
+RESEND_API_KEY=<Resend API key>
+NOTIFY_EMAIL=ben@lighttowergroup.co
+FROM_EMAIL=noreply@lighttowergroup.co
+```
+
+`FROM_EMAIL` must be a sender address on a domain verified in Resend. The site returns an error when the email service is not configured so a submission cannot appear successful while silently disappearing.
+
 Security note: if any log containing a real API key was ever pushed or shared, rotate that key immediately. Operational logs must never include full request URLs with key query parameters.
 
 ### DeepSeek Integration

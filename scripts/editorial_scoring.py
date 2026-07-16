@@ -79,6 +79,10 @@ def _fallback_score(candidate: dict[str, Any], index: int) -> dict[str, Any]:
         newsworthiness += 4
     if features.get("has_distress_language"):
         newsworthiness += 5
+    if features.get("has_federal_source"):
+        newsworthiness += 4
+    if features.get("has_government_action") and features.get("has_msa_government_signal"):
+        newsworthiness += 3
 
     capital = 8
     if topics & {"capital_placement", "bank_credit", "private_credit", "fed_rates", "cmbs", "distress"}:
@@ -86,6 +90,10 @@ def _fallback_score(candidate: dict[str, Any], index: int) -> dict[str, Any]:
     if topics & {"private_equity", "mna", "major_sale", "reit_public_markets"}:
         capital += 7
     if features.get("has_material_transaction"):
+        capital += 3
+    if features.get("has_federal_source") and features.get("has_policy_or_rate_language"):
+        capital += 4
+    if features.get("has_government_action") and features.get("has_msa_government_signal"):
         capital += 3
 
     specificity = 5 + (5 if features.get("has_big_number") else 0) + (4 if features.get("has_known_institution") else 0)
@@ -128,11 +136,11 @@ def is_publishable_daily_candidate(item: dict[str, Any]) -> bool:
 
 def _score_prompt(candidates: list[dict[str, Any]], today: str) -> str:
     story_list = "\n\n".join(
-        f"[{c.get('_score_index', i+1)}] SOURCE: {c['source']} | tier {c.get('source_tier', 3)} | domains {', '.join(c.get('source_domains', []))}\n"
+        f"[{c.get('_score_index', i+1)}] SOURCE: {c['source']} | tier {c.get('source_tier', 3)} | lane {c.get('source_lane', 'market')} | authority {c.get('source_authority', 'secondary')} | domains {', '.join(c.get('source_domains', []))}\n"
         f"TITLE: {c['title']}\n"
         f"SUMMARY: {c.get('summary', '')[:360]}\n"
         f"TOPICS: {', '.join(c.get('topics', []))}\n"
-        f"ENTITIES: {json.dumps(c.get('entities', {}), ensure_ascii=False)[:420]}"
+        f"ENTITIES: {json.dumps(c.get('entities', {}), ensure_ascii=False)[:520]}"
         for i, c in enumerate(candidates)
     )
     return f"""You are the senior editor of Light Tower Group's daily CRE capital markets desk.
@@ -187,6 +195,16 @@ private-capital transmission mechanism; adequate reported evidence; and a
 specific analysis angle. A dramatic general-news headline with only a vague
 connection to real estate is not eligible.
 
+Lane guidance (additive, not a replacement for the NYC lens):
+- Preserve the existing NYC/Brooklyn/Manhattan priority for NYC CRE stories.
+- For lane=federal, give full credit when a Fed, Treasury, FDIC, OCC, SEC, FHFA,
+  HUD, Congressional, or Federal Register action has a defensible effect on CRE,
+  bank credit, private equity, private credit, CMBS, agency lending, or financing.
+- For MSA government stories, reward concrete zoning, tax, housing, infrastructure,
+  budget, permitting, or enforcement actions tied to one of the tracked MSAs.
+- Do not require a federal story to mention NYC if its U.S. capital-markets effect
+  is material; do not treat a generic political statement as a publishable story.
+
 Return ONLY a valid JSON object with this exact top-level shape:
 {{
   "scores": [
@@ -216,7 +234,7 @@ Stories:
 
 def _selection_prompt(scored: list[dict[str, Any]], article_count: int, today: str) -> str:
     story_list = "\n\n".join(
-        f"[{item['index']}] SCORE: {item.get('score', 0)} | ARCHETYPE: {item.get('story_archetype', 'other')}\n"
+        f"[{item['index']}] SCORE: {item.get('score', 0)} | ARCHETYPE: {item.get('story_archetype', 'other')} | LANE: {item['candidate'].get('source_lane', 'market')}\n"
         f"SOURCE: {item['candidate']['source']}\n"
         f"TITLE: {item['candidate']['title']}\n"
         f"WHY CLICK: {item.get('why_people_click', '')}\n"
@@ -238,6 +256,9 @@ Selection rules:
 - Preserve variety. Do not select too many generic macro/rate stories unless they are clearly
   among the day's biggest market-moving items.
 - Keep the version/source most suitable for a sharp Light Tower analysis.
+- Preserve the existing NYC CRE flow while adding genuinely material federal and
+  top-10-MSA government stories when they clear the same evidence threshold. Do not
+  force a quota or discard a stronger NYC item simply to manufacture balance.
 
 Return ONLY a JSON object:
 {{

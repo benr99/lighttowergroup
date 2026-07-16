@@ -15,9 +15,10 @@ from typing import Any
 from urllib.parse import urlparse
 
 try:
-    from news_sources import SOURCE_METADATA
+    from news_sources import SOURCE_METADATA, TOP_MSA_GOVERNMENT_LANES
 except Exception:  # pragma: no cover - defensive for standalone use
     SOURCE_METADATA = {}
+    TOP_MSA_GOVERNMENT_LANES = {}
 
 
 KNOWN_INSTITUTIONS = [
@@ -42,6 +43,16 @@ TOPIC_PATTERNS = {
     "policy": r"\b(policy|regulation|zoning|tax|abatement|hud|fha|fannie|freddie|legislation)\b",
     "reit_public_markets": r"\b(reit|public markets|earnings|guidance|stock|shares)\b",
     "development_finance": r"\b(construction loan|development|groundbreaking|permits|completion)\b",
+    "government_action": r"\b(rule|regulation|guidance|enforcement|testimony|legislation|bill|ordinance|zoning|rezoning|tax credit|budget|appropriation|executive order|public hearing|comment period|proposed rule|final rule)\b",
+}
+
+POLICY_ACTION_PATTERNS = {
+    "proposed_rule": r"\b(proposed rule|proposal|notice of proposed rulemaking|request for comment|comment period)\b",
+    "final_rule": r"\b(final rule|effective date|adopts? amendments?|implements?)\b",
+    "enforcement": r"\b(enforcement|penalty|settlement|consent order|violation|receivership)\b",
+    "legislation": r"\b(bill|act|legislation|appropriation|budget|congress|senate|house of representatives)\b",
+    "local_government": r"\b(city council|planning commission|zoning board|mayor|governor|county commission|public hearing|rezoning|land use)\b",
+    "data_release": r"\b(data release|survey|statistical release|h\.8|h\.15|loan officer opinion|balance sheet|report)\b",
 }
 
 ASSET_CLASSES = {
@@ -82,6 +93,8 @@ def source_metadata(source: str) -> dict[str, Any]:
     return {
         "tier": int(meta.get("tier", 3)),
         "domains": list(meta.get("domains", ["general"])),
+        "lane": str(meta.get("lane", "market")),
+        "authority": str(meta.get("authority", "secondary")),
     }
 
 
@@ -155,6 +168,23 @@ def _find_markets(text: str) -> list[str]:
     return [market for market in US_MARKETS if market in lower][:8]
 
 
+def _find_msa_government_markets(text: str) -> list[str]:
+    """Map a story to the additive top-10 MSA government footprint."""
+    lower = text.lower()
+    found = []
+    for key, (label, aliases) in TOP_MSA_GOVERNMENT_LANES.items():
+        if any(alias in lower for alias in aliases):
+            found.append(label)
+    return found
+
+
+def _find_policy_actions(text: str) -> list[str]:
+    return [
+        action for action, pattern in POLICY_ACTION_PATTERNS.items()
+        if re.search(pattern, text, flags=re.IGNORECASE)
+    ]
+
+
 def _find_known_institutions(text: str) -> list[str]:
     lower = text.lower()
     found = [name for name in KNOWN_INSTITUTIONS if name in lower]
@@ -181,6 +211,11 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
     amounts = _find_amounts(text)
     institutions = _find_known_institutions(text)
     topics = _find_topics(text)
+    policy_actions = _find_policy_actions(text)
+    msa_government_markets = _find_msa_government_markets(text)
+    story_lane = meta["lane"]
+    if story_lane == "market" and msa_government_markets and policy_actions:
+        story_lane = "msa_government"
     material_transaction = _has_material_transaction(text, amounts, topics)
     parsed = urlparse(url)
 
@@ -194,11 +229,15 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
         "summary": summary,
         "source_tier": meta["tier"],
         "source_domains": meta["domains"],
+        "source_lane": story_lane,
+        "source_authority": meta["authority"],
         "topics": topics,
         "entities": {
             "companies": institutions,
             "people": [],
             "markets": _find_markets(text),
+            "msa_government_markets": msa_government_markets,
+            "policy_actions": policy_actions,
             "amounts": amounts,
             "asset_classes": _find_asset_classes(text),
         },
@@ -209,6 +248,9 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
             "has_material_transaction": material_transaction,
             "has_distress_language": "distress" in topics,
             "has_policy_or_rate_language": any(t in topics for t in ("policy", "fed_rates")),
+            "has_government_action": bool(policy_actions) or "government" in text.lower(),
+            "has_federal_source": meta["lane"] == "federal",
+            "has_msa_government_signal": bool(msa_government_markets) and bool(policy_actions),
         },
     }
 

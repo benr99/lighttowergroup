@@ -53,7 +53,7 @@ if _env.exists():
             os.environ.setdefault(_k.strip(), _v.strip())
 
 from news_sources import (
-    RSS_FEEDS, CRE_KEYWORDS, EXCLUDE_KEYWORDS,
+    RSS_FEEDS, FEDERAL_RSS_FEEDS, CRE_KEYWORDS, EXCLUDE_KEYWORDS,
     NEWSAPI_QUERIES, SITE_URL,
     FEED_TITLE, FEED_DESCRIPTION,
 )
@@ -74,6 +74,7 @@ from editorial_store import (
 )
 from content_governance import independent_quality_issues, load_insight_records, near_duplicate_matches
 from editorial_voice import narrative_finance_issues, select_editorial_brief
+from source_health import SourceHealthLedger
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -103,6 +104,12 @@ _SITEMAP_STATIC = [
 ]
 LOG_FILE      = SCRIPT_DIR / "agent_log.json"
 LINKEDIN_PDF_QUEUE = SCRIPT_DIR / "linkedin_pdf_queue.json"
+SOURCE_HEALTH_FILE = SITE_ROOT / "tmp" / "source_health.json"
+
+# The original NYC and national CRE feed universe remains intact.  Federal
+# feeds are additive and are fetched in the same run so major policy and
+# banking events enter the existing editorial pipeline immediately.
+ALL_RSS_FEEDS = RSS_FEEDS + FEDERAL_RSS_FEEDS
 
 ANTHROPIC_API_KEY     = os.environ.get("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY      = os.environ.get("DEEPSEEK_API_KEY", "")
@@ -159,7 +166,12 @@ def fetch_rss_stories() -> list:
     """Parse all configured RSS feeds and return normalised story dicts."""
     stories = []
     failed_feeds = 0
-    for source_name, feed_url in RSS_FEEDS:
+    health = SourceHealthLedger(SOURCE_HEALTH_FILE)
+    for source_name, feed_url in ALL_RSS_FEEDS:
+        if health.is_quarantined(source_name):
+            print(f"  [SKIP] RSS {source_name} is temporarily quarantined after repeated failures")
+            continue
+        started = time.perf_counter()
         try:
             feed = feedparser.parse(
                 feed_url,
@@ -167,6 +179,8 @@ def fetch_rss_stories() -> list:
             )
             if getattr(feed, "bozo", False) and not getattr(feed, "entries", None):
                 failed_feeds += 1
+                health.record_failure(source_name, "feedparser returned no entries", int((time.perf_counter() - started) * 1000))
+                continue
             # Score every recent entry the source exposes. The 36-hour recency
             # filter below, not an arbitrary per-feed headline cap, determines
             # the daily candidate universe.
@@ -184,14 +198,21 @@ def fetch_rss_stories() -> list:
                         "source":    source_name,
                         "published": _parse_entry_date(entry),
                     })
+            health.record_success(source_name, len(getattr(feed, "entries", []) or []), int((time.perf_counter() - started) * 1000))
         except Exception as e:
             failed_feeds += 1
+            health.record_failure(source_name, redact_secret_text(e), int((time.perf_counter() - started) * 1000))
             print(f"  [WARN] RSS {source_name}: {redact_secret_text(e)}")
         time.sleep(0.05)
 
-    print(f"  RSS: {len(stories)} raw stories from {len(RSS_FEEDS)} feeds")
+    try:
+        health.save()
+    except OSError as e:
+        print(f"  [WARN] Could not persist RSS source health: {redact_secret_text(e)}")
+
+    print(f"  RSS: {len(stories)} raw stories from {len(ALL_RSS_FEEDS)} feeds ({len(FEDERAL_RSS_FEEDS)} federal)")
     if failed_feeds:
-        print(f"  [WARN] RSS feeds with no parseable entries: {failed_feeds}/{len(RSS_FEEDS)}")
+        print(f"  [WARN] RSS feeds with no parseable entries: {failed_feeds}/{len(ALL_RSS_FEEDS)}")
     return stories
 
 
@@ -203,7 +224,9 @@ def fetch_newsapi_stories(lookback_hours: int = 24) -> list:
     stories = []
     from_date = (datetime.now(timezone.utc) - timedelta(hours=lookback_hours)).strftime("%Y-%m-%d")
 
-    for query in NEWSAPI_QUERIES[:3]:   # use only 3 of 5 to stay well under limit
+    # Use a broader additive set while staying comfortably inside NewsAPI's
+    # free-tier request ceiling. RSS remains the primary source of truth.
+    for query in NEWSAPI_QUERIES[:8]:
         try:
             r = requests.get(
                 "https://newsapi.org/v2/everything",
@@ -318,6 +341,41 @@ _DAILY_TRANSACTION_SIGNALS = (
     "refinancing", "equity", "joint venture", "recapitalization", "capital commitment",
 )
 
+# Additive policy signals. These do not alter the existing NYC relevance test;
+# they open a second intake path for federal action and a third path for
+# government developments in the ten tracked MSAs.
+_FEDERAL_AUTHORITY_SIGNALS = (
+    "federal reserve", "fdic", "occ", "securities and exchange commission", "sec ",
+    "treasury department", "department of the treasury", "fhfa", "hud ",
+    "federal housing administration", "federal register", "congress", "senate",
+    "house financial services", "cfpb", "cftc",
+)
+_GOVERNMENT_ACTION_SIGNALS = (
+    "rule", "regulation", "guidance", "enforcement", "testimony", "legislation",
+    "bill", "ordinance", "zoning", "rezoning", "tax credit", "budget", "appropriation",
+    "executive order", "public hearing", "comment period", "planning commission",
+    "city council", "mayor", "governor", "county commission", "land use",
+)
+_TOP_MSA_SIGNALS = (
+    "new york", "nyc", "manhattan", "brooklyn", "los angeles", "chicago", "dallas",
+    "fort worth", "dfw", "houston", "washington", "district of columbia", "miami",
+    "fort lauderdale", "atlanta", "boston", "san francisco", "bay area",
+)
+
+
+def _is_federal_or_msa_government_relevant(text: str) -> bool:
+    """Admit government stories only when they have a CRE/finance transmission path."""
+    has_finance = any(signal in text for signal in _DAILY_FINANCE_SIGNALS)
+    has_property = any(signal in text for signal in _DAILY_PROPERTY_OR_MARKET_SIGNALS)
+    has_action = any(signal in text for signal in _GOVERNMENT_ACTION_SIGNALS)
+    has_federal_authority = any(signal in text for signal in _FEDERAL_AUTHORITY_SIGNALS)
+    has_msa = any(signal in text for signal in _TOP_MSA_SIGNALS)
+    # Federal stories may be macro, but must still show a banking, credit,
+    # housing, capital-markets, or CRE transmission path.
+    federal_path = has_federal_authority and has_action and has_finance
+    msa_path = has_msa and has_action and (has_property or has_finance)
+    return federal_path or msa_path
+
 
 def _is_material_cre_transaction(text: str) -> bool:
     """Allow concrete CRE deal announcements into scoring, without admitting generic finance news."""
@@ -345,6 +403,7 @@ def _is_daily_top_news_relevant(story: dict) -> bool:
         (has_property_or_market and has_finance)
         or (has_finance and has_institutional_actor)
         or _is_material_cre_transaction(text)
+        or _is_federal_or_msa_government_relevant(text)
     )
 
 
@@ -527,6 +586,12 @@ def generate_article(story: dict) -> dict:
         f"NYC addresses mentioned: {', '.join(story['mentioned_addresses'])}"
         if story.get("mentioned_addresses") else ""
     )
+    lane_context = (
+        f"Editorial lane: {story.get('source_lane', 'market')} | "
+        f"MSA government markets: {', '.join(story.get('entities', {}).get('msa_government_markets', [])) or 'not tagged'} | "
+        f"Policy actions: {', '.join(story.get('entities', {}).get('policy_actions', [])) or 'none'}"
+    )
+    addresses_block = "\n".join(part for part in (addresses_block, lane_context) if part)
 
     editorial_brief = select_editorial_brief({
         "slug": story.get("url", ""),
@@ -592,6 +657,9 @@ def generate_article(story: dict) -> dict:
     article["date_iso"]   = now_utc.isoformat()
     article["source_url"] = story["url"]
     article["source_name"] = story["source"]
+    article["source_lane"] = story.get("source_lane", "market")
+    article["msa_government_markets"] = story.get("entities", {}).get("msa_government_markets", [])
+    article["policy_actions"] = story.get("entities", {}).get("policy_actions", [])
     return article
 
 

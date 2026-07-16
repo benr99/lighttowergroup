@@ -112,10 +112,10 @@
     # - img-src 'self' https: data: profile photo + any HTTPS images + data URIs
     # - frame-ancestors 'none': no framing allowed (clickjacking protection)
     # - base-uri 'self': prevent base tag hijacking
-    # - form-action includes the configured Formspree endpoint for the public mandate form
+    # - form-action 'self': the public mandate form posts to a first-party Netlify function
     # - object-src 'none': block Flash/plugin execution
     # - upgrade-insecure-requests: auto-upgrade any stray HTTP sub-resource calls
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'; upgrade-insecure-requests;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;"
 
 # Cache static assets aggressively
 [[headers]]

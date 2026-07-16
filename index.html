@@ -153,7 +153,7 @@
           {
             "@type": "Question",
             "name": "Does Light Tower Group charge a retainer or upfront fees?",
-"acceptedAnswer": {"@type": "Answer","text": "Fee structure is discussed after an initial assessment of the assignment and fit."}
+"acceptedAnswer": {"@type": "Answer","text": "For qualifying assignments, engagement is success-based with no retainer or upfront fee. Terms are confirmed after an initial confidential review."}
           },
           {
             "@type": "Question",
@@ -1608,7 +1608,38 @@ margin-bottom: 0;
     .observatory .review-section { background:linear-gradient(135deg,#121a23,#080b11); }
     .observatory .form-intro h2,.observatory .form-intro p,.observatory .wizard-question { color:#fffaf0; }
     .observatory .form-intro p { color:rgba(245,241,233,.66); }
-    .observatory .wizard { background:rgba(245,241,233,.96); box-shadow:0 28px 65px rgba(0,0,0,.28); }
+    .observatory .wizard {
+      padding:clamp(1.5rem,3vw,2.5rem);
+      background:linear-gradient(145deg,rgba(18,27,37,.98),rgba(8,12,18,.99));
+      border:1px solid rgba(215,182,101,.34);
+      box-shadow:0 28px 65px rgba(0,0,0,.28);
+    }
+    .observatory #faq .faq-q { color:var(--accent); }
+    .observatory #faq .faq-q:hover { color:var(--accent-hover); }
+    .observatory #faq .faq-a { color:rgba(245,241,233,.72); }
+    .observatory .wizard-steps-label,
+    .observatory .form-field label { color:rgba(245,241,233,.56); }
+    .observatory .wizard-card {
+      border-color:rgba(245,241,233,.16);
+      background:rgba(245,241,233,.025);
+    }
+    .observatory .wizard-card:hover,
+    .observatory .wizard-card.selected {
+      border-color:var(--accent);
+      background:rgba(215,182,101,.09);
+    }
+    .observatory .wizard-card-label { color:#fffaf0; }
+    .observatory .wizard-card-sub { color:rgba(245,241,233,.62); }
+    .observatory .form-field { border-bottom-color:rgba(245,241,233,.2); }
+    .observatory .form-field input,
+    .observatory .form-field select,
+    .observatory .form-field textarea { color:#fffaf0; }
+    .observatory .form-field input::placeholder,
+    .observatory .form-field textarea::placeholder { color:rgba(245,241,233,.46); }
+    .observatory .form-field option { background:#0c121a; color:#fffaf0; }
+    .observatory .wizard-back:hover { color:#fffaf0; }
+    .observatory .wizard-next { background:var(--accent); color:#071018; }
+    .observatory .wizard-next:hover { background:var(--accent-hover); color:#071018; }
     .observatory .cta-section { background:radial-gradient(circle at 76% 25%,rgba(215,182,101,.17),transparent 28%),#06090e; border-color:rgba(245,241,233,.1); }
     .observatory .site-footer { background:#05070b; color:rgba(245,241,233,.7); border-color:rgba(245,241,233,.1); }
 
@@ -1953,10 +1984,10 @@ margin-bottom: 0;
 
       <div class="hero-intro">
         <div>
-          <span class="hero-kicker">Commercial real estate capital advisory</span>
+          <span class="hero-kicker">Debt + equity placement for CRE sponsors</span>
           <h1 class="hero-name" id="hero-name">Debt and equity capital<br>for CRE deals<br>that need to close.</h1>
           <div class="hero-statement">
-            <p>For acquisitions, refinancings, development, and recapitalizations. We define the capital plan, prepare the case, and manage the process through funding.</p>
+            <p>Principal-led advice for acquisitions, refinancings, development, and recapitalizations—from capital plan through funding.</p>
           </div>
         </div>
         <aside class="capital-stage" aria-label="An asset and its layered capital stack">
@@ -2012,8 +2043,8 @@ margin-bottom: 0;
 <div class="metric-number metric-service">Debt +<br>Equity Capital<br>Advisory</div>
 </div>
           <div class="metric-item">
-          <div class="metric-number">Focused</div>
-          <div class="metric-label">Capital Provider<br>Outreach</div>
+          <div class="metric-number">250,000+</div>
+          <div class="metric-label">Capital Source<br>Relationships</div>
           </div>
           <div class="metric-item">
             <div class="metric-number">1:1</div>
@@ -2132,7 +2163,7 @@ margin-bottom: 0;
             <span class="service-num" aria-hidden="true">01</span>
             <div>
               <h3 class="service-title">Debt Capital Markets</h3>
-              <p class="service-desc">Senior, bridge, construction, CMBS, agency, and life-company debt. Built around the asset, leverage need, and timeline.</p>
+              <p class="service-desc">Senior, bridge, construction, CMBS, agency, and life-company debt—matched to the asset, leverage need, and timing.</p>
               <div class="service-tags" aria-label="Debt services include">
                 <span class="service-tag">Senior Permanent Debt</span>
                 <span class="service-tag">Bridge & Transitional Financing</span>
@@ -2162,7 +2193,7 @@ margin-bottom: 0;
             <span class="service-num" aria-hidden="true">03</span>
             <div>
               <h3 class="service-title">Investment Advisory</h3>
-              <p class="service-desc">Capital-structure advice for acquisitions, recapitalizations, dispositions, and portfolio decisions before a process begins.</p>
+              <p class="service-desc">Capital-structure advice for acquisitions, recapitalizations, dispositions, and portfolio decisions before outreach begins.</p>
               <div class="service-tags" aria-label="Advisory services include">
                 <span class="service-tag">Acquisition Financing Strategy</span>
                 <span class="service-tag">Recapitalization Advisory</span>
@@ -2229,7 +2260,7 @@ margin-bottom: 0;
           <div class="process-step reveal reveal-d2">
             <div class="process-num">03</div>
             <h3 class="process-title">Market Preparation</h3>
-            <p class="process-desc">Prepare the materials and position the opportunity for review.</p>
+            <p class="process-desc">Prepare the materials, lender case, and diligence response before outreach.</p>
           </div>
           <div class="process-step reveal reveal-d3">
             <div class="process-num">04</div>
@@ -2351,7 +2382,7 @@ margin-bottom: 0;
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-a">
-              We typically engage on $5 million+ capital needs. Every assignment is evaluated on its own merits.
+              We typically start at $5 million+ in capital needs, with fit evaluated based on the sponsor, asset, structure, and timeline.
             </div>
           </div>
 
@@ -2371,7 +2402,7 @@ margin-bottom: 0;
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-a">
-              Fee structure is discussed after an initial assessment of the assignment and fit. The first conversation is confidential.
+              For qualifying assignments, engagement is success-based—no retainer or upfront fee. Terms are confirmed after an initial confidential review.
             </div>
           </div>
 
@@ -2463,7 +2494,7 @@ margin-bottom: 0;
 
           <div class="form-intro">
             <h2 id="contact-heading">Request a confidential capital review.</h2>
-            <p>Share the asset, capital need, and timeline. Benjamin will review the fit and outline the appropriate next step.</p>
+            <p>Share the asset, capital need, and timeline. Benjamin will review the fit and outline the appropriate next step within one business day.</p>
             <p>Prefer to start directly? Email <a href="mailto:ben@lighttowergroup.co" style="color:var(--accent); border-bottom: 1px solid var(--accent);">ben@lighttowergroup.co</a> or call <a href="tel:+13475540093" style="color:var(--accent); border-bottom: 1px solid var(--accent);">(347) 554-0093</a>.</p>
             <div class="form-trust">
               <span class="form-trust-item">Direct conversation with Benjamin Rohr</span>
@@ -2549,7 +2580,7 @@ margin-bottom: 0;
             <!-- Step 3: Contact info -->
             <div class="wizard-step" data-step="3">
               <p class="wizard-question">Where should Benjamin reach you?</p>
-              <form id="mandate-form" action="https://formspree.io/f/mojkklrk" method="POST">
+              <form id="mandate-form" action="/.netlify/functions/mandate-submit" method="POST">
                 <!-- Hidden carry-forward values -->
                 <input type="hidden" name="capital_need" id="h-capital-need">
                 <input type="hidden" name="asset_type" id="h-asset-type">
@@ -2741,8 +2772,8 @@ margin-bottom: 0;
         try {
           const res = await fetch(mandateForm.action, {
             method: 'POST',
-            body: new FormData(mandateForm),
-            headers: { 'Accept': 'application/json' }
+            body: JSON.stringify(Object.fromEntries(new FormData(mandateForm))),
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
           });
           if (res.ok) {
             document.getElementById('mandate-wizard').querySelectorAll('.wizard-step, .wizard-progress, .wizard-steps-label').forEach(el => el.style.display = 'none');

@@ -67,9 +67,9 @@ exports.handler = async (event) => {
   const fromEmail   = process.env.FROM_EMAIL   || 'noreply@lighttowergroup.co';
 
   if (!resendKey) {
-    // Silently succeed if not configured — don't break chat experience
-    console.log('deal-notify: RESEND_API_KEY not set, skipping email');
-    return { statusCode: 200, headers: corsHeaders(origin), body: JSON.stringify({ ok: true }) };
+    // Fail visibly in logs and to the caller so missing delivery configuration is not hidden.
+    console.error('deal-notify: RESEND_API_KEY is not configured');
+    return { statusCode: 503, headers: corsHeaders(origin), body: JSON.stringify({ ok: false, error: 'email_not_configured' }) };
   }
 
   let messages;
@@ -94,6 +94,10 @@ exports.handler = async (event) => {
       role   : m.role === 'assistant' ? 'assistant' : 'user',
       content: String(m.content).slice(0, MAX_MSG_CHARS),
     }));
+
+  const visitorEmail = safeMessages
+    .map((message) => message.content.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0])
+    .find(Boolean);
 
   // Format transcript
   const transcript = safeMessages
@@ -152,6 +156,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         from   : `LTG Deal Screener <${fromEmail}>`,
         to     : [notifyEmail],
+        ...(visitorEmail ? { reply_to: [visitorEmail] } : {}),
         subject: `New Deal Inquiry — LTG Chat (${timestamp})`,
         html,
       }),
