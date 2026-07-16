@@ -471,12 +471,109 @@
     document.body.classList.remove('essay-modal-open');
   }
 
+  function markActiveNavigation() {
+    var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    document.querySelectorAll('.site-nav a[href], .nav a[href]').forEach(function (link) {
+      var href = link.getAttribute('href') || '';
+      if (!href || href.charAt(0) === '#') return;
+      var url;
+      try { url = new URL(href, window.location.origin); } catch (e) { return; }
+      var linkPath = url.pathname.replace(/\/$/, '') || '/';
+      var sectionMatch = (linkPath === '/insights.html' && currentPath.indexOf('/insights/') === 0) ||
+        (linkPath === '/ideas.html' && currentPath.indexOf('/ideas/') === 0);
+      if ((linkPath === currentPath || sectionMatch) && !url.hash) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  }
+
+  function normalizePrimaryNavigation() {
+    var items = [
+      ['/#practice', 'Practice'],
+      ['/#advantage', 'Advantage'],
+      ['/#transactions', 'Executions'],
+      ['/#leadership', 'Leadership'],
+      ['/#faq', 'FAQ'],
+      ['/insights.html', 'Intelligence'],
+      ['/ideas.html', 'Ideas'],
+      ['/buildings.html', 'Buildings'],
+      ['/services.html', 'Services'],
+      ['/about.html', 'About'],
+      ['/#contact', 'Contact']
+    ];
+    function linksMarkup() {
+      return items.map(function (item) { return '<a href="' + item[0] + '">' + item[1] + '</a>'; }).join('') +
+        '<button onclick="openLTGChat()" class="nav-cta">Discuss Your Deal</button>';
+    }
+    function mobileMarkup() {
+      return items.map(function (item) { return '<a href="' + item[0] + '">' + item[1] + '</a>'; }).join('') +
+        '<button onclick="openLTGChat()" class="nav-mobile-cta">Discuss Your Deal</button>';
+    }
+    document.querySelectorAll('.site-nav').forEach(function (nav) {
+      var desktop = nav.querySelector('.nav-links');
+      var mobile = nav.querySelector('.nav-mobile');
+      if (desktop) desktop.innerHTML = linksMarkup();
+      if (mobile) mobile.innerHTML = mobileMarkup();
+    });
+    document.querySelectorAll('a[href="/insights.html"]').forEach(function (link) {
+      if (!link.closest('.site-nav') && (link.textContent || '').trim() === 'Insights') link.textContent = 'Intelligence';
+    });
+  }
+
+  function ensureMeta(name, content, property) {
+    if (!content || document.querySelector('meta[' + (property ? 'property' : 'name') + '="' + name + '"]')) return;
+    var meta = document.createElement('meta');
+    meta.setAttribute(property ? 'property' : 'name', name);
+    meta.setAttribute('content', content);
+    document.head.appendChild(meta);
+  }
+
+  function enhanceSeoSignals() {
+    var robots = readMeta('robots').toLowerCase();
+    if (robots.indexOf('noindex') !== -1) return;
+
+    var title = document.title.trim();
+    var description = readMeta('description');
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var canonicalUrl = canonical ? canonical.href : window.location.href.split('#')[0];
+    ensureMeta('author', 'Light Tower Group');
+    ensureMeta('theme-color', '#f3efe7');
+    ensureMeta('twitter:card', 'summary_large_image');
+    ensureMeta('twitter:title', title);
+    ensureMeta('twitter:description', description);
+    ensureMeta('twitter:url', canonicalUrl);
+    ensureMeta('og:site_name', 'Light Tower Group', true);
+    ensureMeta('og:image:alt', 'Light Tower Group CRE capital advisory', true);
+
+    if (!document.querySelector('script[data-ltg-breadcrumbs]') && window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+      var current = document.querySelector('main h1, h1');
+      var label = current ? current.textContent.trim() : title.replace(/\s*\|\s*Light Tower Group.*$/, '');
+      var data = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Light Tower Group', 'item': 'https://lighttowergroup.co/' },
+          { '@type': 'ListItem', 'position': 2, 'name': label, 'item': canonicalUrl }
+        ]
+      };
+      var script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.dataset.ltgBreadcrumbs = 'true';
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var menuBtn = document.getElementById('nav-menu-btn');
     var mobileNav = document.getElementById('nav-mobile');
     addSkipLink();
     secureBlankLinks();
     enhanceShareBars();
+    normalizePrimaryNavigation();
+    markActiveNavigation();
+    enhanceSeoSignals();
 
     document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
       if (link.dataset.ltgEmailTracked === 'true') return;

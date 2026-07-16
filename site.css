@@ -900,6 +900,54 @@ body.essay-modal-open {
   .idea-card { grid-template-columns: 1fr; }
 }
 
+/* Generated Intelligence articles use the same editorial tokens as the archive pages. */
+.post-header {
+  background: transparent !important;
+  border-bottom-color: var(--ltg-line) !important;
+}
+.post-title {
+  color: var(--ltg-text) !important;
+  font-family: var(--ltg-font-display) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.045em !important;
+  line-height: .98 !important;
+}
+.post-category,
+.post-cta-eyebrow { color: var(--ltg-accent) !important; }
+.post-meta,
+.post-meta-sep { color: var(--ltg-muted) !important; }
+.post-body {
+  color: #393630 !important;
+  font-family: var(--ltg-font-body) !important;
+  font-size: clamp(1.05rem, 1.2vw, 1.18rem) !important;
+  line-height: 1.85 !important;
+}
+.post-body h2,
+.post-body h3 { color: var(--ltg-text) !important; font-family: var(--ltg-font-display) !important; font-weight: 400 !important; }
+.data-card {
+  background: rgba(251,249,244,.72) !important;
+  border-color: var(--ltg-line) !important;
+}
+.data-card-label,
+.data-label { color: var(--ltg-accent) !important; }
+.data-card-address,
+.data-value,
+.data-source { color: var(--ltg-text) !important; }
+.post-cta {
+  background: #171814 !important;
+  border-color: rgba(243,239,231,.16) !important;
+  color: #f7f1e6 !important;
+}
+.post-cta-headline { color: #f7f1e6 !important; font-family: var(--ltg-font-display) !important; font-weight: 400 !important; }
+.post-cta-sub { color: rgba(247,241,230,.67) !important; }
+.post-back { color: var(--ltg-accent) !important; }
+
+/* Keep the full primary navigation visible on standard laptop and desktop widths. */
+@media (min-width: 1241px) and (max-width: 1380px) {
+  .nav-links { display: flex !important; }
+  .nav-menu-btn { display: none !important; }
+}
+
 /* Private-client refinement: an editorial, material-led system for public pages. */
 :root {
   --ltg-bg: #f3efe7;
