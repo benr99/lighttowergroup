@@ -1378,7 +1378,16 @@ def git_commit_push(articles: list, dry_run: bool = False):
              f"Daily CRE analysis ({len(articles)} articles): {titles}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"],
             cwd=SITE_ROOT, check=True, capture_output=True,
         )
-        subprocess.run(["git", "push", "origin", "main"], cwd=SITE_ROOT, check=True, capture_output=True)
+        # The scheduled agent may run from a delivery branch rather than the
+        # local `main` branch.  Push the commit we just created (HEAD) to the
+        # deployment branch explicitly; `git push origin main` would otherwise
+        # push the stale local main branch and leave the new articles stranded.
+        subprocess.run(
+            ["git", "push", "origin", "HEAD:refs/heads/main"],
+            cwd=SITE_ROOT,
+            check=True,
+            capture_output=True,
+        )
         print(f"  Git: committed {len(articles)} articles and pushed \u2192 Netlify deploying")
     except subprocess.CalledProcessError as e:
         stderr = e.stderr.decode(errors="replace") if e.stderr else ""
