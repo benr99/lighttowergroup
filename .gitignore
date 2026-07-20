@@ -6,6 +6,8 @@ agent/
 !tests/test_ideas_publishing_safety.py
 !tests/test_article_pdf_generator.py
 !tests/test_editorial_scoring.py
+!tests/test_bucketed_editorial.py
+!tests/test_agent_runtime.py
 .env
 scripts/.env
 .DS_Store
@@ -14,6 +16,7 @@ scripts/agent_log.json
 scripts/agent_run.log
 scripts/linkedin_pdf_queue.json
 scripts/linkedin_pdf_post_state.json
+/.agent-runtime/
 scripts/__pycache__/
 *.pyc
 test_social_image.png

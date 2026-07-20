@@ -48,6 +48,7 @@ class SourceHealthLedger:
             "last_success_at": self._now(),
             "last_story_count": story_count,
             "last_elapsed_ms": elapsed_ms,
+            "consecutive_empty_runs": 0,
         })
         record.pop("last_error", None)
 
@@ -60,9 +61,13 @@ class SourceHealthLedger:
         it must not quarantine the source for the next daily run.
         """
         record = self.records.setdefault(source, {})
+        empty_runs = int(record.get("consecutive_empty_runs", 0)) + 1
         record.update({
-            "status": "empty",
+            # Empty feeds remain eligible on every run. "needs_review" is
+            # diagnostic only; it never blocks a source from being read.
+            "status": "needs_review" if empty_runs >= 7 else "empty",
             "consecutive_failures": 0,
+            "consecutive_empty_runs": empty_runs,
             "last_empty_at": self._now(),
             "last_empty_detail": detail[:240],
             "last_elapsed_ms": elapsed_ms,

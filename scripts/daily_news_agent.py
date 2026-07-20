@@ -96,6 +96,7 @@ _SITEMAP_STATIC = [
     ("/buildings.html",             "0.8", "weekly"),
     ("/services.html",              "0.9", "monthly"),
     ("/about.html",                 "0.7", "monthly"),
+    ("/privacy.html",               "0.3", "yearly"),
     ("/transactions.html",          "0.7", "monthly"),
     ("/research.html",              "0.7", "monthly"),
     ("/senior-debt.html",           "0.8", "monthly"),
@@ -1399,14 +1400,20 @@ def update_sitemap_xml():
     print(f"  sitemap.xml updated ({len(url_blocks)} URLs)")
 
 
-def git_commit_push(articles: list, dry_run: bool = False):
-    """Commit new article files and push to trigger Netlify deploy."""
+def git_commit_push(articles: list, dry_run: bool = False) -> dict:
+    """Commit and verify deployment, returning an explicit, log-safe result."""
+    result = {
+        "attempted": False, "commit_created": False, "commit_sha": None,
+        "push_ok": False, "remote_main_sha": None, "error": None,
+    }
     if dry_run:
         print("  [DRY-RUN] Skipping git commit/push")
-        return
+        return result
 
     if not articles:
-        return
+        return result
+
+    result["attempted"] = True
 
     files = []
     for article in articles:
@@ -1434,6 +1441,10 @@ def git_commit_push(articles: list, dry_run: bool = False):
              f"Daily CRE analysis ({len(articles)} articles): {titles}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"],
             cwd=SITE_ROOT, check=True, capture_output=True,
         )
+        result["commit_created"] = True
+        result["commit_sha"] = subprocess.run(
+            ["git", "rev-parse", "HEAD"], cwd=SITE_ROOT, check=True, capture_output=True, text=True,
+        ).stdout.strip()
         # The scheduled agent may run from a delivery branch rather than the
         # local `main` branch.  Push the commit we just created (HEAD) to the
         # deployment branch explicitly; `git push origin main` would otherwise
@@ -1444,10 +1455,24 @@ def git_commit_push(articles: list, dry_run: bool = False):
             check=True,
             capture_output=True,
         )
-        print(f"  Git: committed {len(articles)} articles and pushed \u2192 Netlify deploying")
+        remote_sha = subprocess.run(
+            ["git", "ls-remote", "--exit-code", "origin", "refs/heads/main"],
+            cwd=SITE_ROOT, check=True, capture_output=True, text=True,
+        ).stdout.split()[0]
+        result["remote_main_sha"] = remote_sha
+        if remote_sha != result["commit_sha"]:
+            raise RuntimeError("origin/main did not resolve to the commit created by this run")
+        result["push_ok"] = True
+        print(f"  Git: committed {len(articles)} articles, pushed, and verified origin/main")
     except subprocess.CalledProcessError as e:
         stderr = e.stderr.decode(errors="replace") if e.stderr else ""
-        print(f"  [WARN] Git failed: {redact_secret_text(stderr)[:200]}")
+        result["error"] = redact_secret_text(stderr or str(e))[:300]
+    except Exception as e:
+        result["error"] = redact_secret_text(e)[:300]
+
+    if not result["push_ok"]:
+        print(f"  [ERROR] Git deployment failed: {result['error'] or 'unknown git error'}")
+    return result
 
 
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1951,7 +1976,17 @@ def main():
             safe_queue_pdf_generation(article)
         write_linkedin_pdf_queue(articles)
 
-        git_commit_push(articles, dry_run=False)
+        git_result = git_commit_push(articles, dry_run=False)
+        run_data["git"] = git_result
+        if not git_result["push_ok"]:
+            run_data.update({
+                "status": "deployment_failed",
+                "articles_count": len(articles),
+                "elapsed_seconds": round((datetime.now(timezone.utc) - start).total_seconds()),
+            })
+            write_log(run_data)
+            print("\n  STOPPED: articles were generated locally but were not verified on origin/main.")
+            raise SystemExit(1)
     else:
         for article in articles:
             print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")
