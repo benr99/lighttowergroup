@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop"
+
 $runtimeScripts = "C:\Users\Ben\Downloads\Lighttowergroupsite\.agent-runtime\scripts"
 if (-not (Test-Path (Join-Path $runtimeScripts "run_agent_runtime.bat"))) {
     throw "Isolated agent runtime is missing. Run setup_agent_runtime.ps1 first."
