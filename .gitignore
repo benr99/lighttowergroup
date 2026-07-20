@@ -1,6 +1,7 @@
 memory/
 data/
 agent/
+tmp/
 *.py
 !scripts/*.py
 !tests/test_ideas_publishing_safety.py
