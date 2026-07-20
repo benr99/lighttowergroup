@@ -67,6 +67,11 @@ from editorial_scoring import (
     print_daily_selection_report,
     print_weekly_review_report,
 )
+from bucketed_editorial import (
+    bucketed_volume_selection,
+    print_bucketed_volume_report,
+    route_story,
+)
 from editorial_store import (
     load_weekly_editorial_runs,
     save_editorial_run,
@@ -445,6 +450,27 @@ def triage_daily_top_news(stories: list, recent_hours: int = 36) -> list:
     ]
     unique = _deduplicate(relevant)
     print(f"  Daily top-news triage: {len(stories)} raw \u2192 {len(relevant)} relevant \u2192 {len(unique)} unique")
+    return unique
+
+
+def triage_bucketed_volume(stories: list, recent_hours: int = 36) -> list:
+    """Admit every recent story that belongs to at least one editorial bucket.
+
+    The bucket scorer performs the tougher evidence and quality decisions. This
+    intake stage intentionally avoids using a single CRE-debt-shaped filter that
+    would hide a valid bank, PE, or policy story before it can be scored.
+    """
+    relevant = []
+    for story in stories:
+        text = (story.get("title", "") + " " + story.get("summary", "")).lower()
+        if not story.get("url") or not _is_recent(story, recent_hours):
+            continue
+        if any(kw in text for kw in EXCLUDE_KEYWORDS):
+            continue
+        if route_story(story).get("primary_bucket"):
+            relevant.append(story)
+    unique = _deduplicate(relevant)
+    print(f"  Bucketed-volume triage: {len(stories)} raw \u2192 {len(relevant)} relevant \u2192 {len(unique)} unique")
     return unique
 
 
@@ -1635,6 +1661,8 @@ def main():
                         help="Skip the duplicate-slug check")
     parser.add_argument("--articles", type=int, default=5, metavar="N",
                         help="Number of articles to publish per run (default: 5, max: 30)")
+    parser.add_argument("--no-limit", action="store_true",
+                        help="In bucketed-volume mode, publish every qualifying non-duplicate story")
     parser.add_argument("--lookback-hours", type=int, default=36, metavar="H",
                         help="Story recency window in hours (default: 36; use 168 for a seven-day backfill)")
     parser.add_argument("--linkedin-length", choices=["standard", "edge", "compressed"],
@@ -1644,9 +1672,11 @@ def main():
                         help="Post the Essay Desk LinkedIn essay automatically after publishing")
     parser.add_argument("--auto-post-linkedin-pdfs", action="store_true",
                         help="Post every generated carousel PDF as a native LinkedIn document post")
-    parser.add_argument("--selection-mode", choices=["legacy", "daily-top-news"],
+    parser.add_argument("--selection-mode", choices=["legacy", "daily-top-news", "bucketed-volume"],
                         default="legacy",
                         help="Story selection mode. legacy preserves current scheduled behavior.")
+    parser.add_argument("--shadow", action="store_true",
+                        help="Score and write the full editorial audit without generating or publishing articles")
     parser.add_argument("--weekly-review", action="store_true",
                         help="Generate a Friday State of the Markets Review from this week's editorial runs")
     args = parser.parse_args()
@@ -1654,6 +1684,7 @@ def main():
         run_weekly_review(args)
         return
     MAX_ARTICLES = max(1, min(args.articles, 30))
+    article_limit = None if args.no_limit and args.selection_mode == "bucketed-volume" else MAX_ARTICLES
     LOOKBACK_HOURS = max(1, args.lookback_hours)
 
     start    = datetime.now(timezone.utc)
@@ -1666,6 +1697,10 @@ def main():
           + ("  [DRY-RUN]" if args.dry_run else ""))
     print(f"  Selection mode: {args.selection_mode}")
     print(f"  Lookback window: {LOOKBACK_HOURS} hours")
+    if args.selection_mode == "bucketed-volume":
+        print(f"  Publishing limit: {'none (all qualified stories)' if article_limit is None else article_limit}")
+    if args.shadow:
+        print("  [SHADOW MODE] No articles will be generated or published")
     print(f"{'='*62}\n")
 
     # \u2500 Phase 1: Gather \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -1678,13 +1713,15 @@ def main():
     print("\n[2/8] Triaging...")
     if args.selection_mode == "daily-top-news":
         candidates = triage_daily_top_news(all_stories, LOOKBACK_HOURS)
+    elif args.selection_mode == "bucketed-volume":
+        candidates = triage_bucketed_volume(all_stories, LOOKBACK_HOURS)
     else:
         candidates = triage(all_stories, LOOKBACK_HOURS)
     run_data["candidate_count"] = len(candidates)
     run_data["selection_mode"] = args.selection_mode
 
     if not candidates:
-        print("  No relevant CRE stories found today. Exiting.")
+        print("  No relevant stories found for any editorial bucket. Exiting.")
         run_data["status"] = "no_stories"
         write_log(run_data)
         return
@@ -1715,16 +1752,59 @@ def main():
         audit_path = save_editorial_run(audit_payload, run_date=start.date())
         print(f"  Editorial audit saved: {audit_path.relative_to(SITE_ROOT)}")
         ranked = [item["candidate"] for item in editorial_selection["selected_stories"]]
+    elif args.selection_mode == "bucketed-volume":
+        normalized_candidates = normalize_stories(candidates)
+        print(f"  Normalized {len(normalized_candidates)} candidate(s) for bucketed-volume scoring")
+        editorial_selection = bucketed_volume_selection(
+            normalized_candidates,
+            article_limit=article_limit,
+            api_key=DEEPSEEK_API_KEY,
+            today=start.date().isoformat(),
+        )
+        print_bucketed_volume_report(editorial_selection)
+        audit_payload = {
+            "run_at": start.isoformat(),
+            "date": start.date().isoformat(),
+            "selection_mode": args.selection_mode,
+            "dry_run": args.dry_run,
+            "shadow": args.shadow,
+            "raw_count": len(all_stories),
+            "candidate_count": len(candidates),
+            "article_limit": article_limit,
+            **editorial_selection,
+        }
+        audit_path = save_editorial_run(audit_payload, run_date=start.date())
+        print(f"  Editorial audit saved: {audit_path.relative_to(SITE_ROOT)}")
+        ranked = [item["candidate"] for item in editorial_selection["selected_stories"]]
+        run_data["bucket_counts"] = editorial_selection.get("bucket_counts", {})
+        run_data["decision_counts"] = editorial_selection.get("decision_counts", {})
+        run_data["review_candidate_count"] = len(editorial_selection.get("review_stories", []))
     else:
         ranked = score_stories(candidates)
 
+    if args.selection_mode == "bucketed-volume" and args.shadow:
+        run_data.update({
+            "status": "shadow_complete",
+            "publishable_candidate_count": len(ranked),
+            "editorial_audit": str(audit_path.relative_to(SITE_ROOT)),
+        })
+        write_log(run_data)
+        print("  Shadow run complete. No articles were generated or published.")
+        return
+
+    if args.selection_mode == "bucketed-volume" and not ranked:
+        print("  No stories cleared their bucket publication threshold. Exiting.")
+        run_data["status"] = "no_bucket_eligible_stories"
+        write_log(run_data)
+        return
+
     # \u2500 Phase 4: Enrich \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print(f"\n[4/8] Enriching up to {MAX_ARTICLES} candidates...")
+    print(f"\n[4/8] Enriching {'all qualified' if article_limit is None else f'up to {article_limit}'} candidates...")
     enriched_candidates = []
     checked = 0
-    candidate_pool = ranked if args.selection_mode == "daily-top-news" else ranked[:20]
+    candidate_pool = ranked if args.selection_mode in {"daily-top-news", "bucketed-volume"} else ranked[:20]
     for candidate in candidate_pool:  # scan top 20 legacy stories, or final daily top-news selections
-        if len(enriched_candidates) >= MAX_ARTICLES:
+        if article_limit is not None and len(enriched_candidates) >= article_limit:
             break
         checked += 1
         preview_slug = re.sub(r"[^a-z0-9]+", "-", candidate["title"].lower())[:50].strip("-")
@@ -1735,7 +1815,7 @@ def main():
         enriched_candidates.append(enrich_story(candidate))
 
     if not enriched_candidates:
-        print("  No fresh stories found after duplicate check. Exiting.")
+        print("  No unpublished qualifying stories remained after duplicate checks. Exiting.")
         run_data["status"] = "already_published"
         write_log(run_data)
         return
