@@ -108,6 +108,17 @@ class IdeasPublishingSafetyTests(unittest.TestCase):
             ledger.record_success("Broken feed", 10, 20)
             self.assertFalse(ledger.is_quarantined("Broken feed"))
 
+    def test_source_health_does_not_quarantine_an_empty_feed(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            ledger = SourceHealthLedger(Path(temp_dir) / "health.json", failure_threshold=2, cooldown_hours=1)
+            ledger.record_failure("Temporary feed", "timeout", 10)
+            ledger.record_failure("Temporary feed", "timeout", 10)
+            self.assertTrue(ledger.is_quarantined("Temporary feed"))
+
+            ledger.record_empty("Temporary feed", 10, "feedparser returned no entries")
+            self.assertFalse(ledger.is_quarantined("Temporary feed"))
+            self.assertEqual(ledger.records["Temporary feed"]["status"], "empty")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -166,11 +166,15 @@ def fetch_rss_stories() -> list:
     """Parse all configured RSS feeds and return normalised story dicts."""
     stories = []
     failed_feeds = 0
+    empty_feeds = 0
+    attempted_feeds = 0
+    failures = []
     health = SourceHealthLedger(SOURCE_HEALTH_FILE)
     for source_name, feed_url in ALL_RSS_FEEDS:
         if health.is_quarantined(source_name):
             print(f"  [SKIP] RSS {source_name} is temporarily quarantined after repeated failures")
             continue
+        attempted_feeds += 1
         started = time.perf_counter()
         try:
             feed = feedparser.parse(
@@ -178,8 +182,15 @@ def fetch_rss_stories() -> list:
                 request_headers={"User-Agent": "LightTowerGroup-NewsAgent/1.0"},
             )
             if getattr(feed, "bozo", False) and not getattr(feed, "entries", None):
-                failed_feeds += 1
-                health.record_failure(source_name, "feedparser returned no entries", int((time.perf_counter() - started) * 1000))
+                # An empty/bozo feed can mean a harmless feed-format change or
+                # a temporary network restriction. It is not evidence that a
+                # specific publisher is down, so retry it on the next run.
+                empty_feeds += 1
+                health.record_empty(
+                    source_name,
+                    int((time.perf_counter() - started) * 1000),
+                    "feedparser returned no entries",
+                )
                 continue
             # Score every recent entry the source exposes. The 36-hour recency
             # filter below, not an arbitrary per-feed headline cap, determines
@@ -201,9 +212,26 @@ def fetch_rss_stories() -> list:
             health.record_success(source_name, len(getattr(feed, "entries", []) or []), int((time.perf_counter() - started) * 1000))
         except Exception as e:
             failed_feeds += 1
-            health.record_failure(source_name, redact_secret_text(e), int((time.perf_counter() - started) * 1000))
-            print(f"  [WARN] RSS {source_name}: {redact_secret_text(e)}")
+            error = redact_secret_text(e)
+            failures.append((source_name, error, int((time.perf_counter() - started) * 1000)))
+            print(f"  [WARN] RSS {source_name}: {error}")
         time.sleep(0.05)
+
+    # Do not convert a computer-wide connectivity problem into dozens of
+    # independent publisher failures. A shared outage should preserve retry
+    # access to every feed on the next scheduled run.
+    shared_outage = attempted_feeds >= 8 and len(failures) >= max(4, attempted_feeds // 2)
+    if shared_outage:
+        released = health.release_quarantines()
+        for source_name, error, elapsed_ms in failures:
+            health.record_transient_outage(source_name, error, elapsed_ms)
+        print(
+            f"  [WARN] Shared RSS connectivity outage: {len(failures)}/{attempted_feeds} feeds failed; "
+            f"no publishers quarantined ({released} prior quarantine(s) released)"
+        )
+    else:
+        for source_name, error, elapsed_ms in failures:
+            health.record_failure(source_name, error, elapsed_ms)
 
     try:
         health.save()
@@ -212,7 +240,9 @@ def fetch_rss_stories() -> list:
 
     print(f"  RSS: {len(stories)} raw stories from {len(ALL_RSS_FEEDS)} feeds ({len(FEDERAL_RSS_FEEDS)} federal)")
     if failed_feeds:
-        print(f"  [WARN] RSS feeds with no parseable entries: {failed_feeds}/{len(ALL_RSS_FEEDS)}")
+        print(f"  [WARN] RSS feed exceptions: {failed_feeds}/{attempted_feeds} attempted")
+    if empty_feeds:
+        print(f"  [INFO] RSS feeds with no parseable entries: {empty_feeds}/{attempted_feeds}; they will be retried next run")
     return stories
 
 

@@ -49,6 +49,45 @@ class SourceHealthLedger:
             "last_story_count": story_count,
             "last_elapsed_ms": elapsed_ms,
         })
+        record.pop("last_error", None)
+
+    def record_empty(self, source: str, elapsed_ms: int, detail: str = "") -> None:
+        """Record an empty or malformed feed without opening the circuit.
+
+        Publishers legitimately return empty feeds, and feedparser also reports
+        a number of temporary network/parser problems as an empty ``bozo``
+        feed. Neither condition proves that one publisher is unavailable, so
+        it must not quarantine the source for the next daily run.
+        """
+        record = self.records.setdefault(source, {})
+        record.update({
+            "status": "empty",
+            "consecutive_failures": 0,
+            "last_empty_at": self._now(),
+            "last_empty_detail": detail[:240],
+            "last_elapsed_ms": elapsed_ms,
+        })
+
+    def record_transient_outage(self, source: str, error: str, elapsed_ms: int) -> None:
+        """Note a run-wide connectivity problem without counting it against a source."""
+        record = self.records.setdefault(source, {})
+        record.update({
+            "status": "transient_outage",
+            "last_transient_outage_at": self._now(),
+            "last_error": error[:240],
+            "last_elapsed_ms": elapsed_ms,
+        })
+
+    def release_quarantines(self) -> int:
+        """Allow every source to retry after a detected shared outage."""
+        released = 0
+        for record in self.records.values():
+            if int(record.get("consecutive_failures", 0)) >= self.failure_threshold:
+                record["consecutive_failures"] = 0
+                record["status"] = "retry"
+                record["last_circuit_released_at"] = self._now()
+                released += 1
+        return released
 
     def record_failure(self, source: str, error: str, elapsed_ms: int) -> None:
         record = self.records.setdefault(source, {})
