@@ -77,8 +77,18 @@ from editorial_store import (
     save_editorial_run,
     save_weekly_review,
 )
-from content_governance import independent_quality_issues, load_insight_records, near_duplicate_matches
-from editorial_voice import narrative_finance_issues, select_editorial_brief
+from content_governance import (
+    html_to_text,
+    independent_quality_issues,
+    load_insight_records,
+    near_duplicate_matches,
+)
+from editorial_voice import (
+    narrative_finance_issues,
+    select_editorial_brief,
+    select_headline_shape,
+    title_quality_issues,
+)
 from source_health import SourceHealthLedger
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -630,8 +640,14 @@ Voice rules:
 """
 
 
-def generate_article(story: dict) -> dict:
-    """Call DeepSeek to produce a full editorial article from the enriched story."""
+def generate_article(story: dict, recent_titles: list[str] | None = None) -> dict:
+    """Call DeepSeek to produce a full editorial article from the enriched story.
+
+    recent_titles: the last few published headlines, used only to give the
+    self-repair loop below a real shot at rewriting a mechanically repetitive
+    headline (e.g. overused "Shows"/"Tests" or a ", Not X" tail) rather than
+    the story simply being dropped for a fixable headline problem.
+    """
 
     now_utc = datetime.now(timezone.utc).replace(microsecond=0)
 
@@ -655,6 +671,11 @@ def generate_article(story: dict) -> dict:
         "title": story.get("title", ""),
         "category": "Capital Markets",
     })
+    headline_shape = select_headline_shape({
+        "slug": story.get("url", ""),
+        "title": story.get("title", ""),
+        "category": "Capital Markets",
+    })
     user_prompt = USER_PROMPT_TEMPLATE.format(
         title=story['title'],
         source=story['source'],
@@ -665,6 +686,7 @@ def generate_article(story: dict) -> dict:
         addresses_block=addresses_block,
         today=now_utc.strftime('%B %d, %Y'),
         voice_brief=json.dumps(editorial_brief, ensure_ascii=False),
+        headline_shape=json.dumps(headline_shape, ensure_ascii=False),
     )
 
     resp = requests.post(
@@ -687,7 +709,7 @@ def generate_article(story: dict) -> dict:
     # The writer's self-assessment is not trusted. Repair drafts against the
     # same independent gate used immediately before publication.
     for _ in range(2):
-        control_findings = _article_control_findings(article)
+        control_findings = _article_control_findings(article, recent_titles)
         if not control_findings:
             break
         revision = requests.post(
@@ -750,10 +772,11 @@ CURRENT ARTICLE JSON
 )
 
 
-def _article_control_findings(article: dict) -> list[str]:
+def _article_control_findings(article: dict, recent_titles: list[str] | None = None) -> list[str]:
     """Return the independent publication checks a draft must clear."""
     findings = independent_quality_issues(article, require_sections=False)
     findings.extend(narrative_finance_issues(article.get("narrative_ledger")))
+    findings.extend(title_quality_issues(article.get("title", ""), recent_titles or ()))
     return list(dict.fromkeys(findings))
 
 
@@ -1850,10 +1873,19 @@ def main():
     # \u2500 Phase 5: Write \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print(f"\n[5/8] Generating {len(enriched_candidates)} article(s)...")
     articles = []
+    # Most-recent-first window of published headlines, used only to catch
+    # mechanical headline repetition (e.g. "Shows"/"Tests" as a default verb)
+    # that the writer model can't see on its own. Grows as this run approves
+    # its own articles, same as known_insights does for duplicate checks.
+    recent_titles_window = [str(entry.get("title", "")) for entry in known_insights[:6]]
     for i, candidate in enumerate(enriched_candidates, 1):
         print(f"  Generating article {i}/{len(enriched_candidates)}: {candidate['title'][:60]}")
         try:
-            article = generate_article(candidate)
+            # generate_article() already tries twice, internally, to repair
+            # any issue this same gate would otherwise flag here (including
+            # a mechanically repetitive headline) — this call is the final
+            # check, not the first line of defense.
+            article = generate_article(candidate, recent_titles_window)
         except Exception as e:
             print(f"  [WARN] Article {i} generation failed: {redact_secret_text(e)} — skipping")
             continue
@@ -1864,12 +1896,15 @@ def main():
             print(f"  [WARN] Article {i} failed content QA: {redact_secret_text(e)} -- skipping")
             continue
 
-        independent_errors = _article_control_findings(article)
-        narrative_errors = []
+        # Only checks that generate_article()'s own repair loop couldn't
+        # have seen: near-duplicate coverage of an already-published deal.
+        # That is a substantive redundancy problem, not a fixable headline
+        # tic, so it is held rather than rewritten.
+        independent_errors = _article_control_findings(article, recent_titles_window)
         duplicate_errors = near_duplicate_matches(article.get("title", ""), known_insights)
-        if independent_errors or narrative_errors or duplicate_errors:
-            reasons = independent_errors + narrative_errors + duplicate_errors
-            print(f"  [WARN] Article {i} held by independent quality gate: {'; '.join(reasons[:2])}")
+        if independent_errors or duplicate_errors:
+            reasons = independent_errors + duplicate_errors
+            print(f"  [WARN] Article {i} held after repair attempts: {'; '.join(reasons[:2])}")
             continue
 
         # The ledger is editorial control data, not public-page content.
@@ -1879,9 +1914,17 @@ def main():
             print(f"  Slug '{article['slug']}' already published, skipping...")
             continue
 
+        recent_titles_window.insert(0, article["title"])
+
         print(f"  [{i}] Title:    {article['title']}")
         print(f"  [{i}] Slug:     {article['slug']}")
         print(f"  [{i}] Category: {article['category']}")
+        if args.dry_run:
+            # Print-only, no side effects: lets a dry run be judged on the
+            # actual writing, not just the title/slug/category summary.
+            print(f"  [{i}] Subtitle: {article.get('subtitle', '')}")
+            body_text = html_to_text(article.get("body_html", ""))
+            print(f"  [{i}] Body ({len(body_text.split())} words):\n{body_text}\n")
         articles.append(article)
         known_insights.append(article)
 
