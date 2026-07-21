@@ -35,6 +35,29 @@
     mobileNav.classList.remove('open');
     menuBtn.classList.remove('open');
     menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open menu');
+  }
+
+  function ensurePrivacyLink() {
+    document.querySelectorAll('footer').forEach(function (footer) {
+      if (footer.querySelector('a[href="/privacy.html"], a[href="privacy.html"]')) return;
+      var nav = footer.querySelector('nav');
+      if (nav) {
+        var navLink = document.createElement('a');
+        navLink.href = '/privacy.html';
+        navLink.className = 'footer-link';
+        navLink.textContent = 'Privacy';
+        nav.appendChild(navLink);
+        return;
+      }
+      var line = footer.querySelector('p');
+      if (!line) return;
+      line.appendChild(document.createTextNode(' · '));
+      var link = document.createElement('a');
+      link.href = '/privacy.html';
+      link.textContent = 'Privacy';
+      line.appendChild(link);
+    });
   }
 
   function currentInsightSlug() {
@@ -490,31 +513,34 @@
 
   function normalizePrimaryNavigation() {
     var items = [
-      ['/#practice', 'Practice'],
-      ['/#advantage', 'Advantage'],
-      ['/#transactions', 'Executions'],
-      ['/#leadership', 'Leadership'],
-      ['/#faq', 'FAQ'],
+      ['/services.html', 'Expertise'],
+      ['/transactions.html', 'Transactions'],
+      ['/#process', 'Process'],
       ['/insights.html', 'Intelligence'],
-      ['/ideas.html', 'Ideas'],
-      ['/buildings.html', 'Buildings'],
-      ['/services.html', 'Services'],
-      ['/about.html', 'About'],
-      ['/#contact', 'Contact']
+      ['/about.html', 'About']
     ];
     function linksMarkup() {
       return items.map(function (item) { return '<a href="' + item[0] + '">' + item[1] + '</a>'; }).join('') +
-        '<button onclick="openLTGChat()" class="nav-cta">Discuss Your Deal</button>';
+        '<a href="/#contact" class="nav-cta">Request Review</a>';
     }
     function mobileMarkup() {
       return items.map(function (item) { return '<a href="' + item[0] + '">' + item[1] + '</a>'; }).join('') +
-        '<button onclick="openLTGChat()" class="nav-mobile-cta">Discuss Your Deal</button>';
+        '<a href="/#contact" class="nav-mobile-cta">Request Review</a>';
     }
     document.querySelectorAll('.site-nav').forEach(function (nav) {
       var desktop = nav.querySelector('.nav-links');
       var mobile = nav.querySelector('.nav-mobile');
       if (desktop) desktop.innerHTML = linksMarkup();
-      if (mobile) mobile.innerHTML = mobileMarkup();
+      if (mobile) {
+        mobile.innerHTML = mobileMarkup();
+        mobile.removeAttribute('role');
+      }
+      var menuButton = nav.querySelector('.nav-menu-btn');
+      if (menuButton && mobile) {
+        if (!mobile.id) mobile.id = 'nav-mobile';
+        menuButton.setAttribute('aria-controls', mobile.id);
+        menuButton.setAttribute('aria-label', 'Open menu');
+      }
     });
     document.querySelectorAll('a[href="/insights.html"]').forEach(function (link) {
       if (!link.closest('.site-nav') && (link.textContent || '').trim() === 'Insights') link.textContent = 'Intelligence';
@@ -570,6 +596,7 @@
     var mobileNav = document.getElementById('nav-mobile');
     addSkipLink();
     secureBlankLinks();
+    ensurePrivacyLink();
     enhanceShareBars();
     normalizePrimaryNavigation();
     markActiveNavigation();
@@ -614,6 +641,7 @@
       mobileNav.classList.toggle('open', open);
       menuBtn.classList.toggle('open', open);
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     }, true);
 
     mobileNav.querySelectorAll('a, button').forEach(function (item) {

@@ -6,7 +6,7 @@ This ledger identifies claims that require an owner-approved source before being
 |---|---|---|---|
 | $5M+ typical mandate size | Homepage FAQ / contact copy | Retained | Confirm that this is a current qualification threshold. |
 | Principal-led engagement | Existing site copy | Retained | Confirm that Ben remains directly involved through funding for every engagement. |
-| 250,000+ capital sources | Owner-confirmed site claim | Retained in conversion copy | Keep this claim. Add a concise definition or methodology note if the audience needs to understand what the relationship count represents. |
+| 250,000+ capital-provider records | Owner-confirmed site claim | Retained with an on-page definition | The homepage now defines this as the searchable coverage universe, not 250,000 active personal relationships. Keep the definition adjacent to the metric and document the underlying data source and update cadence. |
 | 80+ bridge lenders | Bridge page | Removed | Retain only with a dated internal coverage list and a definition of “active dialogue.” |
 | 40+ life companies | Life-company page | Removed | Retain only with a dated internal coverage list and a definition of relationship / active lender. |
 | No retainer / success-based compensation | Owner-approved chatbot language and homepage FAQ | Retained in conversion copy | Keep the language consistent across the chatbot, FAQ, service pages, and intake experience. |
@@ -17,7 +17,7 @@ This ledger identifies claims that require an owner-approved source before being
 
 ## Transaction consistency requirement
 
-The homepage's static transaction cards were reconciled to `transactions.json` during this overhaul. Future changes must update the data file and any homepage / sales-material references in the same release. Do not create a separate, manually maintained set of tombstones.
+The homepage's static transaction cards were reconciled to `transactions.json` during this overhaul, including the $23M mixed-use development assignment. Future changes must update the data file and any homepage / sales-material references in the same release. Do not create a separate, manually maintained set of tombstones.
 
 ## Compliance review flags
 

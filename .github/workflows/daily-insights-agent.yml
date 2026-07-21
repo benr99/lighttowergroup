@@ -1,0 +1,65 @@
+name: Daily insights agent
+
+# Publishes the daily CRE insights articles from GitHub's cloud runners
+# instead of the local Windows Task Scheduler job, so publishing no longer
+# depends on Ben's PC being on and awake at 7 AM.
+#
+# Background: docs/AGENT_OPERATIONS.md
+#
+# IMPORTANT: keep only one scheduler active at a time. If the Windows
+# "LTG Daily News Agent" task is still enabled, both it and this workflow
+# will try to publish and push around the same time, which can race and
+# leave the site in a confusing state. Disable the Windows task once this
+# workflow has been verified to run successfully.
+
+on:
+  schedule:
+    # 07:07 America/New_York. GitHub Actions cron runs in UTC with no DST
+    # awareness, so the local time this fires at shifts by an hour when the
+    # US changes between EDT and EST. 11:07 UTC = 07:07 EDT (current,
+    # summer). Change to '7 12 * * *' (12:07 UTC) when EST resumes in early
+    # November if a fixed 7 AM local time matters. Running a few minutes
+    # past the top of the hour avoids GitHub's busiest scheduling window.
+    - cron: '7 11 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: daily-insights-agent
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install locked dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r scripts/requirements.lock
+
+      - name: Configure git identity for automated commits
+        run: |
+          git config user.name "LTG Daily News Agent"
+          git config user.email "actions@lighttowergroup.co"
+
+      - name: Run daily insights agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        working-directory: scripts
+        run: python daily_news_agent.py --selection-mode bucketed-volume --no-limit

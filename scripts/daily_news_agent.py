@@ -96,6 +96,7 @@ _SITEMAP_STATIC = [
     ("/buildings.html",             "0.8", "weekly"),
     ("/services.html",              "0.9", "monthly"),
     ("/about.html",                 "0.7", "monthly"),
+    ("/privacy.html",               "0.3", "yearly"),
     ("/transactions.html",          "0.7", "monthly"),
     ("/research.html",              "0.7", "monthly"),
     ("/senior-debt.html",           "0.8", "monthly"),

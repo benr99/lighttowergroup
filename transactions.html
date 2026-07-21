@@ -13,12 +13,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate" type="application/rss+xml" title="Light Tower Group Insights" href="https://lighttowergroup.co/feed.xml">
-  <title>Closed Transactions | Light Tower Group</title>
+  <title>Representative Transactions | Light Tower Group</title>
   <meta name="description" content="Selected commercial real estate capital assignments. Representative debt and equity transactions are shared in anonymized form to protect confidentiality.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://lighttowergroup.co/transactions.html">
-  <meta property="og:title" content="Closed Transactions | Light Tower Group">
-  <meta property="og:description" content="Track record of closed mandates across senior debt, bridge, construction, JV equity, preferred equity, and mezzanine financing.">
+  <meta property="og:title" content="Representative Transactions | Light Tower Group">
+  <meta property="og:description" content="Selected debt, equity, and recapitalization assignments, shared in anonymized form to protect client confidentiality.">
   <meta property="og:url" content="https://lighttowergroup.co/transactions.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://lighttowergroup.co/network.jpg">
@@ -162,16 +162,16 @@
 
       <div class="stats-bar">
         <div class="stat-item"><span class="stat-num" id="stat-total">—</span><span class="stat-label">Total Volume</span></div>
-        <div class="stat-item"><span class="stat-num" id="stat-count">—</span><span class="stat-label">Closed Transactions</span></div>
+        <div class="stat-item"><span class="stat-num" id="stat-count">—</span><span class="stat-label">Representative Assignments</span></div>
         <div class="stat-item"><span class="stat-num" id="stat-types">6</span><span class="stat-label">Capital Types</span></div>
         <div class="stat-item"><span class="stat-num">NYC+</span><span class="stat-label">Primary Market Focus</span></div>
       </div>
 
       <div class="filter-bar" id="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
       </div>
 
-      <div class="tombstone-grid" id="tombstone-grid"></div>
+      <div class="tombstone-grid" id="tombstone-grid" aria-live="polite"></div>
 
       <div class="cta-section">
 <h2>Have a similar capital question?</h2>
@@ -207,16 +207,21 @@
       try {
         const res = await fetch('/transactions.json');
         data = await res.json();
-      } catch(e) { return; }
+      } catch(e) {
+        document.getElementById('tombstone-grid').innerHTML = '<p role="alert">Representative assignments are temporarily unavailable. Please contact the firm for details.</p>';
+        return;
+      }
 
       // Build filter buttons from unique types
       const types = [...new Set(data.map(t => t.type))];
       const filterBar = document.getElementById('filter-bar');
       types.forEach(type => {
         const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'filter-btn';
         btn.dataset.filter = type;
         btn.textContent = type;
+        btn.setAttribute('aria-pressed', 'false');
         btn.addEventListener('click', () => setFilter(type, data));
         filterBar.appendChild(btn);
       });
@@ -236,8 +241,11 @@
     }
 
     function setFilter(type, data) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      document.querySelector(`[data-filter="${type}"]`).classList.add('active');
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        const active = b.dataset.filter === type;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
       const filtered = type === 'all' ? data : data.filter(t => t.type === type);
       renderGrid(filtered);
     }
