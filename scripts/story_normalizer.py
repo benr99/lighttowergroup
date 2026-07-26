@@ -23,7 +23,7 @@ except Exception:  # pragma: no cover - defensive for standalone use
 
 KNOWN_INSTITUTIONS = [
     "blackstone", "brookfield", "apollo", "starwood", "ares", "kkr",
-    "carlyle", "tpg", "sl green", "vornado", "related", "tishman",
+    "carlyle", "tpg", "cerberus", "sl green", "vornado", "related", "tishman",
     "jpmorgan", "jp morgan", "goldman", "morgan stanley", "wells fargo",
     "bank of america", "citigroup", "citi", "deutsche bank", "barclays",
     "federal reserve", "fed", "fdic", "occ", "treasury", "fannie mae",
@@ -42,7 +42,22 @@ TOPIC_PATTERNS = {
     "cmbs": r"\b(cmbs|cre clo|securiti[sz]ation|special servicer|trepp)\b",
     "policy": r"\b(policy|regulation|zoning|tax|abatement|hud|fha|fannie|freddie|legislation)\b",
     "reit_public_markets": r"\b(reit|public markets|earnings|guidance|stock|shares)\b",
-    "development_finance": r"\b(construction loan|development|groundbreaking|permits|completion)\b",
+    "development_finance": (
+        r"\b(construction loan|developments?|redevelop\w*|reposition\w*|"
+        r"groundbreaking|permits?|completion|tops? out)\b"
+    ),
+    "capital_expenditure": (
+        r"\b(capex|capital improvements?|redevelop\w*|reposition\w*|"
+        r"renovation|modernization|upgrades?)\b"
+    ),
+    "leasing": (
+        r"\b(leases?|leasing|leased|tenant|occupancy|occupied|rent roll|"
+        r"square[- ]foot renewal|sf renewal)\b"
+    ),
+    "market_fundamentals": (
+        r"\b(rent growth|lease escalations?|vacancy|availability|absorption|"
+        r"occupancy|supply pipeline|deliveries|asking rents?)\b"
+    ),
     "government_action": r"\b(rule|regulation|guidance|enforcement|testimony|legislation|bill|ordinance|zoning|rezoning|tax credit|budget|appropriation|executive order|public hearing|comment period|proposed rule|final rule)\b",
 }
 
@@ -57,7 +72,7 @@ POLICY_ACTION_PATTERNS = {
 
 ASSET_CLASSES = {
     "office": r"\boffice\b",
-    "multifamily": r"\b(multifamily|apartment|rental building|housing)\b",
+    "multifamily": r"\b(multifamily|apartments?|residential|condominiums?|rental buildings?|housing)\b",
     "industrial": r"\b(industrial|warehouse|logistics)\b",
     "retail": r"\b(retail|shopping center|mall)\b",
     "hotel": r"\b(hotel|hospitality)\b",
@@ -66,10 +81,18 @@ ASSET_CLASSES = {
 
 US_MARKETS = [
     "new york", "nyc", "manhattan", "brooklyn", "queens", "bronx",
+    "newark", "new jersey", "jersey city", "staten island",
     "los angeles", "san francisco", "chicago", "miami", "dallas",
     "austin", "houston", "boston", "washington", "dc", "atlanta",
     "seattle", "denver", "phoenix", "philadelphia", "nashville",
 ]
+
+CRE_EDITORIAL_TOPICS = {
+    "major_sale", "capital_placement", "mna", "fed_rates", "bank_credit",
+    "private_credit", "private_equity", "distress", "cmbs", "policy",
+    "reit_public_markets", "development_finance", "government_action",
+    "capital_expenditure", "leasing", "market_fundamentals",
+}
 
 
 def clean_text(value: Any) -> str:
@@ -137,15 +160,62 @@ def _has_material_transaction(text: str, amounts: list[str], topics: list[str]) 
     This is an *intake* signal, not a publication decision: the editorial scorer
     still requires reported evidence, a clear CRE connection, and a 70+ score.
     """
-    transaction_topics = {"major_sale", "capital_placement", "mna", "private_equity", "development_finance"}
+    transaction_topics = {
+        "major_sale", "capital_placement", "mna", "private_equity",
+        "development_finance", "capital_expenditure",
+    }
     if not (set(topics) & transaction_topics):
         return False
     # The scorer/model verifies that the amount is actually tied to the deal.
     return has_reported_amount_at_least_ten_million(text) and bool(re.search(
-        r"\b(acquir|purchas|buy|sold|sale|invest|commit|loan|lend|financ|refinanc|equity|joint venture|recapitaliz|development)\b",
+        r"\b(acquir|purchas|buy|sold|sale|invest|commit|loan|lend|financ|"
+        r"refinanc|equity|joint venture|recapitaliz|develop|redevelop|"
+        r"reposition|renovat|moderniz|upgrad)\w*\b",
         text,
         flags=re.IGNORECASE,
     ))
+
+
+def _reported_square_feet(text: str) -> list[int]:
+    values = []
+    for raw, unit in re.findall(
+        r"\b([\d,.]+)\s*(k|thousand|m|million)?\s*"
+        r"(?:square[- ]?feet|square[- ]?foot|sq\.?\s*ft\.?|sf)\b",
+        text,
+        flags=re.IGNORECASE,
+    ):
+        try:
+            multiplier = {
+                "k": 1_000,
+                "thousand": 1_000,
+                "m": 1_000_000,
+                "million": 1_000_000,
+            }.get(unit.lower(), 1)
+            values.append(round(float(raw.replace(",", "")) * multiplier))
+        except ValueError:
+            continue
+    return values
+
+
+def _has_material_operating_signal(text: str, topics: list[str], institutions: list[str]) -> bool:
+    """Identify leasing and market data that can support a concise CRE brief."""
+    topic_set = set(topics)
+    if not topic_set & {"leasing", "market_fundamentals"}:
+        return False
+    reported_area = _reported_square_feet(text)
+    large_lease = any(value >= 50_000 for value in reported_area) or sum(reported_area) >= 50_000
+    occupancy = bool(re.search(r"\b(?:8\d|9\d|100)(?:\.\d+)?%\s+(?:leased|occupied|occupancy|full)\b", text, re.I))
+    market_data = bool(re.search(
+        r"\b(?:rent growth|lease escalations?|vacancy|availability|absorption)\b",
+        text,
+        re.IGNORECASE,
+    ))
+    comparative_signal = bool(re.search(
+        r"\b(?:double|twice|record|highest|lowest|outpac\w*|bifurcat\w*)\b",
+        text,
+        re.IGNORECASE,
+    ))
+    return large_lease or occupancy or (market_data and (comparative_signal or bool(institutions)))
 
 
 def _find_topics(text: str) -> list[str]:
@@ -165,7 +235,20 @@ def _find_asset_classes(text: str) -> list[str]:
 
 def _find_markets(text: str) -> list[str]:
     lower = text.lower()
-    return [market for market in US_MARKETS if market in lower][:8]
+    found = []
+    for market in US_MARKETS:
+        if market == "dc":
+            matched = bool(re.search(
+                r"\b(?:washington,\s*d\.?c\.?|washington\s+dc|district of columbia)\b",
+                lower,
+            ))
+        elif market == "nyc":
+            matched = bool(re.search(r"\b(?:nyc|new york city)\b", lower))
+        else:
+            matched = bool(re.search(rf"\b{re.escape(market)}\b", lower))
+        if matched and market not in found:
+            found.append(market)
+    return found[:8]
 
 
 def _find_msa_government_markets(text: str) -> list[str]:
@@ -237,6 +320,7 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
     if story_lane == "market" and msa_government_markets and policy_actions:
         story_lane = "msa_government"
     material_transaction = _has_material_transaction(text, amounts, topics)
+    material_operating_signal = _has_material_operating_signal(text, topics, institutions)
     parsed = urlparse(url)
 
     return {
@@ -266,6 +350,7 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
             "has_known_institution": bool(institutions),
             "has_transaction_language": any(t in topics for t in ("major_sale", "capital_placement", "mna")),
             "has_material_transaction": material_transaction,
+            "has_material_operating_signal": material_operating_signal,
             "has_distress_language": "distress" in topics,
             "has_policy_or_rate_language": any(t in topics for t in ("policy", "fed_rates")),
             "has_government_action": bool(policy_actions) or "government" in text.lower(),
@@ -273,6 +358,51 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
             "has_msa_government_signal": bool(msa_government_markets) and bool(policy_actions),
         },
     }
+
+
+def has_cre_editorial_anchor(story: dict[str, Any]) -> bool:
+    """Return whether a normalized story has a defensible Light Tower beat connection."""
+    topics = set(story.get("topics") or [])
+    entities = story.get("entities") or {}
+    features = story.get("attention_features") or {}
+    return bool(
+        topics & CRE_EDITORIAL_TOPICS
+        or entities.get("asset_classes")
+        or features.get("has_material_transaction")
+        or features.get("has_material_operating_signal")
+        or features.get("has_policy_or_rate_language")
+    )
+
+
+def enrich_normalized_story(story: dict[str, Any], full_text: str) -> dict[str, Any]:
+    """Re-run deterministic signal extraction with retrieved text, without persisting it."""
+    clean_full_text = clean_text(full_text)[:12_000]
+    if not clean_full_text:
+        return {
+            **story,
+            "selection_enrichment": {
+                "full_text_available": False,
+                "retrieved_characters": 0,
+            },
+        }
+    enriched = normalize_story({
+        "title": story.get("title"),
+        "summary": f"{story.get('summary', '')} {clean_full_text}",
+        "source": story.get("source"),
+        "url": story.get("url"),
+        "published": story.get("published"),
+    })
+    enriched["summary"] = story.get("summary", "")
+    enriched["selection_enrichment"] = {
+        "full_text_available": True,
+        "retrieved_characters": len(clean_full_text),
+        "topics_added": sorted(set(enriched.get("topics") or []) - set(story.get("topics") or [])),
+        "amounts_added": sorted(
+            set((enriched.get("entities") or {}).get("amounts") or [])
+            - set((story.get("entities") or {}).get("amounts") or [])
+        ),
+    }
+    return enriched
 
 
 def normalize_stories(stories: list[dict[str, Any]]) -> list[dict[str, Any]]:

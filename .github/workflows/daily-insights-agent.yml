@@ -98,7 +98,8 @@ jobs:
         run: |
           args=(
             --selection-mode edition
-            --articles 4
+            --articles 5
+            --daily-target 3
             --skip-git
             --run-origin github-actions
           )

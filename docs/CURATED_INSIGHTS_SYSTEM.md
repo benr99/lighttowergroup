@@ -10,14 +10,18 @@ institutional stakes, candor, and a bounded point of view. Routine facts belong
 in the deal tape. Wit must be earned by a true observation. A valid editorial
 decision is to kill, shorten, defer, or publish nothing.
 
-The system is built around finite reader attention rather than content volume.
+The desk targets three useful pieces each publishing day. That is a discovery
+and research requirement, not permission to inflate weak evidence into essays.
+Finite reader attention still governs format: a bounded brief can satisfy the
+daily target, while routine facts stay in Deal Tape and repeated events stay
+suppressed.
 
 ## Product architecture
 
-The public Insights surface has two layers:
-
-1. **The Daily Capital Note**: one curated edition with deliberate hierarchy.
-2. **The archive**: searchable individual research and analysis pages.
+The public Insights surface is article-first: readers see the current research
+and analysis archive rather than an on-page Daily Capital Note. The pipeline
+still produces a structured daily edition behind the scenes so selection,
+hierarchy, Deal Tape, audit records, and distribution remain coherent.
 
 An edition can contain:
 
@@ -29,14 +33,22 @@ An edition can contain:
 - a reader poll and open editorial prompt;
 - or no publishable story.
 
-The production workflow asks for no more than four standalone pieces. Deal Tape
-entries never become padded article pages.
+The production workflow researches up to five standalone pieces and targets
+three publishable articles. The extra research capacity absorbs source failure,
+duplication, and editorial kills. Deal Tape entries never become padded article
+pages.
 
 ## Discovery
 
 The system gathers the established CRE, finance, banking, federal, and
 government source universe, then supplements it with NewsAPI searches and the
 editable `.editorial-state/discovery-watchlist.json`.
+
+Before portfolio scoring, a bounded set of CRE-anchored candidates receives
+full-text enrichment. This lets a generic headline recover material facts such
+as project cost, square footage, occupancy, rent movement, capital expenditure,
+or redevelopment scope. The wider feed pool can then corroborate a selected
+event without admitting unrelated low-quality stories into the edition.
 
 The watchlist deliberately looks beyond transaction announcements:
 
@@ -62,8 +74,11 @@ The similarity model combines title-token overlap with shared amounts, parties,
 markets, and assets. Multiple publishers covering the same event become one
 source cluster. The cluster is then compared with the Light Tower archive.
 
-Archive repetition creates a scoring penalty and an explicit `archive_matches`
-record. The assigning editor must identify what is substantively new.
+Archive matching compares not only headline language but also normalized
+amounts, street addresses, institutions, markets, asset classes, and context.
+A recent same-event match is suppressed before assignment; an older or genuinely
+new development remains visible to the assigning editor with an explicit
+`archive_matches` record.
 
 ## Must-read scoring
 
@@ -83,7 +98,11 @@ The score is inspectable:
 - archive-repetition penalty: up to -18.
 
 The score is not a guarantee of publication. Evidence and format controls can
-still downgrade or kill an assignment.
+still downgrade or kill an assignment. Scores at or above 56 compete for the
+strict must-read queue. A second, quality-bounded daily-depth queue can research
+scores at or above 24 only when the event has a concrete capital or operating
+signal, a recognizable CRE anchor, no recent archive repeat, and no legal-risk
+signal.
 
 Audience learning is deliberately weak relative to judgment. It can refine
 attention within a beat but cannot override evidence, duplication, or a routine
@@ -144,7 +163,11 @@ deterministic system establishes the factual boundary.
 - 240–430 words.
 - One or more verified sources.
 - One fact, one bounded inference, one practical consequence.
-- May auto-publish only when evidence and score controls are strong.
+- A daily-depth brief may auto-publish with at least one retrieved full-text
+  source, at least three source-mapped facts, an editorial-room write or shorten
+  decision, and all normal quality gates.
+- A fact-poor, unsupported, legally sensitive, or repetitive brief is held even
+  when the daily target has not been met.
 
 ### Culture of Capital
 
@@ -232,8 +255,11 @@ effects, validates the new edition, preserves an audit artifact, stages only the
 generated allowlist, rebases safely if the target moved, stops on conflicts,
 and verifies the remote SHA.
 
-Review-required work goes to a branch and pull request. Only validated,
-high-confidence briefs or no-story editions can update `main` automatically.
+Review-required work goes to a branch and pull request. Validated,
+evidence-bounded briefs can update `main` automatically. Flagship, cultural,
+legally sensitive, insufficient-evidence, and fact-poor work remains review
+only. A no-story edition is still permitted as a last-resort safety outcome,
+but the run records the missed daily target explicitly.
 
 ## File map
 

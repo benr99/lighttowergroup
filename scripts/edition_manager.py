@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from content_governance import html_to_text
+from editorial_intelligence import AUTO_PUBLISH_BRIEF_FLOOR
 
 
 SCRIPT_DIR = Path(__file__).parent
@@ -48,6 +49,7 @@ def _article_summary(article: dict[str, Any]) -> dict[str, Any]:
         "format_label": article.get("editorial_format_label", "Intelligence Brief"),
         "franchise": article.get("franchise"),
         "must_read_score": article.get("must_read_score"),
+        "selection_tier": article.get("selection_tier"),
         "read_time": calculate_read_time(str(article.get("body_html", ""))),
         "source_count": len({
             str(source.get("url", "")).split("/")[2].lower().removeprefix("www.")
@@ -134,6 +136,9 @@ def build_edition_document(
             "articles": len(article_summaries),
             "deal_tape_items": len(selection.get("deal_tape", [])),
             "duplicate_groups": len(selection.get("duplicate_groups", [])),
+            "archive_repeats": len(selection.get("archive_repeats", [])),
+            "daily_target": selection.get("daily_target", 0),
+            "daily_target_met": len(article_summaries) >= int(selection.get("daily_target", 0) or 0),
             "no_flagship": flagship is None,
         },
     }
@@ -208,10 +213,33 @@ def save_publication_decision(
             reasons.append(f"Flagship analysis requires editor approval: {title}")
         if article_format == "culture_signal":
             reasons.append(f"Culture of Capital judgment requires editor approval: {title}")
-        if evidence in {"thin", "insufficient"}:
-            reasons.append(f"Thin evidence requires editor approval: {title}")
-        if score and score < 65:
-            reasons.append(f"Borderline must-read score requires editor approval ({score}): {title}")
+        if evidence == "insufficient":
+            reasons.append(f"Insufficient evidence requires editor approval: {title}")
+        full_text_count = int(article.get("research_usable_full_text_count") or 0)
+        fact_count = int(article.get("research_reported_fact_count") or 0)
+        selection_tier = str(article.get("selection_tier") or "")
+        if article_format == "brief" and (
+            evidence == "thin" or selection_tier == "daily_depth"
+        ):
+            if full_text_count < 1 or fact_count < 3:
+                reasons.append(
+                    f"Evidence-bounded brief lacks enough retrieved facts "
+                    f"for automatic publication: {title}"
+                )
+        elif evidence == "thin":
+            reasons.append(f"Thin evidence is only auto-publishable as a bounded brief: {title}")
+        if article_format == "brief" and score < AUTO_PUBLISH_BRIEF_FLOOR:
+            reasons.append(
+                f"Brief score is below the automatic publication floor "
+                f"({score} < {AUTO_PUBLISH_BRIEF_FLOOR}): {title}"
+            )
+        if article_format not in {"flagship", "culture_signal", "brief", "data_note"}:
+            reasons.append(f"Unknown editorial format requires approval: {title}")
+        room_decision = str(article.get("editorial_room_decision") or "")
+        if selection_tier == "daily_depth" and not room_decision:
+            reasons.append(f"Daily-depth brief lacks an editorial-room decision: {title}")
+        elif room_decision and room_decision not in {"write", "shorten"}:
+            reasons.append(f"Editorial room did not approve writing ({room_decision}): {title}")
         if article.get("legal_or_allegation_risk"):
             reasons.append(f"Legal or allegation risk requires editor approval: {title}")
     payload = {
@@ -236,7 +264,11 @@ def render_run_summary(payload: dict[str, Any]) -> str:
         f"- Candidates: **{payload.get('candidate_count', 0)}**",
         f"- Distinct events: **{payload.get('event_count', 0)}**",
         f"- Articles: **{len(articles)}**",
+        f"- Daily target: **{payload.get('daily_target', 0)}**",
+        f"- Daily target met: **{'yes' if payload.get('daily_target_met') else 'no'}**",
+        f"- Research candidates: **{payload.get('research_candidate_count', 0)}**",
         f"- Deal-tape items: **{payload.get('deal_tape_count', 0)}**",
+        f"- Archive repeats suppressed: **{payload.get('archive_repeat_count', 0)}**",
     ]
     if decisions:
         lines.append(f"- Decisions: `{json.dumps(decisions, sort_keys=True)}`")
@@ -245,7 +277,8 @@ def render_run_summary(payload: dict[str, Any]) -> str:
         for article in articles:
             lines.append(
                 f"- **{article.get('format', 'brief')}** — {article.get('title')} "
-                f"({article.get('source_count', 0)} sources)"
+                f"({article.get('source_count', 0)} sources; "
+                f"{article.get('selection_tier', 'standard')} selection)"
             )
     if payload.get("held"):
         lines.extend(["", "## Held or downgraded", ""])

@@ -44,19 +44,25 @@ an explicit service-unavailable response. It never pretends to save a response.
 
 1. Verify the current repository and test suite.
 2. Gather RSS, federal, NewsAPI, and watchlist discovery.
-3. Cluster headlines into distinct events.
-4. Score must-read value and build a scarce edition.
-5. Fetch every independent source in each selected event.
-6. Build a source/claim dossier.
-7. Let the assigning editor and skeptic kill, defer, shorten, or assign format.
-8. Generate and independently validate the writing.
-9. Render articles, edition JSON, social assets, RSS, and sitemap.
-10. Validate generated artifacts.
-11. Upload the audit artifact and GitHub run summary.
-12. Resolve publication:
-    - supported routine briefs may publish to `main`;
-    - flagships, Culture of Capital pieces, thin evidence, and borderline
-      must-read scores publish to a review branch and open a pull request.
+3. Pre-enrich a bounded CRE candidate set with retrieved full text so material
+   facts hidden behind generic headlines can affect selection.
+4. Cluster headlines into distinct events and attach corroborating sources from
+   the wider feed pool.
+5. Suppress recent semantic repeats using title, amount, address, institution,
+   market, asset, and context signals.
+6. Score must-read value, assign a strict queue, and fill a quality-bounded
+   daily-depth research queue toward a target of three pieces.
+7. Fetch every independent source in each selected event.
+8. Build a source/claim dossier.
+9. Let the assigning editor and skeptic kill, defer, shorten, or assign format.
+10. Generate and independently validate the writing.
+11. Render articles, edition JSON, social assets, RSS, and sitemap.
+12. Validate generated artifacts.
+13. Upload the audit artifact and GitHub run summary.
+14. Resolve publication:
+    - supported routine and daily-depth briefs may publish to `main`;
+    - flagship, Culture of Capital, legally sensitive, insufficient-evidence,
+      and fact-poor work publishes to a review branch and opens a pull request.
 
 Netlify production deployment begins only after the same validation suite has
 passed. Review pull requests receive a Netlify Deploy Preview when the
@@ -91,8 +97,11 @@ GitHub Actions also uploads state and edition output as a 30-day artifact.
 - `feed.xml`: RSS and Google News-compatible feed.
 - `sitemap.xml`: site index.
 
-An edition can contain no article. `no_publishable_story` is a successful,
-intentional outcome.
+The operating target is three publishable articles per day, with up to five
+research assignments to allow for kills and source failure. An edition can
+still contain no article when the evidence genuinely does not support
+publication. `no_publishable_story` is a successful safety outcome, and the run
+also records that the daily target was missed.
 
 ## Manual validation
 
@@ -112,7 +121,8 @@ Run a no-write editorial simulation:
 ```powershell
 .\.venv\Scripts\python.exe scripts\daily_news_agent.py `
   --selection-mode edition `
-  --articles 4 `
+  --articles 5 `
+  --daily-target 3 `
   --dry-run `
   --run-origin manual
 ```
@@ -122,7 +132,8 @@ Run selection only:
 ```powershell
 .\.venv\Scripts\python.exe scripts\daily_news_agent.py `
   --selection-mode edition `
-  --articles 4 `
+  --articles 5 `
+  --daily-target 3 `
   --shadow `
   --run-origin manual
 ```

@@ -95,6 +95,8 @@ class SiteContractTests(unittest.TestCase):
     def test_daily_workflow_validates_before_publishing(self) -> None:
         workflow = (ROOT / ".github" / "workflows" / "daily-insights-agent.yml").read_text(encoding="utf-8")
         self.assertIn("--selection-mode edition", workflow)
+        self.assertIn("--articles 5", workflow)
+        self.assertIn("--daily-target 3", workflow)
         self.assertIn("--skip-git", workflow)
         self.assertIn("github.event.schedule", workflow)
         self.assertIn("resolve_schedule_policy.py", workflow)
