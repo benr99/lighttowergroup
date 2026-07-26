@@ -102,6 +102,10 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn("shadow) args+=(--shadow)", workflow)
         self.assertIn("preview) args+=(--dry-run)", workflow)
         self.assertIn("steps.policy.outputs.mode == 'publish'", workflow)
+        self.assertIn("include-hidden-files: true", workflow)
+        self.assertIn("actions/checkout@v7", workflow)
+        self.assertIn("actions/setup-python@v7", workflow)
+        self.assertIn("actions/upload-artifact@v7", workflow)
         self.assertNotIn("--no-limit", workflow)
         self.assertNotIn("ANTHROPIC_API_KEY", workflow)
         self.assertLess(

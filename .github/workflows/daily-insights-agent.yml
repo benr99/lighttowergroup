@@ -39,7 +39,7 @@ jobs:
     timeout-minutes: 120
     steps:
       - name: Check out main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 0
@@ -59,7 +59,7 @@ jobs:
 
       - name: Set up Python
         if: steps.policy.outputs.skip != 'true'
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -131,7 +131,7 @@ jobs:
 
       - name: Preserve editorial evidence and diagnostics
         if: always() && steps.policy.outputs.skip != 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: insights-edition-${{ github.run_id }}
           path: |
@@ -140,6 +140,7 @@ jobs:
             editions/
             scripts/agent_log.json
           if-no-files-found: ignore
+          include-hidden-files: true
           retention-days: 30
 
       - name: Resolve automatic publication or editorial review
