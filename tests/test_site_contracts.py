@@ -96,6 +96,12 @@ class SiteContractTests(unittest.TestCase):
         workflow = (ROOT / ".github" / "workflows" / "daily-insights-agent.yml").read_text(encoding="utf-8")
         self.assertIn("--selection-mode edition", workflow)
         self.assertIn("--skip-git", workflow)
+        self.assertIn("github.event.schedule", workflow)
+        self.assertIn("resolve_schedule_policy.py", workflow)
+        self.assertNotIn("date +%H", workflow)
+        self.assertIn("shadow) args+=(--shadow)", workflow)
+        self.assertIn("preview) args+=(--dry-run)", workflow)
+        self.assertIn("steps.policy.outputs.mode == 'publish'", workflow)
         self.assertNotIn("--no-limit", workflow)
         self.assertNotIn("ANTHROPIC_API_KEY", workflow)
         self.assertLess(
