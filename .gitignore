@@ -4,11 +4,7 @@ agent/
 tmp/
 *.py
 !scripts/*.py
-!tests/test_ideas_publishing_safety.py
-!tests/test_article_pdf_generator.py
-!tests/test_editorial_scoring.py
-!tests/test_bucketed_editorial.py
-!tests/test_agent_runtime.py
+!tests/*.py
 .env
 scripts/.env
 .DS_Store
@@ -27,3 +23,11 @@ carousel_pdfs/
 ideas/_drafts/
 .playwright-mcp/
 .pytest_cache/
+
+# Local review and source-design artifacts (not part of the deployed site)
+/Light Tower Group - Growth and Conversion Assessment.docx
+/capital-architecture-hero-v2.png
+/capital-architecture-hero-v2.jpg
+/capital-architecture-hero-v2-960.jpg
+/capital-architecture-hero-v3.png
+/reports/

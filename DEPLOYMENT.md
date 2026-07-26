@@ -1,5 +1,11 @@
 ﻿# Light Tower Group News Agent — Deployment Guide
 
+> **Historical reference.** The volume-oriented workflow described below has
+> been replaced by the Curated Insights edition. Current production operations
+> are in `docs/AGENT_OPERATIONS.md`; editorial architecture is in
+> `docs/CURATED_INSIGHTS_SYSTEM.md`. Do not restore `--no-limit` or the local
+> scheduler from this historical guide.
+>
 > Current editorial safeguards and publication policy are documented in
 > [`docs/EDITORIAL_GOVERNANCE.md`](docs/EDITORIAL_GOVERNANCE.md). This guide
 > describes the legacy delivery flow; the governance document takes precedence
@@ -82,11 +88,14 @@ The chat lead notifier and confidential deal-review form both use Resend and del
 
 ```
 RESEND_API_KEY=<Resend API key>
+RESEND_SEGMENT_ID=<Resend segment for Insights subscribers>
 NOTIFY_EMAIL=ben@lighttowergroup.co
 FROM_EMAIL=noreply@lighttowergroup.co
 ```
 
 `FROM_EMAIL` must be a sender address on a domain verified in Resend. The site returns an error when the email service is not configured so a submission cannot appear successful while silently disappearing.
+`RESEND_AUDIENCE_ID` remains accepted as a backward-compatible alias for
+`RESEND_SEGMENT_ID`.
 
 Security note: if any log containing a real API key was ever pushed or shared, rotate that key immediately. Operational logs must never include full request URLs with key query parameters.
 

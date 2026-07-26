@@ -17,6 +17,11 @@ piece contributes at least one of the following:
 
 Publishing volume is never a quality goal by itself.
 
+The full current Insights architecture is documented in
+`docs/CURATED_INSIGHTS_SYSTEM.md`. The scheduled desk uses a scarce edition,
+multi-source dossiers, format-specific evidence requirements, and positive
+excellence gates.
+
 ## Automated gates
 
 Before a draft can publish, the pipeline applies deterministic checks that do
@@ -31,11 +36,19 @@ not trust a writer model's self-assessment:
    speculative writing trigger a hold;
 6. public manifests, feeds, and sitemaps are validated before deployment.
 
+Insights also requires a positive-quality ledger covering why now, original
+inference, counterargument, concrete detail, human stakes, reader value, a
+memorable line, and claim-to-source mapping.
+
 ## Editorial review triggers
 
 Hold an article for editorial review when it contains legal allegations,
 personal claims, a thin source record, material forecasts, a source-quality
 concern, a near duplicate, or a claim that would affect a financial decision.
+
+Flagship Analysis and Culture of Capital assignments always require editorial
+review. Thin evidence and borderline must-read scores create a review branch and
+pull request rather than updating production.
 
 The `data/ideas/held/` directory is an editorial queue, not a failure bin.
 Review held reasons weekly and use them to improve source selection and prompts.

@@ -191,6 +191,26 @@ def _find_known_institutions(text: str) -> list[str]:
     return list(dict.fromkeys(found))[:10]
 
 
+def _find_named_parties(text: str) -> list[str]:
+    """Extract likely transaction parties beyond the fixed institution list."""
+    known = _find_known_institutions(text)
+    pattern = (
+        r"\b([A-Z][A-Za-z&'.-]*(?:\s+[A-Z][A-Za-z&'.-]*){0,4}\s+"
+        r"(?:Capital|Partners|Group|Holdings|Realty|Properties|Property|Bank|"
+        r"Investments|Management|Advisors|REIT|Corporation|Corp\.?|Inc\.?|LLC|LP))\b"
+    )
+    extracted = [re.sub(r"\s+", " ", match).strip().lower() for match in re.findall(pattern, text)]
+    return list(dict.fromkeys(known + extracted))[:12]
+
+
+def _find_people(text: str) -> list[str]:
+    pattern = (
+        r"\b(?:CEO|CFO|president|chair|chairman|chairwoman|founder|principal|partner)\s+"
+        r"([A-Z][a-z'-]+\s+[A-Z][a-z'-]+)\b"
+    )
+    return list(dict.fromkeys(re.findall(pattern, text)))[:8]
+
+
 def _parse_published(value: Any) -> str:
     text = clean_text(value)
     if not text:
@@ -209,7 +229,7 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
     text = f"{title} {summary}"
     meta = source_metadata(source)
     amounts = _find_amounts(text)
-    institutions = _find_known_institutions(text)
+    institutions = _find_named_parties(text)
     topics = _find_topics(text)
     policy_actions = _find_policy_actions(text)
     msa_government_markets = _find_msa_government_markets(text)
@@ -234,7 +254,7 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
         "topics": topics,
         "entities": {
             "companies": institutions,
-            "people": [],
+            "people": _find_people(text),
             "markets": _find_markets(text),
             "msa_government_markets": msa_government_markets,
             "policy_actions": policy_actions,

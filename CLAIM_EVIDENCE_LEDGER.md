@@ -6,7 +6,7 @@ This ledger identifies claims that require an owner-approved source before being
 |---|---|---|---|
 | $5M+ typical mandate size | Homepage FAQ / contact copy | Retained | Confirm that this is a current qualification threshold. |
 | Principal-led engagement | Existing site copy | Retained | Confirm that Ben remains directly involved through funding for every engagement. |
-| 250,000+ capital-provider records | Owner-confirmed site claim | Retained with an on-page definition | The homepage now defines this as the searchable coverage universe, not 250,000 active personal relationships. Keep the definition adjacent to the metric and document the underlying data source and update cadence. |
+| 250,000+ capital-provider records | Owner-confirmed site claim | Removed from homepage | The number required more explanation than a streamlined homepage should carry. Keep it off the homepage unless the underlying data source, definition, and update cadence are documented for a dedicated methodology page. |
 | 80+ bridge lenders | Bridge page | Removed | Retain only with a dated internal coverage list and a definition of “active dialogue.” |
 | 40+ life companies | Life-company page | Removed | Retain only with a dated internal coverage list and a definition of relationship / active lender. |
 | No retainer / success-based compensation | Owner-approved chatbot language and homepage FAQ | Retained in conversion copy | Keep the language consistent across the chatbot, FAQ, service pages, and intake experience. |

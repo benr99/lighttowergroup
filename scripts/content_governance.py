@@ -114,7 +114,12 @@ def load_insight_records(site_root: Path) -> list[dict[str, Any]]:
     return load_json_records(site_root / "insights.json")
 
 
-def independent_quality_issues(article: dict[str, Any], *, require_sections: bool = True) -> list[str]:
+def independent_quality_issues(
+    article: dict[str, Any],
+    *,
+    require_sections: bool = True,
+    article_format: str | None = None,
+) -> list[str]:
     """Quality checks that do not trust a score supplied by the writer model."""
     errors: list[str] = []
     body_html = str(article.get("body_html", ""))
@@ -125,7 +130,17 @@ def independent_quality_issues(article: dict[str, Any], *, require_sections: boo
 
     if generation_mode.endswith("fallback") or "deterministic fallback" in source_notes.lower():
         errors.append("fallback writing requires editorial review")
-    minimum_words = 800 if require_sections else 650
+    format_minimums = {
+        "flagship": 725,
+        "brief": 215,
+        "culture_signal": 275,
+        "data_note": 175,
+    }
+    minimum_words = (
+        format_minimums.get(article_format, 650)
+        if not require_sections
+        else 800
+    )
     if word_count < minimum_words:
         errors.append(f"independent quality gate: article is below {minimum_words} words")
     if require_sections and len(re.findall(r"<h2\b", body_html, re.IGNORECASE)) < 2:
