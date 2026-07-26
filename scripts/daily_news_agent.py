@@ -1,32 +1,19 @@
 #!/usr/bin/env python3
-"""
-Light Tower Group \u2014 Daily CRE News Agent
-\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-Phases:
-  1. GATHER   \u2014 pull stories from 20 RSS feeds + NewsAPI
-  2. TRIAGE   \u2014 filter to CRE-relevant, last 36h, deduplicate
-  3. SCORE    \u2014 Claude ranks all stories by capital-markets significance
-  4. ENRICH   \u2014 fetch full text of winner; extract NYC address context
-  5. WRITE    \u2014 Claude generates WSJ-style editorial piece
-  6. PUBLISH  \u2014 save HTML, update insights.json + feed.xml, git push
-  7. LINKEDIN \u2014 auto-post link share to LinkedIn
-  8. LOG      \u2014 append run record to agent_log.json
+"""Light Tower Group curated Insights edition.
 
-Schedule: Windows Task Scheduler, daily 7:00 AM
-  Program:   python
-  Arguments: C:\\...\\scripts\\daily_news_agent.py
-  Start in:  C:\\...\\scripts
+Production runs in GitHub Actions under the repository scheduler lease. The
+pipeline clusters reported events, scores must-read value, creates a scarce
+edition, builds multi-source dossiers, runs an assigning editor and skeptic
+pass, writes evidence-sized formats, validates positive editorial quality, and
+produces public and distribution assets.
 
-Usage:
-  python daily_news_agent.py            # normal run
-  python daily_news_agent.py --dry-run  # score + write but don\u2019t publish/post
-  python daily_news_agent.py --force    # skip duplicate check
+Use ``--selection-mode edition`` for the current system. Legacy selection modes
+remain available only for controlled comparison and historical tests.
 """
 
 import feedparser
 import trafilatura
 import requests
-import anthropic
 import json
 import re
 import os
@@ -57,7 +44,12 @@ from news_sources import (
     NEWSAPI_QUERIES, SITE_URL,
     FEED_TITLE, FEED_DESCRIPTION,
 )
-from enhanced_prompts import SYSTEM_PROMPT_ENHANCED, USER_PROMPT_TEMPLATE
+from enhanced_prompts import (
+    EDITION_SYSTEM_PROMPT,
+    EDITION_USER_PROMPT_TEMPLATE,
+    SYSTEM_PROMPT_ENHANCED,
+    USER_PROMPT_TEMPLATE,
+)
 from social_image_generator import generate_article_image
 from linkedin_essay_agent import ESSAY_QUEUE, generate_essay_package, save_to_queue
 from story_normalizer import has_reported_amount_at_least_ten_million, normalize_stories
@@ -90,6 +82,28 @@ from editorial_voice import (
     title_quality_issues,
 )
 from source_health import SourceHealthLedger
+from editorial_intelligence import (
+    FORMAT_SPECS,
+    print_edition_report,
+    select_edition,
+)
+from research_dossier import (
+    build_research_dossier,
+    dossier_audit_payload,
+    dossier_prompt_payload,
+)
+from editorial_room import excellence_issues, run_editorial_room
+from edition_manager import (
+    build_edition_document,
+    calculate_read_time,
+    render_run_summary,
+    save_publication_decision,
+    save_public_edition,
+    save_run_record,
+    update_event_memory,
+    write_generated_files,
+)
+from validate_publication import validate_repository
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -120,14 +134,13 @@ _SITEMAP_STATIC = [
 ]
 LOG_FILE      = SCRIPT_DIR / "agent_log.json"
 LINKEDIN_PDF_QUEUE = SCRIPT_DIR / "linkedin_pdf_queue.json"
-SOURCE_HEALTH_FILE = SITE_ROOT / "tmp" / "source_health.json"
+SOURCE_HEALTH_FILE = SITE_ROOT / ".editorial-state" / "source-health.json"
 
 # The original NYC and national CRE feed universe remains intact.  Federal
 # feeds are additive and are fetched in the same run so major policy and
 # banking events enter the existing editorial pipeline immediately.
 ALL_RSS_FEEDS = RSS_FEEDS + FEDERAL_RSS_FEEDS
 
-ANTHROPIC_API_KEY     = os.environ.get("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY      = os.environ.get("DEEPSEEK_API_KEY", "")
 NEWSAPI_KEY           = os.environ.get("NEWSAPI_KEY", "")
 LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
@@ -269,10 +282,23 @@ def fetch_newsapi_stories(lookback_hours: int = 24) -> list:
 
     stories = []
     from_date = (datetime.now(timezone.utc) - timedelta(hours=lookback_hours)).strftime("%Y-%m-%d")
+    queries = list(NEWSAPI_QUERIES)
+    try:
+        watchlist = json.loads(
+            (SITE_ROOT / ".editorial-state" / "discovery-watchlist.json").read_text(encoding="utf-8")
+        )
+        queries.extend(
+            str(query).strip()
+            for query in watchlist.get("queries", [])
+            if str(query).strip()
+        )
+    except (OSError, json.JSONDecodeError, AttributeError):
+        pass
+    queries = list(dict.fromkeys(queries))[:40]
 
     # Use a broader additive set while staying comfortably inside NewsAPI's
     # free-tier request ceiling. RSS remains the primary source of truth.
-    for query in NEWSAPI_QUERIES[:8]:
+    for query in queries:
         try:
             r = requests.get(
                 "https://newsapi.org/v2/everything",
@@ -641,7 +667,7 @@ Voice rules:
 
 
 def generate_article(story: dict, recent_titles: list[str] | None = None) -> dict:
-    """Call DeepSeek to produce a full editorial article from the enriched story.
+    """Call DeepSeek to produce an evidence-sized editorial article.
 
     recent_titles: the last few published headlines, used only to give the
     self-repair loop below a real shot at rewriting a mechanically repetitive
@@ -676,28 +702,52 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
         "title": story.get("title", ""),
         "category": "Capital Markets",
     })
-    user_prompt = USER_PROMPT_TEMPLATE.format(
-        title=story['title'],
-        source=story['source'],
-        url=story['url'],
-        published_date=story.get('published', 'Unknown'),
-        summary=story['summary'],
-        full_text=full_text_block,
-        addresses_block=addresses_block,
-        today=now_utc.strftime('%B %d, %Y'),
-        voice_brief=json.dumps(editorial_brief, ensure_ascii=False),
-        headline_shape=json.dumps(headline_shape, ensure_ascii=False),
-    )
+    dossier = story.get("research_dossier")
+    room_plan = story.get("editorial_room") or {}
+    article_format = str(story.get("editorial_format") or "flagship")
+    if dossier:
+        spec = FORMAT_SPECS.get(article_format, FORMAT_SPECS["brief"])
+        franchise = story.get("franchise") or {}
+        user_prompt = EDITION_USER_PROMPT_TEMPLATE.format(
+            format_name=spec["label"],
+            min_words=spec["min_words"],
+            max_words=spec["max_words"],
+            format_purpose=spec["purpose"],
+            franchise_name=franchise.get("name", "Light Tower Intelligence"),
+            franchise_promise=franchise.get("promise", "Explain the decision and consequence."),
+            room_plan=json.dumps(room_plan, ensure_ascii=False),
+            research_dossier=dossier_prompt_payload(dossier),
+            today=now_utc.strftime('%B %d, %Y'),
+            voice_brief=json.dumps(editorial_brief, ensure_ascii=False),
+            headline_shape=json.dumps(headline_shape, ensure_ascii=False),
+        )
+        system_prompt = EDITION_SYSTEM_PROMPT
+        max_tokens = 5200 if article_format == "flagship" else 3000
+    else:
+        user_prompt = USER_PROMPT_TEMPLATE.format(
+            title=story['title'],
+            source=story['source'],
+            url=story['url'],
+            published_date=story.get('published', 'Unknown'),
+            summary=story['summary'],
+            full_text=full_text_block,
+            addresses_block=addresses_block,
+            today=now_utc.strftime('%B %d, %Y'),
+            voice_brief=json.dumps(editorial_brief, ensure_ascii=False),
+            headline_shape=json.dumps(headline_shape, ensure_ascii=False),
+        )
+        system_prompt = SYSTEM_PROMPT_ENHANCED
+        max_tokens = 4500
 
     resp = requests.post(
         "https://api.deepseek.com/v1/chat/completions",
         headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
         json={
             "model": "deepseek-chat",
-            "max_tokens": 4500,
+            "max_tokens": max_tokens,
             "temperature": 0.2,
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT_ENHANCED},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
         },
@@ -709,7 +759,12 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
     # The writer's self-assessment is not trusted. Repair drafts against the
     # same independent gate used immediately before publication.
     for _ in range(2):
-        control_findings = _article_control_findings(article, recent_titles)
+        control_findings = _article_control_findings(
+            article,
+            recent_titles,
+            dossier=dossier,
+            article_format=article_format if dossier else None,
+        )
         if not control_findings:
             break
         revision = requests.post(
@@ -720,11 +775,15 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
                 "max_tokens": 5200,
                 "temperature": 0.15,
                 "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT_ENHANCED},
+                    {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                     {
                         "role": "user",
-                        "content": _article_revision_prompt(article, control_findings),
+                        "content": _article_revision_prompt(
+                            article,
+                            control_findings,
+                            article_format=article_format if dossier else None,
+                        ),
                     },
                 ],
             },
@@ -739,6 +798,16 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
     article["source_lane"] = story.get("source_lane", "market")
     article["msa_government_markets"] = story.get("entities", {}).get("msa_government_markets", [])
     article["policy_actions"] = story.get("entities", {}).get("policy_actions", [])
+    if dossier:
+        article["event_id"] = story.get("editorial_event_id")
+        article["editorial_format"] = article_format
+        article["editorial_format_label"] = FORMAT_SPECS[article_format]["label"]
+        article["franchise"] = story.get("franchise")
+        article["must_read_score"] = story.get("must_read_score")
+        article["must_read_breakdown"] = story.get("must_read_breakdown")
+        article["legal_or_allegation_risk"] = story.get("legal_or_allegation_risk", False)
+        article["research_evidence_level"] = dossier.get("evidence_level")
+        article["source_count"] = dossier.get("independent_source_count", 0)
     return article
 
 
@@ -751,12 +820,18 @@ def _extract_article_json(raw: str) -> dict:
     return json.loads(match.group())
 
 
-def _article_revision_prompt(article: dict, issues: list[str]) -> str:
+def _article_revision_prompt(
+    article: dict,
+    issues: list[str],
+    *,
+    article_format: str | None = None,
+) -> str:
+    spec = FORMAT_SPECS.get(article_format or "", {"min_words": 800, "max_words": 1050})
     return """\
 The previous article failed an independent publication control check. Rewrite
 the COMPLETE JSON article, preserving only source-grounded facts. Correct every
-listed issue and include a complete narrative_ledger. The body_html must be
-800-1,050 words and never under 700 words. Expand through source-grounded
+listed issue and include complete narrative_ledger and excellence_ledger
+objects. The body_html must be {min_words}-{max_words} words. Build depth through source-grounded
 analysis of mechanism, incentives, constraints, and open questions—not filler.
 Do not explain the revision, invent a scene, invent a source, or use a generic
 template phrase.
@@ -767,16 +842,30 @@ CONTROL FINDINGS
 CURRENT ARTICLE JSON
 {article}
 """.format(
+        min_words=spec["min_words"],
+        max_words=spec["max_words"],
         issues=json.dumps(issues, ensure_ascii=False),
-    article=json.dumps(article, ensure_ascii=False),
-)
+        article=json.dumps(article, ensure_ascii=False),
+    )
 
 
-def _article_control_findings(article: dict, recent_titles: list[str] | None = None) -> list[str]:
+def _article_control_findings(
+    article: dict,
+    recent_titles: list[str] | None = None,
+    *,
+    dossier: dict | None = None,
+    article_format: str | None = None,
+) -> list[str]:
     """Return the independent publication checks a draft must clear."""
-    findings = independent_quality_issues(article, require_sections=False)
+    findings = independent_quality_issues(
+        article,
+        require_sections=False,
+        article_format=article_format,
+    )
     findings.extend(narrative_finance_issues(article.get("narrative_ledger")))
     findings.extend(title_quality_issues(article.get("title", ""), recent_titles or ()))
+    if dossier and article_format:
+        findings.extend(excellence_issues(article, dossier, article_format=article_format))
     return list(dict.fromkeys(findings))
 
 
@@ -910,6 +999,19 @@ def _share_buttons(page_url: str, title: str) -> str:
     </div>"""
 
 
+# Lightly topic-aware end-of-article CTA copy. Keyed by the article's
+# `category` field (see the category list in USER_PROMPT_TEMPLATE); any
+# category not listed here falls back to `_default` rather than erroring.
+_CATEGORY_CTA_LINES: dict[str, str] = {
+    "Deal Intelligence": "Working through a deal with a similar structure?",
+    "Debt & Equity": "Sourcing debt or equity for something like this?",
+    "Capital Markets": "Navigating a similar capital markets decision?",
+    "Market Analysis": "Thinking through how this affects your next move?",
+    "Policy & Regulation": "Trying to work out how this affects your capital plan?",
+    "_default": "Have a deal that raises questions like this one?",
+}
+
+
 def render_html(article: dict) -> str:
     """Render a full standalone HTML page for a news article."""
     page_url = f"{SITE_URL}/insights/{article['slug']}.html"
@@ -920,6 +1022,7 @@ def render_html(article: dict) -> str:
         f'      <li><a href="{esc(s.get("url","#"))}" target="_blank" rel="noopener">'
         f'{esc(s.get("name",""))}</a></li>'
         for s in article.get("sources", [])
+        if str(s.get("url", "")).startswith(("https://", "http://"))
     )
     if not sources_html:
         sources_html = (
@@ -930,6 +1033,33 @@ def render_html(article: dict) -> str:
     tags_html  = " ".join(f'<span class="tag">{esc(t)}</span>' for t in article.get("tags", []))
     share_top  = _share_buttons(page_url, article["title"])
     share_bot  = _share_buttons(page_url, article["title"])
+    cta_headline = _CATEGORY_CTA_LINES.get(
+        article.get("category", ""), _CATEGORY_CTA_LINES["_default"]
+    )
+    format_label = article.get("editorial_format_label") or article.get("category", "")
+    franchise_name = (article.get("franchise") or {}).get("name", "")
+    article_kicker = " · ".join(part for part in (format_label, franchise_name) if part)
+    source_count = article.get("source_count", len(article.get("sources", [])))
+    read_time = calculate_read_time(article.get("body_html", ""))
+    data_points = [
+        point for point in article.get("data_points", [])
+        if isinstance(point, dict) and point.get("label") and point.get("value")
+    ][:4]
+    data_points_html = ""
+    if data_points:
+        data_points_html = (
+            '<aside class="article-data-note" aria-label="Key reported data">'
+            '<p class="article-data-note-label">One chart, one argument</p>'
+            '<div class="article-data-grid">'
+            + "".join(
+                '<div class="article-data-point">'
+                f'<strong>{esc(point.get("value"))}</strong>'
+                f'<span>{esc(point.get("label"))}</span>'
+                "</div>"
+                for point in data_points
+            )
+            + "</div></aside>"
+        )
     year       = datetime.now().year
     schema_json = json.dumps({
         "@context": "https://schema.org",
@@ -961,6 +1091,15 @@ def render_html(article: dict) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Analytics 4 — add your Measurement ID from analytics.google.com -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
   <title>{esc(article['title'])} | Light Tower Group</title>
   <meta name="description" content="{esc(article['meta_description'])}">
   <meta name="robots" content="index, follow">
@@ -1090,6 +1229,19 @@ def render_html(article: dict) -> str:
     .article-body strong {{ color: var(--white); }}
     .article-body a {{ color: var(--gold); }}
 
+    .article-data-note {{
+      margin: 0 0 2.5rem; padding: 1.5rem;
+      border: 1px solid var(--gold-dim); background: rgba(201,168,76,0.05);
+    }}
+    .article-data-note-label {{
+      font-family: var(--sans); color: var(--gold); font-size: 0.68rem;
+      letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1rem;
+    }}
+    .article-data-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)); gap: 1rem; }}
+    .article-data-point {{ display: flex; flex-direction: column; gap: 0.25rem; }}
+    .article-data-point strong {{ font-family: var(--serif); font-size: 1.65rem; color: var(--white); }}
+    .article-data-point span {{ font-family: var(--sans); font-size: 0.78rem; color: var(--muted); line-height: 1.4; }}
+
     /* ── Tags ── */
     .article-tags {{ display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 2.5rem 0 1.5rem; }}
     .tag {{
@@ -1114,6 +1266,36 @@ def render_html(article: dict) -> str:
     .sources-block li {{ font-size: 0.95rem; margin-bottom: 0.5rem; }}
     .sources-block a {{ color: var(--gold); text-decoration: none; }}
     .sources-block a:hover {{ text-decoration: underline; }}
+
+    /* ── End-of-article CTA ── */
+    .article-cta-block {{
+      margin: 3rem 0 2.5rem; padding: 2.25rem 2.25rem;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid var(--gold-dim);
+      border-left: 3px solid var(--gold);
+      border-radius: 2px;
+    }}
+    .article-cta-eyebrow {{
+      font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;
+      font-weight: 600;
+    }}
+    .article-cta-headline {{
+      font-family: var(--serif); font-size: 1.5rem; font-weight: normal;
+      line-height: 1.3; color: var(--white); margin-bottom: 0.6rem;
+    }}
+    .article-cta-sub {{
+      font-family: var(--sans); font-size: 0.92rem; color: var(--muted);
+      line-height: 1.6; margin-bottom: 1.4rem; max-width: 46ch;
+    }}
+    .article-cta-btn {{
+      font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--black); background: var(--gold);
+      border: 1px solid var(--gold); padding: 0.75rem 1.6rem; border-radius: 2px;
+      cursor: pointer; transition: background 0.2s, opacity 0.2s;
+      font-weight: 600;
+    }}
+    .article-cta-btn:hover {{ opacity: 0.88; }}
 
     /* ── Footer ── */
     .site-footer {{
@@ -1173,7 +1355,7 @@ def render_html(article: dict) -> str:
         <a href="/services.html">Services</a>
         <a href="/about.html">About</a>
         <a href="/#contact">Contact</a>
-        <button class="nav-cta" onclick="openLTGChat()">Initiate Mandate</button>
+        <button class="nav-cta" onclick="openLTGChat('nav_cta')">Initiate Mandate</button>
       </div>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1189,14 +1371,14 @@ def render_html(article: dict) -> str:
       <a href="/services.html">Services</a>
       <a href="/about.html">About</a>
       <a href="/#contact">Contact</a>
-      <button class="nav-mobile-cta" onclick="openLTGChat()">Initiate Mandate</button>
+      <button class="nav-mobile-cta" onclick="openLTGChat('nav_mobile_cta')">Initiate Mandate</button>
     </div>
   </nav>
 
   <div class="article-wrap">
     <article itemscope itemtype="https://schema.org/NewsArticle">
 
-      <div class="article-category">{esc(article['category'])}</div>
+      <div class="article-category">{esc(article_kicker)}</div>
       <h1 class="article-title" itemprop="headline">{esc(article['title'])}</h1>
       <p class="article-subtitle">{esc(article.get('subtitle',''))}</p>
 
@@ -1211,11 +1393,14 @@ def render_html(article: dict) -> str:
             {esc(article['date'])}
           </time>
         </span>
-        <span>Source: {esc(article.get('source_name',''))}</span>
+        <span>{read_time} min read</span>
+        <span>{source_count} source{'s' if source_count != 1 else ''}</span>
       </div>
 
       {share_top}
       <hr class="article-rule">
+
+      {data_points_html}
 
       <div class="article-body" itemprop="articleBody">
         {sanitize_html(article['body_html'])}
@@ -1224,6 +1409,13 @@ def render_html(article: dict) -> str:
       <div class="article-tags">{tags_html}</div>
 
       {share_bot}
+
+      <div class="article-cta-block">
+        <p class="article-cta-eyebrow">Talk to Light Tower Group</p>
+        <h3 class="article-cta-headline">{esc(cta_headline)}</h3>
+        <p class="article-cta-sub">Tell us about it — Ben Rohr reviews every conversation personally and typically replies within one business day.</p>
+        <button class="article-cta-btn" onclick="openLTGChat('article_cta')">Start a Conversation</button>
+      </div>
 
       <div class="sources-block">
         <h3>Sources</h3>
@@ -1280,11 +1472,17 @@ def update_manifest(article: dict):
         "title":    article["title"],
         "slug":     article["slug"],
         "date":     date_short,
-        "readTime": 7,
+        "publishedAt": article["date_iso"],
+        "readTime": calculate_read_time(article.get("body_html", "")),
         "category": article["category"],
         "excerpt":  article["meta_description"],
         "url":      f"/insights/{article['slug']}.html",
         "tags":     article.get("tags", []),
+        "format":   article.get("editorial_format", "analysis"),
+        "franchise": article.get("franchise"),
+        "mustReadScore": article.get("must_read_score"),
+        "sourceCount": article.get("source_count", len(article.get("sources", []))),
+        "eventId": article.get("event_id"),
     }
     assert_no_mojibake("manifest entry", entry)
     # Remove any existing entry with same slug
@@ -1326,9 +1524,15 @@ def update_feed_xml():
     for e in data:
         url = f"{SITE_URL}{e.get('url') or '/insights/' + e['slug'] + '.html'}"
         # Parse date for RSS pubDate format — handles both new "YYYY-MM-DD" and legacy "Month DD, YYYY"
-        d = _parse_manifest_date(e.get("date", ""))
-        pub_rss = d.strftime("%a, %d %b %Y 07:00:00 +0000")
-        pub_iso = d.strftime("%Y-%m-%dT07:00:00Z")
+        try:
+            d = datetime.fromisoformat(str(e.get("publishedAt", "")).replace("Z", "+00:00"))
+        except (TypeError, ValueError):
+            d = _parse_manifest_date(e.get("date", ""))
+        if d.tzinfo is None:
+            d = d.replace(tzinfo=timezone.utc)
+        d = d.astimezone(timezone.utc)
+        pub_rss = d.strftime("%a, %d %b %Y %H:%M:%S +0000")
+        pub_iso = d.strftime("%Y-%m-%dT%H:%M:%SZ")
 
         keywords = ", ".join(e.get("tags", [e.get("category", "")]))
 
@@ -1364,7 +1568,7 @@ def update_feed_xml():
     <lastBuildDate>{now_rss}</lastBuildDate>
     <atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
-      <url>{SITE_URL}/logo.png</url>
+      <url>{SITE_URL}/capital-intelligence-hero.png</url>
       <title>Light Tower Group</title>
       <link>{SITE_URL}</link>
     </image>
@@ -1424,7 +1628,7 @@ def update_sitemap_xml():
 
 
 def git_commit_push(articles: list, dry_run: bool = False) -> dict:
-    """Commit and verify deployment, returning an explicit, log-safe result."""
+    """Publish the generated-file manifest through the retry-safe helper."""
     result = {
         "attempted": False, "commit_created": False, "commit_sha": None,
         "push_ok": False, "remote_main_sha": None, "error": None,
@@ -1433,51 +1637,33 @@ def git_commit_push(articles: list, dry_run: bool = False) -> dict:
         print("  [DRY-RUN] Skipping git commit/push")
         return result
 
-    if not articles:
+    generated_manifest = SITE_ROOT / ".editorial-state" / "generated-files.json"
+    if not generated_manifest.exists():
+        result["error"] = "generated-files manifest is missing"
         return result
 
     result["attempted"] = True
-
-    files = []
-    for article in articles:
-        slug = article["slug"]
-        candidates = [
-            f"insights/{slug}.html",
-            f"insights/{slug}_social.png",
-            f"insights/{slug}_article.pdf",
-            f"insights/{slug}_article-data.json",
-            f"insights/linkedin-post-{slug}.txt",
-        ]
-        files.extend(path for path in candidates if (SITE_ROOT / path).exists())
-    files += ["insights.json", "feed.xml", "sitemap.xml"]
-    if ESSAY_QUEUE.exists():
-        files.append(str(ESSAY_QUEUE.relative_to(SITE_ROOT)))
-
     titles = "; ".join(a["title"][:40] for a in articles[:3])
     if len(articles) > 3:
         titles += f" (+{len(articles)-3} more)"
+    message = (
+        f"Publish curated Insights edition ({len(articles)} article"
+        f"{'s' if len(articles) != 1 else ''})"
+        + (f": {titles}" if titles else "")
+    )
 
     try:
-        subprocess.run(["git", "add"] + files, cwd=SITE_ROOT, check=True, capture_output=True)
-        subprocess.run(
-            ["git", "commit", "-m",
-             f"Daily CRE analysis ({len(articles)} articles): {titles}\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"],
-            cwd=SITE_ROOT, check=True, capture_output=True,
+        completed = subprocess.run(
+            [sys.executable, str(SCRIPT_DIR / "publish_generated.py"), "--message", message],
+            cwd=SITE_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
         )
         result["commit_created"] = True
         result["commit_sha"] = subprocess.run(
             ["git", "rev-parse", "HEAD"], cwd=SITE_ROOT, check=True, capture_output=True, text=True,
         ).stdout.strip()
-        # The scheduled agent may run from a delivery branch rather than the
-        # local `main` branch.  Push the commit we just created (HEAD) to the
-        # deployment branch explicitly; `git push origin main` would otherwise
-        # push the stale local main branch and leave the new articles stranded.
-        subprocess.run(
-            ["git", "push", "origin", "HEAD:refs/heads/main"],
-            cwd=SITE_ROOT,
-            check=True,
-            capture_output=True,
-        )
         remote_sha = subprocess.run(
             ["git", "ls-remote", "--exit-code", "origin", "refs/heads/main"],
             cwd=SITE_ROOT, check=True, capture_output=True, text=True,
@@ -1486,9 +1672,11 @@ def git_commit_push(articles: list, dry_run: bool = False) -> dict:
         if remote_sha != result["commit_sha"]:
             raise RuntimeError("origin/main did not resolve to the commit created by this run")
         result["push_ok"] = True
-        print(f"  Git: committed {len(articles)} articles, pushed, and verified origin/main")
+        print(completed.stdout.strip() or "  Git publication completed and verified.")
     except subprocess.CalledProcessError as e:
-        stderr = e.stderr.decode(errors="replace") if e.stderr else ""
+        stderr = e.stderr if isinstance(e.stderr, str) else (
+            e.stderr.decode(errors="replace") if e.stderr else ""
+        )
         result["error"] = redact_secret_text(stderr or str(e))[:300]
     except Exception as e:
         result["error"] = redact_secret_text(e)[:300]
@@ -1642,6 +1830,88 @@ def write_log(run_data: dict):
     LOG_FILE.write_text(json.dumps(log, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+def finalize_no_story_edition(*, start: datetime, run_data: dict, args, reason: str) -> None:
+    """Persist a complete, publishable no-story result for the curated workflow."""
+    selection = {
+        "selection_mode": "edition",
+        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "status": "no_publishable_story",
+        "candidate_count": int(run_data.get("candidate_count", 0) or 0),
+        "event_count": 0,
+        "selected_stories": [],
+        "deal_tape": [],
+        "scored_events": [],
+        "duplicate_groups": [],
+    }
+    run_data.update({
+        "status": "no_publishable_story",
+        "edition_status": "no_publishable_story",
+        "articles": [],
+        "articles_count": 0,
+        "deal_tape_count": 0,
+        "held": [reason],
+        "elapsed_seconds": round((datetime.now(timezone.utc) - start).total_seconds()),
+    })
+    if args.dry_run or args.shadow:
+        print(f"  {reason}")
+        print("  A no-story edition is valid; no public files were changed in this run mode.")
+        write_log(run_data)
+        return
+
+    document = build_edition_document(
+        edition_date=start.date(),
+        selection=selection,
+        articles=[],
+        run_status="no_publishable_story",
+    )
+    generated_paths = save_public_edition(document)
+    generated_paths.append(update_event_memory(selection))
+    generated_paths.append(save_publication_decision(
+        articles=[],
+        edition_status="no_publishable_story",
+    ))
+    audit_payload = {
+        "schema_version": 1,
+        "run_at": start.isoformat(),
+        "date": start.date().isoformat(),
+        "run_origin": args.run_origin,
+        "selection_mode": "edition",
+        "status": "no_publishable_story",
+        "reason": reason,
+        "raw_count": int(run_data.get("raw_count", 0) or 0),
+        "candidate_count": int(run_data.get("candidate_count", 0) or 0),
+        "research_assignments": [],
+        "articles": [],
+        "held": [reason],
+        "deal_tape_count": 0,
+    }
+    generated_paths.append(save_run_record(audit_payload, run_date=start.date()))
+    summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
+    summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
+    generated_paths.append(summary_path)
+    if SOURCE_HEALTH_FILE.exists():
+        generated_paths.append(SOURCE_HEALTH_FILE)
+
+    validation_errors = validate_repository(latest_only=True)
+    if validation_errors:
+        raise RuntimeError(
+            "No-story edition failed publication validation: "
+            + "; ".join(validation_errors[:5])
+        )
+    write_generated_files(generated_paths)
+    write_log(run_data)
+
+    if args.skip_git:
+        print("  No-story edition is complete; Git publication is delegated to GitHub Actions.")
+        return
+    git_result = git_commit_push([], dry_run=False)
+    run_data["git"] = git_result
+    write_log(run_data)
+    if not git_result["push_ok"]:
+        raise SystemExit("No-story edition was generated but could not be verified on origin/main.")
+
+
 def write_linkedin_pdf_queue(articles: list) -> None:
     """Persist the exact daily article order for paced LinkedIn document posts."""
     queue = {
@@ -1710,7 +1980,7 @@ def main():
     parser.add_argument("--articles", type=int, default=5, metavar="N",
                         help="Number of articles to publish per run (default: 5, max: 30)")
     parser.add_argument("--no-limit", action="store_true",
-                        help="In bucketed-volume mode, publish every qualifying non-duplicate story")
+                        help="Legacy bucketed-volume option; never applies to curated edition mode")
     parser.add_argument("--lookback-hours", type=int, default=36, metavar="H",
                         help="Story recency window in hours (default: 36; use 168 for a seven-day backfill)")
     parser.add_argument("--linkedin-length", choices=["standard", "edge", "compressed"],
@@ -1720,13 +1990,17 @@ def main():
                         help="Post the Essay Desk LinkedIn essay automatically after publishing")
     parser.add_argument("--auto-post-linkedin-pdfs", action="store_true",
                         help="Post every generated carousel PDF as a native LinkedIn document post")
-    parser.add_argument("--selection-mode", choices=["legacy", "daily-top-news", "bucketed-volume"],
+    parser.add_argument("--selection-mode", choices=["legacy", "daily-top-news", "bucketed-volume", "edition"],
                         default="legacy",
                         help="Story selection mode. legacy preserves current scheduled behavior.")
     parser.add_argument("--shadow", action="store_true",
                         help="Score and write the full editorial audit without generating or publishing articles")
     parser.add_argument("--weekly-review", action="store_true",
                         help="Generate a Friday State of the Markets Review from this week's editorial runs")
+    parser.add_argument("--skip-git", action="store_true",
+                        help="Generate and validate artifacts without committing or pushing; intended for GitHub Actions")
+    parser.add_argument("--run-origin", choices=["manual", "local-scheduler", "github-actions"],
+                        default="manual", help="Record which scheduler or operator initiated the run")
     args = parser.parse_args()
     if args.weekly_review:
         run_weekly_review(args)
@@ -1736,8 +2010,42 @@ def main():
     LOOKBACK_HOURS = max(1, args.lookback_hours)
 
     start    = datetime.now(timezone.utc)
-    run_data = {"run_at": start.isoformat(), "status": "started", "dry_run": args.dry_run}
+    run_data = {
+        "run_at": start.isoformat(),
+        "status": "started",
+        "dry_run": args.dry_run,
+        "run_origin": args.run_origin,
+    }
     known_insights = load_insight_records(SITE_ROOT)
+    try:
+        audience_signals = json.loads(
+            (SITE_ROOT / ".editorial-state" / "audience-signals.json").read_text(encoding="utf-8")
+        )
+    except (OSError, json.JSONDecodeError):
+        audience_signals = {}
+    try:
+        event_memory = json.loads(
+            (SITE_ROOT / ".editorial-state" / "event-memory.json").read_text(encoding="utf-8")
+        )
+        if not isinstance(event_memory, list):
+            event_memory = []
+    except (OSError, json.JSONDecodeError):
+        event_memory = []
+    try:
+        editorial_priors = json.loads(
+            (SITE_ROOT / ".editorial-state" / "editorial-priors.json").read_text(encoding="utf-8")
+        )
+    except (OSError, json.JSONDecodeError):
+        editorial_priors = {}
+    editorial_archive = known_insights + [
+        {
+            "slug": f"event-{item.get('event_id', 'unknown')}",
+            "title": item.get("title"),
+            "date": str(item.get("last_seen", ""))[:10],
+            "url": "",
+        }
+        for item in event_memory if isinstance(item, dict) and item.get("title")
+    ]
 
     print(f"\n{'='*62}")
     print(f"  Light Tower Group \u2014 Daily News Agent")
@@ -1747,6 +2055,8 @@ def main():
     print(f"  Lookback window: {LOOKBACK_HOURS} hours")
     if args.selection_mode == "bucketed-volume":
         print(f"  Publishing limit: {'none (all qualified stories)' if article_limit is None else article_limit}")
+    elif args.selection_mode == "edition":
+        print(f"  Edition ceiling: 1 flagship candidate + up to {max(1, MAX_ARTICLES - 1)} briefs/culture items")
     if args.shadow:
         print("  [SHADOW MODE] No articles will be generated or published")
     print(f"{'='*62}\n")
@@ -1761,7 +2071,7 @@ def main():
     print("\n[2/8] Triaging...")
     if args.selection_mode == "daily-top-news":
         candidates = triage_daily_top_news(all_stories, LOOKBACK_HOURS)
-    elif args.selection_mode == "bucketed-volume":
+    elif args.selection_mode in {"bucketed-volume", "edition"}:
         candidates = triage_bucketed_volume(all_stories, LOOKBACK_HOURS)
     else:
         candidates = triage(all_stories, LOOKBACK_HOURS)
@@ -1769,14 +2079,23 @@ def main():
     run_data["selection_mode"] = args.selection_mode
 
     if not candidates:
-        print("  No relevant stories found for any editorial bucket. Exiting.")
-        run_data["status"] = "no_stories"
-        write_log(run_data)
+        if args.selection_mode == "edition":
+            finalize_no_story_edition(
+                start=start,
+                run_data=run_data,
+                args=args,
+                reason="No relevant event cleared the discovery and triage controls.",
+            )
+        else:
+            print("  No relevant stories found for any editorial bucket. Exiting.")
+            run_data["status"] = "no_stories"
+            write_log(run_data)
         return
 
     # \u2500 Phase 3: Score \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print(f"\n[3/8] Scoring {len(candidates)} stories...")
     editorial_selection = None
+    editorial_items = []
     if args.selection_mode == "daily-top-news":
         normalized_candidates = normalize_stories(candidates)
         print(f"  Normalized {len(normalized_candidates)} candidate(s) for daily top-news scoring")
@@ -1800,6 +2119,36 @@ def main():
         audit_path = save_editorial_run(audit_payload, run_date=start.date())
         print(f"  Editorial audit saved: {audit_path.relative_to(SITE_ROOT)}")
         ranked = [item["candidate"] for item in editorial_selection["selected_stories"]]
+    elif args.selection_mode == "edition":
+        normalized_candidates = normalize_stories(candidates)
+        print(f"  Normalized {len(normalized_candidates)} candidate(s) for curated-edition scoring")
+        editorial_selection = select_edition(
+            normalized_candidates,
+            archive_records=editorial_archive,
+            audience_signals=audience_signals,
+            max_briefs=max(1, MAX_ARTICLES - 1),
+            max_deal_tape=8,
+            max_articles=MAX_ARTICLES,
+        )
+        print_edition_report(editorial_selection)
+        audit_payload = {
+            "run_at": start.isoformat(),
+            "date": start.date().isoformat(),
+            "selection_mode": args.selection_mode,
+            "dry_run": args.dry_run,
+            "shadow": args.shadow,
+            "raw_count": len(all_stories),
+            **editorial_selection,
+        }
+        audit_path = save_run_record(audit_payload, run_date=start.date())
+        print(f"  Durable editorial audit saved: {audit_path.relative_to(SITE_ROOT)}")
+        editorial_items = editorial_selection["selected_stories"]
+        ranked = [item["candidate"] for item in editorial_items]
+        run_data.update({
+            "event_count": editorial_selection.get("event_count", 0),
+            "duplicate_group_count": len(editorial_selection.get("duplicate_groups", [])),
+            "deal_tape_count": len(editorial_selection.get("deal_tape", [])),
+        })
     elif args.selection_mode == "bucketed-volume":
         normalized_candidates = normalize_stories(candidates)
         print(f"  Normalized {len(normalized_candidates)} candidate(s) for bucketed-volume scoring")
@@ -1840,6 +2189,17 @@ def main():
         print("  Shadow run complete. No articles were generated or published.")
         return
 
+    if args.selection_mode == "edition" and args.shadow:
+        run_data.update({
+            "status": "shadow_complete",
+            "research_candidates": len(editorial_items),
+            "deal_tape_count": len(editorial_selection.get("deal_tape", [])),
+            "editorial_audit": str(audit_path.relative_to(SITE_ROOT)),
+        })
+        write_log(run_data)
+        print("  Curated-edition shadow run complete. No articles were generated or published.")
+        return
+
     if args.selection_mode == "bucketed-volume" and not ranked:
         print("  No stories cleared their bucket publication threshold. Exiting.")
         run_data["status"] = "no_bucket_eligible_stories"
@@ -1847,22 +2207,91 @@ def main():
         return
 
     # \u2500 Phase 4: Enrich \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-    print(f"\n[4/8] Enriching {'all qualified' if article_limit is None else f'up to {article_limit}'} candidates...")
+    print(f"\n[4/8] Researching editorial candidates...")
     enriched_candidates = []
+    held_assignments = []
     checked = 0
-    candidate_pool = ranked if args.selection_mode in {"daily-top-news", "bucketed-volume"} else ranked[:20]
-    for candidate in candidate_pool:  # scan top 20 legacy stories, or final daily top-news selections
-        if article_limit is not None and len(enriched_candidates) >= article_limit:
-            break
-        checked += 1
-        preview_slug = re.sub(r"[^a-z0-9]+", "-", candidate["title"].lower())[:50].strip("-")
-        if not args.force and already_published(preview_slug):
-            print(f"  [{checked}] Already published (slug preview '{preview_slug[:35]}'), skipping...")
-            continue
-        print(f"  [{checked}] Enriching: {candidate['title'][:65]}")
-        enriched_candidates.append(enrich_story(candidate))
+    if args.selection_mode == "edition":
+        for editorial_item in editorial_items:
+            checked += 1
+            candidate = dict(editorial_item["candidate"])
+            print(f"  [{checked}] Building dossier: {candidate['title'][:65]}")
+            fetched_text_by_url = {}
+            for source in editorial_item.get("sources", [])[:5]:
+                url = str(source.get("url", ""))
+                if not url:
+                    continue
+                print(f"      Source: {source.get('source', source.get('domain', 'unknown'))}")
+                fetched_text_by_url[url] = scrub_prompt_injection(_fetch_full_text(url))
+            dossier = build_research_dossier(
+                editorial_item,
+                fetched_text_by_url=fetched_text_by_url,
+                archive_records=known_insights,
+            )
+            room = run_editorial_room(
+                editorial_item,
+                dossier,
+                api_key=DEEPSEEK_API_KEY,
+                editorial_priors=editorial_priors,
+            )
+            editorial_item["research_audit"] = dossier_audit_payload(dossier)
+            editorial_item["editorial_room"] = room
+            decision = room.get("decision")
+            final_format = room.get("final_format", "brief")
+            if decision in {"kill", "defer"}:
+                reason = room.get("kill_reason") or f"Editorial room decision: {decision}"
+                held_assignments.append(f"{candidate['title']}: {reason}")
+                print(f"      HELD: {reason}")
+                continue
+            if decision == "deal_tape" or final_format == "deal_tape":
+                if editorial_item not in editorial_selection["deal_tape"]:
+                    editorial_selection["deal_tape"].append(editorial_item)
+                print("      Downgraded to Deal Tape; no standalone article will be generated.")
+                continue
+            if final_format != editorial_item.get("provisional_format"):
+                print(
+                    f"      Format changed: {editorial_item.get('provisional_format')} "
+                    f"-> {final_format} ({dossier.get('evidence_level')} evidence)"
+                )
+            candidate.update({
+                "full_text": next(
+                    (
+                        source.get("full_text_excerpt", "")
+                        for source in dossier.get("sources", [])
+                        if source.get("full_text_excerpt")
+                    ),
+                    "",
+                ),
+                "mentioned_addresses": _extract_nyc_addresses(
+                    " ".join(
+                        [candidate.get("title", ""), candidate.get("summary", "")]
+                        + [source.get("full_text_excerpt", "") for source in dossier.get("sources", [])]
+                    )
+                ),
+                "research_dossier": dossier,
+                "editorial_room": room,
+                "editorial_event_id": editorial_item.get("event_id"),
+                "editorial_format": final_format,
+                "franchise": editorial_item.get("franchise"),
+                "must_read_score": editorial_item.get("must_read_score"),
+                "must_read_breakdown": editorial_item.get("must_read_breakdown"),
+                "legal_or_allegation_risk": editorial_item.get("legal_or_allegation_risk", False),
+            })
+            enriched_candidates.append(candidate)
+    else:
+        candidate_pool = ranked if args.selection_mode in {"daily-top-news", "bucketed-volume"} else ranked[:20]
+        for candidate in candidate_pool:
+            if article_limit is not None and len(enriched_candidates) >= article_limit:
+                break
+            checked += 1
+            preview_slug = re.sub(r"[^a-z0-9]+", "-", candidate["title"].lower())[:50].strip("-")
+            if not args.force and already_published(preview_slug):
+                print(f"  [{checked}] Already published (slug preview '{preview_slug[:35]}'), skipping...")
+                continue
+            print(f"  [{checked}] Enriching: {candidate['title'][:65]}")
+            enriched_candidates.append(enrich_story(candidate))
 
-    if not enriched_candidates:
+    if not enriched_candidates and args.selection_mode != "edition":
         print("  No unpublished qualifying stories remained after duplicate checks. Exiting.")
         run_data["status"] = "already_published"
         write_log(run_data)
@@ -1900,15 +2329,23 @@ def main():
         # have seen: near-duplicate coverage of an already-published deal.
         # That is a substantive redundancy problem, not a fixable headline
         # tic, so it is held rather than rewritten.
-        independent_errors = _article_control_findings(article, recent_titles_window)
+        independent_errors = _article_control_findings(
+            article,
+            recent_titles_window,
+            dossier=candidate.get("research_dossier"),
+            article_format=candidate.get("editorial_format"),
+        )
         duplicate_errors = near_duplicate_matches(article.get("title", ""), known_insights)
         if independent_errors or duplicate_errors:
             reasons = independent_errors + duplicate_errors
             print(f"  [WARN] Article {i} held after repair attempts: {'; '.join(reasons[:2])}")
             continue
 
-        # The ledger is editorial control data, not public-page content.
-        article.pop("narrative_ledger", None)
+        # Ledgers remain in the durable run audit, never in public-page markup.
+        article["_editorial_control"] = {
+            "narrative_ledger": article.pop("narrative_ledger", None),
+            "excellence_ledger": article.pop("excellence_ledger", None),
+        }
 
         if not args.force and already_published(article["slug"]):
             print(f"  Slug '{article['slug']}' already published, skipping...")
@@ -1928,22 +2365,31 @@ def main():
         articles.append(article)
         known_insights.append(article)
 
-    if not articles:
+    if not articles and args.selection_mode != "edition":
         print("  All generated articles had slug collisions or failed. Exiting.")
         run_data["status"] = "slug_collision"
         write_log(run_data)
         return
 
-    print(f"  Successfully generated {len(articles)} article(s)")
+    if articles:
+        print(f"  Successfully generated {len(articles)} article(s)")
+    else:
+        print("  No standalone article earned publication; preserving a valid deal-tape/no-story edition.")
 
     # ─ Phase 5b: LinkedIn Essay Desk ─────────────────────────────────────
     print(f"\n[5b/8] Generating LinkedIn Essay Desk package(s)...")
     essay_packages = []
     for i, article in enumerate(articles, 1):
+        native_length = {
+            "flagship": "standard",
+            "culture_signal": "edge",
+            "brief": "compressed",
+            "data_note": "compressed",
+        }.get(article.get("editorial_format"), args.linkedin_length)
         try:
             package = generate_essay_package(
                 article,
-                length_mode=args.linkedin_length,
+                length_mode=native_length,
                 api_key=DEEPSEEK_API_KEY,
                 site_url=SITE_URL,
             )
@@ -1951,7 +2397,7 @@ def main():
             print(f"  [WARN] Essay Desk failed for article {i}: {redact_secret_text(e)} — using fallback package")
             package = generate_essay_package(
                 article,
-                length_mode=args.linkedin_length,
+                length_mode=native_length,
                 api_key="",
                 site_url=SITE_URL,
             )
@@ -1978,21 +2424,31 @@ def main():
         print(f"  [DRY-RUN] Essay package (article 1):\n{json.dumps(essay_packages[0], indent=2, ensure_ascii=False)[:1600]}...")
 
     run_data["articles"] = [
-        {"title": a["title"], "slug": a["slug"],
-         "source": enriched_candidates[i]["source"],
-         "source_url": enriched_candidates[i]["url"]}
-        for i, a in enumerate(articles)
+        {
+            "title": article["title"],
+            "slug": article["slug"],
+            "source": article.get("source_name"),
+            "source_url": article.get("source_url"),
+            "format": article.get("editorial_format", "analysis"),
+            "source_count": article.get("source_count", len(article.get("sources", []))),
+            "must_read_score": article.get("must_read_score"),
+            "franchise": (article.get("franchise") or {}).get("name"),
+        }
+        for article in articles
     ]
-    run_data.update({
-        "title":      articles[0]["title"],
-        "slug":       articles[0]["slug"],
-        "source":     enriched_candidates[0]["source"],
-        "source_url": enriched_candidates[0]["url"],
-        "linkedin_essay_queue": str(ESSAY_QUEUE.relative_to(SITE_ROOT)),
-    })
+    run_data["held"] = held_assignments
+    run_data["linkedin_essay_queue"] = str(ESSAY_QUEUE.relative_to(SITE_ROOT))
+    if articles:
+        run_data.update({
+            "title": articles[0]["title"],
+            "slug": articles[0]["slug"],
+            "source": articles[0].get("source_name"),
+            "source_url": articles[0].get("source_url"),
+        })
 
     # \u2500 Phase 6: Publish \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print(f"\n[6/8] Publishing {len(articles)} article(s)...")
+    generated_paths = []
     if not args.dry_run:
         INSIGHTS_DIR.mkdir(exist_ok=True)
 
@@ -2001,51 +2457,124 @@ def main():
             html = render_html(article)
             assert_no_mojibake(f"html {article['slug']}", html)
             out.write_text(html, encoding="utf-8")
+            generated_paths.append(out)
             print(f"  Saved: insights/{article['slug']}.html")
 
             # Generate branded social media image
             img_path = INSIGHTS_DIR / f"{article['slug']}_social.png"
             if generate_article_image(article['title'], article['subtitle'], img_path):
                 article['social_image'] = str(img_path)
+                generated_paths.append(img_path)
                 print(f"  Image: insights/{article['slug']}_social.png")
 
             update_manifest(article)
 
         update_feed_xml()
         update_sitemap_xml()
+        generated_paths.extend([INSIGHTS_JSON, FEED_XML, SITEMAP_XML])
 
-        print("\n[6b/8] Generating LinkedIn article PDF package(s)...")
-        for article in articles:
-            safe_queue_pdf_generation(article)
-        write_linkedin_pdf_queue(articles)
+        if articles:
+            print("\n[6b/8] Generating LinkedIn article PDF package(s)...")
+            for article in articles:
+                if article.get("editorial_format") in {"brief", "data_note"}:
+                    continue
+                safe_queue_pdf_generation(article)
+                slug = article["slug"]
+                for path in (
+                    INSIGHTS_DIR / f"{slug}_article.pdf",
+                    INSIGHTS_DIR / f"{slug}_article-data.json",
+                    INSIGHTS_DIR / f"linkedin-post-{slug}.txt",
+                ):
+                    if path.exists():
+                        generated_paths.append(path)
+            write_linkedin_pdf_queue([
+                article for article in articles
+                if article.get("editorial_format") not in {"brief", "data_note"}
+            ])
 
-        git_result = git_commit_push(articles, dry_run=False)
-        run_data["git"] = git_result
-        if not git_result["push_ok"]:
-            run_data.update({
-                "status": "deployment_failed",
-                "articles_count": len(articles),
-                "elapsed_seconds": round((datetime.now(timezone.utc) - start).total_seconds()),
+        if args.selection_mode == "edition":
+            edition_status = (
+                "ready"
+                if articles or editorial_selection.get("deal_tape")
+                else "no_publishable_story"
+            )
+            edition_document = build_edition_document(
+                edition_date=start.date(),
+                selection=editorial_selection,
+                articles=articles,
+                run_status=edition_status,
+            )
+            generated_paths.extend(save_public_edition(edition_document))
+            generated_paths.append(update_event_memory(editorial_selection))
+            generated_paths.append(save_publication_decision(
+                articles=articles,
+                edition_status=edition_status,
+            ))
+            run_data["edition_status"] = edition_status
+            run_data["edition_path"] = f"editions/{start.date().isoformat()}.json"
+            audit_payload.update({
+                "status": edition_status,
+                "research_assignments": editorial_items,
+                "articles": run_data["articles"],
+                "held": held_assignments,
+                "deal_tape_count": len(editorial_selection.get("deal_tape", [])),
             })
-            write_log(run_data)
-            print("\n  STOPPED: articles were generated locally but were not verified on origin/main.")
-            raise SystemExit(1)
+            audit_path = save_run_record(audit_payload, run_date=start.date())
+            generated_paths.append(audit_path)
+
+        validation_errors = validate_repository(latest_only=True)
+        if validation_errors:
+            print("  [ERROR] Publication validation failed:")
+            for error in validation_errors:
+                print(f"    - {error}")
+            raise RuntimeError("Generated publication failed pre-deployment validation")
+
+        if ESSAY_QUEUE.exists() and articles:
+            generated_paths.append(ESSAY_QUEUE)
+        if SOURCE_HEALTH_FILE.exists():
+            generated_paths.append(SOURCE_HEALTH_FILE)
+        generated_manifest = write_generated_files(generated_paths)
+        generated_paths.append(generated_manifest)
+
+        if args.skip_git:
+            git_result = {
+                "attempted": False,
+                "commit_created": False,
+                "push_ok": False,
+                "delegated_to_workflow": True,
+            }
+            print("  Git commit/push delegated to the validated GitHub Actions publish step.")
+        else:
+            git_result = git_commit_push(articles, dry_run=False)
+            if not git_result["push_ok"]:
+                run_data.update({
+                    "status": "deployment_failed",
+                    "articles_count": len(articles),
+                    "elapsed_seconds": round((datetime.now(timezone.utc) - start).total_seconds()),
+                })
+                write_log(run_data)
+                print("\n  STOPPED: generated output was not verified on origin/main.")
+                raise SystemExit(1)
+        run_data["git"] = git_result
     else:
         for article in articles:
             print(f"  [DRY-RUN] Would save: insights/{article['slug']}.html")
-        print(f"  [DRY-RUN] LinkedIn essay (article 1):\n  {articles[0].get('linkedin_essay','')}")
+        if articles:
+            print(f"  [DRY-RUN] LinkedIn essay (article 1):\n  {articles[0].get('linkedin_essay','')}")
+        elif args.selection_mode == "edition":
+            print("  [DRY-RUN] Would publish a deal-tape/no-story edition without a standalone article.")
 
     # \u2500 Phase 7: LinkedIn \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("\n[7/8] LinkedIn publishing...")
     li_pdf_result = {"ok": False, "posted_count": 0, "attempted_count": len(articles), "dry_run": args.dry_run}
-    if args.auto_post_linkedin:
+    if args.auto_post_linkedin and articles:
         print("  Auto-post enabled for top-ranked article.")
         li_ok = post_to_linkedin(articles[0], dry_run=args.dry_run)
     else:
         li_ok = False
         print("  Link-share auto-post disabled.")
 
-    if args.auto_post_linkedin_pdfs:
+    if args.auto_post_linkedin_pdfs and articles:
         print(f"  PDF auto-post enabled for {len(articles)} article(s).")
         li_pdf_result = safe_post_linkedin_pdfs(articles, dry_run=args.dry_run)
     else:
@@ -2066,6 +2595,24 @@ def main():
         "articles_count":   len(articles),
     })
     write_log(run_data)
+    if args.selection_mode == "edition" and not args.dry_run:
+        audit_payload.update({
+            "status": "success",
+            "elapsed_seconds": elapsed,
+            "articles": run_data["articles"],
+            "held": held_assignments,
+            "git": run_data.get("git"),
+            "linkedin": {
+                "posted": run_data.get("linkedin_posted"),
+                "pdf_posted_count": run_data.get("linkedin_pdf_posted_count"),
+                "review_required": run_data.get("linkedin_review_required"),
+            },
+        })
+        run_path = save_run_record(audit_payload, run_date=start.date())
+        summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
+        summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
+        generated_paths.extend([run_path, summary_path])
+        write_generated_files(generated_paths)
 
     print(f"\n{'='*62}")
     print(f"  DONE in {elapsed}s — published {len(articles)} article(s)")

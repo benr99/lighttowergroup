@@ -1,65 +1,153 @@
-name: Daily insights agent
+name: Curated Insights edition
 
-# Publishes the daily CRE insights articles from GitHub's cloud runners
-# instead of the local Windows Task Scheduler job, so publishing no longer
-# depends on Ben's PC being on and awake at 7 AM.
-#
-# Background: docs/AGENT_OPERATIONS.md
-#
-# IMPORTANT: keep only one scheduler active at a time. If the Windows
-# "LTG Daily News Agent" task is still enabled, both it and this workflow
-# will try to publish and push around the same time, which can race and
-# leave the site in a confusing state. Disable the Windows task once this
-# workflow has been verified to run successfully.
+# The repository scheduler lease in .editorial-state/scheduler.json makes this
+# the only active publisher. The legacy Windows task exits without publishing.
 
 on:
   schedule:
-    # 07:07 America/New_York. GitHub Actions cron runs in UTC with no DST
-    # awareness, so the local time this fires at shifts by an hour when the
-    # US changes between EDT and EST. 11:07 UTC = 07:07 EDT (current,
-    # summer). Change to '7 12 * * *' (12:07 UTC) when EST resumes in early
-    # November if a fixed 7 AM local time matters. Running a few minutes
-    # past the top of the hour avoids GitHub's busiest scheduling window.
-    - cron: '7 11 * * *'
+    # Two UTC triggers plus the local-hour guard below keep 07:07 New York time
+    # through both EDT and EST without a twice-yearly manual cron edit.
+    - cron: "7 11 * * *"
+    - cron: "7 12 * * *"
   workflow_dispatch: {}
 
 concurrency:
-  group: daily-insights-agent
+  group: curated-insights-edition
   cancel-in-progress: false
 
 permissions:
   contents: write
+  pull-requests: write
+
+env:
+  TZ: America/New_York
+  PYTHONDONTWRITEBYTECODE: "1"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 120
     steps:
+      - name: Enforce the 07:07 New York schedule
+        id: schedule
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "schedule" && "$(date +%H)" != "07" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Skipping the UTC trigger that does not map to 07:07 America/New_York."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Check out main
+        if: steps.schedule.outputs.skip != 'true'
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
 
       - name: Set up Python
+        if: steps.schedule.outputs.skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
+          cache-dependency-path: scripts/requirements.lock
 
       - name: Install locked dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r scripts/requirements.lock
+        if: steps.schedule.outputs.skip != 'true'
+        run: python -m pip install -r scripts/requirements.lock
 
-      - name: Configure git identity for automated commits
+      - name: Validate the committed production baseline
+        if: steps.schedule.outputs.skip != 'true'
         run: |
-          git config user.name "LTG Daily News Agent"
+          python -m py_compile scripts/*.py
+          python -m unittest discover -s tests -v
+          python scripts/validate_publication.py
+          node --check site.js
+          node --check edition.js
+          node --check netlify/functions/newsletter-subscribe.js
+          node --check netlify/functions/editorial-feedback.js
+          node --test tests/netlify-functions.test.js
+
+      - name: Configure the publication identity
+        if: steps.schedule.outputs.skip != 'true'
+        run: |
+          git config user.name "LTG Editorial Desk"
           git config user.email "actions@lighttowergroup.co"
 
-      - name: Run daily insights agent
+      - name: Build the curated edition
+        if: steps.schedule.outputs.skip != 'true'
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         working-directory: scripts
-        run: python daily_news_agent.py --selection-mode bucketed-volume --no-limit
+        run: >-
+          python daily_news_agent.py
+          --selection-mode edition
+          --articles 4
+          --skip-git
+          --run-origin github-actions
+
+      - name: Validate the generated edition before deployment
+        if: steps.schedule.outputs.skip != 'true'
+        run: |
+          python -m unittest discover -s tests -v
+          python scripts/validate_publication.py
+          node --test tests/netlify-functions.test.js
+
+      - name: Write the edition report
+        if: steps.schedule.outputs.skip != 'true'
+        shell: bash
+        run: |
+          if [[ -f .editorial-state/run-summary.md ]]; then
+            cat .editorial-state/run-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "# Light Tower Insights edition" >> "$GITHUB_STEP_SUMMARY"
+            echo "The run did not produce an editorial summary." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Preserve editorial evidence and diagnostics
+        if: always() && steps.schedule.outputs.skip != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: insights-edition-${{ github.run_id }}
+          path: |
+            .editorial-state/
+            latest-edition.json
+            editions/
+            scripts/agent_log.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Resolve automatic publication or editorial review
+        if: steps.schedule.outputs.skip != 'true'
+        id: publication
+        shell: bash
+        run: |
+          REVIEW="$(python -c "import json; print(str(json.load(open('.editorial-state/publication-decision.json'))['review_required']).lower())")"
+          echo "review=$REVIEW" >> "$GITHUB_OUTPUT"
+          if [[ "$REVIEW" == "true" ]]; then
+            echo "branch=codex/editorial-review-${{ github.run_id }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "branch=main" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish the validated generated files
+        if: steps.schedule.outputs.skip != 'true'
+        run: >-
+          python scripts/publish_generated.py
+          --branch "${{ steps.publication.outputs.branch }}"
+          --message "Publish curated Insights edition ${{ github.run_id }}"
+
+      - name: Open the editorial review
+        if: steps.schedule.outputs.skip != 'true' && steps.publication.outputs.review == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh pr create \
+            --base main \
+            --head "${{ steps.publication.outputs.branch }}" \
+            --title "Editorial review: curated Insights edition" \
+            --body-file .editorial-state/run-summary.md

@@ -21,6 +21,27 @@
     document.body.insertBefore(link, document.body.firstChild);
   }
 
+  function ensureExperienceShell() {
+    if (document.body.classList.contains('observatory')) return;
+    if (window.location.pathname.indexOf('/insights-admin') === 0) return;
+
+    document.body.classList.add('experience-shell');
+
+    if (!document.querySelector('link[href="/experience-2026.css"]')) {
+      var experienceStyles = document.createElement('link');
+      experienceStyles.rel = 'stylesheet';
+      experienceStyles.href = '/experience-2026.css';
+      document.head.appendChild(experienceStyles);
+    }
+
+    if (!document.querySelector('link[href*="family=Instrument+Sans"]')) {
+      var experienceFonts = document.createElement('link');
+      experienceFonts.rel = 'stylesheet';
+      experienceFonts.href = 'https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Instrument+Serif:ital@0;1&display=swap';
+      document.head.appendChild(experienceFonts);
+    }
+  }
+
   function secureBlankLinks() {
     document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
       var rel = (link.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
@@ -594,6 +615,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     var menuBtn = document.getElementById('nav-menu-btn');
     var mobileNav = document.getElementById('nav-mobile');
+    ensureExperienceShell();
     addSkipLink();
     secureBlankLinks();
     ensurePrivacyLink();

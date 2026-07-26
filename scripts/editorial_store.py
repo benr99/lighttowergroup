@@ -12,9 +12,9 @@ from typing import Any
 
 SCRIPT_DIR = Path(__file__).parent
 SITE_ROOT = SCRIPT_DIR.parent
-DATA_DIR = SITE_ROOT / "data"
-EDITORIAL_RUNS_DIR = DATA_DIR / "editorial_runs"
-WEEKLY_REVIEWS_DIR = DATA_DIR / "weekly_reviews"
+DATA_DIR = SITE_ROOT / ".editorial-state"
+EDITORIAL_RUNS_DIR = DATA_DIR / "runs"
+WEEKLY_REVIEWS_DIR = DATA_DIR / "weekly-reviews"
 
 
 def _json_safe(payload: dict[str, Any]) -> str:

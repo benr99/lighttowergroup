@@ -14,7 +14,12 @@ from typing import Any
 SITE_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_DIR = SITE_ROOT / "scripts"
 STATUS_FILE = SITE_ROOT / "tmp" / "agent_status.json"
-AGENT_ARGS = ("--selection-mode", "bucketed-volume", "--no-limit")
+SCHEDULER_CONTROL = SITE_ROOT / ".editorial-state" / "scheduler.json"
+AGENT_ARGS = (
+    "--selection-mode", "edition",
+    "--articles", "4",
+    "--run-origin", "local-scheduler",
+)
 
 
 def now() -> str:
@@ -55,6 +60,15 @@ def sync_action(head: str, remote_main: str, *, head_contains_remote: bool, remo
     if remote_contains_head:
         return "fast_forward"
     return "diverged"
+
+
+def local_scheduler_enabled(path: Path = SCHEDULER_CONTROL) -> bool:
+    """Require an explicit repository lease before the local task may publish."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    return payload.get("active_scheduler") == "local-scheduler"
 
 
 def preflight() -> dict[str, str]:
@@ -101,6 +115,14 @@ def latest_agent_summary() -> dict[str, Any]:
 
 
 def main() -> int:
+    if not local_scheduler_enabled():
+        write_status(
+            "disabled",
+            "scheduler_guard",
+            reason="Repository scheduler lease belongs to github-actions.",
+        )
+        print("Local publisher is disabled; GitHub Actions owns the scheduler lease.")
+        return 0
     write_status("running", "preflight")
     try:
         sync = preflight()

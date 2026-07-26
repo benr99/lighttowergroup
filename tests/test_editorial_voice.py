@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from editorial_voice import editorial_quality_issues, narrative_finance_issues, select_editorial_brief
-from enhanced_prompts import USER_PROMPT_TEMPLATE
+from enhanced_prompts import EDITION_USER_PROMPT_TEMPLATE, USER_PROMPT_TEMPLATE
 from linkedin_essay_agent import _revision_prompt, generate_essay_package, save_to_queue
 from linkedin_essay_agent import decorate_package
 
@@ -117,8 +117,27 @@ class EditorialVoiceTests(unittest.TestCase):
             addresses_block="",
             today="July 10, 2026",
             voice_brief=str(brief),
+            headline_shape='{"name":"plain declaration"}',
         )
         self.assertIn(brief["name"], prompt)
+
+    def test_edition_prompt_carries_format_dossier_and_editorial_room(self) -> None:
+        prompt = EDITION_USER_PROMPT_TEMPLATE.format(
+            format_name="Intelligence Brief",
+            min_words=240,
+            max_words=430,
+            format_purpose="Explain only what changed.",
+            franchise_name="Credit Committee Theater",
+            franchise_promise="Explain the lender's real risk test.",
+            room_plan='{"decision":"write","angle":"The maturity changed bargaining power."}',
+            research_dossier="SOURCE 1: Reported facts with an attributable URL.",
+            today="July 23, 2026",
+            voice_brief='{"name":"Underwriting margin"}',
+            headline_shape='{"name":"plain declaration"}',
+        )
+        self.assertIn("240-430 words", prompt)
+        self.assertIn("Credit Committee Theater", prompt)
+        self.assertIn("VERIFIED RESEARCH DOSSIER", prompt)
 
 
 if __name__ == "__main__":

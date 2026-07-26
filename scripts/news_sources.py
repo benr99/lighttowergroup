@@ -182,6 +182,7 @@ SOURCE_METADATA = {
     "IREI News": {"tier": 1, "domains": ["institutional_capital", "private_equity", "funds"]},
     "GlobeSt": {"tier": 2, "domains": ["cre", "capital_markets", "transactions"]},
     "Connect CRE": {"tier": 2, "domains": ["cre", "transactions", "finance"]},
+    "RE Business Online": {"tier": 2, "domains": ["cre", "transactions", "development", "finance"]},
     "Multi-Housing News": {"tier": 2, "domains": ["multifamily", "transactions", "finance"]},
     "CP Executive": {"tier": 2, "domains": ["cre", "transactions", "finance"]},
     "Affordable Housing Finance": {"tier": 2, "domains": ["affordable", "policy", "finance"]},
@@ -220,6 +221,12 @@ NEWSAPI_QUERIES = [
     "Treasury SEC FHFA housing finance policy",
     "Los Angeles Chicago Dallas Houston Miami commercial real estate financing",
     "Atlanta Boston San Francisco Washington commercial real estate policy",
+    "stadium arena sports real estate financing public subsidy",
+    "AI data center power demand commercial real estate infrastructure",
+    "commercial property insurance climate migration capital markets",
+    "return to office jobs transit downtown real estate",
+    "housing affordability zoning private capital public policy",
+    "luxury hospitality nightlife private equity real estate",
 ]
 
 # ── CRE Relevance Filter ───────────────────────────────────────────────────────
