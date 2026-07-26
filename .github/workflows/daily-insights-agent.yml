@@ -5,11 +5,21 @@ name: Curated Insights edition
 
 on:
   schedule:
-    # Two UTC triggers plus the local-hour guard below keep 07:07 New York time
-    # through both EDT and EST without a twice-yearly manual cron edit.
+    # Two UTC triggers plus the nominal-schedule guard below keep 07:07 New York
+    # time through both EDT and EST without a twice-yearly manual cron edit.
     - cron: "7 11 * * *"
     - cron: "7 12 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run depth: score only, generate a no-write preview, or publish"
+        required: true
+        default: "shadow"
+        type: choice
+        options:
+          - shadow
+          - preview
+          - publish
 
 concurrency:
   group: curated-insights-edition
@@ -28,26 +38,27 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - name: Enforce the 07:07 New York schedule
-        id: schedule
-        shell: bash
-        run: |
-          if [[ "${{ github.event_name }}" == "schedule" && "$(date +%H)" != "07" ]]; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Skipping the UTC trigger that does not map to 07:07 America/New_York."
-          else
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Check out main
-        if: steps.schedule.outputs.skip != 'true'
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
 
+      - name: Resolve the trigger policy
+        id: policy
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          TRIGGER_CRON: ${{ github.event.schedule }}
+          DISPATCH_MODE: ${{ inputs.mode }}
+        run: |
+          python scripts/resolve_schedule_policy.py \
+            --event-name "$EVENT_NAME" \
+            --trigger-cron "$TRIGGER_CRON" \
+            --dispatch-mode "$DISPATCH_MODE" >> "$GITHUB_OUTPUT"
+
       - name: Set up Python
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -55,11 +66,11 @@ jobs:
           cache-dependency-path: scripts/requirements.lock
 
       - name: Install locked dependencies
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true'
         run: python -m pip install -r scripts/requirements.lock
 
       - name: Validate the committed production baseline
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true'
         run: |
           python -m py_compile scripts/*.py
           python -m unittest discover -s tests -v
@@ -71,44 +82,55 @@ jobs:
           node --test tests/netlify-functions.test.js
 
       - name: Configure the publication identity
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true'
         run: |
           git config user.name "LTG Editorial Desk"
           git config user.email "actions@lighttowergroup.co"
 
       - name: Build the curated edition
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true'
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          RUN_MODE: ${{ steps.policy.outputs.mode }}
         working-directory: scripts
-        run: >-
-          python daily_news_agent.py
-          --selection-mode edition
-          --articles 4
-          --skip-git
-          --run-origin github-actions
+        shell: bash
+        run: |
+          args=(
+            --selection-mode edition
+            --articles 4
+            --skip-git
+            --run-origin github-actions
+          )
+          case "$RUN_MODE" in
+            shadow) args+=(--shadow) ;;
+            preview) args+=(--dry-run) ;;
+            publish) ;;
+            *) echo "Unsupported run mode: $RUN_MODE" >&2; exit 2 ;;
+          esac
+          python daily_news_agent.py "${args[@]}"
 
       - name: Validate the generated edition before deployment
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
         run: |
           python -m unittest discover -s tests -v
           python scripts/validate_publication.py
           node --test tests/netlify-functions.test.js
 
       - name: Write the edition report
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true'
         shell: bash
         run: |
           if [[ -f .editorial-state/run-summary.md ]]; then
             cat .editorial-state/run-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
             echo "# Light Tower Insights edition" >> "$GITHUB_STEP_SUMMARY"
-            echo "The run did not produce an editorial summary." >> "$GITHUB_STEP_SUMMARY"
+            echo "The ${{ steps.policy.outputs.mode }} run completed without changing public files." >> "$GITHUB_STEP_SUMMARY"
+            echo "See the build log and retained editorial artifact for the full output." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Preserve editorial evidence and diagnostics
-        if: always() && steps.schedule.outputs.skip != 'true'
+        if: always() && steps.policy.outputs.skip != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: insights-edition-${{ github.run_id }}
@@ -121,7 +143,7 @@ jobs:
           retention-days: 30
 
       - name: Resolve automatic publication or editorial review
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
         id: publication
         shell: bash
         run: |
@@ -134,14 +156,17 @@ jobs:
           fi
 
       - name: Publish the validated generated files
-        if: steps.schedule.outputs.skip != 'true'
+        if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
         run: >-
           python scripts/publish_generated.py
           --branch "${{ steps.publication.outputs.branch }}"
           --message "Publish curated Insights edition ${{ github.run_id }}"
 
       - name: Open the editorial review
-        if: steps.schedule.outputs.skip != 'true' && steps.publication.outputs.review == 'true'
+        if: >-
+          steps.policy.outputs.skip != 'true' &&
+          steps.policy.outputs.mode == 'publish' &&
+          steps.publication.outputs.review == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
