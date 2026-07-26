@@ -137,7 +137,7 @@ def site_script_html() -> str:
       });
     }
   </script>
-  <script src="/chat-widget.js"></script>"""
+  <script src="/chat-widget.js?v=20260726"></script>"""
 
 
 def render_article(article: dict[str, Any]) -> str:

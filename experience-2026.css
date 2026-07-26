@@ -1555,6 +1555,52 @@ body.experience-shell .insights-filters {
   border-bottom-color: var(--x26-line-dark) !important;
 }
 
+/* Keep the conversion widget on-brand even when a browser still has an older
+   cached copy of chat-widget.js. These important overrides are intentional. */
+#ltg-chat-btn,
+.ltg-chat-avatar,
+.ltg-chat-send {
+  background: var(--x26-signal) !important;
+}
+
+#ltg-chat-btn:hover,
+.ltg-chat-send:hover {
+  background: var(--x26-warm) !important;
+}
+
+#ltg-chat-btn {
+  border-color: rgba(244, 240, 232, 0.2) !important;
+}
+
+#ltg-chat-btn svg,
+.ltg-chat-send svg {
+  fill: var(--x26-ink) !important;
+}
+
+#ltg-chat-panel {
+  background: var(--x26-ink-2) !important;
+  border-color: rgba(184, 116, 66, 0.32) !important;
+  font-family: var(--x26-sans) !important;
+}
+
+.ltg-chat-header,
+.ltg-chat-input-row {
+  border-color: rgba(184, 116, 66, 0.2) !important;
+}
+
+.ltg-msg-user {
+  background: rgba(184, 116, 66, 0.18) !important;
+  border-color: rgba(184, 116, 66, 0.32) !important;
+}
+
+.ltg-chat-input:focus {
+  border-color: rgba(184, 116, 66, 0.55) !important;
+}
+
+.ltg-char-counter.warn {
+  color: var(--x26-warm) !important;
+}
+
 @media (max-width: 760px) {
   body.observatory .advantage-grid.three-up,
   body.observatory .process-grid.three-up {

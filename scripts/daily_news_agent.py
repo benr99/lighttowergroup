@@ -1451,7 +1451,7 @@ def render_html(article: dict) -> str:
       menuBtn.classList.remove('open');
     }});
   </script>
-  <script src="/chat-widget.js"></script>
+  <script src="/chat-widget.js?v=20260726"></script>
 
 </body>
 </html>"""

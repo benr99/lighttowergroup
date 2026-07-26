@@ -1032,7 +1032,7 @@ def render_html(b: dict, c: dict) -> str:
     </div>
   </footer>
 
-  <script src="/chat-widget.js"></script>
+  <script src="/chat-widget.js?v=20260726"></script>
 </body>
 </html>"""
 
