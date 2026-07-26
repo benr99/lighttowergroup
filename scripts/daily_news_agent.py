@@ -22,6 +22,7 @@ import time
 import difflib
 import subprocess
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from html import escape
@@ -52,7 +53,12 @@ from enhanced_prompts import (
 )
 from social_image_generator import generate_article_image
 from linkedin_essay_agent import ESSAY_QUEUE, generate_essay_package, save_to_queue
-from story_normalizer import has_reported_amount_at_least_ten_million, normalize_stories
+from story_normalizer import (
+    enrich_normalized_story,
+    has_cre_editorial_anchor,
+    has_reported_amount_at_least_ten_million,
+    normalize_stories,
+)
 from editorial_scoring import (
     daily_top_news_selection,
     generate_weekly_market_review,
@@ -83,6 +89,7 @@ from editorial_voice import (
 )
 from source_health import SourceHealthLedger
 from editorial_intelligence import (
+    DEFAULT_DAILY_ARTICLE_TARGET,
     FORMAT_SPECS,
     print_edition_report,
     select_edition,
@@ -614,6 +621,53 @@ def _fetch_full_text(url: str) -> str:
     return ""
 
 
+def pre_enrich_selection_candidates(
+    candidates: list[dict],
+    *,
+    max_candidates: int = 18,
+    max_workers: int = 6,
+) -> tuple[list[dict], dict[str, str]]:
+    """Retrieve bounded full text before scoring so feed snippets do not decide alone."""
+    eligible = [
+        candidate for candidate in candidates
+        if candidate.get("url") and has_cre_editorial_anchor(candidate)
+    ]
+    eligible.sort(key=lambda candidate: (
+        0 if (candidate.get("attention_features") or {}).get("has_material_transaction") else 1,
+        0 if (candidate.get("attention_features") or {}).get("has_material_operating_signal") else 1,
+        int(candidate.get("source_tier", 3) or 3),
+        -len(str(candidate.get("summary", ""))),
+    ))
+    selected = eligible[:max(0, max_candidates)]
+    fetched_by_url: dict[str, str] = {}
+    if not selected:
+        return candidates, fetched_by_url
+
+    print(f"  Pre-researching {len(selected)} CRE candidate(s) before portfolio scoring")
+    with ThreadPoolExecutor(max_workers=max(1, min(max_workers, len(selected)))) as executor:
+        futures = {
+            executor.submit(_fetch_full_text, str(candidate["url"])): str(candidate["url"])
+            for candidate in selected
+        }
+        for future in as_completed(futures):
+            url = futures[future]
+            try:
+                fetched_by_url[url] = scrub_prompt_injection(future.result())
+            except Exception as exc:
+                print(f"  [WARN] Pre-research failed for {url[:55]}: {redact_secret_text(exc)}")
+                fetched_by_url[url] = ""
+
+    enriched = [
+        enrich_normalized_story(candidate, fetched_by_url.get(str(candidate.get("url", "")), ""))
+        if str(candidate.get("url", "")) in fetched_by_url
+        else candidate
+        for candidate in candidates
+    ]
+    available = sum(bool(text) for text in fetched_by_url.values())
+    print(f"  Full text available for {available}/{len(selected)} pre-researched candidate(s)")
+    return enriched, fetched_by_url
+
+
 def _extract_nyc_addresses(text: str) -> list:
     """Find NYC street addresses in article text for optional PLUTO enrichment."""
     pattern = (
@@ -805,9 +859,13 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
         article["franchise"] = story.get("franchise")
         article["must_read_score"] = story.get("must_read_score")
         article["must_read_breakdown"] = story.get("must_read_breakdown")
+        article["selection_tier"] = story.get("selection_tier")
         article["legal_or_allegation_risk"] = story.get("legal_or_allegation_risk", False)
         article["research_evidence_level"] = dossier.get("evidence_level")
         article["source_count"] = dossier.get("independent_source_count", 0)
+        article["research_usable_full_text_count"] = dossier.get("usable_full_text_count", 0)
+        article["research_reported_fact_count"] = len(dossier.get("reported_facts", []))
+        article["editorial_room_decision"] = room_plan.get("decision")
     return article
 
 
@@ -1842,6 +1900,9 @@ def finalize_no_story_edition(*, start: datetime, run_data: dict, args, reason: 
         "deal_tape": [],
         "scored_events": [],
         "duplicate_groups": [],
+        "archive_repeats": [],
+        "daily_target": max(0, int(getattr(args, "daily_target", 0) or 0)),
+        "research_target": 0,
     }
     run_data.update({
         "status": "no_publishable_story",
@@ -1849,6 +1910,9 @@ def finalize_no_story_edition(*, start: datetime, run_data: dict, args, reason: 
         "articles": [],
         "articles_count": 0,
         "deal_tape_count": 0,
+        "research_candidate_count": 0,
+        "archive_repeat_count": 0,
+        "daily_target_met": False,
         "held": [reason],
         "elapsed_seconds": round((datetime.now(timezone.utc) - start).total_seconds()),
     })
@@ -1979,6 +2043,8 @@ def main():
                         help="Skip the duplicate-slug check")
     parser.add_argument("--articles", type=int, default=5, metavar="N",
                         help="Number of articles to publish per run (default: 5, max: 30)")
+    parser.add_argument("--daily-target", type=int, default=DEFAULT_DAILY_ARTICLE_TARGET, metavar="N",
+                        help="Target standalone pieces after all quality gates (default: 3)")
     parser.add_argument("--no-limit", action="store_true",
                         help="Legacy bucketed-volume option; never applies to curated edition mode")
     parser.add_argument("--lookback-hours", type=int, default=36, metavar="H",
@@ -2006,6 +2072,7 @@ def main():
         run_weekly_review(args)
         return
     MAX_ARTICLES = max(1, min(args.articles, 30))
+    DAILY_TARGET = max(0, min(args.daily_target, MAX_ARTICLES))
     article_limit = None if args.no_limit and args.selection_mode == "bucketed-volume" else MAX_ARTICLES
     LOOKBACK_HOURS = max(1, args.lookback_hours)
 
@@ -2016,6 +2083,8 @@ def main():
         "dry_run": args.dry_run,
         "run_origin": args.run_origin,
     }
+    if args.selection_mode == "edition":
+        run_data["daily_target"] = DAILY_TARGET
     known_insights = load_insight_records(SITE_ROOT)
     try:
         audience_signals = json.loads(
@@ -2056,7 +2125,10 @@ def main():
     if args.selection_mode == "bucketed-volume":
         print(f"  Publishing limit: {'none (all qualified stories)' if article_limit is None else article_limit}")
     elif args.selection_mode == "edition":
-        print(f"  Edition ceiling: 1 flagship candidate + up to {max(1, MAX_ARTICLES - 1)} briefs/culture items")
+        print(
+            f"  Edition target: {DAILY_TARGET} standalone piece(s); "
+            f"research ceiling: {MAX_ARTICLES}"
+        )
     if args.shadow:
         print("  [SHADOW MODE] No articles will be generated or published")
     print(f"{'='*62}\n")
@@ -2096,6 +2168,7 @@ def main():
     print(f"\n[3/8] Scoring {len(candidates)} stories...")
     editorial_selection = None
     editorial_items = []
+    selection_text_by_url: dict[str, str] = {}
     if args.selection_mode == "daily-top-news":
         normalized_candidates = normalize_stories(candidates)
         print(f"  Normalized {len(normalized_candidates)} candidate(s) for daily top-news scoring")
@@ -2122,13 +2195,19 @@ def main():
     elif args.selection_mode == "edition":
         normalized_candidates = normalize_stories(candidates)
         print(f"  Normalized {len(normalized_candidates)} candidate(s) for curated-edition scoring")
+        normalized_candidates, selection_text_by_url = pre_enrich_selection_candidates(
+            normalized_candidates
+        )
+        corroboration_candidates = normalize_stories(all_stories)
         editorial_selection = select_edition(
             normalized_candidates,
             archive_records=editorial_archive,
+            corroboration_candidates=corroboration_candidates,
             audience_signals=audience_signals,
-            max_briefs=max(1, MAX_ARTICLES - 1),
+            max_briefs=MAX_ARTICLES,
             max_deal_tape=8,
             max_articles=MAX_ARTICLES,
+            daily_target=DAILY_TARGET,
         )
         print_edition_report(editorial_selection)
         audit_payload = {
@@ -2147,7 +2226,10 @@ def main():
         run_data.update({
             "event_count": editorial_selection.get("event_count", 0),
             "duplicate_group_count": len(editorial_selection.get("duplicate_groups", [])),
+            "archive_repeat_count": len(editorial_selection.get("archive_repeats", [])),
             "deal_tape_count": len(editorial_selection.get("deal_tape", [])),
+            "daily_target": DAILY_TARGET,
+            "research_candidate_count": len(editorial_items),
         })
     elif args.selection_mode == "bucketed-volume":
         normalized_candidates = normalize_stories(candidates)
@@ -2222,7 +2304,10 @@ def main():
                 if not url:
                     continue
                 print(f"      Source: {source.get('source', source.get('domain', 'unknown'))}")
-                fetched_text_by_url[url] = scrub_prompt_injection(_fetch_full_text(url))
+                fetched_text_by_url[url] = (
+                    selection_text_by_url.get(url)
+                    or scrub_prompt_injection(_fetch_full_text(url))
+                )
             dossier = build_research_dossier(
                 editorial_item,
                 fetched_text_by_url=fetched_text_by_url,
@@ -2275,6 +2360,7 @@ def main():
                 "franchise": editorial_item.get("franchise"),
                 "must_read_score": editorial_item.get("must_read_score"),
                 "must_read_breakdown": editorial_item.get("must_read_breakdown"),
+                "selection_tier": editorial_item.get("selection_tier"),
                 "legal_or_allegation_risk": editorial_item.get("legal_or_allegation_risk", False),
             })
             enriched_candidates.append(candidate)
@@ -2432,6 +2518,8 @@ def main():
             "format": article.get("editorial_format", "analysis"),
             "source_count": article.get("source_count", len(article.get("sources", []))),
             "must_read_score": article.get("must_read_score"),
+            "selection_tier": article.get("selection_tier"),
+            "evidence_level": article.get("research_evidence_level"),
             "franchise": (article.get("franchise") or {}).get("name"),
         }
         for article in articles
@@ -2593,6 +2681,7 @@ def main():
         "status":           "success",
         "elapsed_seconds":  elapsed,
         "articles_count":   len(articles),
+        "daily_target_met": len(articles) >= DAILY_TARGET if args.selection_mode == "edition" else None,
     })
     write_log(run_data)
     if args.selection_mode == "edition" and not args.dry_run:

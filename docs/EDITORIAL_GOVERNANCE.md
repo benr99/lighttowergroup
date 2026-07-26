@@ -15,7 +15,10 @@ piece contributes at least one of the following:
 - an original Light Tower framing of capital structure or execution risk;
 - a decision-useful comparison, timeline, or visual explanation.
 
-Publishing volume is never a quality goal by itself.
+The desk has an operating target of three publishable pieces per day. The target
+forces broader discovery and earlier research; it never lowers the factual,
+duplication, risk, or writing standards. When evidence only supports a brief,
+the system publishes a brief rather than padding it into an essay.
 
 The full current Insights architecture is documented in
 `docs/CURATED_INSIGHTS_SYSTEM.md`. The scheduled desk uses a scarce edition,
@@ -43,12 +46,16 @@ memorable line, and claim-to-source mapping.
 ## Editorial review triggers
 
 Hold an article for editorial review when it contains legal allegations,
-personal claims, a thin source record, material forecasts, a source-quality
-concern, a near duplicate, or a claim that would affect a financial decision.
+personal claims, material forecasts, a source-quality concern, a recent
+same-event repeat, unsupported figures, or a claim that would affect a financial
+decision.
 
 Flagship Analysis and Culture of Capital assignments always require editorial
-review. Thin evidence and borderline must-read scores create a review branch and
-pull request rather than updating production.
+review. Insufficient evidence and fact-poor thin work create a review branch and
+pull request rather than updating production. A thin daily-depth brief may
+auto-publish only when it has retrieved full text, at least three source-mapped
+facts, a write-or-shorten decision from the editorial room, and passes every
+normal quality and risk gate.
 
 The `data/ideas/held/` directory is an editorial queue, not a failure bin.
 Review held reasons weekly and use them to improve source selection and prompts.

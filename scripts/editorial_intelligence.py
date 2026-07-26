@@ -24,6 +24,16 @@ from urllib.parse import urlparse
 MUST_READ_THRESHOLD = 56
 FLAGSHIP_CANDIDATE_THRESHOLD = 72
 DEAL_TAPE_THRESHOLD = 34
+DAILY_RESEARCH_FLOOR = 24
+AUTO_PUBLISH_BRIEF_FLOOR = 24
+DEFAULT_DAILY_ARTICLE_TARGET = 3
+
+DAILY_BRIEF_TOPICS = {
+    "capital_placement", "cmbs", "private_credit", "bank_credit", "distress",
+    "fed_rates", "policy", "government_action", "reit_public_markets",
+    "major_sale", "mna", "private_equity", "capital_expenditure",
+    "market_fundamentals", "leasing",
+}
 
 FORMAT_SPECS: dict[str, dict[str, Any]] = {
     "flagship": {
@@ -206,6 +216,30 @@ def event_fingerprint(items: Iterable[dict[str, Any]]) -> str:
     return hashlib.sha256(key.encode("utf-8")).hexdigest()[:20]
 
 
+def _event_from_members(members: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    members = list(members)
+    ordered = sorted(
+        members,
+        key=lambda item: (
+            int(item.get("source_tier", 3) or 3),
+            0 if item.get("source_authority") == "primary" else 1,
+            -len(str(item.get("summary", ""))),
+        ),
+    )
+    independent_domains = sorted({
+        str(item.get("domain") or urlparse(str(item.get("url", ""))).netloc).lower()
+        for item in members if item.get("url")
+    })
+    return {
+        "event_id": event_fingerprint(members),
+        "candidate": ordered[0],
+        "sources": ordered,
+        "source_count": len(independent_domains),
+        "independent_domains": independent_domains,
+        "cross_source": len(independent_domains) >= 2,
+    }
+
+
 def cluster_events(
     candidates: list[dict[str, Any]],
     *,
@@ -225,47 +259,168 @@ def cluster_events(
         else:
             clusters.append([candidate])
 
-    results: list[dict[str, Any]] = []
-    for members in clusters:
-        ordered = sorted(
-            members,
-            key=lambda item: (
-                int(item.get("source_tier", 3) or 3),
-                0 if item.get("source_authority") == "primary" else 1,
-                -len(str(item.get("summary", ""))),
-            ),
-        )
-        independent_domains = sorted({
+    return [_event_from_members(members) for members in clusters]
+
+
+def attach_corroborating_sources(
+    events: list[dict[str, Any]],
+    candidates: Iterable[dict[str, Any]],
+    *,
+    threshold: float = 0.61,
+    max_sources: int = 5,
+) -> list[dict[str, Any]]:
+    """Attach matching stories from the wider feed pool without admitting new events."""
+    pool = list(candidates)
+    expanded = []
+    for event in events:
+        members = list(event.get("sources", []))
+        known_urls = {str(item.get("url", "")) for item in members}
+        known_domains = {
             str(item.get("domain") or urlparse(str(item.get("url", ""))).netloc).lower()
-            for item in members if item.get("url")
-        })
-        results.append({
-            "event_id": event_fingerprint(members),
-            "candidate": ordered[0],
-            "sources": ordered,
-            "source_count": len(independent_domains),
-            "independent_domains": independent_domains,
-            "cross_source": len(independent_domains) >= 2,
-        })
-    return results
+            for item in members
+        }
+        matches = []
+        for candidate in pool:
+            url = str(candidate.get("url", ""))
+            domain = str(
+                candidate.get("domain") or urlparse(url).netloc
+            ).lower()
+            if not url or url in known_urls or domain in known_domains:
+                continue
+            similarity = max(
+                event_similarity(candidate, member)
+                for member in members
+            )
+            if similarity >= threshold:
+                matches.append((similarity, candidate))
+        matches.sort(
+            key=lambda pair: (
+                -pair[0],
+                int(pair[1].get("source_tier", 3) or 3),
+            )
+        )
+        for _, candidate in matches:
+            if len(members) >= max_sources:
+                break
+            domain = str(
+                candidate.get("domain")
+                or urlparse(str(candidate.get("url", ""))).netloc
+            ).lower()
+            if domain in known_domains:
+                continue
+            members.append(candidate)
+            known_domains.add(domain)
+        expanded.append(_event_from_members(members))
+    return expanded
+
+
+def _dollar_amount_values(value: str) -> set[int]:
+    amounts = set()
+    for number, unit in re.findall(
+        r"\$\s*([\d,.]+(?:\.\d+)?)\s*(million|billion|trillion|mm|bn|m|b)?\b",
+        str(value or ""),
+        flags=re.IGNORECASE,
+    ):
+        try:
+            base = float(number.replace(",", ""))
+        except ValueError:
+            continue
+        multiplier = {
+            "m": 1_000_000,
+            "mm": 1_000_000,
+            "million": 1_000_000,
+            "b": 1_000_000_000,
+            "bn": 1_000_000_000,
+            "billion": 1_000_000_000,
+            "trillion": 1_000_000_000_000,
+        }.get(unit.lower(), 1)
+        amounts.add(round(base * multiplier))
+    return amounts
+
+
+def _street_addresses(value: str) -> set[str]:
+    return {
+        re.sub(r"\s+", " ", match.lower()).strip()
+        for match in re.findall(
+            r"\b\d{1,5}\s+(?:(?:west|east|north|south|w|e)\s+)?"
+            r"[a-z0-9'-]+(?:\s+[a-z0-9'-]+){0,2}\s+"
+            r"(?:street|st|avenue|ave|road|rd|boulevard|blvd|terrace|place)\b",
+            str(value or ""),
+            flags=re.IGNORECASE,
+        )
+    }
+
+
+def _archive_is_recent(candidate: dict[str, Any], record: dict[str, Any], *, days: int = 7) -> bool:
+    try:
+        candidate_date = datetime.fromisoformat(
+            str(candidate.get("published", "")).replace("Z", "+00:00")
+        ).date()
+        record_date = datetime.fromisoformat(
+            str(record.get("date", ""))[:10]
+        ).date()
+    except (TypeError, ValueError):
+        return False
+    return abs((candidate_date - record_date).days) <= days
 
 
 def archive_matches(
     event: dict[str, Any],
     archive_records: Iterable[dict[str, Any]],
     *,
-    threshold: float = 0.57,
+    threshold: float = 0.38,
 ) -> list[dict[str, Any]]:
     """Find earlier Light Tower stories that may cover the same event or arc."""
     candidate = event["candidate"]
+    event_sources = event.get("sources") or [candidate]
+    candidate_title = str(candidate.get("title", ""))
+    candidate_context = " ".join(
+        " ".join([
+            _text(source),
+            " ".join((source.get("entities") or {}).get("companies") or []),
+        ])
+        for source in event_sources
+    )
+    candidate_companies = {
+        str(company).lower()
+        for source in event_sources
+        for company in ((source.get("entities") or {}).get("companies") or [])
+        if len(str(company)) >= 4
+    }
+    candidate_amounts = _dollar_amount_values(candidate_context)
+    candidate_addresses = _street_addresses(candidate_context)
     matches: list[dict[str, Any]] = []
     for record in archive_records:
-        title_score = _ratio(_tokens(candidate.get("title", "")), _tokens(record.get("title", "")))
-        amount_overlap = bool(
-            _entity_values(candidate, "amounts")
-            & {token for token in _tokens(record.get("title", "")) if token.isdigit()}
+        record_title = str(record.get("title", ""))
+        record_context = " ".join([
+            record_title,
+            str(record.get("excerpt", "")),
+            " ".join(str(tag) for tag in (record.get("tags") or [])),
+        ])
+        title_score = _ratio(_tokens(candidate_title), _tokens(record_title))
+        context_score = _ratio(_tokens(candidate_context), _tokens(record_context))
+        amount_overlap = bool(candidate_amounts & _dollar_amount_values(record_context))
+        address_overlap = bool(candidate_addresses & _street_addresses(record_context))
+        entity_overlap = any(
+            company in record_context.lower()
+            for company in candidate_companies
         )
-        score = min(1.0, title_score + (0.18 if amount_overlap else 0.0))
+        same_event = bool(
+            title_score >= 0.57
+            or (amount_overlap and context_score >= 0.16)
+            or (address_overlap and context_score >= 0.14)
+            or (entity_overlap and context_score >= 0.24)
+            or context_score >= threshold
+        )
+        if not same_event:
+            continue
+        score = max(
+            title_score,
+            context_score,
+            0.78 if amount_overlap else 0,
+            0.74 if address_overlap else 0,
+            0.68 if entity_overlap else 0,
+        )
         if score >= threshold:
             matches.append({
                 "slug": record.get("slug"),
@@ -273,6 +428,13 @@ def archive_matches(
                 "date": record.get("date"),
                 "url": record.get("url"),
                 "similarity": round(score, 3),
+                "same_event": True,
+                "recent": _archive_is_recent(candidate, record),
+                "signals": {
+                    "amount_overlap": amount_overlap,
+                    "address_overlap": address_overlap,
+                    "entity_overlap": entity_overlap,
+                },
             })
     return sorted(matches, key=lambda item: item["similarity"], reverse=True)[:5]
 
@@ -294,11 +456,39 @@ def _source_quality(event: dict[str, Any]) -> int:
     return min(10, (4 if tiers and min(tiers) <= 1 else 2) + min(4, max(0, count - 1) * 2) + (2 if primary else 0))
 
 
-def _is_routine(text: str, item: dict[str, Any]) -> bool:
+def _is_routine(
+    text: str,
+    item: dict[str, Any],
+    *,
+    aggregate_topics: set[str] | None = None,
+) -> bool:
     routine_shape = any(re.search(pattern, text, re.IGNORECASE) for pattern in _ROUTINE_PATTERNS)
-    topics = set(item.get("topics") or [])
+    topics = aggregate_topics if aggregate_topics is not None else set(item.get("topics") or [])
     counter_signal = bool(topics & {"distress", "policy", "fed_rates", "bank_credit", "government_action"})
     return routine_shape and not counter_signal and not _culture_dimensions(text)
+
+
+def _event_topics(event: dict[str, Any]) -> set[str]:
+    return {
+        str(topic)
+        for source in event.get("sources", [event.get("candidate", {})])
+        for topic in (source.get("topics") or [])
+    }
+
+
+def _event_feature(event: dict[str, Any], name: str) -> bool:
+    return any(
+        bool((source.get("attention_features") or {}).get(name))
+        for source in event.get("sources", [event.get("candidate", {})])
+    )
+
+
+def _event_entity_values(event: dict[str, Any], name: str) -> set[str]:
+    return {
+        str(value)
+        for source in event.get("sources", [event.get("candidate", {})])
+        for value in ((source.get("entities") or {}).get(name) or [])
+    }
 
 
 def score_event(
@@ -310,14 +500,22 @@ def score_event(
     """Score whether an event is worth a reader's finite attention."""
     item = event["candidate"]
     text = " ".join(_text(source) for source in event.get("sources", [item]))
-    topics = set(item.get("topics") or [])
-    features = item.get("attention_features") or {}
+    topics = _event_topics(event)
+    features = {
+        name: _event_feature(event, name)
+        for name in {
+            "has_material_transaction", "has_material_operating_signal",
+            "has_big_number", "has_federal_source",
+        }
+    }
     culture_dimensions = _culture_dimensions(text)
     previous = archive_matches(event, archive_records)
 
     consequence = 4
     if features.get("has_material_transaction"):
         consequence += 5
+    if features.get("has_material_operating_signal"):
+        consequence += 4
     if features.get("has_big_number"):
         consequence += 3
     if topics & {"distress", "bank_credit", "fed_rates", "policy", "government_action"}:
@@ -348,7 +546,11 @@ def score_event(
     right_to_win = 2
     if topics & {"capital_placement", "cmbs", "private_credit", "bank_credit", "distress"}:
         right_to_win += 5
-    if (item.get("entities") or {}).get("markets"):
+    if _event_entity_values(event, "markets"):
+        right_to_win += 2
+    if _event_entity_values(event, "asset_classes"):
+        right_to_win += 3
+    if topics & {"capital_expenditure", "market_fundamentals", "leasing"}:
         right_to_win += 2
     if item.get("source_lane") in {"federal", "msa_government"}:
         right_to_win += 1
@@ -366,8 +568,9 @@ def score_event(
             f"source:{item.get('domain', '')}", 0
         ) or 0)
     audience_adjustment = max(-5, min(5, audience_adjustment))
-    routine_penalty = 18 if _is_routine(text, item) else 0
-    archive_penalty = min(18, 9 * len(previous))
+    routine_penalty = 18 if _is_routine(text, item, aggregate_topics=topics) else 0
+    archive_repeat = any(match.get("recent") for match in previous)
+    archive_penalty = 18 if archive_repeat else min(18, 9 * len(previous))
 
     breakdown = {
         "consequence": consequence,
@@ -384,7 +587,9 @@ def score_event(
         "archive_repetition_penalty": -archive_penalty,
     }
     score = max(0, min(100, sum(breakdown.values())))
-    if previous and score < 70:
+    if archive_repeat:
+        decision_reason = "Recent Light Tower coverage already addresses the same event or news arc."
+    elif previous and score < 70:
         decision_reason = "Prior Light Tower coverage makes this an update, not a new standalone thesis."
     elif routine_penalty:
         decision_reason = "Routine transaction retained only if it earns a concise format."
@@ -404,6 +609,14 @@ def score_event(
             re.IGNORECASE,
         )),
         "archive_matches": previous,
+        "archive_repeat": archive_repeat,
+        "aggregate_signals": {
+            "topics": sorted(topics),
+            "markets": sorted(_event_entity_values(event, "markets")),
+            "asset_classes": sorted(_event_entity_values(event, "asset_classes")),
+            "has_material_transaction": features.get("has_material_transaction", False),
+            "has_material_operating_signal": features.get("has_material_operating_signal", False),
+        },
         "decision_reason": decision_reason,
     }
 
@@ -411,7 +624,7 @@ def score_event(
 def assign_franchise(scored_event: dict[str, Any]) -> dict[str, str]:
     item = scored_event["candidate"]
     text = " ".join(_text(source) for source in scored_event.get("sources", [item]))
-    topics = set(item.get("topics") or [])
+    topics = _event_topics(scored_event)
     if scored_event.get("culture_dimensions"):
         key = "capital_after_dark"
     elif topics & {"distress", "cmbs"} or re.search(r"\b(maturity|extension|special servic)\b", text):
@@ -427,20 +640,60 @@ def assign_franchise(scored_event: dict[str, Any]) -> dict[str, str]:
     return {"id": key, **FRANCHISES[key]}
 
 
+def daily_brief_eligible(item: dict[str, Any]) -> bool:
+    """Return whether an event may enter the deeper daily research queue."""
+    topics = _event_topics(item)
+    features = {
+        "has_material_transaction": _event_feature(item, "has_material_transaction"),
+        "has_material_operating_signal": _event_feature(item, "has_material_operating_signal"),
+    }
+    asset_classes = _event_entity_values(item, "asset_classes")
+    markets = _event_entity_values(item, "markets")
+    has_capital_or_operating_signal = bool(
+        topics & DAILY_BRIEF_TOPICS
+        or features.get("has_material_transaction")
+        or features.get("has_material_operating_signal")
+    )
+    has_cre_anchor = bool(
+        asset_classes
+        or markets
+        or topics & {
+            "capital_placement", "cmbs", "private_credit", "bank_credit",
+            "distress", "reit_public_markets", "development_finance",
+            "capital_expenditure", "market_fundamentals", "leasing",
+        }
+        or features.get("has_material_transaction")
+        or features.get("has_material_operating_signal")
+    )
+    return bool(
+        item.get("must_read_score", 0) >= DAILY_RESEARCH_FLOOR
+        and has_capital_or_operating_signal
+        and has_cre_anchor
+        and not item.get("archive_repeat")
+        and not item.get("legal_or_allegation_risk")
+    )
+
+
 def select_edition(
     candidates: list[dict[str, Any]],
     *,
     archive_records: Iterable[dict[str, Any]] = (),
+    corroboration_candidates: Iterable[dict[str, Any]] = (),
     audience_signals: dict[str, Any] | None = None,
     max_briefs: int = 3,
     max_deal_tape: int = 8,
     max_articles: int = 5,
+    daily_target: int = DEFAULT_DAILY_ARTICLE_TARGET,
 ) -> dict[str, Any]:
-    """Create a scarce daily portfolio with a valid no-flagship outcome."""
+    """Create an evidence-sized portfolio with a quality-bounded daily floor."""
     archive = list(archive_records)
+    events = cluster_events(candidates)
+    corroboration_pool = list(corroboration_candidates)
+    if corroboration_pool:
+        events = attach_corroborating_sources(events, corroboration_pool)
     scored = [
         score_event(event, archive, audience_signals=audience_signals)
-        for event in cluster_events(candidates)
+        for event in events
     ]
     scored.sort(key=lambda item: item["must_read_score"], reverse=True)
     for item in scored:
@@ -449,6 +702,7 @@ def select_edition(
     flagship = next((
         item for item in scored
         if item["must_read_score"] >= FLAGSHIP_CANDIDATE_THRESHOLD
+        and not item.get("archive_repeat")
         and (item["source_count"] >= 2 or item["candidate"].get("source_authority") == "primary")
     ), None)
 
@@ -456,6 +710,7 @@ def select_edition(
     if flagship:
         flagship["provisional_format"] = "flagship"
         flagship["decision"] = "research"
+        flagship["selection_tier"] = "flagship"
         selected.append(flagship)
 
     source_usage: Counter[str] = Counter()
@@ -465,18 +720,21 @@ def select_edition(
     cultural = next((
         item for item in scored
         if item not in selected
+        and not item.get("archive_repeat")
         and item["must_read_score"] >= MUST_READ_THRESHOLD
         and item["must_read_breakdown"]["cultural_relevance"] >= 6
     ), None)
     if cultural and len(selected) < max_articles:
         cultural["provisional_format"] = "culture_signal"
         cultural["decision"] = "research"
+        cultural["selection_tier"] = "culture_signal"
         selected.append(cultural)
         source_usage[cultural["candidate"].get("domain", "")] += 1
 
     data_note = next((
         item for item in scored
         if item not in selected
+        and not item.get("archive_repeat")
         and item["must_read_score"] >= 50
         and item["candidate"].get("source_authority") == "primary"
         and "data_release" in (
@@ -486,6 +744,7 @@ def select_edition(
     if data_note and len(selected) < max_articles:
         data_note["provisional_format"] = "data_note"
         data_note["decision"] = "research"
+        data_note["selection_tier"] = "data_note"
         selected.append(data_note)
         source_usage[data_note["candidate"].get("domain", "")] += 1
 
@@ -497,10 +756,42 @@ def select_edition(
         ):
             continue
         domain = item["candidate"].get("domain", "")
-        if item["must_read_score"] < MUST_READ_THRESHOLD or source_usage[domain] >= 2:
+        if (
+            item.get("archive_repeat")
+            or item["must_read_score"] < MUST_READ_THRESHOLD
+            or source_usage[domain] >= 2
+        ):
             continue
         item["provisional_format"] = "brief"
         item["decision"] = "research"
+        item["selection_tier"] = "must_read"
+        selected.append(item)
+        source_usage[domain] += 1
+
+    # A strict score remains the gateway to long-form. The daily research queue
+    # is a separate, bounded path for clearly CRE-relevant events whose feed
+    # snippets are too thin to establish their full value. These candidates
+    # still face dossier, editorial-room, writing, duplication, and excellence
+    # gates before an article can exist.
+    research_target = min(max_articles, max(0, daily_target) + 2)
+    for item in scored:
+        if (
+            item in selected
+            or len(selected) >= research_target
+            or len(selected) >= max_articles
+            or len([entry for entry in selected if entry["provisional_format"] == "brief"]) >= max_briefs
+        ):
+            continue
+        domain = item["candidate"].get("domain", "")
+        if source_usage[domain] >= 2 or not daily_brief_eligible(item):
+            continue
+        item["provisional_format"] = "brief"
+        item["decision"] = "research"
+        item["selection_tier"] = "daily_depth"
+        item["decision_reason"] = (
+            "Entered the daily depth queue: concrete CRE capital or operating "
+            "signal requires full-text research before a publication decision."
+        )
         selected.append(item)
         source_usage[domain] += 1
 
@@ -508,17 +799,29 @@ def select_edition(
     for item in scored:
         if item in selected or len(deal_tape) >= max_deal_tape:
             continue
+        if item.get("archive_repeat") or item.get("legal_or_allegation_risk"):
+            continue
+        features = {
+            "has_material_transaction": _event_feature(item, "has_material_transaction"),
+            "has_material_operating_signal": _event_feature(item, "has_material_operating_signal"),
+        }
         if item["must_read_score"] < DEAL_TAPE_THRESHOLD and not (
-            item["candidate"].get("attention_features") or {}
-        ).get("has_material_transaction"):
+            features.get("has_material_transaction")
+            or features.get("has_material_operating_signal")
+        ):
             continue
         item["provisional_format"] = "deal_tape"
         item["decision"] = "deal_tape"
+        item["selection_tier"] = "deal_tape"
         deal_tape.append(item)
 
     for item in scored:
         if item not in selected and item not in deal_tape:
-            item["decision"] = "reject"
+            if item.get("archive_repeat"):
+                item["decision"] = "archive_repeat"
+            else:
+                item["decision"] = "reject"
+            item["rejection_reason"] = item.get("decision_reason")
 
     status = "edition_ready" if selected or deal_tape else "no_publishable_story"
     return {
@@ -538,6 +841,16 @@ def select_edition(
             }
             for item in scored if len(item["sources"]) > 1
         ],
+        "archive_repeats": [
+            {
+                "event_id": item["event_id"],
+                "title": item["candidate"]["title"],
+                "matches": item.get("archive_matches", []),
+            }
+            for item in scored if item.get("archive_repeat")
+        ],
+        "daily_target": min(max_articles, max(0, daily_target)),
+        "research_target": research_target,
         "edition_limits": {
             "flagship": 1,
             "culture_signal": 1,
@@ -555,13 +868,21 @@ def print_edition_report(selection: dict[str, Any]) -> None:
         f"  {selection.get('candidate_count', 0)} candidates became "
         f"{selection.get('event_count', 0)} distinct events"
     )
+    print(
+        f"  Daily target: {selection.get('daily_target', 0)} article(s); "
+        f"research queue: {len(selection.get('selected_stories', []))}/"
+        f"{selection.get('research_target', 0)}"
+    )
+    if selection.get("archive_repeats"):
+        print(f"  Suppressed {len(selection['archive_repeats'])} recent archive repeat(s)")
     if not selection.get("selected_stories") and not selection.get("deal_tape"):
         print("  No event earned publication today. A no-story edition is valid.")
         return
     for item in selection.get("selected_stories", []):
         spec = FORMAT_SPECS[item["provisional_format"]]["label"]
         print(
-            f"  RESEARCH [{item['must_read_score']}/100] {spec}: "
+            f"  RESEARCH [{item['must_read_score']}/100] {spec} "
+            f"({item.get('selection_tier', 'standard')}): "
             f"{item['candidate']['title'][:95]}"
         )
     for item in selection.get("deal_tape", []):

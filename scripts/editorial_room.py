@@ -46,11 +46,18 @@ def deterministic_room_plan(
         final_format = "deal_tape"
     candidate = editorial_event.get("candidate", {})
     franchise = editorial_event.get("franchise", {})
+    selection_tier = editorial_event.get("selection_tier")
+    why_now = (
+        "The event is recent and entered the quality-bounded daily-depth "
+        "research queue on a concrete CRE capital or operating signal."
+        if selection_tier == "daily_depth"
+        else "The event is recent and cleared Light Tower's strict must-read threshold."
+    )
     return {
         "decision": "write" if final_format != "deal_tape" else "deal_tape",
         "final_format": final_format,
         "angle": franchise.get("promise") or "Explain the decision, constraint, and consequence beneath the event.",
-        "why_now": "The event is recent and cleared Light Tower's must-read threshold.",
+        "why_now": why_now,
         "favored_thesis": "",
         "alternate_angles": [],
         "skeptic_objections": [
@@ -94,6 +101,7 @@ EVENT
     "score_breakdown": editorial_event.get("must_read_breakdown"),
     "franchise": editorial_event.get("franchise"),
     "desired_format": editorial_event.get("provisional_format"),
+    "selection_tier": editorial_event.get("selection_tier"),
 }, ensure_ascii=False)}
 
 DOSSIER CONTROL DATA
