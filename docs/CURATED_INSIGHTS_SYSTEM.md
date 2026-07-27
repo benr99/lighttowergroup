@@ -114,6 +114,11 @@ not a CRE anchor by itself. Daily-depth eligibility requires explicit property
 language, a property address, or a CRE-native signal such as CMBS, REIT,
 occupancy, or leasing evidence.
 
+Generic consumer-mortgage, homeowner-engagement, technology, and public-equity
+stories do not qualify merely because they mention Fannie Mae, an "office" of
+government, "building" as a verb, or a large capital raise. The same explicit
+CRE-anchor rule applies to Deal Tape.
+
 Audience learning is deliberately weak relative to judgment. It can refine
 attention within a beat but cannot override evidence, duplication, or a routine
 event penalty.

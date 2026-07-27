@@ -41,7 +41,7 @@ TOPIC_PATTERNS = {
     "distress": r"\b(default|distress|foreclosure|bankruptcy|receivership|workout|special servicing|note sale)\b",
     "cmbs": r"\b(cmbs|cre clo|securiti[sz]ation|special servicer|trepp)\b",
     "policy": r"\b(policy|regulation|zoning|tax|abatement|hud|fha|fannie|freddie|legislation)\b",
-    "reit_public_markets": r"\b(reit|public markets|earnings|guidance|stock|shares)\b",
+    "reit_public_markets": r"\b(reit|real estate investment trust)\b",
     "development_finance": (
         r"\b(construction loan|developments?|redevelop\w*|reposition\w*|"
         r"groundbreaking|permits?|completion|tops? out)\b"
@@ -71,8 +71,12 @@ POLICY_ACTION_PATTERNS = {
 }
 
 ASSET_CLASSES = {
-    "office": r"\boffice\b",
-    "multifamily": r"\b(multifamily|apartments?|residential|condominiums?|rental buildings?|housing)\b",
+    "office": r"\boffice\b(?!\s+of\b)",
+    "multifamily": (
+        r"\b(multifamily|apartments?|residential (?:units?|building|tower|"
+        r"project|development)|condominiums?|rental buildings?|"
+        r"affordable housing)\b"
+    ),
     "industrial": r"\b(industrial|warehouse|logistics)\b",
     "retail": r"\b(retail|shopping center|mall)\b",
     "hotel": r"\b(hotel|hospitality)\b",
@@ -93,10 +97,13 @@ _EXPLICIT_CRE_PROPERTY_PATTERN = re.compile(
     r"market|space|lease|property)|industrial (?:real estate|building|space|"
     r"leasing|rent|property)|warehouses?|logistics (?:property|facility|space)|"
     r"retail (?:center|property|space|lease)|shopping centers?|mixed-use|"
-    r"hotels?|hospitality|housing|landlord|tenants?|occupancy|leased|leasing|"
+    r"hotels?|hospitality|affordable housing|workforce housing|housing "
+    r"(?:development|project|supply)|landlord|tenants?|occupancy|leased|leasing|"
     r"rent roll|redevelop\w*|reposition\w*|zoning|rezoning|permits?|"
     r"construction (?:loan|financing|project)|capital improvements?|"
-    r"property|properties|buildings?|towers?)\b",
+    r"commercial propert(?:y|ies)|rental propert(?:y|ies)|"
+    r"investment propert(?:y|ies)|(?:office|residential|apartment|mixed-use) "
+    r"towers?|reit|cmbs|cre clo|commercial mortgage-backed securiti[sz]ation)\b",
     re.IGNORECASE,
 )
 
@@ -334,6 +341,10 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
         story_lane = "msa_government"
     material_transaction = _has_material_transaction(text, amounts, topics)
     material_operating_signal = _has_material_operating_signal(text, topics, institutions)
+    explicit_cre_property_language = bool(
+        _EXPLICIT_CRE_PROPERTY_PATTERN.search(text)
+        or _PROPERTY_ADDRESS_PATTERN.search(text)
+    )
     parsed = urlparse(url)
 
     return {
@@ -364,6 +375,7 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
             "has_transaction_language": any(t in topics for t in ("major_sale", "capital_placement", "mna")),
             "has_material_transaction": material_transaction,
             "has_material_operating_signal": material_operating_signal,
+            "has_explicit_cre_property_language": explicit_cre_property_language,
             "has_distress_language": "distress" in topics,
             "has_policy_or_rate_language": any(t in topics for t in ("policy", "fed_rates")),
             "has_government_action": bool(policy_actions) or "government" in text.lower(),
@@ -375,16 +387,15 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
 
 def has_cre_editorial_anchor(story: dict[str, Any]) -> bool:
     """Return whether a normalized story has a defensible Light Tower beat connection."""
-    topics = set(story.get("topics") or [])
     features = story.get("attention_features") or {}
     text = f"{story.get('title', '')} {story.get('summary', '')}"
     explicit_property = bool(
-        _EXPLICIT_CRE_PROPERTY_PATTERN.search(text)
+        features.get("has_explicit_cre_property_language")
+        or _EXPLICIT_CRE_PROPERTY_PATTERN.search(text)
         or _PROPERTY_ADDRESS_PATTERN.search(text)
     )
     return bool(
         explicit_property
-        or topics & {"cmbs", "reit_public_markets"}
         or features.get("has_material_operating_signal")
         or features.get("has_msa_government_signal")
     )
