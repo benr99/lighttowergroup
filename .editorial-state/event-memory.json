@@ -1,5 +1,546 @@
 [
   {
+    "event_id": "a07cff79a34068303aa8",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "What Sam Altman will tell the White House this week",
+    "source_urls": [
+      "https://www.axios.com/2026/07/26/sam-altman-openai-trump-white-house-visit"
+    ],
+    "must_read_score": 19,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-a07cff79a34068303aa8",
+        "title": "What Sam Altman will tell the White House this week",
+        "date": "2026-07-26",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "cf022255534233832b2e",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Julliard graduate finds dream Manhattan penthouse, then faces mold and missing mail",
+    "source_urls": [
+      "https://nypost.com/2026/07/26/real-estate/julliard-graduate-faces-mold-in-dream-manhattan-penthouse/"
+    ],
+    "must_read_score": 16,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-cf022255534233832b2e",
+        "title": "Julliard graduate finds dream Manhattan penthouse, then faces mold and missing mail",
+        "date": "2026-07-26",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "538bd879058cd6a156f5",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Nvidia Credit Risk Jumps in Swaps Market on AI Deal Talk Reports",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-27/nvidia-credit-risk-jumps-in-swaps-market-on-ai-deal-talk-reports"
+    ],
+    "must_read_score": 59,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "73e512aa541bab4052d7",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "CIM Group, Bryant Group Ventures affordable housing impact fund secures commitment from KeyBank",
+    "source_urls": [
+      "https://irei.com/news/cim-group-bryant-group-ventures-affordable-housing-impact-fund-secures-commitment-from-keybank/"
+    ],
+    "must_read_score": 48,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a2e5656fe26931e186f0",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Rick Gropper of Camber Property Group: 5 Questions",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/rick-gropper-camber-property-group-5-questions/"
+    ],
+    "must_read_score": 44,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "4e19f5702cbf77951427",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Livmark Communities Breaks Ground on 457-Unit The Collins Apartments in Fort Collins, Colorado",
+    "source_urls": [
+      "https://rebusinessonline.com/livmark-communities-breaks-ground-on-457-unit-the-collins-apartments-in-fort-collins-colorado/"
+    ],
+    "must_read_score": 43,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "227f57df20b1ab5e4174",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "MPZ, Capstone Near Completion of $36M Multifamily Adaptive Reuse Project in Templeton, Massachusetts",
+    "source_urls": [
+      "https://rebusinessonline.com/mpz-capstone-near-completion-of-36m-multifamily-adaptive-reuse-project-in-templeton-massachusetts/"
+    ],
+    "must_read_score": 42,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "f43b4ec20eeeabe6e725",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Renderings Revealed For The Market Hall Food Hall At 398 Tenth Avenue In Midtown West, Manhattan",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/renderings-revealed-for-the-market-hall-food-hall-at-398-tenth-avenue-in-midtown-west-manhattan.html"
+    ],
+    "must_read_score": 41,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "4bd59838b917b529c67b",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Ares Bundles €3 Billion of Private Credit for Secondaries Sale",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-27/ares-bundles-3-billion-of-private-credit-for-secondaries-sale"
+    ],
+    "must_read_score": 41,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "5273f2cc46f73e58afc7",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Multifamily Comprises 80% of CRE CLO Collateral in Recent Deals",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/multifamily-cre-clo-collateral-cred-iq/"
+    ],
+    "must_read_score": 38,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a6f060f77c3d58129d31",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "460 Park Ave. getting $200 million upgrade",
+    "source_urls": [
+      "https://nypost.com/2026/07/26/business/460-park-ave-getting-200-million-upgrade/"
+    ],
+    "must_read_score": 38,
+    "decision": "deal_tape",
+    "archive_matches": [
+      {
+        "slug": "event-631a1fdd305ca2433585",
+        "title": "460 Park Ave. getting $200 million upgrade",
+        "date": "2026-07-26",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": true,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "07886ff3a6186dadabb0",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "SL Green signs 2 leases for 1185 Sixth Ave, reaches 92% occupied",
+    "source_urls": [
+      "https://nypost.com/2026/07/26/business/sl-green-signs-2-leases-for-1185-sixth-ave-reaches-92-occupied/"
+    ],
+    "must_read_score": 36,
+    "decision": "deal_tape",
+    "archive_matches": [
+      {
+        "slug": "event-56435faf8065dd238d7e",
+        "title": "SL Green signs 2 leases for 1185 Sixth Ave, reaches 92% occupied",
+        "date": "2026-07-26",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": true,
+          "entity_overlap": true
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "b8a0bdbd69eb7c49fab3",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "When your AI vendor gets it wrong, you’re still responsible",
+    "source_urls": [
+      "https://www.housingwire.com/articles/ai-vendor-servicer-liability/"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "d00180378ae2ef914731",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "SRS Real Estate Brokers $7.9M Sale of Retail Strip Center in Wesley Chapel, Florida",
+    "source_urls": [
+      "https://rebusinessonline.com/srs-real-estate-brokers-7-9m-sale-of-retail-strip-center-in-wesley-chapel-florida/"
+    ],
+    "must_read_score": 35,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "05a82726973440e86606",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Savills: Yield outlook remains stable as European office cross border activity gathers pace",
+    "source_urls": [
+      "https://irei.com/news/savills-yield-outlook-remains-stable-as-european-office-cross-border-activity-gathers-pace/"
+    ],
+    "must_read_score": 35,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "62713813bb2712678c90",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Kim Smith on SmartFi’s strategy to grow the reverse mortgage pie",
+    "source_urls": [
+      "https://www.housingwire.com/articles/smartfi-forward-los-reverse-mortgages/"
+    ],
+    "must_read_score": 33,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e0e392939ba04f640fa4",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "In Industrial Real Estate, Size Is Everything Right Now",
+    "source_urls": [
+      "https://propmodo.com/in-industrial-real-estate-size-is-everything-right-now/"
+    ],
+    "must_read_score": 31,
+    "decision": "deal_tape",
+    "archive_matches": [
+      {
+        "slug": "event-bca981bb04a6da9d98c3",
+        "title": "In Industrial Real Estate, Size Is Everything Right Now",
+        "date": "2026-07-26",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "89fb9ba6a22b51faa9b9",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Property Dispute Forces Redesign of $2B Flood Wall for Battery Park City",
+    "source_urls": [
+      "https://www.thecityreporter.nyc/2026/07/27/battery-park-flood-project-liberty-house-terrace/"
+    ],
+    "must_read_score": 31,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7922d8640c9ffffaca25",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Invesco Real Estate acquires a big box distribution facility in Corby",
+    "source_urls": [
+      "https://irei.com/news/invesco-real-estate-acquires-a-big-box-distribution-facility-in-corby/"
+    ],
+    "must_read_score": 31,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "dd55bc27698c7553e2f3",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Complexity is the name of the game in commercial real estate lending, says Don MacKinnon",
+    "source_urls": [
+      "https://irei.com/news/complexity-is-the-name-of-the-game-in-commercial-real-estate-lending-says-don-mackinnon/"
+    ],
+    "must_read_score": 31,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "ba46c083b561478dab23",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Blackstone scales data center platform",
+    "source_urls": [
+      "https://irei.com/news/blackstone-scales-data-center-platform/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "522b3ffdb8d156d13d92",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Council Advisors Renews 17,685 SF Office Headquarters Lease in Midtown Manhattan",
+    "source_urls": [
+      "https://rebusinessonline.com/council-advisors-renews-17685-sf-office-headquarters-lease-in-midtown-manhattan/"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "fb2e989dda3817a3e494",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Treasury Yields Follow Oil Lower With Fed and Supply in Focus",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-27/treasury-yields-follow-oil-lower-with-fed-and-supply-in-focus"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "afaaa6c3fd2ba41bcf4e",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "M&G, Ontario Teachers’ Pension Plan announce €200m strategic investment in CLO platform",
+    "source_urls": [
+      "https://irei.com/news/mg-ontario-teachers-pension-plan-announce-e200m-strategic-investment-in-clo-platform/"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "cac2d4b1fceea73aa2ef",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "NormAI Signs 64,313 SF Office Lease at One World Trade Center in Lower Manhattan",
+    "source_urls": [
+      "https://rebusinessonline.com/normai-signs-64313-sf-office-lease-at-one-world-trade-center-in-lower-manhattan/"
+    ],
+    "must_read_score": 24,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "ee5c75adcfac198dad02",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "MMG Real Estate Arranges Sale of 142-Unit Apartment Complex in Norman, Oklahoma",
+    "source_urls": [
+      "https://rebusinessonline.com/mmg-real-estate-arranges-sale-of-142-unit-apartment-complex-in-norman-oklahoma/"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "450b9189be98b43ef56d",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "New Renderings Reveal 1,483-Unit Skyscraper at 3000 John F. Kennedy Boulevard in Journal Square, Jersey City",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/new-renderings-reveal-1483-unit-skyscraper-at-3000-john-f-kennedy-boulevard-in-journal-square-jersey-city.html"
+    ],
+    "must_read_score": 22,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "527f29266eed725edb64",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Off-grid data centers aren't the panacea that some AI firms hoped",
+    "source_urls": [
+      "https://www.axios.com/2026/07/27/off-grid-ai-data-centers-reckoning"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3644564a238c7e9d39b7",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Crypto Treasury Firms Pivot to AI in Bid to Win Back Investors",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-27/crypto-to-data-centers-treasury-model-bust-has-firms-chasing-ai"
+    ],
+    "must_read_score": 19,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e77316db1f9339b07144",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "How a VA loan helps put California’s tough housing market in a better state",
+    "source_urls": [
+      "https://www.mpamag.com/us/news/broker-intel/how-a-va-loan-helps-put-californias-tough-housing-market-in-a-better-state/583693"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "d07b44a95d9c2ca50395",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Adam Driver Sells a Brooklyn Condo and Buys Three More",
+    "source_urls": [
+      "https://www.nytimes.com/2026/07/27/realestate/adam-driver-helen-mirren-celebrity-home-sales.html"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "deaf6127c482c4d20daa",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Demolition Progresses For New Residential Building At 544-550 Union Street in Gowanus, Brooklyn",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/demolition-progresses-for-new-residential-building-at-544-550-union-street-in-gowanus-brooklyn.html"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "de51779f6324a3cfcbae",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Beyond the mortgage: Alex Song on how Made Card is building homeowner loyalty through everyday engagement",
+    "source_urls": [
+      "https://www.housingwire.com/articles/made-card-homeowner-engagement/"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7a5e9b1d3dcc374182eb",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Prologis Develops 271,828 SF Industrial Facility in Portland, Oregon",
+    "source_urls": [
+      "https://rebusinessonline.com/prologis-develops-271828-sf-industrial-facility-in-portland-oregon/"
+    ],
+    "must_read_score": 16,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c9d54973f8d37bb1d873",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Berkadia Arranges Sale of 18,630 SF Ambulatory Surgery Center in Metro Philadelphia",
+    "source_urls": [
+      "https://rebusinessonline.com/berkadia-arranges-sale-of-18630-sf-ambulatory-surgery-center-in-metro-philadelphia/"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3f12b21de9ff792afb92",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "Marcus & Millichap Brokers Sale of 364-Unit StorQuest Self Storage in Mesa, Arizona",
+    "source_urls": [
+      "https://rebusinessonline.com/marcus-millichap-brokers-sale-of-364-unit-storquest-self-storage-in-mesa-arizona/"
+    ],
+    "must_read_score": 13,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "703d516a6134defc9f2f",
+    "last_seen": "2026-07-27T13:49:52+00:00",
+    "title": "35 West 14th Street Tops Out in Chelsea, Manhattan",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/35-west-14th-street-tops-out-in-chelsea-manhattan.html"
+    ],
+    "must_read_score": 0,
+    "decision": "archive_repeat",
+    "archive_matches": [
+      {
+        "slug": "event-5f94e279283546b2cd93",
+        "title": "35 West 14th Street Tops Out in Chelsea, Manhattan",
+        "date": "2026-07-26",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": true,
+          "entity_overlap": false
+        }
+      },
+      {
+        "slug": "nexus-condo-tower-basis-chelsea",
+        "title": "Nexus Development Topped Out a Condo Tower. Here's What They Had to Believe.",
+        "date": "2026-07-27",
+        "url": "/insights/nexus-condo-tower-basis-chelsea.html",
+        "memory_only": false,
+        "prior_decision": null,
+        "similarity": 0.74,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": true,
+          "entity_overlap": false
+        }
+      },
+      {
+        "slug": "nexus-land-basis-chelsea-condo",
+        "title": "Nexus Bought the Land for $14.4M. Here's What They Had to Believe.",
+        "date": "2026-07-26",
+        "url": "/insights/nexus-land-basis-chelsea-condo.html",
+        "memory_only": false,
+        "prior_decision": null,
+        "similarity": 0.74,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": true,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
     "event_id": "f89b1629b5b85c4ba610",
     "last_seen": "2026-07-26T22:19:21+00:00",
     "title": "Distressed Multifamily Debt Finds Buyers as Banks Exit New York Portfolios",
@@ -55,17 +596,6 @@
     "archive_matches": []
   },
   {
-    "event_id": "a07cff79a34068303aa8",
-    "last_seen": "2026-07-26T22:19:21+00:00",
-    "title": "What Sam Altman will tell the White House this week",
-    "source_urls": [
-      "https://www.axios.com/2026/07/26/sam-altman-openai-trump-white-house-visit"
-    ],
-    "must_read_score": 22,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
     "event_id": "bca981bb04a6da9d98c3",
     "last_seen": "2026-07-26T22:19:21+00:00",
     "title": "In Industrial Real Estate, Size Is Everything Right Now",
@@ -106,17 +636,6 @@
       "https://nypost.com/2026/07/26/business/sl-green-signs-2-leases-for-1185-sixth-ave-reaches-92-occupied/"
     ],
     "must_read_score": 20,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
-    "event_id": "cf022255534233832b2e",
-    "last_seen": "2026-07-26T22:19:21+00:00",
-    "title": "Julliard graduate finds dream Manhattan penthouse, then faces mold and missing mail",
-    "source_urls": [
-      "https://nypost.com/2026/07/26/real-estate/julliard-graduate-faces-mold-in-dream-manhattan-penthouse/"
-    ],
-    "must_read_score": 19,
     "decision": "reject",
     "archive_matches": []
   },
