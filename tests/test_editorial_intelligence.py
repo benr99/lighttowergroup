@@ -124,6 +124,36 @@ class EditorialIntelligenceTests(unittest.TestCase):
         self.assertFalse(scored["archive_repeat"])
         self.assertLess(scored["must_read_breakdown"]["archive_repetition_penalty"], 0)
 
+    def test_recent_scan_memory_does_not_masquerade_as_published_coverage(self) -> None:
+        item = story(
+            "460 Park Ave. getting $200 million upgrade",
+            source="NY Post Real Estate",
+            url="https://nypost.com/460-park",
+            summary=(
+                "The Midtown Manhattan office building will undergo a "
+                "$200 million redevelopment and capital improvement program."
+            ),
+        )
+        edition = select_edition(
+            [item],
+            archive_records=[{
+                "slug": "event-prior-scan",
+                "title": item["title"],
+                "date": "2026-07-23",
+                "memory_only": True,
+                "prior_decision": "reject",
+            }],
+            max_briefs=5,
+            max_articles=5,
+            daily_target=3,
+        )
+        scored = edition["scored_events"][0]
+        self.assertTrue(scored["archive_matches"])
+        self.assertTrue(scored["archive_matches"][0]["memory_only"])
+        self.assertFalse(scored["archive_repeat"])
+        self.assertEqual(scored["decision"], "research")
+        self.assertEqual(scored["selection_tier"], "daily_depth")
+
     def test_archive_match_uses_facts_from_a_corroborating_source(self) -> None:
         lead = story(
             "Park Avenue office upgrade moves forward",

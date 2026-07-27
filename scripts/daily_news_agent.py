@@ -2112,6 +2112,8 @@ def main():
             "title": item.get("title"),
             "date": str(item.get("last_seen", ""))[:10],
             "url": "",
+            "memory_only": True,
+            "prior_decision": item.get("decision"),
         }
         for item in event_memory if isinstance(item, dict) and item.get("title")
     ]

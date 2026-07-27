@@ -87,6 +87,11 @@ Retrieved article bodies and captured quotations are excluded from durable Git
 history. The audit retains source URLs, evidence counts, reported-fact controls,
 reporting gaps, decisions, and scores.
 
+Event memory records what the desk considered; it is not proof of publication.
+Only the public article archive can create a hard same-event publication veto.
+Recent scan memory contributes a small scoring penalty so a previously rejected
+story can still earn research when better evidence or a better angle appears.
+
 GitHub Actions also uploads state and edition output as a 30-day artifact.
 
 ## Public edition files
