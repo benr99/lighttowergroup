@@ -20,6 +20,8 @@ from datetime import datetime, timezone
 from typing import Any, Iterable
 from urllib.parse import urlparse
 
+from story_normalizer import has_cre_editorial_anchor
+
 
 MUST_READ_THRESHOLD = 56
 FLAGSHIP_CANDIDATE_THRESHOLD = 72
@@ -666,23 +668,14 @@ def daily_brief_eligible(item: dict[str, Any]) -> bool:
         "has_material_transaction": _event_feature(item, "has_material_transaction"),
         "has_material_operating_signal": _event_feature(item, "has_material_operating_signal"),
     }
-    asset_classes = _event_entity_values(item, "asset_classes")
-    markets = _event_entity_values(item, "markets")
     has_capital_or_operating_signal = bool(
         topics & DAILY_BRIEF_TOPICS
         or features.get("has_material_transaction")
         or features.get("has_material_operating_signal")
     )
-    has_cre_anchor = bool(
-        asset_classes
-        or markets
-        or topics & {
-            "capital_placement", "cmbs", "private_credit", "bank_credit",
-            "distress", "reit_public_markets", "development_finance",
-            "capital_expenditure", "market_fundamentals", "leasing",
-        }
-        or features.get("has_material_transaction")
-        or features.get("has_material_operating_signal")
+    has_cre_anchor = any(
+        has_cre_editorial_anchor(source)
+        for source in item.get("sources", [item.get("candidate", {})])
     )
     return bool(
         item.get("must_read_score", 0) >= DAILY_RESEARCH_FLOOR

@@ -640,6 +640,11 @@ Forbidden habits:
 - Invented quotes, scenes, motives, negotiations, metrics, comparables, or personal
   involvement.
 - Treating an assigning editor's thesis as a reported fact.
+- Describing renovated or repositioned existing floor area as "new supply"
+  unless the dossier explicitly documents a net increase in area.
+- Inventing likely tenant types, rent targets, capital shortfalls, reputational
+  damage, stalled-project scenarios, or other vivid downside cases.
+- Stacking several "may," "could," or "might" scenarios in place of analysis.
 
 Format is part of accuracy. A brief must remain compressed. A flagship must earn
 its length through multiple sources, counterevidence, mechanism, and consequence.
@@ -685,6 +690,11 @@ The article must:
 5. Preserve uncertainty. One transaction is not automatically a market.
 6. End on a sharpened observation, decision, or unresolved pressure—not a recap.
 7. Stay inside the assigned word range. Compression is an editorial virtue.
+8. For a brief, use no more than one bounded inference and one counterargument.
+   State remaining unknowns as unknowns, not imagined future scenarios.
+9. Distinguish gross building area from net-new supply. A renovation,
+   modernization, or gut redevelopment does not add supply unless the dossier
+   explicitly reports additional floor area.
 
 Return one valid JSON object with exactly these public fields and control ledgers:
 {{

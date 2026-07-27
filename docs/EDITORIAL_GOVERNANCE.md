@@ -63,6 +63,11 @@ record contains retrieved full text and at least three source-mapped facts.
 Institutional stakes are valid. Contradictory or unverified facts, legal risk,
 weak source authenticity, duplication, and unsupported claims remain hard stops.
 
+Briefs may contain one bounded inference and one counterargument. They may not
+stack hypothetical downside scenarios, invent likely tenant types or capital
+shortfalls, or describe renovated existing floor area as net-new supply without
+explicit evidence that the building area increases.
+
 The `data/ideas/held/` directory is an editorial queue, not a failure bin.
 Review held reasons weekly and use them to improve source selection and prompts.
 
