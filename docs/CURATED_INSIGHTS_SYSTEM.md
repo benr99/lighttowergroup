@@ -80,6 +80,11 @@ A recent same-event match is suppressed before assignment; an older or genuinely
 new development remains visible to the assigning editor with an explicit
 `archive_matches` record.
 
+Published archive memory and scan memory are deliberately different. A recent
+published same-event record can veto republication. A story that was merely
+scanned, rejected, or placed in Deal Tape receives only a small recency penalty
+and remains eligible when later research supports a useful standalone piece.
+
 ## Must-read scoring
 
 The score is inspectable:

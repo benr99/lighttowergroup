@@ -427,6 +427,8 @@ def archive_matches(
                 "title": record.get("title"),
                 "date": record.get("date"),
                 "url": record.get("url"),
+                "memory_only": bool(record.get("memory_only")),
+                "prior_decision": record.get("prior_decision"),
                 "similarity": round(score, 3),
                 "same_event": True,
                 "recent": _archive_is_recent(candidate, record),
@@ -569,8 +571,20 @@ def score_event(
         ) or 0)
     audience_adjustment = max(-5, min(5, audience_adjustment))
     routine_penalty = 18 if _is_routine(text, item, aggregate_topics=topics) else 0
-    archive_repeat = any(match.get("recent") for match in previous)
-    archive_penalty = 18 if archive_repeat else min(18, 9 * len(previous))
+    published_previous = [
+        match for match in previous
+        if not match.get("memory_only")
+    ]
+    recent_memory = [
+        match for match in previous
+        if match.get("memory_only") and match.get("recent")
+    ]
+    archive_repeat = any(match.get("recent") for match in published_previous)
+    archive_penalty = (
+        18
+        if archive_repeat
+        else min(18, (9 * len(published_previous)) + (3 * len(recent_memory)))
+    )
 
     breakdown = {
         "consequence": consequence,
@@ -589,8 +603,13 @@ def score_event(
     score = max(0, min(100, sum(breakdown.values())))
     if archive_repeat:
         decision_reason = "Recent Light Tower coverage already addresses the same event or news arc."
-    elif previous and score < 70:
+    elif published_previous and score < 70:
         decision_reason = "Prior Light Tower coverage makes this an update, not a new standalone thesis."
+    elif recent_memory:
+        decision_reason = (
+            "The event was scanned recently but not published; it remains eligible "
+            "if new research now supports a useful piece."
+        )
     elif routine_penalty:
         decision_reason = "Routine transaction retained only if it earns a concise format."
     elif cultural_relevance:
