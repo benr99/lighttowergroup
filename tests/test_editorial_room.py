@@ -2,13 +2,15 @@ from __future__ import annotations
 
 import sys
 import unittest
+import json
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from editorial_room import deterministic_room_plan, excellence_issues
+from editorial_room import deterministic_room_plan, excellence_issues, run_editorial_room
 
 
 def dossier(source_count: int = 1, longform: bool = False) -> dict:
@@ -58,6 +60,64 @@ class EditorialRoomTests(unittest.TestCase):
             },
         }
         self.assertEqual(excellence_issues(article, dossier(), article_format="brief"), [])
+
+    def test_fact_rich_daily_depth_brief_is_not_killed_for_being_single_source(self) -> None:
+        event = {
+            "candidate": {"title": "A reported office upgrade", "summary": "Reported facts."},
+            "provisional_format": "brief",
+            "selection_tier": "daily_depth",
+            "legal_or_allegation_risk": False,
+            "franchise": {"promise": "Explain the institutional capital decision."},
+        }
+        evidence = {
+            **dossier(),
+            "usable_full_text_count": 1,
+            "reported_facts": [
+                {"fact": f"Reported fact {index}.", "source_url": "https://source.example/story"}
+                for index in range(4)
+            ],
+        }
+        model_result = {
+            "decision": "defer",
+            "final_format": "brief",
+            "kill_reason": "Only one source is available and there are no human stakes.",
+        }
+        with patch(
+            "editorial_room.call_deepseek",
+            return_value=json.dumps(model_result),
+        ):
+            plan = run_editorial_room(event, evidence, api_key="test-key")
+        self.assertEqual(plan["decision"], "shorten")
+        self.assertEqual(plan["final_format"], "brief")
+        self.assertTrue(plan["daily_depth_floor_applied"])
+
+    def test_daily_depth_floor_never_overrides_a_legal_risk_stop(self) -> None:
+        event = {
+            "candidate": {"title": "A disputed transaction", "summary": "Reported facts."},
+            "provisional_format": "brief",
+            "selection_tier": "daily_depth",
+            "legal_or_allegation_risk": False,
+        }
+        evidence = {
+            **dossier(),
+            "usable_full_text_count": 1,
+            "reported_facts": [
+                {"fact": f"Reported fact {index}.", "source_url": "https://source.example/story"}
+                for index in range(4)
+            ],
+        }
+        model_result = {
+            "decision": "defer",
+            "final_format": "brief",
+            "kill_reason": "The source contains fraud allegations and active litigation.",
+        }
+        with patch(
+            "editorial_room.call_deepseek",
+            return_value=json.dumps(model_result),
+        ):
+            plan = run_editorial_room(event, evidence, api_key="test-key")
+        self.assertEqual(plan["decision"], "defer")
+        self.assertFalse(plan.get("daily_depth_floor_applied", False))
 
 
 if __name__ == "__main__":

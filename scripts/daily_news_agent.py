@@ -2325,6 +2325,12 @@ def main():
             editorial_item["editorial_room"] = room
             decision = room.get("decision")
             final_format = room.get("final_format", "brief")
+            if room.get("daily_depth_floor_applied"):
+                print(
+                    "      Evidence-bounded brief policy applied: "
+                    f"{dossier.get('usable_full_text_count', 0)} retrieved source(s), "
+                    f"{len(dossier.get('reported_facts', []))} mapped fact(s)"
+                )
             if decision in {"kill", "defer"}:
                 reason = room.get("kill_reason") or f"Editorial room decision: {decision}"
                 held_assignments.append(f"{candidate['title']}: {reason}")

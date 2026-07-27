@@ -14,9 +14,17 @@ from editorial_scoring import call_deepseek
 EDITORIAL_CONSTITUTION = (
     "Light Tower publishes only when it can make a smart reader see a capital "
     "decision differently. Accuracy is the floor. The work must add consequence, "
-    "mechanism, human stakes, candor, and a bounded point of view. Routine facts "
-    "belong in the deal tape. Wit must be earned by a true observation. A valid "
-    "editorial outcome is to kill, shorten, or defer a story."
+    "mechanism, human or institutional stakes, candor, and a bounded point of "
+    "view. Routine facts belong in the deal tape. Wit must be earned by a true "
+    "observation. A valid editorial outcome is to kill, shorten, or defer a story."
+)
+
+_DAILY_DEPTH_HARD_STOP = re.compile(
+    r"\b(?:alleg(?:ation|ed|edly)|lawsuit|litigation|criminal|fraud|indict(?:ed|ment)?|"
+    r"charged|legal risk|conflicting facts?|contradict(?:ion|ory)?|unreliable source|"
+    r"source authenticity|fabricat(?:ed|ion)|cannot verify|unsupported "
+    r"(?:number|figure|claim)|duplicate|already covered)\b",
+    re.IGNORECASE,
 )
 
 
@@ -75,6 +83,30 @@ def deterministic_room_plan(
     }
 
 
+def _daily_depth_brief_is_supported(
+    editorial_event: dict[str, Any],
+    dossier: dict[str, Any],
+    result: dict[str, Any],
+) -> bool:
+    """Keep model taste from silently replacing the deterministic brief contract."""
+    if editorial_event.get("selection_tier") != "daily_depth":
+        return False
+    if editorial_event.get("legal_or_allegation_risk"):
+        return False
+    if dossier.get("evidence_level") == "insufficient":
+        return False
+    if int(dossier.get("usable_full_text_count") or 0) < 1:
+        return False
+    if len(dossier.get("reported_facts") or []) < 3:
+        return False
+    risk_text = json.dumps({
+        "kill_reason": result.get("kill_reason"),
+        "reporting_gaps": result.get("reporting_gaps"),
+        "skeptic_objections": result.get("skeptic_objections"),
+    }, ensure_ascii=False)
+    return not _DAILY_DEPTH_HARD_STOP.search(risk_text)
+
+
 def run_editorial_room(
     editorial_event: dict[str, Any],
     dossier: dict[str, Any],
@@ -122,11 +154,20 @@ Act as an editorial room, not a copywriter:
 1. Propose materially different angles.
 2. Select one bounded thesis supported by the dossier.
 3. State the strongest skeptical objections.
-4. Identify the human stakes and one source-grounded concrete detail.
+4. Identify the human or institutional stakes and one source-grounded concrete detail.
 5. Decide write, shorten, deal_tape, defer, or kill.
 6. A flagship requires at least three independent sources and two usable full-text sources.
 7. Do not reward length, seriousness, or a large dollar amount by themselves.
 8. Treat editorial priors as hypotheses to test, never as facts to impose.
+9. For a daily_depth brief, one reputable retrieved source is sufficient when
+   it supplies at least three concrete reported facts and supports a useful,
+   tightly bounded CRE implication. Do not require a second source merely to
+   restate a disclosed lease, capital project, transaction, or market dataset.
+10. Missing human stakes alone is not a reason to defer an asset-level brief;
+    identify the institutional decision, constraint, or exposure instead.
+11. Defer or kill a daily_depth brief for contradictory or unverified facts,
+    legal/allegation risk, weak source authenticity, duplication, or no
+    defensible CRE consequence—not merely because it is concise or single-source.
 
 Return only JSON with:
 decision, final_format, angle, why_now, favored_thesis, alternate_angles,
@@ -156,13 +197,26 @@ final_format must be flagship, brief, culture_signal, data_note, or deal_tape.
         final_format = "brief"
         decision = "shorten"
 
-    return {
+    room_plan = {
         **fallback,
         **{key: value for key, value in result.items() if value not in (None, "")},
         "decision": decision,
         "final_format": final_format,
         "generation_mode": "deepseek-editorial-room",
     }
+    if (
+        decision in {"deal_tape", "defer", "kill"}
+        and _daily_depth_brief_is_supported(editorial_event, dossier, result)
+    ):
+        room_plan.update({
+            "decision": "shorten",
+            "final_format": "brief",
+            "kill_reason": "",
+            "daily_depth_floor_applied": True,
+            "original_decision": decision,
+            "daily_depth_objection": str(result.get("kill_reason") or ""),
+        })
+    return room_plan
 
 
 def excellence_issues(

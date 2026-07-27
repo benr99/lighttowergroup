@@ -171,6 +171,9 @@ deterministic system establishes the factual boundary.
 - A daily-depth brief may auto-publish with at least one retrieved full-text
   source, at least three source-mapped facts, an editorial-room write or shorten
   decision, and all normal quality gates.
+- For this bounded format, a second source is not required merely to restate a
+  disclosed lease, capital project, transaction, or market dataset. The article
+  must describe the source boundary and avoid market-wide claims.
 - A fact-poor, unsupported, legally sensitive, or repetitive brief is held even
   when the daily target has not been met.
 

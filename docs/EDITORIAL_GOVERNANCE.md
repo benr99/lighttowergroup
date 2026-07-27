@@ -57,6 +57,12 @@ auto-publish only when it has retrieved full text, at least three source-mapped
 facts, a write-or-shorten decision from the editorial room, and passes every
 normal quality and risk gate.
 
+For a daily-depth brief, the editorial-room model cannot turn single-source
+status or missing human stakes into an automatic veto when the deterministic
+record contains retrieved full text and at least three source-mapped facts.
+Institutional stakes are valid. Contradictory or unverified facts, legal risk,
+weak source authenticity, duplication, and unsupported claims remain hard stops.
+
 The `data/ideas/held/` directory is an editorial queue, not a failure bin.
 Review held reasons weekly and use them to improve source selection and prompts.
 
