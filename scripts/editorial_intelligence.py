@@ -686,6 +686,13 @@ def daily_brief_eligible(item: dict[str, Any]) -> bool:
     )
 
 
+def _event_has_cre_anchor(item: dict[str, Any]) -> bool:
+    return any(
+        has_cre_editorial_anchor(source)
+        for source in item.get("sources", [item.get("candidate", {})])
+    )
+
+
 def select_edition(
     candidates: list[dict[str, Any]],
     *,
@@ -811,7 +818,11 @@ def select_edition(
     for item in scored:
         if item in selected or len(deal_tape) >= max_deal_tape:
             continue
-        if item.get("archive_repeat") or item.get("legal_or_allegation_risk"):
+        if (
+            item.get("archive_repeat")
+            or item.get("legal_or_allegation_risk")
+            or not _event_has_cre_anchor(item)
+        ):
             continue
         features = {
             "has_material_transaction": _event_feature(item, "has_material_transaction"),

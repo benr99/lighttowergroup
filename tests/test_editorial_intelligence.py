@@ -266,6 +266,24 @@ class EditorialIntelligenceTests(unittest.TestCase):
                     "as investors assess demand for the technology IPO."
                 ),
             ),
+            story(
+                "When your AI vendor gets it wrong, you're still responsible",
+                source="HousingWire",
+                url="https://housingwire.com/ai-servicer-liability",
+                summary=(
+                    "Mortgage servicers remain responsible for account decisions "
+                    "under OCC model risk guidance and Fannie requirements."
+                ),
+            ),
+            story(
+                "Made Card is building homeowner loyalty",
+                source="HousingWire",
+                url="https://housingwire.com/made-card",
+                summary=(
+                    "The consumer rewards card helps mortgage lenders improve "
+                    "post-close engagement and recapture rates."
+                ),
+            ),
         ]
         edition = select_edition(
             candidates,
@@ -288,6 +306,29 @@ class EditorialIntelligenceTests(unittest.TestCase):
         self.assertNotIn(
             "Innolight set to price Hong Kong listing below maximum",
             selected_titles,
+        )
+        self.assertNotIn(
+            "When your AI vendor gets it wrong, you're still responsible",
+            selected_titles,
+        )
+        self.assertNotIn(
+            "Made Card is building homeowner loyalty",
+            selected_titles,
+        )
+        deal_tape_titles = {
+            item["candidate"]["title"] for item in edition["deal_tape"]
+        }
+        self.assertNotIn(
+            "Innolight set to price Hong Kong listing below maximum",
+            deal_tape_titles,
+        )
+        self.assertNotIn(
+            "When your AI vendor gets it wrong, you're still responsible",
+            deal_tape_titles,
+        )
+        self.assertNotIn(
+            "Made Card is building homeowner loyalty",
+            deal_tape_titles,
         )
         self.assertTrue(all(
             item["selection_tier"] == "daily_depth"

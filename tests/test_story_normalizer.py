@@ -116,6 +116,36 @@ class StoryNormalizerTests(unittest.TestCase):
         self.assertTrue(item["attention_features"]["has_big_number"])
         self.assertFalse(has_cre_editorial_anchor(item))
 
+    def test_mortgage_servicing_ai_policy_is_not_a_cre_anchor(self) -> None:
+        item = normalize(
+            "When your AI vendor gets it wrong, you're still responsible",
+            (
+                "Mortgage servicers remain responsible for account decisions "
+                "under OCC model risk guidance and Fannie requirements."
+            ),
+            source="HousingWire",
+        )
+        enriched = enrich_normalized_story(
+            item,
+            (
+                "The Office of the Comptroller of the Currency requires model "
+                "inventories, vendor controls and borrower adverse-action notices."
+            ),
+        )
+        self.assertNotIn("office", enriched["entities"]["asset_classes"])
+        self.assertFalse(has_cre_editorial_anchor(enriched))
+
+    def test_building_homeowner_loyalty_does_not_mean_a_building_asset(self) -> None:
+        item = normalize(
+            "Made Card is building homeowner loyalty",
+            (
+                "The consumer rewards card helps mortgage lenders improve "
+                "post-close engagement and recapture rates."
+            ),
+            source="HousingWire",
+        )
+        self.assertFalse(has_cre_editorial_anchor(item))
+
 
 if __name__ == "__main__":
     unittest.main()
