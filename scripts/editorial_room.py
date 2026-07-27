@@ -248,6 +248,56 @@ def excellence_issues(
         )
     if article_format == "flagship" and not dossier.get("longform_allowed"):
         issues.append("excellence gate: dossier does not permit flagship long-form")
+    if article_format == "brief":
+        sentences = [
+            sentence.strip()
+            for sentence in re.split(r"(?<=[.!?])\s+", text)
+            if sentence.strip()
+        ]
+        speculative_sentences = [
+            sentence for sentence in sentences
+            if re.search(
+                r"\b(?:may|might|could|perhaps|possibly|speculative|betting)\b",
+                sentence,
+                re.IGNORECASE,
+            )
+        ]
+        if len(speculative_sentences) > 3:
+            issues.append(
+                "excellence gate: brief stacks too many hypothetical claims"
+            )
+
+        dossier_text = " ".join(
+            " ".join([
+                str(source.get("summary", "")),
+                str(source.get("full_text_excerpt", "")),
+            ])
+            for source in dossier.get("sources", [])
+            if isinstance(source, dict)
+        )
+        redevelopment_context = re.search(
+            r"\b(?:redevelop\w*|renovat\w*|moderniz\w*|reposition\w*|"
+            r"gut[- ]renovat\w*)\b",
+            dossier_text,
+            re.IGNORECASE,
+        )
+        claims_new_supply = re.search(
+            r"\b(?:add(?:s|ed|ing)?|deliver(?:s|ed|ing)?)\b[^.]{0,90}"
+            r"\bnew (?:office |retail |industrial )?(?:space|supply)\b",
+            text,
+            re.IGNORECASE,
+        )
+        explicit_net_new_area = re.search(
+            r"\b(?:ground[- ]up|new construction|additional (?:floor )?area|"
+            r"net[- ]new|expand\w* (?:the )?(?:building|floor area)|"
+            r"increase\w* (?:gross )?floor area)\b",
+            dossier_text,
+            re.IGNORECASE,
+        )
+        if redevelopment_context and claims_new_supply and not explicit_net_new_area:
+            issues.append(
+                "excellence gate: redevelopment is mislabeled as net-new supply"
+            )
     allowed_urls = {
         str(source.get("url", ""))
         for source in dossier.get("sources", [])

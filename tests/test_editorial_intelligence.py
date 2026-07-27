@@ -257,6 +257,15 @@ class EditorialIntelligenceTests(unittest.TestCase):
                 url="https://axios.com/altman",
                 summary="The technology executive will preview a new model in Washington.",
             ),
+            story(
+                "Innolight set to price Hong Kong listing below maximum",
+                source="Bloomberg Real Estate",
+                url="https://bloomberg.com/innolight-ipo",
+                summary=(
+                    "The optical-module maker plans a $6.8 billion capital raise "
+                    "as investors assess demand for the technology IPO."
+                ),
+            ),
         ]
         edition = select_edition(
             candidates,
@@ -274,6 +283,10 @@ class EditorialIntelligenceTests(unittest.TestCase):
         self.assertIn("Six projects deliver 1,200 Newark apartments", selected_titles)
         self.assertNotIn(
             "What Sam Altman will tell the White House this week",
+            selected_titles,
+        )
+        self.assertNotIn(
+            "Innolight set to price Hong Kong listing below maximum",
             selected_titles,
         )
         self.assertTrue(all(

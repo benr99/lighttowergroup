@@ -104,6 +104,18 @@ class StoryNormalizerTests(unittest.TestCase):
         self.assertTrue(enriched["attention_features"]["has_material_transaction"])
         self.assertGreaterEqual(len(enriched["entities"]["amounts"]), 3)
 
+    def test_large_non_real_estate_ipo_is_not_a_cre_anchor(self) -> None:
+        item = normalize(
+            "Innolight set to price Hong Kong listing below maximum",
+            (
+                "The optical-module maker plans a $6.8 billion capital raise "
+                "as investors assess demand for the technology IPO."
+            ),
+            source="Bloomberg Real Estate",
+        )
+        self.assertTrue(item["attention_features"]["has_big_number"])
+        self.assertFalse(has_cre_editorial_anchor(item))
+
 
 if __name__ == "__main__":
     unittest.main()

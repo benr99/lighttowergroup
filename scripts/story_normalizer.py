@@ -87,12 +87,25 @@ US_MARKETS = [
     "seattle", "denver", "phoenix", "philadelphia", "nashville",
 ]
 
-CRE_EDITORIAL_TOPICS = {
-    "major_sale", "capital_placement", "mna", "fed_rates", "bank_credit",
-    "private_credit", "private_equity", "distress", "cmbs", "policy",
-    "reit_public_markets", "development_finance", "government_action",
-    "capital_expenditure", "leasing", "market_fundamentals",
-}
+_EXPLICIT_CRE_PROPERTY_PATTERN = re.compile(
+    r"\b(?:commercial real estate|real estate|multifamily|apartments?|"
+    r"residential (?:units?|building|tower|project)|office (?:building|tower|"
+    r"market|space|lease|property)|industrial (?:real estate|building|space|"
+    r"leasing|rent|property)|warehouses?|logistics (?:property|facility|space)|"
+    r"retail (?:center|property|space|lease)|shopping centers?|mixed-use|"
+    r"hotels?|hospitality|housing|landlord|tenants?|occupancy|leased|leasing|"
+    r"rent roll|redevelop\w*|reposition\w*|zoning|rezoning|permits?|"
+    r"construction (?:loan|financing|project)|capital improvements?|"
+    r"property|properties|buildings?|towers?)\b",
+    re.IGNORECASE,
+)
+
+_PROPERTY_ADDRESS_PATTERN = re.compile(
+    r"\b\d{1,5}\s+(?:(?:west|east|north|south|w|e)\s+)?"
+    r"[a-z0-9'-]+(?:\s+[a-z0-9'-]+){0,2}\s+"
+    r"(?:street|st|avenue|ave|road|rd|boulevard|blvd|terrace|place)\b",
+    re.IGNORECASE,
+)
 
 
 def clean_text(value: Any) -> str:
@@ -363,14 +376,17 @@ def normalize_story(story: dict[str, Any]) -> dict[str, Any]:
 def has_cre_editorial_anchor(story: dict[str, Any]) -> bool:
     """Return whether a normalized story has a defensible Light Tower beat connection."""
     topics = set(story.get("topics") or [])
-    entities = story.get("entities") or {}
     features = story.get("attention_features") or {}
+    text = f"{story.get('title', '')} {story.get('summary', '')}"
+    explicit_property = bool(
+        _EXPLICIT_CRE_PROPERTY_PATTERN.search(text)
+        or _PROPERTY_ADDRESS_PATTERN.search(text)
+    )
     return bool(
-        topics & CRE_EDITORIAL_TOPICS
-        or entities.get("asset_classes")
-        or features.get("has_material_transaction")
+        explicit_property
+        or topics & {"cmbs", "reit_public_markets"}
         or features.get("has_material_operating_signal")
-        or features.get("has_policy_or_rate_language")
+        or features.get("has_msa_government_signal")
     )
 
 

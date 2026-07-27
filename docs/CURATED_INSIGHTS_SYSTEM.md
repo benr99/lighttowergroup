@@ -109,6 +109,11 @@ scores at or above 24 only when the event has a concrete capital or operating
 signal, a recognizable CRE anchor, no recent archive repeat, and no legal-risk
 signal.
 
+A large financing event or a story appearing in a real-estate-labeled feed is
+not a CRE anchor by itself. Daily-depth eligibility requires explicit property
+language, a property address, or a CRE-native signal such as CMBS, REIT,
+occupancy, or leasing evidence.
+
 Audience learning is deliberately weak relative to judgment. It can refine
 attention within a beat but cannot override evidence, duplication, or a routine
 event penalty.

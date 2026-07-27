@@ -119,6 +119,47 @@ class EditorialRoomTests(unittest.TestCase):
         self.assertEqual(plan["decision"], "defer")
         self.assertFalse(plan.get("daily_depth_floor_applied", False))
 
+    def test_brief_rejects_redevelopment_mislabeled_as_new_supply(self) -> None:
+        article = {
+            "body_html": (
+                "<p>The $200 million redevelopment will deliver 350,000 square "
+                "feet of new office supply in 2028.</p>"
+            ),
+            "sources": [{"url": "https://source.example/story"}],
+        }
+        evidence = {
+            **dossier(),
+            "sources": [{
+                "url": "https://source.example/story",
+                "summary": "The owner will modernize the existing office tower.",
+                "full_text_excerpt": (
+                    "The gut renovation strips the 350,000-square-foot building "
+                    "to its steel frame and installs a new curtain wall."
+                ),
+            }],
+        }
+        issues = excellence_issues(article, evidence, article_format="brief")
+        self.assertIn(
+            "excellence gate: redevelopment is mislabeled as net-new supply",
+            issues,
+        )
+
+    def test_brief_rejects_a_stack_of_hypothetical_scenarios(self) -> None:
+        body = (
+            "The project may miss its budget. It could struggle to find tenants. "
+            "The owner might delay construction. The site could remain vacant. "
+            + "Reported facts and bounded analysis. " * 45
+        )
+        article = {
+            "body_html": f"<p>{body}</p>",
+            "sources": [{"url": "https://source.example/story"}],
+        }
+        issues = excellence_issues(article, dossier(), article_format="brief")
+        self.assertIn(
+            "excellence gate: brief stacks too many hypothetical claims",
+            issues,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
