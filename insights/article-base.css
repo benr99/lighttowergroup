@@ -1,14 +1,26 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --black: #f5f4f0;
-  --navy: #ffffff;
-  --gold:     #c9a84c;
-  --gold-dim: rgba(0,0,0,0.08);
-  --white: #121212;
+  /* Primary colors — named for what they ARE, not inverted */
+  --page-bg: #f5f4f0;
+  --page-bg-rgb: 245, 244, 240;
+  --surface: #ffffff;
+  --page-text: #121212;
   --muted: #555555;
   --body-txt: #333333;
+
+  /* Accent */
+  --gold:     #c9a84c;
+  --gold-rgb: 201, 168, 76;
+  --gold-dim: rgba(0,0,0,0.08);
+
+  /* Typography */
   --serif:    Georgia, 'Times New Roman', serif;
   --sans:     -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Backward-compatible aliases (legacy inverted naming) */
+  --black: var(--page-bg);
+  --navy: var(--surface);
+  --white: var(--page-text);
 }
 html { scroll-behavior: smooth; }
 body { background: var(--black); color: var(--white);
@@ -86,7 +98,7 @@ body { background: var(--black); color: var(--white);
 .share-tw  { color: var(--white); border-color: rgba(0,0,0,0.18); }
 .share-tw:hover  { background: rgba(255,255,255,0.07); }
 .share-copy { color: var(--gold); border-color: var(--gold-dim); }
-.share-copy:hover { background: rgba(201,168,76,0.1); }
+.share-copy:hover { background: rgba(var(--gold-rgb), 0.1); }
 
 /* ── Body ── */
 .article-body { font-size: 1.3rem; line-height: 1.9; }
@@ -98,7 +110,7 @@ body { background: var(--black); color: var(--white);
 
 .article-data-note {
   margin: 0 0 2.5rem; padding: 1.5rem;
-  border: 1px solid var(--gold-dim); background: rgba(201,168,76,0.05);
+  border: 1px solid var(--gold-dim); background: rgba(var(--gold-rgb), 0.05);
 }
 .article-data-note-label {
   font-family: var(--sans); color: var(--gold); font-size: 0.68rem;
@@ -137,7 +149,7 @@ body { background: var(--black); color: var(--white);
 /* ── End-of-article CTA ── */
 .article-cta-block {
   margin: 3rem 0 2.5rem; padding: 2.25rem 2.25rem;
-  background: rgba(201,168,76,0.06);
+  background: rgba(var(--gold-rgb), 0.06);
   border: 1px solid var(--gold-dim);
   border-left: 3px solid var(--gold);
   border-radius: 2px;
@@ -166,7 +178,7 @@ body { background: var(--black); color: var(--white);
 
 /* ── Footer ── */
 .site-footer {
-  border-top: 1px solid rgba(201,168,76,0.1);
+  border-top: 1px solid rgba(var(--gold-rgb), 0.1);
   padding: 2.5rem 4rem; text-align: center;
 }
 .site-footer p {
@@ -181,7 +193,7 @@ body { background: var(--black); color: var(--white);
 .nav-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-menu-btn.open span:nth-child(2) { opacity: 0; }
 .nav-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(245,244,240,0.98); padding: 5rem 2rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 200; }
+.nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(var(--page-bg-rgb), 0.98); padding: 5rem 2rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 200; }
 .nav-mobile.open { display: flex; }
 .nav-mobile a { font-size: 1rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; }
 .nav-mobile a:hover { color: var(--white); }

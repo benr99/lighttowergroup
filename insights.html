@@ -37,13 +37,13 @@
     :root {
       --bg: #F5F4F0;
       --text: #121212;
-      --accent: #C5A059;
-      --accent-hover: #D4AF6B;
-      --line: rgba(0,0,0,0.06);
-      --line-strong: rgba(0,0,0,0.12);
+      --accent: #C9A84C;
+      --accent-hover: #D9B85C;
+      --line: rgba(0,0,0,0.08);
+      --line-strong: rgba(0,0,0,0.15);
       --white: #ffffff;
       --dark: #0E0E0E;
-      --mid: #555555;
+      --mid: #555555; /* replaces hardcoded #888 */
       --font-display: 'Playfair Display', serif;
       --font-body: 'Space Grotesk', sans-serif;
       --container: 1200px;
@@ -84,7 +84,7 @@
     @media (max-width: 480px)  { .nav-inner { padding: 0 1.5rem; } }
     .nav-logo { font-family: var(--font-body); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 700; margin-right: auto; white-space: nowrap; }
     .nav-links { display: flex; gap: 2.8rem; align-items: center; }
-    .nav-links a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-links a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid); font-weight: 500; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--accent); }
     .nav-cta { background: var(--text) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; font-size: 0.7rem !important; border: none; cursor: pointer; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
@@ -98,7 +98,7 @@
     @media (max-width: 860px) { .nav-menu-btn { display: flex; } }
     .nav-mobile { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(245,244,240,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line-strong); padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
     .nav-mobile.open { display: flex; }
-    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid); font-weight: 500; }
     .nav-mobile a:hover { color: var(--text); }
     .nav-mobile .nav-mobile-cta { margin-top: 0.5rem; background: var(--text); color: var(--white) !important; padding: 0.7rem 1.4rem; text-align: center; }
 
@@ -174,7 +174,7 @@
     .edition-brief:hover { background: var(--bg); }
     .edition-brief .format-badge {
       display: inline-block;
-      background: rgba(197,160,89,0.15);
+      background: rgba(201,168,76,0.15);
       color: var(--accent);
       font-size: 0.58rem;
       text-transform: uppercase;
@@ -234,11 +234,11 @@
       border: 1px solid var(--line-strong); background: transparent;
       padding: 0.5rem 1.1rem; font-family: var(--font-body);
       font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: #888; cursor: pointer; transition: all 0.2s;
+      color: var(--mid); cursor: pointer; transition: all 0.2s;
     }
     .filter-btn:hover, .filter-btn.active {
       border-color: var(--accent); color: var(--accent);
-      background: rgba(197,160,89,0.05);
+      background: rgba(201,168,76,0.05);
     }
 
     .insights-tools {
@@ -251,7 +251,7 @@
       background: var(--bg); color: var(--text); padding: 0.78rem 1rem;
       font: inherit; font-size: 0.9rem;
     }
-    .insights-search:focus { border-color: var(--accent); outline: 2px solid rgba(197,160,89,0.2); outline-offset: 2px; }
+    .insights-search:focus { border-color: var(--accent); outline: 2px solid rgba(201,168,76,0.2); outline-offset: 2px; }
     .insights-count { color: var(--mid); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
     .insights-pagination { display: flex; justify-content: center; gap: 0.6rem; margin-top: 2rem; }
     .insights-page-btn {
@@ -610,7 +610,7 @@
                            post.format === 'brief' ? 'Brief' :
                            post.format === 'culture_signal' ? 'Culture of Capital' :
                            post.format === 'data_note' ? 'Data Note' : '';
-        badge.style.cssText = 'display:inline-block;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.14em;padding:0.15rem 0.55rem;margin-left:0.5rem;background:rgba(197,160,89,0.1);color:var(--accent);font-weight:600;';
+        badge.style.cssText = 'display:inline-block;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.14em;padding:0.15rem 0.55rem;margin-left:0.5rem;background:rgba(201,168,76,0.1);color:var(--accent);font-weight:600;';
         if (post.format === 'flagship') {
           badge.style.background = 'var(--accent)';
           badge.style.color = 'var(--white)';

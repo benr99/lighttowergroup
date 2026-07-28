@@ -6,7 +6,7 @@
 .edition-frame {
   background: #0c1118;
   color: #f4f0e8;
-  border: 1px solid rgba(197, 160, 89, 0.35);
+  border: 1px solid rgba(201, 168, 76, 0.35);
   padding: clamp(1.5rem, 4vw, 3.5rem);
   position: relative;
   overflow: hidden;
@@ -19,13 +19,13 @@
   height: 24rem;
   right: -10rem;
   top: -13rem;
-  border: 1px solid rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.12);
   border-radius: 50%;
 }
 
 .edition-kicker,
 .edition-section-label {
-  color: #c5a059;
+  color: #c9a84c;
   font-size: 0.68rem;
   font-weight: 650;
   letter-spacing: 0.2em;
@@ -111,7 +111,7 @@
   flex-wrap: wrap;
   gap: 0.7rem 1.2rem;
   margin-top: 1.5rem;
-  color: #c5a059;
+  color: #c9a84c;
   font-size: 0.68rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -164,7 +164,7 @@
 
 .edition-reader {
   margin-top: 2px;
-  border-top: 1px solid rgba(197, 160, 89, 0.35);
+  border-top: 1px solid rgba(201, 168, 76, 0.35);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
@@ -199,8 +199,8 @@
 .edition-subscribe button,
 .edition-feedback-form button,
 .edition-poll-button {
-  border: 1px solid #c5a059;
-  background: #c5a059;
+  border: 1px solid #c9a84c;
+  background: #c9a84c;
   color: #0c1118;
   padding: 0.8rem 1rem;
   font: inherit;
@@ -230,15 +230,15 @@
 
 .edition-poll-button:hover,
 .edition-poll-button[aria-pressed="true"] {
-  border-color: #c5a059;
-  color: #c5a059;
+  border-color: #c9a84c;
+  color: #c9a84c;
 }
 
 .edition-form-status {
   min-height: 1.3em;
   width: 100%;
   margin-top: 0.45rem;
-  color: #c5a059;
+  color: #c9a84c;
   font-size: 0.78rem;
 }
 
