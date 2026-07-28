@@ -139,6 +139,9 @@ class AgentRuntimeTests(unittest.TestCase):
             ".article-data-point strong { font-family: var(--serif); font-size: 1.65rem; color: var(--body-txt); }",
             html,
         )
+        stylesheet = (ROOT / "experience-2026.css").read_text(encoding="utf-8")
+        self.assertIn(".article-data-note .article-data-point strong", stylesheet)
+        self.assertIn("color: var(--x26-ink) !important;", stylesheet)
 
 
 if __name__ == "__main__":
