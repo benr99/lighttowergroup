@@ -119,6 +119,27 @@ class AgentRuntimeTests(unittest.TestCase):
         self.assertIn("latest-edition.json", manifest["files"])
         self.assertIn(".editorial-state/run-summary.md", manifest["files"])
 
+    def test_data_note_uses_ink_not_white_for_metric_values(self) -> None:
+        article = {
+            "slug": "contrast-check",
+            "title": "Contrast Check",
+            "subtitle": "A source-backed visual check.",
+            "category": "Capital Markets",
+            "meta_description": "A source-backed visual check.",
+            "date_iso": "2026-07-28",
+            "date": "July 28, 2026",
+            "tags": ["contrast"],
+            "body_html": "<p>Reported detail.</p>",
+            "sources": [{"name": "Source", "url": "https://example.org/source"}],
+            "data_points": [{"label": "Reported metric", "value": "$14.6M"}],
+        }
+        html = daily_news_agent.render_html(article)
+        self.assertIn('class="article-data-point"><strong>$14.6M</strong>', html)
+        self.assertIn(
+            ".article-data-point strong { font-family: var(--serif); font-size: 1.65rem; color: var(--body-txt); }",
+            html,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

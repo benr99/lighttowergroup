@@ -1297,7 +1297,7 @@ def render_html(article: dict) -> str:
     }}
     .article-data-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)); gap: 1rem; }}
     .article-data-point {{ display: flex; flex-direction: column; gap: 0.25rem; }}
-    .article-data-point strong {{ font-family: var(--serif); font-size: 1.65rem; color: var(--white); }}
+    .article-data-point strong {{ font-family: var(--serif); font-size: 1.65rem; color: var(--body-txt); }}
     .article-data-point span {{ font-family: var(--sans); font-size: 0.78rem; color: var(--muted); line-height: 1.4; }}
 
     /* ── Tags ── */
