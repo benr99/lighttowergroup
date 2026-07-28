@@ -121,12 +121,14 @@ exports.handler = async (event) => {
   }
 
   // Parse body
-  let rawMessages;
+  let rawMessages, body;
   try {
-    ({ messages: rawMessages } = JSON.parse(event.body));
+    body = JSON.parse(event.body);
+    ({ messages: rawMessages } = body);
   } catch {
     return errorResponse(400, 'Invalid JSON', cors);
   }
+  const ref = typeof body.ref === 'string' && body.ref.length <= 200 ? body.ref : '';
 
   // Validate messages array
   if (!Array.isArray(rawMessages) || rawMessages.length === 0) {

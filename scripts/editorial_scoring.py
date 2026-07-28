@@ -284,9 +284,12 @@ def call_deepseek(
     max_tokens: int = 5000,
     temperature: float = 0.2,
     json_mode: bool = False,
+    provider: dict[str, Any] | None = None,
 ) -> str:
+    url = (provider or {}).get("url", "https://api.deepseek.com/v1/chat/completions")
+    model = (provider or {}).get("model", MODEL_NAME)
     payload = {
-        "model": MODEL_NAME,
+        "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "max_tokens": max_tokens,
         "temperature": temperature,
@@ -294,13 +297,21 @@ def call_deepseek(
     if json_mode:
         payload["response_format"] = {"type": "json_object"}
     resp = requests.post(
-        "https://api.deepseek.com/v1/chat/completions",
+        url,
         headers={"Authorization": f"Bearer {api_key}"},
         json=payload,
         timeout=90,
     )
     resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"].strip()
+    data = resp.json()
+    # Track cost
+    try:
+        from cost_tracker import track_llm_cost
+        usage = data.get("usage", {})
+        track_llm_cost("scoring", usage.get("total_tokens", 1000))
+    except ImportError:
+        pass
+    return data["choices"][0]["message"]["content"].strip()
 
 
 def _normalize_score_row(row: dict[str, Any], candidate: dict[str, Any], index: int) -> dict[str, Any]:

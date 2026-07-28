@@ -13,6 +13,27 @@ import re
 from pathlib import Path
 from typing import Any, Iterable
 
+# Minimal context helpers for voice selection (mirrors editorial_intelligence.py)
+_CULTURE_PATTERNS_VOICE: dict[str, str] = {
+    "sports": r"\b(stadium|arena|sports|team owner|nba|nfl|mlb|nhl)\b",
+    "entertainment": r"\b(film|music|theater|theatre|celebrity|nightlife|restaurant|hotel|hospitality)\b",
+    "technology": r"\b(ai|artificial intelligence|data center|power demand|semiconductor|robot)\b",
+    "status": r"\b(luxury|club|penthouse|billionaire|family office|bonus|compensation|status)\b",
+    "cities": r"\b(return.to.office|remote work|migration|transit|public realm|neighborhood|downtown)\b",
+    "climate": r"\b(climate|insurance|flood|wildfire|energy transition|resilience)\b",
+    "politics": r"\b(mayor|governor|election|subsidy|taxpayer|public money|lobby)\b",
+}
+
+
+def _culture_dimensions(text: str) -> list[str]:
+    return [name for name, pattern in _CULTURE_PATTERNS_VOICE.items() if re.search(pattern, text, re.IGNORECASE)]
+
+
+_CONFLICT_PATTERNS_VOICE = (
+    r"\b(default|foreclos|bankrupt|lawsuit|litigation|fight|battle|dispute|"
+    r"missed payment|special servicing|receivership|seiz|reject|blocked|hostile)\b",
+)
+
 
 VOICE_SYSTEM_ADDENDUM = """\
 THE LIGHT TOWER EDITORIAL STANDARD
@@ -159,28 +180,59 @@ HEADLINE_SHAPES: tuple[dict[str, str], ...] = (
 def select_headline_shape(
     article: dict[str, Any], recent_packages: Iterable[dict[str, Any]] = (),
 ) -> dict[str, str]:
-    """Choose a deterministic headline shape while avoiding recently used ones.
-
-    Mirrors select_editorial_brief: the same story always gets the same shape
-    (auditable, repeatable), and different stories spread across the bank via
-    a hash of the story's own identity rather than randomness.
-    """
+    """Choose a headline shape that matches the story's content."""
     recent = {
         str(record.get("headline_shape", "")).strip()
         for record in recent_packages
         if str(record.get("headline_shape", "")).strip()
     }
-    candidates = [shape for shape in HEADLINE_SHAPES if shape["name"] not in recent] or list(HEADLINE_SHAPES)
-    seed = "|".join(
-        [
-            "headline",
-            str(article.get("slug", "")),
-            str(article.get("title", "")),
-            str(article.get("category", "")),
-        ]
-    )
-    index = int(hashlib.sha256(seed.encode("utf-8")).hexdigest(), 16) % len(candidates)
-    return dict(candidates[index])
+    available = [s for s in HEADLINE_SHAPES if s["name"] not in recent] or list(HEADLINE_SHAPES)
+    available_names = {s["name"] for s in available}
+
+    text = " ".join([
+        str(article.get("title", "")),
+        str(article.get("summary", "")),
+    ]).lower()
+    topics = set(article.get("topics") or [])
+    features = article.get("attention_features") or {}
+    amount_search = re.search(r'\$\s*([\d,.]+)\s*(?:million|billion|trillion|mm|bn|m|b)?\b', text, re.IGNORECASE)
+
+    def _pick(name):
+        for s in available:
+            if s["name"] == name:
+                return s
+        return None
+
+    # Context-based selection
+    if features.get("has_big_number") and amount_search:
+        pick = _pick("Number as the hook")
+        if pick: return dict(pick)
+
+    if topics & {"distress", "bank_credit"}:
+        pick = _pick("Consequence-led") or _pick("Contradiction reveal")
+        if pick: return dict(pick)
+
+    if topics & {"policy", "government_action"}:
+        pick = _pick("Plain unhedged declaration") or _pick("Consequence-led")
+        if pick: return dict(pick)
+
+    if len(article.get("entities", {}).get("companies", [])) >= 3:
+        pick = _pick("Colon reveal") or _pick("Verb-first claim")
+        if pick: return dict(pick)
+
+    if any(term in text for term in ("first", "largest", "record", "historic", "unexpected", "reverses", "abandons")):
+        pick = _pick("Verb-first claim") or _pick("Consequence-led")
+        if pick: return dict(pick)
+
+    # Fallback: hash-based
+    seed = "|".join([
+        "headline",
+        str(article.get("slug", "")),
+        str(article.get("title", "")),
+        str(article.get("category", "")),
+    ])
+    index = int(hashlib.sha256(seed.encode("utf-8")).hexdigest(), 16) % len(available)
+    return dict(available[index])
 
 
 def title_quality_issues(
@@ -233,7 +285,7 @@ _AI_TELLS: tuple[tuple[str, str], ...] = (
     (r"\[cut before posting\.\]", "automatic truncation marker"),
 )
 
-_MOJIBAKE_RE = re.compile(r"(?:â€|â€”|â†|âœ|Ãƒ|Ã¢|�)")
+_MOJIBAKE_RE = re.compile(r"(?:[\x80-\x9f]|Ã(?:©|±|¼|½|¾|€|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|'|\"|•|–|—|˜|™|š|›|œ|ž|Ÿ)|â(?:€|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|'|\"|•|–|—|˜|™|š|›|œ|ž|Ÿ)|Â(?:·|®|©|°)|\ufffd)")
 
 
 def contains_mojibake(value: Any) -> bool:
@@ -262,18 +314,86 @@ def load_recent_packages(queue_path: Path, limit: int = 8) -> list[dict[str, Any
 def select_editorial_brief(
     article: dict[str, Any], recent_packages: Iterable[dict[str, Any]] = (),
 ) -> dict[str, Any]:
-    """Choose a deterministic mode while avoiding recently used structures."""
+    """Choose a voice mode that matches the story's content, not a random hash."""
     recent = set(_recent_modes(recent_packages))
-    candidates = [mode for mode in VOICE_MODES if mode["name"] not in recent] or list(VOICE_MODES)
-    seed = "|".join(
-        [
-            str(article.get("slug", "")),
-            str(article.get("title", "")),
-            str(article.get("category", "")),
-        ]
-    )
-    index = int(hashlib.sha256(seed.encode("utf-8")).hexdigest(), 16) % len(candidates)
-    mode = dict(candidates[index])
+    available = [mode for mode in VOICE_MODES if mode["name"] not in recent] or list(VOICE_MODES)
+    available_names = {m["name"] for m in available}
+
+    text = " ".join([
+        str(article.get("title", "")),
+        str(article.get("summary", "")),
+        " ".join(str(t) for t in (article.get("topics") or [])),
+    ]).lower()
+    topics = set(article.get("topics") or [])
+    features = article.get("attention_features") or {}
+    entities = article.get("entities") or {}
+    companies = entities.get("companies") or []
+    culture_dims = _culture_dimensions(text)
+
+    def _pick(name):
+        for m in available:
+            if m["name"] == name:
+                return m
+        return None
+
+    # Context-based selection in priority order
+    if topics & {"distress", "bank_credit"} or features.get("has_distress_language"):
+        if any(re.search(p, text) for p in _CONFLICT_PATTERNS_VOICE):
+            pick = _pick("Basis autopsy") or _pick("Lender's-eye memorandum")
+            if pick:
+                mode = dict(pick)
+                mode["selection_reason"] = "distress/conflict detected: basis autopsy"
+                return _enrich_mode(mode)
+
+    if topics & {"major_sale", "capital_placement"} and features.get("has_big_number"):
+        pick = _pick("Underwriting margin")
+        if pick:
+            mode = dict(pick)
+            mode["selection_reason"] = "major transaction with big number: underwriting margin"
+            return _enrich_mode(mode)
+
+    if topics & {"policy", "government_action"} or features.get("has_federal_source"):
+        pick = _pick("Consensus under cross-examination")
+        if pick:
+            mode = dict(pick)
+            mode["selection_reason"] = "policy/government action: consensus under cross-examination"
+            return _enrich_mode(mode)
+
+    if len(culture_dims) >= 2:
+        pick = _pick("Capital After Dark") or _pick("City in the balance sheet")
+        if pick:
+            mode = dict(pick)
+            mode["selection_reason"] = f"culture dimensions ({', '.join(culture_dims[:3])}): culture-of-capital voice"
+            return _enrich_mode(mode)
+
+    if features.get("has_material_transaction") and len(companies) >= 3:
+        pick = _pick("Counterparty map")
+        if pick:
+            mode = dict(pick)
+            mode["selection_reason"] = "multi-party transaction: counterparty map"
+            return _enrich_mode(mode)
+
+    if any(term in text for term in ("maturity", "refinance", "extension", "expiring", "clock")):
+        pick = _pick("Time as a cost of capital")
+        if pick:
+            mode = dict(pick)
+            mode["selection_reason"] = "time-sensitive event: time as cost of capital"
+            return _enrich_mode(mode)
+
+    # Fallback: deterministic hash (as before) for stories without clear context
+    seed = "|".join([
+        str(article.get("slug", "")),
+        str(article.get("title", "")),
+        str(article.get("category", "")),
+    ])
+    index = int(hashlib.sha256(seed.encode("utf-8")).hexdigest(), 16) % len(available)
+    mode = dict(available[index])
+    mode["selection_reason"] = "no specific context match: hash-selected fallback"
+    return _enrich_mode(mode)
+
+
+def _enrich_mode(mode: dict[str, Any]) -> dict[str, Any]:
+    """Attach the shared editorial standards to any voice mode."""
     mode["reader"] = "CRE owners, sponsors, lenders, capital partners, and operators"
     mode["craft_rule"] = "Use one concrete fact, one defensible interpretation, and one practical implication."
     mode["narrative_finance_checklist"] = [

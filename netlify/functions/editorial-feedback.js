@@ -1,5 +1,7 @@
 /* Capture reader polls and prompts through a durable webhook and/or email. */
 
+const path = require('path');
+
 const ALLOWED_ORIGINS = new Set([
   'https://lighttowergroup.co',
   'https://www.lighttowergroup.co',
@@ -110,5 +112,34 @@ exports.handler = async (event) => {
   if (!delivered) {
     return { statusCode: 503, headers: responseHeaders, body: JSON.stringify({ error: 'The feedback channel is not configured yet.' }) };
   }
+
+  // Append to live audience signals for pipeline feedback loop
+  try {
+    const signalsPath = path.join(__dirname, '..', '..', '.editorial-state', 'audience-signals-live.json');
+    const signalsDir = path.dirname(signalsPath);
+    if (!fs.existsSync(signalsDir)) {
+      fs.mkdirSync(signalsDir, { recursive: true });
+    }
+    let existing = [];
+    if (fs.existsSync(signalsPath)) {
+      try {
+        existing = JSON.parse(fs.readFileSync(signalsPath, 'utf-8'));
+      } catch { existing = []; }
+    }
+    const topic = payload.feedback_type === 'poll' ? (payload.option || '') : (payload.comment || '').substring(0, 100);
+    existing.push({
+      timestamp: new Date().toISOString(),
+      signal_type: payload.feedback_type,
+      story_slug: payload.story_slug || '',
+      option_selected: payload.option || '',
+      comment_preview: (payload.comment || '').substring(0, 200),
+      weight_delta: 1,
+    });
+    if (existing.length > 500) { existing = existing.slice(-500); }
+    fs.writeFileSync(signalsPath, JSON.stringify(existing, null, 2), 'utf-8');
+  } catch (signalErr) {
+    console.error('audience-signals-live write error:', signalErr.message);
+  }
+
   return { statusCode: 200, headers: responseHeaders, body: JSON.stringify({ ok: true }) };
 };

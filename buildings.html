@@ -148,6 +148,7 @@
     }
     .building-date { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; }
     .building-cta { font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+    .building-card.maturing-soon { border-left: 3px solid #c0392b; }
 
     .buildings-empty {
       padding: 5rem 2.5rem; text-align: center;
@@ -240,10 +241,18 @@
     </div>
 
     <div class="controls-bar container">
-      <input type="search" class="search-input" id="search-input" placeholder="Search by address…" aria-label="Search buildings">
+      <input type="search" id="building-search" placeholder="Search by address, neighborhood, or lender..."
+        style="flex:1;border:1px solid var(--line-strong);background:var(--bg);padding:0.7rem 1rem;font:inherit;font-size:0.9rem;min-width:250px;">
       <button class="filter-btn active" data-borough="all">All</button>
       <button class="filter-btn" data-borough="manhattan">Manhattan</button>
       <button class="filter-btn" data-borough="brooklyn">Brooklyn</button>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem;">
+        <span style="font-size:0.65rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.15em;margin-right:0.5rem;align-self:center;">Maturity:</span>
+        <button class="filter-btn maturity-btn active" data-maturity="all">All</button>
+        <button class="filter-btn maturity-btn" data-maturity="6">6 Months</button>
+        <button class="filter-btn maturity-btn" data-maturity="12">12 Months</button>
+        <button class="filter-btn maturity-btn" data-maturity="24">24 Months</button>
+      </div>
       <span class="results-count" id="results-count"></span>
     </div>
 
@@ -289,13 +298,25 @@
     });
 
     const grid        = document.getElementById('buildings-grid');
-    const searchInput = document.getElementById('search-input');
+    const searchInput = document.getElementById('building-search');
     const countEl     = document.getElementById('results-count');
     const statTotal   = document.getElementById('stat-total');
 
     let allBuildings = [];
     let activeBorough = 'all';
+    let activeMaturity = 'all';
     let searchTerm    = '';
+
+    function extractMaturityDate(b) {
+      var text = (b.tags && b.tags.join ? b.tags.join(' ') : (b.tags || '')) + ' ' + (b.excerpt || '') + ' ' + (b.title || b.slug || '');
+      var patterns = [/matur\w*\s*(?:in|by)?\s*(\d{4})/i, /\b(202[6-9]|2030)\b/g, /loan\s*(?:matur\w*|expir\w*)\s*(?:in|by)?\s*(\d{4})/i];
+      for (var i = 0; i < patterns.length; i++) {
+        var m = text.match(patterns[i]);
+        if (m && m[1]) return parseInt(m[1]);
+        if (m && m[0]) { var y = parseInt(m[0]); if (y >= 2026 && y <= 2035) return y; }
+      }
+      return 2030;
+    }
 
     function slugToAddress(slug) {
       // Strip borough suffix
@@ -326,7 +347,10 @@
         const href    = 'insights/' + b.slug + '.html';
         const address = slugToAddress(b.slug);
         const borough = slugToBorough(b.slug);
-        return `<a href="${href}" class="building-card" aria-label="${address}">
+        var matYear = extractMaturityDate(b);
+        var soon = matYear <= new Date().getFullYear() ? ' maturing-soon' : '';
+        var tags = b.tags && b.tags.join ? b.tags.join(',') : (b.tags || '');
+        return `<a href="${href}" class="building-card${soon}" aria-label="${address}" data-maturity="${matYear}" data-tags="${tags}" data-excerpt="${(b.excerpt || '').replace(/"/g, '&quot;')}" data-title="${address}">
           <span class="building-borough">${borough}</span>
           <p class="building-address">${address}</p>
           <p class="building-excerpt">${b.excerpt || ''}</p>
@@ -350,6 +374,16 @@
           (b.excerpt || '').toLowerCase().includes(q)
         );
       }
+      if (activeMaturity !== 'all') {
+        var months = parseInt(activeMaturity);
+        var cutoff = new Date();
+        cutoff.setMonth(cutoff.getMonth() + months);
+        var cutoffYear = cutoff.getFullYear();
+        filtered = filtered.filter(function(b) {
+          var matYear = extractMaturityDate(b);
+          return matYear <= cutoffYear;
+        });
+      }
       renderGrid(filtered);
     }
 
@@ -369,13 +403,23 @@
       applyFilters();
     });
 
+    // Maturity filters
+    document.querySelectorAll('.maturity-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.maturity-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeMaturity = btn.dataset.maturity;
+        applyFilters();
+      });
+    });
+
     // Load data
     fetch('insights.json')
       .then(r => r.json())
       .then(data => {
         allBuildings = data
           .filter(p => p.category === 'Architecture & Capital Markets')
-          .sort((a, b) => slugToAddress(a.slug).localeCompare(slugToAddress(b.slug)));
+          .sort(function(a, b) { return extractMaturityDate(a) - extractMaturityDate(b); });
 
         statTotal.textContent = allBuildings.length;
         renderGrid(allBuildings);

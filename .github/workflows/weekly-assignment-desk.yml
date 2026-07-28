@@ -1,0 +1,32 @@
+name: Weekly Assignment Desk
+
+on:
+  schedule:
+    - cron: '0 10 * * 0'  # Sunday 6:00 AM ET (10:00 UTC)
+  workflow_dispatch:
+
+jobs:
+  assignment-desk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run assignment desk
+        run: python scripts/weekly_assignment_desk.py
+
+      - name: Run structured sources scanner
+        run: python scripts/structured_sources.py
+
+      - name: Commit assignment queue
+        run: |
+          git config user.name "LTG Assignment Desk"
+          git config user.email "desk@lighttowergroup.co"
+          git add .editorial-state/assignment-queue.json .editorial-state/structured-candidates.json
+          git diff --cached --quiet || git commit -m "Weekly assignment desk: pattern analysis and structured source scan"
+          git push

@@ -91,6 +91,7 @@ from source_health import SourceHealthLedger
 from editorial_intelligence import (
     DEFAULT_DAILY_ARTICLE_TARGET,
     FORMAT_SPECS,
+    MUST_READ_THRESHOLD,
     print_edition_report,
     select_edition,
 )
@@ -111,6 +112,13 @@ from edition_manager import (
     write_generated_files,
 )
 from validate_publication import validate_repository
+from cost_tracker import get_costs, reset_costs
+
+try:
+    from checkpoint import run_with_timeout, clear_checkpoints, PHASE_TIMEOUTS
+except ImportError:
+    run_with_timeout = lambda phase, fn, *a, **kw: fn(*a, **kw)
+    clear_checkpoints = lambda: None
 
 # \u2500\u2500 Config \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 SCRIPT_DIR    = Path(__file__).parent
@@ -152,6 +160,8 @@ DEEPSEEK_API_KEY      = os.environ.get("DEEPSEEK_API_KEY", "")
 NEWSAPI_KEY           = os.environ.get("NEWSAPI_KEY", "")
 LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
 LINKEDIN_PERSON_URN   = os.environ.get("LINKEDIN_PERSON_URN", "")
+_LLM_URL              = "https://api.deepseek.com/v1/chat/completions"
+_LLM_MODEL            = "deepseek-chat"
 
 
 def redact_secret_text(value: object) -> str:
@@ -566,10 +576,10 @@ Stories to score:
 
     try:
         resp = requests.post(
-            "https://api.deepseek.com/v1/chat/completions",
+            _LLM_URL,
             headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
             json={
-                "model": "deepseek-chat",
+                "model": _LLM_MODEL,
                 "messages": [{"role": "user", "content": prompt}],
                 "max_tokens": 3500,
                 "temperature": 0.2,
@@ -579,6 +589,12 @@ Stories to score:
         resp.raise_for_status()
         data = resp.json()
         raw = data["choices"][0]["message"]["content"].strip()
+        try:
+            from cost_tracker import track_llm_cost
+            usage = data.get("usage", {})
+            track_llm_cost("scoring", usage.get("total_tokens", 1000))
+        except ImportError:
+            pass
         m = re.search(r"\[[\s\S]*\]", raw)
         if not m:
             raise ValueError("No JSON array found in scoring response")
@@ -749,12 +765,20 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
     editorial_brief = select_editorial_brief({
         "slug": story.get("url", ""),
         "title": story.get("title", ""),
-        "category": "Capital Markets",
+        "summary": story.get("summary", ""),
+        "category": story.get("category") or "Capital Markets",
+        "topics": story.get("topics", []),
+        "attention_features": story.get("attention_features", {}),
+        "entities": story.get("entities", {}),
     })
     headline_shape = select_headline_shape({
         "slug": story.get("url", ""),
         "title": story.get("title", ""),
-        "category": "Capital Markets",
+        "summary": story.get("summary", ""),
+        "category": story.get("category") or "Capital Markets",
+        "topics": story.get("topics", []),
+        "attention_features": story.get("attention_features", {}),
+        "entities": story.get("entities", {}),
     })
     dossier = story.get("research_dossier")
     room_plan = story.get("editorial_room") or {}
@@ -793,11 +817,21 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
         system_prompt = SYSTEM_PROMPT_ENHANCED
         max_tokens = 4500
 
+    try:
+        from article_variants import get_variant_instruction, assign_variant
+        slug = story.get("url", "").split("/")[-1].replace(".html", "")
+        headline_var = assign_variant(slug, "headline")
+        cta_var = assign_variant(slug, "cta")
+        variant_note = f"\n\nHEADLINE INSTRUCTION: {get_variant_instruction('headline', headline_var)}\nCTA INSTRUCTION: {get_variant_instruction('cta', cta_var)}"
+        user_prompt += variant_note
+    except ImportError:
+        pass
+
     resp = requests.post(
-        "https://api.deepseek.com/v1/chat/completions",
+        _LLM_URL,
         headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
         json={
-            "model": "deepseek-chat",
+            "model": _LLM_MODEL,
             "max_tokens": max_tokens,
             "temperature": 0.2,
             "messages": [
@@ -810,6 +844,12 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
     resp.raise_for_status()
     data = resp.json()
     article = _extract_article_json(data["choices"][0]["message"]["content"])
+    try:
+        from cost_tracker import track_llm_cost
+        usage = data.get("usage", {})
+        track_llm_cost("generation", usage.get("total_tokens", 1000))
+    except ImportError:
+        pass
     # The writer's self-assessment is not trusted. Repair drafts against the
     # same independent gate used immediately before publication.
     for _ in range(2):
@@ -822,10 +862,10 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
         if not control_findings:
             break
         revision = requests.post(
-            "https://api.deepseek.com/v1/chat/completions",
+            _LLM_URL,
             headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
             json={
-                "model": "deepseek-chat",
+                "model": _LLM_MODEL,
                 "max_tokens": 5200,
                 "temperature": 0.15,
                 "messages": [
@@ -844,7 +884,23 @@ def generate_article(story: dict, recent_titles: list[str] | None = None) -> dic
             timeout=120,
         )
         revision.raise_for_status()
-        article = _extract_article_json(revision.json()["choices"][0]["message"]["content"])
+        rev_data = revision.json()
+        article = _extract_article_json(rev_data["choices"][0]["message"]["content"])
+        try:
+            from cost_tracker import track_llm_cost
+            usage = rev_data.get("usage", {})
+            track_llm_cost("revision", usage.get("total_tokens", 1000))
+        except ImportError:
+            pass
+    else:
+        unresolved = '; '.join(control_findings[:3]) if control_findings else 'unknown'
+        print(f"  [WARN] Self-repair exhausted after 2 attempts: {unresolved}")
+        raise ValueError(f"Article quality issues unresolved after repair: {unresolved}")
+    try:
+        from article_variants import save_variant_record
+        save_variant_record(article)
+    except ImportError:
+        pass
     article["date"]       = now_utc.strftime("%B %d, %Y")
     article["date_iso"]   = now_utc.isoformat()
     article["source_url"] = story["url"]
@@ -930,7 +986,7 @@ def _article_control_findings(
 # ── Security utilities ────────────────────────────────────────────────────────
 
 # Tags and attributes permitted in article body HTML (allowlist approach)
-_SAFE_TAGS  = {'p', 'strong', 'em', 'b', 'i', 'ul', 'ol', 'li', 'blockquote', 'br', 'a', 'span'}
+_SAFE_TAGS  = {'p', 'strong', 'em', 'b', 'i', 'ul', 'ol', 'li', 'blockquote', 'br', 'a', 'span', 'h2', 'h3', 'h4', 'h5', 'h6'}
 _SAFE_ATTRS = {'a': ['href', 'target', 'rel']}
 
 
@@ -1188,203 +1244,7 @@ def render_html(article: dict) -> str:
 {schema_json}
   </script>
 
-  <style>
-    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    :root {{
-      --black: #f5f4f0;
-      --navy: #ffffff;
-      --gold:     #c9a84c;
-      --gold-dim: rgba(0,0,0,0.08);
-      --white: #121212;
-      --muted: #555555;
-      --body-txt: #333333;
-      --serif:    Georgia, 'Times New Roman', serif;
-      --sans:     -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }}
-    html {{ scroll-behavior: smooth; }}
-    body {{ background: var(--black); color: var(--white);
-            font-family: var(--serif); line-height: 1.75; }}
-
-    /* ── Navigation ── */
-    .nav {{
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 4rem;
-      border-bottom: 1px solid var(--gold-dim);
-    }}
-    .nav-logo {{
-      font-family: var(--sans); font-size: 1.1rem; letter-spacing: 0.18em;
-      color: var(--gold); text-decoration: none; text-transform: uppercase;
-      font-weight: 700; margin-right: auto;
-    }}
-    .nav-links {{ display: flex; gap: 2.8rem; }}
-    .nav-links a {{
-      font-family: var(--sans); font-size: 0.9rem; color: var(--muted);
-      text-decoration: none; letter-spacing: 0.05em;
-    }}
-    .nav-links a:hover {{ color: var(--white); }}
-    .nav-cta {{
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--gold); border: 1px solid var(--gold); padding: 0.45rem 1.1rem;
-      background: none; border-radius: 2px; cursor: pointer; font-family: var(--sans);
-      transition: background 0.2s, color 0.2s;
-    }}
-    .nav-cta:hover {{ background: var(--gold); color: var(--black); }}
-
-    /* ── Article layout ── */
-    .article-wrap {{ max-width: 780px; margin: 0 auto; padding: 5rem 2.5rem 8rem; }}
-
-    /* ── Header ── */
-    .article-category {{
-      font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 1.3rem;
-      font-weight: 600;
-    }}
-    .article-title {{
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: normal; line-height: 1.15;
-      color: var(--white); margin-bottom: 1rem;
-    }}
-    .article-subtitle {{
-      font-size: 1.6rem; color: var(--muted); font-style: italic;
-      line-height: 1.65; margin-bottom: 1.8rem;
-    }}
-    .article-byline {{
-      font-family: var(--sans); font-size: 1rem; color: var(--muted);
-      display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem;
-    }}
-    .article-rule {{
-      border: none; border-top: 1px solid var(--gold-dim); margin: 1.75rem 0;
-    }}
-
-    /* ── Share bar ── */
-    .share-bar {{
-      display: flex; align-items: center; gap: 0.65rem;
-      flex-wrap: wrap; margin: 1.25rem 0;
-    }}
-    .share-label {{
-      font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--muted); margin-right: 0.2rem;
-    }}
-    .share-btn {{
-      font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.04em;
-      padding: 0.4rem 0.95rem; border-radius: 2px; cursor: pointer;
-      text-decoration: none; border: 1px solid; transition: all 0.18s;
-      background: transparent;
-    }}
-    .share-li  {{ color: #5b9bd5; border-color: rgba(91,155,213,0.45); }}
-    .share-li:hover  {{ background: rgba(91,155,213,0.12); color: #7fb3e8; }}
-    .share-tw  {{ color: var(--white); border-color: rgba(0,0,0,0.18); }}
-    .share-tw:hover  {{ background: rgba(255,255,255,0.07); }}
-    .share-copy {{ color: var(--gold); border-color: var(--gold-dim); }}
-    .share-copy:hover {{ background: rgba(201,168,76,0.1); }}
-
-    /* ── Body ── */
-    .article-body {{ font-size: 1.3rem; line-height: 1.9; }}
-    .article-body p {{
-      margin-bottom: 1.45rem; color: var(--body-txt);
-    }}
-    .article-body strong {{ color: var(--white); }}
-    .article-body a {{ color: var(--gold); }}
-
-    .article-data-note {{
-      margin: 0 0 2.5rem; padding: 1.5rem;
-      border: 1px solid var(--gold-dim); background: rgba(201,168,76,0.05);
-    }}
-    .article-data-note-label {{
-      font-family: var(--sans); color: var(--gold); font-size: 0.68rem;
-      letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1rem;
-    }}
-    .article-data-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)); gap: 1rem; }}
-    .article-data-point {{ display: flex; flex-direction: column; gap: 0.25rem; }}
-    .article-data-point strong {{ font-family: var(--serif); font-size: 1.65rem; color: var(--white); }}
-    .article-data-point span {{ font-family: var(--sans); font-size: 0.78rem; color: var(--muted); line-height: 1.4; }}
-
-    /* ── Tags ── */
-    .article-tags {{ display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 2.5rem 0 1.5rem; }}
-    .tag {{
-      font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted);
-      border: 1px solid rgba(138,155,176,0.28); padding: 0.35rem 0.8rem;
-      border-radius: 2px;
-      font-weight: 500;
-    }}
-
-    /* ── Sources ── */
-    .sources-block {{
-      margin-top: 3.5rem; padding-top: 2rem;
-      border-top: 1px solid var(--gold-dim);
-    }}
-    .sources-block h3 {{
-      font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
-      font-weight: 600;
-    }}
-    .sources-block ul {{ list-style: none; }}
-    .sources-block li {{ font-size: 0.95rem; margin-bottom: 0.5rem; }}
-    .sources-block a {{ color: var(--gold); text-decoration: none; }}
-    .sources-block a:hover {{ text-decoration: underline; }}
-
-    /* ── End-of-article CTA ── */
-    .article-cta-block {{
-      margin: 3rem 0 2.5rem; padding: 2.25rem 2.25rem;
-      background: rgba(201,168,76,0.06);
-      border: 1px solid var(--gold-dim);
-      border-left: 3px solid var(--gold);
-      border-radius: 2px;
-    }}
-    .article-cta-eyebrow {{
-      font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;
-      font-weight: 600;
-    }}
-    .article-cta-headline {{
-      font-family: var(--serif); font-size: 1.5rem; font-weight: normal;
-      line-height: 1.3; color: var(--white); margin-bottom: 0.6rem;
-    }}
-    .article-cta-sub {{
-      font-family: var(--sans); font-size: 0.92rem; color: var(--muted);
-      line-height: 1.6; margin-bottom: 1.4rem; max-width: 46ch;
-    }}
-    .article-cta-btn {{
-      font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--black); background: var(--gold);
-      border: 1px solid var(--gold); padding: 0.75rem 1.6rem; border-radius: 2px;
-      cursor: pointer; transition: background 0.2s, opacity 0.2s;
-      font-weight: 600;
-    }}
-    .article-cta-btn:hover {{ opacity: 0.88; }}
-
-    /* ── Footer ── */
-    .site-footer {{
-      border-top: 1px solid rgba(201,168,76,0.1);
-      padding: 2.5rem 4rem; text-align: center;
-    }}
-    .site-footer p {{
-      font-family: var(--sans); font-size: 0.75rem; color: var(--muted);
-      line-height: 2;
-    }}
-    .site-footer a {{ color: var(--gold); text-decoration: none; }}
-    .site-footer a:hover {{ text-decoration: underline; }}
-
-    .nav-menu-btn {{ display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }}
-    .nav-menu-btn span {{ display: block; width: 22px; height: 2px; background: var(--white); transition: all 0.25s; }}
-    .nav-menu-btn.open span:nth-child(1) {{ transform: translateY(7px) rotate(45deg); }}
-    .nav-menu-btn.open span:nth-child(2) {{ opacity: 0; }}
-    .nav-menu-btn.open span:nth-child(3) {{ transform: translateY(-7px) rotate(-45deg); }}
-    .nav-mobile {{ display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(245,244,240,0.98); padding: 5rem 2rem 2rem; flex-direction: column; gap: 1.5rem; z-index: 200; }}
-    .nav-mobile.open {{ display: flex; }}
-    .nav-mobile a {{ font-size: 1rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; }}
-    .nav-mobile a:hover {{ color: var(--white); }}
-    .nav-mobile-close {{ position: absolute; top: 1.4rem; right: 1.5rem; background: none; border: none; color: var(--muted); font-size: 1.5rem; cursor: pointer; }}
-
-    @media (max-width: 640px) {{
-      .nav {{ padding: 1rem 1.5rem; }}
-      .nav-links {{ display: none; }}
-      .nav-menu-btn {{ display: flex; }}
-      .article-wrap {{ padding: 2rem 1.25rem 4rem; }}
-    }}
-  </style>
+  <link rel="stylesheet" href="/insights/article-base.css">
   <!-- OneSignal Web Push — uncomment after adding YOUR_APP_ID from onesignal.com -->
   <!--
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
@@ -1475,6 +1335,11 @@ def render_html(article: dict) -> str:
         <button class="article-cta-btn" onclick="openLTGChat('article_cta')">Start a Conversation</button>
       </div>
 
+      <section class="related-research" id="related-research">
+      <h2>Related Research</h2>
+      <div class="related-grid" id="related-grid">Loading...</div>
+    </section>
+
       <div class="sources-block">
         <h3>Sources</h3>
         <ul>
@@ -1496,19 +1361,6 @@ def render_html(article: dict) -> str:
     <p>&copy; {year} Light Tower Group. All rights reserved.</p>
   </footer>
 
-  <script>
-    const menuBtn = document.getElementById('nav-menu-btn');
-    const mobileNav = document.getElementById('nav-mobile');
-    const closeBtn = document.getElementById('nav-mobile-close');
-    menuBtn.addEventListener('click', function() {{
-      const open = mobileNav.classList.toggle('open');
-      menuBtn.classList.toggle('open', open);
-    }});
-    if (closeBtn) closeBtn.addEventListener('click', function() {{
-      mobileNav.classList.remove('open');
-      menuBtn.classList.remove('open');
-    }});
-  </script>
   <script src="/chat-widget.js?v=20260726"></script>
 
 </body>
@@ -1888,103 +1740,47 @@ def write_log(run_data: dict):
     LOG_FILE.write_text(json.dumps(log, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def finalize_no_story_edition(*, start: datetime, run_data: dict, args, reason: str) -> None:
-    """Persist a complete, publishable no-story result for the curated workflow."""
-    selection = {
-        "selection_mode": "edition",
-        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
-        "status": "no_publishable_story",
-        "candidate_count": int(run_data.get("candidate_count", 0) or 0),
-        "event_count": 0,
-        "selected_stories": [],
-        "deal_tape": [],
-        "scored_events": [],
-        "duplicate_groups": [],
-        "archive_repeats": [],
-        "daily_target": max(0, int(getattr(args, "daily_target", 0) or 0)),
-        "research_target": 0,
-    }
-    run_data.update({
-        "status": "no_publishable_story",
-        "edition_status": "no_publishable_story",
-        "articles": [],
-        "articles_count": 0,
-        "deal_tape_count": 0,
-        "research_candidate_count": 0,
-        "archive_repeat_count": 0,
-        "daily_target_met": False,
-        "held": [reason],
-        "elapsed_seconds": round((datetime.now(timezone.utc) - start).total_seconds()),
-    })
-    if args.dry_run or args.shadow:
-        print(f"  {reason}")
-        print("  A no-story edition is valid; no public files were changed in this run mode.")
-        write_log(run_data)
-        return
-
-    document = build_edition_document(
-        edition_date=start.date(),
-        selection=selection,
-        articles=[],
-        run_status="no_publishable_story",
-    )
-    generated_paths = save_public_edition(document)
-    generated_paths.append(update_event_memory(selection))
-    generated_paths.append(save_publication_decision(
-        articles=[],
-        edition_status="no_publishable_story",
-    ))
-    audit_payload = {
-        "schema_version": 1,
-        "run_at": start.isoformat(),
-        "date": start.date().isoformat(),
-        "run_origin": args.run_origin,
-        "selection_mode": "edition",
-        "status": "no_publishable_story",
-        "reason": reason,
-        "raw_count": int(run_data.get("raw_count", 0) or 0),
-        "candidate_count": int(run_data.get("candidate_count", 0) or 0),
-        "research_assignments": [],
-        "articles": [],
-        "held": [reason],
-        "deal_tape_count": 0,
-    }
-    generated_paths.append(save_run_record(audit_payload, run_date=start.date()))
-    summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
-    summary_path.parent.mkdir(parents=True, exist_ok=True)
-    summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
-    generated_paths.append(summary_path)
-    if SOURCE_HEALTH_FILE.exists():
-        generated_paths.append(SOURCE_HEALTH_FILE)
-
-    validation_errors = validate_repository(latest_only=True)
-    if validation_errors:
-        raise RuntimeError(
-            "No-story edition failed publication validation: "
-            + "; ".join(validation_errors[:5])
-        )
-    write_generated_files(generated_paths)
+def finalize_no_story_edition(start, run_data, args, reason=""):
+    """Save a thin-news edition without publishing any articles."""
+    edition_status = "thin_news_skip"
+    edition_date = start.date()
+    run_data["status"] = edition_status
+    run_data["reason"] = reason
     write_log(run_data)
+    if not args.dry_run and not args.shadow:
+        edition_document = {
+            "schema_version": 1,
+            "edition_date": edition_date.isoformat(),
+            "generated_at": start.isoformat(),
+            "status": edition_status,
+            "dek": "No events cleared the editorial bar today.",
+            "flagship": None,
+            "briefs": [],
+            "culture_signal": None,
+            "data_note": None,
+            "deal_tape": [],
+            "selection_summary": {"raw_candidates": run_data.get("raw_count", 0), "articles": 0, "reason": reason},
+        }
+        save_public_edition(edition_document)
+    print(f"  Thin news day ({edition_date}). Edition saved without articles. Reason: {reason}")
 
-    if args.skip_git:
-        print("  No-story edition is complete; Git publication is delegated to GitHub Actions.")
-        return
-    git_result = git_commit_push([], dry_run=False)
-    run_data["git"] = git_result
-    write_log(run_data)
-    if not git_result["push_ok"]:
-        raise SystemExit("No-story edition was generated but could not be verified on origin/main.")
 
-
-def write_linkedin_pdf_queue(articles: list) -> None:
-    """Persist the exact daily article order for paced LinkedIn document posts."""
-    queue = {
-        "date": datetime.now().astimezone().date().isoformat(),
-        "slugs": [article["slug"] for article in articles],
-        "count": len(articles),
-    }
-    LINKEDIN_PDF_QUEUE.write_text(json.dumps(queue, indent=2), encoding="utf-8")
-    print(f"  LinkedIn PDF queue updated ({queue['count']} slots)")
+def write_linkedin_pdf_queue(new_articles):
+    queue_path = SCRIPT_DIR / "linkedin_pdf_queue.json"
+    existing = []
+    try:
+        existing = json.loads(queue_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        pass
+    if not isinstance(existing, list):
+        existing = []
+    existing_slugs = {a.get("slug") for a in existing if isinstance(a, dict)}
+    for article in new_articles:
+        slug = article.get("slug", "")
+        if slug and slug not in existing_slugs:
+            existing.append(article)
+            existing_slugs.add(slug)
+    queue_path.write_text(json.dumps(existing, indent=2, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
 
 
 def safe_queue_pdf_generation(article: dict):
@@ -2077,6 +1873,12 @@ def main():
     LOOKBACK_HOURS = max(1, args.lookback_hours)
 
     start    = datetime.now(timezone.utc)
+    clear_checkpoints()
+    try:
+        from cost_tracker import reset_costs
+        reset_costs()
+    except ImportError:
+        pass
     run_data = {
         "run_at": start.isoformat(),
         "status": "started",
@@ -2085,6 +1887,26 @@ def main():
     }
     if args.selection_mode == "edition":
         run_data["daily_target"] = DAILY_TARGET
+    # Health check: verify LLM provider before proceeding
+    _llm_provider = None
+    try:
+        from model_router import select_provider, primary_is_healthy
+        provider = select_provider(for_writing=False)
+        print(f"  LLM provider: {provider['provider']} ({provider['model']})" + (" [FALLBACK]" if provider['fallback'] else ""))
+        if provider['fallback']:
+            run_data["provider_fallback"] = True
+            DEEPSEEK_API_KEY = provider['api_key']  # use fallback key
+            _llm_provider = dict(provider)  # save for passing to call_deepseek
+    except RuntimeError as e:
+        print(f"  [FATAL] No LLM provider available: {e}")
+        run_data["status"] = "provider_unavailable"
+        write_log(run_data)
+        return
+    except ImportError:
+        pass
+    global _LLM_URL, _LLM_MODEL
+    _LLM_URL = _llm_provider.get("url", "https://api.deepseek.com/v1/chat/completions") if _llm_provider else "https://api.deepseek.com/v1/chat/completions"
+    _LLM_MODEL = _llm_provider.get("model", "deepseek-chat") if _llm_provider else "deepseek-chat"
     known_insights = load_insight_records(SITE_ROOT)
     try:
         audience_signals = json.loads(
@@ -2092,6 +1914,37 @@ def main():
         )
     except (OSError, json.JSONDecodeError):
         audience_signals = {}
+
+    # Consume live audience signals if available
+    live_path = SITE_ROOT / ".editorial-state" / "audience-signals-live.json"
+    try:
+        live_signals = json.loads(live_path.read_text(encoding="utf-8"))
+        if isinstance(live_signals, list) and live_signals:
+            weights = audience_signals.get("weights", {})
+            if not isinstance(weights, dict):
+                weights = {}
+            for signal in live_signals:
+                if not isinstance(signal, dict):
+                    continue
+                sig_type = signal.get("signal_type", "")
+                story_slug = signal.get("story_slug", "")
+                if sig_type == "prompt" and story_slug:
+                    key = f"source:{story_slug}"
+                    weights[key] = min(5, max(-5, int(weights.get(key, 0) or 0) + 1))
+                if sig_type == "poll":
+                    option = str(signal.get("option_selected", "")).lower()
+                    for topic_word in ["refinancing", "office", "private credit", "policy", "rates", "distress"]:
+                        if topic_word in option:
+                            key = f"topic:{topic_word.replace(' ', '_')}"
+                            weights[key] = min(5, max(-5, int(weights.get(key, 0) or 0) + 1))
+            audience_signals["weights"] = weights
+            audience_signals["updated_at"] = datetime.now(timezone.utc).isoformat()
+            # Truncate consumed signals
+            live_path.write_text("[]", encoding="utf-8")
+            print(f"  Consumed {len(live_signals)} live audience signal(s)")
+    except (OSError, json.JSONDecodeError):
+        pass
+
     try:
         event_memory = json.loads(
             (SITE_ROOT / ".editorial-state" / "event-memory.json").read_text(encoding="utf-8")
@@ -2138,6 +1991,18 @@ def main():
     # \u2500 Phase 1: Gather \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("[1/8] Gathering stories...")
     all_stories = fetch_rss_stories() + fetch_newsapi_stories(LOOKBACK_HOURS)
+    # Merge structured source candidates and assignment queue items
+    assignment_path = SITE_ROOT / ".editorial-state" / "assignment-queue.json"
+    structured_path = SITE_ROOT / ".editorial-state" / "structured-candidates.json"
+    for extra_path in [assignment_path, structured_path]:
+        try:
+            extra_data = json.loads(extra_path.read_text(encoding="utf-8"))
+            if isinstance(extra_data, list):
+                for item in extra_data:
+                    if isinstance(item, dict) and item.get("title"):
+                        all_stories.append(item)
+        except (OSError, json.JSONDecodeError):
+            pass
     run_data["raw_count"] = len(all_stories)
     run_data["lookback_hours"] = LOOKBACK_HOURS
 
@@ -2146,7 +2011,7 @@ def main():
     if args.selection_mode == "daily-top-news":
         candidates = triage_daily_top_news(all_stories, LOOKBACK_HOURS)
     elif args.selection_mode in {"bucketed-volume", "edition"}:
-        candidates = triage_bucketed_volume(all_stories, LOOKBACK_HOURS)
+        candidates = run_with_timeout("triage", triage_bucketed_volume, all_stories, LOOKBACK_HOURS)
     else:
         candidates = triage(all_stories, LOOKBACK_HOURS)
     run_data["candidate_count"] = len(candidates)
@@ -2233,6 +2098,19 @@ def main():
             "daily_target": DAILY_TARGET,
             "research_candidate_count": len(editorial_items),
         })
+        scored_items_above_threshold = [
+            item for item in editorial_items
+            if (item.get("must_read_score") or 0) >= MUST_READ_THRESHOLD
+        ]
+        if not scored_items_above_threshold and not editorial_selection.get("deal_tape"):
+            print("  [SIGNAL GATE] No candidate exceeds publishable threshold. Skipping LLM phases.")
+            finalize_no_story_edition(
+                start=start,
+                run_data=run_data,
+                args=args,
+                reason=f"No candidate scored above research floor ({len(editorial_items)} candidates, all below threshold).",
+            )
+            return
     elif args.selection_mode == "bucketed-volume":
         normalized_candidates = normalize_stories(candidates)
         print(f"  Normalized {len(normalized_candidates)} candidate(s) for bucketed-volume scoring")
@@ -2315,6 +2193,11 @@ def main():
                 fetched_text_by_url=fetched_text_by_url,
                 archive_records=known_insights,
             )
+            # Extract source facts for claim verification
+            all_source_text = " ".join(fetched_text_by_url.values())
+            if all_source_text.strip():
+                from fact_extractor import extract_facts
+                dossier["source_facts"] = extract_facts(all_source_text)
             room = run_editorial_room(
                 editorial_item,
                 dossier,
@@ -2547,6 +2430,9 @@ def main():
     generated_paths = []
     if not args.dry_run:
         INSIGHTS_DIR.mkdir(exist_ok=True)
+        _manifest_backup = INSIGHTS_JSON.read_text(encoding="utf-8") if INSIGHTS_JSON.exists() else None
+        _feed_backup = FEED_XML.read_text(encoding="utf-8") if FEED_XML.exists() else None
+        _sitemap_backup = SITEMAP_XML.read_text(encoding="utf-8") if SITEMAP_XML.exists() else None
 
         for article in articles:
             out = INSIGHTS_DIR / f"{article['slug']}.html"
@@ -2564,6 +2450,31 @@ def main():
                 print(f"  Image: insights/{article['slug']}_social.png")
 
             update_manifest(article)
+
+            # Compute related articles by tag overlap
+            try:
+                all_records = load_insight_records(SITE_ROOT) if load_insight_records else []
+                article_tags = set(article.get("tags", []))
+                related = []
+                for record in all_records:
+                    if record.get("slug") == article.get("slug"):
+                        continue
+                    record_tags = set(record.get("tags", []))
+                    overlap = len(article_tags & record_tags)
+                    if overlap >= 2:
+                        related.append({
+                            "title": record.get("title"),
+                            "slug": record.get("slug"),
+                            "url": record.get("url") or f"/insights/{record.get('slug')}.html",
+                            "overlap": overlap,
+                        })
+                related.sort(key=lambda r: r["overlap"], reverse=True)
+                related = related[:3]
+                related_path = INSIGHTS_DIR / f"{article['slug']}_related.json"
+                related_path.write_text(json.dumps(related, indent=2, ensure_ascii=False), encoding="utf-8")
+                generated_paths.append(related_path)
+            except Exception:
+                pass
 
         update_feed_xml()
         update_sitemap_xml()
@@ -2620,10 +2531,29 @@ def main():
 
         validation_errors = validate_repository(latest_only=True)
         if validation_errors:
-            print("  [ERROR] Publication validation failed:")
+            print("  [ROLLBACK] Publication validation failed. Restoring previous state...")
             for error in validation_errors:
                 print(f"    - {error}")
-            raise RuntimeError("Generated publication failed pre-deployment validation")
+            if _manifest_backup is not None:
+                INSIGHTS_JSON.write_text(_manifest_backup, encoding="utf-8")
+            if _feed_backup is not None:
+                FEED_XML.write_text(_feed_backup, encoding="utf-8")
+            if _sitemap_backup is not None:
+                SITEMAP_XML.write_text(_sitemap_backup, encoding="utf-8")
+            for article in articles:
+                new_file = INSIGHTS_DIR / f"{article['slug']}.html"
+                if new_file.exists():
+                    new_file.unlink()
+                    print(f"    Removed: insights/{article['slug']}.html")
+                social_file = INSIGHTS_DIR / f"{article['slug']}_social.png"
+                if social_file.exists():
+                    social_file.unlink()
+                related_file = INSIGHTS_DIR / f"{article['slug']}_related.json"
+                if related_file.exists():
+                    related_file.unlink()
+            raise RuntimeError("Generated publication failed pre-deployment validation — rolled back")
+        else:
+            print("  Pre-deployment validation passed.")
 
         if ESSAY_QUEUE.exists() and articles:
             generated_paths.append(ESSAY_QUEUE)
@@ -2691,6 +2621,13 @@ def main():
         "articles_count":   len(articles),
         "daily_target_met": len(articles) >= DAILY_TARGET if args.selection_mode == "edition" else None,
     })
+    try:
+        from cost_tracker import get_costs
+        cost_data = get_costs()
+        run_data["pipeline_cost"] = cost_data
+    except ImportError:
+        pass
+    clear_checkpoints()
     write_log(run_data)
     if args.selection_mode == "edition" and not args.dry_run:
         audit_payload.update({

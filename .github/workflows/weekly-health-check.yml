@@ -1,0 +1,36 @@
+name: Weekly Pipeline Health Check
+
+on:
+  schedule:
+    - cron: '0 14 * * 1'  # Monday 10:00 AM ET
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run health report
+        run: python scripts/health_report.py
+
+      - name: Run weekly retrospective
+        run: python scripts/weekly_retrospective.py
+
+      - name: Run scoring recalibration (monthly)
+        if: github.event.schedule == '0 14 1 * *'
+        run: python scripts/scoring_recalibration.py
+
+      - name: Commit reports
+        run: |
+          git config user.name "LTG Health Monitor"
+          git config user.email "health@lighttowergroup.co"
+          git add HEALTH.md data/weekly-reports/ data/scoring-evaluations/
+          git diff --cached --quiet || git commit -m "Weekly health report and retrospective"
+          git push
