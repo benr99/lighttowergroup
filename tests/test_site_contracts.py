@@ -31,9 +31,14 @@ class SiteContractTests(unittest.TestCase):
 
     def test_core_conversion_and_recovery_pages_exist(self) -> None:
         privacy = (ROOT / "privacy.html").read_text(encoding="utf-8")
+        messaging_terms = (ROOT / "sms-terms.html").read_text(encoding="utf-8")
         not_found = (ROOT / "404.html").read_text(encoding="utf-8")
         self.assertIn("Privacy Notice | Light Tower Group", privacy)
         self.assertIn('href="/privacy.html"', privacy)
+        self.assertIn("Capital Readiness Diagnostic", privacy)
+        self.assertIn("Messaging Terms | Light Tower Group", messaging_terms)
+        self.assertIn("Reply <strong>STOP</strong>", messaging_terms)
+        self.assertIn('name="robots" content="noindex, follow"', messaging_terms)
         self.assertIn('name="robots" content="noindex, follow"', not_found)
 
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
@@ -86,6 +91,31 @@ class SiteContractTests(unittest.TestCase):
         self.assertTrue((ROOT / "edition.css").exists())
         self.assertTrue((ROOT / "netlify" / "functions" / "newsletter-subscribe.js").exists())
         self.assertTrue((ROOT / "netlify" / "functions" / "editorial-feedback.js").exists())
+
+    def test_capital_diagnostic_reaches_existing_and_future_articles(self) -> None:
+        site_script = (ROOT / "site.js").read_text(encoding="utf-8")
+        diagnostic_script = (ROOT / "capital-diagnostic.js").read_text(encoding="utf-8")
+        diagnostic_styles = (ROOT / "capital-diagnostic.css").read_text(encoding="utf-8")
+        generator = (ROOT / "scripts" / "daily_news_agent.py").read_text(encoding="utf-8")
+        config = (ROOT / "netlify.toml").read_text(encoding="utf-8")
+
+        self.assertIn("loadCapitalDiagnostic", site_script)
+        self.assertIn("/capital-diagnostic.js", site_script)
+        self.assertIn("/capital-diagnostic.css", site_script)
+        self.assertIn("scoreSubmission", diagnostic_script)
+        self.assertIn("diagnostic_contact_submit", diagnostic_script)
+        self.assertIn("@media (max-width: 600px)", diagnostic_styles)
+        self.assertIn('<script src="/site.js" defer></script>', generator)
+        self.assertIn('for = "/capital-diagnostic.js"', config)
+        self.assertTrue((ROOT / "netlify" / "functions" / "capital-diagnostic.js").exists())
+
+        article_files = list((ROOT / "insights").glob("*.html"))
+        self.assertGreater(len(article_files), 800)
+        missing_shared_script = [
+            path.name for path in article_files
+            if "/site.js" not in path.read_text(encoding="utf-8")
+        ]
+        self.assertEqual(missing_shared_script, [])
 
     def test_editorial_state_is_blocked_from_public_deployment(self) -> None:
         config = (ROOT / "netlify.toml").read_text(encoding="utf-8")
