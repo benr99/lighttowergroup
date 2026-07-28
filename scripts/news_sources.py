@@ -211,6 +211,7 @@ SOURCE_METADATA = {
 # Used with NewsAPI.org free tier (100 req/day).
 # We run the first 3 only to stay well within limits.
 NEWSAPI_QUERIES = [
+    "AI data center power demand commercial real estate infrastructure",
     "NYC commercial real estate mortgage 2026",
     "Manhattan multifamily loan maturity",
     "Brooklyn commercial real estate deal",
@@ -222,7 +223,6 @@ NEWSAPI_QUERIES = [
     "Los Angeles Chicago Dallas Houston Miami commercial real estate financing",
     "Atlanta Boston San Francisco Washington commercial real estate policy",
     "stadium arena sports real estate financing public subsidy",
-    "AI data center power demand commercial real estate infrastructure",
     "commercial property insurance climate migration capital markets",
     "return to office jobs transit downtown real estate",
     "housing affordability zoning private capital public policy",
