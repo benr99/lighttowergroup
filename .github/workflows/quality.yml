@@ -13,6 +13,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install website dependencies
+        run: npm ci
       - name: Install validated editorial dependencies
         run: python -m pip install --upgrade pip && python -m pip install -r scripts/requirements.lock
       - name: Compile automation
@@ -26,7 +32,9 @@ jobs:
       - name: Validate browser and serverless JavaScript
         run: |
           node --check site.js
+          node --check capital-diagnostic.js
           node --check edition.js
           node --check netlify/functions/newsletter-subscribe.js
           node --check netlify/functions/editorial-feedback.js
-          node --test tests/netlify-functions.test.js
+          node --check netlify/functions/capital-diagnostic.js
+          node --test tests/*.test.js

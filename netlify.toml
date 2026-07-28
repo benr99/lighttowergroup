@@ -147,6 +147,16 @@
     Cache-Control = "public, max-age=86400"
 
 [[headers]]
+  for = "/capital-diagnostic.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/capital-diagnostic.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
   for = "/edition.js"
   [headers.values]
     Cache-Control = "public, max-age=86400"

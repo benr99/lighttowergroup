@@ -1,0 +1,16 @@
+{
+  "name": "light-tower-group-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Light Tower Group public website and serverless lead systems.",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@netlify/blobs": "10.1.0"
+  },
+  "scripts": {
+    "test:js": "node --test tests/*.test.js",
+    "check:js": "node --check site.js && node --check capital-diagnostic.js && node --check netlify/functions/capital-diagnostic.js"
+  }
+}
