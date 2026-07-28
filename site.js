@@ -42,6 +42,21 @@
     }
   }
 
+  function loadCapitalDiagnostic() {
+    if (!/\/insights\/[^/]+\.html$/i.test(window.location.pathname)) return;
+    if (!document.querySelector('link[href^="/capital-diagnostic.css"]')) {
+      var diagnosticStyles = document.createElement('link');
+      diagnosticStyles.rel = 'stylesheet';
+      diagnosticStyles.href = '/capital-diagnostic.css?v=20260728';
+      document.head.appendChild(diagnosticStyles);
+    }
+    if (window.LTGCapitalDiagnostic || document.querySelector('script[src^="/capital-diagnostic.js"]')) return;
+    var diagnosticScript = document.createElement('script');
+    diagnosticScript.src = '/capital-diagnostic.js?v=20260728';
+    diagnosticScript.defer = true;
+    document.head.appendChild(diagnosticScript);
+  }
+
   function secureBlankLinks() {
     document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
       var rel = (link.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
@@ -623,6 +638,7 @@
     normalizePrimaryNavigation();
     markActiveNavigation();
     enhanceSeoSignals();
+    loadCapitalDiagnostic();
 
     document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
       if (link.dataset.ltgEmailTracked === 'true') return;
