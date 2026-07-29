@@ -4,6 +4,15 @@
 [functions]
   node_bundler = "esbuild"
 
+[functions."analytics-retention"]
+  schedule = "@daily"
+
+[[redirects]]
+  from   = "/command-center"
+  to     = "/analytics-dashboard.html"
+  status = 200
+  force  = true
+
 [[redirects]]
   from   = "/linkedin_essay_queue.json"
   to     = "/"
@@ -144,7 +153,38 @@
 [[headers]]
   for = "/site.js"
   [headers.values]
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/visitor-analytics.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/analytics-dashboard.html"
+  [headers.values]
+    Cache-Control = "private, no-store, max-age=0"
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
+
+[[headers]]
+  for = "/command-center"
+  [headers.values]
+    Cache-Control = "private, no-store, max-age=0"
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
+
+[[headers]]
+  for = "/analytics-dashboard.js"
+  [headers.values]
+    Cache-Control = "private, no-store, max-age=0"
+
+[[headers]]
+  for = "/analytics-dashboard.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
   for = "/capital-diagnostic.js"

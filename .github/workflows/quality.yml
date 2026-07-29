@@ -30,11 +30,6 @@ jobs:
           python -c "import xml.etree.ElementTree as ET, tomllib; ET.parse('sitemap.xml'); ET.parse('feed.xml'); tomllib.load(open('netlify.toml','rb')); print('public_artifacts_ok')"
           python scripts/validate_publication.py
       - name: Validate browser and serverless JavaScript
-        run: |
-          node --check site.js
-          node --check capital-diagnostic.js
-          node --check edition.js
-          node --check netlify/functions/newsletter-subscribe.js
-          node --check netlify/functions/editorial-feedback.js
-          node --check netlify/functions/capital-diagnostic.js
-          node --test tests/*.test.js
+        run: npm run check:js
+      - name: Test browser and serverless JavaScript
+        run: npm run test:js

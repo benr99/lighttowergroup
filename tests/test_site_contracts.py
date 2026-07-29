@@ -117,6 +117,45 @@ class SiteContractTests(unittest.TestCase):
         ]
         self.assertEqual(missing_shared_script, [])
 
+    def test_private_first_party_visitor_intelligence_contract(self) -> None:
+        site_script = (ROOT / "site.js").read_text(encoding="utf-8")
+        tracker = (ROOT / "visitor-analytics.js").read_text(encoding="utf-8")
+        dashboard = (ROOT / "analytics-dashboard.html").read_text(encoding="utf-8")
+        dashboard_script = (ROOT / "analytics-dashboard.js").read_text(encoding="utf-8")
+        privacy = (ROOT / "privacy.html").read_text(encoding="utf-8")
+        config = (ROOT / "netlify.toml").read_text(encoding="utf-8")
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+
+        self.assertIn("loadVisitorAnalytics", site_script)
+        self.assertIn("/visitor-analytics.js", site_script)
+        self.assertIn("ltgFirstPartyTrack", site_script)
+        self.assertIn("navigator.globalPrivacyControl", tracker)
+        self.assertIn("navigator.doNotTrack", tracker)
+        self.assertIn("ltg_analytics_optout", tracker)
+        self.assertIn("sessionStorage", tracker)
+        self.assertNotIn("localStorage.setItem('ltg_analytics_session", tracker)
+        self.assertIn('name="robots" content="noindex, nofollow, noarchive"', dashboard)
+        self.assertIn("Article-to-mandate funnel", dashboard)
+        self.assertIn("Capital-readiness leads", dashboard)
+        self.assertIn("analytics-dashboard", dashboard_script)
+        self.assertIn("first-party analytics system", privacy)
+        self.assertIn("does not use advertising pixels", privacy)
+        self.assertIn("scheduled for deletion after 180 days", privacy)
+        self.assertIn("data-analytics-choice", privacy)
+        self.assertIn('from   = "/command-center"', config)
+        self.assertIn('[functions."analytics-retention"]', config)
+        self.assertIn('schedule = "@daily"', config)
+        self.assertIn('for = "/analytics-dashboard.html"', config)
+        self.assertNotIn("analytics-dashboard", sitemap)
+
+        for filename in (
+            "visitor-track.js",
+            "analytics-auth.js",
+            "analytics-dashboard.js",
+            "analytics-retention.js",
+        ):
+            self.assertTrue((ROOT / "netlify" / "functions" / filename).exists())
+
     def test_editorial_state_is_blocked_from_public_deployment(self) -> None:
         config = (ROOT / "netlify.toml").read_text(encoding="utf-8")
         self.assertIn('from   = "/.editorial-state/*"', config)

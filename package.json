@@ -11,6 +11,6 @@
   },
   "scripts": {
     "test:js": "node --test tests/*.test.js",
-    "check:js": "node --check site.js && node --check capital-diagnostic.js && node --check netlify/functions/capital-diagnostic.js"
+    "check:js": "node --check site.js && node --check capital-diagnostic.js && node --check edition.js && node --check visitor-analytics.js && node --check analytics-dashboard.js && node --check netlify/functions/newsletter-subscribe.js && node --check netlify/functions/editorial-feedback.js && node --check netlify/functions/capital-diagnostic.js && node --check netlify/functions/visitor-track.js && node --check netlify/functions/analytics-auth.js && node --check netlify/functions/analytics-dashboard.js && node --check netlify/functions/analytics-retention.js"
   }
 }
