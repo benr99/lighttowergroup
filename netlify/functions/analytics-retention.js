@@ -3,7 +3,7 @@ const MAX_DELETIONS_PER_RUN = 2_000;
 async function defaultCleanup(event, now = new Date()) {
   const blobs = await import('@netlify/blobs');
   if (typeof blobs.connectLambda === 'function') blobs.connectLambda(event);
-  const store = blobs.getStore({ name: 'ltg-analytics-events', consistency: 'strong' });
+  const store = blobs.getStore({ name: 'ltg-analytics-events' });
   const cutoff = new Date(now.getTime() - (180 * 24 * 60 * 60 * 1000)).toISOString().slice(0, 10);
   let deleted = 0;
   let scanned = 0;

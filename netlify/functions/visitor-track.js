@@ -49,7 +49,7 @@ function rateLimited(key, now = Date.now()) {
 async function defaultPersist(event, record) {
   const blobs = await import('@netlify/blobs');
   if (typeof blobs.connectLambda === 'function') blobs.connectLambda(event);
-  const store = blobs.getStore({ name: 'ltg-analytics-events', consistency: 'strong' });
+  const store = blobs.getStore({ name: 'ltg-analytics-events' });
   const day = record.occurred_at.slice(0, 10);
   const timestamp = record.occurred_at.replace(/[-:.TZ]/g, '').slice(0, 17);
   const key = `${day}/${timestamp}-${record.event_id}.json`;

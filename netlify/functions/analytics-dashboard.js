@@ -21,8 +21,8 @@ async function connectStores(event) {
   const blobs = await import('@netlify/blobs');
   if (typeof blobs.connectLambda === 'function') blobs.connectLambda(event);
   return {
-    events: blobs.getStore({ name: 'ltg-analytics-events', consistency: 'strong' }),
-    leads: blobs.getStore({ name: 'ltg-capital-diagnostic-leads', consistency: 'strong' }),
+    events: blobs.getStore({ name: 'ltg-analytics-events' }),
+    leads: blobs.getStore({ name: 'ltg-capital-diagnostic-leads' }),
   };
 }
 
@@ -50,7 +50,7 @@ async function readJsonBatch(store, keys) {
     const batch = keys.slice(index, index + batchSize);
     const rows = await Promise.all(batch.map(async (key) => {
       try {
-        return await store.get(key, { type: 'json', consistency: 'strong' });
+        return await store.get(key, { type: 'json' });
       } catch {
         return null;
       }

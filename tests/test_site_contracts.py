@@ -153,8 +153,15 @@ class SiteContractTests(unittest.TestCase):
             "visitor-track.js",
             "analytics-dashboard.js",
             "analytics-retention.js",
+            "capital-diagnostic.js",
         ):
-            self.assertTrue((ROOT / "netlify" / "functions" / filename).exists())
+            function_path = ROOT / "netlify" / "functions" / filename
+            self.assertTrue(function_path.exists())
+            self.assertNotIn(
+                "consistency: 'strong'",
+                function_path.read_text(encoding="utf-8"),
+                f"{filename} must use the Netlify Functions-compatible Blob consistency mode",
+            )
 
     def test_editorial_state_is_blocked_from_public_deployment(self) -> None:
         config = (ROOT / "netlify.toml").read_text(encoding="utf-8")
