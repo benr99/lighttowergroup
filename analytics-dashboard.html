@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/analytics-dashboard.css?v=20260729">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="/analytics-dashboard.js?v=20260729" defer></script>
 </head>
 <body>
@@ -29,18 +30,17 @@
       <h1>Know which attention is becoming opportunity.</h1>
       <p class="auth-lead">A private view of traffic, engagement, article performance, capital-readiness activity, and qualified inbound demand.</p>
 
-      <form class="auth-form" data-auth-form novalidate>
-        <label for="dashboard-email">Authorized email</label>
-        <div class="auth-row">
-          <input id="dashboard-email" name="email" type="email" autocomplete="email" placeholder="you@lighttowergroup.co" required>
-          <button type="submit">Send secure link <span aria-hidden="true">→</span></button>
+      <div class="auth-form">
+        <span class="auth-label">Invite-only account</span>
+        <div class="auth-row auth-row--identity">
+          <button type="button" data-identity-login>Open secure sign in <span aria-hidden="true">→</span></button>
         </div>
-        <p class="auth-message" data-auth-message aria-live="polite">Access links expire after 10 minutes.</p>
-      </form>
+        <p class="auth-message" data-auth-message aria-live="polite">Use the private account invitation issued by Light Tower Group.</p>
+      </div>
 
       <div class="trust-row" aria-label="Dashboard security details">
-        <span>10-minute email link</span>
-        <span>12-hour secure session</span>
+        <span>Invite-only identity</span>
+        <span>Server-validated access</span>
         <span>No public data access</span>
       </div>
     </div>

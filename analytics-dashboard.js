@@ -1,8 +1,8 @@
 (function (win, doc) {
   'use strict';
 
-  var authEndpoint = '/.netlify/functions/analytics-auth';
   var dashboardEndpoint = '/.netlify/functions/analytics-dashboard';
+  var identity = win.netlifyIdentity;
   var state = {
     range: 30,
     report: null,
@@ -12,7 +12,7 @@
   var authView = doc.querySelector('[data-auth-view]');
   var loadingView = doc.querySelector('[data-loading-view]');
   var dashboardView = doc.querySelector('[data-dashboard-view]');
-  var authForm = doc.querySelector('[data-auth-form]');
+  var authButton = doc.querySelector('[data-identity-login]');
   var authMessage = doc.querySelector('[data-auth-message]');
   var dashboardError = doc.querySelector('[data-dashboard-error]');
 
@@ -22,20 +22,29 @@
     dashboardView.hidden = view !== 'dashboard';
   }
 
-  function request(url, options) {
-    return fetch(url, Object.assign({
+  async function request(url, options) {
+    var config = Object.assign({
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' }
-    }, options || {})).then(async function (response) {
-      var payload = {};
-      try { payload = await response.json(); } catch (_) {}
-      if (!response.ok) {
-        var error = new Error(payload.error || 'Request failed.');
-        error.status = response.status;
-        throw error;
+    }, options || {});
+    if (url.indexOf(dashboardEndpoint) === 0 && identity) {
+      var user = identity.currentUser();
+      if (user) {
+        var token = await user.jwt();
+        config.headers = Object.assign({}, config.headers || {}, {
+          Authorization: 'Bearer ' + token
+        });
       }
-      return payload;
-    });
+    }
+    var response = await fetch(url, config);
+    var payload = {};
+    try { payload = await response.json(); } catch (_) {}
+    if (!response.ok) {
+      var error = new Error(payload.error || 'Request failed.');
+      error.status = response.status;
+      throw error;
+    }
+    return payload;
   }
 
   function escapeHtml(value) {
@@ -268,8 +277,9 @@
       .catch(function (error) {
         if (error.status === 401) {
           show('auth');
-          authMessage.textContent = 'Your session has expired. Request a new secure link.';
+          authMessage.textContent = 'This account is not authorized, or its session has expired.';
           authMessage.classList.add('is-error');
+          if (identity && identity.currentUser()) identity.logout().catch(function () {});
           return;
         }
         show('dashboard');
@@ -280,56 +290,20 @@
       });
   }
 
-  function exchangeToken(token) {
-    show('loading');
-    return request(authEndpoint, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'exchange', token: token })
-    }).then(function () {
-      win.history.replaceState({}, doc.title, '/analytics-dashboard.html');
-      return loadDashboard();
-    }).catch(function (error) {
-      win.history.replaceState({}, doc.title, '/analytics-dashboard.html');
+  function handleIdentityUser(user) {
+    if (!user) {
       show('auth');
-      authMessage.textContent = error.message;
-      authMessage.classList.add('is-error');
-    });
-  }
-
-  function checkSession() {
-    show('loading');
-    return request(authEndpoint + '?action=status', { method: 'GET', headers: {} })
-      .then(loadDashboard)
-      .catch(function () {
-        show('auth');
-      });
-  }
-
-  authForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    var emailInput = authForm.querySelector('input[name="email"]');
-    if (!emailInput.validity.valid) {
-      authMessage.textContent = 'Enter a valid authorized email address.';
-      authMessage.classList.add('is-error');
-      emailInput.focus();
       return;
     }
-    var button = authForm.querySelector('button');
-    button.disabled = true;
+    show('loading');
     authMessage.classList.remove('is-error');
-    authMessage.textContent = 'Requesting a secure sign-in link…';
-    request(authEndpoint, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'request', email: emailInput.value.trim() })
-    }).then(function (response) {
-      authMessage.textContent = response.message;
-      emailInput.value = '';
-    }).catch(function (error) {
-      authMessage.textContent = error.message;
-      authMessage.classList.add('is-error');
-    }).finally(function () {
-      button.disabled = false;
-    });
+    loadDashboard();
+  }
+
+  authButton.addEventListener('click', function () {
+    if (!identity) return;
+    authMessage.classList.remove('is-error');
+    identity.open('login');
   });
 
   doc.querySelectorAll('[data-range]').forEach(function (button) {
@@ -353,13 +327,11 @@
   });
 
   doc.querySelector('[data-logout]').addEventListener('click', function () {
-    request(authEndpoint, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'logout' })
-    }).finally(function () {
+    if (!identity) return;
+    identity.logout().finally(function () {
       state.report = null;
       show('auth');
-      authMessage.textContent = 'Signed out. Request a new secure link whenever you need access.';
+      authMessage.textContent = 'Signed out. Use your invite-only account whenever you need access.';
     });
   });
 
@@ -392,7 +364,28 @@
     win.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   });
 
-  var accessToken = new URLSearchParams(win.location.search).get('access_token');
-  if (accessToken) exchangeToken(accessToken);
-  else checkSession();
+  if (!identity) {
+    show('auth');
+    authButton.disabled = true;
+    authMessage.textContent = 'Secure identity could not be loaded. Refresh and try again.';
+    authMessage.classList.add('is-error');
+    return;
+  }
+
+  identity.on('init', handleIdentityUser);
+  identity.on('login', function (user) {
+    identity.close();
+    handleIdentityUser(user);
+  });
+  identity.on('logout', function () {
+    state.report = null;
+    show('auth');
+  });
+  identity.on('error', function () {
+    show('auth');
+    authMessage.textContent = 'Secure sign in could not be completed. Try again.';
+    authMessage.classList.add('is-error');
+  });
+  show('loading');
+  identity.init();
 }(window, document));

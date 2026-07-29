@@ -3,15 +3,12 @@ const assert = require('node:assert/strict');
 
 const core = require('../netlify/functions/_shared/analytics-core.js');
 const visitorTrack = require('../netlify/functions/visitor-track.js');
-const analyticsAuth = require('../netlify/functions/analytics-auth.js');
 const analyticsDashboard = require('../netlify/functions/analytics-dashboard.js');
 const analyticsRetention = require('../netlify/functions/analytics-retention.js');
 
 const NOW = new Date('2026-07-29T14:30:00.000Z');
 const ENV = {
-  RESEND_API_KEY: 're_test_secret',
   ANALYTICS_DASHBOARD_EMAIL: 'ben@lighttowergroup.co',
-  DASHBOARD_AUTH_SECRET: 'test-dashboard-secret-that-is-long-and-private',
 };
 
 function validEvent(overrides = {}) {
@@ -167,49 +164,7 @@ test('closed sessions are not reported as active visitors', () => {
   assert.equal(report.recent_sessions[0].closed, true);
 });
 
-test('magic-link authentication sends only to the allowlisted email and creates an HttpOnly session', async () => {
-  const deliveries = [];
-  const handler = analyticsAuth.createHandler({
-    env: ENV,
-    now: () => NOW,
-    sendMagicLink: async (email, token) => deliveries.push({ email, token }),
-  });
-  const deniedRequest = await handler({
-    httpMethod: 'POST',
-    headers: { origin: 'https://lighttowergroup.co' },
-    body: JSON.stringify({ action: 'request', email: 'other@example.com' }),
-  });
-  assert.equal(deniedRequest.statusCode, 200);
-  assert.equal(deliveries.length, 0);
-
-  const allowedRequest = await handler({
-    httpMethod: 'POST',
-    headers: { origin: 'https://lighttowergroup.co' },
-    body: JSON.stringify({ action: 'request', email: 'ben@lighttowergroup.co' }),
-  });
-  assert.equal(allowedRequest.statusCode, 200);
-  assert.equal(deliveries.length, 1);
-
-  const exchange = await handler({
-    httpMethod: 'POST',
-    headers: { origin: 'https://lighttowergroup.co' },
-    body: JSON.stringify({ action: 'exchange', token: deliveries[0].token }),
-  });
-  assert.equal(exchange.statusCode, 200);
-  assert.match(exchange.headers['Set-Cookie'], /HttpOnly/);
-  assert.match(exchange.headers['Set-Cookie'], /SameSite=Strict/);
-
-  const cookie = exchange.headers['Set-Cookie'].split(';')[0];
-  const status = await handler({
-    httpMethod: 'GET',
-    headers: { cookie },
-    queryStringParameters: { action: 'status' },
-  });
-  assert.equal(status.statusCode, 200);
-  assert.equal(JSON.parse(status.body).authenticated, true);
-});
-
-test('dashboard API requires a signed session and returns only aggregated authorized data', async () => {
+test('dashboard API requires the allowlisted Netlify Identity user', async () => {
   const handler = analyticsDashboard.createHandler({
     env: ENV,
     now: () => NOW,
@@ -222,15 +177,24 @@ test('dashboard API requires a signed session and returns only aggregated author
   const denied = await handler({ httpMethod: 'GET', headers: {}, queryStringParameters: { range: '7' } });
   assert.equal(denied.statusCode, 401);
 
-  const token = core.signToken({
-    kind: 'session',
-    email: 'ben@lighttowergroup.co',
-    exp: Math.floor(NOW.getTime() / 1000) + 3600,
-  }, ENV.DASHBOARD_AUTH_SECRET);
+  const wrongIdentity = await handler(
+    { httpMethod: 'GET', headers: {}, queryStringParameters: { range: '7' } },
+    { clientContext: { user: { email: 'other@example.com', sub: 'wrong-user' } } }
+  );
+  assert.equal(wrongIdentity.statusCode, 401);
+
   const allowed = await handler({
     httpMethod: 'GET',
-    headers: { cookie: `ltg_analytics_session=${encodeURIComponent(token)}` },
+    headers: {},
     queryStringParameters: { range: '7' },
+  }, {
+    clientContext: {
+      user: {
+        email: 'ben@lighttowergroup.co',
+        sub: 'identity-user-123',
+        app_metadata: { roles: ['analytics-admin'] },
+      },
+    },
   });
   assert.equal(allowed.statusCode, 200);
   const report = JSON.parse(allowed.body);

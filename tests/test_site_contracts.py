@@ -137,6 +137,7 @@ class SiteContractTests(unittest.TestCase):
         self.assertIn('name="robots" content="noindex, nofollow, noarchive"', dashboard)
         self.assertIn("Article-to-mandate funnel", dashboard)
         self.assertIn("Capital-readiness leads", dashboard)
+        self.assertIn("identity.netlify.com/v1/netlify-identity-widget.js", dashboard)
         self.assertIn("analytics-dashboard", dashboard_script)
         self.assertIn("first-party analytics system", privacy)
         self.assertIn("does not use advertising pixels", privacy)
@@ -150,7 +151,6 @@ class SiteContractTests(unittest.TestCase):
 
         for filename in (
             "visitor-track.js",
-            "analytics-auth.js",
             "analytics-dashboard.js",
             "analytics-retention.js",
         ):

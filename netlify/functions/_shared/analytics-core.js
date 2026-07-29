@@ -475,79 +475,39 @@ function aggregateAnalytics(events, leads, options = {}) {
   };
 }
 
-function base64url(value) {
-  return Buffer.from(value).toString('base64url');
-}
-
-function signToken(payload, secret) {
-  const body = base64url(JSON.stringify(payload));
-  const signature = crypto.createHmac('sha256', secret).update(body).digest('base64url');
-  return `${body}.${signature}`;
-}
-
-function verifyToken(token, secret, expectedKind, now = new Date()) {
-  try {
-    const [body, signature] = String(token || '').split('.');
-    if (!body || !signature) return null;
-    const expected = crypto.createHmac('sha256', secret).update(body).digest();
-    const actual = Buffer.from(signature, 'base64url');
-    if (expected.length !== actual.length || !crypto.timingSafeEqual(expected, actual)) return null;
-    const payload = JSON.parse(Buffer.from(body, 'base64url').toString('utf8'));
-    if (expectedKind && payload.kind !== expectedKind) return null;
-    if (!payload.exp || payload.exp <= Math.floor(now.getTime() / 1000)) return null;
-    return payload;
-  } catch {
-    return null;
-  }
-}
-
-function parseCookies(header) {
-  return String(header || '').split(';').reduce((cookies, part) => {
-    const index = part.indexOf('=');
-    if (index < 0) return cookies;
-    const key = part.slice(0, index).trim();
-    const value = part.slice(index + 1).trim();
-    if (key) cookies[key] = decodeURIComponent(value);
-    return cookies;
-  }, {});
-}
-
-function authSecret(env = process.env) {
-  if (env.DASHBOARD_AUTH_SECRET) return env.DASHBOARD_AUTH_SECRET;
-  if (!env.RESEND_API_KEY) return '';
-  return crypto.createHash('sha256')
-    .update(`ltg-visitor-intelligence:${env.RESEND_API_KEY}`)
-    .digest('hex');
-}
-
 function dashboardEmail(env = process.env) {
   return text(env.ANALYTICS_DASHBOARD_EMAIL || env.NOTIFY_EMAIL || 'ben@lighttowergroup.co', 254).toLowerCase();
 }
 
-function authorizedDashboardRequest(event, env = process.env, now = new Date()) {
-  const secret = authSecret(env);
-  if (!secret) return null;
-  const cookies = parseCookies(event && event.headers && (event.headers.cookie || event.headers.Cookie));
-  const payload = verifyToken(cookies.ltg_analytics_session, secret, 'session', now);
-  if (!payload || payload.email !== dashboardEmail(env)) return null;
-  return payload;
+function authorizedDashboardRequest(_event, env = process.env, _now = new Date(), context = {}) {
+  const identityUser = context && context.clientContext && context.clientContext.user;
+  if (!identityUser) return null;
+  const email = text(
+    identityUser.email ||
+    identityUser.user_metadata && identityUser.user_metadata.email,
+    254
+  ).toLowerCase();
+  if (!email || email !== dashboardEmail(env)) return null;
+  return {
+    id: text(identityUser.sub || identityUser.id, 120),
+    email,
+    roles: Array.isArray(identityUser.app_metadata && identityUser.app_metadata.roles)
+      ? identityUser.app_metadata.roles.slice(0, 20)
+      : [],
+  };
 }
 
 module.exports = {
   EVENT_NAMES,
   DASHBOARD_RANGES,
   aggregateAnalytics,
-  authSecret,
   authorizedDashboardRequest,
   buildDateKeys,
   dashboardEmail,
   isBot,
   normalizeEvent,
   normalizeGeo,
-  parseCookies,
   parseUserAgent,
   safePath,
-  signToken,
   text,
-  verifyToken,
 };

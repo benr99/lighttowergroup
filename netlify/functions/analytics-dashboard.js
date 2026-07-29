@@ -91,12 +91,12 @@ function createHandler(overrides = {}) {
   const loadData = overrides.loadData || defaultLoadData;
   const nowFactory = overrides.now || (() => new Date());
   const env = overrides.env || process.env;
-  return async function handler(event) {
+  return async function handler(event, context = {}) {
     if (event.httpMethod !== 'GET') {
       return { statusCode: 405, headers: responseHeaders(), body: JSON.stringify({ error: 'Method not allowed' }) };
     }
     const now = nowFactory();
-    const session = authorizedDashboardRequest(event, env, now);
+    const session = authorizedDashboardRequest(event, env, now, context);
     if (!session) {
       return { statusCode: 401, headers: responseHeaders(), body: JSON.stringify({ error: 'Authentication required' }) };
     }
