@@ -1,22 +1,19 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **73**
-- Distinct events: **73**
-- Articles: **4**
+- Candidates: **71**
+- Distinct events: **70**
+- Articles: **5**
 - Daily target: **3**
 - Daily target met: **yes**
 - Research candidates: **5**
 - Deal-tape items: **8**
-- Archive repeats suppressed: **1**
+- Archive repeats suppressed: **0**
 
 ## Published candidates
 
-- **brief** — Bridge's $85M Masons Keepe Buy Shows Freddie Mac's Suburban Garden Appetite (1 sources; daily_depth selection)
-- **brief** — Deutsche Bank's $85M Miami Beach Loan Puts Presale Underwriting to the Test (1 sources; daily_depth selection)
-- **brief** — Developers Cap Projects at 99 Units to Sidestep 485-x Wage Rule (1 sources; daily_depth selection)
-- **brief** — Can Historic Tax Credits Make Office Conversions Work in Des Moines? (1 sources; daily_depth selection)
-
-## Held or downgraded
-
-- RealPage Secures $20 Million in Financing from Apax Partners: Event is stale (2004), lacks current consequence, and dossier contains irrelevant data. No defensible CRE implication for today's audience.
+- **brief** — Can a Private Investor Underwrite Vacancy in Lincoln Park Without a Forced Exit? (2 sources; must_read selection)
+- **brief** — Welltower's $9.5B Bet: Senior Housing Over Medical Offices (1 sources; daily_depth selection)
+- **brief** — What a 19K-SF Lease in West Palm Beach Reveals About Boutique Office Risk (1 sources; daily_depth selection)
+- **brief** — Ekstein and Standard Real Estate's $58M Refinancing: A Routine Bushwick Deal (1 sources; daily_depth selection)
+- **brief** — Vital Infrastructure's $90M Brooklyn Buy Shows Medical Office Debt Is a Basis Game (1 sources; daily_depth selection)
