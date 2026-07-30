@@ -708,7 +708,7 @@
     },
     {
       "name": "American Banker",
-      "url": "https://www.americanbanker.com/feed",
+      "url": "https://www.americanbanker.com/arcio/rss/",
       "sectors": ["banking_credit"],
       "tier": 3,
       "fetch_frequency_hours": 12,
@@ -718,8 +718,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only from RSS"
+      "verified": false,
+      "notes": "Broken feed; tried /feed, /arcio/rss/"
     },
     {
       "name": "Mortgage News Daily",
@@ -1603,7 +1603,7 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
+      "verified": false,
       "notes": "Primary federal source; lane=federal"
     },
     {
@@ -1863,7 +1863,7 @@
     },
     {
       "name": "Data Center Dynamics",
-      "url": "https://www.datacenterdynamics.com/feed/",
+      "url": "https://www.datacenterdynamics.com/rss/",
       "sectors": ["data_centers"],
       "tier": 2,
       "fetch_frequency_hours": 12,
@@ -1874,7 +1874,7 @@
       "source_type": "industry_publication",
       "active": true,
       "verified": false,
-      "notes": "NEW — Leading data center trade publication"
+      "notes": "Broken feed; tried /feed/, /rss/"
     },
     {
       "name": "Data Center Frontier",
@@ -1978,8 +1978,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Electric utility sector news"
+      "verified": true,
+      "notes": "Working feed — 7 items"
     },
     {
       "name": "Power Magazine",
@@ -1993,8 +1993,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Power generation industry coverage"
+      "verified": true,
+      "notes": "Working feed — 5 items"
     },
     {
       "name": "Renewable Energy World",
@@ -2158,8 +2158,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Banking industry news"
+      "verified": true,
+      "notes": "Working feed — 8 items"
     },
     {
       "name": "S&P Global Market Intelligence",
