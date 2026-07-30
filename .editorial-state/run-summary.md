@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **71**
-- Distinct events: **70**
-- Articles: **5**
+- Candidates: **88**
+- Distinct events: **87**
+- Articles: **3**
 - Daily target: **3**
 - Daily target met: **yes**
 - Research candidates: **5**
@@ -12,8 +12,6 @@
 
 ## Published candidates
 
-- **brief** — Can a Private Investor Underwrite Vacancy in Lincoln Park Without a Forced Exit? (2 sources; must_read selection)
-- **brief** — Welltower's $9.5B Bet: Senior Housing Over Medical Offices (1 sources; daily_depth selection)
-- **brief** — What a 19K-SF Lease in West Palm Beach Reveals About Boutique Office Risk (1 sources; daily_depth selection)
-- **brief** — Ekstein and Standard Real Estate's $58M Refinancing: A Routine Bushwick Deal (1 sources; daily_depth selection)
-- **brief** — Vital Infrastructure's $90M Brooklyn Buy Shows Medical Office Debt Is a Basis Game (1 sources; daily_depth selection)
+- **brief** — Sterling Paid $93.2M for a Whole Foods Lease. Here's What They Had to Believe. (2 sources; must_read selection)
+- **brief** — BXP's $1.2B Loan: A Clock, Not a Signal (3 sources; must_read selection)
+- **brief** — What a $28.3M Chicago Loan Reveals About Transit-Oriented Development Debt (1 sources; daily_depth selection)
