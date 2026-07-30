@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "sectors": {
+    "commercial_real_estate": {
+      "label": "Commercial Real Estate",
+      "subsectors": ["multifamily", "industrial_logistics", "office", "retail", "hospitality", "self_storage", "student_housing", "senior_housing", "manufactured_housing", "medical_office", "life_sciences", "mixed_use", "affordable_housing", "single_family_rental", "land_development", "data_center_real_estate", "infrastructure_real_estate", "distressed_real_estate"],
+      "event_types": ["property_acquisition", "portfolio_acquisition", "asset_sale", "recapitalization", "refinancing", "construction_financing", "development_financing", "loan_origination", "cmbs_activity", "foreclosure", "receivership", "note_sale", "distressed_sale", "rescue_capital", "preferred_equity", "joint_venture", "fund_launch", "major_lease", "development_approval", "rezoning", "entitlement_change", "tax_incentive", "public_subsidy", "construction_start", "project_completion", "ownership_change", "firm_acquisition", "executive_change", "bank_exposure", "market_report"]
+    },
+    "private_equity": {
+      "label": "Private Equity",
+      "subsectors": ["buyouts", "growth_equity", "platform_acquisition", "add_on_acquisition", "sponsor_exit", "continuation_vehicle", "secondary_transaction", "gp_led_transaction", "fund_close", "fundraising", "private_credit", "direct_lending", "nav_financing", "subscription_facility", "structured_equity", "distressed_investing", "infrastructure_fund", "real_estate_pe", "healthcare_investing", "technology_investing", "industrial_investing", "consumer_investing", "energy_investing", "sponsor_bankruptcy", "portfolio_company", "regulatory_development", "allocator_activity", "sovereign_wealth", "pension_commitment", "family_office", "personnel_move"],
+      "event_types": ["buyout", "growth_investment", "platform_creation", "add_on", "exit_ipo", "exit_sale", "continuation_fund", "secondary_sale", "fund_close", "fund_launch", "private_credit_deal", "direct_lending_deal", "restructuring", "sponsor_acquisition", "sponsor_sale", "executive_appointment", "regulatory_change", "allocator_commitment"]
+    },
+    "data_centers": {
+      "label": "Data Centers & Digital Infrastructure",
+      "subsectors": ["hyperscale", "colocation", "edge", "powered_land", "fiber_network", "subsea_cable", "ai_infrastructure", "gpu_compute", "cloud_infrastructure"],
+      "event_types": ["dc_acquisition", "dc_development", "dc_lease", "power_agreement", "grid_interconnection", "utility_agreement", "fiber_deployment", "subsea_cable_announcement", "tax_incentive", "environmental_permit", "zoning_approval", "community_opposition", "power_shortage", "water_constraint", "dc_financing", "dc_securitization", "operator_announcement", "hyperscaler_announcement", "market_report"]
+    },
+    "energy": {
+      "label": "Energy, Power & Infrastructure",
+      "subsectors": ["power_generation", "electric_utilities", "natural_gas", "nuclear", "solar", "wind", "battery_storage", "transmission", "grid_infrastructure", "pipelines", "lng", "distributed_generation", "microgrids", "project_finance", "infrastructure_funds"],
+      "event_types": ["energy_m_and_a", "asset_sale", "development_project", "regulatory_decision", "utility_commission_order", "federal_policy", "state_policy", "tax_credit", "permitting_decision", "interconnection_decision", "power_price_change", "capacity_market_change", "reliability_event", "grid_congestion", "dc_power_demand", "industrial_electrification", "public_private_partnership", "project_cancellation"]
+    },
+    "banking_credit": {
+      "label": "Banking, Credit & Capital Markets",
+      "subsectors": ["major_banks", "regional_banks", "community_banks", "private_credit", "cre_lending", "construction_lending", "bridge_lending", "cmbs", "agency_lending", "bank_mergers", "regulatory_actions", "capital_requirements", "loan_loss_reserves", "delinquencies", "defaults", "troubled_loans", "cre_concentration", "deposit_movements", "liquidity", "lending_standards", "loan_sales", "debt_funds", "securitization", "treasury_markets", "credit_spreads"],
+      "event_types": ["bank_failure", "bank_merger", "regulatory_action", "enforcement_action", "capital_rule_change", "lending_standard_change", "loan_sale", "delinquency_report", "default_event", "credit_event", "securitization_pricing", "treasury_market_event", "fdic_action", "occ_action", "fed_banking_action"]
+    },
+    "fed_macro": {
+      "label": "Federal Reserve & Macroeconomic Policy",
+      "subsectors": ["fomc", "rate_decisions", "fed_speeches", "inflation", "employment", "gdp", "housing_data", "fiscal_policy", "tax_policy", "tariffs", "trade_policy", "financial_stability"],
+      "event_types": ["fomc_decision", "fomc_minutes", "fed_speech", "inflation_report", "employment_report", "gdp_report", "housing_report", "treasury_yield_move", "fiscal_legislation", "tax_change", "tariff_change", "government_shutdown", "debt_ceiling", "financial_stability_report"]
+    },
+    "local_government": {
+      "label": "Local & State Government",
+      "subsectors": ["planning_board", "zoning_board", "city_council", "county_government", "state_legislature", "governor_office", "economic_development", "housing_agency", "transportation_authority", "utility_commission", "tax_authority", "building_department"],
+      "event_types": ["rezoning_decision", "entitlement_approval", "development_approval", "moratorium", "housing_mandate", "rent_regulation_change", "property_tax_change", "transfer_tax", "tax_abatement", "pilot_agreement", "infrastructure_spending", "transit_project", "affordable_housing_requirement", "building_code_change", "energy_code", "environmental_rule", "utility_approval", "eminent_domain", "public_land_sale", "public_private_partnership", "municipal_bond", "employer_relocation", "development_dispute"]
+    }
+  }
+}

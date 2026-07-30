@@ -36,6 +36,14 @@ class ContentGovernanceTests(unittest.TestCase):
         self.assertTrue(any("fallback" in error for error in errors))
         self.assertTrue(any("fixture" in error for error in errors))
 
+    def test_brief_cannot_exceed_its_reading_budget(self) -> None:
+        article = {
+            "body_html": "<p>Reported deal detail. " * 500,
+            "sources": [{"name": "Source", "url": "https://news.example.org/story"}],
+        }
+        errors = independent_quality_issues(article, require_sections=False, article_format="brief")
+        self.assertTrue(any("reading budget" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

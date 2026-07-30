@@ -399,8 +399,8 @@
 
     <div class="insights-hero container">
       <span class="index-header">Insights</span>
-      <h1 class="insights-headline">Capital Markets,<br>Clearly Explained</h1>
-      <p class="insights-sub">Practical perspectives on deal structure, credit conditions, and the financing decisions facing commercial real estate sponsors.</p>
+      <h1 class="insights-headline">Institutional Intelligence,<br>Clearly Explained</h1>
+      <p class="insights-sub">Daily intelligence across commercial real estate, private equity, data centers, energy, banking, macro policy, and government regulation — ranked, researched, and written for capital decision-makers.</p>
       <form class="newsletter-inline" id="newsletter-form" style="margin-top:1.5rem;display:flex;gap:0.5rem;max-width:480px;">
         <input type="email" id="newsletter-email" placeholder="Your email" required
                style="flex:1;border:1px solid var(--line-strong);background:var(--bg);padding:0.7rem 1rem;font:inherit;font-size:0.9rem;">
@@ -412,13 +412,15 @@
       <p id="newsletter-message" style="font-size:0.8rem;color:var(--accent);margin-top:0.5rem;" hidden></p>
     </div>
 
-    <div class="insights-filters" aria-label="Filter Insights by research area">
-      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Research</button>
-      <button class="filter-btn" data-filter="signals" aria-pressed="false">Market Signals</button>
-      <button class="filter-btn" data-filter="deals" aria-pressed="false">Deals</button>
-      <button class="filter-btn" data-filter="built-world" aria-pressed="false">Built World</button>
-      <button class="filter-btn" data-filter="financing" aria-pressed="false">Financing</button>
-      <button class="filter-btn" data-filter="policy" aria-pressed="false">Policy</button>
+    <div class="insights-filters" aria-label="Filter Insights by sector">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Sectors</button>
+      <button class="filter-btn" data-filter="commercial_real_estate" aria-pressed="false">CRE</button>
+      <button class="filter-btn" data-filter="private_equity" aria-pressed="false">Private Equity</button>
+      <button class="filter-btn" data-filter="data_centers" aria-pressed="false">Data Centers</button>
+      <button class="filter-btn" data-filter="energy" aria-pressed="false">Energy</button>
+      <button class="filter-btn" data-filter="banking_credit" aria-pressed="false">Banking</button>
+      <button class="filter-btn" data-filter="fed_macro" aria-pressed="false">Fed & Macro</button>
+      <button class="filter-btn" data-filter="local_government" aria-pressed="false">Government</button>
     </div>
 
     <div class="insights-tools" style="padding-bottom:0;">
@@ -486,11 +488,13 @@
     const PAGE_SIZE = 18;
     const FILTERS = {
       all: null,
-      signals: ['Capital Markets', 'Capital Markets Research', 'Market Commentary'],
-      deals: ['Deal Intelligence'],
-      'built-world': ['Architecture & Capital Markets', 'Market Analysis'],
-      financing: ['Debt & Equity'],
-      policy: ['Policy & Regulation']
+      commercial_real_estate: ['Capital Markets', 'Capital Markets Research', 'Market Commentary', 'Deal Intelligence', 'Debt & Equity', 'Policy & Regulation', 'Architecture & Capital Markets', 'Market Analysis'],
+      private_equity: ['Private Equity', 'Buyouts', 'Fundraising', 'Private Credit'],
+      data_centers: ['Data Centers', 'Digital Infrastructure', 'Cloud Infrastructure'],
+      energy: ['Energy', 'Power', 'Infrastructure', 'Utilities'],
+      banking_credit: ['Banking', 'Credit Markets', 'Lending', 'CMBS'],
+      fed_macro: ['Federal Reserve', 'Macroeconomic Policy', 'Interest Rates', 'Treasury'],
+      local_government: ['Local Government', 'Zoning', 'Regulation', 'Development'],
     };
     let allPosts = [];
     let activeFilter = 'all';

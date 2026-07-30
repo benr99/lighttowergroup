@@ -143,6 +143,17 @@ def independent_quality_issues(
     )
     if word_count < minimum_words:
         errors.append(f"independent quality gate: article is below {minimum_words} words")
+    format_maximums = {
+        "flagship": 1100,
+        "brief": 475,
+        "culture_signal": 625,
+        "data_note": 450,
+    }
+    maximum_words = format_maximums.get(article_format)
+    if maximum_words and word_count > maximum_words:
+        errors.append(
+            f"independent quality gate: {article_format} exceeds its {maximum_words}-word reading budget"
+        )
     if require_sections and len(re.findall(r"<h2\b", body_html, re.IGNORECASE)) < 2:
         errors.append("independent quality gate: article needs at least two substantive sections")
     if require_sections and GENERIC_EDITORIAL_RE.search(text):

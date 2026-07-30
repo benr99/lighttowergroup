@@ -9,6 +9,7 @@ banking relevance, and clear capital markets consequences.
 from __future__ import annotations
 
 import json
+import os
 import re
 from datetime import date, datetime, timezone
 from typing import Any
@@ -16,7 +17,7 @@ from typing import Any
 import requests
 
 
-MODEL_NAME = "deepseek-chat"
+MODEL_NAME = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
 MIN_PUBLISH_SCORE = 70
 MIN_CAPITAL_MARKETS_SCORE = 14
 MIN_SPECIFICITY_SCORE = 8
@@ -285,12 +286,17 @@ def call_deepseek(
     temperature: float = 0.2,
     json_mode: bool = False,
     provider: dict[str, Any] | None = None,
+    system: str = "",
 ) -> str:
     url = (provider or {}).get("url", "https://api.deepseek.com/v1/chat/completions")
     model = (provider or {}).get("model", MODEL_NAME)
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
     payload = {
         "model": model,
-        "messages": [{"role": "user", "content": prompt}],
+        "messages": messages,
         "max_tokens": max_tokens,
         "temperature": temperature,
     }

@@ -16,7 +16,7 @@ STATE_DIR = SITE_ROOT / ".editorial-state"
 PROVIDER_LOG_PATH = STATE_DIR / "provider-log.jsonl"
 PRIMARY_HEALTH_PATH = STATE_DIR / "primary-health.json"
 
-DEEPSEEK_MODEL = "deepseek-chat"
+DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
 OPENAI_MODEL_FALLBACK = "gpt-4o-mini"
 OPENAI_MODEL_WRITING = "gpt-4o"
 

@@ -1742,7 +1742,7 @@ def write_log(run_data: dict):
 
 def finalize_no_story_edition(start, run_data, args, reason=""):
     """Save a thin-news edition without publishing any articles."""
-    edition_status = "thin_news_skip"
+    edition_status = "no_publishable_story"
     edition_date = start.date()
     run_data["status"] = edition_status
     run_data["reason"] = reason
@@ -1761,7 +1761,16 @@ def finalize_no_story_edition(start, run_data, args, reason=""):
             "deal_tape": [],
             "selection_summary": {"raw_candidates": run_data.get("raw_count", 0), "articles": 0, "reason": reason},
         }
-        save_public_edition(edition_document)
+        generated_paths = list(save_public_edition(edition_document))
+        generated_paths.append(save_publication_decision(
+            articles=[],
+            edition_status=edition_status,
+        ))
+        summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
+        summary_path.parent.mkdir(parents=True, exist_ok=True)
+        summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
+        generated_paths.append(summary_path)
+        write_generated_files(generated_paths)
     print(f"  Thin news day ({edition_date}). Edition saved without articles. Reason: {reason}")
 
 
@@ -1863,6 +1872,8 @@ def main():
                         help="Generate and validate artifacts without committing or pushing; intended for GitHub Actions")
     parser.add_argument("--run-origin", choices=["manual", "local-scheduler", "github-actions"],
                         default="manual", help="Record which scheduler or operator initiated the run")
+    parser.add_argument("--pipeline-v2", action="store_true",
+                        help="Run the new multi-sector pipeline v2 (ingestion, classification, scoring, ranking)")
     args = parser.parse_args()
     if args.weekly_review:
         run_weekly_review(args)
@@ -1871,6 +1882,23 @@ def main():
     DAILY_TARGET = max(0, min(args.daily_target, MAX_ARTICLES))
     article_limit = None if args.no_limit and args.selection_mode == "bucketed-volume" else MAX_ARTICLES
     LOOKBACK_HOURS = max(1, args.lookback_hours)
+
+    if args.pipeline_v2:
+        print("\n  [PIPELINE V2] Running multi-sector pipeline...")
+        try:
+            from pipeline_v2 import run_pipeline
+            v2_results = run_pipeline(shadow=args.shadow, verbose=True)
+            run_data["pipeline_v2"] = {
+                "ingestion": v2_results.get("ingestion", {}),
+                "classification": v2_results.get("classification", {}),
+                "scoring": v2_results.get("scoring", {}),
+                "elapsed": v2_results.get("elapsed_seconds", 0),
+            }
+            print(f"  [PIPELINE V2] Complete. {v2_results.get('status', 'unknown')}")
+        except ImportError as e:
+            print(f"  [PIPELINE V2] Could not import pipeline_v2 module: {e}")
+        except Exception as e:
+            print(f"  [PIPELINE V2] Error: {e}")
 
     start    = datetime.now(timezone.utc)
     clear_checkpoints()
@@ -1884,6 +1912,7 @@ def main():
         "status": "started",
         "dry_run": args.dry_run,
         "run_origin": args.run_origin,
+        "pipeline_v2_enabled": args.pipeline_v2,
     }
     if args.selection_mode == "edition":
         run_data["daily_target"] = DAILY_TARGET

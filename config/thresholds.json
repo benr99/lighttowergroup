@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "articles_per_sector": {
+    "commercial_real_estate": 30,
+    "private_equity": 30,
+    "data_centers": 30,
+    "energy": 30,
+    "banking_credit": 30,
+    "fed_macro": 30,
+    "local_government": 30
+  },
+  "tier_boundaries": {
+    "tier_1_must_cover": 80,
+    "tier_2_strongly_recommended": 65,
+    "tier_3_useful_coverage": 50,
+    "tier_4_reserve": 35
+  },
+  "diversity_controls": {
+    "max_single_subsector_pct": 40,
+    "max_single_source_pct": 25,
+    "max_single_company_pct": 20,
+    "min_subsectors_represented": 3
+  },
+  "quality_gates": {
+    "min_words_flagship": 750,
+    "min_words_brief": 240,
+    "min_words_data_note": 175,
+    "min_independent_sources_flagship": 3,
+    "min_independent_sources_brief": 1,
+    "min_usable_full_text_flagship": 2
+  },
+  "cost_limits": {
+    "max_daily_llm_cost_usd": 25.00,
+    "max_per_article_cost_usd": 0.15,
+    "cheap_model_max_daily_calls": 500,
+    "premium_model_max_daily_calls": 250
+  },
+  "timing": {
+    "lookback_hours": 36,
+    "pipeline_timeout_minutes": 330,
+    "per_phase_timeout_seconds": {
+      "ingestion": 300,
+      "classification": 120,
+      "scoring": 60,
+      "ranking": 30,
+      "enrichment": 600,
+      "generation": 1800,
+      "publishing": 300
+    }
+  },
+  "signal_gate": {
+    "minimum_candidates_per_sector": 5,
+    "skip_sector_if_below": true,
+    "minimum_composite_score_to_write": 35
+  }
+}

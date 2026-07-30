@@ -91,44 +91,41 @@ def _has_property_context(text: str, candidate: dict[str, Any]) -> bool:
 
 
 def route_story(candidate: dict[str, Any]) -> dict[str, Any]:
-    """Assign a primary editorial bucket based on normalized topics."""
+    """Assign a primary editorial bucket plus relevant secondary buckets."""
+    text = _text(candidate)
     topics = set(candidate.get("topics") or [])
     features = candidate.get("attention_features") or {}
+    matches = [bucket for bucket in BUCKETS if _matches(text, bucket)]
 
-    if topics & {"distress", "cmbs", "bank_credit", "fed_rates", "capital_placement", "private_credit"}:
-        return {
-            "primary_bucket": "cre_capital_markets",
-            "secondary_buckets": [],
-            "route_reason": "Capital markets topic detected",
-        }
-    if topics & {"major_sale", "development_finance", "capital_expenditure", "mna"}:
-        return {
-            "primary_bucket": "cre_transactions_development",
-            "secondary_buckets": [],
-            "route_reason": "Transaction/development topic detected",
-        }
-    if topics & {"private_equity"} or features.get("has_known_institution"):
-        return {
-            "primary_bucket": "private_equity_private_capital",
-            "secondary_buckets": [],
-            "route_reason": "Private equity/capital topic detected",
-        }
-    if topics & {"policy", "government_action"} or features.get("has_federal_source"):
-        return {
-            "primary_bucket": "policy_rates_public_markets",
-            "secondary_buckets": [],
-            "route_reason": "Policy/rates topic detected",
-        }
-    if topics & {"market_fundamentals", "leasing", "reit_public_markets"}:
-        return {
-            "primary_bucket": "banking_credit",
-            "secondary_buckets": [],
-            "route_reason": "Market/credit topic detected",
-        }
+    # Policy and bank stories need a demonstrated CRE/credit transmission; a
+    # generic political or corporate headline must not enter the desk.
+    if "policy_rates_public_markets" in matches:
+        policy_related = any(authority in text for authority in _POLICY_AUTHORITIES) or "reit" in text
+        if not policy_related and not (_has_property_context(text, candidate) and "zoning" in text):
+            matches.remove("policy_rates_public_markets")
+    if "banking_credit" in matches and not (
+        _has_property_context(text, candidate)
+        or any(topic in topics for topic in {"bank_credit", "capital_placement", "cmbs", "distress"})
+        or "commercial real estate" in text
+    ):
+        matches.remove("banking_credit")
+
+    if not matches:
+        return {"primary_bucket": None, "secondary_buckets": [], "route_reason": "No qualifying editorial bucket"}
+
+    priority = [
+        "banking_credit" if any(term in text for term in ("loan loss", "loss reserve", "charge-off", "credit standard", "capital ratio")) else "",
+        "private_equity_private_capital" if any(term in text for term in ("fundraise", "fund closes", "pension fund", "sovereign wealth", "family office", "private equity")) else "",
+        "cre_capital_markets" if any(topic in topics for topic in {"capital_placement", "cmbs", "distress", "private_credit"}) or features.get("has_material_transaction") else "",
+        "cre_transactions_development" if any(topic in topics for topic in {"major_sale", "development_finance", "mna"}) else "",
+        "policy_rates_public_markets" if features.get("has_federal_source") or "reit" in text else "",
+    ]
+    primary = next((bucket for bucket in priority if bucket and bucket in matches), matches[0])
+    secondary = [bucket for bucket in matches if bucket != primary]
     return {
-        "primary_bucket": None,
-        "secondary_buckets": [],
-        "route_reason": "No qualifying editorial bucket",
+        "primary_bucket": primary,
+        "secondary_buckets": secondary,
+        "route_reason": f"Matched {_BUCKET_LABELS[primary]} signals",
     }
 
 

@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "dimensions": {
+    "financial_magnitude": {"label": "Financial Magnitude", "max": 10, "description": "Transaction value, fund size, MW capacity, unit count, sq ft, acreage"},
+    "party_significance": {"label": "Party Significance", "max": 10, "description": "Importance of companies/institutions involved"},
+    "market_impact": {"label": "Market Impact", "max": 10, "description": "Whether the event changes pricing, expectations, or broader market behavior"},
+    "strategic_relevance": {"label": "Strategic Relevance", "max": 10, "description": "Relevance to Light Tower audience of CRE sponsors, lenders, PE investors, developers"},
+    "policy_impact": {"label": "Policy / Regulatory Impact", "max": 10, "description": "Geographic reach, entities affected, precedent-setting nature"},
+    "novelty": {"label": "Novelty", "max": 10, "description": "New information vs. already-covered event"},
+    "source_quality": {"label": "Source Quality", "max": 10, "description": "Authority and reliability of the source"},
+    "timeliness": {"label": "Timeliness", "max": 10, "description": "Age of the story"},
+    "editorial_potential": {"label": "Editorial Potential", "max": 10, "description": "Sufficient source material for substantive article"},
+    "cross_sector_impact": {"label": "Cross-Sector Impact", "max": 10, "description": "Number of sectors materially affected"}
+  },
+  "profiles": {
+    "commercial_real_estate": {
+      "financial_magnitude": 1.5,
+      "party_significance": 1.2,
+      "market_impact": 1.2,
+      "strategic_relevance": 1.3,
+      "policy_impact": 0.8,
+      "novelty": 1.0,
+      "source_quality": 1.0,
+      "timeliness": 1.0,
+      "editorial_potential": 1.0,
+      "cross_sector_impact": 0.7
+    },
+    "private_equity": {
+      "financial_magnitude": 1.4,
+      "party_significance": 1.4,
+      "market_impact": 1.4,
+      "strategic_relevance": 1.2,
+      "policy_impact": 0.6,
+      "novelty": 1.2,
+      "source_quality": 1.0,
+      "timeliness": 0.9,
+      "editorial_potential": 1.0,
+      "cross_sector_impact": 1.0
+    },
+    "data_centers": {
+      "financial_magnitude": 1.3,
+      "party_significance": 1.2,
+      "market_impact": 1.2,
+      "strategic_relevance": 1.5,
+      "policy_impact": 1.0,
+      "novelty": 1.1,
+      "source_quality": 1.0,
+      "timeliness": 1.0,
+      "editorial_potential": 1.0,
+      "cross_sector_impact": 1.3
+    },
+    "energy": {
+      "financial_magnitude": 1.2,
+      "party_significance": 1.2,
+      "market_impact": 1.2,
+      "strategic_relevance": 1.3,
+      "policy_impact": 1.4,
+      "novelty": 1.0,
+      "source_quality": 1.0,
+      "timeliness": 1.0,
+      "editorial_potential": 1.0,
+      "cross_sector_impact": 1.1
+    },
+    "banking_credit": {
+      "financial_magnitude": 1.1,
+      "party_significance": 1.3,
+      "market_impact": 1.3,
+      "strategic_relevance": 1.3,
+      "policy_impact": 1.4,
+      "novelty": 1.0,
+      "source_quality": 1.2,
+      "timeliness": 1.1,
+      "editorial_potential": 1.0,
+      "cross_sector_impact": 1.2
+    },
+    "fed_macro": {
+      "financial_magnitude": 0.8,
+      "party_significance": 1.5,
+      "market_impact": 1.5,
+      "strategic_relevance": 1.2,
+      "policy_impact": 1.5,
+      "novelty": 1.1,
+      "source_quality": 1.3,
+      "timeliness": 1.2,
+      "editorial_potential": 1.0,
+      "cross_sector_impact": 1.4
+    },
+    "local_government": {
+      "financial_magnitude": 0.7,
+      "party_significance": 1.0,
+      "market_impact": 1.0,
+      "strategic_relevance": 1.4,
+      "policy_impact": 1.5,
+      "novelty": 1.1,
+      "source_quality": 1.0,
+      "timeliness": 1.0,
+      "editorial_potential": 1.0,
+      "cross_sector_impact": 1.0
+    }
+  }
+}
