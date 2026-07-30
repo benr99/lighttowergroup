@@ -120,104 +120,6 @@
       font-size: 1.4rem; color: var(--mid); line-height: 1.85; max-width: 560px;
     }
 
-    .insights-edition {
-      padding: 3rem 0 1rem;
-      border-bottom: 1px solid var(--line);
-    }
-    .edition-flagship {
-      background: var(--white);
-      padding: 3rem;
-      border: 1px solid var(--line-strong);
-      margin-bottom: 1.5rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .edition-flagship:hover { border-color: var(--accent); }
-    .edition-flagship .format-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--white);
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 0.25rem 0.75rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    .edition-flagship .edition-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 0.75rem;
-    }
-    .edition-flagship .edition-excerpt {
-      font-size: 1.2rem;
-      color: var(--mid);
-      line-height: 1.75;
-      max-width: 620px;
-    }
-    .edition-briefs {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    @media (max-width: 700px) { .edition-briefs { grid-template-columns: 1fr; } }
-    .edition-brief {
-      background: var(--white);
-      padding: 1.8rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .edition-brief:hover { background: var(--bg); }
-    .edition-brief .format-badge {
-      display: inline-block;
-      background: rgba(201,168,76,0.15);
-      color: var(--accent);
-      font-size: 0.58rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 0.2rem 0.6rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    .edition-brief .edition-brief-title {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 400;
-      line-height: 1.4;
-      margin-bottom: 0.5rem;
-    }
-    .edition-deal-tape {
-      margin-top: 1.5rem;
-      padding: 1.25rem 1.5rem;
-      background: rgba(0,0,0,0.02);
-      border: 1px solid var(--line);
-    }
-    .edition-deal-tape .tape-label {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    .edition-deal-tape .tape-item {
-      font-size: 0.85rem;
-      color: var(--mid);
-      padding: 0.3rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .edition-deal-tape .tape-item:last-child { border-bottom: none; }
-    .edition-no-edition {
-      padding: 2rem;
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--mid);
-    }
-
     /* FILTERS */
     .insights-filters {
       padding: 2.5rem 0;
@@ -433,11 +335,6 @@
       <p class="insights-count" id="insights-count" aria-live="polite">Loading research…</p>
     </div>
 
-    <section class="insights-edition container" id="insights-edition" hidden>
-      <div class="index-header">Today's Edition</div>
-      <div class="edition-content" id="edition-content"></div>
-    </section>
-
     <section class="insights-section container">
       <div class="insights-grid" id="insights-grid">
         <div class="insights-empty">Loading insights…</div>
@@ -500,47 +397,6 @@
     let activeFilter = 'all';
     let activeQuery = '';
     let activePage = 1;
-
-    // Fetch today's edition
-    fetch('/latest-edition.json')
-      .then(r => r.json())
-      .then(edition => {
-        const container = document.getElementById('insights-edition');
-        const content = document.getElementById('edition-content');
-        if (!edition || (!edition.flagship && !edition.briefs.length && !edition.deal_tape)) {
-          content.innerHTML = '<div class="edition-no-edition">No edition today. Scroll down for our latest research.</div>';
-          container.hidden = false;
-          return;
-        }
-        container.hidden = false;
-        let html = '';
-        if (edition.flagship) {
-          html += '<a href="' + edition.flagship.url + '" class="edition-flagship">' +
-            '<span class="format-badge">Flagship Analysis</span>' +
-            '<p class="edition-title">' + edition.flagship.title + '</p>' +
-            '<p class="edition-excerpt">' + (edition.flagship.excerpt || edition.flagship.subtitle || '') + '</p>' +
-            '</a>';
-        }
-        if (edition.briefs && edition.briefs.length) {
-          html += '<div class="edition-briefs">';
-          edition.briefs.forEach(function(b) {
-            html += '<a href="' + b.url + '" class="edition-brief">' +
-              '<span class="format-badge">Intelligence Brief</span>' +
-              '<p class="edition-brief-title">' + b.title + '</p>' +
-              '</a>';
-          });
-          html += '</div>';
-        }
-        if (edition.deal_tape && edition.deal_tape.length) {
-          html += '<div class="edition-deal-tape"><div class="tape-label">Also in Today\'s Tape</div>';
-          edition.deal_tape.forEach(function(t) {
-            html += '<div class="tape-item">' + (t.one_line || t.title || '') + '</div>';
-          });
-          html += '</div>';
-        }
-        content.innerHTML = html;
-      })
-      .catch(() => {});
 
     // Newsletter signup
     document.getElementById('newsletter-form').addEventListener('submit', function(e) {
