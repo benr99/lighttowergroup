@@ -56,7 +56,7 @@ def _validate_article(path: Path, record: dict[str, Any]) -> list[str]:
         errors.append(f"{path.name}: manifest title is not present")
     if "sources-block" not in text:
         errors.append(f"{path.name}: sources block is missing")
-    if re.search(r"(?:Ã.|â€|Â·)", text):
+    if re.search(r"(?:[\x80-\x9f]|Ã(?:©|±|¼|½|¾|€|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|'|\"|•|–|—|˜|™|š|›|œ|ž|Ÿ)|â(?:€|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|'|\"|•|–|—|˜|™|š|›|œ|ž|Ÿ)|Â(?:·|®|©|°)|\ufffd)", text):
         errors.append(f"{path.name}: possible mojibake")
     return errors
 
@@ -75,7 +75,13 @@ def validate_repository(*, latest_only: bool = True) -> list[str]:
     slugs = [str(item.get("slug", "")) for item in manifest if isinstance(item, dict)]
     if len(slugs) != len(set(slugs)):
         errors.append("insights.json contains duplicate slugs")
-    records = manifest[:10] if latest_only else manifest
+    if latest_only:
+        try:
+            records = sorted(manifest, key=lambda r: str(r.get("date", "")), reverse=True)[:10]
+        except Exception:
+            records = manifest[:10]
+    else:
+        records = manifest
     for record in records:
         slug = re.sub(r"[^a-z0-9-]", "", str(record.get("slug", "")).lower())
         errors.extend(_validate_article(SITE_ROOT / "insights" / f"{slug}.html", record))

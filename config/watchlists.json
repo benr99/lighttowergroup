@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "entities": {
+    "tier_1_institutions": {
+      "label": "Tier 1 — Globally Significant",
+      "score_bonus": 10,
+      "companies": [
+        "Blackstone", "Brookfield", "Apollo Global Management", "KKR", "Starwood Capital",
+        "Prologis", "Equinix", "Digital Realty", "American Tower", "CyrusOne",
+        "JPMorgan Chase", "Goldman Sachs", "Morgan Stanley", "Bank of America", "Wells Fargo",
+        "Amazon Web Services", "Microsoft Azure", "Google Cloud", "Meta",
+        "NextEra Energy", "Duke Energy", "Dominion Energy", "Southern Company",
+        "Federal Reserve", "FDIC", "OCC", "SEC", "Treasury Department",
+        "Carlyle Group", "TPG", "Ares Management", "Bain Capital", "Warburg Pincus",
+        "EQT", "CVC Capital Partners", "Thoma Bravo", "Vista Equity Partners", "Silver Lake",
+        "Vornado Realty Trust", "SL Green Realty", "Boston Properties", "Alexandria Real Estate",
+        "CBRE", "JLL", "Cushman & Wakefield", "Eastdil Secured", "Newmark"
+      ]
+    },
+    "tier_2_companies": {
+      "label": "Tier 2 — Major Regional / Sector Leaders",
+      "score_bonus": 7,
+      "companies": [
+        "Related Companies", "Tishman Speyer", "RXR Realty", "Durst Organization", "Silverstein Properties",
+        "Cerberus Capital Management", "Fortress Investment Group", "Oaktree Capital",
+        "QTS Realty", "Stack Infrastructure", "Vantage Data Centers", "NTT Data Centers",
+        "Exelon", "American Electric Power", "Sempra Energy", "PG&E", "Consolidated Edison",
+        "PNC Bank", "M&T Bank", "KeyBank", "Truist", "US Bank",
+        "Citigroup", "Deutsche Bank", "Barclays", "UBS", "Credit Suisse",
+        "Fannie Mae", "Freddie Mac", "HUD",
+        "Bisnow", "The Real Deal", "Commercial Observer", "Bloomberg", "Reuters", "WSJ"
+      ]
+    },
+    "tier_3_firms": {
+      "label": "Tier 3 — Established Operators",
+      "score_bonus": 4,
+      "companies": [
+        "Greystone", "Walker & Dunlop", "Berkadia", "Northmarq", "Meridian Capital Group",
+        "Marcus & Millichap", "B6 Real Estate Advisors", "Ariel Property Advisors",
+        "ConnectOne Bank", "OceanFirst Bank", "Flushing Financial", "Valley National Bank",
+        "Signature Bank", "New York Community Bank", "First Republic"
+      ]
+    }
+  },
+  "watchlists_by_sector": {
+    "commercial_real_estate": ["tier_1_institutions", "tier_2_companies", "tier_3_firms"],
+    "private_equity": ["tier_1_institutions", "tier_2_companies"],
+    "data_centers": ["tier_1_institutions", "tier_2_companies"],
+    "energy": ["tier_1_institutions", "tier_2_companies"],
+    "banking_credit": ["tier_1_institutions", "tier_2_companies", "tier_3_firms"],
+    "fed_macro": ["tier_1_institutions"],
+    "local_government": ["tier_2_companies"]
+  }
+}

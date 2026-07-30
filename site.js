@@ -693,3 +693,64 @@
     });
   });
 })();
+
+// ── Read Tracking for Insights Articles ──
+(function() {
+  var slug = (function() {
+    var p = window.location.pathname;
+    var m = p.match(/\/insights\/([a-z0-9-]+)\.html/i);
+    return m ? m[1] : null;
+  })();
+  if (!slug) return;
+
+  var tracked = {};
+  function track(action) {
+    if (tracked[action]) return;
+    tracked[action] = true;
+    if (window.ltgTrack) {
+      window.ltgTrack('read_' + action, {slug: slug, referrer: document.referrer});
+    }
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/api/track-read', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({slug: slug, action: action, referrer: document.referrer}));
+    } catch(e) {}
+  }
+
+  track('view');
+
+  var scrolled50 = false, scrolled100 = false;
+  window.addEventListener('scroll', function() {
+    var pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+    if (pct > 0.5 && !scrolled50) { scrolled50 = true; track('scroll_50'); }
+    if (pct > 0.95 && !scrolled100) { scrolled100 = true; track('scroll_100'); }
+  }, {passive: true});
+
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('[data-action="share"], .share-btn, [aria-label*="share" i], [aria-label*="Share"]');
+    if (el) track('share');
+  });
+})();
+
+// ── Related Research Loader for Article Pages ──
+(function() {
+  var grid = document.getElementById('related-grid');
+  if (!grid) return;
+  var slug = (function() {
+    var p = window.location.pathname;
+    var m = p.match(/\/insights\/([a-z0-9-]+)\.html/i);
+    return m ? m[1] : null;
+  })();
+  if (!slug) return;
+  fetch('/insights/' + slug + '_related.json')
+    .then(function(r) { return r.json(); })
+    .then(function(related) {
+      if (!related || !related.length) { grid.innerHTML = ''; return; }
+      grid.innerHTML = related.map(function(r) {
+        return '<a href="' + r.url + '" class="related-card">' +
+          '<p class="related-title">' + r.title + '</p></a>';
+      }).join('');
+    })
+    .catch(function() { grid.innerHTML = ''; });
+})();

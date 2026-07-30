@@ -113,8 +113,6 @@ def route_story(candidate: dict[str, Any]) -> dict[str, Any]:
     if not matches:
         return {"primary_bucket": None, "secondary_buckets": [], "route_reason": "No qualifying editorial bucket"}
 
-    # Specific direct activity should lead the angle. The remaining matching
-    # buckets are still retained for reporting and topical context.
     priority = [
         "banking_credit" if any(term in text for term in ("loan loss", "loss reserve", "charge-off", "credit standard", "capital ratio")) else "",
         "private_equity_private_capital" if any(term in text for term in ("fundraise", "fund closes", "pension fund", "sovereign wealth", "family office", "private equity")) else "",

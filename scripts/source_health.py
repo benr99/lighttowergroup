@@ -9,9 +9,19 @@ cooldown so a transient publisher outage can recover without manual work.
 from __future__ import annotations
 
 import json
+import threading
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+
+_file_locks: dict[str, threading.Lock] = {}
+
+
+def _get_file_lock(path: Path) -> threading.Lock:
+    key = str(path.resolve())
+    if key not in _file_locks:
+        _file_locks[key] = threading.Lock()
+    return _file_locks[key]
 
 
 class SourceHealthLedger:
@@ -21,14 +31,16 @@ class SourceHealthLedger:
         self.path = path
         self.failure_threshold = failure_threshold
         self.cooldown_hours = cooldown_hours
+        self._lock = _get_file_lock(path)
         self.records = self._load()
 
     def _load(self) -> dict[str, dict[str, Any]]:
-        try:
-            payload = json.loads(self.path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            return {}
-        return payload if isinstance(payload, dict) else {}
+        with self._lock:
+            try:
+                payload = json.loads(self.path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                return {}
+            return payload if isinstance(payload, dict) else {}
 
     def is_quarantined(self, source: str, now: datetime | None = None) -> bool:
         record = self.records.get(source, {})
@@ -41,16 +53,17 @@ class SourceHealthLedger:
         return now < last_failure + timedelta(hours=self.cooldown_hours)
 
     def record_success(self, source: str, story_count: int, elapsed_ms: int) -> None:
-        record = self.records.setdefault(source, {})
-        record.update({
-            "status": "healthy",
-            "consecutive_failures": 0,
-            "last_success_at": self._now(),
-            "last_story_count": story_count,
-            "last_elapsed_ms": elapsed_ms,
-            "consecutive_empty_runs": 0,
-        })
-        record.pop("last_error", None)
+        with self._lock:
+            record = self.records.setdefault(source, {})
+            record.update({
+                "status": "healthy",
+                "consecutive_failures": 0,
+                "last_success_at": self._now(),
+                "last_story_count": story_count,
+                "last_elapsed_ms": elapsed_ms,
+                "consecutive_empty_runs": 0,
+            })
+            record.pop("last_error", None)
 
     def record_empty(self, source: str, elapsed_ms: int, detail: str = "") -> None:
         """Record an empty or malformed feed without opening the circuit.
@@ -60,53 +73,58 @@ class SourceHealthLedger:
         feed. Neither condition proves that one publisher is unavailable, so
         it must not quarantine the source for the next daily run.
         """
-        record = self.records.setdefault(source, {})
-        empty_runs = int(record.get("consecutive_empty_runs", 0)) + 1
-        record.update({
-            # Empty feeds remain eligible on every run. "needs_review" is
-            # diagnostic only; it never blocks a source from being read.
-            "status": "needs_review" if empty_runs >= 7 else "empty",
-            "consecutive_failures": 0,
-            "consecutive_empty_runs": empty_runs,
-            "last_empty_at": self._now(),
-            "last_empty_detail": detail[:240],
-            "last_elapsed_ms": elapsed_ms,
-        })
+        with self._lock:
+            record = self.records.setdefault(source, {})
+            empty_runs = int(record.get("consecutive_empty_runs", 0)) + 1
+            record.update({
+                # Empty feeds remain eligible on every run. "needs_review" is
+                # diagnostic only; it never blocks a source from being read.
+                "status": "needs_review" if empty_runs >= 7 else "empty",
+                "consecutive_failures": 0,
+                "consecutive_empty_runs": empty_runs,
+                "last_empty_at": self._now(),
+                "last_empty_detail": detail[:240],
+                "last_elapsed_ms": elapsed_ms,
+            })
 
     def record_transient_outage(self, source: str, error: str, elapsed_ms: int) -> None:
         """Note a run-wide connectivity problem without counting it against a source."""
-        record = self.records.setdefault(source, {})
-        record.update({
-            "status": "transient_outage",
-            "last_transient_outage_at": self._now(),
-            "last_error": error[:240],
-            "last_elapsed_ms": elapsed_ms,
-        })
+        with self._lock:
+            record = self.records.setdefault(source, {})
+            record.update({
+                "status": "transient_outage",
+                "last_transient_outage_at": self._now(),
+                "last_error": error[:240],
+                "last_elapsed_ms": elapsed_ms,
+            })
 
     def release_quarantines(self) -> int:
         """Allow every source to retry after a detected shared outage."""
-        released = 0
-        for record in self.records.values():
-            if int(record.get("consecutive_failures", 0)) >= self.failure_threshold:
-                record["consecutive_failures"] = 0
-                record["status"] = "retry"
-                record["last_circuit_released_at"] = self._now()
-                released += 1
-        return released
+        with self._lock:
+            released = 0
+            for record in self.records.values():
+                if int(record.get("consecutive_failures", 0)) >= self.failure_threshold:
+                    record["consecutive_failures"] = 0
+                    record["status"] = "retry"
+                    record["last_circuit_released_at"] = self._now()
+                    released += 1
+            return released
 
     def record_failure(self, source: str, error: str, elapsed_ms: int) -> None:
-        record = self.records.setdefault(source, {})
-        record.update({
-            "status": "degraded",
-            "consecutive_failures": int(record.get("consecutive_failures", 0)) + 1,
-            "last_failure_at": self._now(),
-            "last_error": error[:240],
-            "last_elapsed_ms": elapsed_ms,
-        })
+        with self._lock:
+            record = self.records.setdefault(source, {})
+            record.update({
+                "status": "degraded",
+                "consecutive_failures": int(record.get("consecutive_failures", 0)) + 1,
+                "last_failure_at": self._now(),
+                "last_error": error[:240],
+                "last_elapsed_ms": elapsed_ms,
+            })
 
     def save(self) -> None:
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps(self.records, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        with self._lock:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            self.path.write_text(json.dumps(self.records, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     @staticmethod
     def _now() -> str:

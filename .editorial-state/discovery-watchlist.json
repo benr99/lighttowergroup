@@ -1,30 +1,28 @@
 {
   "schema_version": 1,
-  "queries": [
-    "commercial real estate executive compensation bonus culture",
-    "sports owner stadium district financing subsidy",
-    "university hospital nonprofit real estate debt",
-    "commercial real estate hiring layoffs job postings",
-    "insurance retreat property values climate migration",
-    "private club luxury hospitality real estate capital",
-    "office return transit restaurant downtown recovery",
-    "data center utility power queue land values"
+  "updated_at": null,
+  "newsapi_queries": [
+    "commercial real estate loan sale",
+    "CMBS delinquency",
+    "multifamily refinancing distress",
+    "office distress commercial real estate",
+    "industrial cap rate investment",
+    "data center power demand real estate",
+    "stadium arena subsidy real estate development",
+    "climate insurance commercial property",
+    "AI infrastructure data center development",
+    "regional bank CRE exposure loan",
+    "private equity real estate acquisition",
+    "REIT earnings guidance property",
+    "New York City zoning development",
+    "Brooklyn Queens multifamily development",
+    "Manhattan office lease recovery",
+    "construction loan commercial real estate",
+    "bridge loan refinancing CRE",
+    "rent stabilized multifamily New York"
   ],
-  "themes": [
-    "money and status",
-    "capital and city life",
-    "labor and operating capacity",
-    "public subsidy and private gain",
-    "technology and physical infrastructure",
-    "insurance and climate migration",
-    "housing and generational inequality"
-  ],
-  "reader_tip_prompt": "What deal, lender decision, maturity, policy change, or capital assumption is everyone discussing privately but nobody is explaining clearly?",
-  "primary_source_targets": [
-    "SEC filings and litigation releases",
-    "Federal Reserve, FDIC, OCC, HUD, FHFA and Treasury releases",
-    "earnings calls and investor presentations",
-    "court, bankruptcy, property and zoning records",
-    "company filings and official transaction documents"
-  ]
+  "structured_sources": {
+    "sec_edgar_rss": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=40&output=atom",
+    "note": "Additional structured sources (NYC DOB permits, ACRIS) require scraper development — see scripts/structured_sources.py"
+  }
 }

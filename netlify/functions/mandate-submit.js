@@ -60,6 +60,7 @@ exports.handler = async (event) => {
   }
   catch { return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid JSON' }) }; }
 
+  const ref = String(fields.ref || fields.page || '').substring(0, 200);
   const lead = {
     name: text(fields.name, 160), company: text(fields.company, 200), email: text(fields.email, 254),
     phone: text(fields.phone, 80), capitalNeed: text(fields.capital_need, 120),
@@ -84,7 +85,7 @@ exports.handler = async (event) => {
   ].filter(([, value]) => value).map(([label, value]) => `<p style="margin:0 0 .45rem"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`).join('');
   const html = `<!DOCTYPE html><html><body style="font-family:-apple-system,sans-serif;max-width:640px;margin:0 auto;padding:2rem;background:#f9f9f7;color:#1a1a1a">
     <div style="background:#080c14;padding:1.5rem 2rem;border-bottom:2px solid #c9a84c"><p style="color:#c9a84c;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin:0">Light Tower Group</p><h1 style="color:#f4f0e8;font-size:1.4rem;margin:.5rem 0 0;font-weight:400">New Confidential Deal Review</h1></div>
-    <div style="background:#fff;padding:2rem;border:1px solid #e5e3df"><p style="font-size:.8rem;color:#888;margin:0 0 1.5rem">Received ${escapeHtml(timestamp)} via lighttowergroup.co</p><div style="margin:0 0 1.5rem;padding:1rem;background:#f9f8f5;border-left:3px solid #c9a84c;font-size:.85rem;color:#555">${rows}</div>${lead.message ? `<h2 style="font-size:1rem;margin:0 0 .75rem">Brief Description</h2><p style="font-size:.9rem;line-height:1.7;color:#333;white-space:pre-wrap">${escapeHtml(lead.message)}</p>` : ''}</div>
+    <div style="background:#fff;padding:2rem;border:1px solid #e5e3df"><p style="font-size:.8rem;color:#888;margin:0 0 1.5rem">Received ${escapeHtml(timestamp)} via lighttowergroup.co</p><p style="font-size:.8rem;color:#888;margin:0 0 1.5rem"><strong>Referring Page:</strong> ${escapeHtml(ref || 'not specified')}</p><div style="margin:0 0 1.5rem;padding:1rem;background:#f9f8f5;border-left:3px solid #c9a84c;font-size:.85rem;color:#555">${rows}</div>${lead.message ? `<h2 style="font-size:1rem;margin:0 0 .75rem">Brief Description</h2><p style="font-size:.9rem;line-height:1.7;color:#333;white-space:pre-wrap">${escapeHtml(lead.message)}</p>` : ''}</div>
     </body></html>`;
 
   try {

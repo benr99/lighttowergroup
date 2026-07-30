@@ -37,13 +37,13 @@
     :root {
       --bg: #F5F4F0;
       --text: #121212;
-      --accent: #C5A059;
-      --accent-hover: #D4AF6B;
-      --line: rgba(0,0,0,0.06);
-      --line-strong: rgba(0,0,0,0.12);
+      --accent: #C9A84C;
+      --accent-hover: #D9B85C;
+      --line: rgba(0,0,0,0.08);
+      --line-strong: rgba(0,0,0,0.15);
       --white: #ffffff;
       --dark: #0E0E0E;
-      --mid: #555555;
+      --mid: #555555; /* replaces hardcoded #888 */
       --font-display: 'Playfair Display', serif;
       --font-body: 'Space Grotesk', sans-serif;
       --container: 1200px;
@@ -84,7 +84,7 @@
     @media (max-width: 480px)  { .nav-inner { padding: 0 1.5rem; } }
     .nav-logo { font-family: var(--font-body); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 700; margin-right: auto; white-space: nowrap; }
     .nav-links { display: flex; gap: 2.8rem; align-items: center; }
-    .nav-links a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-links a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid); font-weight: 500; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--accent); }
     .nav-cta { background: var(--text) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; font-size: 0.7rem !important; border: none; cursor: pointer; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; }
@@ -98,7 +98,7 @@
     @media (max-width: 860px) { .nav-menu-btn { display: flex; } }
     .nav-mobile { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(245,244,240,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line-strong); padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.25rem; z-index: 99; }
     .nav-mobile.open { display: flex; }
-    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: #888; font-weight: 500; }
+    .nav-mobile a { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid); font-weight: 500; }
     .nav-mobile a:hover { color: var(--text); }
     .nav-mobile .nav-mobile-cta { margin-top: 0.5rem; background: var(--text); color: var(--white) !important; padding: 0.7rem 1.4rem; text-align: center; }
 
@@ -120,6 +120,104 @@
       font-size: 1.4rem; color: var(--mid); line-height: 1.85; max-width: 560px;
     }
 
+    .insights-edition {
+      padding: 3rem 0 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .edition-flagship {
+      background: var(--white);
+      padding: 3rem;
+      border: 1px solid var(--line-strong);
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .edition-flagship:hover { border-color: var(--accent); }
+    .edition-flagship .format-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .edition-flagship .edition-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+    .edition-flagship .edition-excerpt {
+      font-size: 1.2rem;
+      color: var(--mid);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+    .edition-briefs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 700px) { .edition-briefs { grid-template-columns: 1fr; } }
+    .edition-brief {
+      background: var(--white);
+      padding: 1.8rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .edition-brief:hover { background: var(--bg); }
+    .edition-brief .format-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      color: var(--accent);
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .edition-brief .edition-brief-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .edition-deal-tape {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(0,0,0,0.02);
+      border: 1px solid var(--line);
+    }
+    .edition-deal-tape .tape-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .edition-deal-tape .tape-item {
+      font-size: 0.85rem;
+      color: var(--mid);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .edition-deal-tape .tape-item:last-child { border-bottom: none; }
+    .edition-no-edition {
+      padding: 2rem;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--mid);
+    }
+
     /* FILTERS */
     .insights-filters {
       padding: 2.5rem 0;
@@ -136,11 +234,11 @@
       border: 1px solid var(--line-strong); background: transparent;
       padding: 0.5rem 1.1rem; font-family: var(--font-body);
       font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: #888; cursor: pointer; transition: all 0.2s;
+      color: var(--mid); cursor: pointer; transition: all 0.2s;
     }
     .filter-btn:hover, .filter-btn.active {
       border-color: var(--accent); color: var(--accent);
-      background: rgba(197,160,89,0.05);
+      background: rgba(201,168,76,0.05);
     }
 
     .insights-tools {
@@ -153,7 +251,7 @@
       background: var(--bg); color: var(--text); padding: 0.78rem 1rem;
       font: inherit; font-size: 0.9rem;
     }
-    .insights-search:focus { border-color: var(--accent); outline: 2px solid rgba(197,160,89,0.2); outline-offset: 2px; }
+    .insights-search:focus { border-color: var(--accent); outline: 2px solid rgba(201,168,76,0.2); outline-offset: 2px; }
     .insights-count { color: var(--mid); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
     .insights-pagination { display: flex; justify-content: center; gap: 0.6rem; margin-top: 2rem; }
     .insights-page-btn {
@@ -301,24 +399,44 @@
 
     <div class="insights-hero container">
       <span class="index-header">Insights</span>
-      <h1 class="insights-headline">Capital Markets,<br>Clearly Explained</h1>
-      <p class="insights-sub">Practical perspectives on deal structure, credit conditions, and the financing decisions facing commercial real estate sponsors.</p>
+      <h1 class="insights-headline">Institutional Intelligence,<br>Clearly Explained</h1>
+      <p class="insights-sub">Daily intelligence across commercial real estate, private equity, data centers, energy, banking, macro policy, and government regulation — ranked, researched, and written for capital decision-makers.</p>
+      <form class="newsletter-inline" id="newsletter-form" style="margin-top:1.5rem;display:flex;gap:0.5rem;max-width:480px;">
+        <input type="email" id="newsletter-email" placeholder="Your email" required
+               style="flex:1;border:1px solid var(--line-strong);background:var(--bg);padding:0.7rem 1rem;font:inherit;font-size:0.9rem;">
+        <button type="submit"
+                style="background:var(--text);color:var(--white);border:none;padding:0.7rem 1.2rem;font:inherit;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.15em;cursor:pointer;white-space:nowrap;">
+          Get the Daily Capital Note
+        </button>
+      </form>
+      <p id="newsletter-message" style="font-size:0.8rem;color:var(--accent);margin-top:0.5rem;" hidden></p>
     </div>
 
-    <div class="insights-filters" aria-label="Filter Insights by research area">
-      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Research</button>
-      <button class="filter-btn" data-filter="signals" aria-pressed="false">Market Signals</button>
-      <button class="filter-btn" data-filter="deals" aria-pressed="false">Deals</button>
-      <button class="filter-btn" data-filter="built-world" aria-pressed="false">Built World</button>
-      <button class="filter-btn" data-filter="financing" aria-pressed="false">Financing</button>
-      <button class="filter-btn" data-filter="policy" aria-pressed="false">Policy</button>
+    <div class="insights-filters" aria-label="Filter Insights by sector">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Sectors</button>
+      <button class="filter-btn" data-filter="commercial_real_estate" aria-pressed="false">CRE</button>
+      <button class="filter-btn" data-filter="private_equity" aria-pressed="false">Private Equity</button>
+      <button class="filter-btn" data-filter="data_centers" aria-pressed="false">Data Centers</button>
+      <button class="filter-btn" data-filter="energy" aria-pressed="false">Energy</button>
+      <button class="filter-btn" data-filter="banking_credit" aria-pressed="false">Banking</button>
+      <button class="filter-btn" data-filter="fed_macro" aria-pressed="false">Fed & Macro</button>
+      <button class="filter-btn" data-filter="local_government" aria-pressed="false">Government</button>
     </div>
 
-    <div class="insights-tools">
+    <div class="insights-tools" style="padding-bottom:0;">
       <label class="sr-only" for="insights-search">Search Insights</label>
       <input class="insights-search" id="insights-search" type="search" placeholder="Search deals, lenders, markets, or themes" autocomplete="off">
+      <select id="insights-sort" style="border:1px solid var(--line-strong);background:var(--bg);padding:0.7rem 1rem;font:inherit;font-size:0.78rem;color:var(--mid);cursor:pointer;">
+        <option value="newest">Newest</option>
+        <option value="flagship">Flagship Analyses</option>
+      </select>
       <p class="insights-count" id="insights-count" aria-live="polite">Loading research…</p>
     </div>
+
+    <section class="insights-edition container" id="insights-edition" hidden>
+      <div class="index-header">Today's Edition</div>
+      <div class="edition-content" id="edition-content"></div>
+    </section>
 
     <section class="insights-section container">
       <div class="insights-grid" id="insights-grid">
@@ -370,16 +488,88 @@
     const PAGE_SIZE = 18;
     const FILTERS = {
       all: null,
-      signals: ['Capital Markets', 'Capital Markets Research', 'Market Commentary'],
-      deals: ['Deal Intelligence'],
-      'built-world': ['Architecture & Capital Markets', 'Market Analysis'],
-      financing: ['Debt & Equity'],
-      policy: ['Policy & Regulation']
+      commercial_real_estate: ['Capital Markets', 'Capital Markets Research', 'Market Commentary', 'Deal Intelligence', 'Debt & Equity', 'Policy & Regulation', 'Architecture & Capital Markets', 'Market Analysis'],
+      private_equity: ['Private Equity', 'Buyouts', 'Fundraising', 'Private Credit'],
+      data_centers: ['Data Centers', 'Digital Infrastructure', 'Cloud Infrastructure'],
+      energy: ['Energy', 'Power', 'Infrastructure', 'Utilities'],
+      banking_credit: ['Banking', 'Credit Markets', 'Lending', 'CMBS'],
+      fed_macro: ['Federal Reserve', 'Macroeconomic Policy', 'Interest Rates', 'Treasury'],
+      local_government: ['Local Government', 'Zoning', 'Regulation', 'Development'],
     };
     let allPosts = [];
     let activeFilter = 'all';
     let activeQuery = '';
     let activePage = 1;
+
+    // Fetch today's edition
+    fetch('/latest-edition.json')
+      .then(r => r.json())
+      .then(edition => {
+        const container = document.getElementById('insights-edition');
+        const content = document.getElementById('edition-content');
+        if (!edition || (!edition.flagship && !edition.briefs.length && !edition.deal_tape)) {
+          content.innerHTML = '<div class="edition-no-edition">No edition today. Scroll down for our latest research.</div>';
+          container.hidden = false;
+          return;
+        }
+        container.hidden = false;
+        let html = '';
+        if (edition.flagship) {
+          html += '<a href="' + edition.flagship.url + '" class="edition-flagship">' +
+            '<span class="format-badge">Flagship Analysis</span>' +
+            '<p class="edition-title">' + edition.flagship.title + '</p>' +
+            '<p class="edition-excerpt">' + (edition.flagship.excerpt || edition.flagship.subtitle || '') + '</p>' +
+            '</a>';
+        }
+        if (edition.briefs && edition.briefs.length) {
+          html += '<div class="edition-briefs">';
+          edition.briefs.forEach(function(b) {
+            html += '<a href="' + b.url + '" class="edition-brief">' +
+              '<span class="format-badge">Intelligence Brief</span>' +
+              '<p class="edition-brief-title">' + b.title + '</p>' +
+              '</a>';
+          });
+          html += '</div>';
+        }
+        if (edition.deal_tape && edition.deal_tape.length) {
+          html += '<div class="edition-deal-tape"><div class="tape-label">Also in Today\'s Tape</div>';
+          edition.deal_tape.forEach(function(t) {
+            html += '<div class="tape-item">' + (t.one_line || t.title || '') + '</div>';
+          });
+          html += '</div>';
+        }
+        content.innerHTML = html;
+      })
+      .catch(() => {});
+
+    // Newsletter signup
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('newsletter-email').value.trim();
+      var msg = document.getElementById('newsletter-message');
+      if (!email || !email.includes('@')) {
+        msg.textContent = 'Please enter a valid email.';
+        msg.hidden = false;
+        return;
+      }
+      fetch('/api/newsletter-subscribe', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email: email})
+      }).then(function(r) {
+        if (r.ok) {
+          msg.textContent = 'You\'re subscribed. The next edition arrives in your inbox.';
+          msg.hidden = false;
+          document.getElementById('newsletter-form').hidden = true;
+        } else {
+          msg.textContent = 'Something went wrong. Please try again.';
+          msg.hidden = false;
+        }
+      }).catch(function() {
+        msg.textContent = 'Unable to subscribe right now. Please try later.';
+        msg.hidden = false;
+      });
+    });
 
     function formatDate(d) {
       // Handle both "YYYY-MM-DD" (new) and "April 29, 2026" (legacy) formats
@@ -417,6 +607,20 @@
       const category = document.createElement('span');
       category.className = 'post-card-cat';
       category.textContent = post.category || 'Capital Intelligence';
+      if (post.format) {
+        const badge = document.createElement('span');
+        badge.className = 'format-badge-card ' + (post.format || 'brief');
+        badge.textContent = post.format === 'flagship' ? 'Flagship' :
+                           post.format === 'brief' ? 'Brief' :
+                           post.format === 'culture_signal' ? 'Culture of Capital' :
+                           post.format === 'data_note' ? 'Data Note' : '';
+        badge.style.cssText = 'display:inline-block;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.14em;padding:0.15rem 0.55rem;margin-left:0.5rem;background:rgba(201,168,76,0.1);color:var(--accent);font-weight:600;';
+        if (post.format === 'flagship') {
+          badge.style.background = 'var(--accent)';
+          badge.style.color = 'var(--white)';
+        }
+        category.appendChild(badge);
+      }
       const meta = document.createElement('div');
       meta.className = 'post-card-meta';
       addText(meta, 'span', 'post-card-date', formatDate(post.date));
@@ -445,11 +649,16 @@
 
     function renderCuratedGrid() {
       const categories = FILTERS[activeFilter];
-      const posts = allPosts.filter(function (post) {
+      var allFiltered = allPosts.filter(function (post) {
         const inCategory = !categories || categories.indexOf(post.category) !== -1;
         const searchText = [post.title, post.excerpt, post.category].concat(post.tags || []).join(' ').toLowerCase();
         return inCategory && searchText.indexOf(activeQuery) !== -1;
       });
+      var sortMode = document.getElementById('insights-sort').value;
+      if (sortMode === 'flagship') {
+        allFiltered = allFiltered.filter(function(p) { return p.format === 'flagship'; });
+      }
+      const posts = allFiltered;
       const pages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
       activePage = Math.min(activePage, pages);
       const start = (activePage - 1) * PAGE_SIZE;
@@ -505,6 +714,11 @@
       renderCuratedGrid();
     });
 
+    document.getElementById('insights-sort').addEventListener('change', function () {
+      activePage = 1;
+      renderCuratedGrid();
+    });
+
     // Load posts
     fetch('/insights.json')
       .then(r => r.json())
@@ -523,6 +737,32 @@
   </script>
 
   <script src="/chat-widget.js?v=20260726"></script>
+
+  <script>
+    (function() {
+      var slug = window.location.pathname.replace(/^\/insights\//, '').replace(/\.html$/, '');
+      if (!slug || slug === '/insights.html') return;
+      function track(action) {
+        try {
+          fetch('/api/track-read', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({slug: slug, action: action, referrer: document.referrer})
+          });
+        } catch(e) {}
+      }
+      track('view');
+      var scrolled50 = false, scrolled100 = false;
+      window.addEventListener('scroll', function() {
+        var pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+        if (pct > 0.5 && !scrolled50) { scrolled50 = true; track('scroll_50'); }
+        if (pct > 0.95 && !scrolled100) { scrolled100 = true; track('scroll_100'); }
+      });
+      document.querySelectorAll('.share-btn, [data-action="share"]').forEach(function(el) {
+        el.addEventListener('click', function() { track('share'); });
+      });
+    })();
+  </script>
 
 </body>
 </html>

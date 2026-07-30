@@ -41,6 +41,13 @@ class EditorialVoiceTests(unittest.TestCase):
         self.assertIn("formulaic 'not a story' pivot", issues)
         self.assertIn("repeated 'liquidity over hope' close", issues)
 
+    def test_quality_gate_rejects_fabricated_first_hand_access(self) -> None:
+        issues = editorial_quality_issues(
+            "I've walked this building and sat through the lender call.",
+            min_characters=1,
+        )
+        self.assertIn("unsupported first-hand access", issues)
+
     def test_fallback_essay_never_enters_publish_queue(self) -> None:
         article = {
             "slug": "sample-refi",

@@ -9,6 +9,7 @@ banking relevance, and clear capital markets consequences.
 from __future__ import annotations
 
 import json
+import os
 import re
 from datetime import date, datetime, timezone
 from typing import Any
@@ -16,7 +17,7 @@ from typing import Any
 import requests
 
 
-MODEL_NAME = "deepseek-chat"
+MODEL_NAME = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
 MIN_PUBLISH_SCORE = 70
 MIN_CAPITAL_MARKETS_SCORE = 14
 MIN_SPECIFICITY_SCORE = 8
@@ -284,23 +285,39 @@ def call_deepseek(
     max_tokens: int = 5000,
     temperature: float = 0.2,
     json_mode: bool = False,
+    provider: dict[str, Any] | None = None,
+    system: str = "",
 ) -> str:
+    url = (provider or {}).get("url", "https://api.deepseek.com/v1/chat/completions")
+    model = (provider or {}).get("model", MODEL_NAME)
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
     payload = {
-        "model": MODEL_NAME,
-        "messages": [{"role": "user", "content": prompt}],
+        "model": model,
+        "messages": messages,
         "max_tokens": max_tokens,
         "temperature": temperature,
     }
     if json_mode:
         payload["response_format"] = {"type": "json_object"}
     resp = requests.post(
-        "https://api.deepseek.com/v1/chat/completions",
+        url,
         headers={"Authorization": f"Bearer {api_key}"},
         json=payload,
         timeout=90,
     )
     resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"].strip()
+    data = resp.json()
+    # Track cost
+    try:
+        from cost_tracker import track_llm_cost
+        usage = data.get("usage", {})
+        track_llm_cost("scoring", usage.get("total_tokens", 1000))
+    except ImportError:
+        pass
+    return data["choices"][0]["message"]["content"].strip()
 
 
 def _normalize_score_row(row: dict[str, Any], candidate: dict[str, Any], index: int) -> dict[str, Any]:

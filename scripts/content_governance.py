@@ -143,6 +143,17 @@ def independent_quality_issues(
     )
     if word_count < minimum_words:
         errors.append(f"independent quality gate: article is below {minimum_words} words")
+    format_maximums = {
+        "flagship": 1100,
+        "brief": 475,
+        "culture_signal": 625,
+        "data_note": 450,
+    }
+    maximum_words = format_maximums.get(article_format)
+    if maximum_words and word_count > maximum_words:
+        errors.append(
+            f"independent quality gate: {article_format} exceeds its {maximum_words}-word reading budget"
+        )
     if require_sections and len(re.findall(r"<h2\b", body_html, re.IGNORECASE)) < 2:
         errors.append("independent quality gate: article needs at least two substantive sections")
     if require_sections and GENERIC_EDITORIAL_RE.search(text):
@@ -165,4 +176,42 @@ def independent_quality_issues(
     paragraphs = [re.sub(r"<[^>]+>", "", item) for item in paragraphs]
     if len(paragraphs) >= 4 and len(set(paragraphs)) / len(paragraphs) < 0.9:
         errors.append("independent quality gate: repeated paragraph structure detected")
+
+    # Fact audit: article claims must trace to dossier sources
+    research_dossier = article.get("research_dossier")
+    if isinstance(research_dossier, dict) and research_dossier.get("source_facts"):
+        from fact_extractor import audit_article_facts
+        source_tier = min(
+            (int(s.get("source_tier", 3) or 3) for s in research_dossier.get("sources", []) if isinstance(s, dict)),
+            default=3,
+        )
+        audit = audit_article_facts(body_html, research_dossier["source_facts"], source_tier=source_tier)
+        article["_fact_audit"] = audit
+        if audit["hold_for_review"]:
+            unmatched_detail = (
+                f"amounts: {len(audit['unmatched_amounts'])}, "
+                f"companies: {len(audit['unmatched_companies'])}"
+            )
+            errors.append(f"independent quality gate: unverifiable claims detected ({unmatched_detail})")
+
+    # Semantic claim audit: verify article's central claim against source text
+    narrative_ledger = article.get("narrative_ledger") or article.get("_editorial_control", {}).get("narrative_ledger")
+    if isinstance(narrative_ledger, dict) and narrative_ledger.get("claim"):
+        source_texts = [
+            source.get("full_text_excerpt", "")
+            for source in research_dossier.get("sources", [])
+            if isinstance(source, dict) and source.get("full_text_excerpt")
+        ] if isinstance(research_dossier, dict) else []
+        if source_texts:
+            from fact_extractor import audit_claim_semantic
+            semantic = audit_claim_semantic(narrative_ledger["claim"], source_texts)
+            article["_semantic_audit"] = semantic
+            if not semantic["claim_supported"]:
+                missing = semantic["assertions_missing"][:2]
+                errors.append(
+                    f"independent quality gate: central claim not supported by sources "
+                    f"(confidence: {semantic['confidence']:.0%}, "
+                    f"missing: {'; '.join(missing[:2])})"
+                )
+
     return errors

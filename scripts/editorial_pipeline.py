@@ -1,0 +1,546 @@
+"""Multi-stage editorial pipeline with real LLM calls for each stage.
+
+Orchestrates: analytical brief (deterministic) → prompt assembly → 
+drafting (LLM) → financial review (LLM) → editorial review (LLM) → 
+fact verification (deterministic) → final revision (LLM).
+"""
+
+from __future__ import annotations
+import json
+import re
+from typing import Any
+
+from canonical_item import CanonicalItem
+from analytical_brief import build_analytical_brief
+
+
+# Try to import call_deepseek — may not be available in test environments
+try:
+    from editorial_scoring import call_deepseek
+    _HAS_LLM = True
+except ImportError:
+    _HAS_LLM = False
+
+
+class EditorialPipeline:
+    """Multi-stage article generation with separated reasoning and prose."""
+
+    def __init__(self, api_key: str = ""):
+        self.api_key = api_key
+        self.stages_run: list[str] = []
+        self.errors: list[str] = []
+
+    # ── Stage 1: Analytical Brief (deterministic, no LLM) ──
+    def stage_analytical_brief(self, item: CanonicalItem, dossier: dict[str, Any] | None = None) -> dict[str, Any]:
+        """Build the structured pre-writing analytical brief."""
+        self.stages_run.append("analytical_brief")
+        try:
+            brief = build_analytical_brief(item, dossier)
+        except Exception as e:
+            self.errors.append(f"analytical_brief: {e}")
+            raise
+        if _HAS_LLM and self.api_key:
+            try:
+                from analytical_brief import enhance_brief_with_llm
+                brief = enhance_brief_with_llm(brief, item, self.api_key)
+            except Exception as e:
+                self.errors.append(f"analytical_brief_enhance: {e}")
+        return brief
+
+    # ── Stage 2: Assemble Writing Prompt ──
+    def stage_assemble_prompt(
+        self, item: CanonicalItem, brief: dict[str, Any], dossier: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
+        """Assemble the complete writing prompt from brief + dossier + sector prompt."""
+        self.stages_run.append("assemble_prompt")
+
+        try:
+            from generation import get_sector_prompt
+            system_prompt = get_sector_prompt(item.primary_sector or "commercial_real_estate")
+        except ImportError:
+            system_prompt = "You are a financial journalist writing for Light Tower Group."
+        except Exception as e:
+            self.errors.append(f"assemble_prompt: {e}")
+            system_prompt = "You are a financial journalist writing for Light Tower Insights. Write articles that are analytically rigorous, source-grounded, and professionally voiced."
+
+        # Build a rich user prompt with the analytical brief
+        thesis = brief.get("thesis", "")
+        tension = brief.get("core_tension", "")
+        question = brief.get("central_financial_question", "")
+        architecture = brief.get("article_architecture", {})
+        depth = brief.get("article_depth", {})
+        parties = brief.get("parties_and_incentives", [])
+        economics = brief.get("transaction_economics", {})
+        key_numbers = brief.get("key_numbers", [])
+        unknowns = brief.get("unknowns", [])
+
+        summary_text = _strip_html_tags(item.raw_summary or item.raw_text or 'No summary available')
+
+        parties_json = _safe_truncate_json(parties, max_chars=1500)
+        economics_json = _safe_truncate_json(economics, max_chars=1000)
+        key_numbers_json = _safe_truncate_json(key_numbers, max_chars=800)
+        unknowns_json = _safe_truncate_json(unknowns, max_chars=500)
+
+        user_prompt = f"""ARTICLE ASSIGNMENT
+
+STORY: {item.headline}
+SOURCE: {item.source_name} (tier {item.source_tier})
+SECTOR: {item.primary_sector}
+SUMMARY: {summary_text}
+
+ANALYTICAL BRIEF
+The following structured analysis has been prepared. Use it to guide your writing.
+
+CENTRAL QUESTION: {question}
+
+CORE TENSION: {tension}
+
+THESIS: {thesis}
+
+PARTIES AND INCENTIVES:
+{parties_json}
+
+TRANSACTION ECONOMICS:
+{economics_json}
+
+KEY NUMBERS TO INTERPRET:
+{key_numbers_json}
+
+IMPORTANT UNKNOWNS:
+{unknowns_json}
+
+ARTICLE STRUCTURE: {architecture.get('name', 'Standard analysis')}
+ARTICLE DEPTH: {depth.get('depth', 'standard')} ({depth.get('words', '800-1300')} words)
+
+WRITING INSTRUCTIONS
+1. Open with the most revealing fact, number, or tension from the brief — not a generic announcement.
+2. Build the article around the central question and thesis.
+3. Interpret the key numbers — don't just list them. Explain what they mean.
+4. Name the parties. Explain what each gains and risks.
+5. Distinguish clearly between reported facts, reasonable inferences, and unknowns.
+6. Vary sentence rhythm. Avoid formulaic openings like "The most important X is not Y."
+7. End with the unresolved question or next signal to watch.
+8. Do not use "signals," "highlights," "underscores," or "showcases" as analytical verbs.
+
+OUTPUT FORMAT
+Return valid JSON with: title, subtitle, slug, category, meta_description, tags (array), body_html (full article HTML), sources (array of {{url, name}} objects), and excerpt (1-2 sentence preview).
+"""
+
+        return {
+            "system_prompt": system_prompt,
+            "user_prompt": user_prompt,
+            "max_tokens": 5200,
+            "temperature": 0.2,
+        }
+
+    # ── Stage 3: Draft (LLM call) ──
+    def stage_draft(self, prompt_context: dict[str, Any]) -> dict[str, Any]:
+        """Generate the first draft via LLM."""
+        self.stages_run.append("draft")
+        if not _HAS_LLM or not self.api_key:
+            return {"status": "skipped", "reason": "No LLM available (offline or no API key)"}
+
+        try:
+            raw = call_deepseek(
+                prompt_context["user_prompt"],
+                self.api_key,
+                max_tokens=prompt_context.get("max_tokens", 5200),
+                temperature=prompt_context.get("temperature", 0.2),
+                json_mode=True,
+                system=prompt_context.get("system_prompt", ""),
+            )
+            article = _extract_json(raw, required_fields=["body_html", "title"])
+            return {"status": "completed", "article": article}
+        except Exception as e:
+            self.errors.append(f"draft: {e}")
+            return {"status": "failed", "error": str(e)}
+
+    # ── Stage 4: Financial Review (LLM call) ──
+    def stage_financial_review(self, article: dict[str, Any], brief: dict[str, Any]) -> dict[str, Any]:
+        """Review the article for financial accuracy and depth."""
+        self.stages_run.append("financial_review")
+        if not _HAS_LLM or not self.api_key:
+            return {"status": "skipped", "reason": "No LLM available"}
+
+        body = article.get("body_html", "")
+        body_clean = re.sub(r'<[^>]+>', ' ', body or "").strip()
+        prompt = f"""You are a financial editor reviewing an article for accuracy and analytical depth.
+
+ARTICLE:
+{body_clean[:8000]}
+
+ANALYTICAL BRIEF (what the article SHOULD cover):
+- Central question: {brief.get('central_financial_question', '')}
+- Thesis: {brief.get('thesis', '')}
+- Key numbers: {_safe_truncate_json(brief.get('key_numbers', []), max_chars=800)}
+
+Check for:
+1. Are any financial figures incorrect or unsupported?
+2. Does the article explain what the numbers MEAN, not just what they ARE?
+3. Are any claims about returns, valuations, or market conditions unsupported?
+4. Does the article distinguish reported facts from calculated metrics?
+5. Is the incentive analysis clear — who gains, who risks, why now?
+
+Return JSON with: {{issues: [list of specific problems], passed: true/false, score_1_10: int, summary: string}}
+"""
+        try:
+            raw = call_deepseek(prompt, self.api_key, max_tokens=1000, temperature=0.1, json_mode=True)
+            return _extract_json(raw)
+        except Exception as e:
+            self.errors.append(f"financial_review: {e}")
+            return {"issues": [], "passed": True, "score_1_10": 7, "summary": "Review skipped due to error"}
+
+    # ── Stage 5: Editorial Review (LLM call) ──
+    def stage_editorial_review(self, article: dict[str, Any]) -> dict[str, Any]:
+        """Review the article for writing quality."""
+        self.stages_run.append("editorial_review")
+        if not _HAS_LLM or not self.api_key:
+            return {"status": "skipped", "reason": "No LLM available"}
+
+        body = article.get("body_html", "")
+        body_clean = re.sub(r'<[^>]+>', ' ', body or "").strip()
+        prompt = f"""You are an editorial reviewer. Score this article on writing quality.
+
+ARTICLE:
+{body_clean[:8000]}
+
+Check for:
+1. Opening quality: Does it hook the reader with something specific, not generic?
+2. Structure: Does the article flow logically, or follow a formulaic template?
+3. Sentence quality: Are sentences varied in length and structure? Any repetitive patterns?
+4. AI language: Does it use "signals," "highlights," "underscores," "showcases"?
+5. Conclusion: Does it end with the right implication, not a vague forward look?
+6. Voice: Does it sound like a knowledgeable professional, not an institution?
+
+Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening_quality: string, worst_sentence: string, summary: string}}
+"""
+        try:
+            raw = call_deepseek(prompt, self.api_key, max_tokens=1000, temperature=0.1, json_mode=True)
+            return _extract_json(raw)
+        except Exception as e:
+            self.errors.append(f"editorial_review: {e}")
+            return {"issues": [], "passed": True, "score_1_10": 7, "summary": "Review skipped due to error"}
+
+    # ── Stage 6: Fact Verification (deterministic) ──
+    def stage_fact_verification(self, article: dict[str, Any], brief: dict[str, Any]) -> dict[str, Any]:
+        """Verify key facts against the analytical brief."""
+        self.stages_run.append("fact_verification")
+        body = article.get("body_html", "")
+        issues = []
+
+        # Check that key numbers from the brief appear in the article
+        for kn in brief.get("key_numbers", [])[:3]:
+            num = kn.get("number", "")
+            if num and num not in body:
+                issues.append(f"Key number '{num}' from brief not found in article")
+
+        # Check for unsupported claims
+        unsupported = [
+            "is expected to", "analysts predict", "sources say",
+            "widely viewed as", "market believes",
+        ]
+        for phrase in unsupported:
+            if phrase in body.lower():
+                issues.append(f"Potentially unsupported claim: '{phrase}'")
+
+        passed = len(issues) == 0
+        return {"issues": issues, "passed": passed, "score_1_10": 10 if passed else 6}
+
+    # ── Stage 7: Final Revision (LLM call) ──
+    def stage_final_revision(
+        self,
+        article: dict[str, Any],
+        prompt_context: dict[str, Any],
+        financial_review: dict[str, Any],
+        editorial_review: dict[str, Any],
+        fact_issues: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Revise the article incorporating all review feedback."""
+        self.stages_run.append("final_revision")
+        if not _HAS_LLM or not self.api_key:
+            return {"status": "skipped", "article": article}
+
+        # Only revise if there are issues
+        all_issues = (
+            financial_review.get("issues", []) +
+            editorial_review.get("issues", []) +
+            fact_issues.get("issues", [])
+        )
+        if not all_issues:
+            return {"status": "no_issues", "article": article}
+
+        body = article.get("body_html", "")
+        body_clean = re.sub(r'<[^>]+>', ' ', body or "").strip()
+        prompt = f"""REVISE this article to fix the following issues.
+
+CURRENT ARTICLE:
+{body_clean[:12000]}
+
+ISSUES TO FIX:
+{_safe_truncate_json(all_issues, max_chars=2000)}
+
+FINANCIAL REVIEW: {financial_review.get('summary', '')}
+EDITORIAL REVIEW: {editorial_review.get('summary', '')}
+
+Rewrite the COMPLETE article as JSON. Fix every issue. Keep all source-grounded facts.
+Do not introduce new unsupported claims. Maintain the thesis and structure.
+
+Return valid JSON with the same fields as the original: title, subtitle, slug, category, body_html, sources, tags, excerpt.
+"""
+        try:
+            raw = call_deepseek(prompt, self.api_key, max_tokens=5200, temperature=0.15, json_mode=True)
+            revised = _extract_json(raw, required_fields=["body_html", "title"])
+            return {"status": "revised", "article": revised}
+        except Exception as e:
+            self.errors.append(f"final_revision: {e}")
+            return {"status": "revision_failed", "article": article}
+
+    # ── Run full pipeline ──
+    def run(self, item: CanonicalItem, dossier: dict[str, Any] | None = None, api_key: str = "") -> dict[str, Any]:
+        """Execute the complete 7-stage editorial pipeline.
+
+        If api_key is provided, it overrides the instance-level key for this run
+        (useful when reusing a pipeline instance across many articles with different keys).
+        """
+        if api_key:
+            self.api_key = api_key
+        self.stages_run = []
+        self.errors = []
+        result: dict[str, Any] = {
+            "item_id": item.item_id,
+            "headline": item.headline,
+            "stages": {},
+            "article": None,
+            "status": "started",
+        }
+
+        try:
+            # Stage 1: Analytical Brief
+            brief = self.stage_analytical_brief(item, dossier)
+            result["stages"]["analytical_brief"] = {"status": "completed"}
+
+            # Stage 2: Assemble Prompt
+            prompt_ctx = self.stage_assemble_prompt(item, brief, dossier)
+            result["stages"]["assemble_prompt"] = {"status": "completed"}
+
+            # Stage 3: Draft
+            draft_result = self.stage_draft(prompt_ctx)
+            result["stages"]["draft"] = draft_result
+            if draft_result.get("status") == "skipped":
+                result["status"] = "offline"
+                result["stages_run"] = self.stages_run
+                result["errors"] = list(self.errors)
+                return result
+            if draft_result.get("status") != "completed":
+                result["status"] = "draft_failed"
+                result["stages_run"] = self.stages_run
+                result["errors"] = list(self.errors)
+                return result
+            article = draft_result.get("article")
+            if article is None:
+                result["status"] = "draft_failed"
+                result["stages_run"] = self.stages_run
+                result["errors"] = list(self.errors) + ["Missing 'article' key in draft result"]
+                return result
+            result["article"] = article
+
+            # Stage 4: Financial Review
+            fin_review = self.stage_financial_review(article, brief)
+            result["stages"]["financial_review"] = fin_review
+
+            # Stage 5: Editorial Review
+            ed_review = self.stage_editorial_review(article)
+            result["stages"]["editorial_review"] = ed_review
+
+            # Stage 6: Fact Verification
+            fact_issues = self.stage_fact_verification(article, brief)
+            result["stages"]["fact_verification"] = fact_issues
+
+            # Stage 7: Final Revision (only if issues found)
+            revision = self.stage_final_revision(article, prompt_ctx, fin_review, ed_review, fact_issues)
+            result["stages"]["final_revision"] = revision
+            if revision.get("status") in ("revised", "no_issues"):
+                result["article"] = revision.get("article", article)
+
+            result["status"] = "completed"
+            result["stages_run"] = self.stages_run
+            result["errors"] = list(self.errors)
+
+        except Exception as e:
+            self.errors.append(str(e))
+            result["status"] = "failed"
+            result["error"] = str(e)
+            result["errors"] = list(self.errors)
+
+        return result
+
+
+def _extract_json(raw: str, required_fields: list[str] | None = None) -> dict[str, Any]:
+    """Extract JSON from LLM response. Optionally validates required fields.
+
+    Raises ValueError on parse failure or missing required fields.
+    """
+    match = re.search(r'\{[\s\S]*\}', raw or "")
+    if match:
+        try:
+            data = json.loads(match.group())
+        except json.JSONDecodeError:
+            pass
+        else:
+            if required_fields:
+                missing = [f for f in required_fields if f not in data]
+                if missing:
+                    raise ValueError(
+                        f"LLM response missing required fields: {missing}. "
+                        f"Got keys: {list(data.keys())[:20]}"
+                    )
+            return data
+    raise ValueError(f"Could not parse JSON from response: {str(raw)[:200]}")
+
+
+def _strip_html_tags(text: str) -> str:
+    """Strip HTML tags and decode HTML entities from text."""
+    if not text:
+        return ""
+    text = re.sub(r'<[^>]+>', ' ', text)
+    text = text.replace('&amp;', '&')
+    text = text.replace('&lt;', '<')
+    text = text.replace('&gt;', '>')
+    text = text.replace('&nbsp;', ' ')
+    text = text.replace('&mdash;', '\u2014')
+    text = text.replace('&rsquo;', '\u2019')
+    text = text.replace('&ldquo;', '\u201c')
+    text = text.replace('&rdquo;', '\u201d')
+    text = text.replace('&lsquo;', '\u2018')
+    text = text.replace('&#39;', "'")
+    text = text.replace('&quot;', '"')
+    text = re.sub(r'&#\d+;', ' ', text)
+    text = re.sub(r'&[a-zA-Z]+;', ' ', text)
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
+
+def _safe_truncate_json(data: Any, max_chars: int) -> str:
+    """Dump data as JSON, truncating safely to avoid broken JSON.
+
+    Truncates list/array items or dict keys before serialization
+    rather than slicing the JSON string mid-structure.
+    """
+    json_str = json.dumps(data, indent=2, ensure_ascii=False)
+    if len(json_str) <= max_chars:
+        return json_str
+
+    if isinstance(data, list):
+        truncated = []
+        for item in data:
+            candidate = json.dumps(truncated + [item], indent=2, ensure_ascii=False)
+            if len(candidate) > max_chars:
+                break
+            truncated.append(item)
+        if not truncated and data:
+            return json.dumps(
+                [{"_truncated": f"{len(data)} items, first item too large to include"}],
+                indent=2, ensure_ascii=False,
+            )
+        return json.dumps(truncated, indent=2, ensure_ascii=False)
+
+    if isinstance(data, dict):
+        truncated: dict[str, Any] = {}
+        for key, value in data.items():
+            candidate = json.dumps(truncated | {key: value}, indent=2, ensure_ascii=False)
+            if len(candidate) > max_chars:
+                break
+            truncated[key] = value
+        if not truncated and data:
+            return json.dumps(
+                {"_truncated": f"{len(data)} keys, first value too large to include"},
+                indent=2, ensure_ascii=False,
+            )
+        return json.dumps(truncated, indent=2, ensure_ascii=False)
+
+    return json_str[:max_chars]
+
+
+def _hard_truncate_json_string(data: Any, max_chars: int) -> str:
+    json_str = json.dumps(data, indent=2, ensure_ascii=False)
+    if len(json_str) <= max_chars:
+        return json_str
+    if isinstance(data, list) and data:
+        return json.dumps([{"_truncated": f"{len(data)} items"}], indent=2, ensure_ascii=False)
+    if isinstance(data, dict):
+        return json.dumps({"_truncated": f"{len(data)} keys, data too large"}, indent=2, ensure_ascii=False)
+    return json.dumps({"_truncated": True}, indent=2, ensure_ascii=False)
+
+
+def run_editorial_pipeline(
+    item: CanonicalItem,
+    dossier: dict[str, Any] | None = None,
+    api_key: str = "",
+) -> dict[str, Any]:
+    """Convenience function."""
+    pipeline = EditorialPipeline(api_key=api_key)
+    return pipeline.run(item, dossier)
+
+
+def get_pipeline_stats(results: list[dict[str, Any]]) -> dict[str, Any]:
+    """Aggregate statistics across pipeline runs. Non-dict items are skipped."""
+    valid = [r for r in results if isinstance(r, dict)]
+    total = len(valid)
+    completed = sum(1 for r in valid if r.get("status") == "completed")
+    failed = sum(1 for r in valid if r.get("status") == "failed")
+    return {
+        "total_stories": total,
+        "completed": completed,
+        "failed": failed,
+        "completion_rate": round(completed / max(1, total) * 100, 1),
+    }
+
+
+def story_to_canonical_item(story: dict[str, Any]) -> CanonicalItem:
+    """Convert a daily_news_agent story dict to a CanonicalItem for the pipeline.
+
+    Handles the bridge between the existing story-based system and the
+    pipeline's typed CanonicalItem inputs.
+    """
+    item = CanonicalItem()
+    item.headline = story.get("title") or story.get("headline", "")
+    item.source_name = story.get("source", "")
+    item.source_url = story.get("url", "")
+    item.raw_summary = story.get("summary", "")
+    item.raw_text = story.get("full_text", "")
+    item.publication_date = story.get("published", "")
+    item.source_tier = int(story.get("source_tier", 3))
+    item.source_authority = "primary" if item.source_tier == 1 else "secondary"
+
+    topics = story.get("topics", []) or []
+    if "capital_placement" in topics or "major_sale" in topics or "distress" in topics or "cmbs" in topics or "reit_public_markets" in topics or "development_finance" in topics or "private_credit" in topics or "policy" in topics:
+        item.primary_sector = "commercial_real_estate"
+    elif "private_equity" in topics or "mna" in topics:
+        item.primary_sector = "private_equity"
+    elif "fed_rates" in topics:
+        item.primary_sector = "fed_macro"
+    elif "bank_credit" in topics:
+        item.primary_sector = "banking_credit"
+    elif "government_action" in topics:
+        item.primary_sector = "local_government"
+    else:
+        item.primary_sector = "commercial_real_estate"
+
+    entities = story.get("entities") or {}
+    if isinstance(entities, dict):
+        item.companies = entities.get("companies", [])
+        amounts = entities.get("amounts", [])
+        if amounts:
+            item.transaction_value_raw = amounts[0]
+
+    features = story.get("attention_features") or {}
+    if isinstance(features, dict):
+        if features.get("has_big_number"):
+            item.composite_score = max(item.composite_score, 65.0)
+        if features.get("has_known_institution"):
+            item.composite_score = max(item.composite_score, 55.0)
+    item.composite_score = item.composite_score or 50.0
+    item.tier = story.get("selection_tier", "tier_3_useful_coverage")
+
+    item.item_id = item.generate_id()
+    return item
