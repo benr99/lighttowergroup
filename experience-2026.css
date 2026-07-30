@@ -56,6 +56,12 @@ body.observatory ::selection {
   color: var(--x26-ink);
 }
 
+/* The article generator's legacy inline styles once used white metric values.
+   Keep the evidence panel readable on the paper surface for new and archived posts. */
+.article-data-note .article-data-point strong {
+  color: var(--x26-ink) !important;
+}
+
 body.observatory :focus-visible {
   outline: 3px solid var(--x26-signal) !important;
   outline-offset: 4px !important;

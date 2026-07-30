@@ -1,5 +1,2973 @@
 [
   {
+    "event_id": "e20c4e9a6ab2f06c3ec9",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Supreme Court joins Trump, Congress in job approval slump",
+    "source_urls": [
+      "https://www.axios.com/2026/07/29/supreme-court-congress-trump-approval-ratings"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-e20c4e9a6ab2f06c3ec9",
+        "title": "Supreme Court joins Trump, Congress in job approval slump",
+        "date": "2026-07-29",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "789c381104e345df225c",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Scoop: Second account accessed by OpenAI's agent tied to cyber safety testing",
+    "source_urls": [
+      "https://www.axios.com/2026/07/29/openai-hugging-face-modal-cyber-benchmark"
+    ],
+    "must_read_score": 10,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-789c381104e345df225c",
+        "title": "Scoop: Second account accessed by OpenAI's agent tied to cyber safety testing",
+        "date": "2026-07-29",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "55e347969f4c4e132bb1",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Trustee seeks to foreclose $34.4M CMBS loan after alleged first-payment default",
+    "source_urls": [
+      "https://www.mpamag.com/us/news/general/trustee-seeks-to-foreclose-344m-cmbs-loan-after-alleged-first-payment-default/584231"
+    ],
+    "must_read_score": 64,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "64a364d93c62627c8751",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Stonemont Buys $1 Billion Link Logistics Portfolio as Data Economy Reshapes Warehouse Demand",
+    "source_urls": [
+      "https://propmodo.com/stonemont-buys-1-billion-link-logistics-portfolio-as-data-economy-reshapes-warehouse-demand/"
+    ],
+    "must_read_score": 62,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "87fedcd5e72a8b698e77",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Sterling Acquires Whole Foods-Anchored Shopping Center in Metro Atlanta for $93.2M",
+    "source_urls": [
+      "https://rebusinessonline.com/sterling-acquires-whole-foods-anchored-shopping-center-in-metro-atlanta-for-93-2m/",
+      "https://shoppingcenterbusiness.com/sterling-organization-acquires-whole-foods-anchored-shopping-center-in-metro-atlanta-for-93-2-million/"
+    ],
+    "must_read_score": 61,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e522c55ffcfb0d14c7e4",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "BXP secures $1.2b construction loan for 343 Madison Ave.",
+    "source_urls": [
+      "https://irei.com/news/bxp-secures-1-2b-construction-loan-for-343-madison-ave/",
+      "https://commercialobserver.com/2026/07/bxp-construction-loan-343-madison-avenue-q2-earnings/",
+      "https://www.bisnow.com/new-york/news/office/bxp-closes-12b-construction-loan-for-343-madison-nears-deal-with-equity-partner-135614"
+    ],
+    "must_read_score": 60,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "5ed021f3acd145a9bedb",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Associated Bank Provides $28.3M Loan for Development of Chicago Apartment Building",
+    "source_urls": [
+      "https://rebusinessonline.com/associated-bank-provides-28-3m-loan-for-development-of-chicago-apartment-building/"
+    ],
+    "must_read_score": 52,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "929d0f3abad82fd09ef7",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "MMCC Arranges $16.5M in Construction Financing for Green Bay Multifamily Project",
+    "source_urls": [
+      "https://rebusinessonline.com/mmcc-arranges-16-5m-in-construction-financing-for-green-bay-multifamily-project/"
+    ],
+    "must_read_score": 50,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "1ea2a59d8c69912fbb13",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "MassHousing Provides $26.4M in Financing for Boston Affordable Housing Property",
+    "source_urls": [
+      "https://rebusinessonline.com/masshousing-provides-26-4m-in-financing-for-boston-affordable-housing-property/"
+    ],
+    "must_read_score": 50,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "92717876c923d3145aab",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Kiser Group Brokers $16.3M Sale of Chicago Multifamily Property",
+    "source_urls": [
+      "https://rebusinessonline.com/kiser-group-brokers-16-3m-sale-of-chicago-multifamily-property/"
+    ],
+    "must_read_score": 50,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "ca5ffde0b0e78b61b560",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "PCCP, Stonemont Close on $1B-Plus Acquisition of Blackstone Industrial Portfolio",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/pccp-stonemount-industrial-portfolio/"
+    ],
+    "must_read_score": 48,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "0c8b85e60b842bbb968e",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "RealSource Group Arranges $11.8 Million Sale of Single-Tenant Retail Property in Inland Empire",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/realsource-group-arranges-11-8-million-sale-of-single-tenant-retail-property-in-inland-empire/"
+    ],
+    "must_read_score": 46,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e8af3066b4d47ab285ce",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Newmark Posts Record Q2 Revenue, Holds Guidance Flat",
+    "source_urls": [
+      "https://www.bisnow.com/national/news/capital-markets/newmark-posts-record-q2-revenue-holds-guidance-flat-135613"
+    ],
+    "must_read_score": 43,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "f3f5541ed1231e602d07",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Vital Infrastructure REIT Buys East New York Outpatient Facility for $90M",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/vital-infrastructure-reit-buys-101-pennsylvania-avenue-brooklyn/",
+      "https://www.bisnow.com/new-york/news/deal-sheet/canadian-reit-brooklyn-medical-office-ny-deal-sheet-135586"
+    ],
+    "must_read_score": 42,
+    "decision": "deal_tape",
+    "archive_matches": [
+      {
+        "slug": "event-7503840e3eeb1d1b8350",
+        "title": "Canadian REIT Buys Brooklyn Medical Office For $90M: The N.Y. Deal Sheet",
+        "date": "2026-07-29",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "research",
+        "similarity": 0.78,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": false,
+          "entity_overlap": true
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "e6b1ba03db54c0f96753",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Fed issues its latest rate decision as geopolitical unrest continues",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/market-updates/fed-issues-its-latest-rate-decision-as-geopolitical-unrest-continues/584186"
+    ],
+    "must_read_score": 42,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2009325efb86d26c8b09",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Sundance Bay secures $96m for 626-unit Texas multifamily portfolio",
+    "source_urls": [
+      "https://irei.com/news/sundance-bay-secures-96m-for-626-unit-texas-multifamily-portfolio/"
+    ],
+    "must_read_score": 41,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "5a1dbf299a4fe3ad9715",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Inside the Upper East Side’s most expensive rental building — where prices reach $45K/month",
+    "source_urls": [
+      "https://nypost.com/2026/07/27/real-estate/inside-the-upper-east-sides-most-expensive-rental-building/",
+      "https://www.6sqft.com/new-rental-in-yorkville-has-a-45k-month-penthouse/"
+    ],
+    "must_read_score": 40,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-81bca4fcfe9e3e50607d",
+        "title": "Inside the Upper East Side’s most expensive rental building — where prices reach $45K/month",
+        "date": "2026-07-28",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "70093efdf5422bd19ffb",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Ohio Supreme Court says foreclosure appeals survive after the sale closes",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/industry-trends/ohio-supreme-court-says-foreclosure-appeals-survive-after-the-sale-closes/584230"
+    ],
+    "must_read_score": 39,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "eff5588ae61e807fdaff",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Beyond the Mirages: Finding Yield in a Normalized Real Estate Market",
+    "source_urls": [
+      "https://rebusinessonline.com/beyond-the-mirages-finding-yield-in-a-normalized-real-estate-market/"
+    ],
+    "must_read_score": 39,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "b98618bf019cf7ba1f19",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "CBRE Reports Strong Q2 Earnings Amid Data Center Revenues, Office Leasing Gains",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/cbre-q2-earnings-data-center-office-leasing/"
+    ],
+    "must_read_score": 38,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "9bfd293a1d584b8aed46",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Here’s another example of how proprietary loans are driving growth for the reverse mortgage market",
+    "source_urls": [
+      "https://www.housingwire.com/articles/proprietary-loans-drive-reverse-mortgage-growth-hmda-data/"
+    ],
+    "must_read_score": 37,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "acb366e98c776a2c0092",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "IPA Brokers $23.1 Million Sale of Publix-Anchored Shopping Center in Alexander City, Alabama",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/ipa-brokers-23-1-million-sale-of-publix-anchored-shopping-center-in-alexander-city-alabama/"
+    ],
+    "must_read_score": 37,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-8c7abe3067b0acc3477b",
+        "title": "IPA Brokers $23.1M Sale of Publix-Anchored Shopping Center in Alexander City, Alabama",
+        "date": "2026-07-29",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "deal_tape",
+        "similarity": 0.909,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "c9ac016cdc870045f67c",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "For Data Centers, the Case for a Local Balance Sheet",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/data-center-local-balance-sheet/"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2603646863e7a290ffd3",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Data Center Giant Equinix Ups Its 2026 Forecast Behind Robust Q2",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/data-center-equinix-q2-earnings/"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c54de77266b54273262c",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Fed Holds Rates In Split Decision As Iran War Hampers Inflation Fight",
+    "source_urls": [
+      "https://www.bisnow.com/national/news/capital-markets/federal-reserve-interest-rate-decision-july-135606"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "f10be9b528b07298252a",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Madison Realty Capital Leads $227M Refi of New Miami-Dade Rental",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/madison-realty-miami-dade-baron-metro-parc-housing/"
+    ],
+    "must_read_score": 35,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "9243dceb787314451766",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Inspections Trigger Stop Orders Across Manhattan Office Conversion Pipeline",
+    "source_urls": [
+      "https://propmodo.com/inspections-trigger-stop-orders-across-manhattan-office-conversion-pipeline/"
+    ],
+    "must_read_score": 35,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c02115f61f5ec26a1af5",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Seattle Eliminates Environmental Appeals to Accelerate Housing Zoning Changes",
+    "source_urls": [
+      "https://propmodo.com/seattle-eliminates-environmental-appeals-to-accelerate-housing-zoning-changes/"
+    ],
+    "must_read_score": 35,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a4e8dfa36dca6a7913e7",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "CoreWeave Slaps 9%-Plus Yield on $2.6 Billion Leveraged Loan",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-29/coreweave-boosts-yield-on-2-6-billion-loan-tied-to-anthropic"
+    ],
+    "must_read_score": 35,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "9a0d41354f40c33cefef",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Richman Group, Monadnock Plan to Build 420 Units in East Harlem",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/richman-group-monadnock-housing-east-125th-street/"
+    ],
+    "must_read_score": 34,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "4a35d76c08800aa2762e",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "AI-Fueled Corgi Chases BlackRock’s ETF Crown With 500-Fund Push",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-30/ai-fueled-corgi-chases-blackrock-s-etf-crown-with-500-fund-push"
+    ],
+    "must_read_score": 32,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "0d721b2bf4543970389b",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Q2 2026 Bank Earnings: C&I Growth Came From Private Credit Share Gains, Not AI",
+    "source_urls": [
+      "https://www.trepp.com/trepptalk/q2-2026-bank-earnings-commercial-industrial-growth"
+    ],
+    "must_read_score": 31,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "39a167c9c23f532cc6aa",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Pennrose, WORC Complete 55-Unit Affordable Seniors Housing Redevelopment in Philadelphia",
+    "source_urls": [
+      "https://rebusinessonline.com/pennrose-worc-complete-55-unit-affordable-seniors-housing-redevelopment-in-philadelphia/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "db02a6393ea9097e112d",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Fed leaves rates steady, with internal dissent",
+    "source_urls": [
+      "https://www.axios.com/2026/07/29/fed-warsh-rates-inflation"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "89d36a4374e1d92df2ea",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Housing Lottery Launches for 733 Lincoln Place in Crown Heights, Brooklyn",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/housing-lottery-launches-for-733-lincoln-place-in-crown-heights-brooklyn.html"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "6bfe5ab0c1e51d5b478d",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Oyster Point's Second Phase Half-Leased As Kilroy Navigates Soft Lab Demand",
+    "source_urls": [
+      "https://www.bisnow.com/los-angeles/news/office/kilroy-life-sciences-office-los-angeles-san-francisco-135623"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "75f1875cd9af0c411fae",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Radnor, Madrone to Break Ground on 793-Bed Student Housing Development in Atlanta",
+    "source_urls": [
+      "https://rebusinessonline.com/radnor-madrone-to-break-ground-on-793-bed-student-housing-development-in-atlanta/"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3dfe3264945c90ccf979",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Copper Gains as Traders Weigh Fed Rate Path, Market Tightness",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-30/base-metals-advance-as-fed-rate-pause-eases-demand-concerns"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2ffee4541e2783213fae",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "AI Infrastructure Firm Treeswift Signs 7K-SF Lease at 256 West 38th Street",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/treeswift-lease-256-west-38th-street/"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "09369f15dccb466750ba",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "How Many Homes Are Sold in the US Each Year?",
+    "source_urls": [
+      "https://rew-online.com/how-many-homes-are-sold-in-the-us-each-year/"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c9f85ee8f19ddffe094a",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Economy slowed in second quarter, while inflation improved",
+    "source_urls": [
+      "https://www.washingtonpost.com/business/2026/07/30/economy-slowed-second-quarter-while-inflation-improved/"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "0c6472093b3190a2cce0",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Federal Reserve issues FOMC statement",
+    "source_urls": [
+      "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a16e854b56c6f1eec3ef",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Fed decision reaction: What’s next for the mortgage market?",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/industry-trends/fed-decision-reaction-whats-next-for-the-mortgage-market/584154"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3f9ffa515cf5a546676f",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Massachusetts DOT seeks bids for $1B mixed-use development",
+    "source_urls": [
+      "https://www.constructiondive.com/news/massachusetts-dot-bids-1b-mixed-use-development/826448/"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7f43c2a5eda7603fdc13",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Marcus & Millichap Negotiates $6 Million Sale of Retail Property in Pottstown, Pennsylvania",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/marcus-millichap-negotiates-6-million-sale-of-retail-property-in-pottstown-pennsylvania/"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-bfd21c1efb805fd5a4a2",
+        "title": "Marcus & Millichap Arranges Sale of 13,079-Square-Foot Retail Property in Metro Dallas",
+        "date": "2026-07-28",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 0.68,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": true
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "4780161edaa6ef44cc8a",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Cincinnati: A Market Defined by Industrial Strength, Life Sciences Growth",
+    "source_urls": [
+      "https://rebusinessonline.com/cincinnati-a-market-defined-by-industrial-strength-life-sciences-growth/"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "98bc8896ac20e6c4f3eb",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Bond Yields at 19-Year High Send Warsh Credibility Warning",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-29/bond-rout-sends-warning-to-warsh-that-tough-talk-is-not-enough"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "269b396cd0e030b380cd",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Shorenstein Investment Advisers Acquires 273,000 SF Office Property in Plano",
+    "source_urls": [
+      "https://rebusinessonline.com/shorenstein-investment-advisers-acquires-273000-sf-office-property-in-plano/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7b2309fcad82824e1358",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Colliers Arranges Sale of 360-Unit Multifamily Community in Merrillville, Indiana",
+    "source_urls": [
+      "https://rebusinessonline.com/colliers-arranges-sale-of-360-unit-multifamily-community-in-merrillville-indiana/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "503e29808ac4700397d5",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Ancala-backed HS Orka acquires Icelandic hydropower plant",
+    "source_urls": [
+      "https://irei.com/news/ancala-backed-hs-orka-acquires-icelandic-hydropower-company/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "d9df6f7e349e16081cc6",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "RECAP: How the Fed reached its latest rate decision",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/market-updates/recap-how-the-fed-reached-its-latest-rate-decision/584187"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e88dab1f654eb40ae8c9",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Hawks Lorie Logan and Beth Hammack run the Fed for now",
+    "source_urls": [
+      "https://www.housingwire.com/articles/hawks-lorie-logan-and-beth-hammack-run-the-fed-for-now/"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "86b98e7c91df0187c4ba",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Morgan Stanley wealth unit pressured staff to approve risky home loans",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/industry-trends/morgan-stanley-wealth-unit-pressured-staff-to-approve-risky-home-loans/584180"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "25017baf72a2741cd7d3",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "JLL Brokers Sale of 81-Unit Apartment Community in Plymouth, Minnesota",
+    "source_urls": [
+      "https://rebusinessonline.com/jll-brokers-sale-of-81-unit-apartment-community-in-plymouth-minnesota/"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c63cd478ab150a1b57b8",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "ShipBob Signs 301,826 SF Industrial Lease in Bethlehem, Pennsylvania",
+    "source_urls": [
+      "https://rebusinessonline.com/shipbob-signs-301826-sf-industrial-lease-in-bethlehem-pennsylvania/"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "b8c4c8d0c9e45f10586b",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Bond Yields at 19-Year High After Fed Holds; Tech Earnings Lift Stocks | Bloomberg Brief 07/30/2026",
+    "source_urls": [
+      "https://www.bloomberg.com/news/videos/2026-07-30/bloomberg-brief-07-30-2026-video"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "ca2e493abccda625fae9",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "NYC Issues Partial Stop-Work Order at SL Green’s 750 Third Avenue Conversion",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/nyc-stop-work-order-sl-green-750-third-avenue-conversion/"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e9136cacdbbdfb357922",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Developer Lands Construction Loan For Bristol Industrial Project: The Philadelphia Deal Sheet",
+    "source_urls": [
+      "https://www.bisnow.com/philadelphia/news/deal-sheet/greek-bristol-warehouse-speed-bay-135616"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "1afd45e7f66ed1c930c4",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "St. John’s University Sells Staten Island Campus to Wagner College",
+    "source_urls": [
+      "https://rebusinessonline.com/st-johns-university-sells-staten-island-campus-to-wagner-college/"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "fc0d6b12e848a6e76f99",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Conflict Widens in Middle East, Bonds Send Warsh Credibility Warning | The Opening Trade 7/30/2026",
+    "source_urls": [
+      "https://www.bloomberg.com/news/videos/2026-07-30/the-opening-trade-7-30-2026-video"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "bbdbc71e84030994b6f1",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Stage two of Quinbrook’s Supernode battery storage project commences operations",
+    "source_urls": [
+      "https://irei.com/news/stage-two-of-quinbrooks-supernode-battery-storage-project-commences-operations/"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7bf99e57a4797281d588",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Matthews Negotiates Sale of 23,957 SF Retail Building in Bridgeport, Texas",
+    "source_urls": [
+      "https://rebusinessonline.com/matthews-negotiates-sale-of-23957-sf-retail-building-in-bridgeport-texas/"
+    ],
+    "must_read_score": 22,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "fc4fafadb005b11814ec",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Rally House Signs 17,542 SF Retail Lease at Winchester Center in Rochester Hills, Michigan",
+    "source_urls": [
+      "https://rebusinessonline.com/rally-house-signs-17542-sf-retail-lease-at-winchester-center-in-rochester-hills-michigan/"
+    ],
+    "must_read_score": 22,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "b400d8603adf1df5a339",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Fed Holds Interest Rates in Warsh’s Second Meeting as FOMC Chair",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/fed-interest-rates-kevin-warsh/"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "warsh-fed-meeting-cre-higher-for-longer",
+        "title": "Warsh's First Fed Meeting Confirms CRE's Higher-for-Longer Reality",
+        "date": "2026-06-19",
+        "url": "/insights/warsh-fed-meeting-cre-higher-for-longer.html",
+        "memory_only": false,
+        "prior_decision": null,
+        "similarity": 0.68,
+        "same_event": true,
+        "recent": false,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": true
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "d53341ab6ae90af31777",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Newly minted millionaires raid LA real estate market after stock sale bonanza — as desired neighborhoods revealed",
+    "source_urls": [
+      "https://nypost.com/2026/07/29/real-estate/newly-minted-millionaires-raid-la-real-estate-market-after-stock-sale-bonanza-as-desired-neighborhoods-revealed/"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "04534e18695a7253c572",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "D.C. Sues To Block HUD Headquarters Move To Virginia",
+    "source_urls": [
+      "https://www.bisnow.com/national/news/office/dc-sues-hud-over-headquarters-move-to-virginia-135610"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-e87bdee1ee15e7948702",
+        "title": "DC sues to block HUD, Ginnie Mae headquarters move to Virginia",
+        "date": "2026-07-29",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 0.75,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "d612ac3ba580e3e2bdd3",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Dewberry's Midtown Eyesore Quietly Resolves $75M Mortgage",
+    "source_urls": [
+      "https://www.bisnow.com/atlanta/news/capital-markets/dewberrys-midtown-eyesore-quietly-resolves-75m-mortgage-135621"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e4c26376e5d29011f322",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Ryan Cos. execs discuss data center headwinds",
+    "source_urls": [
+      "https://www.constructiondive.com/news/ryan-execs-discuss-data-center-headwinds/826195/"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a4f846de5865bc628e74",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Oil Company Expands Again At Cash Register Building",
+    "source_urls": [
+      "https://www.bisnow.com/denver/news/office/oil-company-adds-50k-sf-downtown-denver-office-135619"
+    ],
+    "must_read_score": 19,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "fb7ef39860c4a826682e",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Oil prices push mortgage rates to one-year high, applications slide",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/market-updates/oil-prices-push-mortgage-rates-to-one-year-high-applications-slide/584181"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7326bcdef0993b32eb3e",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Excavation Begins for 1,162-Foot Mixed-Use Supertall at 655 Madison Avenue on Manhattan’s Upper East Side",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/excavation-begins-for-1162-foot-mixed-use-supertall-at-655-madison-avenue-on-manhattans-upper-east-side.html"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "888bec8ebe6de60f970c",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "BXP Closes In On Next D.C. Office Development As It Shrinks Assets",
+    "source_urls": [
+      "https://www.bisnow.com/washington-dc/news/office/bxp-shrinking-dc-portfolio-as-it-closes-in-on-next-big-office-development-135612"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "65012707c64519f904b3",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Clarion Under Contract To Sell 18-Story Seaport Office Tower",
+    "source_urls": [
+      "https://www.bisnow.com/boston/news/office/clarion-under-contract-sell-18-story-seaport-office-tower-135618"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "b5e7440aef00473b1553",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "BGO, Yukon Sell 291,000 SF Cold Storage Facility in New Century, Kansas",
+    "source_urls": [
+      "https://rebusinessonline.com/bgo-yukon-sell-291000-sf-cold-storage-facility-in-new-century-kansas/"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c6e07dac3d8871092a28",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "NYC Selects Slate Property Group, Hudson Companies to Build 980 Homes in LIC",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/slate-property-group-hudson-companies-hunters-point-south-housing/"
+    ],
+    "must_read_score": 17,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a5040595a3a0d6a2e85c",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Slate, Hudson Cos. Picked To Develop Massive Queens Housing Project",
+    "source_urls": [
+      "https://www.bisnow.com/new-york/news/multifamily/mamdani-admin-picks-slate-hudson-cos-to-develop-massive-queens-housing-project-135615"
+    ],
+    "must_read_score": 17,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7fd03c73e9e8ea267198",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Tribeca’s latest luxury condo is a 24-story tower designed by COOKFOX",
+    "source_urls": [
+      "https://www.6sqft.com/tribeca-luxury-condo-is-a-24-story-tower-franklin-street-designed-by-cookfox/"
+    ],
+    "must_read_score": 17,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "d4daf611eefc1092ce22",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "StreetLights Residential Underway on 22-Story Apartment Building in Plano",
+    "source_urls": [
+      "https://rebusinessonline.com/streetlights-residential-underway-on-22-story-apartment-building-in-plano/"
+    ],
+    "must_read_score": 16,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "bfdecbb363b5840028c2",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "RAD Diversified REIT, Inc.; Brandon “Dutch” Mendenhall; Amy Vaughn; and The Seminar Solution, LLC, Relief Defendant",
+    "source_urls": [
+      "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26596"
+    ],
+    "must_read_score": 16,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "9152b36d6fd35739bb15",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Why profanity is having a f*cking moment",
+    "source_urls": [
+      "https://www.axios.com/2026/07/29/trump-political-swearing-voter-perceptions"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "80b800c5a7a69256a862",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Homes for Sale in Manhattan and Brooklyn",
+    "source_urls": [
+      "https://www.nytimes.com/2026/07/30/realestate/housing-market-nyc.html"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "0b9a8a1eecc0e754c369",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Homes for Sale in Connecticut and New York",
+    "source_urls": [
+      "https://www.nytimes.com/2026/07/30/realestate/housing-market-near-nyc.html"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "df323a18d29a9d4691a2",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Excavation Underway For 545 Coney Island Avenue In Kensington, Brooklyn",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/excavation-underway-for-545-coney-island-avenue-in-kensington-brooklyn.html"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "eda2ead2e8cd8cad7aa0",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "NYC auctions off ‘Champions Way’ street sign from Knicks championship parade",
+    "source_urls": [
+      "https://www.6sqft.com/nyc-auction-champions-way-street-sign-knicks-parade/"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a80944196378875e7338",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Marcus & Millichap Brokers Sale of 124,000 SF Healthcare Property in Houston",
+    "source_urls": [
+      "https://rebusinessonline.com/marcus-millichap-brokers-sale-of-124000-sf-healthcare-property-in-houston/"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "15061f89d497d2a68241",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "MTA Settles With Disability Advocates as Subway Elevators Improve",
+    "source_urls": [
+      "https://www.thecityreporter.nyc/2026/07/29/why-mta-subway-disability-lawsuit-settlement-elevators/"
+    ],
+    "must_read_score": 14,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "d0d9ae14cd7ad010eddf",
+    "last_seen": "2026-07-30T12:55:39+00:00",
+    "title": "Infranity closes $50m financing for Redball Energy to support solar expansion",
+    "source_urls": [
+      "https://irei.com/news/infranity-closes-50m-financing-for-redball-energy-to-support-solar-expansion/"
+    ],
+    "must_read_score": 10,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "667df15cd088461d0308",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "California’s first tiny home megaproject ignites fury in idyllic beach town",
+    "source_urls": [
+      "https://nypost.com/2026/07/27/real-estate/californias-first-tiny-home-megaproject-ignites-fury-in-idyllic-beach-town/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-667df15cd088461d0308",
+        "title": "California’s first tiny home megaproject ignites fury in idyllic beach town",
+        "date": "2026-07-28",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "20ef62d6665bec2c42ea",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Structural Problems Slow Manhattan’s Office Conversion Pipeline",
+    "source_urls": [
+      "https://propmodo.com/structural-problems-slow-manhattans-office-conversion-pipeline/"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-20ef62d6665bec2c42ea",
+        "title": "Structural Problems Slow Manhattan’s Office Conversion Pipeline",
+        "date": "2026-07-28",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "568627e4cb3a31a22a3b",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "‘We Can Hear Chinese Anywhere Now’: Behind Staten Island’s Immigrant Boom",
+    "source_urls": [
+      "https://www.thecityreporter.nyc/2026/07/28/staten-island-chinese-population-immigrants-demographics-housing/"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-568627e4cb3a31a22a3b",
+        "title": "‘We Can Hear Chinese Anywhere Now’: Behind Staten Island’s Immigrant Boom",
+        "date": "2026-07-28",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "5607bca6211256a9f34c",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Manhattan Project eyed as potential source of high radiation in Western NY",
+    "source_urls": [
+      "https://gothamist.com/news/manhattan-project-eyed-as-potential-source-of-high-radiation-in-western-ny"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-5607bca6211256a9f34c",
+        "title": "Manhattan Project eyed as potential source of high radiation in Western NY",
+        "date": "2026-07-28",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "85826f367da098c0c059",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Mid-America Negotiates Sale of 37,615 SF Lincoln Park West Retail Property in Chicago",
+    "source_urls": [
+      "https://rebusinessonline.com/mid-america-negotiates-sale-of-37615-sf-lincoln-park-west-retail-property-in-chicago/",
+      "https://shoppingcenterbusiness.com/mid-america-negotiates-sale-of-37615-square-foot-lincoln-park-west-retail-property-in-chicago/"
+    ],
+    "must_read_score": 56,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "659af978b649cc8b1900",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Welltower Reports Revenue and Income Growth From Senior Housing Investments",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/welltower-q2-2026-earnings-call/"
+    ],
+    "must_read_score": 51,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "47eb69159566f074c068",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Suffolk Construction Inks 19K-SF Lease in West Palm Beach",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/suffolk-construction-west-palm-beach-echo-205-datura/"
+    ],
+    "must_read_score": 50,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "afd5639164db664b9415",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Bill Ackman Buys 125 West End Avenue for $260M Brain Research Institute",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/bill-ackman-buys-125-west-end-avenue/"
+    ],
+    "must_read_score": 49,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "243335fe6a675e855e1f",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Corient continues to expand in New York City with addition of Seven Bridges Advisors",
+    "source_urls": [
+      "https://irei.com/news/corient-continues-to-expand-in-new-york-city-with-addition-of-seven-bridges-advisors/"
+    ],
+    "must_read_score": 48,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "0357c366af7008276592",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Mesa West Capital Provides $81M Refi for Colorado Multifamily Complex",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/mesa-west-capital-81m-refi-colorado-multifamily-atlas-peakview/"
+    ],
+    "must_read_score": 45,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "423f17d0896a762a54ea",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "JLL Arranges $58M Loan for Refinancing of Brooklyn Mixed-Use Building",
+    "source_urls": [
+      "https://rebusinessonline.com/jll-arranges-58m-loan-for-refinancing-of-brooklyn-mixed-use-building/"
+    ],
+    "must_read_score": 45,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "5286faa84fd59993bf8a",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Northwest Bank Lends $28M on East Hartford Industrial Buy",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/northwest-bank-east-hartford-industrial-campus/"
+    ],
+    "must_read_score": 44,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7503840e3eeb1d1b8350",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Canadian REIT Buys Brooklyn Medical Office For $90M: The N.Y. Deal Sheet",
+    "source_urls": [
+      "https://www.bisnow.com/new-york/news/deal-sheet/canadian-reit-brooklyn-medical-office-ny-deal-sheet-135586"
+    ],
+    "must_read_score": 44,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "bc9a675bd9dc1939b43c",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "U.S. Department of Veterans Affairs Takes 5K SF at 1733 Eastchester Road in the Bronx",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/us-department-veterans-affairs-lease-1733-eastchester-road-bronx/"
+    ],
+    "must_read_score": 42,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e7014f37b62dcc3002a4",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "60 Guilders, Sentry Realty Snap Up 1441 Broadway for $240M",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/60-guilders-sentry-realty-1441-broadway-sale/"
+    ],
+    "must_read_score": 41,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "458c7b6a61220778df7d",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "$200 Million Redevelopment Of 460 Park Avenue Begins In Midtown East, Manhattan",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/kita-launches-200-million-redevelopment-of-460-park-avenue-in-midtown-manhattan.html",
+      "https://nypost.com/2026/07/26/business/460-park-ave-getting-200-million-upgrade/",
+      "https://www.6sqft.com/som-to-lead-200m-redevelopment-of-460-park-avenue/"
+    ],
+    "must_read_score": 40,
+    "decision": "deal_tape",
+    "archive_matches": [
+      {
+        "slug": "event-cc251524d4657d8cc05e",
+        "title": "$200 Million Redevelopment Of 460 Park Avenue Begins In Midtown East, Manhattan",
+        "date": "2026-07-28",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "deal_tape",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": true,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "8c7abe3067b0acc3477b",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "IPA Brokers $23.1M Sale of Publix-Anchored Shopping Center in Alexander City, Alabama",
+    "source_urls": [
+      "https://rebusinessonline.com/ipa-brokers-23-1m-sale-of-publix-anchored-shopping-center-in-alexander-city-alabama/"
+    ],
+    "must_read_score": 40,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "554e9ee9178e0738523a",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Foreclosure auctions rise in Q2 2026, with FHA loans driving gains",
+    "source_urls": [
+      "https://www.housingwire.com/articles/q2-2026-foreclosure-auctions-fha/"
+    ],
+    "must_read_score": 39,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "05eec261210cba89fed4",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Citizens Bank Refis N.J. Industrial Property With $47M Loan",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/citizens-bank-new-jersey-industrial/"
+    ],
+    "must_read_score": 38,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "ad21b1d3b6a0e9dcdf0f",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Meta announces new strategic data center venture with BlackRock",
+    "source_urls": [
+      "https://irei.com/news/meta-announces-new-strategic-data-center-venture-with-blackrock/",
+      "https://irei.com/news/blackrock-selected-as-partner-for-14b-meta-data-center-3/"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "6af8df827bfdeb20e5f8",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Open letter to FHFA, HUD, CFPB and Congress",
+    "source_urls": [
+      "https://www.housingwire.com/articles/housing-affordability-payment-levers/"
+    ],
+    "must_read_score": 35,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c0bf3360c2d0d97f8286",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "UBS, CBRE Sign Leases at Arcadia Office Building Under Development in Metro Minneapolis",
+    "source_urls": [
+      "https://rebusinessonline.com/ubs-cbre-sign-leases-at-arcadia-office-building-under-development-in-metro-minneapolis/"
+    ],
+    "must_read_score": 35,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "32456c66616596149c84",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Nevada PERS appoints Lauren Larson as CIO",
+    "source_urls": [
+      "https://irei.com/news/nevada-pers-appoints-lauren-larson-as-cio/"
+    ],
+    "must_read_score": 34,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2da7eb6cb96575686cf0",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Diverging credit stress across bank types: Evidence from non-current CRE loan trends",
+    "source_urls": [
+      "https://irei.com/news/diverging-credit-stress-across-bank-types-evidence-from-non-current-cre-loan-trends/"
+    ],
+    "must_read_score": 34,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "eb94d7d911fb6ca917c2",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Ventas Buys Senior Living Community in SoCal for $57M",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/ventas-harrison-street-senior-living-california/"
+    ],
+    "must_read_score": 33,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "463e88da2d5205375d71",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Hotel-Led Tower Cluster Wins Approval for 1,783 Units in Downtown Vancouver",
+    "source_urls": [
+      "https://propmodo.com/hotel-led-tower-cluster-wins-approval-for-1783-units-in-downtown-vancouver/"
+    ],
+    "must_read_score": 33,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "309442475ca80f9eece5",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Gilbane Development Breaks Ground on 756-Bed Student Housing Project in Norman, Oklahoma",
+    "source_urls": [
+      "https://rebusinessonline.com/gilbane-development-breaks-ground-on-756-bed-student-housing-project-in-norman-oklahoma/"
+    ],
+    "must_read_score": 33,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "85a8c820d1f51d110c03",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Proptech Firm Dwelly Raises $170M For Its AI-Forward Acquisition Plan",
+    "source_urls": [
+      "https://www.bisnow.com/national/news/proptech/proptech-dwelly-raises-170m-for-its-ai-forward-acquisiton-plan-135595"
+    ],
+    "must_read_score": 32,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "52605b960ec3da86534b",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Alpine Realty Capital Arranges Sale of DoubleTree Hotel and Conference Center in Bay City, Michigan",
+    "source_urls": [
+      "https://rebusinessonline.com/alpine-realty-capital-arranges-sale-of-doubletree-hotel-and-conference-center-in-bay-city-michigan/"
+    ],
+    "must_read_score": 32,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e2f645937b118b5ef1bc",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "MTA completes Park Avenue Viaduct replacement 60 months early",
+    "source_urls": [
+      "https://www.6sqft.com/mta-completes-park-avenue-viaduct-replacement-60-months-early/"
+    ],
+    "must_read_score": 31,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "9b32c241b13fa8e69020",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Howden Signs 31,519 SF Office Lease in Midtown Manhattan",
+    "source_urls": [
+      "https://rebusinessonline.com/howden-signs-31519-sf-office-lease-in-midtown-manhattan/"
+    ],
+    "must_read_score": 31,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "6b7f89c48acd97422a63",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Whole Foods Signs 8K-SF Lease to Open Daily Shop at 1524 Second Avenue",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/whole-foods-market-daily-shop-lease-1524-second-avenue/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "84949354e83cf56d0c7e",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Palo Duro Commercial Arranges Sale of 13,500 SF Retail Strip Center in The Woodlands, Texas",
+    "source_urls": [
+      "https://rebusinessonline.com/palo-duro-commercial-arranges-sale-of-13500-sf-retail-strip-center-in-the-woodlands-texas/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3fe41fa1f08a1a303684",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Interra Realty Brokers $5.9M Sale of Multifamily Portfolio in Palatine, Illinois",
+    "source_urls": [
+      "https://rebusinessonline.com/interra-realty-brokers-5-9m-sale-of-multifamily-portfolio-in-palatine-illinois/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "929c278e7e481f63749e",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Gold Wavers Ahead of Uncertain Fed Rate Decision",
+    "source_urls": [
+      "https://www.bloomberg.com/news/videos/2026-07-29/gold-wavers-ahead-of-uncertain-fed-rate-decision-video"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "276e64ab56f58ea148a5",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Housing Lottery Launches for 2838-2840 Webb Avenue in Kingsbridge, The Bronx",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/housing-lottery-launches-for-2838-2840-webb-avenue-in-kingsbridge-the-bronx.html"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c15373f39905409009f9",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Americold Abandons Automated Warehouse Partnership",
+    "source_urls": [
+      "https://www.bisnow.com/national/news/industrial/americold-abandons-automated-warehouse-partnership-with-major-grocer-135587"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "1e58b1e473e1b398fb45",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "I asked ChatGPT to pick a lender. Every loan officer should do the same.",
+    "source_urls": [
+      "https://www.housingwire.com/articles/optimizing-mortgage-business-for-ai/"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "13df94a6994a4fe59abc",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Fed Chairman Warsh Contributing to Volatility, Says Economist Claudia Sahm",
+    "source_urls": [
+      "https://www.bloomberg.com/news/videos/2026-07-29/fed-chairman-warsh-adding-to-volatility-economist-sahm-video"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e685267ea1fe88029be1",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Cushman & Wakefield Negotiates 14,000 SF Office Lease in Midtown Manhattan",
+    "source_urls": [
+      "https://rebusinessonline.com/cushman-wakefield-negotiates-14000-sf-office-lease-in-midtown-manhattan/"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a87ffa755643ef2b90b6",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "With New $250M Deal, Elme Is Fully Set To Liquidate",
+    "source_urls": [
+      "https://www.bisnow.com/washington-dc/news/finance/liquidating-reit-finds-new-buyer-for-apartment-complex-after-previous-deal-collapsed-135590"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "6476981d0046ec7d9ea8",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Atlantic Capital Partners Arranges $6.2 Million Sale of North Towne Commons in Toledo, Ohio",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/atlantic-capital-partners-arranges-6-2-million-sale-of-north-towne-commons-in-toledo-ohio/"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "79b72b9f742ada3d3126",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Northmarq Negotiates $5.6M Sale of Multifamily Community in Lexington, South Carolina",
+    "source_urls": [
+      "https://rebusinessonline.com/northmarq-negotiates-5-6m-sale-of-multifamily-community-in-lexington-south-carolina/"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "958f913d0b16e50e821a",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Inflation Could Let Fed Wait on Hikes, Esther George Says",
+    "source_urls": [
+      "https://www.bloomberg.com/news/videos/2026-07-29/esther-george-says-inflation-could-let-fed-wait-on-hikes-video"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3960a8572c6ba62a1e3e",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Oil Rises after Iranian Attacks; Big Tech Earnings; Fed Decision | Bloomberg Brief 07/29/2026",
+    "source_urls": [
+      "https://www.bloomberg.com/news/videos/2026-07-29/bloomberg-brief-07-29-2026-video"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "69fc4f36ce7512361238",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "65 Franklin Street Rises Above Grade In Tribeca, Manhattan",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/65-franklin-street-rises-above-grade-in-tribeca-manhattan.html"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7a4afd98b3a3631dc88a",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Gong cha Signs 50-Unit Deal in Texas",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/gong-cha-signs-50-unit-deal-in-texas/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "fe054efaf9d26d882dad",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "JLL Arranges Sale of 2.4 MSF Industrial Portfolio in Florida, Georgia",
+    "source_urls": [
+      "https://rebusinessonline.com/jll-arranges-sale-of-2-4-msf-industrial-portfolio-in-florida-georgia/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2fb4b3adf39b11b9af95",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Veteran broker: don't expect Fed magic at this week's meeting",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/industry-trends/veteran-broker-dont-expect-fed-magic-at-this-weeks-meeting/584027"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "36415f99801f5e105ae5",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Core Spaces Breaks Ground on 1,656-Bed Student Housing Development Near University of Georgia",
+    "source_urls": [
+      "https://rebusinessonline.com/core-spaces-breaks-ground-on-1656-bed-student-housing-development-near-university-of-georgia/"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "4605c5c0b9f515b503aa",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Orange and Morrison to create data center JV",
+    "source_urls": [
+      "https://irei.com/news/orange-and-morrison-to-create-data-center-jv/"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e730d1e61695c553ea6c",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Keppel to monetize legacy oil rigs with backing from Apollo",
+    "source_urls": [
+      "https://irei.com/news/keppel-to-monetize-legacy-oil-rigs-with-backing-from-apollo/"
+    ],
+    "must_read_score": 23,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "9aac07fbb52804bffae0",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Yoko Ono to become the longest homeowner inside NYC’s storied Dakota upon sale of $8M penthouse",
+    "source_urls": [
+      "https://nypost.com/2026/07/28/real-estate/yoko-ono-to-become-dakotas-longest-homeowner/"
+    ],
+    "must_read_score": 22,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "d811e5c29393f1a9a61c",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Paul Chung Departs Quinlan Development for SJP Properties",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/paul-chung-hire-sjp-properties/"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e87bdee1ee15e7948702",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "DC sues to block HUD, Ginnie Mae headquarters move to Virginia",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/industry-trends/dc-sues-to-block-hud-ginnie-mae-headquarters-move-to-virginia/584044"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "8832649b58b35f9ef894",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "NFL’s Giants announce plans to upgrade New Jersey HQ",
+    "source_urls": [
+      "https://www.constructiondive.com/news/NFL-giants-training-facility-renovation/826392/"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "1675d0030a5300aa941f",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Marcus & Millichap Brokers Sale of 30-Unit Student Housing Property in Hamden, Connecticut",
+    "source_urls": [
+      "https://rebusinessonline.com/marcus-millichap-brokers-sale-of-30-unit-student-housing-property-in-hamden-connecticut/"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "93511dc6e16b33d6d39f",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Law Firm Relocating To South Station Tower: The Boston Deal Sheet",
+    "source_urls": [
+      "https://www.bisnow.com/boston/news/deal-sheet/international-law-firm-relocates-to-south-station-tower-the-boston-deal-sheet-135601"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3a4531037d80710520d1",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Cushman & Wakefield | PICOR Brokers Sale of Retail Property in Tucson, Arizona",
+    "source_urls": [
+      "https://rebusinessonline.com/cushman-wakefield-picor-brokers-sale-of-retail-property-in-tucson-arizona/"
+    ],
+    "must_read_score": 19,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "6857702dd05bd5f4eef8",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "KGAL acquires German wind farm on behalf of Software AG Foundation",
+    "source_urls": [
+      "https://irei.com/news/kgal-acquires-german-wind-farm-on-behalf-of-software-ag-foundation/"
+    ],
+    "must_read_score": 17,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "959f80a97fef7a6d219a",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Granite wins $50M California dam project",
+    "source_urls": [
+      "https://www.constructiondive.com/news/granite-construction-PGE-california-dam/826374/"
+    ],
+    "must_read_score": 16,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7542b33b5d7a0eb676e8",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Skanska delivers $380M LAX project, touts small business partnerships",
+    "source_urls": [
+      "https://www.constructiondive.com/news/skanska-lax-road-utilities-small-business/826325/"
+    ],
+    "must_read_score": 16,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "4763dd7a6da551f1e6bf",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "How A New Financing Model Helps Spur More Mixed-Income Housing",
+    "source_urls": [
+      "https://www.bisnow.com/national/news/multifamily/how-a-new-financing-model-is-helping-spur-more-mixed-income-housing-135599"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7642180ea721aaa39dd4",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "JPMorgan Sees Treasury Avoiding Bond Sales Tweak Due to Midterms",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-29/jpmorgan-sees-treasury-avoiding-bond-sales-tweak-due-to-midterms"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "81e48c2b5a01155a2af6",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "US home prices are still rising — just not where it counts",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/market-updates/us-home-prices-are-still-rising-just-not-where-it-counts/584002"
+    ],
+    "must_read_score": 13,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "d90ef33673c96c0bc788",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Gilbane names new CFO",
+    "source_urls": [
+      "https://www.constructiondive.com/news/gilbane-names-new-cfo-robert-dillard/826289/"
+    ],
+    "must_read_score": 13,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "805778f84b0f73b92677",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Cavan Cos. Sells 334-Unit BTR Community in Phoenix for $112.5M",
+    "source_urls": [
+      "https://rebusinessonline.com/cavan-cos-sells-334-unit-btr-community-in-phoenix-for-112-5m/"
+    ],
+    "must_read_score": 13,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "466f4b9c016245ccc37a",
+    "last_seen": "2026-07-29T13:11:42+00:00",
+    "title": "Tremont Realty Capital Provides $22.7M Loan for Refinancing of Metro Houston Healthcare Property",
+    "source_urls": [
+      "https://rebusinessonline.com/tremont-realty-capital-provides-22-7m-loan-for-refinancing-of-metro-houston-healthcare-property/"
+    ],
+    "must_read_score": 10,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "73e512aa541bab4052d7",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "CIM Group, Bryant Group Ventures affordable housing impact fund secures commitment from KeyBank",
+    "source_urls": [
+      "https://irei.com/news/cim-group-bryant-group-ventures-affordable-housing-impact-fund-secures-commitment-from-keybank-2/"
+    ],
+    "must_read_score": 30,
+    "decision": "archive_repeat",
+    "archive_matches": [
+      {
+        "slug": "event-73e512aa541bab4052d7",
+        "title": "CIM Group, Bryant Group Ventures affordable housing impact fund secures commitment from KeyBank",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "research",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": true
+        }
+      },
+      {
+        "slug": "keybank-triggers-upsizes-affordable-housing-fund",
+        "title": "KeyBank's Commitment Triggers Upsizes in Affordable Housing Fund",
+        "date": "2026-07-27",
+        "url": "/insights/keybank-triggers-upsizes-affordable-housing-fund.html",
+        "memory_only": false,
+        "prior_decision": null,
+        "similarity": 0.78,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": false,
+          "entity_overlap": true
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "227f57df20b1ab5e4174",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "MPZ, Capstone Near Completion of $36M Multifamily Adaptive Reuse Project in Templeton, Massachusetts",
+    "source_urls": [
+      "https://rebusinessonline.com/mpz-capstone-near-completion-of-36m-multifamily-adaptive-reuse-project-in-templeton-massachusetts/"
+    ],
+    "must_read_score": 39,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-227f57df20b1ab5e4174",
+        "title": "MPZ, Capstone Near Completion of $36M Multifamily Adaptive Reuse Project in Templeton, Massachusetts",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "research",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "89fb9ba6a22b51faa9b9",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Property Dispute Forces Redesign of $2B Flood Wall for Battery Park City",
+    "source_urls": [
+      "https://www.thecityreporter.nyc/2026/07/27/battery-park-flood-project-liberty-house-terrace/"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-89fb9ba6a22b51faa9b9",
+        "title": "Property Dispute Forces Redesign of $2B Flood Wall for Battery Park City",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "ba46c083b561478dab23",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Blackstone scales data center platform",
+    "source_urls": [
+      "https://irei.com/news/blackstone-scales-data-center-platform-4/"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-ba46c083b561478dab23",
+        "title": "Blackstone scales data center platform",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": true
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "cac2d4b1fceea73aa2ef",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "NormAI Signs 64,313 SF Office Lease at One World Trade Center in Lower Manhattan",
+    "source_urls": [
+      "https://rebusinessonline.com/normai-signs-64313-sf-office-lease-at-one-world-trade-center-in-lower-manhattan/"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-cac2d4b1fceea73aa2ef",
+        "title": "NormAI Signs 64,313 SF Office Lease at One World Trade Center in Lower Manhattan",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "deal_tape",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "ee5c75adcfac198dad02",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "MMG Real Estate Arranges Sale of 142-Unit Apartment Complex in Norman, Oklahoma",
+    "source_urls": [
+      "https://rebusinessonline.com/mmg-real-estate-arranges-sale-of-142-unit-apartment-complex-in-norman-oklahoma/"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-ee5c75adcfac198dad02",
+        "title": "MMG Real Estate Arranges Sale of 142-Unit Apartment Complex in Norman, Oklahoma",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "450b9189be98b43ef56d",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "New Renderings Reveal 1,483-Unit Skyscraper at 3000 John F. Kennedy Boulevard in Journal Square, Jersey City",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/new-renderings-reveal-1483-unit-skyscraper-at-3000-john-f-kennedy-boulevard-in-journal-square-jersey-city.html"
+    ],
+    "must_read_score": 19,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-450b9189be98b43ef56d",
+        "title": "New Renderings Reveal 1,483-Unit Skyscraper at 3000 John F. Kennedy Boulevard in Journal Square, Jersey City",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "527f29266eed725edb64",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Off-grid data centers aren't the panacea that some AI firms hoped",
+    "source_urls": [
+      "https://www.axios.com/2026/07/27/off-grid-ai-data-centers-reckoning"
+    ],
+    "must_read_score": 17,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-527f29266eed725edb64",
+        "title": "Off-grid data centers aren't the panacea that some AI firms hoped",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "e77316db1f9339b07144",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "How a VA loan helps put California’s tough housing market in a better state",
+    "source_urls": [
+      "https://www.mpamag.com/us/news/broker-intel/how-a-va-loan-helps-put-californias-tough-housing-market-in-a-better-state/583693"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-e77316db1f9339b07144",
+        "title": "How a VA loan helps put California’s tough housing market in a better state",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "d07b44a95d9c2ca50395",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Adam Driver Sells a Brooklyn Condo and Buys Three More",
+    "source_urls": [
+      "https://www.nytimes.com/2026/07/27/realestate/adam-driver-helen-mirren-celebrity-home-sales.html"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-d07b44a95d9c2ca50395",
+        "title": "Adam Driver Sells a Brooklyn Condo and Buys Three More",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "c9d54973f8d37bb1d873",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Berkadia Arranges Sale of 18,630 SF Ambulatory Surgery Center in Metro Philadelphia",
+    "source_urls": [
+      "https://rebusinessonline.com/berkadia-arranges-sale-of-18630-sf-ambulatory-surgery-center-in-metro-philadelphia/"
+    ],
+    "must_read_score": 12,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-c9d54973f8d37bb1d873",
+        "title": "Berkadia Arranges Sale of 18,630 SF Ambulatory Surgery Center in Metro Philadelphia",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "cdf01767adf61a5c1ed8",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "RealPage Secures $20 Million in Financing from Apax Partners",
+    "source_urls": [
+      "https://www.realpage.com/news/realpage-secures-20-million-in-financing-from-apax-partners/",
+      "https://www.bisnow.com/philadelphia/news/multifamily/riverwards-olde-richmond-construction-loan-135575"
+    ],
+    "must_read_score": 57,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c7938d98d082667e733b",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Berkadia Arranges $85M Sale of Multifamily Community in Manassas, Virginia",
+    "source_urls": [
+      "https://rebusinessonline.com/berkadia-arranges-85m-sale-of-multifamily-community-in-manassas-virginia/"
+    ],
+    "must_read_score": 55,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "234d57ff6fd561e7c57d",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Deutsche Bank Lends $85M for Miami Beach Condo Tower",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/deutsche-bank-miami-beach-condos/"
+    ],
+    "must_read_score": 53,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "8a508d200c70635fd6a3",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "AI Greed Turns Into Fear as Tech Stocks Keep Sinking",
+    "source_urls": [
+      "https://www.bloomberg.com/news/newsletters/2026-07-28/ai-greed-turns-into-fear-as-tech-stocks-keep-sinking"
+    ],
+    "must_read_score": 53,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2c138a6d79b745417ea0",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "The Developers Trying to Make New York’s 485-x Multifamily Incentive Work",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/developers-making-485x-work/"
+    ],
+    "must_read_score": 52,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e4a9ed9a7996c22ed689",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "U.K. Fashion Brand Manière De Voir to Open First U.S. HQ at 599 Broadway",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/maniere-de-voir-lease-599-broadway/"
+    ],
+    "must_read_score": 51,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "bf6690706e7b9e3c1aa8",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Foss Secures Tax Credits for 25-Story Office Tower Conversion in Des Moines",
+    "source_urls": [
+      "https://rebusinessonline.com/foss-secures-tax-credits-for-25-story-office-tower-conversion-in-des-moines/"
+    ],
+    "must_read_score": 48,
+    "decision": "research",
+    "archive_matches": []
+  },
+  {
+    "event_id": "cbc80235fd8cae1dd767",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Widening Influence Marked Lisa Pendergast’s Decade Leading CRE Finance Council",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/lisa-pendergast-cre-finance-council/"
+    ],
+    "must_read_score": 46,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "db86e9b10fae628ae531",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "SRS Real Estate Brokers $7.9M Sale of Retail Strip Center in Wesley Chapel, Florida",
+    "source_urls": [
+      "https://rebusinessonline.com/srs-real-estate-brokers-7-9m-sale-of-retail-strip-center-in-wesley-chapel-florida/",
+      "https://shoppingcenterbusiness.com/srs-real-estate-brokers-7-9-million-sale-of-retail-strip-center-in-metro-tampa-florida/"
+    ],
+    "must_read_score": 46,
+    "decision": "deal_tape",
+    "archive_matches": [
+      {
+        "slug": "event-d00180378ae2ef914731",
+        "title": "SRS Real Estate Brokers $7.9M Sale of Retail Strip Center in Wesley Chapel, Florida",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "deal_tape",
+        "similarity": 1.0,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": true,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "7f3a3def2d7c164956e5",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Legal AI Firm Sandstone Signs 14K-SF Lease at 141 East Houston Street",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/sandstone-lease-141-east-houston-street/"
+    ],
+    "must_read_score": 44,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "549aebda5579cd304d1a",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Peachtree Lends $113M on Apartments’ Conversion to Margaritaville Hotel Savannah",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/peachtree-margaritaville-hotel-savannah-apartments-conversion/"
+    ],
+    "must_read_score": 42,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "68f97840ceacfed8b285",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Lincoln Property Co. acquires industrial campus in Washington state",
+    "source_urls": [
+      "https://irei.com/news/lincoln-property-co-acquires-industrial-campus-in-washington/"
+    ],
+    "must_read_score": 42,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "cc251524d4657d8cc05e",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "$200 Million Redevelopment Of 460 Park Avenue Begins In Midtown East, Manhattan",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/kita-launches-200-million-redevelopment-of-460-park-avenue-in-midtown-manhattan.html",
+      "https://nypost.com/2026/07/26/business/460-park-ave-getting-200-million-upgrade/"
+    ],
+    "must_read_score": 41,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "024834064c3c6d2247db",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Woodfield Development Breaks Ground on $100M Apartment Community in Cary, North Carolina",
+    "source_urls": [
+      "https://rebusinessonline.com/woodfield-development-breaks-ground-on-100m-apartment-community-in-cary-north-carolina/"
+    ],
+    "must_read_score": 41,
+    "decision": "deal_tape",
+    "archive_matches": []
+  },
+  {
+    "event_id": "e4c46524bb50fc0f5d75",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Rexford Planning Up To $2B In Dispositions This Year",
+    "source_urls": [
+      "https://www.bisnow.com/los-angeles/news/industrial/rexford-takes-500m-loss-plans-up-to-2b-in-dispositions-this-year-135577"
+    ],
+    "must_read_score": 38,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "0c6356382f42c4fb770a",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Grun Group Files Plans for Pair of 99-Unit Residential Buildings in the Bronx",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/grun-group-99-units-bronx-webster-avenue/"
+    ],
+    "must_read_score": 37,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "355cc97988cd57c86d69",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Foreclosures spike across California — as new hotspots are revealed",
+    "source_urls": [
+      "https://nypost.com/2026/07/27/real-estate/foreclosures-spike-in-californias-lake-shasta-mendocino-counties/"
+    ],
+    "must_read_score": 37,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "706337f49e4df2ef2a13",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "NYC Stops Construction On Another Office-To-Residential Conversion As Inspectors Descend On Job Sites",
+    "source_urls": [
+      "https://www.bisnow.com/new-york/news/adaptive-reuse/222-broadway-wrey-gfp-conversion-stop-work-order-135579"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "4c822d9a4c2db8edc234",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Eight Retail Tenants to Open at Phase II of Bluhawk in Overland Park, Kansas",
+    "source_urls": [
+      "https://rebusinessonline.com/eight-retail-tenants-to-open-at-phase-ii-of-bluhawk-in-overland-park-kansas/"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "be40b2a8cdfaa7d4065f",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Lone Star PACE Provides $11.6M C-PACE Loan for Data Center Conversion Project in Irving",
+    "source_urls": [
+      "https://rebusinessonline.com/lone-star-pace-provides-11-6m-c-pace-loan-for-data-center-conversion-project-in-irving/"
+    ],
+    "must_read_score": 36,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "20487a8b421349e219c4",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "A shocking number of wealthy NYC renters live in stabilized units",
+    "source_urls": [
+      "https://nypost.com/2026/07/27/real-estate/big-number-of-wealthy-nyc-renters-live-in-stabilized-units/"
+    ],
+    "must_read_score": 34,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "df9f808306c7bf363558",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "EOS provides $140m refinancing for hospitality portfolio",
+    "source_urls": [
+      "https://irei.com/news/eos-provides-140m-refinancing-for-hospitality-portfolio/"
+    ],
+    "must_read_score": 34,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "bd6d8927492dfe5fc654",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "MBA warns FHFA about changing manufactured home definition in Duty to Serve rule",
+    "source_urls": [
+      "https://www.housingwire.com/articles/mba-fhfa-duty-serve-changes/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "bfd21c1efb805fd5a4a2",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Marcus & Millichap Arranges Sale of 13,079-Square-Foot Retail Property in Metro Dallas",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/marcus-millichap-arranges-sale-of-13079-square-foot-retail-property-in-metro-dallas/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "9f7a47d862651a7e8766",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Kuwait Oil Co. forges $16b oil agreement with Blackstone, Brookfield and KKR consortium",
+    "source_urls": [
+      "https://irei.com/news/kuwait-oil-co-forges-16b-oil-agreement-with-blackstone-brookfield-and-kkr-consortium/"
+    ],
+    "must_read_score": 30,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "f335c0290a46255323f3",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Marcus & Millichap Brokers $9.9M Sale of Cincinnati Medical Office Building",
+    "source_urls": [
+      "https://rebusinessonline.com/marcus-millichap-brokers-9-9m-sale-of-cincinnati-medical-office-building/"
+    ],
+    "must_read_score": 29,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "af347c524a74cc80ab42",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Boston Waterfront Property Planned For Hotel Project Put Up For Sale",
+    "source_urls": [
+      "https://www.bisnow.com/boston/news/office/waterfront-property-up-for-sale-after-proposed-hotel-redevelopment-135576"
+    ],
+    "must_read_score": 28,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "b6ef95d2ae36b55083e5",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "AI Is Rewiring the Office-Leasing Playbook",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/ai-office-leasing-trends-late-2026/"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "59800d2d0a3285f82a79",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "S&P 500 Futures Muted as Semiconductors Drop, Earnings Roll In",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-28/s-p-500-futures-muted-as-semiconductors-drop-earnings-roll-in"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "03593e52ecce42d4badf",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Centene Boosts Guidance, Reports Favorable Medical Costs",
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-07-28/centene-boosts-guidance-on-better-than-expected-medical-costs"
+    ],
+    "must_read_score": 27,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2c436a195810663a22b8",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "MBA’s HMDA analysis finds proprietary reverse mortgages jumped 118% in 2025",
+    "source_urls": [
+      "https://www.housingwire.com/articles/mba-hmda-proprietary-reverse/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "f5b4565fa045bff81981",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Palo Duro Negotiates Sale of The Shoppes at Sawdust in The Woodlands, Texas",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/palo-duro-negotiates-sale-of-the-shoppes-at-sawdust-in-the-woodlands-texas/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7bc56d7046ba18a86856",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Principle Construction Completes 55,468 SF Facility for Orozco Trucking in Elgin, Illinois",
+    "source_urls": [
+      "https://rebusinessonline.com/principle-construction-completes-55468-sf-facility-for-orozco-trucking-in-elgin-illinois/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "45f0e143f39a096024c1",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "The Grocery-Anchored Maturity Wave Has an Anchor-Lease Problem",
+    "source_urls": [
+      "https://www.trepp.com/trepptalk/grocery-anchored-maturity-wave"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "511ff41efc7f41f74769",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Cook County commits $150m to Pantheon’s fifth global infrastructure fund",
+    "source_urls": [
+      "https://irei.com/news/cook-county-commits-150m-to-pantheons-fifth-global-infrastructure-fund/"
+    ],
+    "must_read_score": 26,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3fc8134c8d689f73a7a2",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Gotham Organization’s Matthew, Nicole and Ben Picket On the Family Firm’s Next Moves",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/gotham-organization-matthew-nicole-ben-picket/"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "348f8030c1394de1124a",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "What would a rate hike signal about the new Fed chief's MO?",
+    "source_urls": [
+      "https://www.axios.com/2026/07/27/warsh-fed-rate-hike-bernanke"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "3ee05c68acb33e4e279f",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Mesirow Pays $132M For Midtown Luxury Apartment Tower",
+    "source_urls": [
+      "https://www.bisnow.com/atlanta/news/multifamily/mesirow-pays-in-excess-of-400k-per-unit-for-midtown-apartments-135569"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "38bc17fb3c615ba63bdc",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Livmark Communities Breaks Ground on 457-Unit Multifamily Project in Fort Collins, Colorado",
+    "source_urls": [
+      "https://rebusinessonline.com/livmark-communities-breaks-ground-on-457-unit-multifamily-project-in-fort-collins-colorado/"
+    ],
+    "must_read_score": 25,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-4e19f5702cbf77951427",
+        "title": "Livmark Communities Breaks Ground on 457-Unit The Collins Apartments in Fort Collins, Colorado",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "research",
+        "similarity": 0.75,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "ae8a5a24598376ca6f2a",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Alturas Capital Acquires 421,000-Square-Foot Lifestyle Component of Legends at Sparks Marina in Nevada",
+    "source_urls": [
+      "https://shoppingcenterbusiness.com/alturas-capital-acquires-421000-square-foot-lifestyle-component-of-legends-at-sparks-marina-in-nevada/"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "c8f304b63bce1cb6da72",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Resilient Demand in Key Regions Supports Multifamily Through Midyear Challenges",
+    "source_urls": [
+      "https://rebusinessonline.com/regions-real-estate-capital-markets-resilient-demand-in-key-regions-supports-multifamily-through-midyear-challenges/"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "1807ceeed04e431321a7",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Longroad Energy broadens executive leadership team",
+    "source_urls": [
+      "https://irei.com/news/longroad-energy-broadens-executive-leadership-team/"
+    ],
+    "must_read_score": 24,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "a74d58a138a23db3ff54",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "CALIFORNIA BANCORP REPORTS STRONG SECOND QUARTER EARNINGS, SIGNIFICANT LOAN GROWTH AND IMPROVED CREDIT QUALITY",
+    "source_urls": [
+      "https://www.globenewswire.com/news-release/2026/07/27/3333449/0/en/CALIFORNIA-BANCORP-REPORTS-STRONG-SECOND-QUARTER-EARNINGS-SIGNIFICANT-LOAN-GROWTH-AND-IMPROVED-CREDIT-QUALITY.html"
+    ],
+    "must_read_score": 21,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "af03d567ae60c3c130d4",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Dedeaux Properties CEO Brett Dedeaux On SoCal’s Evergreen Industrial Pull",
+    "source_urls": [
+      "https://commercialobserver.com/2026/07/dedeaux-california-industrial-tejon-ranch-regulations/"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "116f2cba0e4dec5f9ae2",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Demolition Progresses at 419-421 Broadway in Soho, Manhattan",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/demolition-progresses-at-419-421-broadway-in-soho-manhattan.html"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "00699a80db1caab29175",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Berkadia Brokers Sale of 180-Unit Apartment Complex in Northwest Houston",
+    "source_urls": [
+      "https://rebusinessonline.com/berkadia-brokers-sale-of-180-unit-apartment-complex-in-northwest-houston/"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "1b7bca177cdede0d3854",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Chief Economist's Weekly Watch – July 27 2026: FOMC Decision, Issuance, & CMBS Credit Performance",
+    "source_urls": [
+      "https://www.trepp.com/trepptalk/chief-economists-weekly-watch-july-27-2026-fomc-decision-issuance-cmbs-credit-performance"
+    ],
+    "must_read_score": 20,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "81bca4fcfe9e3e50607d",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Inside the Upper East Side’s most expensive rental building — where prices reach $45K/month",
+    "source_urls": [
+      "https://nypost.com/2026/07/27/real-estate/inside-the-upper-east-sides-most-expensive-rental-building/"
+    ],
+    "must_read_score": 19,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "b41b92cb44b03a4227ff",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "What's quietly inflating your client's housing costs after closing",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/industry-trends/whats-quietly-inflating-your-clients-housing-costs-after-closing/583848"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "5d1719d45587e0ceaa67",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Mortgage payments are already unsustainable for half of new buyers",
+    "source_urls": [
+      "https://www.mpamag.com/us/mortgage-industry/industry-trends/mortgage-payments-are-already-unsustainable-for-half-of-new-buyers/583841"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "109eda8c21d88e36fee3",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Earthwork Underway At 601 Union Street in Gowanus, Brooklyn",
+    "source_urls": [
+      "https://newyorkyimby.com/2026/07/earthwork-underway-at-601-union-street-in-gowanus-brooklyn.html"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "6ab2f2436840cbf551d8",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "America’s accidental landlords: The hidden consequence of the mortgage lock-in effect",
+    "source_urls": [
+      "https://www.housingwire.com/articles/mortgage-lock-in-accidental-landlords/"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "f5bd98dbda8d27e8ce60",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "FRP Acquires 24 Acres in Broward County, Plans 300,000 SF Logistics Development",
+    "source_urls": [
+      "https://rebusinessonline.com/frp-acquires-24-acres-in-broward-county-plans-300000-sf-logistics-development/"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "2155de0459aa3116de12",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Triten Real Estate to Develop 175,000 SF Industrial Project in San Marcos, Texas",
+    "source_urls": [
+      "https://rebusinessonline.com/triten-real-estate-to-develop-175000-sf-industrial-project-in-san-marcos-texas/"
+    ],
+    "must_read_score": 18,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "8f175a1026b26bba1f04",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Pentagon Gets a Private Equity Transformation With Cerberus Co-Founder Stephen Feinberg",
+    "source_urls": [
+      "https://www.bloomberg.com/graphics/2026-pentagon-private-equity-cerberus/"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "93600efc69eeecccb24d",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "While Chicago Development Stalls, Fulton Market Keeps Building",
+    "source_urls": [
+      "https://www.bisnow.com/chicago/news/commercial-real-estate/fulton-market-keeps-building-chicago-development-stalls-135574"
+    ],
+    "must_read_score": 15,
+    "decision": "reject",
+    "archive_matches": []
+  },
+  {
+    "event_id": "7ffed5f6e6273c246c9a",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Prologis Underway on 271,828 SF Industrial Facility in Portland",
+    "source_urls": [
+      "https://rebusinessonline.com/prologis-underway-on-271828-sf-industrial-facility-in-portland/"
+    ],
+    "must_read_score": 13,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-7a5e9b1d3dcc374182eb",
+        "title": "Prologis Develops 271,828 SF Industrial Facility in Portland, Oregon",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 0.667,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
+    "event_id": "29d48fd68d7f3e7ee78c",
+    "last_seen": "2026-07-28T13:05:50+00:00",
+    "title": "Marcus & Millichap Brokers Sale of 364-Unit StorQuest Self Storage Facility in Mesa, Arizona",
+    "source_urls": [
+      "https://rebusinessonline.com/marcus-millichap-brokers-sale-of-364-unit-storquest-self-storage-facility-in-mesa-arizona/"
+    ],
+    "must_read_score": 10,
+    "decision": "reject",
+    "archive_matches": [
+      {
+        "slug": "event-3f12b21de9ff792afb92",
+        "title": "Marcus & Millichap Brokers Sale of 364-Unit StorQuest Self Storage in Mesa, Arizona",
+        "date": "2026-07-27",
+        "url": "",
+        "memory_only": true,
+        "prior_decision": "reject",
+        "similarity": 0.917,
+        "same_event": true,
+        "recent": true,
+        "signals": {
+          "amount_overlap": false,
+          "address_overlap": false,
+          "entity_overlap": false
+        }
+      }
+    ]
+  },
+  {
     "event_id": "a07cff79a34068303aa8",
     "last_seen": "2026-07-27T13:49:52+00:00",
     "title": "What Sam Altman will tell the White House this week",
@@ -67,17 +3035,6 @@
     "archive_matches": []
   },
   {
-    "event_id": "73e512aa541bab4052d7",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "CIM Group, Bryant Group Ventures affordable housing impact fund secures commitment from KeyBank",
-    "source_urls": [
-      "https://irei.com/news/cim-group-bryant-group-ventures-affordable-housing-impact-fund-secures-commitment-from-keybank/"
-    ],
-    "must_read_score": 48,
-    "decision": "research",
-    "archive_matches": []
-  },
-  {
     "event_id": "a2e5656fe26931e186f0",
     "last_seen": "2026-07-27T13:49:52+00:00",
     "title": "Rick Gropper of Camber Property Group: 5 Questions",
@@ -96,17 +3053,6 @@
       "https://rebusinessonline.com/livmark-communities-breaks-ground-on-457-unit-the-collins-apartments-in-fort-collins-colorado/"
     ],
     "must_read_score": 43,
-    "decision": "research",
-    "archive_matches": []
-  },
-  {
-    "event_id": "227f57df20b1ab5e4174",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "MPZ, Capstone Near Completion of $36M Multifamily Adaptive Reuse Project in Templeton, Massachusetts",
-    "source_urls": [
-      "https://rebusinessonline.com/mpz-capstone-near-completion-of-36m-multifamily-adaptive-reuse-project-in-templeton-massachusetts/"
-    ],
-    "must_read_score": 42,
     "decision": "research",
     "archive_matches": []
   },
@@ -272,17 +3218,6 @@
     ]
   },
   {
-    "event_id": "89fb9ba6a22b51faa9b9",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "Property Dispute Forces Redesign of $2B Flood Wall for Battery Park City",
-    "source_urls": [
-      "https://www.thecityreporter.nyc/2026/07/27/battery-park-flood-project-liberty-house-terrace/"
-    ],
-    "must_read_score": 31,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
     "event_id": "7922d8640c9ffffaca25",
     "last_seen": "2026-07-27T13:49:52+00:00",
     "title": "Invesco Real Estate acquires a big box distribution facility in Corby",
@@ -301,17 +3236,6 @@
       "https://irei.com/news/complexity-is-the-name-of-the-game-in-commercial-real-estate-lending-says-don-mackinnon/"
     ],
     "must_read_score": 31,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
-    "event_id": "ba46c083b561478dab23",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "Blackstone scales data center platform",
-    "source_urls": [
-      "https://irei.com/news/blackstone-scales-data-center-platform/"
-    ],
-    "must_read_score": 30,
     "decision": "reject",
     "archive_matches": []
   },
@@ -349,50 +3273,6 @@
     "archive_matches": []
   },
   {
-    "event_id": "cac2d4b1fceea73aa2ef",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "NormAI Signs 64,313 SF Office Lease at One World Trade Center in Lower Manhattan",
-    "source_urls": [
-      "https://rebusinessonline.com/normai-signs-64313-sf-office-lease-at-one-world-trade-center-in-lower-manhattan/"
-    ],
-    "must_read_score": 24,
-    "decision": "deal_tape",
-    "archive_matches": []
-  },
-  {
-    "event_id": "ee5c75adcfac198dad02",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "MMG Real Estate Arranges Sale of 142-Unit Apartment Complex in Norman, Oklahoma",
-    "source_urls": [
-      "https://rebusinessonline.com/mmg-real-estate-arranges-sale-of-142-unit-apartment-complex-in-norman-oklahoma/"
-    ],
-    "must_read_score": 23,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
-    "event_id": "450b9189be98b43ef56d",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "New Renderings Reveal 1,483-Unit Skyscraper at 3000 John F. Kennedy Boulevard in Journal Square, Jersey City",
-    "source_urls": [
-      "https://newyorkyimby.com/2026/07/new-renderings-reveal-1483-unit-skyscraper-at-3000-john-f-kennedy-boulevard-in-journal-square-jersey-city.html"
-    ],
-    "must_read_score": 22,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
-    "event_id": "527f29266eed725edb64",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "Off-grid data centers aren't the panacea that some AI firms hoped",
-    "source_urls": [
-      "https://www.axios.com/2026/07/27/off-grid-ai-data-centers-reckoning"
-    ],
-    "must_read_score": 20,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
     "event_id": "3644564a238c7e9d39b7",
     "last_seen": "2026-07-27T13:49:52+00:00",
     "title": "Crypto Treasury Firms Pivot to AI in Bid to Win Back Investors",
@@ -400,28 +3280,6 @@
       "https://www.bloomberg.com/news/articles/2026-07-27/crypto-to-data-centers-treasury-model-bust-has-firms-chasing-ai"
     ],
     "must_read_score": 19,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
-    "event_id": "e77316db1f9339b07144",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "How a VA loan helps put California’s tough housing market in a better state",
-    "source_urls": [
-      "https://www.mpamag.com/us/news/broker-intel/how-a-va-loan-helps-put-californias-tough-housing-market-in-a-better-state/583693"
-    ],
-    "must_read_score": 18,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
-    "event_id": "d07b44a95d9c2ca50395",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "Adam Driver Sells a Brooklyn Condo and Buys Three More",
-    "source_urls": [
-      "https://www.nytimes.com/2026/07/27/realestate/adam-driver-helen-mirren-celebrity-home-sales.html"
-    ],
-    "must_read_score": 18,
     "decision": "reject",
     "archive_matches": []
   },
@@ -455,17 +3313,6 @@
       "https://rebusinessonline.com/prologis-develops-271828-sf-industrial-facility-in-portland-oregon/"
     ],
     "must_read_score": 16,
-    "decision": "reject",
-    "archive_matches": []
-  },
-  {
-    "event_id": "c9d54973f8d37bb1d873",
-    "last_seen": "2026-07-27T13:49:52+00:00",
-    "title": "Berkadia Arranges Sale of 18,630 SF Ambulatory Surgery Center in Metro Philadelphia",
-    "source_urls": [
-      "https://rebusinessonline.com/berkadia-arranges-sale-of-18630-sf-ambulatory-surgery-center-in-metro-philadelphia/"
-    ],
-    "must_read_score": 15,
     "decision": "reject",
     "archive_matches": []
   },

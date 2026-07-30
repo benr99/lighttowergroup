@@ -7,6 +7,12 @@
     } else if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({ event: eventName, ...(params || {}) });
     }
+    if (typeof window.ltgFirstPartyTrack === 'function') {
+      window.ltgFirstPartyTrack(eventName, params || {});
+    } else {
+      window.ltgFirstPartyQueue = window.ltgFirstPartyQueue || [];
+      window.ltgFirstPartyQueue.push([eventName, params || {}]);
+    }
   };
 
   function addSkipLink() {
@@ -55,6 +61,61 @@
     diagnosticScript.src = '/capital-diagnostic.js?v=20260728';
     diagnosticScript.defer = true;
     document.head.appendChild(diagnosticScript);
+  }
+
+  function loadVisitorAnalytics() {
+    if (document.querySelector('script[src^="/visitor-analytics.js"]')) return;
+    if (/^\/(?:analytics-dashboard\.html|command-center|insights-admin\.html)/.test(window.location.pathname)) return;
+    var analyticsScript = document.createElement('script');
+    analyticsScript.src = '/visitor-analytics.js?v=20260729';
+    analyticsScript.defer = true;
+    document.head.appendChild(analyticsScript);
+  }
+
+  function bindAnalyticsChoice() {
+    var button = document.querySelector('[data-analytics-choice]');
+    var status = document.querySelector('[data-analytics-choice-status]');
+    if (!button) return;
+    var optedOut = false;
+    var resumesNextPage = false;
+    var browserPrivacySignal = navigator.globalPrivacyControl === true ||
+      navigator.doNotTrack === '1' ||
+      window.doNotTrack === '1';
+    try { optedOut = window.localStorage.getItem('ltg_analytics_optout') === '1'; } catch (_) {}
+    function render() {
+      if (browserPrivacySignal) {
+        button.textContent = 'Browser privacy signal active';
+        button.setAttribute('aria-pressed', 'true');
+        button.disabled = true;
+        if (status) status.textContent = 'First-party analytics are disabled by your browser privacy signal.';
+        return;
+      }
+      button.textContent = optedOut ? 'Allow first-party analytics' : 'Opt out of first-party analytics';
+      button.setAttribute('aria-pressed', optedOut ? 'true' : 'false');
+      if (status) {
+        status.textContent = optedOut
+          ? 'First-party analytics are disabled in this browser.'
+          : resumesNextPage
+            ? 'First-party analytics are allowed. Tracking resumes on the next page you visit.'
+            : 'First-party analytics are currently allowed in this browser.';
+      }
+    }
+    button.addEventListener('click', function () {
+      optedOut = !optedOut;
+      resumesNextPage = !optedOut;
+      try {
+        if (optedOut) {
+          window.localStorage.setItem('ltg_analytics_optout', '1');
+          window.sessionStorage.removeItem('ltg_analytics_session_id');
+          window.sessionStorage.removeItem('ltg_analytics_started_at');
+          window.sessionStorage.removeItem('ltg_analytics_acquisition');
+        } else {
+          window.localStorage.removeItem('ltg_analytics_optout');
+        }
+      } catch (_) {}
+      render();
+    });
+    render();
   }
 
   function secureBlankLinks() {
@@ -638,7 +699,9 @@
     normalizePrimaryNavigation();
     markActiveNavigation();
     enhanceSeoSignals();
+    loadVisitorAnalytics();
     loadCapitalDiagnostic();
+    bindAnalyticsChoice();
 
     document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
       if (link.dataset.ltgEmailTracked === 'true') return;

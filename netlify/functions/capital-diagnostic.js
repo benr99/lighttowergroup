@@ -159,7 +159,7 @@ function ipFingerprint(event) {
 async function defaultPersistRecord(event, record) {
   const blobs = await import('@netlify/blobs');
   if (typeof blobs.connectLambda === 'function') blobs.connectLambda(event);
-  const store = blobs.getStore({ name: 'ltg-capital-diagnostic-leads', consistency: 'strong' });
+  const store = blobs.getStore({ name: 'ltg-capital-diagnostic-leads' });
   const month = record.submitted_at.slice(0, 7);
   const key = `${month}/${record.submission_id}.json`;
   await store.set(key, JSON.stringify(record), {
