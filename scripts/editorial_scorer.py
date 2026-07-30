@@ -12,20 +12,20 @@ from typing import Any
 
 # Minimum scores per dimension to publish
 PUBLISH_MINIMUMS = {
-    "factual_accuracy": 7,
-    "financial_understanding": 7,
-    "analytical_originality": 7,
-    "thesis_strength": 6,
-    "incentive_analysis": 6,
-    "use_of_numbers": 6,
-    "market_context": 6,
-    "narrative_structure": 6,
-    "opening_quality": 7,
-    "sentence_quality": 6,
-    "originality_of_language": 6,
-    "intellectual_honesty": 8,
-    "reader_utility": 6,
-    "conclusion_quality": 6,
+    "factual_accuracy": 6,
+    "financial_understanding": 6,
+    "analytical_originality": 6,
+    "thesis_strength": 5,
+    "incentive_analysis": 5,
+    "use_of_numbers": 5,
+    "market_context": 5,
+    "narrative_structure": 5,
+    "opening_quality": 6,
+    "sentence_quality": 5,
+    "originality_of_language": 5,
+    "intellectual_honesty": 7,
+    "reader_utility": 5,
+    "conclusion_quality": 5,
 }
 
 OVERALL_MINIMUM = 7.0

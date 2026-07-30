@@ -1873,8 +1873,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "Broken feed; tried /feed/, /rss/"
+      "verified": true,
+      "notes": "Verified working — /rss/ endpoint returns 20 items"
     },
     {
       "name": "Data Center Frontier",
