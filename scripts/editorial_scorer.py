@@ -30,6 +30,25 @@ PUBLISH_MINIMUMS = {
 
 OVERALL_MINIMUM = 7.0
 
+BRIEF_MINIMUMS = {
+    "factual_accuracy": 5,
+    "financial_understanding": 5,
+    "analytical_originality": 5,
+    "thesis_strength": 4,
+    "incentive_analysis": 4,
+    "use_of_numbers": 4,
+    "market_context": 4,
+    "narrative_structure": 4,
+    "opening_quality": 5,
+    "sentence_quality": 4,
+    "originality_of_language": 4,
+    "intellectual_honesty": 6,
+    "reader_utility": 4,
+    "conclusion_quality": 4,
+}
+
+BRIEF_OVERALL_MINIMUM = 6.0
+
 # Pre-compiled regex patterns used across scoring dimensions
 _RE_DOLLAR_AMOUNT = re.compile(
     r'\$ ?[\d,.]+(?: ?(?:billion|million|trillion|[BMKT]))?'
@@ -51,7 +70,7 @@ class EditorialScorer:
         self.scores: dict[str, int] = {}
         self.issues: dict[str, list[str]] = {}
 
-    def score(self, article: dict[str, Any], brief: dict[str, Any] | None = None) -> dict[str, Any]:
+    def score(self, article: dict[str, Any], brief: dict[str, Any] | None = None, depth: str = "standard") -> dict[str, Any]:
         """Score an article and determine publishability."""
         body = article.get("body_html", "")
         text = _strip_html(body)
@@ -82,13 +101,15 @@ class EditorialScorer:
                 self.issues.setdefault(dim_name, []).append(f"Scoring error: {e}")
 
         below_minimum = []
+        minimums = BRIEF_MINIMUMS if depth == "brief" else PUBLISH_MINIMUMS
+        overall_min = BRIEF_OVERALL_MINIMUM if depth == "brief" else OVERALL_MINIMUM
         for dim, score in self.scores.items():
-            minimum = PUBLISH_MINIMUMS.get(dim, 6)
+            minimum = minimums.get(dim, 5)
             if score < minimum:
                 below_minimum.append(f"{dim}: {score}/{minimum}")
 
         overall = round(sum(self.scores.values()) / len(self.scores), 1)
-        publishable = overall >= OVERALL_MINIMUM and len(below_minimum) == 0
+        publishable = overall >= overall_min and len(below_minimum) == 0
 
         return {
             "scores": self.scores,
@@ -276,7 +297,7 @@ def _strip_html(html: str) -> str:
     return html
 
 
-def score_article(article: dict[str, Any], brief: dict[str, Any] | None = None) -> dict[str, Any]:
+def score_article(article: dict[str, Any], brief: dict[str, Any] | None = None, depth: str = "standard") -> dict[str, Any]:
     """Convenience function to score an article."""
     scorer = EditorialScorer()
-    return scorer.score(article, brief)
+    return scorer.score(article, brief, depth=depth)
