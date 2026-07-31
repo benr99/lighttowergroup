@@ -129,7 +129,7 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
         return {
             "system_prompt": system_prompt,
             "user_prompt": user_prompt,
-            "max_tokens": 5200,
+            "max_tokens": 8000,
             "temperature": 0.2,
         }
 
@@ -377,25 +377,50 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
 
 def _extract_json(raw: str, required_fields: list[str] | None = None) -> dict[str, Any]:
     """Extract JSON from LLM response. Optionally validates required fields.
-
+    
     Raises ValueError on parse failure or missing required fields.
     """
-    match = re.search(r'\{[\s\S]*\}', raw or "")
-    if match:
+    raw = raw or ""
+    
+    # Strategy 1: Try extracting from markdown code blocks ```json ... ```
+    m = re.search(r'```(?:json)?\s*\n?([\s\S]*?)\n?```', raw)
+    if m:
         try:
-            data = json.loads(match.group())
+            data = json.loads(m.group(1))
+            return _validate_required(data, required_fields)
         except json.JSONDecodeError:
             pass
-        else:
-            if required_fields:
-                missing = [f for f in required_fields if f not in data]
-                if missing:
-                    raise ValueError(
-                        f"LLM response missing required fields: {missing}. "
-                        f"Got keys: {list(data.keys())[:20]}"
-                    )
-            return data
+    
+    # Strategy 2: Greedy match { ... }
+    m = re.search(r'\{[\s\S]*\}', raw)
+    if m:
+        try:
+            data = json.loads(m.group())
+            return _validate_required(data, required_fields)
+        except json.JSONDecodeError:
+            pass
+    
+    # Strategy 3: Non-greedy match, taking the first complete JSON object
+    m = re.search(r'\{[\s\S]*?\}(?:\s*$|\s*\n)', raw)
+    if m:
+        try:
+            data = json.loads(m.group())
+            return _validate_required(data, required_fields)
+        except json.JSONDecodeError:
+            pass
+    
     raise ValueError(f"Could not parse JSON from response: {str(raw)[:200]}")
+
+
+def _validate_required(data: dict[str, Any], required_fields: list[str] | None) -> dict[str, Any]:
+    if required_fields:
+        missing = [f for f in required_fields if f not in data]
+        if missing:
+            raise ValueError(
+                f"LLM response missing required fields: {missing}. "
+                f"Got keys: {list(data.keys())[:20]}"
+            )
+    return data
 
 
 def _strip_html_tags(text: str) -> str:
