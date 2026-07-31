@@ -1618,8 +1618,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Private equity deal coverage; paywall"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Buyouts Insider",
@@ -1633,8 +1633,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — PE buyout analysis; paywall"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "PitchBook News",
@@ -1663,8 +1663,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — LP/GP coverage; paywall"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "WSJ Pro Private Equity",
@@ -1693,8 +1693,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Secondary market transactions; paywall"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Infrastructure Investor",
@@ -1723,8 +1723,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — VC deal coverage; paywall"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Mergers & Acquisitions",
@@ -1798,8 +1798,23 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Private credit/direct lending; paywall"
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "New Private Markets",
+      "url": "https://www.newprivatemarkets.com/feed/",
+      "sectors": ["private_equity"],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Institutional Investor",
@@ -2008,8 +2023,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Solar, wind, storage coverage"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Greentech Media",
@@ -2038,8 +2053,8 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Solar photovoltaics market coverage"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Windpower Monthly",
@@ -2068,12 +2083,12 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Battery storage and grid-scale energy storage"
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Canary Media",
-      "url": "https://www.canarymedia.com/feed",
+      "url": "https://www.canarymedia.com/feed/",
       "sectors": ["energy"],
       "tier": 2,
       "fetch_frequency_hours": 12,
@@ -2083,8 +2098,38 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Clean energy journalism and analysis"
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "Natural Gas Intelligence",
+      "url": "https://www.naturalgasintel.com/feed/",
+      "sectors": ["energy"],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "RTO Insider",
+      "url": "https://www.rtoinsider.com/feed/",
+      "sectors": ["energy"],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "EIA Today in Energy",
@@ -2130,6 +2175,21 @@
       "active": true,
       "verified": false,
       "notes": "NEW — Energy commodities pricing and analysis; paywall"
+    },
+    {
+      "name": "ABA Banking Journal",
+      "url": "https://bankingjournal.aba.com/feed/",
+      "sectors": ["banking_credit"],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
     },
     {
       "name": "Bank Director",
