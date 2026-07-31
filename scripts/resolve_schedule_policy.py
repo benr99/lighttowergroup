@@ -54,11 +54,16 @@ def resolve_policy(
         time(hour=hour, minute=minute),
         tzinfo=timezone.utc,
     )
-    local_time = planned_utc.astimezone(NEW_YORK).strftime("%H:%M")
+    local_time = planned_utc.astimezone(NEW_YORK)
+    local_hour = local_time.hour
+    local_minute = local_time.minute
+    # Accept runs between 07:05 and 07:15 NY time (cron fires at 07:07 but may be delayed)
+    in_window = local_hour == 7 and 5 <= local_minute <= 15
+    local_time_str = local_time.strftime("%H:%M")
     return {
-        "skip": "false" if local_time == "07:07" else "true",
+        "skip": "false" if in_window else "true",
         "mode": "publish",
-        "scheduled_local_time": local_time,
+        "scheduled_local_time": local_time_str,
     }
 
 
