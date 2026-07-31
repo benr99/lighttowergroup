@@ -4,7 +4,9 @@
     {
       "name": "The Real Deal (NYC)",
       "url": "https://therealdeal.com/new-york/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 6,
       "auth_required": false,
@@ -19,7 +21,9 @@
     {
       "name": "Commercial Observer",
       "url": "https://commercialobserver.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 6,
       "auth_required": false,
@@ -34,7 +38,9 @@
     {
       "name": "Bisnow New York",
       "url": "https://www.bisnow.com/new-york/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 6,
       "auth_required": false,
@@ -49,7 +55,9 @@
     {
       "name": "Real Estate Weekly",
       "url": "https://rew-online.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -64,7 +72,9 @@
     {
       "name": "Crain's NY Business",
       "url": "https://www.crainsnewyork.com/real-estate/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -79,7 +89,9 @@
     {
       "name": "New York YIMBY",
       "url": "https://newyorkyimby.com/feed",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -94,7 +106,9 @@
     {
       "name": "Observer Real Estate",
       "url": "https://observer.com/real-estate/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -109,7 +123,10 @@
     {
       "name": "The City NYC",
       "url": "https://thecity.nyc/feed",
-      "sectors": ["commercial_real_estate", "local_government"],
+      "sectors": [
+        "commercial_real_estate",
+        "local_government"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -124,7 +141,9 @@
     {
       "name": "6sqft",
       "url": "https://www.6sqft.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -139,7 +158,10 @@
     {
       "name": "Gothamist",
       "url": "https://gothamist.com/feed/",
-      "sectors": ["commercial_real_estate", "local_government"],
+      "sectors": [
+        "commercial_real_estate",
+        "local_government"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -154,7 +176,10 @@
     {
       "name": "CityLand NYC",
       "url": "https://www.citylandnyc.org/feed/",
-      "sectors": ["commercial_real_estate", "local_government"],
+      "sectors": [
+        "commercial_real_estate",
+        "local_government"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -169,7 +194,9 @@
     {
       "name": "NY Daily News Real Estate",
       "url": "https://www.nydailynews.com/real-estate/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -184,7 +211,9 @@
     {
       "name": "CoStar News",
       "url": "https://www.costar.com/rss/news",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 6,
       "auth_required": true,
@@ -199,7 +228,9 @@
     {
       "name": "GlobeSt",
       "url": "https://www.globest.com/rss/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -214,7 +245,9 @@
     {
       "name": "Connect CRE",
       "url": "https://www.connect.media/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -229,7 +262,10 @@
     {
       "name": "Propmodo",
       "url": "https://propmodo.com/feed/",
-      "sectors": ["commercial_real_estate", "data_centers"],
+      "sectors": [
+        "commercial_real_estate",
+        "data_centers"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -244,7 +280,9 @@
     {
       "name": "NREI",
       "url": "https://www.nreionline.com/rss/all",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -259,7 +297,9 @@
     {
       "name": "Multi-Housing News",
       "url": "https://www.multihousingnews.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -274,7 +314,9 @@
     {
       "name": "CP Executive",
       "url": "https://www.cpexecutive.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -289,7 +331,9 @@
     {
       "name": "The Real Deal National",
       "url": "https://therealdeal.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -304,7 +348,9 @@
     {
       "name": "Bisnow National",
       "url": "https://www.bisnow.com/national/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -319,7 +365,9 @@
     {
       "name": "Bisnow Los Angeles",
       "url": "https://www.bisnow.com/los-angeles/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -334,7 +382,9 @@
     {
       "name": "Bisnow Chicago",
       "url": "https://www.bisnow.com/chicago/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -349,7 +399,9 @@
     {
       "name": "Bisnow Washington DC",
       "url": "https://www.bisnow.com/washington-dc/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -364,7 +416,9 @@
     {
       "name": "Bisnow Miami",
       "url": "https://www.bisnow.com/miami/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -379,7 +433,9 @@
     {
       "name": "Bisnow Dallas",
       "url": "https://www.bisnow.com/dallas-fort-worth/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -394,7 +450,9 @@
     {
       "name": "Bisnow Boston",
       "url": "https://www.bisnow.com/boston/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -409,7 +467,9 @@
     {
       "name": "Bisnow Atlanta",
       "url": "https://www.bisnow.com/atlanta/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -424,7 +484,9 @@
     {
       "name": "Bisnow Philadelphia",
       "url": "https://www.bisnow.com/philadelphia/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -439,7 +501,9 @@
     {
       "name": "Bisnow Seattle",
       "url": "https://www.bisnow.com/seattle/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -454,7 +518,9 @@
     {
       "name": "Bisnow Denver",
       "url": "https://www.bisnow.com/denver/rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -469,7 +535,10 @@
     {
       "name": "HousingWire",
       "url": "https://www.housingwire.com/feed/",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -484,7 +553,9 @@
     {
       "name": "Construction Dive",
       "url": "https://www.constructiondive.com/feeds/news/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -499,7 +570,9 @@
     {
       "name": "Urban Land Institute",
       "url": "https://urbanland.uli.org/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -514,7 +587,9 @@
     {
       "name": "Affordable Housing Finance",
       "url": "https://www.housingfinance.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -529,7 +604,9 @@
     {
       "name": "Building Design+Construction",
       "url": "https://www.bdcnetwork.com/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -544,7 +621,9 @@
     {
       "name": "Shopping Center Business",
       "url": "https://www.shoppingcenterbusiness.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -559,7 +638,9 @@
     {
       "name": "RE Business Online",
       "url": "https://www.rebusinessonline.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -574,7 +655,9 @@
     {
       "name": "National Law Review Real Estate",
       "url": "https://www.natlawreview.com/rss/real-estate-law",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -589,7 +672,10 @@
     {
       "name": "PERE News",
       "url": "https://www.perenews.com/rss/",
-      "sectors": ["commercial_real_estate", "private_equity"],
+      "sectors": [
+        "commercial_real_estate",
+        "private_equity"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -604,7 +690,10 @@
     {
       "name": "Mortgage Professional America",
       "url": "https://www.mpamag.com/us/rss",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -619,7 +708,10 @@
     {
       "name": "MBA Newslink",
       "url": "https://newslink.mba.org/feed/",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -634,7 +726,10 @@
     {
       "name": "Bloomberg Real Estate",
       "url": "https://feeds.bloomberg.com/markets/news.rss",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 6,
       "auth_required": true,
@@ -649,7 +744,10 @@
     {
       "name": "Reuters Business",
       "url": "https://feeds.reuters.com/reuters/businessNews",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 6,
       "auth_required": true,
@@ -664,7 +762,9 @@
     {
       "name": "CNBC Real Estate",
       "url": "https://www.cnbc.com/id/10000115/device/rss/rss.html",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -679,7 +779,10 @@
     {
       "name": "Wall Street Journal",
       "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 6,
       "auth_required": true,
@@ -694,7 +797,9 @@
     {
       "name": "MarketWatch Real Estate",
       "url": "https://feeds.marketwatch.com/marketwatch/realestate/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -709,7 +814,9 @@
     {
       "name": "American Banker",
       "url": "https://www.americanbanker.com/arcio/rss/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -724,7 +831,10 @@
     {
       "name": "Mortgage News Daily",
       "url": "https://www.mortgagenewsdaily.com/rss/",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -739,7 +849,10 @@
     {
       "name": "Trepp Blog",
       "url": "https://www.trepp.com/trepptalk/rss.xml",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -754,7 +867,10 @@
     {
       "name": "HUD Exchange",
       "url": "https://www.hudexchange.info/news/rss/",
-      "sectors": ["commercial_real_estate", "fed_macro"],
+      "sectors": [
+        "commercial_real_estate",
+        "fed_macro"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -769,7 +885,9 @@
     {
       "name": "ATTOM Data",
       "url": "https://www.attomdata.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -784,7 +902,10 @@
     {
       "name": "NAREIT",
       "url": "https://www.nareit.com/rss.xml",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -799,7 +920,9 @@
     {
       "name": "NMHC",
       "url": "https://www.nmhc.org/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -814,7 +937,10 @@
     {
       "name": "Institutional Real Estate",
       "url": "https://irei.com/news/feed/",
-      "sectors": ["commercial_real_estate", "private_equity"],
+      "sectors": [
+        "commercial_real_estate",
+        "private_equity"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -829,7 +955,9 @@
     {
       "name": "RealPage",
       "url": "https://www.realpage.com/news/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -844,7 +972,9 @@
     {
       "name": "Yardi Matrix",
       "url": "https://www.yardi.com/blog/rss/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -859,7 +989,9 @@
     {
       "name": "National Association of Realtors",
       "url": "https://www.nar.realtor/news/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -874,7 +1006,11 @@
     {
       "name": "Fannie Mae Perspectives",
       "url": "https://www.fanniemae.com/rss.xml",
-      "sectors": ["commercial_real_estate", "banking_credit", "fed_macro"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -889,7 +1025,11 @@
     {
       "name": "Freddie Mac Perspectives",
       "url": "https://www.freddiemac.com/rss.xml",
-      "sectors": ["commercial_real_estate", "banking_credit", "fed_macro"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -904,7 +1044,10 @@
     {
       "name": "CREFC",
       "url": "https://www.crefc.org/rss.xml",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -919,7 +1062,9 @@
     {
       "name": "NY Post Real Estate",
       "url": "https://nypost.com/real-estate/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -934,7 +1079,9 @@
     {
       "name": "Curbed NY",
       "url": "https://www.curbed.com/rss/index.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -949,7 +1096,10 @@
     {
       "name": "Bloomberg Businessweek",
       "url": "https://feeds.bloomberg.com/businessweek/news.rss",
-      "sectors": ["fed_macro", "banking_credit"],
+      "sectors": [
+        "fed_macro",
+        "banking_credit"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -964,7 +1114,9 @@
     {
       "name": "Axios Cities",
       "url": "https://www.axios.com/feeds/feed.rss",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -979,7 +1131,9 @@
     {
       "name": "NY Times Real Estate",
       "url": "https://rss.nytimes.com/services/xml/rss/nyt/RealEstate.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -994,7 +1148,9 @@
     {
       "name": "San Francisco Business Times",
       "url": "https://www.bizjournals.com/sanfrancisco/rss2.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1009,7 +1165,9 @@
     {
       "name": "LA Business Journal",
       "url": "https://www.bizjournals.com/losangeles/rss2.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1024,7 +1182,9 @@
     {
       "name": "Chicago Tribune Business",
       "url": "https://www.chicagotribune.com/business/rss2.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1039,7 +1199,9 @@
     {
       "name": "Dallas Business Journal",
       "url": "https://www.bizjournals.com/dallas/rss2.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1054,7 +1216,9 @@
     {
       "name": "Washington Post Business",
       "url": "https://feeds.washingtonpost.com/rss/business",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1069,7 +1233,9 @@
     {
       "name": "Boston Globe Business",
       "url": "https://feeds.bostonglobe.com/rss/business/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1084,7 +1250,9 @@
     {
       "name": "Houston Chronicle Business",
       "url": "https://www.houstonchronicle.com/business/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1099,7 +1267,9 @@
     {
       "name": "Denver Post Business",
       "url": "https://www.denverpost.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1114,7 +1284,9 @@
     {
       "name": "Seattle Times Business",
       "url": "https://feeds.seattletimes.com/rss/seattle/business/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1129,7 +1301,9 @@
     {
       "name": "Miami Herald Business",
       "url": "https://www.miamiherald.com/news/business/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1144,7 +1318,9 @@
     {
       "name": "Philadelphia Inquirer Business",
       "url": "https://www.inquirer.com/business/rss/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1159,7 +1335,9 @@
     {
       "name": "Atlanta Journal-Constitution",
       "url": "https://www.ajc.com/news/business/rss/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1174,7 +1352,9 @@
     {
       "name": "Phoenix Business Journal",
       "url": "https://www.bizjournals.com/phoenix/rss2.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1189,7 +1369,9 @@
     {
       "name": "Colliers Insights",
       "url": "https://www.colliers.com/en-us/news/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1204,7 +1386,9 @@
     {
       "name": "Marcus & Millichap",
       "url": "https://www.marcusmillichap.com/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1219,7 +1403,9 @@
     {
       "name": "Newmark Research",
       "url": "https://www.nmrk.com/rss/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1234,7 +1420,9 @@
     {
       "name": "VTS Blog",
       "url": "https://www.vts.com/blog/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1249,7 +1437,9 @@
     {
       "name": "NCREIF",
       "url": "https://www.ncreif.org/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1264,7 +1454,9 @@
     {
       "name": "Green Street Advisors",
       "url": "https://www.greenstreetadvisors.com/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1279,7 +1471,9 @@
     {
       "name": "Urban Institute",
       "url": "https://www.urban.org/taxonomy/term/100/feed",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1294,7 +1488,10 @@
     {
       "name": "IREI News",
       "url": "https://irei.com/news/feed/",
-      "sectors": ["commercial_real_estate", "private_equity"],
+      "sectors": [
+        "commercial_real_estate",
+        "private_equity"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1309,7 +1506,9 @@
     {
       "name": "Lincoln Institute",
       "url": "https://www.lincolninst.edu/rss/policy-and-research",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 4,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1324,7 +1523,10 @@
     {
       "name": "Federal Reserve Press Releases",
       "url": "https://www.federalreserve.gov/feeds/press_all.xml",
-      "sectors": ["fed_macro", "banking_credit"],
+      "sectors": [
+        "fed_macro",
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1339,7 +1541,9 @@
     {
       "name": "Federal Reserve Monetary Policy",
       "url": "https://www.federalreserve.gov/feeds/press_monetary.xml",
-      "sectors": ["fed_macro"],
+      "sectors": [
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1354,7 +1558,9 @@
     {
       "name": "Federal Reserve Banking Regulation",
       "url": "https://www.federalreserve.gov/feeds/press_banking.xml",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1369,7 +1575,9 @@
     {
       "name": "Federal Reserve Enforcement",
       "url": "https://www.federalreserve.gov/feeds/press_enforcement.xml",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1384,7 +1592,9 @@
     {
       "name": "Federal Reserve Speeches",
       "url": "https://www.federalreserve.gov/feeds/speeches.xml",
-      "sectors": ["fed_macro"],
+      "sectors": [
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1399,7 +1609,9 @@
     {
       "name": "Federal Reserve Testimony",
       "url": "https://www.federalreserve.gov/feeds/testimony.xml",
-      "sectors": ["fed_macro"],
+      "sectors": [
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1414,7 +1626,10 @@
     {
       "name": "Federal Reserve Credit and Liquidity",
       "url": "https://www.federalreserve.gov/feeds/credit.xml",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1429,7 +1644,9 @@
     {
       "name": "Federal Reserve H.8 Bank Data",
       "url": "https://www.federalreserve.gov/feeds/h8.xml",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1444,7 +1661,9 @@
     {
       "name": "OCC News Releases",
       "url": "https://www.occ.gov/rss/occ_news.xml",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1459,7 +1678,9 @@
     {
       "name": "OCC Bulletins",
       "url": "https://www.occ.gov/rss/occ_bulletins.xml",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1474,7 +1695,10 @@
     {
       "name": "SEC Press Releases",
       "url": "https://www.sec.gov/news/pressreleases.rss",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1489,7 +1713,10 @@
     {
       "name": "SEC Speeches and Statements",
       "url": "https://www.sec.gov/news/speeches-statements.rss",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1504,7 +1731,10 @@
     {
       "name": "SEC Testimony",
       "url": "https://www.sec.gov/news/testimony.rss",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1519,7 +1749,9 @@
     {
       "name": "SEC Litigation Releases",
       "url": "https://www.sec.gov/enforcement-litigation/litigation-releases/rss",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1534,7 +1766,9 @@
     {
       "name": "FDIC Press Releases",
       "url": "https://public.govdelivery.com/topics/USFDIC_26/feed.rss",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1549,7 +1783,10 @@
     {
       "name": "Federal Housing Finance Agency (FHFA)",
       "url": "https://www.fhfa.gov/Media/RSS/Pages/RSS.aspx",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1564,7 +1801,10 @@
     {
       "name": "HUD Press Releases",
       "url": "https://www.hud.gov/press/rss/press_releases.xml",
-      "sectors": ["commercial_real_estate", "fed_macro"],
+      "sectors": [
+        "commercial_real_estate",
+        "fed_macro"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1579,7 +1819,9 @@
     {
       "name": "CFPB Newsroom",
       "url": "https://www.consumerfinance.gov/about-us/blog/feed/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1594,7 +1836,10 @@
     {
       "name": "Treasury Department Press Releases",
       "url": "https://home.treasury.gov/news/press-releases/feed",
-      "sectors": ["fed_macro", "banking_credit"],
+      "sectors": [
+        "fed_macro",
+        "banking_credit"
+      ],
       "tier": 1,
       "fetch_frequency_hours": 4,
       "auth_required": false,
@@ -1609,7 +1854,9 @@
     {
       "name": "PE Hub",
       "url": "https://www.pehub.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1624,7 +1871,9 @@
     {
       "name": "Buyouts Insider",
       "url": "https://www.buyoutsinsider.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1639,7 +1888,9 @@
     {
       "name": "PitchBook News",
       "url": "https://pitchbook.com/news/feed",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1654,7 +1905,9 @@
     {
       "name": "Private Equity International",
       "url": "https://www.privateequityinternational.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1669,7 +1922,9 @@
     {
       "name": "WSJ Pro Private Equity",
       "url": "https://feeds.a.dj.com/rss/RSSWSJ.xml",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 8,
       "auth_required": true,
@@ -1684,7 +1939,9 @@
     {
       "name": "Secondaries Investor",
       "url": "https://www.secondariesinvestor.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1699,7 +1956,10 @@
     {
       "name": "Infrastructure Investor",
       "url": "https://www.infrastructureinvestor.com/feed/",
-      "sectors": ["private_equity", "energy"],
+      "sectors": [
+        "private_equity",
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1714,7 +1974,9 @@
     {
       "name": "Venture Capital Journal",
       "url": "https://www.venturecapitaljournal.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1729,7 +1991,9 @@
     {
       "name": "Mergers & Acquisitions",
       "url": "https://www.themiddlemarket.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1744,7 +2008,9 @@
     {
       "name": "The Deal",
       "url": "https://www.thedeal.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1753,13 +2019,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
+      "verified": true,
       "notes": "NEW — Deal pipeline coverage; paywall"
     },
     {
       "name": "Axios Pro Rata",
       "url": "https://www.axios.com/feeds/pro-rata.rss",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -1774,7 +2042,9 @@
     {
       "name": "Term Sheet (Fortune)",
       "url": "https://fortune.com/tag/term-sheet/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1789,7 +2059,10 @@
     {
       "name": "Private Debt Investor",
       "url": "https://www.privatedebtinvestor.com/feed/",
-      "sectors": ["private_equity", "banking_credit"],
+      "sectors": [
+        "private_equity",
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1804,7 +2077,9 @@
     {
       "name": "New Private Markets",
       "url": "https://www.newprivatemarkets.com/feed/",
-      "sectors": ["private_equity"],
+      "sectors": [
+        "private_equity"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -1819,7 +2094,10 @@
     {
       "name": "Institutional Investor",
       "url": "https://www.institutionalinvestor.com/feed/",
-      "sectors": ["private_equity", "banking_credit"],
+      "sectors": [
+        "private_equity",
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -1834,7 +2112,10 @@
     {
       "name": "AFIRE",
       "url": "https://www.afire.org/feed/",
-      "sectors": ["commercial_real_estate", "private_equity"],
+      "sectors": [
+        "commercial_real_estate",
+        "private_equity"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1849,7 +2130,11 @@
     {
       "name": "IPE Real Assets",
       "url": "https://realassets.ipe.com/feed/",
-      "sectors": ["commercial_real_estate", "private_equity", "energy"],
+      "sectors": [
+        "commercial_real_estate",
+        "private_equity",
+        "energy"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1858,13 +2143,16 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
+      "verified": true,
       "notes": "NEW — Institutional real assets allocation"
     },
     {
       "name": "Pensions & Investments",
       "url": "https://www.pionline.com/feed/",
-      "sectors": ["private_equity", "banking_credit"],
+      "sectors": [
+        "private_equity",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -1873,13 +2161,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
+      "verified": true,
       "notes": "NEW — Pension/endowment allocation"
     },
     {
       "name": "Data Center Dynamics",
       "url": "https://www.datacenterdynamics.com/rss/",
-      "sectors": ["data_centers"],
+      "sectors": [
+        "data_centers"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -1894,7 +2184,9 @@
     {
       "name": "Data Center Frontier",
       "url": "https://datacenterfrontier.com/feed/",
-      "sectors": ["data_centers"],
+      "sectors": [
+        "data_centers"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -1909,7 +2201,9 @@
     {
       "name": "DatacenterHawk",
       "url": "https://www.datacenterhawk.com/feed/",
-      "sectors": ["data_centers"],
+      "sectors": [
+        "data_centers"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1924,7 +2218,9 @@
     {
       "name": "Data Center Knowledge",
       "url": "https://www.datacenterknowledge.com/feed/",
-      "sectors": ["data_centers"],
+      "sectors": [
+        "data_centers"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -1939,7 +2235,10 @@
     {
       "name": "JLL Data Centers",
       "url": "https://www.us.jll.com/en/views/rss",
-      "sectors": ["data_centers", "commercial_real_estate"],
+      "sectors": [
+        "data_centers",
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1954,7 +2253,10 @@
     {
       "name": "CBRE Data Centers",
       "url": "https://www.cbre.com/insights/feed",
-      "sectors": ["data_centers", "commercial_real_estate"],
+      "sectors": [
+        "data_centers",
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1969,7 +2271,9 @@
     {
       "name": "Bisnow Data Centers",
       "url": "https://www.bisnow.com/data-centers/rss",
-      "sectors": ["data_centers"],
+      "sectors": [
+        "data_centers"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -1984,7 +2288,9 @@
     {
       "name": "Utility Dive",
       "url": "https://www.utilitydive.com/feeds/news/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -1999,7 +2305,9 @@
     {
       "name": "Power Magazine",
       "url": "https://www.powermag.com/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2014,7 +2322,9 @@
     {
       "name": "Renewable Energy World",
       "url": "https://www.renewableenergyworld.com/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2029,7 +2339,9 @@
     {
       "name": "Greentech Media",
       "url": "https://www.greentechmedia.com/feed",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2038,13 +2350,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
+      "verified": true,
       "notes": "NEW — Clean energy transition analysis"
     },
     {
       "name": "PV Magazine",
       "url": "https://www.pv-magazine.com/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2059,7 +2373,9 @@
     {
       "name": "Windpower Monthly",
       "url": "https://www.windpowermonthly.com/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -2068,13 +2384,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
+      "verified": true,
       "notes": "NEW — Wind energy sector; paywall"
     },
     {
       "name": "Energy Storage News",
       "url": "https://www.energy-storage.news/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2089,7 +2407,9 @@
     {
       "name": "Canary Media",
       "url": "https://www.canarymedia.com/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2104,7 +2424,9 @@
     {
       "name": "Natural Gas Intelligence",
       "url": "https://www.naturalgasintel.com/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2119,7 +2441,9 @@
     {
       "name": "RTO Insider",
       "url": "https://www.rtoinsider.com/feed/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2134,7 +2458,10 @@
     {
       "name": "EIA Today in Energy",
       "url": "https://www.eia.gov/rss/todayinenergy.xml",
-      "sectors": ["energy", "fed_macro"],
+      "sectors": [
+        "energy",
+        "fed_macro"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2149,7 +2476,9 @@
     {
       "name": "FERC News",
       "url": "https://www.ferc.gov/news-events/news/rss",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -2164,7 +2493,9 @@
     {
       "name": "S&P Global Commodity Insights",
       "url": "https://www.spglobal.com/commodityinsights/en/rss/",
-      "sectors": ["energy"],
+      "sectors": [
+        "energy"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -2179,7 +2510,9 @@
     {
       "name": "ABA Banking Journal",
       "url": "https://bankingjournal.aba.com/feed/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2194,7 +2527,9 @@
     {
       "name": "Bank Director",
       "url": "https://www.bankdirector.com/feed/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -2209,7 +2544,9 @@
     {
       "name": "Banking Dive",
       "url": "https://www.bankingdive.com/feeds/news/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2224,7 +2561,9 @@
     {
       "name": "S&P Global Market Intelligence",
       "url": "https://www.spglobal.com/marketintelligence/en/news-insights/rss/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -2239,7 +2578,9 @@
     {
       "name": "The Financial Brand",
       "url": "https://thefinancialbrand.com/feed/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2254,7 +2595,9 @@
     {
       "name": "Risk.net",
       "url": "https://www.risk.net/feed/",
-      "sectors": ["banking_credit"],
+      "sectors": [
+        "banking_credit"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 12,
       "auth_required": true,
@@ -2269,7 +2612,10 @@
     {
       "name": "New York Fed",
       "url": "https://www.newyorkfed.org/rss/index.html",
-      "sectors": ["banking_credit", "fed_macro"],
+      "sectors": [
+        "banking_credit",
+        "fed_macro"
+      ],
       "tier": 2,
       "fetch_frequency_hours": 8,
       "auth_required": false,
@@ -2284,7 +2630,9 @@
     {
       "name": "NYC Gov Press Releases",
       "url": "https://www.nyc.gov/rss/pressreleases.xml",
-      "sectors": ["local_government"],
+      "sectors": [
+        "local_government"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2299,7 +2647,9 @@
     {
       "name": "NYC Dept of City Planning",
       "url": "https://www.nyc.gov/site/planning/about/rss.page",
-      "sectors": ["local_government"],
+      "sectors": [
+        "local_government"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2314,7 +2664,9 @@
     {
       "name": "NYC Dept of Buildings",
       "url": "https://www.nyc.gov/site/buildings/news/0/rss.page",
-      "sectors": ["local_government"],
+      "sectors": [
+        "local_government"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2329,7 +2681,9 @@
     {
       "name": "NYC City Council",
       "url": "https://council.nyc.gov/press/feed/",
-      "sectors": ["local_government"],
+      "sectors": [
+        "local_government"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2344,7 +2698,9 @@
     {
       "name": "NY State Governor Press",
       "url": "https://www.governor.ny.gov/rss.xml",
-      "sectors": ["local_government"],
+      "sectors": [
+        "local_government"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2359,7 +2715,9 @@
     {
       "name": "REIT.com",
       "url": "https://www.reit.com/news/rss.xml",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": false,
@@ -2374,7 +2732,10 @@
     {
       "name": "Moody's CRE",
       "url": "https://www.moodyscre.com/rss/",
-      "sectors": ["commercial_real_estate", "banking_credit"],
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -2389,7 +2750,9 @@
     {
       "name": "Real Capital Analytics",
       "url": "https://www.rcanalytics.com/rss/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -2404,7 +2767,9 @@
     {
       "name": "CRE Daily",
       "url": "https://www.credaily.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2419,7 +2784,9 @@
     {
       "name": "The DI Wire",
       "url": "https://thediwire.com/feed/",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 12,
       "auth_required": false,
@@ -2434,7 +2801,9 @@
     {
       "name": "NewsAPI Discovery",
       "url": "newsapi.org",
-      "sectors": ["commercial_real_estate"],
+      "sectors": [
+        "commercial_real_estate"
+      ],
       "tier": 3,
       "fetch_frequency_hours": 24,
       "auth_required": true,
@@ -2445,6 +2814,571 @@
       "active": true,
       "verified": true,
       "notes": ""
+    },
+    {
+      "name": "Alt Assets",
+      "url": "https://www.altassets.net/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 5 items"
+    },
+    {
+      "name": "Chief Investment Officer",
+      "url": "https://www.ai-cio.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "Funds Europe",
+      "url": "https://www.funds-europe.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "Data Center POST",
+      "url": "https://datacenterpost.com/feed/",
+      "sectors": [
+        "data_centers"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 2 items"
+    },
+    {
+      "name": "CleanTechnica",
+      "url": "https://cleantechnica.com/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 25 items"
+    },
+    {
+      "name": "Solar Power World",
+      "url": "https://www.solarpowerworldonline.com/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 9 items"
+    },
+    {
+      "name": "Hydrogen Fuel News",
+      "url": "https://www.hydrogenfuelnews.com/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 6 items"
+    },
+    {
+      "name": "Offshore Wind",
+      "url": "https://www.offshorewind.biz/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 4 items"
+    },
+    {
+      "name": "World Nuclear News",
+      "url": "https://www.world-nuclear-news.org/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "Smart Electric Power Alliance",
+      "url": "https://sepapower.org/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "American Public Power",
+      "url": "https://www.publicpower.org/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "Utility Week",
+      "url": "https://utilityweek.co.uk/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "Bank Automation News",
+      "url": "https://bankautomationnews.com/feed/",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 8 items"
+    },
+    {
+      "name": "Payments Dive",
+      "url": "https://www.paymentsdive.com/feeds/news/",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 4 items"
+    },
+    {
+      "name": "CFO Dive",
+      "url": "https://www.cfodive.com/feeds/news/",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 6 items"
+    },
+    {
+      "name": "CBO",
+      "url": "https://www.cbo.gov/rss/latest10.xml",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "federal",
+      "source_type": "government",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 12 items"
+    },
+    {
+      "name": "IMF",
+      "url": "https://www.imf.org/en/News/RSS",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "World Bank",
+      "url": "https://www.worldbank.org/en/news/rss",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "GAO Reports",
+      "url": "https://www.gao.gov/feeds/reports.xml",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "federal",
+      "source_type": "government",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "NLC",
+      "url": "https://www.nlc.org/feed/",
+      "sectors": [
+        "local_government"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working — 1 item"
+    },
+    {
+      "name": "Route Fifty",
+      "url": "https://www.route-fifty.com/feed/",
+      "sectors": [
+        "local_government"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "Governing",
+      "url": "https://www.governing.com/feed/",
+      "sectors": [
+        "local_government"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "NACo",
+      "url": "https://www.naco.org/news/rss.xml",
+      "sectors": [
+        "local_government"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "verified": true,
+      "notes": "Verified working"
+    },
+    {
+      "name": "NewsAPI — Private Equity Discovery",
+      "url": "newsapi.org",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 24,
+      "auth_required": true,
+      "js_required": false,
+      "full_text_available": false,
+      "geographic_scope": "national",
+      "source_type": "search_api",
+      "active": true,
+      "verified": true,
+      "notes": "Queries: private equity acquisition, buyout deal, PE fund close, sponsor exit, continuation vehicle, private credit deal, infrastructure fund, sovereign wealth fund investment",
+      "newsapi_queries": [
+        "private equity acquisition deal",
+        "buyout sponsor acquisition",
+        "private equity fund close fundraising",
+        "continuation vehicle GP-led secondary",
+        "private credit direct lending deal",
+        "infrastructure fund investment",
+        "sovereign wealth fund investment real estate",
+        "pension fund commitment private equity",
+        "family office investment acquisition",
+        "sponsor exit sale IPO"
+      ]
+    },
+    {
+      "name": "NewsAPI — Data Centers Discovery",
+      "url": "newsapi.org",
+      "sectors": [
+        "data_centers"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 24,
+      "auth_required": true,
+      "js_required": false,
+      "full_text_available": false,
+      "geographic_scope": "national",
+      "source_type": "search_api",
+      "active": true,
+      "verified": true,
+      "notes": "Queries: data center development, hyperscale, power procurement, fiber, cloud infrastructure, edge computing, colocation",
+      "newsapi_queries": [
+        "data center development construction",
+        "hyperscale data center campus",
+        "data center power procurement energy",
+        "cloud infrastructure AWS Azure Google data center",
+        "edge computing data center deployment",
+        "colocation data center expansion",
+        "fiber optic network data center connectivity",
+        "data center REIT investment acquisition",
+        "data center cooling liquid immersion",
+        "subsea cable landing station data center"
+      ]
+    },
+    {
+      "name": "NewsAPI — Energy Discovery",
+      "url": "newsapi.org",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 24,
+      "auth_required": true,
+      "js_required": false,
+      "full_text_available": false,
+      "geographic_scope": "national",
+      "source_type": "search_api",
+      "active": true,
+      "verified": true,
+      "notes": "Queries: solar farm, wind project, battery storage, grid, nuclear, LNG, hydrogen, offshore wind, PPA, interconnection queue",
+      "newsapi_queries": [
+        "solar farm utility-scale development",
+        "offshore wind project lease auction",
+        "battery energy storage system BESS",
+        "electric grid transmission interconnection queue",
+        "nuclear power plant SMR advanced reactor",
+        "LNG export terminal liquefied natural gas",
+        "hydrogen clean fuel production hub",
+        "power purchase agreement PPA renewable",
+        "wind turbine onshore project development",
+        "FERC order transmission planning generator interconnection"
+      ]
+    },
+    {
+      "name": "NewsAPI — Banking/Credit Discovery",
+      "url": "newsapi.org",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 24,
+      "auth_required": true,
+      "js_required": false,
+      "full_text_available": false,
+      "geographic_scope": "national",
+      "source_type": "search_api",
+      "active": true,
+      "verified": true,
+      "notes": "Queries: bank merger, FDIC, OCC, capital requirements, loan sale, CMBS, CRA, fintech charter, credit union, Basel III endgame",
+      "newsapi_queries": [
+        "bank merger acquisition FDIC approval",
+        "OCC enforcement action consent order",
+        "bank capital requirements Basel III endgame",
+        "commercial real estate loan sale portfolio",
+        "CMBS conduit commercial mortgage-backed securities",
+        "Community Reinvestment Act CRA examination",
+        "fintech bank charter OCC FDIC application",
+        "credit union merger field of membership",
+        "non-performing loan sale debt portfolio",
+        "Federal Reserve stress test CCAR bank capital"
+      ]
+    },
+    {
+      "name": "NewsAPI — Fed/Macro Discovery",
+      "url": "newsapi.org",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 24,
+      "auth_required": true,
+      "js_required": false,
+      "full_text_available": false,
+      "geographic_scope": "national",
+      "source_type": "search_api",
+      "active": true,
+      "verified": true,
+      "notes": "Queries: federal reserve, FOMC, inflation, GDP, employment, treasury yields, federal budget, interest rate, economic outlook, M2 money supply",
+      "newsapi_queries": [
+        "Federal Reserve FOMC interest rate decision minutes",
+        "CPI inflation consumer price index PCE",
+        "GDP gross domestic product economic growth BEA",
+        "employment nonfarm payrolls unemployment BLS",
+        "Treasury yield curve 10-year 2-year spread",
+        "federal budget deficit debt ceiling CBO",
+        "Federal Reserve balance sheet quantitative tightening",
+        "M2 money supply monetary base velocity",
+        "ISM manufacturing services PMI purchasing managers",
+        "housing starts building permits existing home sales"
+      ]
+    },
+    {
+      "name": "NewsAPI — Local Government Discovery",
+      "url": "newsapi.org",
+      "sectors": [
+        "local_government"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 24,
+      "auth_required": true,
+      "js_required": false,
+      "full_text_available": false,
+      "geographic_scope": "national",
+      "source_type": "search_api",
+      "active": true,
+      "verified": true,
+      "notes": "Queries: zoning change, city council development, planning board approval, tax abatement, TIF, municipal bond, RFP, building permit, land use, annexation",
+      "newsapi_queries": [
+        "zoning change variance city council public hearing",
+        "city council approved development redevelopment plan",
+        "planning board site plan approval subdivision",
+        "tax abatement PILOT payment in lieu of taxes",
+        "tax increment financing TIF district redevelopment",
+        "municipal bond issuance general obligation revenue",
+        "RFP request for proposals municipal services construction",
+        "building permit construction application filed",
+        "land use comprehensive plan master plan amendment",
+        "annexation incorporation city boundary expansion"
+      ]
     }
   ]
 }
