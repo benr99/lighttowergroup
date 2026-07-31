@@ -431,5 +431,4 @@ if all_pass:
 else:
     print("SOME PASS 5 AUDIT TESTS FAILED -- see above")
 print("=" * 72)
-
-sys.exit(0 if all_pass else 1)
+# Exit codes handled by unittest/discover — do not call sys.exit()

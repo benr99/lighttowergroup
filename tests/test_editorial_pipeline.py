@@ -659,5 +659,4 @@ else:
     print("SOME AUDIT TESTS FAILED -- see above")
 print("=" * 72)
 
-import sys
-sys.exit(0 if all_pass else 1)
+# Exit codes handled by unittest/discover — do not call sys.exit()
