@@ -22,7 +22,8 @@
       "name": "Commercial Observer",
       "url": "https://commercialobserver.com/feed/",
       "sectors": [
-        "commercial_real_estate"
+        "commercial_real_estate",
+        "private_equity"
       ],
       "tier": 1,
       "fetch_frequency_hours": 6,
@@ -229,7 +230,8 @@
       "name": "GlobeSt",
       "url": "https://www.globest.com/rss/",
       "sectors": [
-        "commercial_real_estate"
+        "commercial_real_estate",
+        "private_equity"
       ],
       "tier": 2,
       "fetch_frequency_hours": 12,
@@ -246,7 +248,8 @@
       "name": "Connect CRE",
       "url": "https://www.connect.media/feed/",
       "sectors": [
-        "commercial_real_estate"
+        "commercial_real_estate",
+        "private_equity"
       ],
       "tier": 2,
       "fetch_frequency_hours": 12,
@@ -332,7 +335,8 @@
       "name": "The Real Deal National",
       "url": "https://therealdeal.com/feed/",
       "sectors": [
-        "commercial_real_estate"
+        "commercial_real_estate",
+        "private_equity"
       ],
       "tier": 2,
       "fetch_frequency_hours": 12,
@@ -343,7 +347,7 @@
       "source_type": "industry_publication",
       "active": true,
       "verified": true,
-      "notes": ""
+      "notes": "10 items — CRE PE crossover"
     },
     {
       "name": "Bisnow National",
@@ -2163,6 +2167,109 @@
       "active": true,
       "verified": true,
       "notes": "NEW — Pension/endowment allocation"
+    },
+    {
+      "name": "NYT DealBook",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/DealBook.xml",
+      "sectors": [
+        "private_equity",
+        "banking_credit"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 12,
+      "auth_required": true,
+      "js_required": false,
+      "full_text_available": false,
+      "geographic_scope": "national",
+      "source_type": "mainstream_business",
+      "active": true,
+      "verified": true,
+      "notes": "8 items"
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "20 items — VC/startup coverage"
+    },
+    {
+      "name": "Crunchbase News",
+      "url": "https://news.crunchbase.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "2 items"
+    },
+    {
+      "name": "Family Capital",
+      "url": "https://www.famcap.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 24,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "3 items — family office coverage"
+    },
+    {
+      "name": "Top1000Funds",
+      "url": "https://www.top1000funds.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 24,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "2 items — institutional allocator coverage"
+    },
+    {
+      "name": "Private Funds CFO",
+      "url": "https://www.privatefundscfo.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 24,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "verified": true,
+      "notes": "2 items"
     },
     {
       "name": "Data Center Dynamics",
