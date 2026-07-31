@@ -3,16 +3,28 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from pypdf import PdfReader
+try:
+    from pypdf import PdfReader
+    _HAS_PYPDF = True
+except ImportError:
+    _HAS_PYPDF = False
 
 
 SCRIPT_DIR = Path(__file__).resolve().parents[1] / "scripts"
 sys.path.insert(0, str(SCRIPT_DIR))
 
-from article_pdf_generator import build_article_pdf
+try:
+    from article_pdf_generator import build_article_pdf
+except ImportError:
+    build_article_pdf = None
 
 
 class ArticlePdfGeneratorTests(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        if not _HAS_PYPDF:
+            raise unittest.SkipTest("pypdf not installed — skipping PDF generator tests")
     def test_pdf_keeps_article_text_in_reading_order(self):
         article = {
             "slug": "test-insight",
