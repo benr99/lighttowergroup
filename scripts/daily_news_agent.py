@@ -2437,13 +2437,21 @@ def main():
             else:
                 article = generate_article(candidate, recent_titles_window)
         except Exception as e:
-            print(f"  [WARN] Article {i} generation failed: {redact_secret_text(e)} — skipping")
+            failure_reason = redact_secret_text(e)
+            print(f"  [WARN] Article {i} generation failed: {failure_reason} — skipping")
+            held_assignments.append(
+                f"{candidate['title']}: generation held — {failure_reason[:700]}"
+            )
             continue
 
         try:
             assert_no_mojibake(f"article {i}", article)
         except ValueError as e:
-            print(f"  [WARN] Article {i} failed content QA: {redact_secret_text(e)} -- skipping")
+            failure_reason = redact_secret_text(e)
+            print(f"  [WARN] Article {i} failed content QA: {failure_reason} -- skipping")
+            held_assignments.append(
+                f"{candidate['title']}: content QA held — {failure_reason[:700]}"
+            )
             continue
 
         # Only checks that generate_article()'s own repair loop couldn't
@@ -2464,6 +2472,9 @@ def main():
         if independent_errors or duplicate_errors:
             reasons = independent_errors + duplicate_errors
             print(f"  [WARN] Article {i} held after repair attempts: {'; '.join(reasons[:2])}")
+            held_assignments.append(
+                f"{candidate['title']}: final controls held — {'; '.join(reasons[:3])[:700]}"
+            )
             continue
 
         # Ledgers remain in the durable run audit, never in public-page markup.

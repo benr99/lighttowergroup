@@ -24,6 +24,25 @@ _LEGAL_RISK = re.compile(
     re.IGNORECASE,
 )
 
+_ARTICLE_TIERS = {
+    "tier_1_must_cover",
+    "tier_2_strongly_recommended",
+    "tier_3_useful_coverage",
+}
+_NON_EDITORIAL_FORMAT = re.compile(
+    r"\b(?:test drive|hands[ -]on|product review|car review|unboxing|buyer(?:'s)? guide|"
+    r"how to|podcast|webinar|photo gallery|sponsored content)\b",
+    re.IGNORECASE,
+)
+_CAPITAL_OR_POLICY_ANCHOR = re.compile(
+    r"\b(?:acquir\w*|buyout|bought|sold|sale|merger|loan|lender|debt|credit|equity|"
+    r"financ\w*|fund\w*|capital|invest\w*|bank\w*|refinanc\w*|development|developer|"
+    r"construction|project|proposal|approval|permit|zoning|lease|rent|property|housing|"
+    r"units?|portfolio|data cent(?:er|re)|power|grid|infrastructure|federal reserve|"
+    r"interest rates?|inflation|regulat\w*|policy|subsid\w*|tax|tariff)\b",
+    re.IGNORECASE,
+)
+
 
 def canonical_source_url(item: CanonicalItem) -> str:
     """Return the best canonical article URL carried by a v2 item."""
@@ -39,6 +58,23 @@ def is_article_level_url(value: str) -> bool:
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         return False
     return bool(parsed.path.strip("/") or parsed.query)
+
+
+def is_daily_article_candidate(item: CanonicalItem) -> bool:
+    """Return whether an item deserves expensive standalone-article review.
+
+    Reserve-tier items remain visible in the ranking report, but they should
+    not displace a stronger story merely to manufacture sector diversity.
+    Product reviews and lifestyle explainers are likewise not institutional
+    capital intelligence unless the story itself contains a capital, project,
+    credit, or policy decision.
+    """
+    if item.tier not in _ARTICLE_TIERS:
+        return False
+    text = f"{item.headline} {item.raw_summary}"
+    if _NON_EDITORIAL_FORMAT.search(text):
+        return False
+    return bool(_CAPITAL_OR_POLICY_ANCHOR.search(text))
 
 
 def select_daily_items(
@@ -61,7 +97,7 @@ def select_daily_items(
     for sector, items in selected_by_sector.items():
         eligible = [
             item for item in items
-            if item.tier != "rejected"
+            if is_daily_article_candidate(item)
             and is_article_level_url(canonical_source_url(item))
             and canonical_source_url(item) not in published_urls
         ]

@@ -16,6 +16,7 @@ from v2_editorial import (
     canonical_item_to_editorial_event,
     generate_v2_article,
     is_article_level_url,
+    is_daily_article_candidate,
     select_daily_items,
 )
 
@@ -131,6 +132,7 @@ class InsightsV2ProductionTests(unittest.TestCase):
         self.assertIn("RESEARCH_CANDIDATE_CEILING", source)
         self.assertIn("if len(articles) >= MAX_ARTICLES", source)
         self.assertNotIn("if len(enriched_candidates) >= MAX_ARTICLES", source)
+        self.assertIn("generation held", source)
 
     def test_model_router_keeps_healthy_writing_provider(self):
         import model_router
@@ -170,6 +172,84 @@ class InsightsV2ProductionTests(unittest.TestCase):
         self.assertEqual([item.primary_sector for item in chosen], [
             "commercial_real_estate", "private_equity", "data_centers"
         ])
+
+    def test_source_registry_sector_survives_ambiguous_classification(self):
+        from classification import classify_item
+
+        item = CanonicalItem.from_rss_entry(
+            {
+                "title": "Funding for renewables is ready",
+                "link": "https://energy.example.com/story/1",
+                "summary": "Capital is available for a new project.",
+            },
+            {
+                "name": "Clean Energy Desk",
+                "sectors": ["energy"],
+                "tier": 2,
+                "source_type": "rss",
+            },
+        )
+
+        classified = classify_item(item)
+        self.assertEqual(classified.primary_sector, "energy")
+        self.assertNotEqual(classified.classification_method, "needs_llm")
+
+    def test_daily_selection_skips_reserve_and_product_review_items(self):
+        reserve = make_item("A reserve story", score=90)
+        reserve.tier = "tier_4_reserve"
+        review = make_item(
+            "Test Drive: an electric family car",
+            sector="energy",
+            score=80,
+            url="https://energy.example.com/reviews/car",
+        )
+        qualified = make_item(
+            "Developer secures construction financing",
+            score=70,
+            url="https://news.example.com/deals/construction",
+        )
+
+        self.assertFalse(is_daily_article_candidate(reserve))
+        self.assertFalse(is_daily_article_candidate(review))
+        self.assertEqual(
+            select_daily_items(
+                {"commercial_real_estate": [reserve, qualified], "energy": [review]},
+                limit=3,
+            ),
+            [qualified],
+        )
+
+    def test_development_brief_does_not_assign_an_acquisition_question(self):
+        from analytical_brief import build_analytical_brief
+
+        item = make_item("980-unit development proposal advances", score=60)
+        item.raw_summary = "The developer filed a proposal for 980 housing units."
+        question = build_analytical_brief(item)["central_financial_question"]
+
+        self.assertIn("development", question)
+        self.assertNotIn("buyer", question.lower())
+
+    def test_financial_reviewer_is_calibrated_to_thin_brief_evidence(self):
+        item = make_item()
+        dossier = dossier_for(item)
+        pipeline = EditorialPipeline(api_key="key")
+        captured = {}
+
+        def fake_review(prompt, *_args, **_kwargs):
+            captured["prompt"] = prompt
+            return '{"issues": [], "passed": true, "score_1_10": 9, "summary": "bounded"}'
+
+        with patch("editorial_pipeline.call_deepseek", side_effect=fake_review):
+            review = pipeline.stage_financial_review(
+                {"body_html": "<p>Acme disclosed a financing; pricing was not disclosed.</p>"},
+                {"central_financial_question": "What is known?", "thesis": "Bounded", "key_numbers": []},
+                dossier=dossier,
+                article_format="brief",
+            )
+
+        self.assertTrue(review["passed"])
+        self.assertIn("one credible source", captured["prompt"])
+        self.assertIn("Do NOT fail", captured["prompt"])
 
     def test_pipeline_v2_exposes_ranked_items_to_the_production_orchestrator(self):
         import pipeline_v2

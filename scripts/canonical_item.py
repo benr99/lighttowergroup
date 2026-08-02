@@ -161,6 +161,20 @@ class CanonicalItem:
         item.source_type = source.get("source_type", "")
         item.source_tier = int(source.get("tier", 3))
         item.source_authority = "secondary"
+        configured_sectors = [
+            str(sector).strip()
+            for sector in (source.get("sectors") or [])
+            if str(sector).strip()
+        ]
+        if configured_sectors:
+            # Preserve the source registry's editorial lane as a real prior.
+            # The classifier may override it when article-level signals are
+            # stronger, but it must not silently turn every ambiguous feed
+            # item into commercial real estate.
+            item.primary_sector = configured_sectors[0]
+            item.secondary_sectors = configured_sectors[1:4]
+            item.classification_confidence = 0.55
+            item.classification_method = "source_config_prior"
         item.item_id = item.generate_id()
         if not item.publication_date:
             item.publication_date = item.discovery_date

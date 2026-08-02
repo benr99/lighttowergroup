@@ -168,6 +168,8 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
             "user_prompt": user_prompt,
             "max_tokens": 8000,
             "temperature": 0.2,
+            "article_format": str(article_format or "analysis"),
+            "requested_words": requested_words,
         }
 
     # ── Stage 3: Draft (LLM call) ──
@@ -199,7 +201,13 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
             return {"status": "failed", "error": str(e)}
 
     # ── Stage 4: Financial Review (LLM call) ──
-    def stage_financial_review(self, article: dict[str, Any], brief: dict[str, Any]) -> dict[str, Any]:
+    def stage_financial_review(
+        self,
+        article: dict[str, Any],
+        brief: dict[str, Any],
+        dossier: dict[str, Any] | None = None,
+        article_format: str | None = None,
+    ) -> dict[str, Any]:
         """Review the article for financial accuracy and depth."""
         self.stages_run.append("financial_review")
         if not _HAS_LLM or not self.api_key:
@@ -207,10 +215,25 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
 
         body = article.get("body_html", "")
         body_clean = re.sub(r'<[^>]+>', ' ', body or "").strip()
+        evidence_level = str((dossier or {}).get("evidence_level") or "unknown")
+        source_count = int((dossier or {}).get("independent_source_count") or 0)
+        evidence_text = (
+            dossier_prompt_payload(dossier, max_chars=9000)
+            if isinstance(dossier, dict)
+            else "No dossier supplied."
+        )
         prompt = f"""You are a financial editor reviewing an article for accuracy and analytical depth.
 
 ARTICLE:
 {body_clean[:8000]}
+
+EVIDENCE STANDARD:
+- Editorial format: {article_format or 'analysis'}
+- Dossier evidence level: {evidence_level}
+- Independent sources: {source_count}
+
+SOURCE DOSSIER - THE ONLY FACTUAL BOUNDARY:
+{evidence_text}
 
 ANALYTICAL BRIEF (what the article SHOULD cover):
 - Central question: {brief.get('central_financial_question', '')}
@@ -223,6 +246,24 @@ Check for:
 3. Are any claims about returns, valuations, or market conditions unsupported?
 4. Does the article distinguish reported facts from calculated metrics?
 5. Is the incentive analysis clear — who gains, who risks, why now?
+
+CALIBRATION RULES:
+- Judge the article against what the dossier actually discloses, not against an
+  imagined underwriting file.
+- For a 240-430 word Intelligence Brief, one credible source can support a
+  bounded article when every claim is attributed and material unknowns are
+  stated clearly.
+- Do NOT fail an article because undisclosed loan pricing, returns, valuations,
+  market comparables, or a second source are absent. Fail it if the article
+  invents them, hides the gap, or makes a conclusion that requires them.
+- Do NOT require financial figures when the source contains none. In that case,
+  assess whether the article makes one useful, evidence-bounded argument and
+  explicitly identifies what cannot be known.
+- A reported claim may be attributed to its named publication. Do not reject it
+  solely because Light Tower did not independently verify the publication's
+  reporting; reject it if the attribution is missing or overstated.
+- Set passed=true when there is no specific factual or analytical defect. Do not
+  use a generic desire for more depth as a veto.
 
 Return JSON with: {{issues: [list of specific problems], passed: true/false, score_1_10: int, summary: string}}
 """
@@ -415,7 +456,9 @@ FINANCIAL REVIEW: {financial_review.get('summary', '')}
 EDITORIAL REVIEW: {editorial_review.get('summary', '')}
 
 Rewrite the COMPLETE article as JSON. Fix every issue. Keep all source-grounded facts.
-Do not introduce new unsupported claims. Maintain the thesis and structure.
+Delete an unsupported claim when the dossier supplies no valid replacement.
+Do not introduce new unsupported claims, numbers, names, or motives. Maintain
+the evidence-bounded thesis and the original {prompt_context.get('requested_words', 'assigned')} word contract.
 
 Return valid JSON with the same fields as the original: title, subtitle, slug, category, body_html, sources, tags, excerpt.
 """
@@ -497,7 +540,12 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
             result["article"] = article
 
             # Stage 4: Financial Review
-            fin_review = self.stage_financial_review(article, brief)
+            fin_review = self.stage_financial_review(
+                article,
+                brief,
+                dossier=dossier,
+                article_format=article_format,
+            )
             result["stages"]["financial_review"] = fin_review
 
             # Stage 5: Editorial Review
@@ -521,7 +569,12 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
             result["article"] = final_article
 
             if revision.get("status") == "revised":
-                post_fin = self.stage_financial_review(final_article, brief)
+                post_fin = self.stage_financial_review(
+                    final_article,
+                    brief,
+                    dossier=dossier,
+                    article_format=article_format,
+                )
                 post_ed = self.stage_editorial_review(final_article)
                 post_fact = self.stage_fact_verification(final_article, brief, dossier)
                 result["stages"]["post_revision_financial_review"] = post_fin

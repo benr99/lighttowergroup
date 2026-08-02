@@ -228,6 +228,33 @@ def _identify_central_question(item: CanonicalItem) -> str:
     sector = item.primary_sector or ""
     text = f"{item.headline} {item.raw_summary}".lower()
 
+    if sector == "commercial_real_estate":
+        if re.search(r"\b(?:loan|lender|financ\w*|refinanc\w*|mortgage|debt|bank\w*)\b", text):
+            return (
+                "What does the disclosed financing structure reveal about capital availability, "
+                "and which terms remain unknown?"
+            )
+        if re.search(r"\b(?:development|proposal|project|units?|zoning|permit|approval|construction)\b", text):
+            return (
+                "Which disclosed approvals, funding commitments, and project constraints determine "
+                "whether this development can move forward?"
+            )
+        if re.search(r"\b(?:acquir\w*|buyer|bought|sale|sold|seller|purchas\w*)\b", text):
+            return (
+                "What does the disclosed price and transaction structure reveal about the buyer's "
+                "strategy, and what remains unknown?"
+            )
+    if sector == "private_equity" and re.search(r"\b(?:fund|funding|close|raise|capital)\b", text):
+        return (
+            "What does the disclosed capital raise enable, and which deployment and return "
+            "assumptions remain undisclosed?"
+        )
+    if sector == "energy" and re.search(r"\b(?:fund|financ\w*|capital|invest\w*|loan|credit)\b", text):
+        return (
+            "What can the disclosed funding actually unlock, and which execution or return "
+            "conditions remain unknown?"
+        )
+
     questions = {
         "commercial_real_estate": [
             "Is the buyer acquiring a durable asset at a temporary discount, or overpaying for scarce supply?",
@@ -255,7 +282,10 @@ def _identify_central_question(item: CanonicalItem) -> str:
         ],
     }
 
-    sector_questions = questions.get(sector, questions["commercial_real_estate"])
+    sector_questions = questions.get(
+        sector,
+        ["What changed, why does it matter to capital allocators, and what remains unknown?"],
+    )
     return sector_questions[0]
 
 
