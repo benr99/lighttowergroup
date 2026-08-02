@@ -392,7 +392,7 @@ def generate_thread_package(
             "https://api.deepseek.com/v1/chat/completions",
             headers={"Authorization": f"Bearer {api_key}"},
             json={
-                "model": "deepseek-chat",
+                "model": os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro"),
                 "max_tokens": 4000,
                 "temperature": 0.42,
                 "messages": [

@@ -113,6 +113,7 @@ def run_editorial_room(
     *,
     api_key: str,
     editorial_priors: dict[str, Any] | None = None,
+    provider: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Ask an angle editor and skeptic to decide whether and how to proceed."""
     fallback = deterministic_room_plan(editorial_event, dossier)
@@ -176,7 +177,12 @@ final_format must be flagship, brief, culture_signal, data_note, or deal_tape.
 """
     try:
         result = _extract_json(call_deepseek(
-            prompt, api_key, max_tokens=1800, temperature=0.15, json_mode=True
+            prompt,
+            api_key,
+            max_tokens=1800,
+            temperature=0.15,
+            json_mode=True,
+            provider=provider,
         ))
     except Exception as exc:
         fallback["reporting_gaps"] = list(fallback["reporting_gaps"]) + [

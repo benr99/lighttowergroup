@@ -144,9 +144,10 @@ class AgentRuntimeTests(unittest.TestCase):
         }
         html = daily_news_agent.render_html(article)
         self.assertIn('class="article-data-point"><strong>$14.6M</strong>', html)
+        article_stylesheet = (ROOT / "insights" / "article-base.css").read_text(encoding="utf-8")
         self.assertIn(
             ".article-data-point strong { font-family: var(--serif); font-size: 1.65rem; color: var(--body-txt); }",
-            html,
+            article_stylesheet,
         )
         stylesheet = (ROOT / "experience-2026.css").read_text(encoding="utf-8")
         self.assertIn(".article-data-note .article-data-point strong", stylesheet)

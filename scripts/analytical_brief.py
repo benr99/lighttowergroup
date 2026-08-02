@@ -391,7 +391,12 @@ def _infer_risk(name: str, role: str, item: CanonicalItem) -> str:
     return f"{role} risk: To be determined from source analysis"
 
 
-def enhance_brief_with_llm(brief: dict[str, Any], item: CanonicalItem, api_key: str = "") -> dict[str, Any]:
+def enhance_brief_with_llm(
+    brief: dict[str, Any],
+    item: CanonicalItem,
+    api_key: str = "",
+    provider: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Use LLM to improve thesis, counterargument, and central question."""
     if not api_key:
         return brief  # No LLM available, keep deterministic output
@@ -418,7 +423,14 @@ Produce three things:
 
 Return JSON: {{central_question: string, thesis: string, counterargument: string}}
 """
-        raw = call_deepseek(prompt, api_key, max_tokens=800, temperature=0.3, json_mode=True)
+        raw = call_deepseek(
+            prompt,
+            api_key,
+            max_tokens=800,
+            temperature=0.3,
+            json_mode=True,
+            provider=provider,
+        )
         data = _extract_json(raw)
 
         if data.get("central_question"):
@@ -480,4 +492,3 @@ def _extract_json(raw: str) -> dict[str, Any]:
         except json.JSONDecodeError:
             pass
     raise ValueError(f"Could not parse JSON from response: {str(raw)[:200]}")
-

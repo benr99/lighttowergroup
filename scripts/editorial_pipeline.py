@@ -9,9 +9,11 @@ from __future__ import annotations
 import json
 import re
 from typing import Any
+from urllib.parse import urlparse
 
 from canonical_item import CanonicalItem
 from analytical_brief import build_analytical_brief
+from research_dossier import dossier_prompt_payload
 
 
 # Try to import call_deepseek — may not be available in test environments
@@ -25,8 +27,9 @@ except ImportError:
 class EditorialPipeline:
     """Multi-stage article generation with separated reasoning and prose."""
 
-    def __init__(self, api_key: str = ""):
+    def __init__(self, api_key: str = "", provider: dict[str, Any] | None = None):
         self.api_key = api_key
+        self.provider = dict(provider or {})
         self.stages_run: list[str] = []
         self.errors: list[str] = []
 
@@ -42,7 +45,12 @@ class EditorialPipeline:
         if _HAS_LLM and self.api_key:
             try:
                 from analytical_brief import enhance_brief_with_llm
-                brief = enhance_brief_with_llm(brief, item, self.api_key)
+                brief = enhance_brief_with_llm(
+                    brief,
+                    item,
+                    self.api_key,
+                    provider=self.provider or None,
+                )
             except Exception as e:
                 self.errors.append(f"analytical_brief_enhance: {e}")
         return brief
@@ -75,6 +83,11 @@ class EditorialPipeline:
         unknowns = brief.get("unknowns", [])
 
         summary_text = _strip_html_tags(item.raw_summary or item.raw_text or 'No summary available')
+        dossier_text = (
+            dossier_prompt_payload(dossier, max_chars=24000)
+            if isinstance(dossier, dict)
+            else "No research dossier was provided. The article is not eligible for automatic publication."
+        )
 
         parties_json = _safe_truncate_json(parties, max_chars=1500)
         economics_json = _safe_truncate_json(economics, max_chars=1000)
@@ -87,6 +100,9 @@ STORY: {item.headline}
 SOURCE: {item.source_name} (tier {item.source_tier})
 SECTOR: {item.primary_sector}
 SUMMARY: {summary_text}
+
+SOURCE DOSSIER — THIS IS THE FACTUAL BOUNDARY
+{dossier_text}
 
 ANALYTICAL BRIEF
 The following structured analysis has been prepared. Use it to guide your writing.
@@ -121,6 +137,9 @@ WRITING INSTRUCTIONS
 6. Vary sentence rhythm. Avoid formulaic openings like "The most important X is not Y."
 7. End with the unresolved question or next signal to watch.
 8. Do not use "signals," "highlights," "underscores," or "showcases" as analytical verbs.
+9. Every factual and numerical claim must be supported by the source dossier.
+10. Label calculations and reasonable inferences explicitly. Never invent a market statistic, return target, tenant, financing term, motive, quote, or source.
+11. The sources array must contain only the canonical article URLs provided in the dossier. Do not substitute publication homepages.
 
 OUTPUT FORMAT
 Return valid JSON with: title, subtitle, slug, category, meta_description, tags (array), body_html (full article HTML), sources (array of {{url, name}} objects), and excerpt (1-2 sentence preview).
@@ -148,8 +167,14 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
                 temperature=prompt_context.get("temperature", 0.2),
                 json_mode=True,
                 system=prompt_context.get("system_prompt", ""),
+                provider=self.provider or None,
             )
-            article = _extract_json(raw, required_fields=["body_html", "title"])
+            article = _extract_json(
+                raw,
+                required_fields=["body_html", "title", "excerpt", "sources"],
+            )
+            if not isinstance(article.get("sources"), list) or not article["sources"]:
+                raise ValueError("LLM response did not include a non-empty sources array")
             return {"status": "completed", "article": article}
         except Exception as e:
             self.errors.append(f"draft: {e}")
@@ -184,11 +209,27 @@ Check for:
 Return JSON with: {{issues: [list of specific problems], passed: true/false, score_1_10: int, summary: string}}
 """
         try:
-            raw = call_deepseek(prompt, self.api_key, max_tokens=1000, temperature=0.1, json_mode=True)
-            return _extract_json(raw)
+            raw = call_deepseek(
+                prompt,
+                self.api_key,
+                max_tokens=1000,
+                temperature=0.1,
+                json_mode=True,
+                provider=self.provider or None,
+            )
+            result = _extract_json(raw)
+            result["status"] = "completed"
+            result["passed"] = result.get("passed") is True
+            return result
         except Exception as e:
             self.errors.append(f"financial_review: {e}")
-            return {"issues": [], "passed": True, "score_1_10": 7, "summary": "Review skipped due to error"}
+            return {
+                "status": "unavailable",
+                "issues": [f"Financial review unavailable: {type(e).__name__}"],
+                "passed": False,
+                "score_1_10": 0,
+                "summary": "Financial review failed closed",
+            }
 
     # ── Stage 5: Editorial Review (LLM call) ──
     def stage_editorial_review(self, article: dict[str, Any]) -> dict[str, Any]:
@@ -215,18 +256,59 @@ Check for:
 Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening_quality: string, worst_sentence: string, summary: string}}
 """
         try:
-            raw = call_deepseek(prompt, self.api_key, max_tokens=1000, temperature=0.1, json_mode=True)
-            return _extract_json(raw)
+            raw = call_deepseek(
+                prompt,
+                self.api_key,
+                max_tokens=1000,
+                temperature=0.1,
+                json_mode=True,
+                provider=self.provider or None,
+            )
+            result = _extract_json(raw)
+            result["status"] = "completed"
+            result["passed"] = result.get("passed") is True
+            return result
         except Exception as e:
             self.errors.append(f"editorial_review: {e}")
-            return {"issues": [], "passed": True, "score_1_10": 7, "summary": "Review skipped due to error"}
+            return {
+                "status": "unavailable",
+                "issues": [f"Editorial review unavailable: {type(e).__name__}"],
+                "passed": False,
+                "score_1_10": 0,
+                "summary": "Editorial review failed closed",
+            }
 
     # ── Stage 6: Fact Verification (deterministic) ──
-    def stage_fact_verification(self, article: dict[str, Any], brief: dict[str, Any]) -> dict[str, Any]:
+    def stage_fact_verification(
+        self,
+        article: dict[str, Any],
+        brief: dict[str, Any],
+        dossier: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         """Verify key facts against the analytical brief."""
         self.stages_run.append("fact_verification")
         body = article.get("body_html", "")
         issues = []
+
+        if not isinstance(dossier, dict):
+            issues.append("Research dossier is missing")
+        else:
+            canonical_urls = {
+                str(source.get("url", "")).strip()
+                for source in dossier.get("sources", [])
+                if isinstance(source, dict)
+                and str(source.get("url", "")).startswith(("https://", "http://"))
+            }
+            if not canonical_urls:
+                issues.append("Research dossier has no canonical source URL")
+            generated_sources = article.get("sources")
+            if not isinstance(generated_sources, list) or not generated_sources:
+                issues.append("Article has no source list")
+            else:
+                for source in generated_sources:
+                    url = str(source.get("url", "")).strip() if isinstance(source, dict) else ""
+                    if url not in canonical_urls:
+                        issues.append(f"Article source is not present in dossier: {url or '[missing URL]'}")
 
         # Check that key numbers from the brief appear in the article
         for kn in brief.get("key_numbers", [])[:3]:
@@ -242,6 +324,24 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
         for phrase in unsupported:
             if phrase in body.lower():
                 issues.append(f"Potentially unsupported claim: '{phrase}'")
+
+        if isinstance(dossier, dict) and dossier.get("source_facts"):
+            try:
+                from fact_extractor import audit_article_facts
+
+                source_tier = min(
+                    (int(source.get("tier", 3) or 3) for source in dossier.get("sources", []) if isinstance(source, dict)),
+                    default=3,
+                )
+                audit = audit_article_facts(body, dossier["source_facts"], source_tier=source_tier)
+                if audit.get("hold_for_review"):
+                    issues.append(
+                        "Article contains dossier-unverified claims "
+                        f"({len(audit.get('unmatched_amounts', []))} amounts, "
+                        f"{len(audit.get('unmatched_companies', []))} companies)"
+                    )
+            except Exception as exc:
+                issues.append(f"Deterministic fact audit unavailable: {type(exc).__name__}")
 
         passed = len(issues) == 0
         return {"issues": issues, "passed": passed, "score_1_10": 10 if passed else 6}
@@ -266,15 +366,24 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
             editorial_review.get("issues", []) +
             fact_issues.get("issues", [])
         )
+        if financial_review.get("passed") is not True and not financial_review.get("issues"):
+            all_issues.append("Financial review did not pass")
+        if editorial_review.get("passed") is not True and not editorial_review.get("issues"):
+            all_issues.append("Editorial review did not pass")
         if not all_issues:
             return {"status": "no_issues", "article": article}
 
-        body = article.get("body_html", "")
-        body_clean = re.sub(r'<[^>]+>', ' ', body or "").strip()
+        original_json = _safe_truncate_json(article, max_chars=15000)
+        dossier_text = dossier_prompt_payload(
+            prompt_context.get("dossier", {}), max_chars=12000
+        ) if isinstance(prompt_context.get("dossier"), dict) else ""
         prompt = f"""REVISE this article to fix the following issues.
 
-CURRENT ARTICLE:
-{body_clean[:12000]}
+CURRENT ARTICLE JSON:
+{original_json}
+
+SOURCE DOSSIER — DO NOT EXCEED THIS EVIDENCE:
+{dossier_text}
 
 ISSUES TO FIX:
 {_safe_truncate_json(all_issues, max_chars=2000)}
@@ -288,8 +397,16 @@ Do not introduce new unsupported claims. Maintain the thesis and structure.
 Return valid JSON with the same fields as the original: title, subtitle, slug, category, body_html, sources, tags, excerpt.
 """
         try:
-            raw = call_deepseek(prompt, self.api_key, max_tokens=5200, temperature=0.15, json_mode=True)
-            revised = _extract_json(raw, required_fields=["body_html", "title"])
+            raw = call_deepseek(
+                prompt,
+                self.api_key,
+                max_tokens=5200,
+                temperature=0.15,
+                json_mode=True,
+                provider=self.provider or None,
+            )
+            revised = _extract_json(raw, required_fields=["body_html", "title", "excerpt", "sources"])
+            revised = {**article, **revised}
             return {"status": "revised", "article": revised}
         except Exception as e:
             self.errors.append(f"final_revision: {e}")
@@ -321,6 +438,7 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
 
             # Stage 2: Assemble Prompt
             prompt_ctx = self.stage_assemble_prompt(item, brief, dossier)
+            prompt_ctx["dossier"] = dossier
             result["stages"]["assemble_prompt"] = {"status": "completed"}
 
             # Stage 3: Draft
@@ -353,14 +471,40 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
             result["stages"]["editorial_review"] = ed_review
 
             # Stage 6: Fact Verification
-            fact_issues = self.stage_fact_verification(article, brief)
+            fact_issues = self.stage_fact_verification(article, brief, dossier)
             result["stages"]["fact_verification"] = fact_issues
 
             # Stage 7: Final Revision (only if issues found)
             revision = self.stage_final_revision(article, prompt_ctx, fin_review, ed_review, fact_issues)
             result["stages"]["final_revision"] = revision
-            if revision.get("status") in ("revised", "no_issues"):
-                result["article"] = revision.get("article", article)
+            if revision.get("status") not in ("revised", "no_issues"):
+                result["status"] = "review_required"
+                result["stages_run"] = self.stages_run
+                result["errors"] = list(self.errors)
+                return result
+
+            final_article = revision.get("article", article)
+            result["article"] = final_article
+
+            if revision.get("status") == "revised":
+                post_fin = self.stage_financial_review(final_article, brief)
+                post_ed = self.stage_editorial_review(final_article)
+                post_fact = self.stage_fact_verification(final_article, brief, dossier)
+                result["stages"]["post_revision_financial_review"] = post_fin
+                result["stages"]["post_revision_editorial_review"] = post_ed
+                result["stages"]["post_revision_fact_verification"] = post_fact
+            else:
+                post_fin, post_ed, post_fact = fin_review, ed_review, fact_issues
+
+            if not (
+                post_fin.get("passed") is True
+                and post_ed.get("passed") is True
+                and post_fact.get("passed") is True
+            ):
+                result["status"] = "review_required"
+                result["stages_run"] = self.stages_run
+                result["errors"] = list(self.errors)
+                return result
 
             result["status"] = "completed"
             result["stages_run"] = self.stages_run
@@ -501,9 +645,10 @@ def run_editorial_pipeline(
     item: CanonicalItem,
     dossier: dict[str, Any] | None = None,
     api_key: str = "",
+    provider: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Convenience function."""
-    pipeline = EditorialPipeline(api_key=api_key)
+    pipeline = EditorialPipeline(api_key=api_key, provider=provider)
     return pipeline.run(item, dossier)
 
 

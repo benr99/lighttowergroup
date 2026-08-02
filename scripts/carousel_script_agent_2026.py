@@ -33,7 +33,7 @@ SITE_ROOT = SCRIPT_DIR.parent
 logger = logging.getLogger(__name__)
 
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-MODEL_NAME = "deepseek-chat"
+MODEL_NAME = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
 
 # ============================================================================
 # CAROUSEL SYSTEM PROMPT (2026 OPTIMIZED)

@@ -40,6 +40,7 @@ INSIGHTS_DIR = SITE_ROOT / "insights"
 ESSAY_QUEUE = SITE_ROOT / "linkedin_essay_queue.json"
 SITE_URL = os.environ.get("SITE_URL", "https://lighttowergroup.co").rstrip("/")
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
 
 
 _env = SCRIPT_DIR / ".env"
@@ -381,6 +382,7 @@ def generate_essay_package(
     length_mode: str = "standard",
     api_key: str | None = None,
     site_url: str = SITE_URL,
+    provider: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     api_key = api_key if api_key is not None else DEEPSEEK_API_KEY
     url = insight_url(article, site_url)
@@ -418,11 +420,14 @@ def generate_essay_package(
         editorial_brief_json=json.dumps(editorial_brief, ensure_ascii=False, indent=2),
     )
 
+    provider = provider or {}
+    provider_url = provider.get("url", "https://api.deepseek.com/v1/chat/completions")
+    provider_model = provider.get("model", DEEPSEEK_MODEL)
     resp = requests.post(
-        "https://api.deepseek.com/v1/chat/completions",
+        provider_url,
         headers={"Authorization": f"Bearer {api_key}"},
         json={
-            "model": "deepseek-chat",
+            "model": provider_model,
             "max_tokens": 5200,
             "temperature": 0.45,
             "messages": [
@@ -440,10 +445,10 @@ def generate_essay_package(
 
     try:
         revision = requests.post(
-            "https://api.deepseek.com/v1/chat/completions",
+            provider_url,
             headers={"Authorization": f"Bearer {api_key}"},
             json={
-                "model": "deepseek-chat",
+                "model": provider_model,
                 "max_tokens": 5200,
                 "temperature": 0.25,
                 "messages": [

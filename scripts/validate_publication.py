@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 
 SCRIPT_DIR = Path(__file__).parent
@@ -56,6 +57,23 @@ def _validate_article(path: Path, record: dict[str, Any]) -> list[str]:
         errors.append(f"{path.name}: manifest title is not present")
     if "sources-block" not in text:
         errors.append(f"{path.name}: sources block is missing")
+    if record.get("pipelineVersion") == "v2":
+        source_url = str(record.get("sourceUrl", "")).strip()
+        try:
+            parsed_source = urlparse(source_url)
+            article_level_source = (
+                parsed_source.scheme in {"http", "https"}
+                and bool(parsed_source.netloc)
+                and bool(parsed_source.path.strip("/") or parsed_source.query)
+            )
+        except ValueError:
+            article_level_source = False
+        if not article_level_source:
+            errors.append(f"{path.name}: v2 article is missing an article-level source URL")
+        if int(record.get("sourceCount") or 0) < 1:
+            errors.append(f"{path.name}: v2 article has no attributable sources")
+        if not record.get("publishedAt"):
+            errors.append(f"{path.name}: v2 article is missing publishedAt")
     if re.search(r"(?:[\x80-\x9f]|Ã(?:©|±|¼|½|¾|€|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|'|\"|•|–|—|˜|™|š|›|œ|ž|Ÿ)|â(?:€|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|'|\"|•|–|—|˜|™|š|›|œ|ž|Ÿ)|Â(?:·|®|©|°)|\ufffd)", text):
         errors.append(f"{path.name}: possible mojibake")
     return errors

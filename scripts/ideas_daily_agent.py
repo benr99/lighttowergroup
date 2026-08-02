@@ -539,7 +539,7 @@ def call_deepseek(prompt: str, system: str, *, max_tokens: int) -> str:
         "https://api.deepseek.com/v1/chat/completions",
         headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
         json={
-            "model": "deepseek-chat",
+            "model": os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro"),
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt}],
             "max_tokens": max_tokens,
             "temperature": 0.35,

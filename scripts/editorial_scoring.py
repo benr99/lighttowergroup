@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 from datetime import date, datetime, timezone
 from typing import Any
 
@@ -302,14 +303,31 @@ def call_deepseek(
     }
     if json_mode:
         payload["response_format"] = {"type": "json_object"}
-    resp = requests.post(
-        url,
-        headers={"Authorization": f"Bearer {api_key}"},
-        json=payload,
-        timeout=90,
-    )
-    resp.raise_for_status()
-    data = resp.json()
+    last_error: Exception | None = None
+    data: dict[str, Any] | None = None
+    for attempt in range(3):
+        try:
+            resp = requests.post(
+                url,
+                headers={"Authorization": f"Bearer {api_key}"},
+                json=payload,
+                timeout=90,
+            )
+            if resp.status_code in {408, 429, 500, 502, 503, 504} and attempt < 2:
+                time.sleep(2 ** attempt)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            content = ((data.get("choices") or [{}])[0].get("message") or {}).get("content")
+            if str(content or "").strip():
+                break
+            last_error = ValueError("Provider returned an empty completion")
+        except (requests.Timeout, requests.ConnectionError, ValueError) as exc:
+            last_error = exc
+        if attempt < 2:
+            time.sleep(2 ** attempt)
+    if data is None or not str(((data.get("choices") or [{}])[0].get("message") or {}).get("content") or "").strip():
+        raise RuntimeError(f"LLM request failed after 3 attempts: {type(last_error).__name__}: {last_error}")
     # Track cost
     try:
         from cost_tracker import track_llm_cost

@@ -1,6 +1,7 @@
 """Comprehensive test suite covering edge cases for all pipeline modules."""
 import sys
 import json
+import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
@@ -658,4 +659,9 @@ print("=" * 60)
 
 if FAILED > 0:
     print(f"WARNING: {FAILED} test(s) failed")
+
+
+class ComprehensiveAuditContract(unittest.TestCase):
+    def test_printed_audit_results_are_enforced(self):
+        self.assertEqual(FAILED, 0, f"{FAILED} comprehensive audit checks failed")
 # Do not call sys.exit() — breaks unittest discover

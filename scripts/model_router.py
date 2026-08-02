@@ -17,8 +17,8 @@ PROVIDER_LOG_PATH = STATE_DIR / "provider-log.jsonl"
 PRIMARY_HEALTH_PATH = STATE_DIR / "primary-health.json"
 
 DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
-OPENAI_MODEL_FALLBACK = "gpt-4o-mini"
-OPENAI_MODEL_WRITING = "gpt-4o"
+OPENAI_MODEL_FALLBACK = os.environ.get("OPENAI_MODEL_FALLBACK", "gpt-4o-mini")
+OPENAI_MODEL_WRITING = os.environ.get("OPENAI_MODEL_WRITING", "gpt-4o")
 
 
 def get_api_keys() -> dict[str, str | None]:
@@ -28,7 +28,11 @@ def get_api_keys() -> dict[str, str | None]:
     }
 
 
-def check_provider_health(provider: str, api_key: str | None) -> bool:
+def check_provider_health(
+    provider: str,
+    api_key: str | None,
+    model: str | None = None,
+) -> bool:
     """Quick health check: call the provider with a minimal prompt."""
     if not api_key:
         return False
@@ -37,7 +41,7 @@ def check_provider_health(provider: str, api_key: str | None) -> bool:
             resp = requests.post(
                 "https://api.deepseek.com/v1/chat/completions",
                 headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                json={"model": DEEPSEEK_MODEL, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 4},
+                json={"model": model or DEEPSEEK_MODEL, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 4},
                 timeout=15,
             )
             return resp.status_code == 200
@@ -45,7 +49,7 @@ def check_provider_health(provider: str, api_key: str | None) -> bool:
             resp = requests.post(
                 "https://api.openai.com/v1/chat/completions",
                 headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                json={"model": OPENAI_MODEL_FALLBACK, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 4},
+                json={"model": model or OPENAI_MODEL_FALLBACK, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 4},
                 timeout=15,
             )
             return resp.status_code == 200
@@ -59,7 +63,7 @@ def select_provider(for_writing: bool = False) -> dict[str, Any]:
     keys = get_api_keys()
 
     # Check primary (DeepSeek)
-    primary_ok = check_provider_health("deepseek", keys.get("deepseek"))
+    primary_ok = check_provider_health("deepseek", keys.get("deepseek"), DEEPSEEK_MODEL)
     if primary_ok:
         return {
             "provider": "deepseek",
@@ -67,19 +71,21 @@ def select_provider(for_writing: bool = False) -> dict[str, Any]:
             "api_key": keys["deepseek"],
             "url": "https://api.deepseek.com/v1/chat/completions",
             "fallback": False,
+            "purpose": "writing" if for_writing else "general",
         }
 
     # Try fallback (OpenAI)
-    fallback_ok = check_provider_health("openai", keys.get("openai"))
+    fallback_model = OPENAI_MODEL_WRITING if for_writing else OPENAI_MODEL_FALLBACK
+    fallback_ok = check_provider_health("openai", keys.get("openai"), fallback_model)
     if fallback_ok:
-        model = OPENAI_MODEL_WRITING if for_writing else OPENAI_MODEL_FALLBACK
         _log_provider_switch("deepseek -> openai", "primary unavailable")
         return {
             "provider": "openai",
-            "model": model,
+            "model": fallback_model,
             "api_key": keys["openai"],
             "url": "https://api.openai.com/v1/chat/completions",
             "fallback": True,
+            "purpose": "writing" if for_writing else "general",
         }
 
     raise RuntimeError("No LLM provider available. Both primary and fallback are down.")
