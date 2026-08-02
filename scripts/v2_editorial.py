@@ -42,6 +42,35 @@ _CAPITAL_OR_POLICY_ANCHOR = re.compile(
     r"interest rates?|inflation|regulat\w*|policy|subsid\w*|tax|tariff)\b",
     re.IGNORECASE,
 )
+_SECTOR_ARTICLE_ANCHORS = {
+    "commercial_real_estate": re.compile(
+        r"\b(?:commercial real estate|real estate|property|properties|office|retail "
+        r"(?:property|space|center)|industrial|warehouse|multifamily|apartment|housing|"
+        r"units?|hotel|hospitality|development|developer|construction|zoning|land use|"
+        r"building|tenant|lease|rent|mortgage|reit)\b",
+        re.IGNORECASE,
+    ),
+    "private_equity": re.compile(
+        r"\b(?:private equity|buyout|portfolio compan(?:y|ies)|take-private|"
+        r"growth equity|limited partners?|general partner|fund close|sponsor-backed)\b",
+        re.IGNORECASE,
+    ),
+    "data_centers": re.compile(
+        r"\b(?:data cent(?:er|re)s?|hyperscale|colocation|compute capacity|server farm|"
+        r"gpu cluster|cloud infrastructure)\b",
+        re.IGNORECASE,
+    ),
+    "energy": re.compile(
+        r"\b(?:energy|power|electricity|grid|solar|wind|battery|storage|renewable|"
+        r"utility|utilities|transmission|generation|oil|gas|nuclear)\b",
+        re.IGNORECASE,
+    ),
+    "fed_macro": re.compile(
+        r"\b(?:federal reserve|\bfed\b|interest rates?|treasur(?:y|ies)|bond yields?|"
+        r"inflation|monetary policy|fomc|basis points?)\b",
+        re.IGNORECASE,
+    ),
+}
 
 
 def canonical_source_url(item: CanonicalItem) -> str:
@@ -74,6 +103,13 @@ def is_daily_article_candidate(item: CanonicalItem) -> bool:
     text = f"{item.headline} {item.raw_summary}"
     if _NON_EDITORIAL_FORMAT.search(text):
         return False
+    # A source registry is a routing prior, not proof that every article from
+    # the publication belongs to that sector. Require article-level sector
+    # evidence before spending a writing run on a source-prior-only item.
+    if item.classification_method == "source_prior_only":
+        sector_anchor = _SECTOR_ARTICLE_ANCHORS.get(item.primary_sector)
+        if sector_anchor and not sector_anchor.search(text):
+            return False
     return bool(_CAPITAL_OR_POLICY_ANCHOR.search(text))
 
 

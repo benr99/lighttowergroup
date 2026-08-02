@@ -219,6 +219,25 @@ class InsightsV2ProductionTests(unittest.TestCase):
             [qualified],
         )
 
+    def test_source_prior_only_requires_article_level_sector_evidence(self):
+        unrelated = make_item(
+            "Banks fund a retailer loan-book purchase",
+            score=90,
+            url="https://news.example.com/banking/retail-loans",
+        )
+        unrelated.raw_summary = "The buyer acquired a portfolio of consumer loans."
+        unrelated.classification_method = "source_prior_only"
+        development = make_item(
+            "Developer files a 980-unit housing proposal",
+            score=80,
+            url="https://news.example.com/development/queens",
+        )
+        development.raw_summary = "The three-building property would contain 980 units."
+        development.classification_method = "source_prior_only"
+
+        self.assertFalse(is_daily_article_candidate(unrelated))
+        self.assertTrue(is_daily_article_candidate(development))
+
     def test_development_brief_does_not_assign_an_acquisition_question(self):
         from analytical_brief import build_analytical_brief
 
@@ -293,7 +312,22 @@ class InsightsV2ProductionTests(unittest.TestCase):
         self.assertIn("SOURCE DOSSIER", prompt)
         self.assertIn("$100 million", prompt)
         self.assertIn("HARD LENGTH CONTRACT: 240-430 words", prompt)
+        self.assertIn('"excellence_ledger"', prompt)
+        self.assertIn("memorable_line", prompt)
         self.assertNotIn("Editorial significance score", prompt)
+
+    def test_draft_contract_fails_closed_without_excellence_ledger(self):
+        pipeline = EditorialPipeline(api_key="key")
+        raw = (
+            '{"title":"Bounded article","body_html":"<p>Reported.</p>",'
+            '"excerpt":"Reported.","sources":[{"name":"Example","url":'
+            '"https://news.example.com/story"}]}'
+        )
+        with patch("editorial_pipeline.call_deepseek", return_value=raw):
+            result = pipeline.stage_draft({"user_prompt": "write", "system_prompt": ""})
+
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("excellence_ledger", result["error"])
 
     def test_internal_composite_score_is_not_a_public_key_number(self):
         from analytical_brief import build_analytical_brief
