@@ -78,6 +78,21 @@ def dossier_for(item: CanonicalItem) -> dict:
 
 
 class InsightsV2ProductionTests(unittest.TestCase):
+    def test_shadow_summary_reports_target_as_not_evaluated(self):
+        from edition_manager import render_run_summary
+
+        summary = render_run_summary({
+            "status": "shadow_complete",
+            "daily_target": 1,
+            "daily_target_met": None,
+            "research_candidate_count": 1,
+            "articles": [],
+        })
+
+        self.assertIn("Status: **shadow_complete**", summary)
+        self.assertIn("Articles: **0**", summary)
+        self.assertIn("Daily target met: **not evaluated**", summary)
+
     def test_model_router_keeps_healthy_writing_provider(self):
         import model_router
 

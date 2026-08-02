@@ -2272,8 +2272,13 @@ def main():
             "research_candidates": len(editorial_items),
             "deal_tape_count": len(editorial_selection.get("deal_tape", [])),
             "editorial_audit": str(audit_path.relative_to(SITE_ROOT)),
+            "articles": [],
+            "daily_target_met": None,
         })
         write_log(run_data)
+        summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
+        summary_path.parent.mkdir(parents=True, exist_ok=True)
+        summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
         print("  Curated-edition shadow run complete. No articles were generated or published.")
         return
 
