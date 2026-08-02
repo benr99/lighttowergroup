@@ -29,6 +29,7 @@ _ARTICLE_TIERS = {
     "tier_2_strongly_recommended",
     "tier_3_useful_coverage",
 }
+_RESERVE_RESEARCH_FLOOR = 45.0
 _NON_EDITORIAL_FORMAT = re.compile(
     r"\b(?:test drive|hands[ -]on|product review|car review|unboxing|buyer(?:'s)? guide|"
     r"how to|podcast|webinar|photo gallery|sponsored content)\b",
@@ -92,13 +93,19 @@ def is_article_level_url(value: str) -> bool:
 def is_daily_article_candidate(item: CanonicalItem) -> bool:
     """Return whether an item deserves expensive standalone-article review.
 
-    Reserve-tier items remain visible in the ranking report, but they should
-    not displace a stronger story merely to manufacture sector diversity.
-    Product reviews and lifestyle explainers are likewise not institutional
-    capital intelligence unless the story itself contains a capital, project,
-    credit, or policy decision.
+    Reserve-tier items normally remain ranking-only. A narrow fallback admits
+    an authoritative reserve item above the research floor so the downstream
+    dossier and review gates get a chance to evaluate it after a thin top slate.
+    Product reviews and lifestyle explainers are never institutional capital
+    intelligence merely because their publication has a sector prior.
     """
-    if item.tier not in _ARTICLE_TIERS:
+    standard_candidate = item.tier in _ARTICLE_TIERS
+    bounded_reserve_candidate = (
+        item.tier == "tier_4_reserve"
+        and item.composite_score >= _RESERVE_RESEARCH_FLOOR
+        and item.source_tier <= 2
+    )
+    if not (standard_candidate or bounded_reserve_candidate):
         return False
     text = f"{item.headline} {item.raw_summary}"
     if _NON_EDITORIAL_FORMAT.search(text):
