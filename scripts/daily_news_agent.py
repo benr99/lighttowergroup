@@ -975,6 +975,7 @@ def _article_control_findings(
     *,
     dossier: dict | None = None,
     article_format: str | None = None,
+    require_narrative_ledger: bool = True,
 ) -> list[str]:
     """Return the independent publication checks a draft must clear."""
     findings = independent_quality_issues(
@@ -982,7 +983,8 @@ def _article_control_findings(
         require_sections=False,
         article_format=article_format,
     )
-    findings.extend(narrative_finance_issues(article.get("narrative_ledger")))
+    if require_narrative_ledger:
+        findings.extend(narrative_finance_issues(article.get("narrative_ledger")))
     findings.extend(title_quality_issues(article.get("title", ""), recent_titles or ()))
     if dossier and article_format:
         findings.extend(excellence_issues(article, dossier, article_format=article_format))
@@ -2453,6 +2455,10 @@ def main():
             recent_titles_window,
             dossier=candidate.get("research_dossier"),
             article_format=candidate.get("editorial_format"),
+            # The seven-stage v2 financial/editorial/fact reviews replace the
+            # legacy self-authored narrative ledger. All other independent
+            # output checks remain active.
+            require_narrative_ledger=not args.pipeline_v2,
         )
         duplicate_errors = near_duplicate_matches(article.get("title", ""), known_insights)
         if independent_errors or duplicate_errors:

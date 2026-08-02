@@ -219,7 +219,11 @@ def generate_v2_article(
     item.raw_text = story.get("full_text") or item.raw_text
     item.raw_summary = story.get("summary") or item.raw_summary
     pipeline = EditorialPipeline(api_key=api_key, provider=provider)
-    result = pipeline.run(item, dossier)
+    result = pipeline.run(
+        item,
+        dossier,
+        article_format=str(story.get("editorial_format") or "brief"),
+    )
     if result.get("status") != "completed" or not isinstance(result.get("article"), dict):
         reason = _pipeline_failure_details(result)
         raise RuntimeError(f"V2 editorial pipeline did not clear publication: {reason}")

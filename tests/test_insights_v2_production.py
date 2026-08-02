@@ -203,10 +203,26 @@ class InsightsV2ProductionTests(unittest.TestCase):
             provider={"provider": "deepseek", "model": "deepseek-v4-pro", "url": "https://api.deepseek.com/v1/chat/completions"},
         )
         brief = pipeline.stage_analytical_brief(item, dossier)
-        prompt = pipeline.stage_assemble_prompt(item, brief, dossier)["user_prompt"]
+        prompt = pipeline.stage_assemble_prompt(
+            item,
+            brief,
+            dossier,
+            article_format="brief",
+        )["user_prompt"]
         self.assertIn(item.source_url, prompt)
         self.assertIn("SOURCE DOSSIER", prompt)
         self.assertIn("$100 million", prompt)
+        self.assertIn("HARD LENGTH CONTRACT: 240-430 words", prompt)
+        self.assertNotIn("Editorial significance score", prompt)
+
+    def test_internal_composite_score_is_not_a_public_key_number(self):
+        from analytical_brief import build_analytical_brief
+
+        item = make_item(score=56.2)
+        brief = build_analytical_brief(item, dossier_for(item))
+        numbers = [entry.get("number") for entry in brief["key_numbers"]]
+
+        self.assertNotIn("56.2", numbers)
 
     def test_financial_review_failure_is_not_approved(self):
         pipeline = EditorialPipeline(api_key="key")
@@ -270,6 +286,7 @@ class InsightsV2ProductionTests(unittest.TestCase):
                 api_key="key",
                 provider={"provider": "deepseek", "model": "deepseek-v4-pro", "url": "https://api.deepseek.com/v1/chat/completions"},
             )
+        self.assertEqual(pipeline_instance.run.call_args.kwargs["article_format"], "brief")
         self.assertEqual(article["sources"], [{"name": item.source_name, "url": item.source_url}])
         self.assertEqual(article["source_count"], 1)
         self.assertEqual(article["pipeline_version"], "v2")
@@ -312,6 +329,20 @@ class InsightsV2ProductionTests(unittest.TestCase):
                     api_key="key",
                     provider={"provider": "deepseek", "model": "deepseek-v4-pro"},
                 )
+
+    def test_v2_control_does_not_require_the_retired_legacy_ledger(self):
+        import daily_news_agent
+
+        findings = daily_news_agent._article_control_findings(
+            {
+                "title": "A specific capital-markets headline",
+                "body_html": "<p>" + ("Source-grounded analysis. " * 40) + "</p>",
+            },
+            article_format="brief",
+            require_narrative_ledger=False,
+        )
+
+        self.assertFalse(any("narrative-finance ledger" in finding for finding in findings))
 
     def test_active_insights_path_has_no_retired_deepseek_model(self):
         for path in SCRIPTS.glob("*.py"):

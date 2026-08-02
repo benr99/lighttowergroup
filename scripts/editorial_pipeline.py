@@ -57,7 +57,11 @@ class EditorialPipeline:
 
     # ── Stage 2: Assemble Writing Prompt ──
     def stage_assemble_prompt(
-        self, item: CanonicalItem, brief: dict[str, Any], dossier: dict[str, Any] | None = None
+        self,
+        item: CanonicalItem,
+        brief: dict[str, Any],
+        dossier: dict[str, Any] | None = None,
+        article_format: str | None = None,
     ) -> dict[str, Any]:
         """Assemble the complete writing prompt from brief + dossier + sector prompt."""
         self.stages_run.append("assemble_prompt")
@@ -81,6 +85,18 @@ class EditorialPipeline:
         economics = brief.get("transaction_economics", {})
         key_numbers = brief.get("key_numbers", [])
         unknowns = brief.get("unknowns", [])
+        requested_words = str(depth.get("words", "800-1300"))
+        format_label = str(article_format or "analysis")
+        if article_format:
+            try:
+                from editorial_intelligence import FORMAT_SPECS
+
+                format_spec = FORMAT_SPECS.get(article_format)
+                if format_spec:
+                    requested_words = f"{format_spec['min_words']}-{format_spec['max_words']}"
+                    format_label = str(format_spec.get("label") or article_format)
+            except ImportError:
+                pass
 
         summary_text = _strip_html_tags(item.raw_summary or item.raw_text or 'No summary available')
         dossier_text = (
@@ -126,7 +142,8 @@ IMPORTANT UNKNOWNS:
 {unknowns_json}
 
 ARTICLE STRUCTURE: {architecture.get('name', 'Standard analysis')}
-ARTICLE DEPTH: {depth.get('depth', 'standard')} ({depth.get('words', '800-1300')} words)
+EDITORIAL FORMAT: {format_label}
+HARD LENGTH CONTRACT: {requested_words} words
 
 WRITING INSTRUCTIONS
 1. Open with the most revealing fact, number, or tension from the brief — not a generic announcement.
@@ -140,6 +157,7 @@ WRITING INSTRUCTIONS
 9. Every factual and numerical claim must be supported by the source dossier.
 10. Label calculations and reasonable inferences explicitly. Never invent a market statistic, return target, tenant, financing term, motive, quote, or source.
 11. The sources array must contain only the canonical article URLs provided in the dossier. Do not substitute publication homepages.
+12. Never mention an internal editorial, ranking, composite, or significance score in public copy.
 
 OUTPUT FORMAT
 Return valid JSON with: title, subtitle, slug, category, meta_description, tags (array), body_html (full article HTML), sources (array of {{url, name}} objects), and excerpt (1-2 sentence preview).
@@ -405,7 +423,7 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
             raw = call_deepseek(
                 prompt,
                 self.api_key,
-                max_tokens=5200,
+                max_tokens=10000,
                 temperature=0.15,
                 json_mode=True,
                 provider=self.provider or None,
@@ -418,7 +436,13 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
             return {"status": "revision_failed", "article": article}
 
     # ── Run full pipeline ──
-    def run(self, item: CanonicalItem, dossier: dict[str, Any] | None = None, api_key: str = "") -> dict[str, Any]:
+    def run(
+        self,
+        item: CanonicalItem,
+        dossier: dict[str, Any] | None = None,
+        api_key: str = "",
+        article_format: str | None = None,
+    ) -> dict[str, Any]:
         """Execute the complete 7-stage editorial pipeline.
 
         If api_key is provided, it overrides the instance-level key for this run
@@ -442,7 +466,12 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
             result["stages"]["analytical_brief"] = {"status": "completed"}
 
             # Stage 2: Assemble Prompt
-            prompt_ctx = self.stage_assemble_prompt(item, brief, dossier)
+            prompt_ctx = self.stage_assemble_prompt(
+                item,
+                brief,
+                dossier,
+                article_format=article_format,
+            )
             prompt_ctx["dossier"] = dossier
             result["stages"]["assemble_prompt"] = {"status": "completed"}
 
@@ -678,10 +707,11 @@ def run_editorial_pipeline(
     dossier: dict[str, Any] | None = None,
     api_key: str = "",
     provider: dict[str, Any] | None = None,
+    article_format: str | None = None,
 ) -> dict[str, Any]:
     """Convenience function."""
     pipeline = EditorialPipeline(api_key=api_key, provider=provider)
-    return pipeline.run(item, dossier)
+    return pipeline.run(item, dossier, article_format=article_format)
 
 
 def get_pipeline_stats(results: list[dict[str, Any]]) -> dict[str, Any]:

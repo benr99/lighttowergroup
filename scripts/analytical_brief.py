@@ -366,8 +366,6 @@ def _extract_key_numbers(item: CanonicalItem) -> list[dict[str, Any]]:
     if item.unit_count:
         uc = item.unit_count if isinstance(item.unit_count, int) else int(_safe_float(item.unit_count))
         numbers.append({"number": str(uc), "meaning": "Unit count", "interpretation": "Scale relative to market supply"})
-    if item.composite_score:
-        numbers.append({"number": str(item.composite_score), "meaning": "Editorial significance score", "interpretation": "Composite of financial magnitude, party significance, and market impact"})
     return numbers[:5]
 
 
@@ -417,9 +415,13 @@ PARTIES: {_safe_truncate_json(brief.get('parties_and_incentives', []), max_chars
 ECONOMICS: {_safe_truncate_json(brief.get('transaction_economics', {}), max_chars=800)}
 
 Produce three things:
-1. CENTRAL FINANCIAL QUESTION: The ONE question this article must answer.
+1. CENTRAL FINANCIAL QUESTION: The ONE question this article can answer from
+   the supplied summary and economics. Do not require an IRR, return target,
+   debt cost, valuation, or financing term that the source did not disclose.
 2. THESIS: A specific, bounded, defensible claim (1-3 sentences).
 3. COUNTERARGUMENT: The strongest alternative interpretation.
+
+Do not introduce new numbers, private motives, or undisclosed assumptions.
 
 Return JSON: {{central_question: string, thesis: string, counterargument: string}}
 """
