@@ -129,7 +129,8 @@ class InsightsV2ProductionTests(unittest.TestCase):
         source = (ROOT / "scripts" / "daily_news_agent.py").read_text(encoding="utf-8")
 
         self.assertIn("RESEARCH_CANDIDATE_CEILING", source)
-        self.assertIn("if len(enriched_candidates) >= MAX_ARTICLES", source)
+        self.assertIn("if len(articles) >= MAX_ARTICLES", source)
+        self.assertNotIn("if len(enriched_candidates) >= MAX_ARTICLES", source)
 
     def test_model_router_keeps_healthy_writing_provider(self):
         import model_router
@@ -278,6 +279,39 @@ class InsightsV2ProductionTests(unittest.TestCase):
         self.assertIn(item.source_url, html)
         self.assertIn("1 source", html)
         self.assertIn("Acme's $100 Million Refinancing", html)
+
+    def test_v2_failure_exposes_the_rejecting_stage_without_approving_it(self):
+        item = make_item()
+        event = canonical_item_to_editorial_event(item)
+        story = event["candidate"] | {
+            "research_dossier": dossier_for(item),
+            "editorial_event_id": event["event_id"],
+            "editorial_format": "brief",
+            "franchise": event["franchise"],
+            "must_read_score": event["must_read_score"],
+        }
+        pipeline_instance = Mock()
+        pipeline_instance.run.return_value = {
+            "status": "review_required",
+            "errors": [],
+            "stages": {
+                "post_revision_financial_review": {
+                    "status": "completed",
+                    "passed": False,
+                    "issues": ["Unsupported leverage claim"],
+                },
+            },
+        }
+        with patch("v2_editorial.EditorialPipeline", return_value=pipeline_instance):
+            with self.assertRaisesRegex(
+                RuntimeError,
+                "post_revision_financial_review: Unsupported leverage claim",
+            ):
+                generate_v2_article(
+                    story,
+                    api_key="key",
+                    provider={"provider": "deepseek", "model": "deepseek-v4-pro"},
+                )
 
     def test_active_insights_path_has_no_retired_deepseek_model(self):
         for path in SCRIPTS.glob("*.py"):

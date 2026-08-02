@@ -2297,12 +2297,6 @@ def main():
     checked = 0
     if args.selection_mode == "edition":
         for editorial_item in editorial_items:
-            if len(enriched_candidates) >= MAX_ARTICLES:
-                print(
-                    f"  Publication ceiling reached with {len(enriched_candidates)} "
-                    "research-qualified candidate(s)."
-                )
-                break
             checked += 1
             candidate = dict(editorial_item["candidate"])
             print(f"  [{checked}] Building dossier: {candidate['title'][:65]}")
@@ -2421,6 +2415,9 @@ def main():
     # its own articles, same as known_insights does for duplicate checks.
     recent_titles_window = [str(entry.get("title", "")) for entry in known_insights[:6]]
     for i, candidate in enumerate(enriched_candidates, 1):
+        if len(articles) >= MAX_ARTICLES:
+            print(f"  Publication ceiling reached with {len(articles)} approved article(s).")
+            break
         print(f"  Generating article {i}/{len(enriched_candidates)}: {candidate['title'][:60]}")
         try:
             # generate_article() already tries twice, internally, to repair

@@ -221,7 +221,7 @@ def generate_v2_article(
     pipeline = EditorialPipeline(api_key=api_key, provider=provider)
     result = pipeline.run(item, dossier)
     if result.get("status") != "completed" or not isinstance(result.get("article"), dict):
-        reason = result.get("errors") or result.get("error") or result.get("status")
+        reason = _pipeline_failure_details(result)
         raise RuntimeError(f"V2 editorial pipeline did not clear publication: {reason}")
 
     generated = result["article"]
@@ -288,3 +288,31 @@ def generate_v2_article(
         },
     }
     return article
+
+
+def _pipeline_failure_details(result: dict[str, Any]) -> str:
+    """Return bounded, non-secret stage evidence for an editorial rejection."""
+    findings: list[str] = []
+    stages = result.get("stages")
+    if isinstance(stages, dict):
+        for stage_name, stage in stages.items():
+            if not isinstance(stage, dict):
+                continue
+            stage_status = str(stage.get("status") or "")
+            passed = stage.get("passed")
+            if passed is not False and stage_status not in {
+                "failed", "unavailable", "revision_failed"
+            }:
+                continue
+            issues = stage.get("issues")
+            if isinstance(issues, list) and issues:
+                detail = "; ".join(str(issue) for issue in issues[:3])
+            else:
+                detail = str(stage.get("error") or stage_status or "did not pass")
+            findings.append(f"{stage_name}: {detail}")
+    errors = result.get("errors")
+    if isinstance(errors, list):
+        findings.extend(str(error) for error in errors[:3] if error)
+    if not findings:
+        findings.append(str(result.get("error") or result.get("status") or "unknown"))
+    return " | ".join(findings)[:1800]
