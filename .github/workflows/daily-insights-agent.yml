@@ -38,10 +38,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - name: Check out main
+      - name: Check out the scheduled or release ref
         uses: actions/checkout@v7
         with:
-          ref: main
+          # Scheduled runs always use main. Manual release gates may select a
+          # remediation branch so the exact candidate code can be exercised
+          # before it is merged.
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref_name || 'main' }}
           fetch-depth: 0
 
       - name: Resolve the trigger policy
