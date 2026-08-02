@@ -530,30 +530,57 @@ def _extract_json(raw: str, required_fields: list[str] | None = None) -> dict[st
     m = re.search(r'```(?:json)?\s*\n?([\s\S]*?)\n?```', raw)
     if m:
         try:
-            data = json.loads(m.group(1))
+            data = _load_json_object(m.group(1))
             return _validate_required(data, required_fields)
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, ValueError):
             pass
     
     # Strategy 2: Greedy match { ... }
     m = re.search(r'\{[\s\S]*\}', raw)
     if m:
         try:
-            data = json.loads(m.group())
+            data = _load_json_object(m.group())
             return _validate_required(data, required_fields)
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, ValueError):
             pass
     
     # Strategy 3: Non-greedy match, taking the first complete JSON object
     m = re.search(r'\{[\s\S]*?\}(?:\s*$|\s*\n)', raw)
     if m:
         try:
-            data = json.loads(m.group())
+            data = _load_json_object(m.group())
             return _validate_required(data, required_fields)
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, ValueError):
             pass
     
     raise ValueError(f"Could not parse JSON from response: {str(raw)[:200]}")
+
+
+def _load_json_object(candidate: str) -> dict[str, Any]:
+    """Parse provider JSON without accepting a non-object review contract.
+
+    Some otherwise valid JSON-mode responses contain an unescaped newline in
+    a reviewer explanation or a trailing comma. Python's strict parser rejects
+    both even though the response's typed decision fields are intact. The
+    bounded fallbacks below repair only those two syntax defects; they do not
+    infer missing review fields or turn a failed review into a pass.
+    """
+    value = str(candidate or "").strip().lstrip("\ufeff")
+    variants = [value]
+    without_trailing_commas = re.sub(r",\s*([}\]])", r"\1", value)
+    if without_trailing_commas != value:
+        variants.append(without_trailing_commas)
+    last_error: Exception | None = None
+    for variant in variants:
+        for strict in (True, False):
+            try:
+                parsed = json.loads(variant, strict=strict)
+                if not isinstance(parsed, dict):
+                    raise ValueError("Provider JSON contract must be an object")
+                return parsed
+            except (json.JSONDecodeError, ValueError) as exc:
+                last_error = exc
+    raise ValueError(f"Invalid provider JSON object: {last_error}")
 
 
 def _validate_required(data: dict[str, Any], required_fields: list[str] | None) -> dict[str, Any]:

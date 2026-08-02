@@ -11,7 +11,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from canonical_item import CanonicalItem
-from editorial_pipeline import EditorialPipeline
+from editorial_pipeline import EditorialPipeline, _extract_json
 from v2_editorial import (
     canonical_item_to_editorial_event,
     generate_v2_article,
@@ -78,6 +78,20 @@ def dossier_for(item: CanonicalItem) -> dict:
 
 
 class InsightsV2ProductionTests(unittest.TestCase):
+    def test_reviewer_json_accepts_unescaped_newline_without_inventing_fields(self):
+        parsed = _extract_json(
+            '{"issues": [], "passed": true, "summary": "line one\nline two"}'
+        )
+
+        self.assertEqual(parsed["issues"], [])
+        self.assertIs(parsed["passed"], True)
+        self.assertEqual(parsed["summary"], "line one\nline two")
+
+    def test_reviewer_json_accepts_a_trailing_comma_but_requires_an_object(self):
+        self.assertEqual(_extract_json('{"passed": false,}'), {"passed": False})
+        with self.assertRaises(ValueError):
+            _extract_json('[]')
+
     def test_shadow_summary_reports_target_as_not_evaluated(self):
         from edition_manager import render_run_summary
 
