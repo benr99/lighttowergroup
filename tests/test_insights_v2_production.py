@@ -197,6 +197,7 @@ class InsightsV2ProductionTests(unittest.TestCase):
     def test_daily_selection_skips_reserve_and_product_review_items(self):
         reserve = make_item("A reserve story", score=90)
         reserve.tier = "tier_4_reserve"
+        reserve.composite_score = 44
         review = make_item(
             "Test Drive: an electric family car",
             sector="energy",
@@ -218,6 +219,25 @@ class InsightsV2ProductionTests(unittest.TestCase):
             ),
             [qualified],
         )
+
+    def test_high_quality_authoritative_reserve_can_enter_research_fallback(self):
+        reserve = make_item(
+            "HUD approves a 600-unit housing redevelopment",
+            score=47,
+            url="https://housing.example.com/projects/redevelopment",
+        )
+        reserve.tier = "tier_4_reserve"
+        reserve.source_tier = 1
+        weak = make_item(
+            "Developer discusses a possible property project",
+            score=44,
+            url="https://housing.example.com/projects/possible",
+        )
+        weak.tier = "tier_4_reserve"
+        weak.source_tier = 1
+
+        self.assertTrue(is_daily_article_candidate(reserve))
+        self.assertFalse(is_daily_article_candidate(weak))
 
     def test_source_prior_only_requires_article_level_sector_evidence(self):
         unrelated = make_item(

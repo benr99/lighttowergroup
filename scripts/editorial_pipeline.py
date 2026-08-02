@@ -441,10 +441,34 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
                 )
                 audit = audit_article_facts(body, dossier["source_facts"], source_tier=source_tier)
                 if audit.get("hold_for_review"):
+                    unmatched_amounts = audit.get("unmatched_amounts", [])
+                    unmatched_companies = audit.get("unmatched_companies", [])
+                    unmatched_addresses = audit.get("unmatched_addresses", [])
+                    amount_detail = ", ".join(
+                        f"{item.get('raw', '[missing]')} near "
+                        f"{str(item.get('context', ''))[:120]!r}"
+                        for item in unmatched_amounts[:3]
+                        if isinstance(item, dict)
+                    )
+                    company_detail = ", ".join(
+                        str(value) for value in unmatched_companies[:5]
+                    )
+                    address_detail = ", ".join(
+                        str(value) for value in unmatched_addresses[:3]
+                    )
+                    evidence_detail = "; ".join(
+                        value for value in (
+                            f"amounts: {amount_detail}" if amount_detail else "",
+                            f"companies: {company_detail}" if company_detail else "",
+                            f"addresses: {address_detail}" if address_detail else "",
+                        ) if value
+                    )
                     issues.append(
                         "Article contains dossier-unverified claims "
-                        f"({len(audit.get('unmatched_amounts', []))} amounts, "
-                        f"{len(audit.get('unmatched_companies', []))} companies)"
+                        f"({len(unmatched_amounts)} amounts, "
+                        f"{len(unmatched_companies)} companies, "
+                        f"{len(unmatched_addresses)} addresses)"
+                        + (f": {evidence_detail}" if evidence_detail else "")
                     )
             except Exception as exc:
                 issues.append(f"Deterministic fact audit unavailable: {type(exc).__name__}")
