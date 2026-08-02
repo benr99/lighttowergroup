@@ -318,10 +318,17 @@ def call_deepseek(
                 continue
             resp.raise_for_status()
             data = resp.json()
-            content = ((data.get("choices") or [{}])[0].get("message") or {}).get("content")
+            choice = (data.get("choices") or [{}])[0]
+            message = choice.get("message") or {}
+            content = message.get("content")
             if str(content or "").strip():
                 break
-            last_error = ValueError("Provider returned an empty completion")
+            reasoning_length = len(str(message.get("reasoning_content") or ""))
+            finish_reason = str(choice.get("finish_reason") or "unknown")
+            last_error = ValueError(
+                "Provider returned an empty completion "
+                f"(finish_reason={finish_reason}, reasoning_chars={reasoning_length})"
+            )
         except (requests.Timeout, requests.ConnectionError, ValueError) as exc:
             last_error = exc
         if attempt < 2:

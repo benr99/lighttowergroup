@@ -92,6 +92,11 @@ class InsightsV2ProductionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             _extract_json('[]')
 
+    def test_reasoning_model_reviewers_have_room_for_complete_json(self):
+        source = (ROOT / "scripts" / "editorial_pipeline.py").read_text(encoding="utf-8")
+
+        self.assertGreaterEqual(source.count("max_tokens=4000"), 2)
+
     def test_shadow_summary_reports_target_as_not_evaluated(self):
         from edition_manager import render_run_summary
 

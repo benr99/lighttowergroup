@@ -212,7 +212,10 @@ Return JSON with: {{issues: [list of specific problems], passed: true/false, sco
             raw = call_deepseek(
                 prompt,
                 self.api_key,
-                max_tokens=1000,
+                # Reasoning-capable DeepSeek models count hidden reasoning
+                # against this ceiling. A 1,000-token cap can expire before
+                # the compact JSON review reaches message.content.
+                max_tokens=4000,
                 temperature=0.1,
                 json_mode=True,
                 provider=self.provider or None,
@@ -259,7 +262,9 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
             raw = call_deepseek(
                 prompt,
                 self.api_key,
-                max_tokens=1000,
+                # Leave enough room for hidden reasoning plus the complete
+                # typed review contract; truncated contracts still fail closed.
+                max_tokens=4000,
                 temperature=0.1,
                 json_mode=True,
                 provider=self.provider or None,
