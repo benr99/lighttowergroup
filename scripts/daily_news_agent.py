@@ -1890,6 +1890,7 @@ def main():
         return
     MAX_ARTICLES = max(1, min(args.articles, 30))
     DAILY_TARGET = max(0, min(args.daily_target, MAX_ARTICLES))
+    RESEARCH_CANDIDATE_CEILING = min(15, max(MAX_ARTICLES, DAILY_TARGET + 4))
     article_limit = None if args.no_limit and args.selection_mode == "bucketed-volume" else MAX_ARTICLES
     LOOKBACK_HOURS = max(1, args.lookback_hours)
 
@@ -2010,7 +2011,8 @@ def main():
     elif args.selection_mode == "edition":
         print(
             f"  Edition target: {DAILY_TARGET} standalone piece(s); "
-            f"research ceiling: {MAX_ARTICLES}"
+            f"publication ceiling: {MAX_ARTICLES}; "
+            f"research fallback pool: {RESEARCH_CANDIDATE_CEILING}"
         )
     if args.shadow:
         print("  [SHADOW MODE] No articles will be generated or published")
@@ -2101,7 +2103,7 @@ def main():
 
         selected_items = select_daily_items(
             v2_results.get("_selected", {}),
-            limit=MAX_ARTICLES,
+            limit=RESEARCH_CANDIDATE_CEILING,
             archive_records=known_insights,
         )
         editorial_items = [canonical_item_to_editorial_event(item) for item in selected_items]
@@ -2295,6 +2297,12 @@ def main():
     checked = 0
     if args.selection_mode == "edition":
         for editorial_item in editorial_items:
+            if len(enriched_candidates) >= MAX_ARTICLES:
+                print(
+                    f"  Publication ceiling reached with {len(enriched_candidates)} "
+                    "research-qualified candidate(s)."
+                )
+                break
             checked += 1
             candidate = dict(editorial_item["candidate"])
             print(f"  [{checked}] Building dossier: {candidate['title'][:65]}")
@@ -2768,7 +2776,7 @@ def main():
     # \u2500 Log \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     elapsed = round((datetime.now(timezone.utc) - start).total_seconds())
     run_data.update({
-        "status":           "success",
+        "status":           "preview_complete" if args.dry_run else "success",
         "elapsed_seconds":  elapsed,
         "articles_count":   len(articles),
         "daily_target_met": len(articles) >= DAILY_TARGET if args.selection_mode == "edition" else None,
@@ -2781,9 +2789,9 @@ def main():
         pass
     clear_checkpoints()
     write_log(run_data)
-    if args.selection_mode == "edition" and not args.dry_run:
+    if args.selection_mode == "edition":
         audit_payload.update({
-            "status": "success",
+            "status": run_data["status"],
             "elapsed_seconds": elapsed,
             "articles": run_data["articles"],
             "held": held_assignments,
@@ -2796,9 +2804,11 @@ def main():
         })
         run_path = save_run_record(audit_payload, run_date=start.date())
         summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
+        summary_path.parent.mkdir(parents=True, exist_ok=True)
         summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
-        generated_paths.extend([run_path, summary_path])
-        write_generated_files(generated_paths)
+        if not args.dry_run:
+            generated_paths.extend([run_path, summary_path])
+            write_generated_files(generated_paths)
 
     print(f"\n{'='*62}")
     print(f"  DONE in {elapsed}s — published {len(articles)} article(s)")

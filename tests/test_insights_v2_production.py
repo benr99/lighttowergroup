@@ -93,6 +93,25 @@ class InsightsV2ProductionTests(unittest.TestCase):
         self.assertIn("Articles: **0**", summary)
         self.assertIn("Daily target met: **not evaluated**", summary)
 
+    def test_preview_summary_does_not_claim_candidates_were_published(self):
+        from edition_manager import render_run_summary
+
+        summary = render_run_summary({
+            "status": "preview_complete",
+            "daily_target": 1,
+            "daily_target_met": True,
+            "articles": [{"title": "A verified preview", "source_count": 2}],
+        })
+
+        self.assertIn("## Preview candidates", summary)
+        self.assertNotIn("## Published candidates", summary)
+
+    def test_daily_agent_uses_a_fallback_research_pool_but_caps_generation(self):
+        source = (ROOT / "scripts" / "daily_news_agent.py").read_text(encoding="utf-8")
+
+        self.assertIn("RESEARCH_CANDIDATE_CEILING", source)
+        self.assertIn("if len(enriched_candidates) >= MAX_ARTICLES", source)
+
     def test_model_router_keeps_healthy_writing_provider(self):
         import model_router
 
