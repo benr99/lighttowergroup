@@ -1,8 +1,8 @@
 """Multi-stage editorial pipeline with real LLM calls for each stage.
 
-Orchestrates: analytical brief (deterministic) → prompt assembly → 
-drafting (LLM) → financial review (LLM) → editorial review (LLM) → 
-fact verification (deterministic) → final revision (LLM).
+Orchestrates: analytical brief (deterministic) â†’ prompt assembly â†’ 
+drafting (LLM) â†’ financial review (LLM) â†’ editorial review (LLM) â†’ 
+fact verification (deterministic) â†’ final revision (LLM).
 """
 
 from __future__ import annotations
@@ -16,7 +16,7 @@ from analytical_brief import build_analytical_brief
 from research_dossier import dossier_prompt_payload
 
 
-# Try to import call_deepseek — may not be available in test environments
+# Try to import call_deepseek â€” may not be available in test environments
 try:
     from editorial_scoring import call_deepseek
     _HAS_LLM = True
@@ -33,7 +33,7 @@ class EditorialPipeline:
         self.stages_run: list[str] = []
         self.errors: list[str] = []
 
-    # ── Stage 1: Analytical Brief (deterministic, no LLM) ──
+    # â”€â”€ Stage 1: Analytical Brief (deterministic, no LLM) â”€â”€
     def stage_analytical_brief(self, item: CanonicalItem, dossier: dict[str, Any] | None = None) -> dict[str, Any]:
         """Build the structured pre-writing analytical brief."""
         self.stages_run.append("analytical_brief")
@@ -55,7 +55,7 @@ class EditorialPipeline:
                 self.errors.append(f"analytical_brief_enhance: {e}")
         return brief
 
-    # ── Stage 2: Assemble Writing Prompt ──
+    # â”€â”€ Stage 2: Assemble Writing Prompt â”€â”€
     def stage_assemble_prompt(
         self,
         item: CanonicalItem,
@@ -117,7 +117,7 @@ SOURCE: {item.source_name} (tier {item.source_tier})
 SECTOR: {item.primary_sector}
 SUMMARY: {summary_text}
 
-SOURCE DOSSIER — THIS IS THE FACTUAL BOUNDARY
+SOURCE DOSSIER â€” THIS IS THE FACTUAL BOUNDARY
 {dossier_text}
 
 ANALYTICAL BRIEF
@@ -146,9 +146,9 @@ EDITORIAL FORMAT: {format_label}
 HARD LENGTH CONTRACT: {requested_words} words
 
 WRITING INSTRUCTIONS
-1. Open with the most revealing fact, number, or tension from the brief — not a generic announcement.
+1. Open with the most revealing fact, number, or tension from the brief â€” not a generic announcement.
 2. Build the article around the central question and thesis.
-3. Interpret the key numbers — don't just list them. Explain what they mean.
+3. Interpret the key numbers â€” don't just list them. Explain what they mean.
 4. Name the parties. Explain what each gains and risks.
 5. Distinguish clearly between reported facts, reasonable inferences, and unknowns.
 6. Vary sentence rhythm. Avoid formulaic openings like "The most important X is not Y."
@@ -160,7 +160,47 @@ WRITING INSTRUCTIONS
 12. Never mention an internal editorial, ranking, composite, or significance score in public copy.
 
 OUTPUT FORMAT
-Return valid JSON with: title, subtitle, slug, category, meta_description, tags (array), body_html (full article HTML), sources (array of {{url, name}} objects), and excerpt (1-2 sentence preview).
+Return one valid JSON object with these public fields and internal control ledgers:
+{{
+  "title": "Specific headline under 90 characters",
+  "subtitle": "One-sentence consequence under 150 characters",
+  "slug": "lowercase-kebab-case-max-six-words",
+  "category": "Capital Markets | Market Analysis | Debt & Equity | Policy & Regulation | Deal Intelligence",
+  "meta_description": "Specific description under 160 characters",
+  "tags": ["three", "to", "five", "specific", "tags"],
+  "body_html": "<p>Complete article using paragraph tags only.</p>",
+  "data_points": [
+    {{"label": "Short source-supported label", "value": "Reported value", "source_url": "Exact dossier URL"}}
+  ],
+  "sources": [{{"name": "Exact source name", "url": "Exact dossier URL"}}],
+  "excerpt": "One- or two-sentence preview",
+  "narrative_ledger": {{
+    "anchor": "Reported anchor",
+    "tension": "Economic tension",
+    "cast": ["Party: documented constraint or clock"],
+    "mechanism": "Supported financial or operating mechanism",
+    "claim": "Bounded interpretation",
+    "reader_consequence": "What a market participant should test",
+    "reported_facts": ["Reported fact"],
+    "interpretations": ["Clearly labeled inference"],
+    "open_questions": ["Material unknown"],
+    "scene": {{"used": false, "detail": "", "source_basis": ""}}
+  }},
+  "excellence_ledger": {{
+    "why_now": "Why this deserves attention now",
+    "original_inference": "The article's one bounded added insight",
+    "counterargument": "Strongest plausible alternative explanation",
+    "concrete_detail": "A detail supported by a named source",
+    "human_stakes": "The supported human, institutional, or physical consequence",
+    "reader_value": "What the reader understands or can test after reading",
+    "memorable_line": "One exact sentence that appears verbatim in body_html",
+    "claim_evidence": [
+      {{"claim": "Factual claim", "source_url": "Exact dossier URL"}}
+    ]
+  }}
+}}
+The ledgers are internal audit evidence and must be complete. Never discuss them
+in body_html. Use only URLs present in the dossier. Return JSON only.
 """
 
         return {
@@ -172,7 +212,7 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
             "requested_words": requested_words,
         }
 
-    # ── Stage 3: Draft (LLM call) ──
+    # â”€â”€ Stage 3: Draft (LLM call) â”€â”€
     def stage_draft(self, prompt_context: dict[str, Any]) -> dict[str, Any]:
         """Generate the first draft via LLM."""
         self.stages_run.append("draft")
@@ -191,7 +231,9 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
             )
             article = _extract_json(
                 raw,
-                required_fields=["body_html", "title", "excerpt", "sources"],
+                required_fields=[
+                    "body_html", "title", "excerpt", "sources", "excellence_ledger"
+                ],
             )
             if not isinstance(article.get("sources"), list) or not article["sources"]:
                 raise ValueError("LLM response did not include a non-empty sources array")
@@ -200,7 +242,7 @@ Return valid JSON with: title, subtitle, slug, category, meta_description, tags 
             self.errors.append(f"draft: {e}")
             return {"status": "failed", "error": str(e)}
 
-    # ── Stage 4: Financial Review (LLM call) ──
+    # â”€â”€ Stage 4: Financial Review (LLM call) â”€â”€
     def stage_financial_review(
         self,
         article: dict[str, Any],
@@ -245,7 +287,7 @@ Check for:
 2. Does the article explain what the numbers MEAN, not just what they ARE?
 3. Are any claims about returns, valuations, or market conditions unsupported?
 4. Does the article distinguish reported facts from calculated metrics?
-5. Is the incentive analysis clear — who gains, who risks, why now?
+5. Is the incentive analysis clear â€” who gains, who risks, why now?
 
 CALIBRATION RULES:
 - Judge the article against what the dossier actually discloses, not against an
@@ -293,7 +335,7 @@ Return JSON with: {{issues: [list of specific problems], passed: true/false, sco
                 "summary": "Financial review failed closed",
             }
 
-    # ── Stage 5: Editorial Review (LLM call) ──
+    # â”€â”€ Stage 5: Editorial Review (LLM call) â”€â”€
     def stage_editorial_review(self, article: dict[str, Any]) -> dict[str, Any]:
         """Review the article for writing quality."""
         self.stages_run.append("editorial_review")
@@ -342,7 +384,7 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
                 "summary": "Editorial review failed closed",
             }
 
-    # ── Stage 6: Fact Verification (deterministic) ──
+    # â”€â”€ Stage 6: Fact Verification (deterministic) â”€â”€
     def stage_fact_verification(
         self,
         article: dict[str, Any],
@@ -410,7 +452,7 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
         passed = len(issues) == 0
         return {"issues": issues, "passed": passed, "score_1_10": 10 if passed else 6}
 
-    # ── Stage 7: Final Revision (LLM call) ──
+    # â”€â”€ Stage 7: Final Revision (LLM call) â”€â”€
     def stage_final_revision(
         self,
         article: dict[str, Any],
@@ -446,7 +488,7 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
 CURRENT ARTICLE JSON:
 {original_json}
 
-SOURCE DOSSIER — DO NOT EXCEED THIS EVIDENCE:
+SOURCE DOSSIER â€” DO NOT EXCEED THIS EVIDENCE:
 {dossier_text}
 
 ISSUES TO FIX:
@@ -460,7 +502,11 @@ Delete an unsupported claim when the dossier supplies no valid replacement.
 Do not introduce new unsupported claims, numbers, names, or motives. Maintain
 the evidence-bounded thesis and the original {prompt_context.get('requested_words', 'assigned')} word contract.
 
-Return valid JSON with the same fields as the original: title, subtitle, slug, category, body_html, sources, tags, excerpt.
+Return valid JSON with the same fields as the original, including title,
+subtitle, slug, category, meta_description, body_html, data_points, sources,
+tags, excerpt, narrative_ledger, and excellence_ledger. The complete
+excellence_ledger is mandatory; its memorable_line must appear verbatim in
+body_html and every claim_evidence source_url must be an exact dossier URL.
 """
         try:
             raw = call_deepseek(
@@ -471,14 +517,19 @@ Return valid JSON with the same fields as the original: title, subtitle, slug, c
                 json_mode=True,
                 provider=self.provider or None,
             )
-            revised = _extract_json(raw, required_fields=["body_html", "title", "excerpt", "sources"])
+            revised = _extract_json(
+                raw,
+                required_fields=[
+                    "body_html", "title", "excerpt", "sources", "excellence_ledger"
+                ],
+            )
             revised = {**article, **revised}
             return {"status": "revised", "article": revised}
         except Exception as e:
             self.errors.append(f"final_revision: {e}")
             return {"status": "revision_failed", "article": article}
 
-    # ── Run full pipeline ──
+    # â”€â”€ Run full pipeline â”€â”€
     def run(
         self,
         item: CanonicalItem,
@@ -612,6 +663,7 @@ def _extract_json(raw: str, required_fields: list[str] | None = None) -> dict[st
     Raises ValueError on parse failure or missing required fields.
     """
     raw = raw or ""
+    validation_error: ValueError | None = None
     
     # Strategy 1: Try extracting from markdown code blocks ```json ... ```
     m = re.search(r'```(?:json)?\s*\n?([\s\S]*?)\n?```', raw)
@@ -619,8 +671,10 @@ def _extract_json(raw: str, required_fields: list[str] | None = None) -> dict[st
         try:
             data = _load_json_object(m.group(1))
             return _validate_required(data, required_fields)
-        except (json.JSONDecodeError, ValueError):
+        except json.JSONDecodeError:
             pass
+        except ValueError as exc:
+            validation_error = exc
     
     # Strategy 2: Greedy match { ... }
     m = re.search(r'\{[\s\S]*\}', raw)
@@ -628,8 +682,10 @@ def _extract_json(raw: str, required_fields: list[str] | None = None) -> dict[st
         try:
             data = _load_json_object(m.group())
             return _validate_required(data, required_fields)
-        except (json.JSONDecodeError, ValueError):
+        except json.JSONDecodeError:
             pass
+        except ValueError as exc:
+            validation_error = exc
     
     # Strategy 3: Non-greedy match, taking the first complete JSON object
     m = re.search(r'\{[\s\S]*?\}(?:\s*$|\s*\n)', raw)
@@ -637,9 +693,14 @@ def _extract_json(raw: str, required_fields: list[str] | None = None) -> dict[st
         try:
             data = _load_json_object(m.group())
             return _validate_required(data, required_fields)
-        except (json.JSONDecodeError, ValueError):
+        except json.JSONDecodeError:
             pass
-    
+        except ValueError as exc:
+            validation_error = exc
+
+    if validation_error is not None:
+        raise validation_error
+
     raise ValueError(f"Could not parse JSON from response: {str(raw)[:200]}")
 
 
