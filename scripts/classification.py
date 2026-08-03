@@ -196,7 +196,14 @@ def classify_regex_signals(item: CanonicalItem) -> dict[str, float]:
 def classify_item(item: CanonicalItem) -> CanonicalItem:
     """Classify a single CanonicalItem. Returns the classified item."""
     # Step 1: Source-based prior
-    source_sector = classify_source_prior(item)
+    configured_primary = (
+        item.primary_sector
+        if item.classification_method == "source_config_prior"
+        and item.primary_sector in _SECTOR_SIGNALS_COMPILED
+        else None
+    )
+    configured_secondary = list(item.secondary_sectors)
+    source_sector = classify_source_prior(item) or configured_primary
     
     # Step 2: Regex signal scores for all sectors
     signal_scores = classify_regex_signals(item)
@@ -208,10 +215,23 @@ def classify_item(item: CanonicalItem) -> CanonicalItem:
         confidence = 0.85
         method = "source_prior_and_regex"
     elif source_sector:
-        # Source prior but no signal match — medium confidence
-        primary = source_sector
-        confidence = 0.60
-        method = "source_prior_only"
+        # A configured lane is a prior, not a permanent label. Let a strong
+        # article-level signal override a broad, multi-topic publisher lane.
+        ranked = sorted(signal_scores.items(), key=lambda x: x[1], reverse=True)
+        if (
+            configured_primary
+            and ranked
+            and ranked[0][0] != source_sector
+            and ranked[0][1] > 0.02
+        ):
+            primary = ranked[0][0]
+            confidence = min(0.75, 0.55 + ranked[0][1] * 0.2)
+            method = "source_config_overridden_by_regex"
+        else:
+            # Source prior but no stronger signal — medium confidence
+            primary = source_sector
+            confidence = 0.60
+            method = "source_prior_only"
     else:
         # No source prior — use best signal match
         ranked = sorted(signal_scores.items(), key=lambda x: x[1], reverse=True)
@@ -226,10 +246,13 @@ def classify_item(item: CanonicalItem) -> CanonicalItem:
             method = "needs_llm"
     
     # Step 4: Determine secondary sectors from signal scores
-    secondary = []
+    secondary = [
+        sector for sector in configured_secondary
+        if sector != primary and sector in _SECTOR_SIGNALS_COMPILED
+    ]
     threshold = 0.015
     for sector, score in signal_scores.items():
-        if sector != primary and score > threshold:
+        if sector != primary and sector not in secondary and score > threshold:
             secondary.append(sector)
     secondary = secondary[:3]  # Cap at 3 secondary sectors
     

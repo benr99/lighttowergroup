@@ -2,6 +2,7 @@
 import sys
 import os
 import json
+import unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
 sys.path.insert(0, 'scripts')
 
@@ -431,4 +432,9 @@ if all_pass:
 else:
     print("SOME PASS 5 AUDIT TESTS FAILED -- see above")
 print("=" * 72)
+
+
+class PassFiveAuditContract(unittest.TestCase):
+    def test_printed_audit_results_are_enforced(self):
+        self.assertTrue(all_pass, "One or more pass-five audit checks failed")
 # Exit codes handled by unittest/discover — do not call sys.exit()

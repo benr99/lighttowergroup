@@ -171,7 +171,9 @@ class SiteContractTests(unittest.TestCase):
     def test_daily_workflow_validates_before_publishing(self) -> None:
         workflow = (ROOT / ".github" / "workflows" / "daily-insights-agent.yml").read_text(encoding="utf-8")
         self.assertIn("--selection-mode edition", workflow)
-        self.assertIn("--articles 5", workflow)
+        self.assertIn("article_count:", workflow)
+        self.assertIn("ARTICLE_COUNT: ${{ inputs.article_count || '5' }}", workflow)
+        self.assertIn('--articles "$ARTICLE_COUNT"', workflow)
         self.assertIn("--daily-target 3", workflow)
         self.assertIn("--skip-git", workflow)
         self.assertIn("github.event.schedule", workflow)
@@ -192,6 +194,74 @@ class SiteContractTests(unittest.TestCase):
         )
         self.assertIn("publication-decision.json", workflow)
         self.assertIn("gh pr create", workflow)
+
+    def test_csp_allows_inline_scripts_on_every_page_that_ships_them(self) -> None:
+        """Regression guard for the homepage blanking introduced by merge 5278972.
+
+        The `/*` script-src lost 'unsafe-inline' in that merge, which silently
+        blocked index.html's scroll-reveal IntersectionObserver. Twenty elements
+        across the transactions, practice, advantage, process and leadership
+        sections stayed at opacity:0 in production. Sixteen pages were affected.
+        """
+        toml_text = (ROOT / "netlify.toml").read_text(encoding="utf-8")
+        blocks = re.findall(
+            r'\[\[headers\]\]\s*\n\s*for\s*=\s*"([^"]+)"(.*?)(?=\n\[\[headers\]\]|\Z)',
+            toml_text,
+            re.S,
+        )
+        policies: dict[str, str] = {}
+        for path, body in blocks:
+            match = re.search(r'Content-Security-Policy\s*=\s*"(.*?)"', body, re.S)
+            if not match:
+                continue
+            directives = [
+                part.strip()
+                for part in match.group(1).split(";")
+                if part.strip().startswith("script-src")
+            ]
+            if directives:
+                policies[path] = directives[0]
+
+        self.assertIn("/*", policies, "netlify.toml must define a default script-src")
+
+        def script_src_for(page: str) -> str:
+            """Resolve Netlify's most-specific-path-wins header matching."""
+            route = f"/{page}"
+            if route in policies:
+                return policies[route]
+            for pattern, directive in policies.items():
+                if pattern.endswith("/*") and pattern != "/*" and route.startswith(pattern[:-1]):
+                    return directive
+            return policies["/*"]
+
+        blocked: list[str] = []
+        for page in sorted(ROOT.glob("*.html")):
+            # Inline blocks inside HTML comments are inert and must not count.
+            markup = re.sub(r"<!--.*?-->", "", page.read_text(encoding="utf-8"), flags=re.S)
+            inline_scripts = [
+                tag
+                for tag in re.findall(r"<script([^>]*)>", markup)
+                if "src=" not in tag and "ld+json" not in tag
+            ]
+            handlers = re.findall(r"\son(?:click|submit|change|input|load|error)\s*=", markup)
+            if not inline_scripts and not handlers:
+                continue
+            if "'unsafe-inline'" not in script_src_for(page.name):
+                blocked.append(page.name)
+
+        self.assertEqual(
+            blocked,
+            [],
+            "These pages ship inline scripts or inline event handlers but their CSP "
+            f"script-src omits 'unsafe-inline', so that JavaScript is dead in production: {blocked}",
+        )
+
+    def test_homepage_reveal_animation_has_a_script_to_unhide_it(self) -> None:
+        """`.reveal` starts at opacity:0, so the observer that adds .visible must ship."""
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn(".reveal.visible", homepage)
+        self.assertIn("IntersectionObserver", homepage)
+        self.assertIn("classList.add('visible')", homepage)
 
 
 if __name__ == "__main__":

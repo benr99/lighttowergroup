@@ -257,6 +257,13 @@ def save_publication_decision(
 def render_run_summary(payload: dict[str, Any]) -> str:
     articles = payload.get("articles", [])
     decisions = payload.get("decision_counts", {})
+    target_met = payload.get("daily_target_met")
+    target_label = "not evaluated" if target_met is None else ("yes" if target_met else "no")
+    candidate_heading = (
+        "Preview candidates"
+        if payload.get("status") == "preview_complete"
+        else "Published candidates"
+    )
     lines = [
         "# Light Tower Insights edition",
         "",
@@ -265,7 +272,7 @@ def render_run_summary(payload: dict[str, Any]) -> str:
         f"- Distinct events: **{payload.get('event_count', 0)}**",
         f"- Articles: **{len(articles)}**",
         f"- Daily target: **{payload.get('daily_target', 0)}**",
-        f"- Daily target met: **{'yes' if payload.get('daily_target_met') else 'no'}**",
+        f"- Daily target met: **{target_label}**",
         f"- Research candidates: **{payload.get('research_candidate_count', 0)}**",
         f"- Deal-tape items: **{payload.get('deal_tape_count', 0)}**",
         f"- Archive repeats suppressed: **{payload.get('archive_repeat_count', 0)}**",
@@ -273,7 +280,7 @@ def render_run_summary(payload: dict[str, Any]) -> str:
     if decisions:
         lines.append(f"- Decisions: `{json.dumps(decisions, sort_keys=True)}`")
     if articles:
-        lines.extend(["", "## Published candidates", ""])
+        lines.extend(["", f"## {candidate_heading}", ""])
         for article in articles:
             lines.append(
                 f"- **{article.get('format', 'brief')}** — {article.get('title')} "

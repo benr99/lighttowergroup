@@ -161,7 +161,13 @@ NEWSAPI_KEY           = os.environ.get("NEWSAPI_KEY", "")
 LINKEDIN_ACCESS_TOKEN = os.environ.get("LINKEDIN_ACCESS_TOKEN", "")
 LINKEDIN_PERSON_URN   = os.environ.get("LINKEDIN_PERSON_URN", "")
 _LLM_URL              = "https://api.deepseek.com/v1/chat/completions"
-_LLM_MODEL            = "deepseek-chat"
+_LLM_MODEL            = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
+_LLM_PROVIDER         = {
+    "provider": "deepseek",
+    "model": _LLM_MODEL,
+    "url": _LLM_URL,
+    "fallback": False,
+}
 
 
 def redact_secret_text(value: object) -> str:
@@ -969,6 +975,7 @@ def _article_control_findings(
     *,
     dossier: dict | None = None,
     article_format: str | None = None,
+    require_narrative_ledger: bool = True,
 ) -> list[str]:
     """Return the independent publication checks a draft must clear."""
     findings = independent_quality_issues(
@@ -976,7 +983,8 @@ def _article_control_findings(
         require_sections=False,
         article_format=article_format,
     )
-    findings.extend(narrative_finance_issues(article.get("narrative_ledger")))
+    if require_narrative_ledger:
+        findings.extend(narrative_finance_issues(article.get("narrative_ledger")))
     findings.extend(title_quality_issues(article.get("title", ""), recent_titles or ()))
     if dossier and article_format:
         findings.extend(excellence_issues(article, dossier, article_format=article_format))
@@ -1392,6 +1400,9 @@ def update_manifest(article: dict):
         "franchise": article.get("franchise"),
         "mustReadScore": article.get("must_read_score"),
         "sourceCount": article.get("source_count", len(article.get("sources", []))),
+        "sourceName": article.get("source_name"),
+        "sourceUrl": article.get("source_url"),
+        "pipelineVersion": article.get("pipeline_version"),
         "eventId": article.get("event_id"),
     }
     assert_no_mojibake("manifest entry", entry)
@@ -1841,6 +1852,7 @@ def run_weekly_review(args) -> None:
 # \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 
 def main():
+    global DEEPSEEK_API_KEY, _LLM_URL, _LLM_MODEL, _LLM_PROVIDER
     parser = argparse.ArgumentParser(description="LTG Daily CRE News Agent")
     parser.add_argument("--dry-run", action="store_true",
                         help="Score and write the article but do not publish or post")
@@ -1880,25 +1892,9 @@ def main():
         return
     MAX_ARTICLES = max(1, min(args.articles, 30))
     DAILY_TARGET = max(0, min(args.daily_target, MAX_ARTICLES))
+    RESEARCH_CANDIDATE_CEILING = min(15, max(MAX_ARTICLES, DAILY_TARGET + 4))
     article_limit = None if args.no_limit and args.selection_mode == "bucketed-volume" else MAX_ARTICLES
     LOOKBACK_HOURS = max(1, args.lookback_hours)
-
-    if args.pipeline_v2:
-        print("\n  [PIPELINE V2] Running multi-sector pipeline...")
-        try:
-            from pipeline_v2 import run_pipeline
-            v2_results = run_pipeline(shadow=args.shadow, verbose=True)
-            run_data["pipeline_v2"] = {
-                "ingestion": v2_results.get("ingestion", {}),
-                "classification": v2_results.get("classification", {}),
-                "scoring": v2_results.get("scoring", {}),
-                "elapsed": v2_results.get("elapsed_seconds", 0),
-            }
-            print(f"  [PIPELINE V2] Complete. {v2_results.get('status', 'unknown')}")
-        except ImportError as e:
-            print(f"  [PIPELINE V2] Could not import pipeline_v2 module: {e}")
-        except Exception as e:
-            print(f"  [PIPELINE V2] Error: {e}")
 
     start    = datetime.now(timezone.utc)
     clear_checkpoints()
@@ -1919,23 +1915,29 @@ def main():
     # Health check: verify LLM provider before proceeding
     _llm_provider = None
     try:
-        from model_router import select_provider, primary_is_healthy
-        provider = select_provider(for_writing=False)
+        from model_router import select_provider
+        provider = select_provider(for_writing=True)
         print(f"  LLM provider: {provider['provider']} ({provider['model']})" + (" [FALLBACK]" if provider['fallback'] else ""))
-        if provider['fallback']:
-            run_data["provider_fallback"] = True
-            DEEPSEEK_API_KEY = provider['api_key']  # use fallback key
-            _llm_provider = dict(provider)  # save for passing to call_deepseek
+        _llm_provider = dict(provider)
+        DEEPSEEK_API_KEY = provider["api_key"]
+        run_data["provider"] = provider["provider"]
+        run_data["model"] = provider["model"]
+        run_data["provider_fallback"] = bool(provider["fallback"])
     except RuntimeError as e:
         print(f"  [FATAL] No LLM provider available: {e}")
         run_data["status"] = "provider_unavailable"
         write_log(run_data)
         return
-    except ImportError:
-        pass
-    global _LLM_URL, _LLM_MODEL
-    _LLM_URL = _llm_provider.get("url", "https://api.deepseek.com/v1/chat/completions") if _llm_provider else "https://api.deepseek.com/v1/chat/completions"
-    _LLM_MODEL = _llm_provider.get("model", "deepseek-chat") if _llm_provider else "deepseek-chat"
+    except ImportError as e:
+        print(f"  [FATAL] Model router unavailable: {e}")
+        run_data["status"] = "provider_router_unavailable"
+        write_log(run_data)
+        raise RuntimeError("Production model router is unavailable") from e
+    _LLM_URL = _llm_provider["url"]
+    _LLM_MODEL = _llm_provider["model"]
+    _LLM_PROVIDER = {
+        key: value for key, value in _llm_provider.items() if key != "api_key"
+    }
     known_insights = load_insight_records(SITE_ROOT)
     try:
         audience_signals = json.loads(
@@ -2011,7 +2013,8 @@ def main():
     elif args.selection_mode == "edition":
         print(
             f"  Edition target: {DAILY_TARGET} standalone piece(s); "
-            f"research ceiling: {MAX_ARTICLES}"
+            f"publication ceiling: {MAX_ARTICLES}; "
+            f"research fallback pool: {RESEARCH_CANDIDATE_CEILING}"
         )
     if args.shadow:
         print("  [SHADOW MODE] No articles will be generated or published")
@@ -2019,25 +2022,57 @@ def main():
 
     # \u2500 Phase 1: Gather \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("[1/8] Gathering stories...")
-    all_stories = fetch_rss_stories() + fetch_newsapi_stories(LOOKBACK_HOURS)
-    # Merge structured source candidates and assignment queue items
-    assignment_path = SITE_ROOT / ".editorial-state" / "assignment-queue.json"
-    structured_path = SITE_ROOT / ".editorial-state" / "structured-candidates.json"
-    for extra_path in [assignment_path, structured_path]:
+    v2_results = None
+    if args.pipeline_v2:
+        print("\n  [PIPELINE V2] Running production multi-sector selection...")
         try:
-            extra_data = json.loads(extra_path.read_text(encoding="utf-8"))
-            if isinstance(extra_data, list):
-                for item in extra_data:
-                    if isinstance(item, dict) and item.get("title"):
-                        all_stories.append(item)
-        except (OSError, json.JSONDecodeError):
-            pass
-    run_data["raw_count"] = len(all_stories)
+            from pipeline_v2 import run_pipeline
+
+            v2_results = run_pipeline(shadow=args.shadow, verbose=True)
+            if v2_results.get("status") != "complete":
+                raise RuntimeError(f"pipeline status: {v2_results.get('status', 'unknown')}")
+        except Exception as e:
+            run_data.update({
+                "status": "pipeline_v2_failed",
+                "pipeline_v2_error": redact_secret_text(e),
+            })
+            write_log(run_data)
+            raise RuntimeError(f"Pipeline v2 failed closed: {redact_secret_text(e)}") from e
+        run_data["pipeline_v2"] = {
+            "ingestion": v2_results.get("ingestion", {}),
+            "classification": v2_results.get("classification", {}),
+            "scoring": v2_results.get("scoring", {}),
+            "ranking": v2_results.get("ranking", {}),
+            "elapsed": v2_results.get("elapsed_seconds", 0),
+        }
+        all_stories = []
+        run_data["raw_count"] = int(v2_results.get("ingestion", {}).get("items_ingested", 0))
+        print("  [PIPELINE V2] Selection complete; legacy discovery is bypassed.")
+    else:
+        all_stories = fetch_rss_stories() + fetch_newsapi_stories(LOOKBACK_HOURS)
+        # Merge structured source candidates and assignment queue items
+        assignment_path = SITE_ROOT / ".editorial-state" / "assignment-queue.json"
+        structured_path = SITE_ROOT / ".editorial-state" / "structured-candidates.json"
+        for extra_path in [assignment_path, structured_path]:
+            try:
+                extra_data = json.loads(extra_path.read_text(encoding="utf-8"))
+                if isinstance(extra_data, list):
+                    for item in extra_data:
+                        if isinstance(item, dict) and item.get("title"):
+                            all_stories.append(item)
+            except (OSError, json.JSONDecodeError):
+                pass
+        run_data["raw_count"] = len(all_stories)
     run_data["lookback_hours"] = LOOKBACK_HOURS
 
     # \u2500 Phase 2: Triage \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("\n[2/8] Triaging...")
-    if args.selection_mode == "daily-top-news":
+    if args.pipeline_v2:
+        candidates = [
+            item for item in v2_results.get("_items", [])
+            if getattr(item, "tier", "rejected") != "rejected"
+        ]
+    elif args.selection_mode == "daily-top-news":
         candidates = triage_daily_top_news(all_stories, LOOKBACK_HOURS)
     elif args.selection_mode in {"bucketed-volume", "edition"}:
         candidates = run_with_timeout("triage", triage_bucketed_volume, all_stories, LOOKBACK_HOURS)
@@ -2065,7 +2100,62 @@ def main():
     editorial_selection = None
     editorial_items = []
     selection_text_by_url: dict[str, str] = {}
-    if args.selection_mode == "daily-top-news":
+    if args.pipeline_v2:
+        from v2_editorial import canonical_item_to_editorial_event, select_daily_items
+
+        selected_items = select_daily_items(
+            v2_results.get("_selected", {}),
+            limit=RESEARCH_CANDIDATE_CEILING,
+            archive_records=known_insights,
+        )
+        editorial_items = [canonical_item_to_editorial_event(item) for item in selected_items]
+        ranked = [item["candidate"] for item in editorial_items]
+        editorial_selection = {
+            "event_count": len(candidates),
+            "selected_stories": editorial_items,
+            "deal_tape": [],
+            "duplicate_groups": [],
+            "archive_repeats": [],
+            "pipeline_version": "v2",
+        }
+        print(
+            f"  V2 daily slate: {len(editorial_items)} selected from "
+            f"{len(candidates)} publishable candidate(s)"
+        )
+        for index, item in enumerate(editorial_items, 1):
+            candidate = item["candidate"]
+            print(
+                f"    {index}. {candidate['title'][:80]} "
+                f"[{candidate.get('source_lane')}] score {item['must_read_score']}"
+            )
+        audit_payload = {
+            "run_at": start.isoformat(),
+            "date": start.date().isoformat(),
+            "selection_mode": args.selection_mode,
+            "pipeline_version": "v2",
+            "dry_run": args.dry_run,
+            "shadow": args.shadow,
+            "raw_count": run_data["raw_count"],
+            "candidate_count": len(candidates),
+            "selected_stories": editorial_items,
+            "deal_tape": [],
+        }
+        audit_path = save_run_record(audit_payload, run_date=start.date())
+        run_data.update({
+            "event_count": len(candidates),
+            "research_candidate_count": len(editorial_items),
+            "daily_target": DAILY_TARGET,
+            "deal_tape_count": 0,
+        })
+        if not editorial_items:
+            finalize_no_story_edition(
+                start=start,
+                run_data=run_data,
+                args=args,
+                reason="No v2 candidate had an article-level source URL and cleared the publication ranking.",
+            )
+            return
+    elif args.selection_mode == "daily-top-news":
         normalized_candidates = normalize_stories(candidates)
         print(f"  Normalized {len(normalized_candidates)} candidate(s) for daily top-news scoring")
         editorial_selection = daily_top_news_selection(
@@ -2186,8 +2276,13 @@ def main():
             "research_candidates": len(editorial_items),
             "deal_tape_count": len(editorial_selection.get("deal_tape", [])),
             "editorial_audit": str(audit_path.relative_to(SITE_ROOT)),
+            "articles": [],
+            "daily_target_met": None,
         })
         write_log(run_data)
+        summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
+        summary_path.parent.mkdir(parents=True, exist_ok=True)
+        summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
         print("  Curated-edition shadow run complete. No articles were generated or published.")
         return
 
@@ -2223,7 +2318,14 @@ def main():
                 archive_records=known_insights,
             )
             # Extract source facts for claim verification
-            all_source_text = " ".join(fetched_text_by_url.values())
+            all_source_text = " ".join(
+                list(fetched_text_by_url.values())
+                + [
+                    str(source.get("summary", ""))
+                    for source in dossier.get("sources", [])
+                    if isinstance(source, dict)
+                ]
+            )
             if all_source_text.strip():
                 from fact_extractor import extract_facts
                 dossier["source_facts"] = extract_facts(all_source_text)
@@ -2232,6 +2334,7 @@ def main():
                 dossier,
                 api_key=DEEPSEEK_API_KEY,
                 editorial_priors=editorial_priors,
+                provider=_llm_provider,
             )
             editorial_item["research_audit"] = dossier_audit_payload(dossier)
             editorial_item["editorial_room"] = room
@@ -2314,21 +2417,41 @@ def main():
     # its own articles, same as known_insights does for duplicate checks.
     recent_titles_window = [str(entry.get("title", "")) for entry in known_insights[:6]]
     for i, candidate in enumerate(enriched_candidates, 1):
+        if len(articles) >= MAX_ARTICLES:
+            print(f"  Publication ceiling reached with {len(articles)} approved article(s).")
+            break
         print(f"  Generating article {i}/{len(enriched_candidates)}: {candidate['title'][:60]}")
         try:
             # generate_article() already tries twice, internally, to repair
             # any issue this same gate would otherwise flag here (including
             # a mechanically repetitive headline) — this call is the final
             # check, not the first line of defense.
-            article = generate_article(candidate, recent_titles_window)
+            if args.pipeline_v2:
+                from v2_editorial import generate_v2_article
+
+                article = generate_v2_article(
+                    candidate,
+                    api_key=DEEPSEEK_API_KEY,
+                    provider=_llm_provider,
+                )
+            else:
+                article = generate_article(candidate, recent_titles_window)
         except Exception as e:
-            print(f"  [WARN] Article {i} generation failed: {redact_secret_text(e)} — skipping")
+            failure_reason = redact_secret_text(e)
+            print(f"  [WARN] Article {i} generation failed: {failure_reason} — skipping")
+            held_assignments.append(
+                f"{candidate['title']}: generation held — {failure_reason[:700]}"
+            )
             continue
 
         try:
             assert_no_mojibake(f"article {i}", article)
         except ValueError as e:
-            print(f"  [WARN] Article {i} failed content QA: {redact_secret_text(e)} -- skipping")
+            failure_reason = redact_secret_text(e)
+            print(f"  [WARN] Article {i} failed content QA: {failure_reason} -- skipping")
+            held_assignments.append(
+                f"{candidate['title']}: content QA held — {failure_reason[:700]}"
+            )
             continue
 
         # Only checks that generate_article()'s own repair loop couldn't
@@ -2340,11 +2463,18 @@ def main():
             recent_titles_window,
             dossier=candidate.get("research_dossier"),
             article_format=candidate.get("editorial_format"),
+            # The seven-stage v2 financial/editorial/fact reviews replace the
+            # legacy self-authored narrative ledger. All other independent
+            # output checks remain active.
+            require_narrative_ledger=not args.pipeline_v2,
         )
         duplicate_errors = near_duplicate_matches(article.get("title", ""), known_insights)
         if independent_errors or duplicate_errors:
             reasons = independent_errors + duplicate_errors
             print(f"  [WARN] Article {i} held after repair attempts: {'; '.join(reasons[:2])}")
+            held_assignments.append(
+                f"{candidate['title']}: final controls held — {'; '.join(reasons[:3])[:700]}"
+            )
             continue
 
         # Ledgers remain in the durable run audit, never in public-page markup.
@@ -2398,6 +2528,7 @@ def main():
                 length_mode=native_length,
                 api_key=DEEPSEEK_API_KEY,
                 site_url=SITE_URL,
+                provider=_llm_provider,
             )
         except Exception as e:
             print(f"  [WARN] Essay Desk failed for article {i}: {redact_secret_text(e)} — using fallback package")
@@ -2459,9 +2590,22 @@ def main():
     generated_paths = []
     if not args.dry_run:
         INSIGHTS_DIR.mkdir(exist_ok=True)
-        _manifest_backup = INSIGHTS_JSON.read_text(encoding="utf-8") if INSIGHTS_JSON.exists() else None
-        _feed_backup = FEED_XML.read_text(encoding="utf-8") if FEED_XML.exists() else None
-        _sitemap_backup = SITEMAP_XML.read_text(encoding="utf-8") if SITEMAP_XML.exists() else None
+        publication_state_paths = [
+            INSIGHTS_JSON,
+            FEED_XML,
+            SITEMAP_XML,
+            SITE_ROOT / "latest-edition.json",
+            SITE_ROOT / "editions" / f"{start.date().isoformat()}.json",
+            SITE_ROOT / ".editorial-state" / "event-memory.json",
+            SITE_ROOT / ".editorial-state" / "publication-decision.json",
+            SITE_ROOT / ".editorial-state" / "generated-files.json",
+            SITE_ROOT / ".editorial-state" / "run-summary.md",
+            SITE_ROOT / ".editorial-state" / "daily" / f"{start.date().isoformat()}.json",
+        ]
+        publication_backups = {
+            path: path.read_bytes() if path.exists() else None
+            for path in publication_state_paths
+        }
 
         for article in articles:
             out = INSIGHTS_DIR / f"{article['slug']}.html"
@@ -2563,12 +2707,13 @@ def main():
             print("  [ROLLBACK] Publication validation failed. Restoring previous state...")
             for error in validation_errors:
                 print(f"    - {error}")
-            if _manifest_backup is not None:
-                INSIGHTS_JSON.write_text(_manifest_backup, encoding="utf-8")
-            if _feed_backup is not None:
-                FEED_XML.write_text(_feed_backup, encoding="utf-8")
-            if _sitemap_backup is not None:
-                SITEMAP_XML.write_text(_sitemap_backup, encoding="utf-8")
+            for path, previous_content in publication_backups.items():
+                if previous_content is None:
+                    if path.exists():
+                        path.unlink()
+                else:
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(previous_content)
             for article in articles:
                 new_file = INSIGHTS_DIR / f"{article['slug']}.html"
                 if new_file.exists():
@@ -2645,7 +2790,7 @@ def main():
     # \u2500 Log \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     elapsed = round((datetime.now(timezone.utc) - start).total_seconds())
     run_data.update({
-        "status":           "success",
+        "status":           "preview_complete" if args.dry_run else "success",
         "elapsed_seconds":  elapsed,
         "articles_count":   len(articles),
         "daily_target_met": len(articles) >= DAILY_TARGET if args.selection_mode == "edition" else None,
@@ -2658,9 +2803,9 @@ def main():
         pass
     clear_checkpoints()
     write_log(run_data)
-    if args.selection_mode == "edition" and not args.dry_run:
+    if args.selection_mode == "edition":
         audit_payload.update({
-            "status": "success",
+            "status": run_data["status"],
             "elapsed_seconds": elapsed,
             "articles": run_data["articles"],
             "held": held_assignments,
@@ -2673,9 +2818,11 @@ def main():
         })
         run_path = save_run_record(audit_payload, run_date=start.date())
         summary_path = SITE_ROOT / ".editorial-state" / "run-summary.md"
+        summary_path.parent.mkdir(parents=True, exist_ok=True)
         summary_path.write_text(render_run_summary(run_data), encoding="utf-8")
-        generated_paths.extend([run_path, summary_path])
-        write_generated_files(generated_paths)
+        if not args.dry_run:
+            generated_paths.extend([run_path, summary_path])
+            write_generated_files(generated_paths)
 
     print(f"\n{'='*62}")
     print(f"  DONE in {elapsed}s — published {len(articles)} article(s)")

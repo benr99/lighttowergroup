@@ -25,7 +25,7 @@ from editorial_voice import NARRATIVE_FINANCE_ADDENDUM, VOICE_SYSTEM_ADDENDUM, e
 logger = logging.getLogger(__name__)
 
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-MODEL_NAME = "deepseek-chat"
+MODEL_NAME = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro")
 
 CAROUSEL_SYSTEM_PROMPT = """\
 You are the editorial carousel writer for Light Tower Group, a commercial real

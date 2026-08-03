@@ -228,6 +228,33 @@ def _identify_central_question(item: CanonicalItem) -> str:
     sector = item.primary_sector or ""
     text = f"{item.headline} {item.raw_summary}".lower()
 
+    if sector == "commercial_real_estate":
+        if re.search(r"\b(?:loan|lender|financ\w*|refinanc\w*|mortgage|debt|bank\w*)\b", text):
+            return (
+                "What does the disclosed financing structure reveal about capital availability, "
+                "and which terms remain unknown?"
+            )
+        if re.search(r"\b(?:development|proposal|project|units?|zoning|permit|approval|construction)\b", text):
+            return (
+                "Which disclosed approvals, funding commitments, and project constraints determine "
+                "whether this development can move forward?"
+            )
+        if re.search(r"\b(?:acquir\w*|buyer|bought|sale|sold|seller|purchas\w*)\b", text):
+            return (
+                "What does the disclosed price and transaction structure reveal about the buyer's "
+                "strategy, and what remains unknown?"
+            )
+    if sector == "private_equity" and re.search(r"\b(?:fund|funding|close|raise|capital)\b", text):
+        return (
+            "What does the disclosed capital raise enable, and which deployment and return "
+            "assumptions remain undisclosed?"
+        )
+    if sector == "energy" and re.search(r"\b(?:fund|financ\w*|capital|invest\w*|loan|credit)\b", text):
+        return (
+            "What can the disclosed funding actually unlock, and which execution or return "
+            "conditions remain unknown?"
+        )
+
     questions = {
         "commercial_real_estate": [
             "Is the buyer acquiring a durable asset at a temporary discount, or overpaying for scarce supply?",
@@ -255,7 +282,10 @@ def _identify_central_question(item: CanonicalItem) -> str:
         ],
     }
 
-    sector_questions = questions.get(sector, questions["commercial_real_estate"])
+    sector_questions = questions.get(
+        sector,
+        ["What changed, why does it matter to capital allocators, and what remains unknown?"],
+    )
     return sector_questions[0]
 
 
@@ -366,8 +396,6 @@ def _extract_key_numbers(item: CanonicalItem) -> list[dict[str, Any]]:
     if item.unit_count:
         uc = item.unit_count if isinstance(item.unit_count, int) else int(_safe_float(item.unit_count))
         numbers.append({"number": str(uc), "meaning": "Unit count", "interpretation": "Scale relative to market supply"})
-    if item.composite_score:
-        numbers.append({"number": str(item.composite_score), "meaning": "Editorial significance score", "interpretation": "Composite of financial magnitude, party significance, and market impact"})
     return numbers[:5]
 
 
@@ -391,7 +419,12 @@ def _infer_risk(name: str, role: str, item: CanonicalItem) -> str:
     return f"{role} risk: To be determined from source analysis"
 
 
-def enhance_brief_with_llm(brief: dict[str, Any], item: CanonicalItem, api_key: str = "") -> dict[str, Any]:
+def enhance_brief_with_llm(
+    brief: dict[str, Any],
+    item: CanonicalItem,
+    api_key: str = "",
+    provider: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Use LLM to improve thesis, counterargument, and central question."""
     if not api_key:
         return brief  # No LLM available, keep deterministic output
@@ -412,13 +445,24 @@ PARTIES: {_safe_truncate_json(brief.get('parties_and_incentives', []), max_chars
 ECONOMICS: {_safe_truncate_json(brief.get('transaction_economics', {}), max_chars=800)}
 
 Produce three things:
-1. CENTRAL FINANCIAL QUESTION: The ONE question this article must answer.
+1. CENTRAL FINANCIAL QUESTION: The ONE question this article can answer from
+   the supplied summary and economics. Do not require an IRR, return target,
+   debt cost, valuation, or financing term that the source did not disclose.
 2. THESIS: A specific, bounded, defensible claim (1-3 sentences).
 3. COUNTERARGUMENT: The strongest alternative interpretation.
 
+Do not introduce new numbers, private motives, or undisclosed assumptions.
+
 Return JSON: {{central_question: string, thesis: string, counterargument: string}}
 """
-        raw = call_deepseek(prompt, api_key, max_tokens=800, temperature=0.3, json_mode=True)
+        raw = call_deepseek(
+            prompt,
+            api_key,
+            max_tokens=800,
+            temperature=0.3,
+            json_mode=True,
+            provider=provider,
+        )
         data = _extract_json(raw)
 
         if data.get("central_question"):
@@ -480,4 +524,3 @@ def _extract_json(raw: str) -> dict[str, Any]:
         except json.JSONDecodeError:
             pass
     raise ValueError(f"Could not parse JSON from response: {str(raw)[:200]}")
-

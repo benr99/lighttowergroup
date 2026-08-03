@@ -133,6 +133,9 @@ def run_pipeline(
         print(f"\n[4/4] Ranking and selecting per sector...")
     selected, ranking_report = rank_and_select(scored)
     results["ranking"] = ranking_report
+    # Private in-process payloads used by the production orchestrator. These
+    # are deliberately excluded from persisted JSON reports by main().
+    results["_selected"] = selected
 
     if verbose:
         for sector in sorted(sector_counts.keys()):
@@ -278,8 +281,12 @@ def main() -> int:
 
     if args.save_results:
         output_path = state_dir / "pipeline-v2-results.json"
+        persisted_results = {
+            key: value for key, value in results.items()
+            if not key.startswith("_")
+        }
         output_path.write_text(
-            json.dumps(results, indent=2, ensure_ascii=False, default=str),
+            json.dumps(persisted_results, indent=2, ensure_ascii=False, default=str),
             encoding="utf-8",
         )
         print(f"Results saved to {output_path.relative_to(SITE_ROOT)}")
