@@ -14,9 +14,16 @@
       "full_text_available": true,
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Commercial Observer",
@@ -33,8 +40,15 @@
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 17,
+        "newest_age_hours": 0.1,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow New York",
@@ -50,8 +64,15 @@
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 1.0,
+        "note": "keep"
+      }
     },
     {
       "name": "Real Estate Weekly",
@@ -67,8 +88,15 @@
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 12.0,
+        "note": "keep"
+      }
     },
     {
       "name": "Crain's NY Business",
@@ -83,9 +111,16 @@
       "full_text_available": true,
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "New York YIMBY",
@@ -101,12 +136,19 @@
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 5,
+        "newest_age_hours": 7.6,
+        "note": "keep"
+      }
     },
     {
-      "name": "Observer Real Estate",
-      "url": "https://observer.com/real-estate/feed/",
+      "name": "Observer (general)",
+      "url": "https://observer.com/feed/",
       "sectors": [
         "commercial_real_estate"
       ],
@@ -118,8 +160,16 @@
       "geographic_scope": "nyc",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "previous_url": "https://observer.com/real-estate/feed/",
+      "previous_name": "Observer Real Estate",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 8,
+        "newest_age_hours": 3.3,
+        "note": "repaired: fresh items inside the 36h window"
+      }
     },
     {
       "name": "The City NYC",
@@ -136,8 +186,15 @@
       "geographic_scope": "nyc",
       "source_type": "news_wire",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 4.6,
+        "note": "keep"
+      }
     },
     {
       "name": "6sqft",
@@ -153,8 +210,15 @@
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 2.9,
+        "note": "keep"
+      }
     },
     {
       "name": "Gothamist",
@@ -171,8 +235,15 @@
       "geographic_scope": "nyc",
       "source_type": "news_wire",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 12,
+        "newest_age_hours": 1.6,
+        "note": "keep"
+      }
     },
     {
       "name": "CityLand NYC",
@@ -189,8 +260,15 @@
       "geographic_scope": "nyc",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 2.8,
+        "note": "keep"
+      }
     },
     {
       "name": "NY Daily News Real Estate",
@@ -205,9 +283,16 @@
       "full_text_available": true,
       "geographic_scope": "nyc",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "CoStar News",
@@ -222,9 +307,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; RSS may only provide headlines"
+      "active": false,
+      "notes": "Paywall; RSS may only provide headlines",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "GlobeSt",
@@ -240,9 +332,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Connect CRE",
@@ -258,9 +357,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "verify feed still published"
+      }
     },
     {
       "name": "Propmodo",
@@ -277,8 +383,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 4,
+        "newest_age_hours": 4.9,
+        "note": "keep"
+      }
     },
     {
       "name": "NREI",
@@ -294,8 +407,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "temporarily_failing",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 530,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "recheck later; replace if persistent"
+      }
     },
     {
       "name": "Multi-Housing News",
@@ -311,8 +431,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 6,
+        "newest_age_hours": 5.2,
+        "note": "keep"
+      }
     },
     {
       "name": "CP Executive",
@@ -327,9 +454,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "The Real Deal National",
@@ -345,9 +479,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "10 items — CRE PE crossover"
+      "active": false,
+      "notes": "10 items — CRE PE crossover",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Bisnow National",
@@ -363,8 +504,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 2.3,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow Los Angeles",
@@ -380,8 +528,15 @@
       "geographic_scope": "los_angeles",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 1.5,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow Chicago",
@@ -397,8 +552,15 @@
       "geographic_scope": "chicago",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 2.1,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow Washington DC",
@@ -414,8 +576,15 @@
       "geographic_scope": "washington_dc",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 1.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow Miami",
@@ -430,13 +599,17 @@
       "full_text_available": true,
       "geographic_scope": "miami",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "retired_duplicate",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "note": "R5 duplicate of Bisnow Dallas (same feed https://www.bisnow.com/rss/all)"
+      }
     },
     {
-      "name": "Bisnow Dallas",
-      "url": "https://www.bisnow.com/dallas-fort-worth/rss",
+      "name": "Bisnow (all markets)",
+      "url": "https://www.bisnow.com/rss/all",
       "sectors": [
         "commercial_real_estate"
       ],
@@ -448,8 +621,16 @@
       "geographic_scope": "dallas",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "previous_url": "https://www.bisnow.com/dallas-fort-worth/rss",
+      "previous_name": "Bisnow Dallas",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 8,
+        "newest_age_hours": 0.9,
+        "note": "repaired: fresh items inside the 36h window"
+      }
     },
     {
       "name": "Bisnow Boston",
@@ -465,8 +646,15 @@
       "geographic_scope": "boston",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 93.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow Atlanta",
@@ -482,8 +670,15 @@
       "geographic_scope": "atlanta",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 93.8,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow Philadelphia",
@@ -499,8 +694,15 @@
       "geographic_scope": "philadelphia",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 72.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Bisnow Seattle",
@@ -515,9 +717,13 @@
       "full_text_available": true,
       "geographic_scope": "seattle",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "retired_duplicate",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "note": "R5 duplicate of Bisnow Dallas (same feed https://www.bisnow.com/rss/all)"
+      }
     },
     {
       "name": "Bisnow Denver",
@@ -533,8 +739,15 @@
       "geographic_scope": "denver",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 70.3,
+        "note": "keep"
+      }
     },
     {
       "name": "HousingWire",
@@ -551,8 +764,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 0.4,
+        "note": "keep"
+      }
     },
     {
       "name": "Construction Dive",
@@ -568,8 +788,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 6,
+        "newest_age_hours": 0.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Urban Land Institute",
@@ -584,13 +811,20 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Affordable Housing Finance",
-      "url": "https://www.housingfinance.com/feed/",
+      "url": "https://www.housingfinance.com/rss.xml",
       "sectors": [
         "commercial_real_estate"
       ],
@@ -602,8 +836,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "previous_url": "https://www.housingfinance.com/feed/",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 123.4,
+        "note": "repaired: low-frequency but alive (newest 5.1 days)"
+      }
     },
     {
       "name": "Building Design+Construction",
@@ -618,9 +859,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Shopping Center Business",
@@ -636,8 +884,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 4,
+        "newest_age_hours": 5.3,
+        "note": "keep"
+      }
     },
     {
       "name": "RE Business Online",
@@ -653,8 +908,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 20,
+        "newest_age_hours": 4.3,
+        "note": "keep"
+      }
     },
     {
       "name": "National Law Review Real Estate",
@@ -669,9 +931,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "PERE News",
@@ -687,9 +956,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; RSS may provide headlines only"
+      "active": false,
+      "notes": "Paywall; RSS may provide headlines only",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "Mortgage Professional America",
@@ -706,8 +982,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 6,
+        "newest_age_hours": 0.7,
+        "note": "keep"
+      }
     },
     {
       "name": "MBA Newslink",
@@ -723,9 +1006,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "verify feed still published"
+      }
     },
     {
       "name": "Bloomberg Real Estate",
@@ -742,8 +1032,15 @@
       "geographic_scope": "national",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only from RSS"
+      "notes": "Paywall; headlines only from RSS",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 20,
+        "newest_age_hours": 0.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Reuters Business",
@@ -759,9 +1056,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "news_wire",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; syndicated headlines"
+      "active": false,
+      "notes": "Paywall; syndicated headlines",
+      "health": {
+        "state": "unreachable",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "investigate or replace - source unreachable"
+      }
     },
     {
       "name": "CNBC Real Estate",
@@ -777,8 +1081,15 @@
       "geographic_scope": "national",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 54.1,
+        "note": "keep"
+      }
     },
     {
       "name": "Wall Street Journal",
@@ -794,9 +1105,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Hard paywall; headlines only from RSS"
+      "active": false,
+      "notes": "Hard paywall; headlines only from RSS",
+      "health": {
+        "state": "retired",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 13272.2,
+        "note": "remove or replace"
+      }
     },
     {
       "name": "MarketWatch Real Estate",
@@ -811,13 +1129,20 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "American Banker",
-      "url": "https://www.americanbanker.com/arcio/rss/",
+      "url": "https://www.americanbanker.com/feed?rss=true",
       "sectors": [
         "banking_credit"
       ],
@@ -829,8 +1154,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "Broken feed; tried /feed, /arcio/rss/"
+      "notes": "Broken feed; tried /feed, /arcio/rss/",
+      "previous_url": "https://www.americanbanker.com/arcio/rss/",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 10,
+        "newest_age_hours": 0.3,
+        "note": "repaired: fresh items inside the 36h window"
+      }
     },
     {
       "name": "Mortgage News Daily",
@@ -846,9 +1178,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "Trepp Blog",
@@ -865,8 +1204,15 @@
       "geographic_scope": "national",
       "source_type": "research_analytics",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 2.6,
+        "note": "keep"
+      }
     },
     {
       "name": "HUD Exchange",
@@ -882,9 +1228,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "ATTOM Data",
@@ -900,8 +1253,15 @@
       "geographic_scope": "national",
       "source_type": "research_analytics",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 3.0,
+        "note": "keep"
+      }
     },
     {
       "name": "NAREIT",
@@ -917,9 +1277,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "retired",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 71235.3,
+        "note": "remove or replace"
+      }
     },
     {
       "name": "NMHC",
@@ -934,9 +1301,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "Institutional Real Estate",
@@ -953,8 +1327,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 4.2,
+        "note": "keep"
+      }
     },
     {
       "name": "RealPage",
@@ -970,12 +1351,19 @@
       "geographic_scope": "national",
       "source_type": "research_analytics",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "stale",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 498.3,
+        "note": "low frequency - keep but do not rely on"
+      }
     },
     {
-      "name": "Yardi Matrix",
-      "url": "https://www.yardi.com/blog/rss/",
+      "name": "Yardi Blog",
+      "url": "https://www.yardi.com/feed/",
       "sectors": [
         "commercial_real_estate"
       ],
@@ -987,8 +1375,16 @@
       "geographic_scope": "national",
       "source_type": "research_analytics",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "previous_url": "https://www.yardi.com/blog/rss/",
+      "previous_name": "Yardi Matrix",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 95.3,
+        "note": "repaired: low-frequency but alive (newest 4.0 days)"
+      }
     },
     {
       "name": "National Association of Realtors",
@@ -1003,9 +1399,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Fannie Mae Perspectives",
@@ -1022,9 +1425,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "GSE; agency housing outlook"
+      "active": false,
+      "notes": "GSE; agency housing outlook",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Freddie Mac Perspectives",
@@ -1041,9 +1451,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "GSE; agency housing outlook"
+      "active": false,
+      "notes": "GSE; agency housing outlook",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "CREFC",
@@ -1059,9 +1476,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "NY Post Real Estate",
@@ -1077,8 +1501,15 @@
       "geographic_scope": "nyc",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 8,
+        "newest_age_hours": 1.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Curbed NY",
@@ -1094,8 +1525,15 @@
       "geographic_scope": "nyc",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 8.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Bloomberg Businessweek",
@@ -1112,8 +1550,15 @@
       "geographic_scope": "national",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 2.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Axios Cities",
@@ -1129,8 +1574,15 @@
       "geographic_scope": "national",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 19,
+        "newest_age_hours": 0.1,
+        "note": "keep"
+      }
     },
     {
       "name": "NY Times Real Estate",
@@ -1146,8 +1598,15 @@
       "geographic_scope": "national",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only from RSS"
+      "notes": "Paywall; headlines only from RSS",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 6.0,
+        "note": "keep"
+      }
     },
     {
       "name": "San Francisco Business Times",
@@ -1162,9 +1621,16 @@
       "full_text_available": false,
       "geographic_scope": "san_francisco",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "LA Business Journal",
@@ -1179,9 +1645,16 @@
       "full_text_available": false,
       "geographic_scope": "los_angeles",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Chicago Tribune Business",
@@ -1196,9 +1669,16 @@
       "full_text_available": false,
       "geographic_scope": "chicago",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Dallas Business Journal",
@@ -1213,9 +1693,16 @@
       "full_text_available": false,
       "geographic_scope": "dallas",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Washington Post Business",
@@ -1231,8 +1718,15 @@
       "geographic_scope": "washington_dc",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 0.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Boston Globe Business",
@@ -1247,9 +1741,16 @@
       "full_text_available": false,
       "geographic_scope": "boston",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "unreachable",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "investigate or replace - source unreachable"
+      }
     },
     {
       "name": "Houston Chronicle Business",
@@ -1264,9 +1765,16 @@
       "full_text_available": false,
       "geographic_scope": "houston",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Denver Post Business",
@@ -1281,9 +1789,16 @@
       "full_text_available": false,
       "geographic_scope": "denver",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Seattle Times Business",
@@ -1298,9 +1813,16 @@
       "full_text_available": false,
       "geographic_scope": "seattle",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "unreachable",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "investigate or replace - source unreachable"
+      }
     },
     {
       "name": "Miami Herald Business",
@@ -1316,8 +1838,15 @@
       "geographic_scope": "miami",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "temporarily_failing",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "investigate or replace - source unreachable"
+      }
     },
     {
       "name": "Philadelphia Inquirer Business",
@@ -1332,9 +1861,16 @@
       "full_text_available": false,
       "geographic_scope": "philadelphia",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Atlanta Journal-Constitution",
@@ -1349,9 +1885,16 @@
       "full_text_available": false,
       "geographic_scope": "atlanta",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Phoenix Business Journal",
@@ -1366,9 +1909,16 @@
       "full_text_available": false,
       "geographic_scope": "phoenix",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": true,
-      "notes": "Paywall; headlines only"
+      "active": false,
+      "notes": "Paywall; headlines only",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Colliers Insights",
@@ -1383,9 +1933,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Marcus & Millichap",
@@ -1400,9 +1957,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Newmark Research",
@@ -1418,8 +1982,15 @@
       "geographic_scope": "national",
       "source_type": "research_analytics",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 6.6,
+        "note": "keep"
+      }
     },
     {
       "name": "VTS Blog",
@@ -1434,9 +2005,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "NCREIF",
@@ -1451,13 +2029,20 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Green Street Advisors",
-      "url": "https://www.greenstreetadvisors.com/rss.xml",
+      "url": "https://www.greenstreet.com/feed/",
       "sectors": [
         "commercial_real_estate"
       ],
@@ -1469,8 +2054,15 @@
       "geographic_scope": "national",
       "source_type": "research_analytics",
       "active": true,
-      "verified": true,
-      "notes": "Proprietary research; likely paywall"
+      "notes": "Proprietary research; likely paywall",
+      "previous_url": "https://www.greenstreetadvisors.com/rss.xml",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 118.8,
+        "note": "repaired: low-frequency but alive (newest 5.0 days)"
+      }
     },
     {
       "name": "Urban Institute",
@@ -1485,9 +2077,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "IREI News",
@@ -1504,8 +2103,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 4.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Lincoln Institute",
@@ -1520,9 +2126,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": true,
-      "notes": ""
+      "active": false,
+      "notes": "",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Federal Reserve Press Releases",
@@ -1539,8 +2152,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 77.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Federal Reserve Monetary Policy",
@@ -1556,8 +2176,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 121.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Federal Reserve Banking Regulation",
@@ -1572,9 +2199,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "active": false,
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Federal Reserve Enforcement",
@@ -1590,8 +2224,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 100.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Federal Reserve Speeches",
@@ -1607,8 +2248,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "stale",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 428.6,
+        "note": "low frequency - keep but do not rely on"
+      }
     },
     {
       "name": "Federal Reserve Testimony",
@@ -1624,8 +2272,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "stale",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 487.1,
+        "note": "low frequency - keep but do not rely on"
+      }
     },
     {
       "name": "Federal Reserve Credit and Liquidity",
@@ -1641,9 +2296,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "active": false,
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Federal Reserve H.8 Bank Data",
@@ -1659,8 +2321,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal; weekly release"
+      "notes": "Primary federal source; lane=federal; weekly release",
+      "health": {
+        "state": "stale",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 436.6,
+        "note": "low frequency - keep but do not rely on"
+      }
     },
     {
       "name": "OCC News Releases",
@@ -1676,8 +2345,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 2.6,
+        "note": "keep"
+      }
     },
     {
       "name": "OCC Bulletins",
@@ -1693,8 +2369,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 2.6,
+        "note": "keep"
+      }
     },
     {
       "name": "SEC Press Releases",
@@ -1711,8 +2394,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 101.7,
+        "note": "keep"
+      }
     },
     {
       "name": "SEC Speeches and Statements",
@@ -1729,8 +2419,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "stale",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 293.4,
+        "note": "low frequency - keep but do not rely on"
+      }
     },
     {
       "name": "SEC Testimony",
@@ -1746,9 +2443,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "active": false,
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "retired",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 4132.6,
+        "note": "remove or replace"
+      }
     },
     {
       "name": "SEC Litigation Releases",
@@ -1764,8 +2468,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 0.3,
+        "note": "keep"
+      }
     },
     {
       "name": "FDIC Press Releases",
@@ -1781,8 +2492,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 71.9,
+        "note": "keep"
+      }
     },
     {
       "name": "Federal Housing Finance Agency (FHFA)",
@@ -1798,13 +2516,20 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "GSE regulator; lane=federal"
+      "active": false,
+      "notes": "GSE regulator; lane=federal",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
-      "name": "HUD Press Releases",
-      "url": "https://www.hud.gov/press/rss/press_releases.xml",
+      "name": "HUD (general)",
+      "url": "https://www.hud.gov/rss.xml",
       "sectors": [
         "commercial_real_estate",
         "fed_macro"
@@ -1817,8 +2542,16 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "previous_url": "https://www.hud.gov/press/rss/press_releases.xml",
+      "previous_name": "HUD Press Releases",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 143.6,
+        "note": "repaired: low-frequency but alive (newest 6.0 days)"
+      }
     },
     {
       "name": "CFPB Newsroom",
@@ -1833,13 +2566,20 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "Primary federal source; lane=federal"
+      "active": false,
+      "notes": "Primary federal source; lane=federal",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "verify feed still published"
+      }
     },
     {
-      "name": "Treasury Department Press Releases",
-      "url": "https://home.treasury.gov/news/press-releases/feed",
+      "name": "US Treasury (general)",
+      "url": "https://home.treasury.gov/rss.xml",
       "sectors": [
         "fed_macro",
         "banking_credit"
@@ -1852,8 +2592,16 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": false,
-      "notes": "Primary federal source; lane=federal"
+      "notes": "Primary federal source; lane=federal",
+      "previous_url": "https://home.treasury.gov/news/press-releases/feed",
+      "previous_name": "Treasury Department Press Releases",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 289.8,
+        "note": "repaired: low-frequency but alive (newest 12.1 days)"
+      }
     },
     {
       "name": "PE Hub",
@@ -1869,8 +2617,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 8,
+        "newest_age_hours": 3.1,
+        "note": "keep"
+      }
     },
     {
       "name": "Buyouts Insider",
@@ -1886,8 +2641,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 0.0,
+        "note": "keep"
+      }
     },
     {
       "name": "PitchBook News",
@@ -1902,9 +2664,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — PE/VC data; paywall"
+      "active": false,
+      "notes": "NEW — PE/VC data; paywall",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Private Equity International",
@@ -1920,8 +2689,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 4,
+        "newest_age_hours": 7.3,
+        "note": "keep"
+      }
     },
     {
       "name": "WSJ Pro Private Equity",
@@ -1936,9 +2712,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Premium subscription required; WSJ Pro"
+      "active": false,
+      "notes": "NEW — Premium subscription required; WSJ Pro",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Secondaries Investor",
@@ -1954,8 +2737,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 5.8,
+        "note": "keep"
+      }
     },
     {
       "name": "Infrastructure Investor",
@@ -1971,9 +2761,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Infrastructure fund coverage; paywall"
+      "active": false,
+      "notes": "NEW — Infrastructure fund coverage; paywall",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "Venture Capital Journal",
@@ -1989,8 +2786,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 74.3,
+        "note": "keep"
+      }
     },
     {
       "name": "Mergers & Acquisitions",
@@ -2005,9 +2809,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — M&A coverage; paywall"
+      "active": false,
+      "notes": "NEW — M&A coverage; paywall",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "The Deal",
@@ -2022,9 +2833,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "NEW — Deal pipeline coverage; paywall"
+      "active": false,
+      "notes": "NEW — Deal pipeline coverage; paywall",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Axios Pro Rata",
@@ -2039,13 +2857,20 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "mainstream_business",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Dan Primack's daily PE/VC newsletter feed"
+      "active": false,
+      "notes": "NEW — Dan Primack's daily PE/VC newsletter feed",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
-      "name": "Term Sheet (Fortune)",
-      "url": "https://fortune.com/tag/term-sheet/feed/",
+      "name": "Fortune (general)",
+      "url": "https://fortune.com/feed/fortune-feeds/?id=3230629",
       "sectors": [
         "private_equity"
       ],
@@ -2057,8 +2882,16 @@
       "geographic_scope": "national",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Fortune's daily PE/VC newsletter; paywall"
+      "notes": "NEW — Fortune's daily PE/VC newsletter; paywall",
+      "previous_url": "https://fortune.com/tag/term-sheet/feed/",
+      "previous_name": "Term Sheet (Fortune)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 9,
+        "newest_age_hours": 1.0,
+        "note": "repaired: fresh items inside the 36h window"
+      }
     },
     {
       "name": "Private Debt Investor",
@@ -2075,8 +2908,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 8.0,
+        "note": "keep"
+      }
     },
     {
       "name": "New Private Markets",
@@ -2092,8 +2932,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 5.5,
+        "note": "keep"
+      }
     },
     {
       "name": "Institutional Investor",
@@ -2109,9 +2956,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — LP/allocator coverage; paywall"
+      "active": false,
+      "notes": "NEW — LP/allocator coverage; paywall",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "AFIRE",
@@ -2128,12 +2982,19 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Cross-border CRE institutional investing"
+      "notes": "NEW — Cross-border CRE institutional investing",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 1.6,
+        "note": "keep"
+      }
     },
     {
       "name": "IPE Real Assets",
-      "url": "https://realassets.ipe.com/feed/",
+      "url": "https://realassets.ipe.com/7994.rss",
       "sectors": [
         "commercial_real_estate",
         "private_equity",
@@ -2147,8 +3008,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "NEW — Institutional real assets allocation"
+      "notes": "NEW — Institutional real assets allocation",
+      "previous_url": "https://realassets.ipe.com/feed/",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 81.2,
+        "note": "repaired: low-frequency but alive (newest 3.4 days)"
+      }
     },
     {
       "name": "Pensions & Investments",
@@ -2164,9 +3032,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "NEW — Pension/endowment allocation"
+      "active": false,
+      "notes": "NEW — Pension/endowment allocation",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "NYT DealBook",
@@ -2183,8 +3058,15 @@
       "geographic_scope": "national",
       "source_type": "mainstream_business",
       "active": true,
-      "verified": true,
-      "notes": "8 items"
+      "notes": "8 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 4.5,
+        "note": "keep"
+      }
     },
     {
       "name": "TechCrunch",
@@ -2200,8 +3082,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "20 items — VC/startup coverage"
+      "notes": "20 items — VC/startup coverage",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 18,
+        "newest_age_hours": 0.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Crunchbase News",
@@ -2217,8 +3106,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "2 items"
+      "notes": "2 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 6.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Family Capital",
@@ -2234,8 +3130,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "3 items — family office coverage"
+      "notes": "3 items — family office coverage",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 5.8,
+        "note": "keep"
+      }
     },
     {
       "name": "Top1000Funds",
@@ -2251,8 +3154,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "2 items — institutional allocator coverage"
+      "notes": "2 items — institutional allocator coverage",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 111.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Private Funds CFO",
@@ -2268,8 +3178,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "2 items"
+      "notes": "2 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 0.1,
+        "note": "keep"
+      }
     },
     {
       "name": "Data Center Dynamics",
@@ -2285,8 +3202,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — /rss/ endpoint returns 20 items"
+      "notes": "Verified working — /rss/ endpoint returns 20 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 20,
+        "newest_age_hours": 3.5,
+        "note": "keep"
+      }
     },
     {
       "name": "Data Center Frontier",
@@ -2301,9 +3225,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Editorial with hyperscale/edge focus"
+      "active": false,
+      "notes": "NEW — Editorial with hyperscale/edge focus",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "DatacenterHawk",
@@ -2318,13 +3249,20 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Data center market analysis"
+      "active": false,
+      "notes": "NEW — Data center market analysis",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Data Center Knowledge",
-      "url": "https://www.datacenterknowledge.com/feed/",
+      "url": "https://www.datacenterknowledge.com/rss.xml",
       "sectors": [
         "data_centers"
       ],
@@ -2336,8 +3274,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Longstanding data center trade publication"
+      "notes": "NEW — Longstanding data center trade publication",
+      "previous_url": "https://www.datacenterknowledge.com/feed/",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 2,
+        "newest_age_hours": 1.8,
+        "note": "repaired: fresh items inside the 36h window"
+      }
     },
     {
       "name": "JLL Data Centers",
@@ -2353,9 +3298,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — JLL research includes data center market reports"
+      "active": false,
+      "notes": "NEW — JLL research includes data center market reports",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "CBRE Data Centers",
@@ -2371,9 +3323,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — CBRE research includes data center market reports"
+      "active": false,
+      "notes": "NEW — CBRE research includes data center market reports",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Bisnow Data Centers",
@@ -2388,9 +3347,13 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Bisnow digital infrastructure vertical"
+      "active": false,
+      "notes": "NEW — Bisnow digital infrastructure vertical",
+      "health": {
+        "state": "retired_duplicate",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "note": "R5 duplicate of Bisnow Dallas (same feed https://www.bisnow.com/rss/all)"
+      }
     },
     {
       "name": "Utility Dive",
@@ -2406,8 +3369,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Working feed — 7 items"
+      "notes": "Working feed — 7 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 6,
+        "newest_age_hours": 3.5,
+        "note": "keep"
+      }
     },
     {
       "name": "Power Magazine",
@@ -2423,8 +3393,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Working feed — 5 items"
+      "notes": "Working feed — 5 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 1.5,
+        "note": "keep"
+      }
     },
     {
       "name": "Renewable Energy World",
@@ -2440,8 +3417,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 4.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Greentech Media",
@@ -2456,9 +3440,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "NEW — Clean energy transition analysis"
+      "active": false,
+      "notes": "NEW — Clean energy transition analysis",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "PV Magazine",
@@ -2474,12 +3465,19 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 6.9,
+        "note": "keep"
+      }
     },
     {
       "name": "Windpower Monthly",
-      "url": "https://www.windpowermonthly.com/feed/",
+      "url": "https://www.windpowermonthly.com/rss/news",
       "sectors": [
         "energy"
       ],
@@ -2491,8 +3489,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "NEW — Wind energy sector; paywall"
+      "notes": "NEW — Wind energy sector; paywall",
+      "previous_url": "https://www.windpowermonthly.com/feed/",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 3,
+        "newest_age_hours": 6.3,
+        "note": "repaired: fresh items inside the 36h window"
+      }
     },
     {
       "name": "Energy Storage News",
@@ -2508,8 +3513,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 5,
+        "newest_age_hours": 6.5,
+        "note": "keep"
+      }
     },
     {
       "name": "Canary Media",
@@ -2525,8 +3537,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 2,
+        "newest_age_hours": 12.1,
+        "note": "keep"
+      }
     },
     {
       "name": "Natural Gas Intelligence",
@@ -2542,8 +3561,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 0.4,
+        "note": "keep"
+      }
     },
     {
       "name": "RTO Insider",
@@ -2559,8 +3585,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 10,
+        "newest_age_hours": 2.0,
+        "note": "keep"
+      }
     },
     {
       "name": "EIA Today in Energy",
@@ -2577,8 +3610,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Energy Information Administration daily analysis"
+      "notes": "NEW — Energy Information Administration daily analysis",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 5.6,
+        "note": "keep"
+      }
     },
     {
       "name": "FERC News",
@@ -2593,9 +3633,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Federal Energy Regulatory Commission"
+      "active": false,
+      "notes": "NEW — Federal Energy Regulatory Commission",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "S&P Global Commodity Insights",
@@ -2610,9 +3657,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Energy commodities pricing and analysis; paywall"
+      "active": false,
+      "notes": "NEW — Energy commodities pricing and analysis; paywall",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "ABA Banking Journal",
@@ -2628,8 +3682,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 3.8,
+        "note": "keep"
+      }
     },
     {
       "name": "Bank Director",
@@ -2644,9 +3705,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Bank governance and strategy; paywall"
+      "active": false,
+      "notes": "NEW — Bank governance and strategy; paywall",
+      "health": {
+        "state": "retired",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 28315.3,
+        "note": "remove or replace"
+      }
     },
     {
       "name": "Banking Dive",
@@ -2662,8 +3730,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Working feed — 8 items"
+      "notes": "Working feed — 8 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 4,
+        "newest_age_hours": 3.2,
+        "note": "keep"
+      }
     },
     {
       "name": "S&P Global Market Intelligence",
@@ -2678,9 +3753,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Bank and financial institution data; paywall"
+      "active": false,
+      "notes": "NEW — Bank and financial institution data; paywall",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "The Financial Brand",
@@ -2695,9 +3777,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Banking strategy and innovation"
+      "active": false,
+      "notes": "NEW — Banking strategy and innovation",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "Risk.net",
@@ -2712,9 +3801,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Credit risk and regulatory capital; paywall"
+      "active": false,
+      "notes": "NEW — Credit risk and regulatory capital; paywall",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "New York Fed",
@@ -2730,9 +3826,16 @@
       "full_text_available": true,
       "geographic_scope": "federal",
       "source_type": "government",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — NY Fed research and Liberty Street Economics"
+      "active": false,
+      "notes": "NEW — NY Fed research and Liberty Street Economics",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "NYC Gov Press Releases",
@@ -2747,9 +3850,16 @@
       "full_text_available": true,
       "geographic_scope": "nyc",
       "source_type": "government",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — UNVERIFIED RSS; may not exist at this URL"
+      "active": false,
+      "notes": "NEW — UNVERIFIED RSS; may not exist at this URL",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 490,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "investigate"
+      }
     },
     {
       "name": "NYC Dept of City Planning",
@@ -2764,9 +3874,16 @@
       "full_text_available": true,
       "geographic_scope": "nyc",
       "source_type": "government",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — UNVERIFIED RSS; zoning and land use updates"
+      "active": false,
+      "notes": "NEW — UNVERIFIED RSS; zoning and land use updates",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "NYC Dept of Buildings",
@@ -2781,9 +3898,16 @@
       "full_text_available": true,
       "geographic_scope": "nyc",
       "source_type": "government",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — UNVERIFIED; building permits, code, enforcement"
+      "active": false,
+      "notes": "NEW — UNVERIFIED; building permits, code, enforcement",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 490,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "investigate"
+      }
     },
     {
       "name": "NYC City Council",
@@ -2799,8 +3923,15 @@
       "geographic_scope": "nyc",
       "source_type": "government",
       "active": true,
-      "verified": false,
-      "notes": "NEW — UNVERIFIED; City Council legislation and hearings"
+      "notes": "NEW — UNVERIFIED; City Council legislation and hearings",
+      "health": {
+        "state": "stale",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 287.8,
+        "note": "low frequency - keep but do not rely on"
+      }
     },
     {
       "name": "NY State Governor Press",
@@ -2815,9 +3946,16 @@
       "full_text_available": true,
       "geographic_scope": "nyc",
       "source_type": "government",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — UNVERIFIED; NY State executive actions"
+      "active": false,
+      "notes": "NEW — UNVERIFIED; NY State executive actions",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "REIT.com",
@@ -2833,8 +3971,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — REIT industry association"
+      "notes": "NEW — REIT industry association",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 6.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Moody's CRE",
@@ -2850,9 +3995,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — CRE analytics and credit ratings; paywall"
+      "active": false,
+      "notes": "NEW — CRE analytics and credit ratings; paywall",
+      "health": {
+        "state": "retired",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 9386.5,
+        "note": "remove or replace"
+      }
     },
     {
       "name": "Real Capital Analytics",
@@ -2867,9 +4019,16 @@
       "full_text_available": false,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Transaction data and capital trends; paywall"
+      "active": false,
+      "notes": "NEW — Transaction data and capital trends; paywall",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "CRE Daily",
@@ -2884,9 +4043,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": false,
-      "notes": "NEW — Daily CRE newsletter and deal summaries"
+      "active": false,
+      "notes": "NEW — Daily CRE newsletter and deal summaries",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "verify feed still published"
+      }
     },
     {
       "name": "The DI Wire",
@@ -2902,8 +4068,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": false,
-      "notes": "NEW — Alternative investment news, CRE focus"
+      "notes": "NEW — Alternative investment news, CRE focus",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 1.2,
+        "note": "keep"
+      }
     },
     {
       "name": "NewsAPI Discovery",
@@ -2919,8 +4092,15 @@
       "geographic_scope": "national",
       "source_type": "search_api",
       "active": true,
-      "verified": true,
-      "notes": ""
+      "notes": "",
+      "health": {
+        "state": "not_a_feed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "n/a - discovery query, not an RSS source"
+      }
     },
     {
       "name": "Alt Assets",
@@ -2936,8 +4116,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 5 items"
+      "notes": "Verified working — 5 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 5,
+        "newest_age_hours": 6.2,
+        "note": "keep"
+      }
     },
     {
       "name": "Chief Investment Officer",
@@ -2952,9 +4139,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Funds Europe",
@@ -2969,9 +4163,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "unreachable",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "investigate or replace - source unreachable"
+      }
     },
     {
       "name": "Data Center POST",
@@ -2987,8 +4188,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 2 items"
+      "notes": "Verified working — 2 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 6.6,
+        "note": "keep"
+      }
     },
     {
       "name": "CleanTechnica",
@@ -3004,8 +4212,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 25 items"
+      "notes": "Verified working — 25 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 13,
+        "newest_age_hours": 3.9,
+        "note": "keep"
+      }
     },
     {
       "name": "Solar Power World",
@@ -3021,8 +4236,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 9 items"
+      "notes": "Verified working — 9 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 3,
+        "newest_age_hours": 0.8,
+        "note": "keep"
+      }
     },
     {
       "name": "Hydrogen Fuel News",
@@ -3038,8 +4260,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 6 items"
+      "notes": "Verified working — 6 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 4,
+        "newest_age_hours": 19.4,
+        "note": "keep"
+      }
     },
     {
       "name": "Offshore Wind",
@@ -3055,12 +4284,19 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 4 items"
+      "notes": "Verified working — 4 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 4,
+        "newest_age_hours": 7.9,
+        "note": "keep"
+      }
     },
     {
       "name": "World Nuclear News",
-      "url": "https://www.world-nuclear-news.org/feed/",
+      "url": "https://www.world-nuclear-news.org/rss/",
       "sectors": [
         "energy"
       ],
@@ -3072,8 +4308,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "previous_url": "https://www.world-nuclear-news.org/feed/",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 5,
+        "newest_age_hours": 4.1,
+        "note": "repaired: fresh items inside the 36h window"
+      }
     },
     {
       "name": "Smart Electric Power Alliance",
@@ -3089,12 +4332,19 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "health": {
+        "state": "stale",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 271.3,
+        "note": "low frequency - keep but do not rely on"
+      }
     },
     {
       "name": "American Public Power",
-      "url": "https://www.publicpower.org/feed/",
+      "url": "https://www.publicpower.org/rss.xml",
       "sectors": [
         "energy"
       ],
@@ -3106,8 +4356,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "previous_url": "https://www.publicpower.org/feed/",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 117.2,
+        "note": "repaired: low-frequency but alive (newest 4.9 days)"
+      }
     },
     {
       "name": "Utility Week",
@@ -3122,9 +4379,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "misconfigured",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "wrong URL - find the real feed or drop"
+      }
     },
     {
       "name": "Bank Automation News",
@@ -3139,9 +4403,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working — 8 items"
+      "active": false,
+      "notes": "Verified working — 8 items",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "Payments Dive",
@@ -3157,8 +4428,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 4 items"
+      "notes": "Verified working — 4 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 4,
+        "newest_age_hours": 4.5,
+        "note": "keep"
+      }
     },
     {
       "name": "CFO Dive",
@@ -3174,8 +4452,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 6 items"
+      "notes": "Verified working — 6 items",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 0,
+        "newest_age_hours": 71.5,
+        "note": "keep"
+      }
     },
     {
       "name": "CBO",
@@ -3191,8 +4476,15 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 12 items"
+      "notes": "Verified working — 12 items",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 1.6,
+        "note": "keep"
+      }
     },
     {
       "name": "IMF",
@@ -3207,9 +4499,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "blocked",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 403,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "respect block; find licensed/primary alternative"
+      }
     },
     {
       "name": "World Bank",
@@ -3224,13 +4523,20 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
-      "name": "GAO Reports",
-      "url": "https://www.gao.gov/feeds/reports.xml",
+      "name": "GAO WatchBlog",
+      "url": "https://www.gao.gov/blog/feed",
       "sectors": [
         "fed_macro"
       ],
@@ -3242,8 +4548,16 @@
       "geographic_scope": "federal",
       "source_type": "government",
       "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "notes": "Verified working",
+      "previous_url": "https://www.gao.gov/feeds/reports.xml",
+      "previous_name": "GAO Reports",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 128.4,
+        "note": "repaired: low-frequency but alive (newest 5.4 days)"
+      }
     },
     {
       "name": "NLC",
@@ -3259,8 +4573,15 @@
       "geographic_scope": "national",
       "source_type": "industry_publication",
       "active": true,
-      "verified": true,
-      "notes": "Verified working — 1 item"
+      "notes": "Verified working — 1 item",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 200,
+        "items_in_window": 1,
+        "newest_age_hours": 1.6,
+        "note": "keep"
+      }
     },
     {
       "name": "Route Fifty",
@@ -3275,9 +4596,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "Governing",
@@ -3292,9 +4620,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "NACo",
@@ -3309,9 +4644,16 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "government",
-      "active": true,
-      "verified": true,
-      "notes": "Verified working"
+      "active": false,
+      "notes": "Verified working",
+      "health": {
+        "state": "moved_or_removed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": 404,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "replace feed URL"
+      }
     },
     {
       "name": "NewsAPI — Private Equity Discovery",
@@ -3327,7 +4669,6 @@
       "geographic_scope": "national",
       "source_type": "search_api",
       "active": true,
-      "verified": true,
       "notes": "Queries: private equity acquisition, buyout deal, PE fund close, sponsor exit, continuation vehicle, private credit deal, infrastructure fund, sovereign wealth fund investment",
       "newsapi_queries": [
         "private equity acquisition deal",
@@ -3340,7 +4681,15 @@
         "pension fund commitment private equity",
         "family office investment acquisition",
         "sponsor exit sale IPO"
-      ]
+      ],
+      "health": {
+        "state": "not_a_feed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "n/a - discovery query, not an RSS source"
+      }
     },
     {
       "name": "NewsAPI — Data Centers Discovery",
@@ -3356,7 +4705,6 @@
       "geographic_scope": "national",
       "source_type": "search_api",
       "active": true,
-      "verified": true,
       "notes": "Queries: data center development, hyperscale, power procurement, fiber, cloud infrastructure, edge computing, colocation",
       "newsapi_queries": [
         "data center development construction",
@@ -3369,7 +4717,15 @@
         "data center REIT investment acquisition",
         "data center cooling liquid immersion",
         "subsea cable landing station data center"
-      ]
+      ],
+      "health": {
+        "state": "not_a_feed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "n/a - discovery query, not an RSS source"
+      }
     },
     {
       "name": "NewsAPI — Energy Discovery",
@@ -3385,7 +4741,6 @@
       "geographic_scope": "national",
       "source_type": "search_api",
       "active": true,
-      "verified": true,
       "notes": "Queries: solar farm, wind project, battery storage, grid, nuclear, LNG, hydrogen, offshore wind, PPA, interconnection queue",
       "newsapi_queries": [
         "solar farm utility-scale development",
@@ -3398,7 +4753,15 @@
         "power purchase agreement PPA renewable",
         "wind turbine onshore project development",
         "FERC order transmission planning generator interconnection"
-      ]
+      ],
+      "health": {
+        "state": "not_a_feed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "n/a - discovery query, not an RSS source"
+      }
     },
     {
       "name": "NewsAPI — Banking/Credit Discovery",
@@ -3414,7 +4777,6 @@
       "geographic_scope": "national",
       "source_type": "search_api",
       "active": true,
-      "verified": true,
       "notes": "Queries: bank merger, FDIC, OCC, capital requirements, loan sale, CMBS, CRA, fintech charter, credit union, Basel III endgame",
       "newsapi_queries": [
         "bank merger acquisition FDIC approval",
@@ -3427,7 +4789,15 @@
         "credit union merger field of membership",
         "non-performing loan sale debt portfolio",
         "Federal Reserve stress test CCAR bank capital"
-      ]
+      ],
+      "health": {
+        "state": "not_a_feed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "n/a - discovery query, not an RSS source"
+      }
     },
     {
       "name": "NewsAPI — Fed/Macro Discovery",
@@ -3443,7 +4813,6 @@
       "geographic_scope": "national",
       "source_type": "search_api",
       "active": true,
-      "verified": true,
       "notes": "Queries: federal reserve, FOMC, inflation, GDP, employment, treasury yields, federal budget, interest rate, economic outlook, M2 money supply",
       "newsapi_queries": [
         "Federal Reserve FOMC interest rate decision minutes",
@@ -3456,7 +4825,15 @@
         "M2 money supply monetary base velocity",
         "ISM manufacturing services PMI purchasing managers",
         "housing starts building permits existing home sales"
-      ]
+      ],
+      "health": {
+        "state": "not_a_feed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "n/a - discovery query, not an RSS source"
+      }
     },
     {
       "name": "NewsAPI — Local Government Discovery",
@@ -3472,7 +4849,6 @@
       "geographic_scope": "national",
       "source_type": "search_api",
       "active": true,
-      "verified": true,
       "notes": "Queries: zoning change, city council development, planning board approval, tax abatement, TIF, municipal bond, RFP, building permit, land use, annexation",
       "newsapi_queries": [
         "zoning change variance city council public hearing",
@@ -3485,7 +4861,237 @@
         "building permit construction application filed",
         "land use comprehensive plan master plan amendment",
         "annexation incorporation city boundary expansion"
-      ]
+      ],
+      "health": {
+        "state": "not_a_feed",
+        "checked_at": "2026-08-03T20:28:43.944335+00:00",
+        "http_status": null,
+        "items_in_window": 0,
+        "newest_age_hours": null,
+        "note": "n/a - discovery query, not an RSS source"
+      }
+    },
+    {
+      "name": "Federal Reserve Press (Banking Structure)",
+      "url": "https://www.federalreserve.gov/feeds/press_bcreg.xml",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "bank_regulation",
+        "capital_rules"
+      ],
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 78.6,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "Federal Reserve FEDS Notes",
+      "url": "https://www.federalreserve.gov/feeds/feds_notes.xml",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government_research",
+      "active": true,
+      "discovers_signals": [
+        "research_finding",
+        "analytical_note"
+      ],
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 74.1,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "Federal Reserve Working Papers",
+      "url": "https://www.federalreserve.gov/feeds/working_papers.xml",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government_research",
+      "active": true,
+      "discovers_signals": [
+        "research_finding"
+      ],
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 73.7,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "NY Fed Liberty Street Economics",
+      "url": "https://libertystreeteconomics.newyorkfed.org/feed/",
+      "sectors": [
+        "fed_macro",
+        "banking_credit"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government_research",
+      "active": true,
+      "discovers_signals": [
+        "research_finding",
+        "liquidity_analysis"
+      ],
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 81.6,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "BLS News Releases",
+      "url": "https://www.bls.gov/feed/bls_latest.rss",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "cpi_release",
+        "employment_release",
+        "data_release"
+      ],
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 80.1,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "BEA News Releases",
+      "url": "https://apps.bea.gov/rss/rss.xml",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "gdp_release",
+        "data_release"
+      ],
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 104.1,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "Census Economic Indicators",
+      "url": "https://www.census.gov/economic-indicators/indicator.xml",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "data_release",
+        "construction_spending"
+      ],
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 1,
+        "newest_age_hours": 6.6,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "CFPB Newsroom",
+      "url": "https://www.consumerfinance.gov/about-us/newsroom/feed/",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "enforcement_action",
+        "consumer_credit"
+      ],
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-03T20:40:41.341970+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 184.6,
+        "note": "primary source added in Phase 2A"
+      },
+      "notes": "Primary/government source. Low frequency by nature; authority over volume."
     }
-  ]
+  ],
+  "health_probe": {
+    "last_probed_at": "2026-08-03T20:28:43.944335+00:00",
+    "tool": "scripts/source_health_probe.py",
+    "note": "The `verified` boolean was removed; `health.state` is measured, not asserted."
+  }
 }
