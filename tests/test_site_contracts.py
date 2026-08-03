@@ -4,6 +4,7 @@ import json
 import re
 import unittest
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from pathlib import Path
 
 
@@ -255,6 +256,48 @@ class SiteContractTests(unittest.TestCase):
             "These pages ship inline scripts or inline event handlers but their CSP "
             f"script-src omits 'unsafe-inline', so that JavaScript is dead in production: {blocked}",
         )
+
+    def test_every_published_article_is_listed_on_the_insights_page(self) -> None:
+        """sitemap.xml + feed.xml mean published; insights.json is what readers browse.
+
+        Thirteen articles reached the sitemap and the RSS feed but never entered
+        insights.json, so search engines and feed readers could find them while
+        the on-site listing could not. Run:
+            python scripts/content_maintenance.py reconcile-insights --apply
+        """
+        records = json.loads((ROOT / "insights.json").read_text(encoding="utf-8"))
+        listed = {str(record.get("slug", "")) for record in records}
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        feed = (ROOT / "feed.xml").read_text(encoding="utf-8")
+
+        unlisted = []
+        for page in sorted((ROOT / "insights").glob("*.html")):
+            url = f"https://lighttowergroup.co/insights/{page.stem}.html"
+            if page.stem not in listed and url in sitemap and url in feed:
+                unlisted.append(page.stem)
+
+        self.assertEqual(
+            unlisted,
+            [],
+            "These articles are in sitemap.xml and feed.xml but missing from "
+            f"insights.json, so they never appear on the Insights page: {unlisted}",
+        )
+
+    def test_insights_manifest_stays_in_descending_date_order(self) -> None:
+        """The listing renders in manifest order, so newest must stay first."""
+        records = json.loads((ROOT / "insights.json").read_text(encoding="utf-8"))
+
+        def parsed(value: str):
+            for fmt in ("%Y-%m-%d", "%B %d, %Y"):
+                try:
+                    return datetime.strptime(value, fmt)
+                except ValueError:
+                    continue
+            return datetime.min
+
+        dates = [parsed(str(record.get("date", ""))) for record in records]
+        out_of_order = [i for i in range(len(dates) - 1) if dates[i] < dates[i + 1]]
+        self.assertEqual(out_of_order, [], f"manifest not newest-first at indexes {out_of_order[:5]}")
 
     def test_homepage_reveal_animation_has_a_script_to_unhide_it(self) -> None:
         """`.reveal` starts at opacity:0, so the observer that adds .visible must ship."""
