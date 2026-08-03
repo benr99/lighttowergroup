@@ -31,6 +31,18 @@ jobs:
         run: |
           git config user.name "LTG Health Monitor"
           git config user.email "health@lighttowergroup.co"
-          git add HEALTH.md data/weekly-reports/ data/scoring-evaluations/
-          git diff --cached --quiet || git commit -m "Weekly health report and retrospective"
-          git push
+          # Only HEALTH.md is tracked. data/weekly-reports/ and
+          # data/scoring-evaluations/ are gitignored, so naming them here aborted
+          # the whole step with "pathspec did not match any files" (exit 128) and
+          # the report was never committed.
+          if [ ! -f HEALTH.md ]; then
+            echo "health_report.py produced no HEALTH.md; nothing to commit."
+            exit 0
+          fi
+          git add -- HEALTH.md
+          if git diff --cached --quiet; then
+            echo "HEALTH.md is unchanged; nothing to commit."
+          else
+            git commit -m "Weekly health report"
+            git push
+          fi
