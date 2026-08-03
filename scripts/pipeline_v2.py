@@ -32,8 +32,88 @@ from scoring_engine import score_batch, get_scoring_stats
 from ranking import rank_and_select
 
 
+SCORING_DIMENSIONS = (
+    "financial_magnitude",
+    "party_significance",
+    "market_impact",
+    "strategic_relevance",
+    "policy_impact",
+    "novelty",
+    "source_quality",
+    "timeliness",
+    "editorial_potential",
+    "cross_sector_impact",
+)
+
+
 def _now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def write_candidate_audit(
+    scored: list,
+    selected: dict[str, list] | None = None,
+    output_path: Path | None = None,
+) -> Path:
+    """Persist every scored candidate with all ten raw dimensions.
+
+    The run report keeps only the handful of stories that reach generation, which
+    makes ranking behaviour impossible to audit after the fact and hides
+    dimensions that have collapsed to a constant. This writes the full pool,
+    newest run overwriting the previous day's file, into `.editorial-state/` so
+    the existing workflow artifact upload retains it.
+    """
+    selected_ids = set()
+    for items in (selected or {}).values():
+        for item in items:
+            selected_ids.add(item.item_id or item.generate_id())
+
+    rows = []
+    for item in scored:
+        item_id = item.item_id or item.generate_id()
+        rows.append(
+            {
+                "id": item_id,
+                "headline": item.headline,
+                "source_name": item.source_name,
+                "source_tier": item.source_tier,
+                "url": item.source_url,
+                "primary_sector": item.primary_sector,
+                "secondary_sectors": list(item.secondary_sectors or []),
+                "subsector": item.subsector,
+                "event_type": item.event_type,
+                "classification_method": item.classification_method,
+                "classification_confidence": item.classification_confidence,
+                "scores": {
+                    dim: getattr(item, f"{dim}_score", None)
+                    for dim in SCORING_DIMENSIONS
+                },
+                "composite": item.composite_score,
+                "scoring_profile": item.scoring_profile,
+                "tier": item.tier,
+                "selected_for_sector_slate": item_id in selected_ids,
+                "summary_words": len((item.raw_summary or "").split()),
+            }
+        )
+
+    rows.sort(key=lambda row: row["composite"], reverse=True)
+
+    payload = {
+        "schema_version": 1,
+        "run_at": _now_iso(),
+        "pipeline_version": "v2",
+        "dimensions": list(SCORING_DIMENSIONS),
+        "candidate_count": len(rows),
+        "candidates": rows,
+    }
+
+    path = output_path or (SITE_ROOT / ".editorial-state" / "candidate-audit.json")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    print(f"  Candidate audit: {len(rows)} candidates -> {path.name}")
+    return path
 
 
 def run_pipeline(
@@ -148,6 +228,17 @@ def run_pipeline(
                 print(f"  [{item.tier}] {item.composite_score:.1f} | {item.headline[:80]}")
                 if item.source_name:
                     print(f"       Source: {item.source_name} | Method: {item.classification_method}")
+
+    # ── Candidate-level audit trail ──
+    # Without this the run artifact retains only the selected slate, so there is
+    # no way to ask why a story ranked where it did, or to detect a scoring
+    # dimension that has gone constant. See docs/mandate/18-ranker-redesign-phase1.md.
+    try:
+        audit_path = write_candidate_audit(scored, selected)
+        results["candidate_audit_path"] = str(audit_path.relative_to(SITE_ROOT))
+    except Exception as exc:  # never let observability break a run
+        results["candidate_audit_error"] = str(exc)
+        print(f"  [warn] candidate audit not written: {exc}")
 
     # ── Results ──
     elapsed = round((datetime.now(timezone.utc) - start).total_seconds())
