@@ -36,6 +36,7 @@ insights/.backup/
 .editorial-state/checkpoints/
 # Per-run ranking diagnostic; retained via the workflow artifact, not the repo.
 .editorial-state/candidate-audit.json
+.editorial-state/source-probe.json
 data/client-digests/
 data/weekly-reports/
 data/scoring-evaluations/
