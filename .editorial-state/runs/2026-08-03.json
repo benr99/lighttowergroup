@@ -1,12 +1,12 @@
 {
-  "run_at": "2026-08-03T13:20:04.315989+00:00",
+  "run_at": "2026-08-03T13:51:23.835937+00:00",
   "date": "2026-08-03",
   "selection_mode": "edition",
   "pipeline_version": "v2",
   "dry_run": false,
   "shadow": false,
-  "raw_count": 213,
-  "candidate_count": 184,
+  "raw_count": 240,
+  "candidate_count": 209,
   "selected_stories": [
     {
       "event_id": "9d1ad6e8cc6a8cbc",
@@ -38,7 +38,7 @@
           "canonical_url": "https://commercialobserver.com/2026/08/cmbs-distress-2026-cred-iq-2/",
           "headline": "Overall CMBS Distress Hits a 2026 High",
           "publication_date": "2026-08-03T12:00:37+00:00",
-          "discovery_date": "2026-08-03T13:20:05.808936+00:00",
+          "discovery_date": "2026-08-03T13:51:25.333173+00:00",
           "author": "",
           "raw_summary": "For commercial real estate and commercial mortgage-backed securities investors, brokers and lenders trying to separate signal from noise in a choppy market, granularity is everything. CRED iQ&#8216;s July 2026 reporting period data looks to provide exactly that with a loan-level view of distress across the $600 billion-plus CMBS universe, broken out by servicing status, deal [&#8230;]",
           "raw_text": "",
@@ -100,8 +100,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:05.808952+00:00",
-          "updated_at": "2026-08-03T13:22:25.904327+00:00"
+          "created_at": "2026-08-03T13:51:25.333179+00:00",
+          "updated_at": "2026-08-03T13:51:39.659517+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -133,7 +133,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:22:26+00:00",
+        "built_at": "2026-08-03T13:51:39+00:00",
         "event_id": "9d1ad6e8cc6a8cbc",
         "title": "Overall CMBS Distress Hits a 2026 High",
         "independent_source_count": 1,
@@ -313,26 +313,31 @@
         "quote_count": 0
       },
       "editorial_room": {
-        "decision": "write",
+        "decision": "kill",
         "final_format": "brief",
-        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
-        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
-        "favored_thesis": "",
-        "alternate_angles": [],
+        "angle": "CMBS distress allegedly hits a 2026 high, implying worsening refinancing conditions, but the dossier lacks the concrete distress rate or change.",
+        "why_now": "July 2026 data release, but no urgency due to prior comparable coverage in May and June 2026.",
+        "favored_thesis": "None; insufficient facts to form a testable thesis.",
+        "alternate_angles": [
+          "Granular loan-level data enables targeted investment strategies.",
+          "Distress rise signal may be muted by other liquidity factors."
+        ],
         "skeptic_objections": [
-          "Do not claim a market-wide shift from one transaction.",
-          "Do not infer unreported motives or private negotiations."
+          "The event provides no concrete distress figure, only a dataset description.",
+          "Prior Light Tower pieces already covered rising CMBS distress, so this adds little novelty.",
+          "A single-source dossier with no primary data fails the daily_depth requirement of three concrete reported facts.",
+          "Without a specific institutional decision or constraint, the piece lacks CRE consequence."
         ],
         "reporting_gaps": [
-          "A second independent source has not corroborated the event.",
-          "No primary document is present in the dossier.",
-          "No attributable direct quotation was captured.",
-          "Editorial-room model was unavailable: RuntimeError."
+          "No independent second source.",
+          "No primary document from CRED iQ.",
+          "No attributable direct quotation.",
+          "Missing the actual distress rate or change and any comparison to prior periods."
         ],
-        "human_stakes": "",
-        "concrete_detail": "CRED iQ‘s July 2026 reporting period data looks to provide exactly that with a loan-level view of distress across the $600 billion-plus CMBS universe, broken out by servicing status, deal type, property type, and metro area.",
-        "kill_reason": "",
-        "generation_mode": "deterministic-editorial-plan"
+        "human_stakes": "Unclear; possible exposure for CMBS investors, special servicers, or borrowers facing maturity walls, but not evidenced.",
+        "concrete_detail": "The dataset is broken out by servicing status, deal type, property type, and metro area.",
+        "kill_reason": "Insufficient reported facts to support a brief; single-source dossier lacks concrete data, making it a routine market update adequately covered by prior Light Tower insights.",
+        "generation_mode": "deepseek-editorial-room"
       }
     },
     {
@@ -365,7 +370,7 @@
           "canonical_url": "https://www.bloomberg.com/news/videos/2026-08-03/-you-can-t-fool-the-bond-says-bofa-s-cabana-on-the-fed-video",
           "headline": "‘You Can’t Fool the Bond,’ Says BofA’s Cabana on the Fed",
           "publication_date": "2026-08-03T11:54:49+00:00",
-          "discovery_date": "2026-08-03T13:20:07.974120+00:00",
+          "discovery_date": "2026-08-03T13:51:27.566401+00:00",
           "author": "",
           "raw_summary": "Mark Cabana, head of US rates strategy at BofA Global Research, says the Federal Reserve now has a credibility issue as he discusses the bond market’s reaction to last week’s interest rate decision from the Fed. (Source: Bloomberg)",
           "raw_text": "",
@@ -427,8 +432,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:07.974125+00:00",
-          "updated_at": "2026-08-03T13:22:25.917192+00:00"
+          "created_at": "2026-08-03T13:51:27.566406+00:00",
+          "updated_at": "2026-08-03T13:51:39.671852+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -460,7 +465,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:24:13+00:00",
+        "built_at": "2026-08-03T13:52:08+00:00",
         "event_id": "5756fb3d9ae2e2cc",
         "title": "‘You Can’t Fool the Bond,’ Says BofA’s Cabana on the Fed",
         "independent_source_count": 1,
@@ -600,7 +605,7 @@
           "canonical_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/hamilton-lane-backs-270m-single-asset-continuation-vehicle-to-extend-decade-long-savant-investment.html",
           "headline": "Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment",
           "publication_date": "2026-08-03T11:33:20+00:00",
-          "discovery_date": "2026-08-03T13:20:23.460765+00:00",
+          "discovery_date": "2026-08-03T13:51:39.429959+00:00",
           "author": "",
           "raw_summary": "Hamilton Lane has strengthened its push into GP-led secondaries by acting as the sole lead investor in a $270m single-asset continuation vehicle for Savant Wealth Management. \n The post  Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment  appeared first on  AltAssets Private Equity News .",
           "raw_text": "",
@@ -660,8 +665,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:23.460783+00:00",
-          "updated_at": "2026-08-03T13:22:25.957911+00:00"
+          "created_at": "2026-08-03T13:51:39.429964+00:00",
+          "updated_at": "2026-08-03T13:51:39.724711+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -693,7 +698,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:24:15+00:00",
+        "built_at": "2026-08-03T13:52:10+00:00",
         "event_id": "79d2510d43333be3",
         "title": "Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment",
         "independent_source_count": 1,
@@ -851,7 +856,7 @@
           "canonical_url": "https://www.powermag.com/worlds-largest-energy-lender-steers-federal-financing-toward-baseload-transmission-and-nuclear/",
           "headline": "World’s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear",
           "publication_date": "2026-08-03T11:31:40+00:00",
-          "discovery_date": "2026-08-03T13:20:17.789987+00:00",
+          "discovery_date": "2026-08-03T13:51:35.243425+00:00",
           "author": "",
           "raw_summary": "The U.S. Department of Energy&#8217;s (DOE&#8217;s) Office of Energy Dominance Financing (EDF) closed a loan of up to $3.26 billion to American Electric Power (AEP) Texas on July 8, the office&#8217;s third utility \n The post  World&rsquo;s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear  appeared first on  POWER Magazine .",
           "raw_text": "",
@@ -911,8 +916,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:17.789991+00:00",
-          "updated_at": "2026-08-03T13:22:25.940181+00:00"
+          "created_at": "2026-08-03T13:51:35.243434+00:00",
+          "updated_at": "2026-08-03T13:51:39.705231+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -944,7 +949,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:25:52+00:00",
+        "built_at": "2026-08-03T13:53:47+00:00",
         "event_id": "68c7aced3604e6be",
         "title": "World’s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear",
         "independent_source_count": 1,
@@ -1219,14 +1224,14 @@
       }
     },
     {
-      "event_id": "9814707db437ac9e",
+      "event_id": "61eb04f6e870a49f",
       "candidate": {
-        "title": "Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications",
-        "url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-        "source": "Data Center POST",
-        "summary": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip? Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] \n The post  Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications  appeared first on  Data Center POST .",
-        "published": "2026-08-03T13:00:08+00:00",
-        "source_tier": 2,
+        "title": "Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center",
+        "url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+        "source": "Institutional Real Estate",
+        "summary": "Certain funds and accounts managed by Cerberus Capital Management, L.P. and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029. \nThe project will help meet sustained demand from hyperscale customers for well-located capacity that can serve a diverse set of use-cases including cloud, enterprise and artificial intelligence applications. Northern Virginia is the largest and",
+        "published": "2026-08-03T13:46:59+00:00",
+        "source_tier": 3,
         "source_authority": "secondary",
         "source_lane": "data_centers",
         "topics": [
@@ -1242,26 +1247,28 @@
           "msa_government_markets": []
         },
         "canonical_item": {
-          "item_id": "9814707db437ac9e",
-          "source_name": "Data Center POST",
-          "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-          "canonical_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-          "headline": "Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications",
-          "publication_date": "2026-08-03T13:00:08+00:00",
-          "discovery_date": "2026-08-03T13:20:22.194616+00:00",
+          "item_id": "61eb04f6e870a49f",
+          "source_name": "Institutional Real Estate",
+          "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+          "canonical_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+          "headline": "Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center",
+          "publication_date": "2026-08-03T13:46:59+00:00",
+          "discovery_date": "2026-08-03T13:51:28.448646+00:00",
           "author": "",
-          "raw_summary": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip? Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] \n The post  Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications  appeared first on  Data Center POST .",
+          "raw_summary": "Certain funds and accounts managed by Cerberus Capital Management, L.P. and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029. \nThe project will help meet sustained demand from hyperscale customers for well-located capacity that can serve a diverse set of use-cases including cloud, enterprise and artificial intelligence applications. Northern Virginia is the largest and",
           "raw_text": "",
           "clean_text": "",
           "source_type": "industry_publication",
-          "source_tier": 2,
+          "source_tier": 3,
           "source_authority": "secondary",
           "primary_sector": "data_centers",
-          "secondary_sectors": [],
+          "secondary_sectors": [
+            "private_equity"
+          ],
           "event_type": "",
           "subsector": "",
-          "classification_confidence": 0.85,
-          "classification_method": "source_prior_and_regex",
+          "classification_confidence": 0.75,
+          "classification_method": "source_config_overridden_by_regex",
           "city": "",
           "state": "",
           "country": "US",
@@ -1284,19 +1291,19 @@
           "acreage": 0.0,
           "megawatts": 0.0,
           "property_type": "",
-          "financial_magnitude_score": 1,
-          "party_significance_score": 10,
+          "financial_magnitude_score": 2,
+          "party_significance_score": 7,
           "market_impact_score": 6,
-          "strategic_relevance_score": 3,
+          "strategic_relevance_score": 6,
           "policy_impact_score": 2,
           "novelty_score": 7,
-          "source_quality_score": 7,
+          "source_quality_score": 5,
           "timeliness_score": 10,
           "editorial_potential_score": 2,
-          "cross_sector_impact_score": 2,
-          "composite_score": 48.5,
+          "cross_sector_impact_score": 4,
+          "composite_score": 50.9,
           "scoring_profile": "data_centers",
-          "tier": "tier_4_reserve",
+          "tier": "tier_3_useful_coverage",
           "status": "scored",
           "rejection_reason": "",
           "rejection_code": "",
@@ -1308,27 +1315,27 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:22.194630+00:00",
-          "updated_at": "2026-08-03T13:22:25.957485+00:00"
+          "created_at": "2026-08-03T13:51:28.448656+00:00",
+          "updated_at": "2026-08-03T13:51:39.677977+00:00"
         },
         "pipeline_version": "v2"
       },
       "sources": [
         {
-          "source": "Data Center POST",
-          "url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-          "domain": "datacenterpost.com",
-          "published": "2026-08-03T13:00:08+00:00",
-          "summary": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip? Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] \n The post  Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications  appeared first on  Data Center POST .",
-          "source_tier": 2,
+          "source": "Institutional Real Estate",
+          "url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+          "domain": "irei.com",
+          "published": "2026-08-03T13:46:59+00:00",
+          "summary": "Certain funds and accounts managed by Cerberus Capital Management, L.P. and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029. \nThe project will help meet sustained demand from hyperscale customers for well-located capacity that can serve a diverse set of use-cases including cloud, enterprise and artificial intelligence applications. Northern Virginia is the largest and",
+          "source_tier": 3,
           "source_authority": "secondary"
         }
       ],
       "provisional_format": "brief",
-      "must_read_score": 48,
+      "must_read_score": 51,
       "must_read_breakdown": {
-        "financial_magnitude": 1,
-        "party_significance": 10,
+        "financial_magnitude": 2,
+        "party_significance": 7,
         "market_impact": 6,
         "editorial_potential": 2
       },
@@ -1341,74 +1348,64 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:27:38+00:00",
-        "event_id": "9814707db437ac9e",
-        "title": "Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications",
+        "built_at": "2026-08-03T13:54:18+00:00",
+        "event_id": "61eb04f6e870a49f",
+        "title": "Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center",
         "independent_source_count": 1,
         "primary_source_count": 0,
         "usable_full_text_count": 1,
         "evidence_level": "thin",
         "reported_facts": [
           {
-            "fact": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip?",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
+            "fact": "and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029.",
+            "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "source_name": "Institutional Real Estate"
           },
           {
-            "fact": "Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] The post Edge Computing vs.",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
+            "fact": "and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029.",
+            "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "source_name": "Institutional Real Estate"
           },
           {
-            "fact": "- Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models (like LLMs).",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
-          },
-          {
-            "fact": "- Real-world AI applications rarely choose just one; mature deployments typically use a hybrid pattern where models are trained centrally in the cloud, compressed, and then deployed to the edge for real-time local inference.",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
-          },
-          {
-            "fact": "You get effectively unlimited compute, mature tooling, and someone else managing the hardware.",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
+            "fact": "“We are pleased to partner with Yondr to deliver a high-quality project in Northern Virginia that is well-positioned to support hyperscale demand,” said Tom Wagner, senior managing direc",
+            "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "source_name": "Institutional Real Estate"
           }
         ],
         "prior_light_tower_context": [
           {
-            "title": "Blue Owl's Fiber Play Exposes the Capital Stack Tension in AI Infrastructure",
-            "url": "/insights/blue-owl-fiber-capital-stack-tension.html",
-            "date": "2026-07-10",
-            "excerpt": "Blue Owl launches Kirkwood Infrastructure Group for fiber networks. The move reveals a capital stack tension: long-duration assets funded by liquidity-constrained vehicles.",
+            "title": "CyrusOne's $1.5 Billion Data Center Bet in Fairfield, Texas",
+            "url": "/insights/cyrusone-s-1-5-billion-data-center-bet-in-fairfield-texas.html",
+            "date": "2026-07-31",
+            "excerpt": "CyrusOne is building a speculative $1.5 billion data center campus on 51.7 acres in Fairfield, Texas, raising questions about power procurement and tenant demand.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "Starwood's $10.2B Fund Shows AI Infrastructure Is the New Core, Not a Side Bet",
-            "url": "/insights/starwood-ai-infrastructure-fund.html",
-            "date": "2026-07-03",
-            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% data center allocation. The capital rotation into AI infrastructure is structural, not tactical.",
+            "title": "Ares Secondaries' Sabey Bet Shows Data Center Capital Is Chasing Liquidity, Not Just Growth",
+            "url": "/insights/ares-secondaries-sabey-data-center-liquidity.html",
+            "date": "2026-07-09",
+            "excerpt": "Ares Secondaries invests in Sabey Data Center Properties. The deal reveals institutional demand for liquidity and exit optionality in data center equity, not just growth.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "Meta's $14B El Paso Deal Turns AI Compute Into a Lease-and-Guarantee Asset",
-            "url": "/insights/meta-blackrock-el-paso-ai-infrastructure.html",
-            "date": "2026-07-28",
-            "excerpt": "Meta's 1-gigawatt El Paso venture with BlackRock is a new financing template for AI infrastructure: institutional ownership, debt funding, a long-term lease and residual-value protection.",
+            "title": "Brookfield's Csquare IPO: A $1.35B Debt Paydown Disguised as a Data Center Growth Story",
+            "url": "/insights/csquare-ipo-debt-paydown-analysis.html",
+            "date": "2026-07-07",
+            "excerpt": "Csquare's $1.35B IPO is a debt paydown vehicle, not a pure growth story. Brookfield uses public equity to refinance $734M in revolver debt and $4.3B in asset-backed loans.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "JLL's Dallas Deal Shows Construction Debt Is Available Only for the Right Sponsor Stack",
-            "url": "/insights/dallas-construction-debt-sponsor-stack.html",
-            "date": "2026-07-23",
-            "excerpt": "JLL arranges construction debt and JV equity for 8300 Douglas in Dallas. The deal reveals that construction lending is open only to projects with a credit tenant, proven developers, and a multi-use structure that spreads risk.",
+            "title": "Starwood's $10.2B Fund Shows Data Center Capital Is Too Big for Traditional CRE Allocations",
+            "url": "/insights/starwood-data-center-fund-capital-shift.html",
+            "date": "2026-07-02",
+            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% allocated to data centers. The move reveals how AI-driven demand is reshaping institutional real estate capital flows.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "Rialto-Hines $229M Refi Shows Office Debt Is Available Only for the Right Basis and Sponsor",
-            "url": "/insights/rialto-hines-295-fifth-refi.html",
-            "date": "2026-07-21",
-            "excerpt": "Rialto Capital and Hines provide $228.9M floating-rate bridge loan for 295 Fifth Avenue. The deal reveals how office debt is being underwritten today: sponsor credibility, renovated assets, and a clear path to stabilization.",
+            "title": "Blackstone's $3.5B Data Center Sale Shows the Exit, Not the Thesis",
+            "url": "/insights/blackstone-digital-realty-data-center-sale.html",
+            "date": "2026-07-01",
+            "excerpt": "Blackstone sells three NoVA data centers to Digital Realty for $3.5B. The cash-and-stock deal shows how AI infrastructure capital cycles from development to permanent ownership.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           }
         ],
@@ -1429,19 +1426,36 @@
         "source_facts": {
           "amounts": [],
           "percentages": [],
-          "companies": [],
+          "companies": [
+            {
+              "name": "cerberus",
+              "context": "funds and accounts managed by Cerberus Capital Management, L.P. and"
+            },
+            {
+              "name": "cerberus",
+              "context": "ent, L.P. and its affiliates (Cerberus), and Yondr Group, a global d"
+            },
+            {
+              "name": "cerberus",
+              "context": "funds and accounts managed by Cerberus Capital Management, L.P. and"
+            },
+            {
+              "name": "cerberus",
+              "context": "ent, L.P. and its affiliates (Cerberus), and Yondr Group, a global d"
+            }
+          ],
           "addresses": [],
           "dates": []
         },
         "sources": [
           {
-            "name": "Data Center POST",
-            "url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "domain": "datacenterpost.com",
-            "published": "2026-08-03T13:00:08+00:00",
+            "name": "Institutional Real Estate",
+            "url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "domain": "irei.com",
+            "published": "2026-08-03T13:46:59+00:00",
             "authority": "secondary",
-            "tier": 2,
-            "reported_fact_count": 5,
+            "tier": 3,
+            "reported_fact_count": 3,
             "full_text_available": true
           }
         ],
@@ -1460,10 +1474,266 @@
         ],
         "reporting_gaps": [
           "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "aa0d6ca119ec5a90",
+      "candidate": {
+        "title": "Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans",
+        "url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+        "source": "Institutional Real Estate",
+        "summary": "Slate Property Group  has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans. \n &#160; \n The SMA expands and diversifies Slate’s available debt offerings by providing additional leverage and pricing options, strengthening borrower relationships and broadening its market reach. Loans for residential developments in high-growth, transit-oriented East Coast markets will be the SMA’s primary focus. \n &#160; \n “The new SMA complements and further diversifies",
+        "published": "2026-08-03T13:46:22+00:00",
+        "source_tier": 3,
+        "source_authority": "secondary",
+        "source_lane": "commercial_real_estate",
+        "topics": [
+          "commercial_real_estate"
+        ],
+        "category": "Capital Markets",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "aa0d6ca119ec5a90",
+          "source_name": "Institutional Real Estate",
+          "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+          "canonical_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+          "headline": "Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans",
+          "publication_date": "2026-08-03T13:46:22+00:00",
+          "discovery_date": "2026-08-03T13:51:28.448692+00:00",
+          "author": "",
+          "raw_summary": "Slate Property Group  has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans. \n &#160; \n The SMA expands and diversifies Slate’s available debt offerings by providing additional leverage and pricing options, strengthening borrower relationships and broadening its market reach. Loans for residential developments in high-growth, transit-oriented East Coast markets will be the SMA’s primary focus. \n &#160; \n “The new SMA complements and further diversifies",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 3,
+          "source_authority": "secondary",
+          "primary_sector": "commercial_real_estate",
+          "secondary_sectors": [
+            "private_equity"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 7,
+          "party_significance_score": 10,
+          "market_impact_score": 3,
+          "strategic_relevance_score": 9,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 5,
+          "timeliness_score": 10,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 61.9,
+          "scoring_profile": "commercial_real_estate",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-03T13:51:28.448698+00:00",
+          "updated_at": "2026-08-03T13:51:39.678458+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Institutional Real Estate",
+          "url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+          "domain": "irei.com",
+          "published": "2026-08-03T13:46:22+00:00",
+          "summary": "Slate Property Group  has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans. \n &#160; \n The SMA expands and diversifies Slate’s available debt offerings by providing additional leverage and pricing options, strengthening borrower relationships and broadening its market reach. Loans for residential developments in high-growth, transit-oriented East Coast markets will be the SMA’s primary focus. \n &#160; \n “The new SMA complements and further diversifies",
+          "source_tier": 3,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 62,
+      "must_read_breakdown": {
+        "financial_magnitude": 7,
+        "party_significance": 10,
+        "market_impact": 3,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "commercial_real_estate",
+        "name": "Commercial Real Estate",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-03T13:56:20+00:00",
+        "event_id": "aa0d6ca119ec5a90",
+        "title": "Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Slate Property Group has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans.",
+            "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "source_name": "Institutional Real Estate"
+          },
+          {
+            "fact": "&#160; “The new SMA complements and further diversifies Slate Property Group has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans.",
+            "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "source_name": "Institutional Real Estate"
+          },
+          {
+            "fact": "“The new SMA complements and further diversifies our range of loan offerings across the capital stack and is a logical next step in our company’s continued evolution,” said Martin Nussbaum, co-founder and principal of Slate Property Group.",
+            "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "source_name": "Institutional Real Estate"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "New York Office Leasing Surge Is a Bet on Talent, Not on Policy",
+            "url": "/insights/nyc-office-leasing-talent-bet.html",
+            "date": "2026-07-09",
+            "excerpt": "NYC office leasing hit 23M SF in H1 2026, the strongest since 2000. But the surge masks a tension: corporate tenants are betting on talent concentration, not on the mayor's policy agenda.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Supreme Court's Cook Ruling Buys CRE Time, Not Certainty, on Rate Path",
+            "url": "/insights/supreme-court-cook-fed-ruling-cre.html",
+            "date": "2026-06-30",
+            "excerpt": "Supreme Court blocks Trump's firing of Fed Governor Lisa Cook, preserving current rate policy. CRE owners face continued refinancing pressure as dovish pivot delayed.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "SEBCO's Bronx Senior Housing Closes the Gap Between Subsidy and Construction Cost",
+            "url": "/insights/bronx-senior-housing-basis-gap.html",
+            "date": "2026-07-22",
+            "excerpt": "SEBCO completes 134-unit senior housing in the Bronx at 130% AMI. The project reveals how low land basis, subsidy, and patient capital close the gap between construction cost and regulated rent.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "SROA's $750M Storage Fund Looks Like a Bet on Scale. It's a Bet on Operating Leverage.",
+            "url": "/insights/sroa-storage-fund-operating-leverage.html",
+            "date": "2026-07-22",
+            "excerpt": "SROA Capital launches Fund X targeting $750M for value-add self-storage. The thesis: operating leverage, not cap rate compression, drives returns in a fragmented market.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Big Banks Cut CRE Loss Reserves: The Office Cycle Is Not Over, It Is Just Priced In",
+            "url": "/insights/big-banks-cut-cre-loss-reserves.html",
+            "date": "2026-07-16",
+            "excerpt": "JPMorgan, Goldman, BofA, Citi, and Wells Fargo cut credit loss provisions in Q2 2026, signaling that the office loan cycle is priced in. But the real test is still coming for smaller lenders.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$1 billion",
+              "number": "1",
+              "unit": "billion",
+              "context": "closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leve"
+            },
+            {
+              "raw": "$1 billion",
+              "number": "1",
+              "unit": "billion",
+              "context": "closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leve"
+            }
+          ],
+          "percentages": [],
+          "companies": [],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Institutional Real Estate",
+            "url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "domain": "irei.com",
+            "published": "2026-08-03T13:46:22+00:00",
+            "authority": "secondary",
+            "tier": 3,
+            "reported_fact_count": 3,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 2
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
           "No primary document is present in the dossier."
         ],
         "human_stakes": "",
-        "concrete_detail": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip?",
+        "concrete_detail": "Slate Property Group has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans.",
         "kill_reason": "",
         "generation_mode": "deepseek-editorial-room"
       }
@@ -1498,7 +1768,7 @@
           "canonical_url": "https://commercialobserver.com/2026/08/invesco-real-estates-chase-bolding-interview/",
           "headline": "Invesco Real Estate’s Chase Bolding Talks Market Opportunity",
           "publication_date": "2026-08-03T10:30:47+00:00",
-          "discovery_date": "2026-08-03T13:20:05.809018+00:00",
+          "discovery_date": "2026-08-03T13:51:25.333226+00:00",
           "author": "",
           "raw_summary": "Chase Bolding is the chief investment officer and head of North American real estate at Invesco Real Estate, a $90 billion global subsidiary of Invesco, a $2 trillion asset management firm. Bolding works out of New York City managing several portfolios covering roughly $40 billion of commercial real estate assets.  Since joining Invesco 16 years [&#8230;]",
           "raw_text": "",
@@ -1560,8 +1830,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:05.809023+00:00",
-          "updated_at": "2026-08-03T13:22:25.905038+00:00"
+          "created_at": "2026-08-03T13:51:25.333232+00:00",
+          "updated_at": "2026-08-03T13:51:39.660268+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -1593,7 +1863,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:28:07+00:00",
+        "built_at": "2026-08-03T13:58:14+00:00",
         "event_id": "d4d3e78bf0444a25",
         "title": "Invesco Real Estate’s Chase Bolding Talks Market Opportunity",
         "independent_source_count": 1,
@@ -1783,260 +2053,26 @@
         "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
         "favored_thesis": "",
         "alternate_angles": [
-          "Invesco’s private wealth business launch signals retail capital’s growing role in institutional CRE strategies, but the dossier adds no new data on flows, returns, or risk.",
-          "Bolding’s career arc from the GFC to today could frame a perspective on current distress, yet the interview provides only biographical facts, not a market call."
+          "Invesco's $40B portfolio and private wealth launch could signal a strategic shift toward retail capital, but the dossier lacks any concrete stance or transaction.",
+          "Bolding's career path from the GFC era to CIO might illustrate institutional memory of distress cycles, but no current market analogy is drawn."
         ],
         "skeptic_objections": [
-          "The full interview might contain actionable market views, but the dossier omits them; we cannot infer editorial value from a summary.",
-          "A single-source executive profile rarely surfaces a capital decision, constraint, or consequence that meets the editorial constitution.",
-          "Light Tower’s prior coverage shows deeper, decision-grounded pieces; this event lacks that analytical entry point."
+          "No capital decision, constraint, or consequence is disclosed; the event is a biographical sketch.",
+          "All reported facts describe Bolding's background, not a market opportunity, so the headline is misleading.",
+          "Single-source profile with no primary documents or independent verification, failing the floor for adding consequence."
         ],
         "reporting_gaps": [
-          "No primary document or second independent source is present.",
-          "The dossier captures biographical details but no concrete market opportunity, transaction, or strategy shift discussed in the interview."
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "The interview's actual market-opportunity statements are absent from the dossier."
         ],
-        "human_stakes": "Bolding’s career narrative and personal path to leading a $40B portfolio, but that does not expose a capital decision’s constraint or consequence.",
-        "concrete_detail": "Bolding manages roughly $40 billion of commercial real estate assets from New York City.",
+        "human_stakes": "",
+        "concrete_detail": "Bolding started his career in 2007 with Greenfield Partners and gained experience during the 2008–2010 dynamic investment environment.",
         "kill_reason": "",
         "generation_mode": "deepseek-editorial-room",
         "daily_depth_floor_applied": true,
         "original_decision": "kill",
-        "daily_depth_objection": "No defensible CRE consequence: the interview is a profile of an executive with no capital decision, constraint, or market-shifting insight conveyed in the dossier. The event does not meet the franchise promise to explain a capital decision beneath the event."
-      }
-    },
-    {
-      "event_id": "40af406b3ac241e3",
-      "candidate": {
-        "title": "Dollar Drops Further as Yen Rebound Extends Fed-Driven Slide",
-        "url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-        "source": "Bloomberg Real Estate",
-        "summary": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-        "published": "2026-08-03T11:29:24+00:00",
-        "source_tier": 3,
-        "source_authority": "secondary",
-        "source_lane": "fed_macro",
-        "topics": [
-          "fed_macro"
-        ],
-        "category": "Policy & Regulation",
-        "entities": {
-          "companies": [],
-          "amounts": [],
-          "asset_classes": [],
-          "markets": [],
-          "policy_actions": [],
-          "msa_government_markets": []
-        },
-        "canonical_item": {
-          "item_id": "40af406b3ac241e3",
-          "source_name": "Bloomberg Real Estate",
-          "source_url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-          "canonical_url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-          "headline": "Dollar Drops Further as Yen Rebound Extends Fed-Driven Slide",
-          "publication_date": "2026-08-03T11:29:24+00:00",
-          "discovery_date": "2026-08-03T13:20:07.974168+00:00",
-          "author": "",
-          "raw_summary": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-          "raw_text": "",
-          "clean_text": "",
-          "source_type": "mainstream_business",
-          "source_tier": 3,
-          "source_authority": "secondary",
-          "primary_sector": "fed_macro",
-          "secondary_sectors": [
-            "banking_credit"
-          ],
-          "event_type": "",
-          "subsector": "",
-          "classification_confidence": 0.75,
-          "classification_method": "source_config_overridden_by_regex",
-          "city": "",
-          "state": "",
-          "country": "US",
-          "market": "",
-          "property_address": "",
-          "companies": [],
-          "people": [],
-          "buyers": [],
-          "sellers": [],
-          "lenders": [],
-          "developers": [],
-          "government_bodies": [],
-          "transaction_value": 0.0,
-          "transaction_value_raw": "",
-          "debt_amount": 0.0,
-          "equity_amount": 0.0,
-          "fund_size": 0.0,
-          "unit_count": 0,
-          "square_footage": 0,
-          "acreage": 0.0,
-          "megawatts": 0.0,
-          "property_type": "",
-          "financial_magnitude_score": 3,
-          "party_significance_score": 10,
-          "market_impact_score": 7,
-          "strategic_relevance_score": 4,
-          "policy_impact_score": 6,
-          "novelty_score": 7,
-          "source_quality_score": 5,
-          "timeliness_score": 9,
-          "editorial_potential_score": 2,
-          "cross_sector_impact_score": 4,
-          "composite_score": 59.4,
-          "scoring_profile": "fed_macro",
-          "tier": "tier_3_useful_coverage",
-          "status": "scored",
-          "rejection_reason": "",
-          "rejection_code": "",
-          "retry_count": 0,
-          "error_history": [],
-          "cluster_id": "",
-          "is_anchor": false,
-          "article_slug": "",
-          "article_url": "",
-          "generated_at": "",
-          "published_at": "",
-          "created_at": "2026-08-03T13:20:07.974171+00:00",
-          "updated_at": "2026-08-03T13:22:25.917756+00:00"
-        },
-        "pipeline_version": "v2"
-      },
-      "sources": [
-        {
-          "source": "Bloomberg Real Estate",
-          "url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-          "domain": "bloomberg.com",
-          "published": "2026-08-03T11:29:24+00:00",
-          "summary": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-          "source_tier": 3,
-          "source_authority": "secondary"
-        }
-      ],
-      "provisional_format": "brief",
-      "must_read_score": 59,
-      "must_read_breakdown": {
-        "financial_magnitude": 3,
-        "party_significance": 10,
-        "market_impact": 7,
-        "editorial_potential": 2
-      },
-      "selection_tier": "daily_depth",
-      "legal_or_allegation_risk": false,
-      "franchise": {
-        "id": "fed_macro",
-        "name": "Fed & Macro",
-        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
-      },
-      "research_audit": {
-        "schema_version": 1,
-        "built_at": "2026-08-03T13:28:31+00:00",
-        "event_id": "40af406b3ac241e3",
-        "title": "Dollar Drops Further as Yen Rebound Extends Fed-Driven Slide",
-        "independent_source_count": 1,
-        "primary_source_count": 0,
-        "usable_full_text_count": 0,
-        "evidence_level": "insufficient",
-        "reported_facts": [],
-        "prior_light_tower_context": [
-          {
-            "title": "Bond Traders Bet on Fed Hike as Jobs Data Looms Over CRE Debt Markets",
-            "url": "/insights/bond-traders-fed-hike-jobs-data-cre.html",
-            "date": "2026-06-01",
-            "excerpt": "Bond traders are betting the US economy will force a Fed rate hike by 2027. This week's jobs report will test that wager, with direct implications for CRE debt costs and cap rates.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "Powell Warns Fed Credibility at Risk as Political Pressure Mounts",
-            "url": "/insights/powell-fed-credibility-warning.html",
-            "date": "2026-06-01",
-            "excerpt": "Jerome Powell warns the Fed's credibility is under 'stress test' in first remarks since leaving office. Political pressure and criminal probes threaten independence.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "Fed's Bowman Rejects Rate Hike Path as Inflation Surges to 3.8%",
-            "url": "/insights/fed-bowman-rejects-rate-hike-inflation.html",
-            "date": "2026-05-30",
-            "excerpt": "Fed Vice Chair Bowman rejects rate hikes to combat 3.8% PCE inflation, warning oil-driven price spikes are temporary and tightening would harm jobs and growth.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "Fed's Schmid Signals Rate Pause as Inflation Stays Sticky Above 3%",
-            "url": "/insights/fed-schmid-inflation-signal.html",
-            "date": "2026-05-29",
-            "excerpt": "Kansas City Fed President Jeff Schmid says officials must signal commitment to inflation fight. Markets now price no rate cut before September 2026 as core PCE holds above 3%.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "BlackRock’s Saigal Sees Fed Cut Justification as Warsh Era Begins",
-            "url": "/insights/blackrock-fed-cut-warsh-era.html",
-            "date": "2026-05-25",
-            "excerpt": "BlackRock's Rohan Saigal says 'sufficient factors' justify a Fed rate cut under new chair Kevin Warsh, signaling a shift in institutional rate expectations.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          }
-        ],
-        "counterquestions": [
-          "What material fact would make the favored interpretation wrong?",
-          "Is this event representative of a market shift or merely a single transaction?",
-          "Which party has the shortest clock, least liquidity, or weakest alternative?",
-          "What is reported, what is inferred, and what remains unknown?"
-        ],
-        "reporting_gaps": [
-          "A second independent source has not corroborated the event.",
-          "No primary document is present in the dossier.",
-          "No attributable direct quotation was captured.",
-          "The available material contains too few extractable reported facts."
-        ],
-        "desired_format": "brief",
-        "recommended_format": "deal_tape",
-        "format_downgraded": false,
-        "longform_allowed": false,
-        "source_facts": {
-          "amounts": [],
-          "percentages": [],
-          "companies": [
-            {
-              "name": "federal reserve",
-              "context": "sses triggered by last week’s Federal Reserve meeting."
-            }
-          ],
-          "addresses": [],
-          "dates": []
-        },
-        "sources": [
-          {
-            "name": "Bloomberg Real Estate",
-            "url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-            "domain": "bloomberg.com",
-            "published": "2026-08-03T11:29:24+00:00",
-            "authority": "secondary",
-            "tier": 3,
-            "reported_fact_count": 0,
-            "full_text_available": false
-          }
-        ],
-        "quote_count": 0
-      },
-      "editorial_room": {
-        "decision": "deal_tape",
-        "final_format": "deal_tape",
-        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
-        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
-        "favored_thesis": "",
-        "alternate_angles": [],
-        "skeptic_objections": [
-          "Do not claim a market-wide shift from one transaction.",
-          "Do not infer unreported motives or private negotiations."
-        ],
-        "reporting_gaps": [
-          "A second independent source has not corroborated the event.",
-          "No primary document is present in the dossier.",
-          "No attributable direct quotation was captured.",
-          "The available material contains too few extractable reported facts."
-        ],
-        "human_stakes": "",
-        "concrete_detail": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-        "kill_reason": "",
-        "generation_mode": "deterministic-editorial-plan"
+        "daily_depth_objection": "No defensible CRE consequence. The dossier contains only biographical facts and no capital decision, constraint, or market mechanism. Routine executive profile fits the deal tape, not a daily_depth brief."
       }
     }
   ],
@@ -2073,7 +2109,7 @@
           "canonical_url": "https://commercialobserver.com/2026/08/cmbs-distress-2026-cred-iq-2/",
           "headline": "Overall CMBS Distress Hits a 2026 High",
           "publication_date": "2026-08-03T12:00:37+00:00",
-          "discovery_date": "2026-08-03T13:20:05.808936+00:00",
+          "discovery_date": "2026-08-03T13:51:25.333173+00:00",
           "author": "",
           "raw_summary": "For commercial real estate and commercial mortgage-backed securities investors, brokers and lenders trying to separate signal from noise in a choppy market, granularity is everything. CRED iQ&#8216;s July 2026 reporting period data looks to provide exactly that with a loan-level view of distress across the $600 billion-plus CMBS universe, broken out by servicing status, deal [&#8230;]",
           "raw_text": "",
@@ -2135,8 +2171,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:05.808952+00:00",
-          "updated_at": "2026-08-03T13:22:25.904327+00:00"
+          "created_at": "2026-08-03T13:51:25.333179+00:00",
+          "updated_at": "2026-08-03T13:51:39.659517+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -2168,7 +2204,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:22:26+00:00",
+        "built_at": "2026-08-03T13:51:39+00:00",
         "event_id": "9d1ad6e8cc6a8cbc",
         "title": "Overall CMBS Distress Hits a 2026 High",
         "independent_source_count": 1,
@@ -2348,26 +2384,31 @@
         "quote_count": 0
       },
       "editorial_room": {
-        "decision": "write",
+        "decision": "kill",
         "final_format": "brief",
-        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
-        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
-        "favored_thesis": "",
-        "alternate_angles": [],
+        "angle": "CMBS distress allegedly hits a 2026 high, implying worsening refinancing conditions, but the dossier lacks the concrete distress rate or change.",
+        "why_now": "July 2026 data release, but no urgency due to prior comparable coverage in May and June 2026.",
+        "favored_thesis": "None; insufficient facts to form a testable thesis.",
+        "alternate_angles": [
+          "Granular loan-level data enables targeted investment strategies.",
+          "Distress rise signal may be muted by other liquidity factors."
+        ],
         "skeptic_objections": [
-          "Do not claim a market-wide shift from one transaction.",
-          "Do not infer unreported motives or private negotiations."
+          "The event provides no concrete distress figure, only a dataset description.",
+          "Prior Light Tower pieces already covered rising CMBS distress, so this adds little novelty.",
+          "A single-source dossier with no primary data fails the daily_depth requirement of three concrete reported facts.",
+          "Without a specific institutional decision or constraint, the piece lacks CRE consequence."
         ],
         "reporting_gaps": [
-          "A second independent source has not corroborated the event.",
-          "No primary document is present in the dossier.",
-          "No attributable direct quotation was captured.",
-          "Editorial-room model was unavailable: RuntimeError."
+          "No independent second source.",
+          "No primary document from CRED iQ.",
+          "No attributable direct quotation.",
+          "Missing the actual distress rate or change and any comparison to prior periods."
         ],
-        "human_stakes": "",
-        "concrete_detail": "CRED iQ‘s July 2026 reporting period data looks to provide exactly that with a loan-level view of distress across the $600 billion-plus CMBS universe, broken out by servicing status, deal type, property type, and metro area.",
-        "kill_reason": "",
-        "generation_mode": "deterministic-editorial-plan"
+        "human_stakes": "Unclear; possible exposure for CMBS investors, special servicers, or borrowers facing maturity walls, but not evidenced.",
+        "concrete_detail": "The dataset is broken out by servicing status, deal type, property type, and metro area.",
+        "kill_reason": "Insufficient reported facts to support a brief; single-source dossier lacks concrete data, making it a routine market update adequately covered by prior Light Tower insights.",
+        "generation_mode": "deepseek-editorial-room"
       }
     },
     {
@@ -2400,7 +2441,7 @@
           "canonical_url": "https://www.bloomberg.com/news/videos/2026-08-03/-you-can-t-fool-the-bond-says-bofa-s-cabana-on-the-fed-video",
           "headline": "‘You Can’t Fool the Bond,’ Says BofA’s Cabana on the Fed",
           "publication_date": "2026-08-03T11:54:49+00:00",
-          "discovery_date": "2026-08-03T13:20:07.974120+00:00",
+          "discovery_date": "2026-08-03T13:51:27.566401+00:00",
           "author": "",
           "raw_summary": "Mark Cabana, head of US rates strategy at BofA Global Research, says the Federal Reserve now has a credibility issue as he discusses the bond market’s reaction to last week’s interest rate decision from the Fed. (Source: Bloomberg)",
           "raw_text": "",
@@ -2462,8 +2503,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:07.974125+00:00",
-          "updated_at": "2026-08-03T13:22:25.917192+00:00"
+          "created_at": "2026-08-03T13:51:27.566406+00:00",
+          "updated_at": "2026-08-03T13:51:39.671852+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -2495,7 +2536,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:24:13+00:00",
+        "built_at": "2026-08-03T13:52:08+00:00",
         "event_id": "5756fb3d9ae2e2cc",
         "title": "‘You Can’t Fool the Bond,’ Says BofA’s Cabana on the Fed",
         "independent_source_count": 1,
@@ -2635,7 +2676,7 @@
           "canonical_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/hamilton-lane-backs-270m-single-asset-continuation-vehicle-to-extend-decade-long-savant-investment.html",
           "headline": "Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment",
           "publication_date": "2026-08-03T11:33:20+00:00",
-          "discovery_date": "2026-08-03T13:20:23.460765+00:00",
+          "discovery_date": "2026-08-03T13:51:39.429959+00:00",
           "author": "",
           "raw_summary": "Hamilton Lane has strengthened its push into GP-led secondaries by acting as the sole lead investor in a $270m single-asset continuation vehicle for Savant Wealth Management. \n The post  Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment  appeared first on  AltAssets Private Equity News .",
           "raw_text": "",
@@ -2695,8 +2736,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:23.460783+00:00",
-          "updated_at": "2026-08-03T13:22:25.957911+00:00"
+          "created_at": "2026-08-03T13:51:39.429964+00:00",
+          "updated_at": "2026-08-03T13:51:39.724711+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -2728,7 +2769,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:24:15+00:00",
+        "built_at": "2026-08-03T13:52:10+00:00",
         "event_id": "79d2510d43333be3",
         "title": "Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment",
         "independent_source_count": 1,
@@ -2886,7 +2927,7 @@
           "canonical_url": "https://www.powermag.com/worlds-largest-energy-lender-steers-federal-financing-toward-baseload-transmission-and-nuclear/",
           "headline": "World’s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear",
           "publication_date": "2026-08-03T11:31:40+00:00",
-          "discovery_date": "2026-08-03T13:20:17.789987+00:00",
+          "discovery_date": "2026-08-03T13:51:35.243425+00:00",
           "author": "",
           "raw_summary": "The U.S. Department of Energy&#8217;s (DOE&#8217;s) Office of Energy Dominance Financing (EDF) closed a loan of up to $3.26 billion to American Electric Power (AEP) Texas on July 8, the office&#8217;s third utility \n The post  World&rsquo;s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear  appeared first on  POWER Magazine .",
           "raw_text": "",
@@ -2946,8 +2987,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:17.789991+00:00",
-          "updated_at": "2026-08-03T13:22:25.940181+00:00"
+          "created_at": "2026-08-03T13:51:35.243434+00:00",
+          "updated_at": "2026-08-03T13:51:39.705231+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -2979,7 +3020,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:25:52+00:00",
+        "built_at": "2026-08-03T13:53:47+00:00",
         "event_id": "68c7aced3604e6be",
         "title": "World’s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear",
         "independent_source_count": 1,
@@ -3254,14 +3295,14 @@
       }
     },
     {
-      "event_id": "9814707db437ac9e",
+      "event_id": "61eb04f6e870a49f",
       "candidate": {
-        "title": "Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications",
-        "url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-        "source": "Data Center POST",
-        "summary": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip? Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] \n The post  Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications  appeared first on  Data Center POST .",
-        "published": "2026-08-03T13:00:08+00:00",
-        "source_tier": 2,
+        "title": "Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center",
+        "url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+        "source": "Institutional Real Estate",
+        "summary": "Certain funds and accounts managed by Cerberus Capital Management, L.P. and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029. \nThe project will help meet sustained demand from hyperscale customers for well-located capacity that can serve a diverse set of use-cases including cloud, enterprise and artificial intelligence applications. Northern Virginia is the largest and",
+        "published": "2026-08-03T13:46:59+00:00",
+        "source_tier": 3,
         "source_authority": "secondary",
         "source_lane": "data_centers",
         "topics": [
@@ -3277,26 +3318,28 @@
           "msa_government_markets": []
         },
         "canonical_item": {
-          "item_id": "9814707db437ac9e",
-          "source_name": "Data Center POST",
-          "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-          "canonical_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-          "headline": "Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications",
-          "publication_date": "2026-08-03T13:00:08+00:00",
-          "discovery_date": "2026-08-03T13:20:22.194616+00:00",
+          "item_id": "61eb04f6e870a49f",
+          "source_name": "Institutional Real Estate",
+          "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+          "canonical_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+          "headline": "Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center",
+          "publication_date": "2026-08-03T13:46:59+00:00",
+          "discovery_date": "2026-08-03T13:51:28.448646+00:00",
           "author": "",
-          "raw_summary": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip? Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] \n The post  Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications  appeared first on  Data Center POST .",
+          "raw_summary": "Certain funds and accounts managed by Cerberus Capital Management, L.P. and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029. \nThe project will help meet sustained demand from hyperscale customers for well-located capacity that can serve a diverse set of use-cases including cloud, enterprise and artificial intelligence applications. Northern Virginia is the largest and",
           "raw_text": "",
           "clean_text": "",
           "source_type": "industry_publication",
-          "source_tier": 2,
+          "source_tier": 3,
           "source_authority": "secondary",
           "primary_sector": "data_centers",
-          "secondary_sectors": [],
+          "secondary_sectors": [
+            "private_equity"
+          ],
           "event_type": "",
           "subsector": "",
-          "classification_confidence": 0.85,
-          "classification_method": "source_prior_and_regex",
+          "classification_confidence": 0.75,
+          "classification_method": "source_config_overridden_by_regex",
           "city": "",
           "state": "",
           "country": "US",
@@ -3319,19 +3362,19 @@
           "acreage": 0.0,
           "megawatts": 0.0,
           "property_type": "",
-          "financial_magnitude_score": 1,
-          "party_significance_score": 10,
+          "financial_magnitude_score": 2,
+          "party_significance_score": 7,
           "market_impact_score": 6,
-          "strategic_relevance_score": 3,
+          "strategic_relevance_score": 6,
           "policy_impact_score": 2,
           "novelty_score": 7,
-          "source_quality_score": 7,
+          "source_quality_score": 5,
           "timeliness_score": 10,
           "editorial_potential_score": 2,
-          "cross_sector_impact_score": 2,
-          "composite_score": 48.5,
+          "cross_sector_impact_score": 4,
+          "composite_score": 50.9,
           "scoring_profile": "data_centers",
-          "tier": "tier_4_reserve",
+          "tier": "tier_3_useful_coverage",
           "status": "scored",
           "rejection_reason": "",
           "rejection_code": "",
@@ -3343,27 +3386,27 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:22.194630+00:00",
-          "updated_at": "2026-08-03T13:22:25.957485+00:00"
+          "created_at": "2026-08-03T13:51:28.448656+00:00",
+          "updated_at": "2026-08-03T13:51:39.677977+00:00"
         },
         "pipeline_version": "v2"
       },
       "sources": [
         {
-          "source": "Data Center POST",
-          "url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-          "domain": "datacenterpost.com",
-          "published": "2026-08-03T13:00:08+00:00",
-          "summary": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip? Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] \n The post  Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications  appeared first on  Data Center POST .",
-          "source_tier": 2,
+          "source": "Institutional Real Estate",
+          "url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+          "domain": "irei.com",
+          "published": "2026-08-03T13:46:59+00:00",
+          "summary": "Certain funds and accounts managed by Cerberus Capital Management, L.P. and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029. \nThe project will help meet sustained demand from hyperscale customers for well-located capacity that can serve a diverse set of use-cases including cloud, enterprise and artificial intelligence applications. Northern Virginia is the largest and",
+          "source_tier": 3,
           "source_authority": "secondary"
         }
       ],
       "provisional_format": "brief",
-      "must_read_score": 48,
+      "must_read_score": 51,
       "must_read_breakdown": {
-        "financial_magnitude": 1,
-        "party_significance": 10,
+        "financial_magnitude": 2,
+        "party_significance": 7,
         "market_impact": 6,
         "editorial_potential": 2
       },
@@ -3376,74 +3419,64 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:27:38+00:00",
-        "event_id": "9814707db437ac9e",
-        "title": "Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications",
+        "built_at": "2026-08-03T13:54:18+00:00",
+        "event_id": "61eb04f6e870a49f",
+        "title": "Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center",
         "independent_source_count": 1,
         "primary_source_count": 0,
         "usable_full_text_count": 1,
         "evidence_level": "thin",
         "reported_facts": [
           {
-            "fact": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip?",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
+            "fact": "and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029.",
+            "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "source_name": "Institutional Real Estate"
           },
           {
-            "fact": "Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models [&#8230;] The post Edge Computing vs.",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
+            "fact": "and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029.",
+            "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "source_name": "Institutional Real Estate"
           },
           {
-            "fact": "- Cloud computing provides virtually unlimited compute and mature tooling, making it the perfect fit for training models and hosting large models (like LLMs).",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
-          },
-          {
-            "fact": "- Real-world AI applications rarely choose just one; mature deployments typically use a hybrid pattern where models are trained centrally in the cloud, compressed, and then deployed to the edge for real-time local inference.",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
-          },
-          {
-            "fact": "You get effectively unlimited compute, mature tooling, and someone else managing the hardware.",
-            "source_url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "source_name": "Data Center POST"
+            "fact": "“We are pleased to partner with Yondr to deliver a high-quality project in Northern Virginia that is well-positioned to support hyperscale demand,” said Tom Wagner, senior managing direc",
+            "source_url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "source_name": "Institutional Real Estate"
           }
         ],
         "prior_light_tower_context": [
           {
-            "title": "Blue Owl's Fiber Play Exposes the Capital Stack Tension in AI Infrastructure",
-            "url": "/insights/blue-owl-fiber-capital-stack-tension.html",
-            "date": "2026-07-10",
-            "excerpt": "Blue Owl launches Kirkwood Infrastructure Group for fiber networks. The move reveals a capital stack tension: long-duration assets funded by liquidity-constrained vehicles.",
+            "title": "CyrusOne's $1.5 Billion Data Center Bet in Fairfield, Texas",
+            "url": "/insights/cyrusone-s-1-5-billion-data-center-bet-in-fairfield-texas.html",
+            "date": "2026-07-31",
+            "excerpt": "CyrusOne is building a speculative $1.5 billion data center campus on 51.7 acres in Fairfield, Texas, raising questions about power procurement and tenant demand.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "Starwood's $10.2B Fund Shows AI Infrastructure Is the New Core, Not a Side Bet",
-            "url": "/insights/starwood-ai-infrastructure-fund.html",
-            "date": "2026-07-03",
-            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% data center allocation. The capital rotation into AI infrastructure is structural, not tactical.",
+            "title": "Ares Secondaries' Sabey Bet Shows Data Center Capital Is Chasing Liquidity, Not Just Growth",
+            "url": "/insights/ares-secondaries-sabey-data-center-liquidity.html",
+            "date": "2026-07-09",
+            "excerpt": "Ares Secondaries invests in Sabey Data Center Properties. The deal reveals institutional demand for liquidity and exit optionality in data center equity, not just growth.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "Meta's $14B El Paso Deal Turns AI Compute Into a Lease-and-Guarantee Asset",
-            "url": "/insights/meta-blackrock-el-paso-ai-infrastructure.html",
-            "date": "2026-07-28",
-            "excerpt": "Meta's 1-gigawatt El Paso venture with BlackRock is a new financing template for AI infrastructure: institutional ownership, debt funding, a long-term lease and residual-value protection.",
+            "title": "Brookfield's Csquare IPO: A $1.35B Debt Paydown Disguised as a Data Center Growth Story",
+            "url": "/insights/csquare-ipo-debt-paydown-analysis.html",
+            "date": "2026-07-07",
+            "excerpt": "Csquare's $1.35B IPO is a debt paydown vehicle, not a pure growth story. Brookfield uses public equity to refinance $734M in revolver debt and $4.3B in asset-backed loans.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "JLL's Dallas Deal Shows Construction Debt Is Available Only for the Right Sponsor Stack",
-            "url": "/insights/dallas-construction-debt-sponsor-stack.html",
-            "date": "2026-07-23",
-            "excerpt": "JLL arranges construction debt and JV equity for 8300 Douglas in Dallas. The deal reveals that construction lending is open only to projects with a credit tenant, proven developers, and a multi-use structure that spreads risk.",
+            "title": "Starwood's $10.2B Fund Shows Data Center Capital Is Too Big for Traditional CRE Allocations",
+            "url": "/insights/starwood-data-center-fund-capital-shift.html",
+            "date": "2026-07-02",
+            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% allocated to data centers. The move reveals how AI-driven demand is reshaping institutional real estate capital flows.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           },
           {
-            "title": "Rialto-Hines $229M Refi Shows Office Debt Is Available Only for the Right Basis and Sponsor",
-            "url": "/insights/rialto-hines-295-fifth-refi.html",
-            "date": "2026-07-21",
-            "excerpt": "Rialto Capital and Hines provide $228.9M floating-rate bridge loan for 295 Fifth Avenue. The deal reveals how office debt is being underwritten today: sponsor credibility, renovated assets, and a clear path to stabilization.",
+            "title": "Blackstone's $3.5B Data Center Sale Shows the Exit, Not the Thesis",
+            "url": "/insights/blackstone-digital-realty-data-center-sale.html",
+            "date": "2026-07-01",
+            "excerpt": "Blackstone sells three NoVA data centers to Digital Realty for $3.5B. The cash-and-stock deal shows how AI infrastructure capital cycles from development to permanent ownership.",
             "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
           }
         ],
@@ -3464,19 +3497,36 @@
         "source_facts": {
           "amounts": [],
           "percentages": [],
-          "companies": [],
+          "companies": [
+            {
+              "name": "cerberus",
+              "context": "funds and accounts managed by Cerberus Capital Management, L.P. and"
+            },
+            {
+              "name": "cerberus",
+              "context": "ent, L.P. and its affiliates (Cerberus), and Yondr Group, a global d"
+            },
+            {
+              "name": "cerberus",
+              "context": "funds and accounts managed by Cerberus Capital Management, L.P. and"
+            },
+            {
+              "name": "cerberus",
+              "context": "ent, L.P. and its affiliates (Cerberus), and Yondr Group, a global d"
+            }
+          ],
           "addresses": [],
           "dates": []
         },
         "sources": [
           {
-            "name": "Data Center POST",
-            "url": "https://datacenterpost.com/edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications/?utm_source=rss&utm_medium=rss&utm_campaign=edge-computing-vs-cloud-computing-choosing-the-right-architecture-for-ai-applications",
-            "domain": "datacenterpost.com",
-            "published": "2026-08-03T13:00:08+00:00",
+            "name": "Institutional Real Estate",
+            "url": "https://irei.com/news/cerberus-yondr-acquire-40-acres-in-northern-virginia-to-build-72mw-data-center/",
+            "domain": "irei.com",
+            "published": "2026-08-03T13:46:59+00:00",
             "authority": "secondary",
-            "tier": 2,
-            "reported_fact_count": 5,
+            "tier": 3,
+            "reported_fact_count": 3,
             "full_text_available": true
           }
         ],
@@ -3495,10 +3545,266 @@
         ],
         "reporting_gaps": [
           "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "and its affiliates (Cerberus), and Yondr Group, a global developer, owner and operator of hyperscale data centers, today announced the acquisition of a 40-acre site to build a 72-megawatt data center campus in Manassas, Virginia, which is expected to become operational in 2029.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "aa0d6ca119ec5a90",
+      "candidate": {
+        "title": "Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans",
+        "url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+        "source": "Institutional Real Estate",
+        "summary": "Slate Property Group  has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans. \n &#160; \n The SMA expands and diversifies Slate’s available debt offerings by providing additional leverage and pricing options, strengthening borrower relationships and broadening its market reach. Loans for residential developments in high-growth, transit-oriented East Coast markets will be the SMA’s primary focus. \n &#160; \n “The new SMA complements and further diversifies",
+        "published": "2026-08-03T13:46:22+00:00",
+        "source_tier": 3,
+        "source_authority": "secondary",
+        "source_lane": "commercial_real_estate",
+        "topics": [
+          "commercial_real_estate"
+        ],
+        "category": "Capital Markets",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "aa0d6ca119ec5a90",
+          "source_name": "Institutional Real Estate",
+          "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+          "canonical_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+          "headline": "Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans",
+          "publication_date": "2026-08-03T13:46:22+00:00",
+          "discovery_date": "2026-08-03T13:51:28.448692+00:00",
+          "author": "",
+          "raw_summary": "Slate Property Group  has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans. \n &#160; \n The SMA expands and diversifies Slate’s available debt offerings by providing additional leverage and pricing options, strengthening borrower relationships and broadening its market reach. Loans for residential developments in high-growth, transit-oriented East Coast markets will be the SMA’s primary focus. \n &#160; \n “The new SMA complements and further diversifies",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 3,
+          "source_authority": "secondary",
+          "primary_sector": "commercial_real_estate",
+          "secondary_sectors": [
+            "private_equity"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 7,
+          "party_significance_score": 10,
+          "market_impact_score": 3,
+          "strategic_relevance_score": 9,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 5,
+          "timeliness_score": 10,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 61.9,
+          "scoring_profile": "commercial_real_estate",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-03T13:51:28.448698+00:00",
+          "updated_at": "2026-08-03T13:51:39.678458+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Institutional Real Estate",
+          "url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+          "domain": "irei.com",
+          "published": "2026-08-03T13:46:22+00:00",
+          "summary": "Slate Property Group  has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans. \n &#160; \n The SMA expands and diversifies Slate’s available debt offerings by providing additional leverage and pricing options, strengthening borrower relationships and broadening its market reach. Loans for residential developments in high-growth, transit-oriented East Coast markets will be the SMA’s primary focus. \n &#160; \n “The new SMA complements and further diversifies",
+          "source_tier": 3,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 62,
+      "must_read_breakdown": {
+        "financial_magnitude": 7,
+        "party_significance": 10,
+        "market_impact": 3,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "commercial_real_estate",
+        "name": "Commercial Real Estate",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-03T13:56:20+00:00",
+        "event_id": "aa0d6ca119ec5a90",
+        "title": "Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Slate Property Group has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans.",
+            "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "source_name": "Institutional Real Estate"
+          },
+          {
+            "fact": "&#160; “The new SMA complements and further diversifies Slate Property Group has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans.",
+            "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "source_name": "Institutional Real Estate"
+          },
+          {
+            "fact": "“The new SMA complements and further diversifies our range of loan offerings across the capital stack and is a logical next step in our company’s continued evolution,” said Martin Nussbaum, co-founder and principal of Slate Property Group.",
+            "source_url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "source_name": "Institutional Real Estate"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "New York Office Leasing Surge Is a Bet on Talent, Not on Policy",
+            "url": "/insights/nyc-office-leasing-talent-bet.html",
+            "date": "2026-07-09",
+            "excerpt": "NYC office leasing hit 23M SF in H1 2026, the strongest since 2000. But the surge masks a tension: corporate tenants are betting on talent concentration, not on the mayor's policy agenda.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Supreme Court's Cook Ruling Buys CRE Time, Not Certainty, on Rate Path",
+            "url": "/insights/supreme-court-cook-fed-ruling-cre.html",
+            "date": "2026-06-30",
+            "excerpt": "Supreme Court blocks Trump's firing of Fed Governor Lisa Cook, preserving current rate policy. CRE owners face continued refinancing pressure as dovish pivot delayed.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "SEBCO's Bronx Senior Housing Closes the Gap Between Subsidy and Construction Cost",
+            "url": "/insights/bronx-senior-housing-basis-gap.html",
+            "date": "2026-07-22",
+            "excerpt": "SEBCO completes 134-unit senior housing in the Bronx at 130% AMI. The project reveals how low land basis, subsidy, and patient capital close the gap between construction cost and regulated rent.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "SROA's $750M Storage Fund Looks Like a Bet on Scale. It's a Bet on Operating Leverage.",
+            "url": "/insights/sroa-storage-fund-operating-leverage.html",
+            "date": "2026-07-22",
+            "excerpt": "SROA Capital launches Fund X targeting $750M for value-add self-storage. The thesis: operating leverage, not cap rate compression, drives returns in a fragmented market.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Big Banks Cut CRE Loss Reserves: The Office Cycle Is Not Over, It Is Just Priced In",
+            "url": "/insights/big-banks-cut-cre-loss-reserves.html",
+            "date": "2026-07-16",
+            "excerpt": "JPMorgan, Goldman, BofA, Citi, and Wells Fargo cut credit loss provisions in Q2 2026, signaling that the office loan cycle is priced in. But the real test is still coming for smaller lenders.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$1 billion",
+              "number": "1",
+              "unit": "billion",
+              "context": "closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leve"
+            },
+            {
+              "raw": "$1 billion",
+              "number": "1",
+              "unit": "billion",
+              "context": "closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leve"
+            }
+          ],
+          "percentages": [],
+          "companies": [],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Institutional Real Estate",
+            "url": "https://irei.com/news/slate-property-group-closes-1b-separately-managed-account-focused-on-low-leverage-senior-secured-residential-loans/",
+            "domain": "irei.com",
+            "published": "2026-08-03T13:46:22+00:00",
+            "authority": "secondary",
+            "tier": 3,
+            "reported_fact_count": 3,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 2
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
           "No primary document is present in the dossier."
         ],
         "human_stakes": "",
-        "concrete_detail": "TL;DR The choice between edge and cloud isn&#8217;t a philosophical preference, but a practical constraint: does your AI feature need a response in under 100 milliseconds, or can it tolerate a network round trip?",
+        "concrete_detail": "Slate Property Group has closed on a new Separately Managed Account (SMA) with up to $1 billion of capital dedicated to sourcing and originating lower-leverage senior secured residential construction and bridge loans.",
         "kill_reason": "",
         "generation_mode": "deepseek-editorial-room"
       }
@@ -3533,7 +3839,7 @@
           "canonical_url": "https://commercialobserver.com/2026/08/invesco-real-estates-chase-bolding-interview/",
           "headline": "Invesco Real Estate’s Chase Bolding Talks Market Opportunity",
           "publication_date": "2026-08-03T10:30:47+00:00",
-          "discovery_date": "2026-08-03T13:20:05.809018+00:00",
+          "discovery_date": "2026-08-03T13:51:25.333226+00:00",
           "author": "",
           "raw_summary": "Chase Bolding is the chief investment officer and head of North American real estate at Invesco Real Estate, a $90 billion global subsidiary of Invesco, a $2 trillion asset management firm. Bolding works out of New York City managing several portfolios covering roughly $40 billion of commercial real estate assets.  Since joining Invesco 16 years [&#8230;]",
           "raw_text": "",
@@ -3595,8 +3901,8 @@
           "article_url": "",
           "generated_at": "",
           "published_at": "",
-          "created_at": "2026-08-03T13:20:05.809023+00:00",
-          "updated_at": "2026-08-03T13:22:25.905038+00:00"
+          "created_at": "2026-08-03T13:51:25.333232+00:00",
+          "updated_at": "2026-08-03T13:51:39.660268+00:00"
         },
         "pipeline_version": "v2"
       },
@@ -3628,7 +3934,7 @@
       },
       "research_audit": {
         "schema_version": 1,
-        "built_at": "2026-08-03T13:28:07+00:00",
+        "built_at": "2026-08-03T13:58:14+00:00",
         "event_id": "d4d3e78bf0444a25",
         "title": "Invesco Real Estate’s Chase Bolding Talks Market Opportunity",
         "independent_source_count": 1,
@@ -3818,273 +4124,40 @@
         "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
         "favored_thesis": "",
         "alternate_angles": [
-          "Invesco’s private wealth business launch signals retail capital’s growing role in institutional CRE strategies, but the dossier adds no new data on flows, returns, or risk.",
-          "Bolding’s career arc from the GFC to today could frame a perspective on current distress, yet the interview provides only biographical facts, not a market call."
+          "Invesco's $40B portfolio and private wealth launch could signal a strategic shift toward retail capital, but the dossier lacks any concrete stance or transaction.",
+          "Bolding's career path from the GFC era to CIO might illustrate institutional memory of distress cycles, but no current market analogy is drawn."
         ],
         "skeptic_objections": [
-          "The full interview might contain actionable market views, but the dossier omits them; we cannot infer editorial value from a summary.",
-          "A single-source executive profile rarely surfaces a capital decision, constraint, or consequence that meets the editorial constitution.",
-          "Light Tower’s prior coverage shows deeper, decision-grounded pieces; this event lacks that analytical entry point."
+          "No capital decision, constraint, or consequence is disclosed; the event is a biographical sketch.",
+          "All reported facts describe Bolding's background, not a market opportunity, so the headline is misleading.",
+          "Single-source profile with no primary documents or independent verification, failing the floor for adding consequence."
         ],
         "reporting_gaps": [
-          "No primary document or second independent source is present.",
-          "The dossier captures biographical details but no concrete market opportunity, transaction, or strategy shift discussed in the interview."
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "The interview's actual market-opportunity statements are absent from the dossier."
         ],
-        "human_stakes": "Bolding’s career narrative and personal path to leading a $40B portfolio, but that does not expose a capital decision’s constraint or consequence.",
-        "concrete_detail": "Bolding manages roughly $40 billion of commercial real estate assets from New York City.",
+        "human_stakes": "",
+        "concrete_detail": "Bolding started his career in 2007 with Greenfield Partners and gained experience during the 2008–2010 dynamic investment environment.",
         "kill_reason": "",
         "generation_mode": "deepseek-editorial-room",
         "daily_depth_floor_applied": true,
         "original_decision": "kill",
-        "daily_depth_objection": "No defensible CRE consequence: the interview is a profile of an executive with no capital decision, constraint, or market-shifting insight conveyed in the dossier. The event does not meet the franchise promise to explain a capital decision beneath the event."
-      }
-    },
-    {
-      "event_id": "40af406b3ac241e3",
-      "candidate": {
-        "title": "Dollar Drops Further as Yen Rebound Extends Fed-Driven Slide",
-        "url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-        "source": "Bloomberg Real Estate",
-        "summary": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-        "published": "2026-08-03T11:29:24+00:00",
-        "source_tier": 3,
-        "source_authority": "secondary",
-        "source_lane": "fed_macro",
-        "topics": [
-          "fed_macro"
-        ],
-        "category": "Policy & Regulation",
-        "entities": {
-          "companies": [],
-          "amounts": [],
-          "asset_classes": [],
-          "markets": [],
-          "policy_actions": [],
-          "msa_government_markets": []
-        },
-        "canonical_item": {
-          "item_id": "40af406b3ac241e3",
-          "source_name": "Bloomberg Real Estate",
-          "source_url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-          "canonical_url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-          "headline": "Dollar Drops Further as Yen Rebound Extends Fed-Driven Slide",
-          "publication_date": "2026-08-03T11:29:24+00:00",
-          "discovery_date": "2026-08-03T13:20:07.974168+00:00",
-          "author": "",
-          "raw_summary": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-          "raw_text": "",
-          "clean_text": "",
-          "source_type": "mainstream_business",
-          "source_tier": 3,
-          "source_authority": "secondary",
-          "primary_sector": "fed_macro",
-          "secondary_sectors": [
-            "banking_credit"
-          ],
-          "event_type": "",
-          "subsector": "",
-          "classification_confidence": 0.75,
-          "classification_method": "source_config_overridden_by_regex",
-          "city": "",
-          "state": "",
-          "country": "US",
-          "market": "",
-          "property_address": "",
-          "companies": [],
-          "people": [],
-          "buyers": [],
-          "sellers": [],
-          "lenders": [],
-          "developers": [],
-          "government_bodies": [],
-          "transaction_value": 0.0,
-          "transaction_value_raw": "",
-          "debt_amount": 0.0,
-          "equity_amount": 0.0,
-          "fund_size": 0.0,
-          "unit_count": 0,
-          "square_footage": 0,
-          "acreage": 0.0,
-          "megawatts": 0.0,
-          "property_type": "",
-          "financial_magnitude_score": 3,
-          "party_significance_score": 10,
-          "market_impact_score": 7,
-          "strategic_relevance_score": 4,
-          "policy_impact_score": 6,
-          "novelty_score": 7,
-          "source_quality_score": 5,
-          "timeliness_score": 9,
-          "editorial_potential_score": 2,
-          "cross_sector_impact_score": 4,
-          "composite_score": 59.4,
-          "scoring_profile": "fed_macro",
-          "tier": "tier_3_useful_coverage",
-          "status": "scored",
-          "rejection_reason": "",
-          "rejection_code": "",
-          "retry_count": 0,
-          "error_history": [],
-          "cluster_id": "",
-          "is_anchor": false,
-          "article_slug": "",
-          "article_url": "",
-          "generated_at": "",
-          "published_at": "",
-          "created_at": "2026-08-03T13:20:07.974171+00:00",
-          "updated_at": "2026-08-03T13:22:25.917756+00:00"
-        },
-        "pipeline_version": "v2"
-      },
-      "sources": [
-        {
-          "source": "Bloomberg Real Estate",
-          "url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-          "domain": "bloomberg.com",
-          "published": "2026-08-03T11:29:24+00:00",
-          "summary": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-          "source_tier": 3,
-          "source_authority": "secondary"
-        }
-      ],
-      "provisional_format": "brief",
-      "must_read_score": 59,
-      "must_read_breakdown": {
-        "financial_magnitude": 3,
-        "party_significance": 10,
-        "market_impact": 7,
-        "editorial_potential": 2
-      },
-      "selection_tier": "daily_depth",
-      "legal_or_allegation_risk": false,
-      "franchise": {
-        "id": "fed_macro",
-        "name": "Fed & Macro",
-        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
-      },
-      "research_audit": {
-        "schema_version": 1,
-        "built_at": "2026-08-03T13:28:31+00:00",
-        "event_id": "40af406b3ac241e3",
-        "title": "Dollar Drops Further as Yen Rebound Extends Fed-Driven Slide",
-        "independent_source_count": 1,
-        "primary_source_count": 0,
-        "usable_full_text_count": 0,
-        "evidence_level": "insufficient",
-        "reported_facts": [],
-        "prior_light_tower_context": [
-          {
-            "title": "Bond Traders Bet on Fed Hike as Jobs Data Looms Over CRE Debt Markets",
-            "url": "/insights/bond-traders-fed-hike-jobs-data-cre.html",
-            "date": "2026-06-01",
-            "excerpt": "Bond traders are betting the US economy will force a Fed rate hike by 2027. This week's jobs report will test that wager, with direct implications for CRE debt costs and cap rates.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "Powell Warns Fed Credibility at Risk as Political Pressure Mounts",
-            "url": "/insights/powell-fed-credibility-warning.html",
-            "date": "2026-06-01",
-            "excerpt": "Jerome Powell warns the Fed's credibility is under 'stress test' in first remarks since leaving office. Political pressure and criminal probes threaten independence.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "Fed's Bowman Rejects Rate Hike Path as Inflation Surges to 3.8%",
-            "url": "/insights/fed-bowman-rejects-rate-hike-inflation.html",
-            "date": "2026-05-30",
-            "excerpt": "Fed Vice Chair Bowman rejects rate hikes to combat 3.8% PCE inflation, warning oil-driven price spikes are temporary and tightening would harm jobs and growth.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "Fed's Schmid Signals Rate Pause as Inflation Stays Sticky Above 3%",
-            "url": "/insights/fed-schmid-inflation-signal.html",
-            "date": "2026-05-29",
-            "excerpt": "Kansas City Fed President Jeff Schmid says officials must signal commitment to inflation fight. Markets now price no rate cut before September 2026 as core PCE holds above 3%.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          },
-          {
-            "title": "BlackRock’s Saigal Sees Fed Cut Justification as Warsh Era Begins",
-            "url": "/insights/blackrock-fed-cut-warsh-era.html",
-            "date": "2026-05-25",
-            "excerpt": "BlackRock's Rohan Saigal says 'sufficient factors' justify a Fed rate cut under new chair Kevin Warsh, signaling a shift in institutional rate expectations.",
-            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
-          }
-        ],
-        "counterquestions": [
-          "What material fact would make the favored interpretation wrong?",
-          "Is this event representative of a market shift or merely a single transaction?",
-          "Which party has the shortest clock, least liquidity, or weakest alternative?",
-          "What is reported, what is inferred, and what remains unknown?"
-        ],
-        "reporting_gaps": [
-          "A second independent source has not corroborated the event.",
-          "No primary document is present in the dossier.",
-          "No attributable direct quotation was captured.",
-          "The available material contains too few extractable reported facts."
-        ],
-        "desired_format": "brief",
-        "recommended_format": "deal_tape",
-        "format_downgraded": false,
-        "longform_allowed": false,
-        "source_facts": {
-          "amounts": [],
-          "percentages": [],
-          "companies": [
-            {
-              "name": "federal reserve",
-              "context": "sses triggered by last week’s Federal Reserve meeting."
-            }
-          ],
-          "addresses": [],
-          "dates": []
-        },
-        "sources": [
-          {
-            "name": "Bloomberg Real Estate",
-            "url": "https://www.bloomberg.com/news/articles/2026-08-03/dollar-drops-further-as-yen-rebound-extends-fed-driven-slide",
-            "domain": "bloomberg.com",
-            "published": "2026-08-03T11:29:24+00:00",
-            "authority": "secondary",
-            "tier": 3,
-            "reported_fact_count": 0,
-            "full_text_available": false
-          }
-        ],
-        "quote_count": 0
-      },
-      "editorial_room": {
-        "decision": "deal_tape",
-        "final_format": "deal_tape",
-        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
-        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
-        "favored_thesis": "",
-        "alternate_angles": [],
-        "skeptic_objections": [
-          "Do not claim a market-wide shift from one transaction.",
-          "Do not infer unreported motives or private negotiations."
-        ],
-        "reporting_gaps": [
-          "A second independent source has not corroborated the event.",
-          "No primary document is present in the dossier.",
-          "No attributable direct quotation was captured.",
-          "The available material contains too few extractable reported facts."
-        ],
-        "human_stakes": "",
-        "concrete_detail": "The dollar extended its slide on Monday as a joint US-Japan intervention to support the yen added to losses triggered by last week’s Federal Reserve meeting.",
-        "kill_reason": "",
-        "generation_mode": "deterministic-editorial-plan"
+        "daily_depth_objection": "No defensible CRE consequence. The dossier contains only biographical facts and no capital decision, constraint, or market mechanism. Routine executive profile fits the deal tape, not a daily_depth brief."
       }
     }
   ],
   "articles": [],
   "held": [
-    "Overall CMBS Distress Hits a 2026 High: generation held — V2 editorial pipeline did not clear publication: editorial_review: Potential typo: '2026 high' likely incorrect, might be 'year-to-date high' or '2024 high'.; Cliché: 'canary in the coal mine' is overused. | post_revision_financial_review: The article states the overall distress rate hit a 'year-to-date high' of 10.91%. The source only confirms an upward trend for three months and a reversal of an April dip, but does not provide data for earlier months of 2026 to verify that July is the highest so far this year. This claim is unsupported by the given evidence.",
-    "Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: Hamilton Lane's sole lead check signals a conviction that Savant can generate higher returns through an extended hold th)",
-    "World’s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The redirection of federal energy lending installs the government as a de facto backstop for baseload and grid capex, bu)",
-    "Edge Computing vs. Cloud Computing: Choosing the Right Architecture for AI Applications: generation held — V2 editorial pipeline did not clear publication: post_revision_financial_review: The article lacks attribution to the sole source from which its key claims, examples, and data are derived. All factual claims (manufacturing client story, latency thresholds) are presented as the author's own knowledge without citing Data Center POST, violating the calibration rule that every claim must be attributed when using a single source.",
-    "Invesco Real Estate’s Chase Bolding Talks Market Opportunity: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: Invesco's private wealth vehicles are built not just for yield, but as a structural arsenal to buy when institutional fu)"
+    "Overall CMBS Distress Hits a 2026 High: Insufficient reported facts to support a brief; single-source dossier lacks concrete data, making it a routine market update adequately covered by prior Light Tower insights.",
+    "Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The transaction reflects the growing market for GP-led secondaries, but the lack of disclosed performance data highlight); excellence gate: memorable line does not appear in the article",
+    "World’s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The EDF’s pivot channels cheap debt to politically favored generation while imposing execution risk on developers and ti)",
+    "Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The land acquisition is a call option on power access in a market where interconnection agreements are the real asset.)",
+    "Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The SMA is a bet that demand exists for lower-risk construction loans and that borrowers will accept lower leverage in e)",
+    "Invesco Real Estate’s Chase Bolding Talks Market Opportunity: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: Invesco's expansion into private wealth real estate, led by a GFC veteran, is a calculated bet that the next few years w)"
   ],
-  "deal_tape_count": 2,
-  "elapsed_seconds": 1844,
+  "deal_tape_count": 1,
+  "elapsed_seconds": 1679,
   "git": {
     "attempted": false,
     "commit_created": false,
