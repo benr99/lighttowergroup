@@ -5430,6 +5430,490 @@
         "note": "official council calendar and legislation feed"
       },
       "notes": "Primary municipal record. Low frequency; authoritative for NYC land-use action."
+    },
+    {
+      "name": "Real Estate Business Online",
+      "url": "https://rebusinessonline.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 20,
+        "newest_age_hours": 0.3,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "already active. Feed verified: 20 entries, 20 in 96h."
+    },
+    {
+      "name": "Multifamily Executive",
+      "url": "https://www.multifamilyexecutive.com/rss.xml",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 142.0,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "multifamily. Feed verified: 10 entries, 0 in 96h."
+    },
+    {
+      "name": "Units Magazine (NAA)",
+      "url": "https://naahq.org/rss.xml",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 106.3,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "apartment association. Feed verified: 10 entries, 0 in 96h."
+    },
+    {
+      "name": "Yield PRO",
+      "url": "https://yieldpro.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 4,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 10,
+        "newest_age_hours": 18.1,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "multifamily. Feed verified: 10 entries, 10 in 96h."
+    },
+    {
+      "name": "Skift",
+      "url": "https://skift.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 10,
+        "newest_age_hours": 0.7,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "travel/hospitality. Feed verified: 10 entries, 10 in 96h."
+    },
+    {
+      "name": "Scotsman Guide",
+      "url": "https://www.scotsmanguide.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 10,
+        "newest_age_hours": 16.2,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "lending. Feed verified: 10 entries, 10 in 96h."
+    },
+    {
+      "name": "National Mortgage News",
+      "url": "https://www.nationalmortgagenews.com/feed?rss=true",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 10,
+        "newest_age_hours": 0.3,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "mortgage. Feed verified: 10 entries, 10 in 96h."
+    },
+    {
+      "name": "Capacity Media",
+      "url": "http://capacityglobal.com/feed/",
+      "sectors": [
+        "data_centers"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 9,
+        "newest_age_hours": 4.3,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "digital infra. Feed verified: 10 entries, 9 in 96h."
+    },
+    {
+      "name": "Light Reading",
+      "url": "https://www.lightreading.com/rss.xml",
+      "sectors": [
+        "data_centers"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 15,
+        "newest_age_hours": 0.7,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "telecom infra. Feed verified: 50 entries, 15 in 96h."
+    },
+    {
+      "name": "Converge Digest",
+      "url": "https://convergedigest.com/feed/",
+      "sectors": [
+        "data_centers"
+      ],
+      "tier": 4,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 14,
+        "newest_age_hours": 19.0,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "network infra. Feed verified: 19 entries, 14 in 96h."
+    },
+    {
+      "name": "Power Engineering",
+      "url": "https://www.power-eng.com/feed/",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 3,
+        "newest_age_hours": 19.1,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "generation. Feed verified: 10 entries, 3 in 96h."
+    },
+    {
+      "name": "Latitude Media",
+      "url": "https://www.latitudemedia.com/feed/",
+      "sectors": [
+        "energy",
+        "data_centers"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 3,
+        "newest_age_hours": 27.7,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "energy+AI. Feed verified: 10 entries, 3 in 96h."
+    },
+    {
+      "name": "Heatmap News",
+      "url": "https://heatmap.news/feeds/feed.rss",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 12,
+        "newest_age_hours": 3.1,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "energy transition. Feed verified: 30 entries, 12 in 96h."
+    },
+    {
+      "name": "Seeking Alpha REITs",
+      "url": "https://seekingalpha.com/feed.xml",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 4,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 30,
+        "newest_age_hours": 0.0,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "REIT commentary. Feed verified: 30 entries, 30 in 96h."
+    },
+    {
+      "name": "Agri Investor",
+      "url": "https://www.agriinvestor.com/feed/",
+      "sectors": [
+        "private_equity"
+      ],
+      "tier": 4,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 2,
+        "newest_age_hours": 27.7,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "ag land. Feed verified: 10 entries, 2 in 96h."
+    },
+    {
+      "name": "Boston Real Estate Times",
+      "url": "https://bostonrealestatetimes.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 3,
+        "newest_age_hours": 20.6,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "boston. Feed verified: 10 entries, 3 in 96h."
+    },
+    {
+      "name": "Miami Today",
+      "url": "https://www.miamitodaynews.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 4,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 0,
+        "newest_age_hours": 152.5,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "miami. Feed verified: 10 entries, 0 in 96h."
+    },
+    {
+      "name": "The Registry Puget Sound",
+      "url": "https://news.theregistryps.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 10,
+        "newest_age_hours": 0.2,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "seattle. Feed verified: 10 entries, 10 in 96h."
+    },
+    {
+      "name": "Lument",
+      "url": "https://www.lument.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 2,
+        "newest_age_hours": 21.4,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "lender research. Feed verified: 10 entries, 2 in 96h."
+    },
+    {
+      "name": "Cushman Research Beat",
+      "url": "https://www.cushmanwakefield.com/en/united-states/content-feed.xml",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 3,
+        "newest_age_hours": 27.8,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "research. Feed verified: 50 entries, 3 in 96h."
+    },
+    {
+      "name": "NAIOP",
+      "url": "https://blog.credaglobal.org/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 2,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:55:30.999101+00:00",
+        "items_in_window": 1,
+        "newest_age_hours": 93.2,
+        "note": "added in CRE universe expansion"
+      },
+      "notes": "association. Feed verified: 8 entries, 1 in 96h."
     }
   ],
   "health_probe": {
