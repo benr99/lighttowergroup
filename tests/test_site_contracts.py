@@ -299,6 +299,42 @@ class SiteContractTests(unittest.TestCase):
         out_of_order = [i for i in range(len(dates) - 1) if dates[i] < dates[i + 1]]
         self.assertEqual(out_of_order, [], f"manifest not newest-first at indexes {out_of_order[:5]}")
 
+    def test_every_blocked_publisher_records_what_replaced_it(self) -> None:
+        """Twenty-three publishers refuse automated access.
+
+        Their access controls are respected, never circumvented. But a source
+        that simply disappears from the registry takes its coverage with it
+        silently, so each one must record either the replacement that now covers
+        that ground or an explicit statement that a gap remains.
+        """
+        sources = json.loads((ROOT / "config" / "sources.json").read_text(encoding="utf-8"))["sources"]
+        blocked = [s for s in sources if (s.get("health") or {}).get("state") == "blocked"]
+        self.assertGreater(len(blocked), 0, "expected blocked publishers to be recorded")
+
+        undocumented = [
+            s.get("name") for s in blocked
+            if not (s.get("health") or {}).get("replacement")
+        ]
+        self.assertEqual(
+            undocumented, [],
+            "these publishers refuse us and no replacement or residual gap is "
+            f"recorded, so their coverage vanished silently: {undocumented}",
+        )
+
+    def test_no_source_claims_to_bypass_an_access_control(self) -> None:
+        """Replacements must be lawful front doors, not circumvention."""
+        raw = (ROOT / "config" / "sources.json").read_text(encoding="utf-8").lower()
+        for banned in ("proxy", "bypass", "user-agent spoof", "cloudflare-bypass", "scraper-api"):
+            self.assertNotIn(banned, raw, f"config references {banned!r}")
+
+    def test_the_registry_records_measured_health_not_a_manual_flag(self) -> None:
+        sources = json.loads((ROOT / "config" / "sources.json").read_text(encoding="utf-8"))["sources"]
+        self.assertTrue(all("health" in s for s in sources))
+        self.assertEqual(
+            [s.get("name") for s in sources if "verified" in s], [],
+            "the hand-set 'verified' flag was wrong for 53% of sources and must not return",
+        )
+
     def test_homepage_reveal_animation_has_a_script_to_unhide_it(self) -> None:
         """`.reveal` starts at opacity:0, so the observer that adds .visible must ship."""
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")

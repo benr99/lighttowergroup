@@ -22,7 +22,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "partially covered by Connect CRE, REJournals, Traded-style deal tape — residual gap on NYC scoops"
       }
     },
     {
@@ -119,7 +120,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "residual gap on NYC business coverage"
       }
     },
     {
@@ -315,7 +317,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "paid product; no lawful open equivalent — residual gap"
       }
     },
     {
@@ -340,12 +343,13 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by Connect CRE"
       }
     },
     {
       "name": "Connect CRE",
-      "url": "https://www.connect.media/feed/",
+      "url": "https://www.connectcre.com/feed/",
       "sectors": [
         "commercial_real_estate",
         "private_equity"
@@ -357,16 +361,15 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": false,
+      "active": true,
       "notes": "",
       "health": {
-        "state": "misconfigured",
-        "checked_at": "2026-08-03T20:28:43.944335+00:00",
-        "http_status": 200,
-        "items_in_window": 0,
-        "newest_age_hours": null,
-        "note": "verify feed still published"
-      }
+        "state": "healthy",
+        "checked_at": "2026-08-04T15:06:54.118803+00:00",
+        "note": "repaired during blocked-source replacement: connect.media -> connectcre.com"
+      },
+      "previous_url": "https://www.connect.media/feed/",
+      "replaces_blocked_source": "GlobeSt (403)"
     },
     {
       "name": "Propmodo",
@@ -462,7 +465,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by Multi-Housing News"
       }
     },
     {
@@ -487,7 +491,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "partially covered by Connect CRE + Multi-Housing News"
       }
     },
     {
@@ -800,7 +805,7 @@
     },
     {
       "name": "Urban Land Institute",
-      "url": "https://urbanland.uli.org/feed/",
+      "url": "https://urbanland.uli.org/index.rss",
       "sectors": [
         "commercial_real_estate"
       ],
@@ -811,16 +816,14 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "research_analytics",
-      "active": false,
+      "active": true,
       "notes": "",
       "health": {
-        "state": "blocked",
-        "checked_at": "2026-08-03T20:28:43.944335+00:00",
-        "http_status": 403,
-        "items_in_window": 0,
-        "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
-      }
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "recovered: publisher declares this feed and it serves our agent"
+      },
+      "previous_url": "https://urbanland.uli.org/feed/"
     },
     {
       "name": "Affordable Housing Finance",
@@ -1137,7 +1140,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "residual gap; general market press"
       }
     },
     {
@@ -1653,7 +1657,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by REJournals"
       }
     },
     {
@@ -1701,7 +1706,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by REJournals"
       }
     },
     {
@@ -1797,7 +1803,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "regional; residual gap"
       }
     },
     {
@@ -1917,7 +1924,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by REJournals"
       }
     },
     {
@@ -1941,7 +1949,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "broker research; partially covered by ULI + Federal Register housing"
       }
     },
     {
@@ -2013,7 +2022,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "vendor blog; low editorial value, not replaced"
       }
     },
     {
@@ -2669,7 +2679,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by Buyouts + Federal Register SEC"
       }
     },
     {
@@ -2717,7 +2728,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "paid product; no lawful equivalent — residual gap"
       }
     },
     {
@@ -2814,7 +2826,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by Private Funds CFO + Buyouts"
       }
     },
     {
@@ -2838,7 +2851,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by Secondaries Investor + Buyouts"
       }
     },
     {
@@ -3638,7 +3652,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by Federal Register FERC (authoritative, higher volume)"
       }
     },
     {
@@ -3662,7 +3677,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "paid product; replaced in part by Federal Register DOE + EIA"
       }
     },
     {
@@ -3758,7 +3774,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "paid product; replaced in part by Federal Register Fed/FDIC/OCC"
       }
     },
     {
@@ -3855,7 +3872,8 @@
         "http_status": 490,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "investigate"
+        "note": "investigate",
+        "replacement": "nyc.gov returns http 490 to our agent; NY YIMBY (active) covers NYC development news, and NYC Council Legistar covers legislation. Residual gap on mayoral/agency press announcements."
       }
     },
     {
@@ -3903,7 +3921,8 @@
         "http_status": 490,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "investigate"
+        "note": "investigate",
+        "replacement": "nyc.gov returns http 490 to our agent; NYC Open Data serves the same permit records over a documented API and is the better route. Not yet wired -- residual gap."
       }
     },
     {
@@ -4144,7 +4163,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "residual gap on allocator coverage"
       }
     },
     {
@@ -4408,7 +4428,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced by Federal Register OCC/FDIC"
       }
     },
     {
@@ -4504,7 +4525,8 @@
         "http_status": 403,
         "items_in_window": 0,
         "newest_age_hours": null,
-        "note": "respect block; find licensed/primary alternative"
+        "note": "respect block; find licensed/primary alternative",
+        "replacement": "replaced in part by Federal Register Treasury; residual gap on global macro"
       }
     },
     {
@@ -5084,6 +5106,330 @@
         "note": "primary source added in Phase 2A"
       },
       "notes": "Primary/government source. Low frequency by nature; authority over volume."
+    },
+    {
+      "name": "Federal Register — FERC",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=federal-energy-regulatory-commission",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "regulatory_decision",
+        "interconnection_decision",
+        "rate_case",
+        "utility_commission_order"
+      ],
+      "replaces_blocked_source": "FERC News (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — SEC",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=securities-and-exchange-commission",
+      "sectors": [
+        "banking_credit",
+        "private_equity"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "rulemaking",
+        "enforcement_action"
+      ],
+      "replaces_blocked_source": "PitchBook News (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — Federal Reserve",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=federal-reserve-system",
+      "sectors": [
+        "fed_macro",
+        "banking_credit"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "capital_rule_change",
+        "regulatory_action"
+      ],
+      "replaces_blocked_source": "S&P Global Market Intelligence (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — Treasury",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=treasury-department",
+      "sectors": [
+        "fed_macro"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "treasury_action",
+        "fiscal_legislation",
+        "tax_change"
+      ],
+      "replaces_blocked_source": "IMF (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — OCC",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=comptroller-of-the-currency",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "bank_regulation",
+        "enforcement_action"
+      ],
+      "replaces_blocked_source": "Bank Automation News (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — FDIC",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=federal-deposit-insurance-corporation",
+      "sectors": [
+        "banking_credit"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "bank_failure",
+        "regulatory_action"
+      ],
+      "replaces_blocked_source": "Bank Automation News (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — HUD",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=housing-and-urban-development-department",
+      "sectors": [
+        "commercial_real_estate",
+        "local_government"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "housing_mandate",
+        "subsidy_program"
+      ],
+      "replaces_blocked_source": "—",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — FHFA",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=federal-housing-finance-agency",
+      "sectors": [
+        "commercial_real_estate",
+        "banking_credit"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "gse_policy",
+        "housing_finance"
+      ],
+      "replaces_blocked_source": "—",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "Federal Register — DOE",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bagencies%5D%5B%5D=energy-department",
+      "sectors": [
+        "energy"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "federal_policy",
+        "permitting_decision",
+        "tax_credit"
+      ],
+      "replaces_blocked_source": "S&P Global Commodity Insights (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Primary regulatory record; documented public API, no key required."
+    },
+    {
+      "name": "REJournals",
+      "url": "https://rejournals.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "discovers_signals": [
+        "property_acquisition",
+        "asset_sale",
+        "loan_origination"
+      ],
+      "replaces_blocked_source": "Dallas/LA/Phoenix Business Journals (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Open replacement for a publisher that refuses automated access."
+    },
+    {
+      "name": "The Registry SF",
+      "url": "https://news.theregistrysf.com/feed/",
+      "sectors": [
+        "commercial_real_estate"
+      ],
+      "tier": 3,
+      "fetch_frequency_hours": 6,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "national",
+      "source_type": "industry_publication",
+      "active": true,
+      "discovers_signals": [
+        "property_acquisition",
+        "development_approval"
+      ],
+      "replaces_blocked_source": "regional business journals (403)",
+      "health": {
+        "state": "healthy",
+        "checked_at": "2026-08-04T14:59:29.021115+00:00",
+        "note": "added in blocked-source replacement pass"
+      },
+      "notes": "Open replacement for a publisher that refuses automated access."
+    },
+    {
+      "name": "NYC Council Legistar",
+      "url": "https://legistar.council.nyc.gov/Feed.ashx?M=Calendar&ID=&Mode=This%20Month&Format=rss",
+      "sectors": [
+        "local_government",
+        "commercial_real_estate"
+      ],
+      "tier": 1,
+      "fetch_frequency_hours": 12,
+      "auth_required": false,
+      "js_required": false,
+      "full_text_available": true,
+      "geographic_scope": "nyc",
+      "source_type": "government",
+      "active": true,
+      "discovers_signals": [
+        "rezoning_decision",
+        "city_council",
+        "entitlement_approval",
+        "housing_mandate"
+      ],
+      "replaces_blocked_source": "NYC Gov Press Releases (http 490)",
+      "health": {
+        "state": "healthy_low_frequency",
+        "checked_at": "2026-08-04T15:32:56.303501+00:00",
+        "note": "official council calendar and legislation feed"
+      },
+      "notes": "Primary municipal record. Low frequency; authoritative for NYC land-use action."
     }
   ],
   "health_probe": {
