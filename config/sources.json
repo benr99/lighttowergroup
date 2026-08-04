@@ -2102,15 +2102,12 @@
       "full_text_available": true,
       "geographic_scope": "national",
       "source_type": "industry_publication",
-      "active": true,
+      "active": false,
       "notes": "",
       "health": {
-        "state": "healthy",
-        "checked_at": "2026-08-03T20:28:43.944335+00:00",
-        "http_status": 200,
-        "items_in_window": 10,
-        "newest_age_hours": 4.2,
-        "note": "keep"
+        "state": "retired_duplicate",
+        "checked_at": "2026-08-04T04:34:16.385617+00:00",
+        "note": "Same publication and same article URLs as 'Institutional Real Estate'; confirmed by event clustering (identical canonical URLs)."
       }
     },
     {
