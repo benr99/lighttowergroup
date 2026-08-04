@@ -1,8 +1,8 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **209**
-- Distinct events: **209**
+- Candidates: **379**
+- Distinct events: **379**
 - Articles: **0**
 - Daily target: **3**
 - Daily target met: **no**
@@ -12,9 +12,10 @@
 
 ## Held or downgraded
 
-- Overall CMBS Distress Hits a 2026 High: Insufficient reported facts to support a brief; single-source dossier lacks concrete data, making it a routine market update adequately covered by prior Light Tower insights.
-- Hamilton Lane backs $270m single-asset continuation vehicle to extend decade-long Savant investment: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The transaction reflects the growing market for GP-led secondaries, but the lack of disclosed performance data highlight); excellence gate: memorable line does not appear in the article
-- World’s Largest Energy Lender Steers Federal Financing Toward Baseload, Transmission, and Nuclear: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The EDF’s pivot channels cheap debt to politically favored generation while imposing execution risk on developers and ti)
-- Cerberus, Yondr acquire 40 Acres in Northern Virginia to build 72MW data center: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The land acquisition is a call option on power access in a market where interconnection agreements are the real asset.)
-- Slate Property Group closes $1b separately managed account focused on low-leverage senior secured residential loans: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The SMA is a bet that demand exists for lower-risk construction loans and that borrowers will accept lower leverage in e)
-- Invesco Real Estate’s Chase Bolding Talks Market Opportunity: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: Invesco's expansion into private wealth real estate, led by a GFC veteran, is a calculated bet that the next few years w)
+- Fed’s Paulson Keeping an ‘Open Mind’ on Interest Rates: Routine Fed commentary without material new information or concrete capital implication. Single-source video clip provides only one reported fact; no primary text or corroboration. Fails to meet brief threshold for consequential insight.
+- OCC, FDIC propose another CRA revamp: generation held — V2 editorial pipeline did not clear publication: post_revision_editorial_review: Conclusion relies on vague forward-looking statement instead of providing implication or insight.
+- 5 reasons private equity is betting big on US Naval investments: final controls held — independent quality gate: article is below 215 words; independent quality gate: central claim not supported by sources (confidence: 0%, missing: Private equity is beginning to target the naval sector because its budget dwarfs most other investable markets.); excellence gate: brief is below 240 words
+- JPMorgan Commits $750 Billion to Housing Finance Through 2036: final controls held — excellence gate: memorable line does not appear in the article
+- OCC proposes new requirements for releasing confidential information: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The proposal formalizes a tighter grip on supervisory information, even as it offers a sunset clause and faster FOIA.); excellence gate: brief stacks too many hypothetical claims; excellence gate: memorable line does not appear in the article
+- Dominion Discusses Data Centers, Merger and CVOW on Q2 Call: generation held — V2 editorial pipeline did not clear publication: financial_review: The article asserts definitively that the earnings call 'provided no updated financial targets, merger terms, or specific offtake agreements,' but the single dossier summary does not confirm the absence of these disclosures. This negative claim is unsupported and central to the article's thesis.; The phrase 'accelerating data center interconnection requests' is not explicitly stated in the source; the source mentions 'data center load' as a topic, but the specific characterization is unsupported.; The article does not attribute its observations about what the call lacked to the source or acknowledge the thin evidentiary basis
+- Savills Completes $1.1B Acquisition of Eastdil Secured: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The absence of financing details prevents outsiders from assessing whether Savills secured a bargain or paid a premium t)
