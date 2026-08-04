@@ -48,6 +48,30 @@ def _load(label: str) -> list[dict]:
     return [record for record in records if record["_label"] == label]
 
 
+def _intelligence_object(record: dict):
+    """Build the new-system object from the same fixture row."""
+    from intelligence_object import IntelligenceObject, SourceRef
+
+    obj = IntelligenceObject(
+        object_id=record["id"],
+        cluster_id=record["id"],
+        primary_sector=record["primary_sector"],
+        title=record["headline"],
+        what_happened=record["summary"],
+        sources=[
+            SourceRef(
+                item_id=record["id"],
+                source_name=record["source_name"] or "Wire",
+                source_url=record["url"],
+                canonical_url=record["url"],
+                source_tier=record["source_tier"],
+            )
+        ],
+    )
+    obj.assess_evidence()
+    return obj
+
+
 def _rebuild(record: dict) -> "CanonicalItem":
     """Rebuild the scored CanonicalItem the gate was originally applied to."""
     item = CanonicalItem(
@@ -112,15 +136,25 @@ class KnownFalsePositives(unittest.TestCase):
                     "expectedFailure test below and drop that decorator.",
                 )
 
-    @unittest.expectedFailure
     def test_explainers_and_promotional_interviews_are_ineligible(self) -> None:
-        """Phase 3 target: content type must gate eligibility, not keywords."""
+        """Now enforced by the new eligibility module (was an expected failure).
+
+        Content type gates eligibility instead of keyword presence, so the
+        explainer is rejected as an explainer and the interview is rejected for
+        carrying no material disclosure.
+        """
+        import eligibility
+
         for record in _load("false_positive"):
             with self.subTest(headline=record["headline"][:60]):
+                obj = _intelligence_object(record)
+                decision = eligibility.assess(obj)
                 self.assertFalse(
-                    v2_editorial.is_daily_article_candidate(_rebuild(record)),
+                    decision.eligible,
                     f"{record['headline']!r} should be ineligible: {record['_why']}",
                 )
+                self.assertTrue(decision.reason, "a rejection must explain itself")
+                self.assertTrue(decision.disqualifiers)
 
 
 @unittest.skipUnless(_HAS_PIPELINE, "pipeline modules unavailable")
@@ -164,14 +198,16 @@ class AdversarialKeywordInjection(unittest.TestCase):
                 item = self._junk_item(headline, summary)
                 self.assertFalse(v2_editorial.is_daily_article_candidate(item))
 
-    @unittest.expectedFailure
     def test_incidental_capital_words_do_not_make_junk_eligible(self) -> None:
-        """Phase 3 target: a passing mention must not admit a non-story.
+        """Now enforced by the new eligibility module (was an expected failure).
 
         Each injected sentence is the kind of boilerplate that appears in author
         bios, footers and related-content modules -- never a description of an
-        event.
+        event. Under the old keyword gate every one of these admitted the item.
         """
+        import eligibility
+        from intelligence_object import IntelligenceObject, SourceRef
+
         injections = (
             "The author previously worked in property investment.",
             "Sponsored by a data center operator.",
@@ -180,9 +216,16 @@ class AdversarialKeywordInjection(unittest.TestCase):
         for headline in self.JUNK:
             for injected in injections:
                 with self.subTest(headline=headline[:40], injected=injected[:40]):
-                    item = self._junk_item(headline, f"A listicle. {injected}")
+                    obj = IntelligenceObject(
+                        object_id="junk",
+                        primary_sector="commercial_real_estate",
+                        title=headline,
+                        what_happened=f"A listicle. {injected}",
+                        sources=[SourceRef(item_id="j", source_name="Fixture Wire")],
+                    )
+                    obj.assess_evidence()
                     self.assertFalse(
-                        v2_editorial.is_daily_article_candidate(item),
+                        eligibility.assess(obj).eligible,
                         f"{injected!r} must not make {headline!r} eligible",
                     )
 
