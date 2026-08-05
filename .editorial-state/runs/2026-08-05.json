@@ -1,0 +1,3911 @@
+{
+  "run_at": "2026-08-05T13:00:49.511329+00:00",
+  "date": "2026-08-05",
+  "selection_mode": "edition",
+  "pipeline_version": "v2",
+  "dry_run": false,
+  "shadow": false,
+  "raw_count": 726,
+  "candidate_count": 592,
+  "selected_stories": [
+    {
+      "event_id": "77307fb8bf586d78",
+      "candidate": {
+        "title": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer",
+        "url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+        "source": "Commercial Observer",
+        "summary": "Prologis, the world’s largest industrial landlord, is about to get even bigger. The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.  Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;]",
+        "published": "2026-08-04T19:11:25+00:00",
+        "source_tier": 1,
+        "source_authority": "secondary",
+        "source_lane": "commercial_real_estate",
+        "topics": [
+          "commercial_real_estate"
+        ],
+        "category": "Capital Markets",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "77307fb8bf586d78",
+          "source_name": "Commercial Observer",
+          "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+          "canonical_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+          "headline": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer",
+          "publication_date": "2026-08-04T19:11:25+00:00",
+          "discovery_date": "2026-08-05T13:00:51.193021+00:00",
+          "author": "",
+          "raw_summary": "Prologis, the world’s largest industrial landlord, is about to get even bigger. The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.  Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;]",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 1,
+          "source_authority": "secondary",
+          "primary_sector": "commercial_real_estate",
+          "secondary_sectors": [
+            "private_equity"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 6,
+          "strategic_relevance_score": 6,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 10,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 64.9,
+          "scoring_profile": "commercial_real_estate",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:51.193025+00:00",
+          "updated_at": "2026-08-05T13:01:02.102507+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Commercial Observer",
+          "url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+          "domain": "commercialobserver.com",
+          "published": "2026-08-04T19:11:25+00:00",
+          "summary": "Prologis, the world’s largest industrial landlord, is about to get even bigger. The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.  Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;]",
+          "source_tier": 1,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 65,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 6,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "commercial_real_estate",
+        "name": "Commercial Real Estate",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:01:02+00:00",
+        "event_id": "77307fb8bf586d78",
+        "title": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;] Prologis’ European Rival Segro Accepts $18.8B Takeover Offer By Emily Davis August 4, 2026 3:11 pm reprintsPrologis, the world’s largest industrial landlord, is about to get even bigger.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "Prologis announced Tuesday that Segro’s once-resistant board would be recommending the deal.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "The combined portfolios’ global platform will total approximately $269 billion of assets under management.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "Segro’s portfolio spans approximately 117 million square feet across the U.K.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "“Prologis shares our conviction in the long-term structural drivers underpinning demand for modern logistics and data centre infrastructure,” David Sleath, CEO of Segro, said in a statement.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "The deal anticipates a combined European development pipeline of 13 million square feet and a 126 percent increase in Prologis’ European land bank.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "Prologis's Third Bid for Segro Shows Time Is the Costliest Capital",
+            "url": "/insights/prologis-segro-time-cost-capital.html",
+            "date": "2026-07-21",
+            "excerpt": "Prologis's $18.2B third bid for Segro, rejected but not dead, reveals how time pressure and rising costs are reshaping industrial REIT M&A.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Big Banks Cut CRE Loss Reserves: The Office Cycle Is Not Over, It Is Just Priced In",
+            "url": "/insights/big-banks-cut-cre-loss-reserves.html",
+            "date": "2026-07-16",
+            "excerpt": "JPMorgan, Goldman, BofA, Citi, and Wells Fargo cut credit loss provisions in Q2 2026, signaling that the office loan cycle is priced in. But the real test is still coming for smaller lenders.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Treasury Two-Year Yields Hit 2025 High: CRE's Cost of Time Just Rose Again",
+            "url": "/insights/treasury-yields-cre-cost-of-time.html",
+            "date": "2026-07-13",
+            "excerpt": "Two-year Treasury yields hit their highest since early 2025 as oil jumps. For CRE capital markets, the signal is about the cost of carry, not just inflation fears.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "New York Office Leasing Surge Is a Bet on Talent, Not on Policy",
+            "url": "/insights/nyc-office-leasing-talent-bet.html",
+            "date": "2026-07-09",
+            "excerpt": "NYC office leasing hit 23M SF in H1 2026, the strongest since 2000. But the surge masks a tension: corporate tenants are betting on talent concentration, not on the mayor's policy agenda.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Warsh's Inflation Warning Means CRE Owners Should Plan for Higher-for-Longer Rates",
+            "url": "/insights/warsh-inflation-cre-rates-higher-for-longer.html",
+            "date": "2026-07-02",
+            "excerpt": "Fed Chair Warsh says inflation too high, no July rate signal. 30-year mortgage near 6.49%. CRE owners face prolonged higher-for-longer rates, compressing refinancing windows.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$18.8B",
+              "number": "18.8",
+              "unit": "b",
+              "context": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer\nBy Emily Davis August 4, 2026 3:11 pm\nreprin"
+            },
+            {
+              "raw": "$18.8 billion",
+              "number": "18.8",
+              "unit": "billion",
+              "context": "s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.\nPrologis announced Tuesday that Segro’s once-resistant boa"
+            },
+            {
+              "raw": "$269 billion",
+              "number": "269",
+              "unit": "billion",
+              "context": "mbined portfolios’ global platform will total approximately $269 billion of assets under management.\nFor the U.K., the deal means lo"
+            },
+            {
+              "raw": "$18.8 billion",
+              "number": "18.8",
+              "unit": "billion",
+              "context": "s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion. Prologis announced Tuesday that Segro’s once-resistant boa"
+            }
+          ],
+          "percentages": [
+            {
+              "raw": "47 percent",
+              "number": "47",
+              "unit": "percent",
+              "context": "opean footprint is projected to grow by 47 percent with a 368 million-square-foot regional"
+            },
+            {
+              "raw": "126 percent",
+              "number": "126",
+              "unit": "percent",
+              "context": "ipeline of 13 million square feet and a 126 percent increase in Prologis’ European land ban"
+            }
+          ],
+          "companies": [
+            {
+              "name": "ares",
+              "context": "center pipeline.\n“Prologis shares our conviction in the long-te"
+            }
+          ],
+          "addresses": [],
+          "dates": [
+            "August 4, 2026"
+          ]
+        },
+        "sources": [
+          {
+            "name": "Commercial Observer",
+            "url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "domain": "commercialobserver.com",
+            "published": "2026-08-04T19:11:25+00:00",
+            "authority": "secondary",
+            "tier": 1,
+            "reported_fact_count": 8,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 3
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.",
+        "kill_reason": "",
+        "generation_mode": "deepseek-editorial-room"
+      }
+    },
+    {
+      "event_id": "db9bfedb4849a382",
+      "candidate": {
+        "title": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+        "source": "Federal Reserve Press Releases",
+        "summary": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "published": "2026-08-04T20:30:00+00:00",
+        "source_tier": 1,
+        "source_authority": "secondary",
+        "source_lane": "fed_macro",
+        "topics": [
+          "fed_macro"
+        ],
+        "category": "Policy & Regulation",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "db9bfedb4849a382",
+          "source_name": "Federal Reserve Press Releases",
+          "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+          "canonical_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+          "headline": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+          "publication_date": "2026-08-04T20:30:00+00:00",
+          "discovery_date": "2026-08-05T13:00:52.809047+00:00",
+          "author": "",
+          "raw_summary": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "government",
+          "source_tier": 1,
+          "source_authority": "secondary",
+          "primary_sector": "fed_macro",
+          "secondary_sectors": [
+            "banking_credit"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 3,
+          "party_significance_score": 10,
+          "market_impact_score": 7,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 6,
+          "novelty_score": 7,
+          "source_quality_score": 10,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 62.7,
+          "scoring_profile": "fed_macro",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:52.809058+00:00",
+          "updated_at": "2026-08-05T13:01:02.148360+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Federal Reserve Press Releases",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+          "domain": "federalreserve.gov",
+          "published": "2026-08-04T20:30:00+00:00",
+          "summary": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+          "source_tier": 1,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 63,
+      "must_read_breakdown": {
+        "financial_magnitude": 3,
+        "party_significance": 10,
+        "market_impact": 7,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "fed_macro",
+        "name": "Fed & Macro",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:01:38+00:00",
+        "event_id": "db9bfedb4849a382",
+        "title": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "August 04, 2026 Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "EDT The Federal Reserve Board on Tuesday announced its approval of the application by Coastal Bend Bancshares, Inc., of Corpus Christi, Texas, to acquire First National Bank in Port Lavaca, of Port Lavaca, Texas.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "For media inquiries, please email [email protected] or call (202) 452-2955.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "source_name": "Federal Reserve Press Releases"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "CVC Raises $9.3B for Secondaries, Confronting the Limits of Size",
+            "url": "/insights/cvc-raises-9-3b-for-secondaries-confronting-the-limits-of-si.html",
+            "date": "2026-07-30",
+            "excerpt": "CVC Capital Partners raised $9.3 billion for its sixth secondaries fund, exceeding the $8 billion target by 37%. But deploying that capital without diluting returns will test the firm’s discipline in ",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Green Manor of Jamaica Lottery: The Rent Floor Is the Financing Tool",
+            "url": "/insights/green-manor-jamaica-rent-floor-financing.html",
+            "date": "2026-07-24",
+            "excerpt": "Green Manor of Jamaica's lottery at 130% AMI reveals how developers use rent floors to underwrite debt in Queens submarkets. A capital markets signal in 20 units.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Can a $2.7M Waterfront Mansion in Oxnard Rewrite the Pricing Map for Coastal California?",
+            "url": "/insights/oxnard-waterfront-pricing-gap.html",
+            "date": "2026-07-23",
+            "excerpt": "A $2.7M Oxnard mansion with a private boat dock raises a question: how much of coastal California's premium is location vs. liquidity?",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "34,564 SF of Leasing at 711 Third: The Lease Duration Is the Signal, Not the Square Footage",
+            "url": "/insights/lease-duration-signal-711-third.html",
+            "date": "2026-07-23",
+            "excerpt": "SL Green signs 34,564 SF in two deals at 711 Third Avenue. Fidelity's 10-year lease and Ackman Ziff's renewal show tenants are committing to duration, not just space. The underwriting margin is time.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "$133M Providence Place Mall Sale: The Price of a Court-Ordered Exit",
+            "url": "/insights/providence-place-mall-sale-price.html",
+            "date": "2026-07-23",
+            "excerpt": "Providence Place Mall sells for $133M after years in receivership. The price reveals the discount required to clear a court-ordered sale and what it signals for regional mall liquidity.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "ares",
+              "context": "ication by Coastal Bend Bancshares, Inc.\nFor release at 4:30 p.m"
+            },
+            {
+              "name": "ares",
+              "context": "ication by Coastal Bend Bancshares, Inc., of Corpus Christi, Tex"
+            },
+            {
+              "name": "ares",
+              "context": "ication by Coastal Bend Bancshares, Inc."
+            },
+            {
+              "name": "federal reserve",
+              "context": "August 04, 2026\nFederal Reserve Board announces approval of t"
+            },
+            {
+              "name": "federal reserve",
+              "context": "release at 4:30 p.m. EDT\nThe Federal Reserve Board on Tuesday announced it"
+            },
+            {
+              "name": "federal reserve",
+              "context": "cted] or call (202) 452-2955. Federal Reserve Board announces approval of t"
+            }
+          ],
+          "addresses": [],
+          "dates": [
+            "August 04, 2026"
+          ]
+        },
+        "sources": [
+          {
+            "name": "Federal Reserve Press Releases",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "domain": "federalreserve.gov",
+            "published": "2026-08-04T20:30:00+00:00",
+            "authority": "secondary",
+            "tier": 1,
+            "reported_fact_count": 3,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "August 04, 2026 Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "4ea16eed829c59e2",
+      "candidate": {
+        "title": "Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise",
+        "url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+        "source": "Alt Assets",
+        "summary": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year. \n The post  Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise  appeared first on  AltAssets Private Equity News .",
+        "published": "2026-08-04T14:44:59+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "private_equity",
+        "topics": [
+          "private_equity"
+        ],
+        "category": "Deal Intelligence",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "4ea16eed829c59e2",
+          "source_name": "Alt Assets",
+          "source_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+          "canonical_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+          "headline": "Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise",
+          "publication_date": "2026-08-04T14:44:59+00:00",
+          "discovery_date": "2026-08-05T13:00:58.826208+00:00",
+          "author": "",
+          "raw_summary": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year. \n The post  Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise  appeared first on  AltAssets Private Equity News .",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "private_equity",
+          "secondary_sectors": [],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 6,
+          "strategic_relevance_score": 6,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 2,
+          "composite_score": 61.0,
+          "scoring_profile": "private_equity",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:58.826221+00:00",
+          "updated_at": "2026-08-05T13:01:02.217881+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Alt Assets",
+          "url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+          "domain": "altassets.net",
+          "published": "2026-08-04T14:44:59+00:00",
+          "summary": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year. \n The post  Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise  appeared first on  AltAssets Private Equity News .",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 61,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 6,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "private_equity",
+        "name": "Private Equity",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:03:21+00:00",
+        "event_id": "4ea16eed829c59e2",
+        "title": "Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year.",
+            "source_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+            "source_name": "Alt Assets"
+          },
+          {
+            "fact": "The post Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise appeared first on AltAssets Private Equity News .",
+            "source_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+            "source_name": "Alt Assets"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "CVC Raises $9.3B for Secondaries, Confronting the Limits of Size",
+            "url": "/insights/cvc-raises-9-3b-for-secondaries-confronting-the-limits-of-si.html",
+            "date": "2026-07-30",
+            "excerpt": "CVC Capital Partners raised $9.3 billion for its sixth secondaries fund, exceeding the $8 billion target by 37%. But deploying that capital without diluting returns will test the firm’s discipline in ",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Bayer's Apollo Deal Shows Litigation Risk Is Now a Capital Structure Problem",
+            "url": "/insights/bayer-apollo-litigation-capital-structure.html",
+            "date": "2026-07-10",
+            "excerpt": "Bayer sells €3B stake in contraceptives business to Apollo to fund Roundup litigation. The deal shows how legal liability is becoming a capital structure constraint.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Benefit Street Partners Writes $82M Refi for Sarasota Multifamily as Lenders Return to Sun Belt",
+            "url": "/insights/benefit-street-partners-82m-sarasota-refi.html",
+            "date": "2026-05-30",
+            "excerpt": "Benefit Street Partners provides $82.1M refi for Render Legacy Trail, a 450-unit Class A multifamily in Sarasota County. Three-year loan with extensions reflects lender return to Sun Belt.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "$153M in Orders for a $153M Deal: Affordable Housing CMBS Has a Bid",
+            "url": "/insights/affordable-housing-cmbs-has-a-bid.html",
+            "date": "2026-07-24",
+            "excerpt": "Systima Capital Management closed a $153M tax-exempt CMBS deal backed by 1,272 LIHTC units. The offering drew $1.2B in orders from 19 investors, signaling a structural shift in affordable housing capital.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Blackstone's Retail Funds Look Like Access. They Are a Liquidity Trade.",
+            "url": "/insights/blackstone-retail-funds-liquidity-trade.html",
+            "date": "2026-07-23",
+            "excerpt": "Blackstone, Wellington, and Vanguard launch retail funds with a 3% redemption limit. The structure reveals the core tension: private assets don't scale to daily liquidity.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$5bn",
+              "number": "5",
+              "unit": "bn",
+              "context": "ce@altassets.net Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the pri"
+            },
+            {
+              "raw": "$200bn",
+              "number": "200",
+              "unit": "bn",
+              "context": "or looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year."
+            },
+            {
+              "raw": "$5bn",
+              "number": "5",
+              "unit": "bn",
+              "context": "me for the first time last year. The post Adams Street tops $5bn for secondaries programme as record deal volumes fuel lates"
+            }
+          ],
+          "percentages": [],
+          "companies": [],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Alt Assets",
+            "url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+            "domain": "altassets.net",
+            "published": "2026-08-04T14:44:59+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 2,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "574ab1adab10221d",
+      "candidate": {
+        "title": "FDIC issues relief guidance for Michigan banks affected by storms",
+        "url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+        "source": "ABA Banking Journal",
+        "summary": "The FDIC released guidance with steps intended to provide regulatory relief to financial institutions and facilitate recovery in areas of Michigan affected by severe storms and flooding. \n The post  FDIC issues relief guidance for Michigan banks affected by storms  appeared first on  ABA Banking Journal .",
+        "published": "2026-08-04T20:06:47+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "banking_credit",
+        "topics": [
+          "banking_credit"
+        ],
+        "category": "Debt & Equity",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "574ab1adab10221d",
+          "source_name": "ABA Banking Journal",
+          "source_url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+          "canonical_url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+          "headline": "FDIC issues relief guidance for Michigan banks affected by storms",
+          "publication_date": "2026-08-04T20:06:47+00:00",
+          "discovery_date": "2026-08-05T13:00:56.875684+00:00",
+          "author": "",
+          "raw_summary": "The FDIC released guidance with steps intended to provide regulatory relief to financial institutions and facilitate recovery in areas of Michigan affected by severe storms and flooding. \n The post  FDIC issues relief guidance for Michigan banks affected by storms  appeared first on  ABA Banking Journal .",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "banking_credit",
+          "secondary_sectors": [],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 1,
+          "party_significance_score": 10,
+          "market_impact_score": 6,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 9,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 2,
+          "composite_score": 56.5,
+          "scoring_profile": "banking_credit",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:56.875689+00:00",
+          "updated_at": "2026-08-05T13:01:02.188919+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "ABA Banking Journal",
+          "url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+          "domain": "bankingjournal.aba.com",
+          "published": "2026-08-04T20:06:47+00:00",
+          "summary": "The FDIC released guidance with steps intended to provide regulatory relief to financial institutions and facilitate recovery in areas of Michigan affected by severe storms and flooding. \n The post  FDIC issues relief guidance for Michigan banks affected by storms  appeared first on  ABA Banking Journal .",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 56,
+      "must_read_breakdown": {
+        "financial_magnitude": 1,
+        "party_significance": 10,
+        "market_impact": 6,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "banking_credit",
+        "name": "Banking & Credit",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:05:10+00:00",
+        "event_id": "574ab1adab10221d",
+        "title": "FDIC issues relief guidance for Michigan banks affected by storms",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "The agency said banks may receive favorable Community Reinvestment Act consideration for community development loans, investments and services in support of disaster recovery.",
+            "source_url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+            "source_name": "ABA Banking Journal"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "Banks' Record Bond Short Signals a New Cost of Time for CRE Borrowers",
+            "url": "/insights/banks-record-bond-short-cre-liquidity.html",
+            "date": "2026-07-12",
+            "excerpt": "Primary dealers' record net short on Treasury debt signals a shift in liquidity pricing. For CRE borrowers, time just got more expensive.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Warsh on Stage With 2008 Class Signals Central Banks Are Preparing for the Next Crisis",
+            "url": "/insights/warsh-2008-crisis-signal.html",
+            "date": "2026-06-28",
+            "excerpt": "Kevin Warsh and three 2008 crisis veterans share a stage. The signal for CRE capital markets: central banks are preparing for private market stress, not just inflation.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "fdic",
+              "context": "The FDIC today released guidance with"
+            },
+            {
+              "name": "fdic",
+              "context": "ort of disaster recovery. The FDIC also will consider regulatory"
+            },
+            {
+              "name": "fdic",
+              "context": "publishing requirements. The FDIC released guidance with steps"
+            },
+            {
+              "name": "fdic",
+              "context": "storms and flooding. The post FDIC issues relief guidance for Mi"
+            }
+          ],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "ABA Banking Journal",
+            "url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+            "domain": "bankingjournal.aba.com",
+            "published": "2026-08-04T20:06:47+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 1,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "The agency said banks may receive favorable Community Reinvestment Act consideration for community development loans, investments and services in support of disaster recovery.",
+        "kill_reason": "",
+        "generation_mode": "deepseek-editorial-room"
+      }
+    },
+    {
+      "event_id": "100ef8f58f0019ad",
+      "candidate": {
+        "title": "KKR closes Global Infrastructure Investors V fund with $19.2bn to spend on infrastructure",
+        "url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+        "source": "Data Center Dynamics",
+        "summary": "Including data centers, energy, and other AI infrastructure",
+        "published": "2026-08-05T11:56:21+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "data_centers",
+        "topics": [
+          "data_centers"
+        ],
+        "category": "Market Analysis",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "100ef8f58f0019ad",
+          "source_name": "Data Center Dynamics",
+          "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+          "canonical_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+          "headline": "KKR closes Global Infrastructure Investors V fund with $19.2bn to spend on infrastructure",
+          "publication_date": "2026-08-05T11:56:21+00:00",
+          "discovery_date": "2026-08-05T13:00:56.125048+00:00",
+          "author": "",
+          "raw_summary": "Including data centers, energy, and other AI infrastructure",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "data_centers",
+          "secondary_sectors": [],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 3,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 9,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 2,
+          "composite_score": 53.7,
+          "scoring_profile": "data_centers",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:56.125052+00:00",
+          "updated_at": "2026-08-05T13:01:02.173543+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Data Center Dynamics",
+          "url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+          "domain": "datacenterdynamics.com",
+          "published": "2026-08-05T11:56:21+00:00",
+          "summary": "Including data centers, energy, and other AI infrastructure",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 54,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 3,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "data_centers",
+        "name": "Data Centers",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:06:56+00:00",
+        "event_id": "100ef8f58f0019ad",
+        "title": "KKR closes Global Infrastructure Investors V fund with $19.2bn to spend on infrastructure",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Including data centers, energy, and other AI infrastructure Investment firm KKR has closed its Global Infrastructure Investors V fund, raising $19.2 billion.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          },
+          {
+            "fact": "The company manages around $120bn in infrastructure equity today, up from $13bn in 2019.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          },
+          {
+            "fact": "The V fund has already committed more than $9bn, with investments in companies including Altitude III, EDF power solutions North America, Enilive, Sempra Infrastructure, and The Parking Spot.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          },
+          {
+            "fact": "“Demand for infrastructure investment across North America continues to accelerate as digitalization, electrification, and industrial growth reshape the economy,” said Brandon Freiman, head of North American Infrastructure at KKR.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "Starwood's $10.2B Fund Shows AI Infrastructure Is the New Core, Not a Side Bet",
+            "url": "/insights/starwood-ai-infrastructure-fund.html",
+            "date": "2026-07-03",
+            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% data center allocation. The capital rotation into AI infrastructure is structural, not tactical.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Blue Owl's Fiber Play Exposes the Capital Stack Tension in AI Infrastructure",
+            "url": "/insights/blue-owl-fiber-capital-stack-tension.html",
+            "date": "2026-07-10",
+            "excerpt": "Blue Owl launches Kirkwood Infrastructure Group for fiber networks. The move reveals a capital stack tension: long-duration assets funded by liquidity-constrained vehicles.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "CPP Investments' $1.75B AI Infrastructure Bet Is a Capital Allocation Signal, Not a Sector Trade",
+            "url": "/insights/cpp-investments-eqt-ai-infrastructure-capital.html",
+            "date": "2026-07-09",
+            "excerpt": "CPP Investments commits $1.75B to EQT's AI infrastructure strategy via EdgeConneX. The move reveals how institutional capital is chasing durable yield in data centers, where the constraint is power and the risk is execution.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Starwood's $10.2B Fund Shows Data Center Capital Is Too Big for Traditional CRE Allocations",
+            "url": "/insights/starwood-data-center-fund-capital-shift.html",
+            "date": "2026-07-02",
+            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% allocated to data centers. The move reveals how AI-driven demand is reshaping institutional real estate capital flows.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Affinius's $1B Data Center Fund Shows Institutional Capital Is Chasing Power, Not Real Estate",
+            "url": "/insights/affinius-data-center-fund-capital-signal.html",
+            "date": "2026-06-19",
+            "excerpt": "Affinius nears $1bn for its first data center fund, backed by La Caisse. The raise signals institutional capital is prioritizing power access and infrastructure over traditional real estate risk.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$19.2 billion",
+              "number": "19.2",
+              "unit": "billion",
+              "context": "closed its Global Infrastructure Investors V fund, raising $19.2 billion.\nThe company manages around $120bn in infrastructure equity"
+            },
+            {
+              "raw": "$120bn",
+              "number": "120",
+              "unit": "bn",
+              "context": "s V fund, raising $19.2 billion.\nThe company manages around $120bn in infrastructure equity today, up from $13bn in 2019. The"
+            },
+            {
+              "raw": "$13bn",
+              "number": "13",
+              "unit": "bn",
+              "context": "nages around $120bn in infrastructure equity today, up from $13bn in 2019. The V fund has already committed more than $9bn, w"
+            },
+            {
+              "raw": "$9bn",
+              "number": "9",
+              "unit": "bn",
+              "context": "m $13bn in 2019. The V fund has already committed more than $9bn, with investments in companies including Altitude III, EDF"
+            }
+          ],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "kkr",
+              "context": "Investment firm KKR has closed its Global Infrast"
+            },
+            {
+              "name": "kkr",
+              "context": "th American Infrastructure at KKR.\n“Meeting that demand will re"
+            },
+            {
+              "name": "kkr",
+              "context": "-term capital, and we believe KKR is well positioned to partner"
+            },
+            {
+              "name": "kkr",
+              "context": "of European Infrastructure at KKR, added: “Europe is entering a"
+            }
+          ],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Data Center Dynamics",
+            "url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "domain": "datacenterdynamics.com",
+            "published": "2026-08-05T11:56:21+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 4,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 2
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "Including data centers, energy, and other AI infrastructure Investment firm KKR has closed its Global Infrastructure Investors V fund, raising $19.2 billion.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "cac6eb0a20979a8a",
+      "candidate": {
+        "title": "Federal government to turn a Kentucky uranium plant into an AI data center and gas power complex",
+        "url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+        "source": "Power Engineering",
+        "summary": "The U.S. Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+        "published": "2026-08-04T19:07:09+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "energy",
+        "topics": [
+          "energy"
+        ],
+        "category": "Market Analysis",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "cac6eb0a20979a8a",
+          "source_name": "Power Engineering",
+          "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+          "canonical_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+          "headline": "Federal government to turn a Kentucky uranium plant into an AI data center and gas power complex",
+          "publication_date": "2026-08-04T19:07:09+00:00",
+          "discovery_date": "2026-08-05T13:01:00.375819+00:00",
+          "author": "",
+          "raw_summary": "The U.S. Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "energy",
+          "secondary_sectors": [
+            "data_centers"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 3,
+          "strategic_relevance_score": 3,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 52.0,
+          "scoring_profile": "energy",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:01:00.375831+00:00",
+          "updated_at": "2026-08-05T13:01:02.248937+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Power Engineering",
+          "url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+          "domain": "power-eng.com",
+          "published": "2026-08-04T19:07:09+00:00",
+          "summary": "The U.S. Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 52,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 3,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "energy",
+        "name": "Energy",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:08:47+00:00",
+        "event_id": "cac6eb0a20979a8a",
+        "title": "Federal government to turn a Kentucky uranium plant into an AI data center and gas power complex",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Department of Energy is harnessing the artificial intelligence boom in its bid to convert another Cold War-era uranium enrichment site, tapping private equity to fund a $100 billion data center complex that will include its own new natural gas and battery storage power plant in Kentucky.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "In March, the department announced a similar project at its Portsmouth Gaseous Diffusion Plant in Ohio.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "race,” Energy Secretary Chris Wright said in a statement last week.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Real estate, energy and data center services are cornerstones in the investment portfolio of New York-headquartered Brookfield, which reports that it has more than $1 trillion in assets under management.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "A Brookfield spokesperson estimated that 30% of the $100 billion in spending would go toward construction of the data center and power components, with the rest of the money being spent on the equipment in the data centers, including servers, routers and semiconductor chips.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Discussions were ongoing with commercial partners to use the data center space, Brookfield spokesperson Simon Maine said.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Florida-based NextEra Energy will build and own the power generation components, which are to include 2 gigawatts of natural gas-fired generation, upgrades to transmission networks and 2.6 gigawatts of battery energy storage to support a new 1.8 gigawatt AI data center campus, the department said.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "AI Data Centers' 125 GW Gap Forces Utilities and Developers Into a New Capital Calculus",
+            "url": "/insights/ai-data-center-125-gw-gap-utilities-developers.html",
+            "date": "2026-07-20",
+            "excerpt": "BofA projects 125 GW of data center load by 2030, but utilities plan only 93 GW of new capacity. The gap reshapes capital allocation for onsite generation, gas engines, and battery storage.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Meta's $14B El Paso Deal Turns AI Compute Into a Lease-and-Guarantee Asset",
+            "url": "/insights/meta-blackrock-el-paso-ai-infrastructure.html",
+            "date": "2026-07-28",
+            "excerpt": "Meta's 1-gigawatt El Paso venture with BlackRock is a new financing template for AI infrastructure: institutional ownership, debt funding, a long-term lease and residual-value protection.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Oaktree and IDF's $1.7B Fuel-Cell Deal Shows AI Power Is Becoming a Real Estate Asset Class",
+            "url": "/insights/oaktree-idf-bloom-energy-ai-power-real-estate.html",
+            "date": "2026-07-17",
+            "excerpt": "IDF and Oaktree commit $1.7B to Bloom Energy fuel cells for Nebius AI cloud. The deal signals that power infrastructure is becoming a financed real estate asset, not just a utility cost.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "A $38M Power Center Refi Shows Retail Debt Is Available for the Right Sponsor and Basis",
+            "url": "/insights/retail-refi-phoenix-power-center.html",
+            "date": "2026-06-21",
+            "excerpt": "Gantry secures $38M permanent loan for Mesa Grand power center in Phoenix. Full-term IO, cash-out proceeds, and an institutional balance sheet lender reveal where retail debt is flowing.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "WildFire Sale Shows Private Equity Can Exit Energy at Scale—If the Buyer Has a Lower Cost of Capital",
+            "url": "/insights/wildfire-sale-private-equity-exit.html",
+            "date": "2026-07-21",
+            "excerpt": "Warburg Pincus and Kayne Anderson sell WildFire Energy to Magnolia Oil & Gas for $4.06B. The deal shows how private equity exits energy when public markets offer cheaper capital.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$100 billion",
+              "number": "100",
+              "unit": "billion",
+              "context": "a uranium enrichment site, tapping private equity to fund a $100 billion data center complex that will include its own new natural g"
+            },
+            {
+              "raw": "$1 trillion",
+              "number": "1",
+              "unit": "trillion",
+              "context": "adquartered Brookfield, which reports that it has more than $1 trillion in assets under management.\nA Brookfield spokesperson estim"
+            },
+            {
+              "raw": "$100 billion",
+              "number": "100",
+              "unit": "billion",
+              "context": "gement.\nA Brookfield spokesperson estimated that 30% of the $100 billion in spending would go toward construction of the data center"
+            },
+            {
+              "raw": "$17 billion",
+              "number": "17",
+              "unit": "billion",
+              "context": "Paducah site would be completed in 2065 at a cost of about $17 billion, including demolishing buildings, disassembling uranium con"
+            },
+            {
+              "raw": "$100 billion",
+              "number": "100",
+              "unit": "billion",
+              "context": "is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffu"
+            }
+          ],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "brookfield",
+              "context": "ment selected investment firm Brookfield Asset Management to develop a"
+            },
+            {
+              "name": "brookfield",
+              "context": "lio of New York-headquartered Brookfield, which reports that it has mo"
+            },
+            {
+              "name": "brookfield",
+              "context": "in assets under management.\nA Brookfield spokesperson estimated that 3"
+            },
+            {
+              "name": "brookfield",
+              "context": "to use the data center space, Brookfield spokesperson Simon Maine said"
+            },
+            {
+              "name": "brookfield",
+              "context": "of Energy is partnering with Brookfield Asset Management to develop a"
+            }
+          ],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Power Engineering",
+            "url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "domain": "power-eng.com",
+            "published": "2026-08-04T19:07:09+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 8,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 3
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "79154727e77034af",
+      "candidate": {
+        "title": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+        "source": "Federal Reserve Press Releases",
+        "summary": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "published": "2026-08-04T20:30:00+00:00",
+        "source_tier": 1,
+        "source_authority": "secondary",
+        "source_lane": "fed_macro",
+        "topics": [
+          "fed_macro"
+        ],
+        "category": "Policy & Regulation",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "79154727e77034af",
+          "source_name": "Federal Reserve Press Releases",
+          "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+          "canonical_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+          "headline": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+          "publication_date": "2026-08-04T20:30:00+00:00",
+          "discovery_date": "2026-08-05T13:00:52.809089+00:00",
+          "author": "",
+          "raw_summary": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "government",
+          "source_tier": 1,
+          "source_authority": "secondary",
+          "primary_sector": "fed_macro",
+          "secondary_sectors": [
+            "banking_credit"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 3,
+          "party_significance_score": 10,
+          "market_impact_score": 7,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 6,
+          "novelty_score": 7,
+          "source_quality_score": 10,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 62.7,
+          "scoring_profile": "fed_macro",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:52.809094+00:00",
+          "updated_at": "2026-08-05T13:01:02.148478+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Federal Reserve Press Releases",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+          "domain": "federalreserve.gov",
+          "published": "2026-08-04T20:30:00+00:00",
+          "summary": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+          "source_tier": 1,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 63,
+      "must_read_breakdown": {
+        "financial_magnitude": 3,
+        "party_significance": 10,
+        "market_impact": 7,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "fed_macro",
+        "name": "Fed & Macro",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:11:13+00:00",
+        "event_id": "79154727e77034af",
+        "title": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "August 04, 2026 Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "EDT The Federal Reserve Board on Tuesday announced its approval of the application by FS Bancorp, Inc., of Mountlake Terrace, Washington, to merge with Pacific West Bancorp, and thereby indirectly acquire Pacific West Bank, both of West Linn, Oregon.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "For media inquiries, please email [email protected] or call (202) 452-2955.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "source_name": "Federal Reserve Press Releases"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "CVC Raises $9.3B for Secondaries, Confronting the Limits of Size",
+            "url": "/insights/cvc-raises-9-3b-for-secondaries-confronting-the-limits-of-si.html",
+            "date": "2026-07-30",
+            "excerpt": "CVC Capital Partners raised $9.3 billion for its sixth secondaries fund, exceeding the $8 billion target by 37%. But deploying that capital without diluting returns will test the firm’s discipline in ",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Green Manor of Jamaica Lottery: The Rent Floor Is the Financing Tool",
+            "url": "/insights/green-manor-jamaica-rent-floor-financing.html",
+            "date": "2026-07-24",
+            "excerpt": "Green Manor of Jamaica's lottery at 130% AMI reveals how developers use rent floors to underwrite debt in Queens submarkets. A capital markets signal in 20 units.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "34,564 SF of Leasing at 711 Third: The Lease Duration Is the Signal, Not the Square Footage",
+            "url": "/insights/lease-duration-signal-711-third.html",
+            "date": "2026-07-23",
+            "excerpt": "SL Green signs 34,564 SF in two deals at 711 Third Avenue. Fidelity's 10-year lease and Ackman Ziff's renewal show tenants are committing to duration, not just space. The underwriting margin is time.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "$133M Providence Place Mall Sale: The Price of a Court-Ordered Exit",
+            "url": "/insights/providence-place-mall-sale-price.html",
+            "date": "2026-07-23",
+            "excerpt": "Providence Place Mall sells for $133M after years in receivership. The price reveals the discount required to clear a court-ordered sale and what it signals for regional mall liquidity.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "25.3 Acres of Concrete Paved the Way for This Laredo IOS Deal",
+            "url": "/insights/laredo-ios-realterm-acquisition.html",
+            "date": "2026-07-23",
+            "excerpt": "Realterm buys 40-acre IOS facility in Laredo, TX. The 25.3 concrete-paved acres and Heartland Express lease reveal how infrastructure scarcity drives industrial outdoor storage pricing.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "federal reserve",
+              "context": "August 04, 2026\nFederal Reserve Board announces approval of t"
+            },
+            {
+              "name": "federal reserve",
+              "context": "release at 4:30 p.m. EDT\nThe Federal Reserve Board on Tuesday announced it"
+            },
+            {
+              "name": "federal reserve",
+              "context": "cted] or call (202) 452-2955. Federal Reserve Board announces approval of t"
+            }
+          ],
+          "addresses": [],
+          "dates": [
+            "August 04, 2026"
+          ]
+        },
+        "sources": [
+          {
+            "name": "Federal Reserve Press Releases",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "domain": "federalreserve.gov",
+            "published": "2026-08-04T20:30:00+00:00",
+            "authority": "secondary",
+            "tier": 1,
+            "reported_fact_count": 3,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "August 04, 2026 Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "kill_reason": "",
+        "generation_mode": "deepseek-editorial-room"
+      }
+    }
+  ],
+  "deal_tape": [],
+  "status": "success",
+  "research_assignments": [
+    {
+      "event_id": "77307fb8bf586d78",
+      "candidate": {
+        "title": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer",
+        "url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+        "source": "Commercial Observer",
+        "summary": "Prologis, the world’s largest industrial landlord, is about to get even bigger. The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.  Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;]",
+        "published": "2026-08-04T19:11:25+00:00",
+        "source_tier": 1,
+        "source_authority": "secondary",
+        "source_lane": "commercial_real_estate",
+        "topics": [
+          "commercial_real_estate"
+        ],
+        "category": "Capital Markets",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "77307fb8bf586d78",
+          "source_name": "Commercial Observer",
+          "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+          "canonical_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+          "headline": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer",
+          "publication_date": "2026-08-04T19:11:25+00:00",
+          "discovery_date": "2026-08-05T13:00:51.193021+00:00",
+          "author": "",
+          "raw_summary": "Prologis, the world’s largest industrial landlord, is about to get even bigger. The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.  Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;]",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 1,
+          "source_authority": "secondary",
+          "primary_sector": "commercial_real_estate",
+          "secondary_sectors": [
+            "private_equity"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 6,
+          "strategic_relevance_score": 6,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 10,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 64.9,
+          "scoring_profile": "commercial_real_estate",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:51.193025+00:00",
+          "updated_at": "2026-08-05T13:01:02.102507+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Commercial Observer",
+          "url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+          "domain": "commercialobserver.com",
+          "published": "2026-08-04T19:11:25+00:00",
+          "summary": "Prologis, the world’s largest industrial landlord, is about to get even bigger. The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.  Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;]",
+          "source_tier": 1,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 65,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 6,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "commercial_real_estate",
+        "name": "Commercial Real Estate",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:01:02+00:00",
+        "event_id": "77307fb8bf586d78",
+        "title": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "Prologis announced Tuesday that Segro’s once-resistant board would be recommending [&#8230;] Prologis’ European Rival Segro Accepts $18.8B Takeover Offer By Emily Davis August 4, 2026 3:11 pm reprintsPrologis, the world’s largest industrial landlord, is about to get even bigger.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "Prologis announced Tuesday that Segro’s once-resistant board would be recommending the deal.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "The combined portfolios’ global platform will total approximately $269 billion of assets under management.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "Segro’s portfolio spans approximately 117 million square feet across the U.K.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "“Prologis shares our conviction in the long-term structural drivers underpinning demand for modern logistics and data centre infrastructure,” David Sleath, CEO of Segro, said in a statement.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          },
+          {
+            "fact": "The deal anticipates a combined European development pipeline of 13 million square feet and a 126 percent increase in Prologis’ European land bank.",
+            "source_url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "source_name": "Commercial Observer"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "Prologis's Third Bid for Segro Shows Time Is the Costliest Capital",
+            "url": "/insights/prologis-segro-time-cost-capital.html",
+            "date": "2026-07-21",
+            "excerpt": "Prologis's $18.2B third bid for Segro, rejected but not dead, reveals how time pressure and rising costs are reshaping industrial REIT M&A.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Big Banks Cut CRE Loss Reserves: The Office Cycle Is Not Over, It Is Just Priced In",
+            "url": "/insights/big-banks-cut-cre-loss-reserves.html",
+            "date": "2026-07-16",
+            "excerpt": "JPMorgan, Goldman, BofA, Citi, and Wells Fargo cut credit loss provisions in Q2 2026, signaling that the office loan cycle is priced in. But the real test is still coming for smaller lenders.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Treasury Two-Year Yields Hit 2025 High: CRE's Cost of Time Just Rose Again",
+            "url": "/insights/treasury-yields-cre-cost-of-time.html",
+            "date": "2026-07-13",
+            "excerpt": "Two-year Treasury yields hit their highest since early 2025 as oil jumps. For CRE capital markets, the signal is about the cost of carry, not just inflation fears.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "New York Office Leasing Surge Is a Bet on Talent, Not on Policy",
+            "url": "/insights/nyc-office-leasing-talent-bet.html",
+            "date": "2026-07-09",
+            "excerpt": "NYC office leasing hit 23M SF in H1 2026, the strongest since 2000. But the surge masks a tension: corporate tenants are betting on talent concentration, not on the mayor's policy agenda.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Warsh's Inflation Warning Means CRE Owners Should Plan for Higher-for-Longer Rates",
+            "url": "/insights/warsh-inflation-cre-rates-higher-for-longer.html",
+            "date": "2026-07-02",
+            "excerpt": "Fed Chair Warsh says inflation too high, no July rate signal. 30-year mortgage near 6.49%. CRE owners face prolonged higher-for-longer rates, compressing refinancing windows.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$18.8B",
+              "number": "18.8",
+              "unit": "b",
+              "context": "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer\nBy Emily Davis August 4, 2026 3:11 pm\nreprin"
+            },
+            {
+              "raw": "$18.8 billion",
+              "number": "18.8",
+              "unit": "billion",
+              "context": "s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.\nPrologis announced Tuesday that Segro’s once-resistant boa"
+            },
+            {
+              "raw": "$269 billion",
+              "number": "269",
+              "unit": "billion",
+              "context": "mbined portfolios’ global platform will total approximately $269 billion of assets under management.\nFor the U.K., the deal means lo"
+            },
+            {
+              "raw": "$18.8 billion",
+              "number": "18.8",
+              "unit": "billion",
+              "context": "s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion. Prologis announced Tuesday that Segro’s once-resistant boa"
+            }
+          ],
+          "percentages": [
+            {
+              "raw": "47 percent",
+              "number": "47",
+              "unit": "percent",
+              "context": "opean footprint is projected to grow by 47 percent with a 368 million-square-foot regional"
+            },
+            {
+              "raw": "126 percent",
+              "number": "126",
+              "unit": "percent",
+              "context": "ipeline of 13 million square feet and a 126 percent increase in Prologis’ European land ban"
+            }
+          ],
+          "companies": [
+            {
+              "name": "ares",
+              "context": "center pipeline.\n“Prologis shares our conviction in the long-te"
+            }
+          ],
+          "addresses": [],
+          "dates": [
+            "August 4, 2026"
+          ]
+        },
+        "sources": [
+          {
+            "name": "Commercial Observer",
+            "url": "https://commercialobserver.com/2026/08/prologis-segro-takeover-industrial/",
+            "domain": "commercialobserver.com",
+            "published": "2026-08-04T19:11:25+00:00",
+            "authority": "secondary",
+            "tier": 1,
+            "reported_fact_count": 8,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 3
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "The San Francisco-based real estate investment trust (REIT) has succeeded in its fourth offer to acquire rival Segro, the United Kingdom’s largest REIT, in a deal valuing Segro’s equity at roughly $18.8 billion.",
+        "kill_reason": "",
+        "generation_mode": "deepseek-editorial-room"
+      }
+    },
+    {
+      "event_id": "db9bfedb4849a382",
+      "candidate": {
+        "title": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+        "source": "Federal Reserve Press Releases",
+        "summary": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "published": "2026-08-04T20:30:00+00:00",
+        "source_tier": 1,
+        "source_authority": "secondary",
+        "source_lane": "fed_macro",
+        "topics": [
+          "fed_macro"
+        ],
+        "category": "Policy & Regulation",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "db9bfedb4849a382",
+          "source_name": "Federal Reserve Press Releases",
+          "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+          "canonical_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+          "headline": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+          "publication_date": "2026-08-04T20:30:00+00:00",
+          "discovery_date": "2026-08-05T13:00:52.809047+00:00",
+          "author": "",
+          "raw_summary": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "government",
+          "source_tier": 1,
+          "source_authority": "secondary",
+          "primary_sector": "fed_macro",
+          "secondary_sectors": [
+            "banking_credit"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 3,
+          "party_significance_score": 10,
+          "market_impact_score": 7,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 6,
+          "novelty_score": 7,
+          "source_quality_score": 10,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 62.7,
+          "scoring_profile": "fed_macro",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:52.809058+00:00",
+          "updated_at": "2026-08-05T13:01:02.148360+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Federal Reserve Press Releases",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+          "domain": "federalreserve.gov",
+          "published": "2026-08-04T20:30:00+00:00",
+          "summary": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+          "source_tier": 1,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 63,
+      "must_read_breakdown": {
+        "financial_magnitude": 3,
+        "party_significance": 10,
+        "market_impact": 7,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "fed_macro",
+        "name": "Fed & Macro",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:01:38+00:00",
+        "event_id": "db9bfedb4849a382",
+        "title": "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "August 04, 2026 Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "EDT The Federal Reserve Board on Tuesday announced its approval of the application by Coastal Bend Bancshares, Inc., of Corpus Christi, Texas, to acquire First National Bank in Port Lavaca, of Port Lavaca, Texas.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "For media inquiries, please email [email protected] or call (202) 452-2955.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "source_name": "Federal Reserve Press Releases"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "CVC Raises $9.3B for Secondaries, Confronting the Limits of Size",
+            "url": "/insights/cvc-raises-9-3b-for-secondaries-confronting-the-limits-of-si.html",
+            "date": "2026-07-30",
+            "excerpt": "CVC Capital Partners raised $9.3 billion for its sixth secondaries fund, exceeding the $8 billion target by 37%. But deploying that capital without diluting returns will test the firm’s discipline in ",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Green Manor of Jamaica Lottery: The Rent Floor Is the Financing Tool",
+            "url": "/insights/green-manor-jamaica-rent-floor-financing.html",
+            "date": "2026-07-24",
+            "excerpt": "Green Manor of Jamaica's lottery at 130% AMI reveals how developers use rent floors to underwrite debt in Queens submarkets. A capital markets signal in 20 units.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Can a $2.7M Waterfront Mansion in Oxnard Rewrite the Pricing Map for Coastal California?",
+            "url": "/insights/oxnard-waterfront-pricing-gap.html",
+            "date": "2026-07-23",
+            "excerpt": "A $2.7M Oxnard mansion with a private boat dock raises a question: how much of coastal California's premium is location vs. liquidity?",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "34,564 SF of Leasing at 711 Third: The Lease Duration Is the Signal, Not the Square Footage",
+            "url": "/insights/lease-duration-signal-711-third.html",
+            "date": "2026-07-23",
+            "excerpt": "SL Green signs 34,564 SF in two deals at 711 Third Avenue. Fidelity's 10-year lease and Ackman Ziff's renewal show tenants are committing to duration, not just space. The underwriting margin is time.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "$133M Providence Place Mall Sale: The Price of a Court-Ordered Exit",
+            "url": "/insights/providence-place-mall-sale-price.html",
+            "date": "2026-07-23",
+            "excerpt": "Providence Place Mall sells for $133M after years in receivership. The price reveals the discount required to clear a court-ordered sale and what it signals for regional mall liquidity.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "ares",
+              "context": "ication by Coastal Bend Bancshares, Inc.\nFor release at 4:30 p.m"
+            },
+            {
+              "name": "ares",
+              "context": "ication by Coastal Bend Bancshares, Inc., of Corpus Christi, Tex"
+            },
+            {
+              "name": "ares",
+              "context": "ication by Coastal Bend Bancshares, Inc."
+            },
+            {
+              "name": "federal reserve",
+              "context": "August 04, 2026\nFederal Reserve Board announces approval of t"
+            },
+            {
+              "name": "federal reserve",
+              "context": "release at 4:30 p.m. EDT\nThe Federal Reserve Board on Tuesday announced it"
+            },
+            {
+              "name": "federal reserve",
+              "context": "cted] or call (202) 452-2955. Federal Reserve Board announces approval of t"
+            }
+          ],
+          "addresses": [],
+          "dates": [
+            "August 04, 2026"
+          ]
+        },
+        "sources": [
+          {
+            "name": "Federal Reserve Press Releases",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804c.htm",
+            "domain": "federalreserve.gov",
+            "published": "2026-08-04T20:30:00+00:00",
+            "authority": "secondary",
+            "tier": 1,
+            "reported_fact_count": 3,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "August 04, 2026 Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "4ea16eed829c59e2",
+      "candidate": {
+        "title": "Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise",
+        "url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+        "source": "Alt Assets",
+        "summary": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year. \n The post  Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise  appeared first on  AltAssets Private Equity News .",
+        "published": "2026-08-04T14:44:59+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "private_equity",
+        "topics": [
+          "private_equity"
+        ],
+        "category": "Deal Intelligence",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "4ea16eed829c59e2",
+          "source_name": "Alt Assets",
+          "source_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+          "canonical_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+          "headline": "Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise",
+          "publication_date": "2026-08-04T14:44:59+00:00",
+          "discovery_date": "2026-08-05T13:00:58.826208+00:00",
+          "author": "",
+          "raw_summary": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year. \n The post  Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise  appeared first on  AltAssets Private Equity News .",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "private_equity",
+          "secondary_sectors": [],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 6,
+          "strategic_relevance_score": 6,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 2,
+          "composite_score": 61.0,
+          "scoring_profile": "private_equity",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:58.826221+00:00",
+          "updated_at": "2026-08-05T13:01:02.217881+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Alt Assets",
+          "url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+          "domain": "altassets.net",
+          "published": "2026-08-04T14:44:59+00:00",
+          "summary": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year. \n The post  Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise  appeared first on  AltAssets Private Equity News .",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 61,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 6,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "private_equity",
+        "name": "Private Equity",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:03:21+00:00",
+        "event_id": "4ea16eed829c59e2",
+        "title": "Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year.",
+            "source_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+            "source_name": "Alt Assets"
+          },
+          {
+            "fact": "The post Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise appeared first on AltAssets Private Equity News .",
+            "source_url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+            "source_name": "Alt Assets"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "CVC Raises $9.3B for Secondaries, Confronting the Limits of Size",
+            "url": "/insights/cvc-raises-9-3b-for-secondaries-confronting-the-limits-of-si.html",
+            "date": "2026-07-30",
+            "excerpt": "CVC Capital Partners raised $9.3 billion for its sixth secondaries fund, exceeding the $8 billion target by 37%. But deploying that capital without diluting returns will test the firm’s discipline in ",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Bayer's Apollo Deal Shows Litigation Risk Is Now a Capital Structure Problem",
+            "url": "/insights/bayer-apollo-litigation-capital-structure.html",
+            "date": "2026-07-10",
+            "excerpt": "Bayer sells €3B stake in contraceptives business to Apollo to fund Roundup litigation. The deal shows how legal liability is becoming a capital structure constraint.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Benefit Street Partners Writes $82M Refi for Sarasota Multifamily as Lenders Return to Sun Belt",
+            "url": "/insights/benefit-street-partners-82m-sarasota-refi.html",
+            "date": "2026-05-30",
+            "excerpt": "Benefit Street Partners provides $82.1M refi for Render Legacy Trail, a 450-unit Class A multifamily in Sarasota County. Three-year loan with extensions reflects lender return to Sun Belt.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "$153M in Orders for a $153M Deal: Affordable Housing CMBS Has a Bid",
+            "url": "/insights/affordable-housing-cmbs-has-a-bid.html",
+            "date": "2026-07-24",
+            "excerpt": "Systima Capital Management closed a $153M tax-exempt CMBS deal backed by 1,272 LIHTC units. The offering drew $1.2B in orders from 19 investors, signaling a structural shift in affordable housing capital.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Blackstone's Retail Funds Look Like Access. They Are a Liquidity Trade.",
+            "url": "/insights/blackstone-retail-funds-liquidity-trade.html",
+            "date": "2026-07-23",
+            "excerpt": "Blackstone, Wellington, and Vanguard launch retail funds with a 3% redemption limit. The structure reveals the core tension: private assets don't scale to daily liquidity.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$5bn",
+              "number": "5",
+              "unit": "bn",
+              "context": "ce@altassets.net Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the pri"
+            },
+            {
+              "raw": "$200bn",
+              "number": "200",
+              "unit": "bn",
+              "context": "or looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year."
+            },
+            {
+              "raw": "$5bn",
+              "number": "5",
+              "unit": "bn",
+              "context": "me for the first time last year. The post Adams Street tops $5bn for secondaries programme as record deal volumes fuel lates"
+            }
+          ],
+          "percentages": [],
+          "companies": [],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Alt Assets",
+            "url": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/adams-street-tops-5bn-for-secondaries-programme-as-record-deal-volumes-fuel-latest-raise.html",
+            "domain": "altassets.net",
+            "published": "2026-08-04T14:44:59+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 2,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "Adams Street Partners has raised more than $5bn for its latest secondaries investment programme, as the private markets investor looks to capitalize on a secondary market that surpassed $200bn of annual transaction volume for the first time last year.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "574ab1adab10221d",
+      "candidate": {
+        "title": "FDIC issues relief guidance for Michigan banks affected by storms",
+        "url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+        "source": "ABA Banking Journal",
+        "summary": "The FDIC released guidance with steps intended to provide regulatory relief to financial institutions and facilitate recovery in areas of Michigan affected by severe storms and flooding. \n The post  FDIC issues relief guidance for Michigan banks affected by storms  appeared first on  ABA Banking Journal .",
+        "published": "2026-08-04T20:06:47+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "banking_credit",
+        "topics": [
+          "banking_credit"
+        ],
+        "category": "Debt & Equity",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "574ab1adab10221d",
+          "source_name": "ABA Banking Journal",
+          "source_url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+          "canonical_url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+          "headline": "FDIC issues relief guidance for Michigan banks affected by storms",
+          "publication_date": "2026-08-04T20:06:47+00:00",
+          "discovery_date": "2026-08-05T13:00:56.875684+00:00",
+          "author": "",
+          "raw_summary": "The FDIC released guidance with steps intended to provide regulatory relief to financial institutions and facilitate recovery in areas of Michigan affected by severe storms and flooding. \n The post  FDIC issues relief guidance for Michigan banks affected by storms  appeared first on  ABA Banking Journal .",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "banking_credit",
+          "secondary_sectors": [],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 1,
+          "party_significance_score": 10,
+          "market_impact_score": 6,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 9,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 2,
+          "composite_score": 56.5,
+          "scoring_profile": "banking_credit",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:56.875689+00:00",
+          "updated_at": "2026-08-05T13:01:02.188919+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "ABA Banking Journal",
+          "url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+          "domain": "bankingjournal.aba.com",
+          "published": "2026-08-04T20:06:47+00:00",
+          "summary": "The FDIC released guidance with steps intended to provide regulatory relief to financial institutions and facilitate recovery in areas of Michigan affected by severe storms and flooding. \n The post  FDIC issues relief guidance for Michigan banks affected by storms  appeared first on  ABA Banking Journal .",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 56,
+      "must_read_breakdown": {
+        "financial_magnitude": 1,
+        "party_significance": 10,
+        "market_impact": 6,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "banking_credit",
+        "name": "Banking & Credit",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:05:10+00:00",
+        "event_id": "574ab1adab10221d",
+        "title": "FDIC issues relief guidance for Michigan banks affected by storms",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "The agency said banks may receive favorable Community Reinvestment Act consideration for community development loans, investments and services in support of disaster recovery.",
+            "source_url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+            "source_name": "ABA Banking Journal"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "Banks' Record Bond Short Signals a New Cost of Time for CRE Borrowers",
+            "url": "/insights/banks-record-bond-short-cre-liquidity.html",
+            "date": "2026-07-12",
+            "excerpt": "Primary dealers' record net short on Treasury debt signals a shift in liquidity pricing. For CRE borrowers, time just got more expensive.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Warsh on Stage With 2008 Class Signals Central Banks Are Preparing for the Next Crisis",
+            "url": "/insights/warsh-2008-crisis-signal.html",
+            "date": "2026-06-28",
+            "excerpt": "Kevin Warsh and three 2008 crisis veterans share a stage. The signal for CRE capital markets: central banks are preparing for private market stress, not just inflation.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "fdic",
+              "context": "The FDIC today released guidance with"
+            },
+            {
+              "name": "fdic",
+              "context": "ort of disaster recovery. The FDIC also will consider regulatory"
+            },
+            {
+              "name": "fdic",
+              "context": "publishing requirements. The FDIC released guidance with steps"
+            },
+            {
+              "name": "fdic",
+              "context": "storms and flooding. The post FDIC issues relief guidance for Mi"
+            }
+          ],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "ABA Banking Journal",
+            "url": "https://bankingjournal.aba.com/2026/08/fdic-issues-relief-guidance-for-michigan-banks-affected-by-storms/",
+            "domain": "bankingjournal.aba.com",
+            "published": "2026-08-04T20:06:47+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 1,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "The agency said banks may receive favorable Community Reinvestment Act consideration for community development loans, investments and services in support of disaster recovery.",
+        "kill_reason": "",
+        "generation_mode": "deepseek-editorial-room"
+      }
+    },
+    {
+      "event_id": "100ef8f58f0019ad",
+      "candidate": {
+        "title": "KKR closes Global Infrastructure Investors V fund with $19.2bn to spend on infrastructure",
+        "url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+        "source": "Data Center Dynamics",
+        "summary": "Including data centers, energy, and other AI infrastructure",
+        "published": "2026-08-05T11:56:21+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "data_centers",
+        "topics": [
+          "data_centers"
+        ],
+        "category": "Market Analysis",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "100ef8f58f0019ad",
+          "source_name": "Data Center Dynamics",
+          "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+          "canonical_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+          "headline": "KKR closes Global Infrastructure Investors V fund with $19.2bn to spend on infrastructure",
+          "publication_date": "2026-08-05T11:56:21+00:00",
+          "discovery_date": "2026-08-05T13:00:56.125048+00:00",
+          "author": "",
+          "raw_summary": "Including data centers, energy, and other AI infrastructure",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "data_centers",
+          "secondary_sectors": [],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.6,
+          "classification_method": "source_prior_only",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 3,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 9,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 2,
+          "composite_score": 53.7,
+          "scoring_profile": "data_centers",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:56.125052+00:00",
+          "updated_at": "2026-08-05T13:01:02.173543+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Data Center Dynamics",
+          "url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+          "domain": "datacenterdynamics.com",
+          "published": "2026-08-05T11:56:21+00:00",
+          "summary": "Including data centers, energy, and other AI infrastructure",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 54,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 3,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "data_centers",
+        "name": "Data Centers",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:06:56+00:00",
+        "event_id": "100ef8f58f0019ad",
+        "title": "KKR closes Global Infrastructure Investors V fund with $19.2bn to spend on infrastructure",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Including data centers, energy, and other AI infrastructure Investment firm KKR has closed its Global Infrastructure Investors V fund, raising $19.2 billion.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          },
+          {
+            "fact": "The company manages around $120bn in infrastructure equity today, up from $13bn in 2019.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          },
+          {
+            "fact": "The V fund has already committed more than $9bn, with investments in companies including Altitude III, EDF power solutions North America, Enilive, Sempra Infrastructure, and The Parking Spot.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          },
+          {
+            "fact": "“Demand for infrastructure investment across North America continues to accelerate as digitalization, electrification, and industrial growth reshape the economy,” said Brandon Freiman, head of North American Infrastructure at KKR.",
+            "source_url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "source_name": "Data Center Dynamics"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "Starwood's $10.2B Fund Shows AI Infrastructure Is the New Core, Not a Side Bet",
+            "url": "/insights/starwood-ai-infrastructure-fund.html",
+            "date": "2026-07-03",
+            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% data center allocation. The capital rotation into AI infrastructure is structural, not tactical.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Blue Owl's Fiber Play Exposes the Capital Stack Tension in AI Infrastructure",
+            "url": "/insights/blue-owl-fiber-capital-stack-tension.html",
+            "date": "2026-07-10",
+            "excerpt": "Blue Owl launches Kirkwood Infrastructure Group for fiber networks. The move reveals a capital stack tension: long-duration assets funded by liquidity-constrained vehicles.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "CPP Investments' $1.75B AI Infrastructure Bet Is a Capital Allocation Signal, Not a Sector Trade",
+            "url": "/insights/cpp-investments-eqt-ai-infrastructure-capital.html",
+            "date": "2026-07-09",
+            "excerpt": "CPP Investments commits $1.75B to EQT's AI infrastructure strategy via EdgeConneX. The move reveals how institutional capital is chasing durable yield in data centers, where the constraint is power and the risk is execution.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Starwood's $10.2B Fund Shows Data Center Capital Is Too Big for Traditional CRE Allocations",
+            "url": "/insights/starwood-data-center-fund-capital-shift.html",
+            "date": "2026-07-02",
+            "excerpt": "Starwood Capital closes $10.2B opportunistic fund with 35% allocated to data centers. The move reveals how AI-driven demand is reshaping institutional real estate capital flows.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Affinius's $1B Data Center Fund Shows Institutional Capital Is Chasing Power, Not Real Estate",
+            "url": "/insights/affinius-data-center-fund-capital-signal.html",
+            "date": "2026-06-19",
+            "excerpt": "Affinius nears $1bn for its first data center fund, backed by La Caisse. The raise signals institutional capital is prioritizing power access and infrastructure over traditional real estate risk.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$19.2 billion",
+              "number": "19.2",
+              "unit": "billion",
+              "context": "closed its Global Infrastructure Investors V fund, raising $19.2 billion.\nThe company manages around $120bn in infrastructure equity"
+            },
+            {
+              "raw": "$120bn",
+              "number": "120",
+              "unit": "bn",
+              "context": "s V fund, raising $19.2 billion.\nThe company manages around $120bn in infrastructure equity today, up from $13bn in 2019. The"
+            },
+            {
+              "raw": "$13bn",
+              "number": "13",
+              "unit": "bn",
+              "context": "nages around $120bn in infrastructure equity today, up from $13bn in 2019. The V fund has already committed more than $9bn, w"
+            },
+            {
+              "raw": "$9bn",
+              "number": "9",
+              "unit": "bn",
+              "context": "m $13bn in 2019. The V fund has already committed more than $9bn, with investments in companies including Altitude III, EDF"
+            }
+          ],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "kkr",
+              "context": "Investment firm KKR has closed its Global Infrast"
+            },
+            {
+              "name": "kkr",
+              "context": "th American Infrastructure at KKR.\n“Meeting that demand will re"
+            },
+            {
+              "name": "kkr",
+              "context": "-term capital, and we believe KKR is well positioned to partner"
+            },
+            {
+              "name": "kkr",
+              "context": "of European Infrastructure at KKR, added: “Europe is entering a"
+            }
+          ],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Data Center Dynamics",
+            "url": "https://www.datacenterdynamics.com/en/news/kkr-closes-global-infrastructure-investors-v-fund-with-192bn-to-spend-on-infrastructure/",
+            "domain": "datacenterdynamics.com",
+            "published": "2026-08-05T11:56:21+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 4,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 2
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "Including data centers, energy, and other AI infrastructure Investment firm KKR has closed its Global Infrastructure Investors V fund, raising $19.2 billion.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "cac6eb0a20979a8a",
+      "candidate": {
+        "title": "Federal government to turn a Kentucky uranium plant into an AI data center and gas power complex",
+        "url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+        "source": "Power Engineering",
+        "summary": "The U.S. Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+        "published": "2026-08-04T19:07:09+00:00",
+        "source_tier": 2,
+        "source_authority": "secondary",
+        "source_lane": "energy",
+        "topics": [
+          "energy"
+        ],
+        "category": "Market Analysis",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "cac6eb0a20979a8a",
+          "source_name": "Power Engineering",
+          "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+          "canonical_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+          "headline": "Federal government to turn a Kentucky uranium plant into an AI data center and gas power complex",
+          "publication_date": "2026-08-04T19:07:09+00:00",
+          "discovery_date": "2026-08-05T13:01:00.375819+00:00",
+          "author": "",
+          "raw_summary": "The U.S. Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "industry_publication",
+          "source_tier": 2,
+          "source_authority": "secondary",
+          "primary_sector": "energy",
+          "secondary_sectors": [
+            "data_centers"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 8,
+          "party_significance_score": 10,
+          "market_impact_score": 3,
+          "strategic_relevance_score": 3,
+          "policy_impact_score": 2,
+          "novelty_score": 7,
+          "source_quality_score": 7,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 52.0,
+          "scoring_profile": "energy",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:01:00.375831+00:00",
+          "updated_at": "2026-08-05T13:01:02.248937+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Power Engineering",
+          "url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+          "domain": "power-eng.com",
+          "published": "2026-08-04T19:07:09+00:00",
+          "summary": "The U.S. Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+          "source_tier": 2,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 52,
+      "must_read_breakdown": {
+        "financial_magnitude": 8,
+        "party_significance": 10,
+        "market_impact": 3,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "energy",
+        "name": "Energy",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:08:47+00:00",
+        "event_id": "cac6eb0a20979a8a",
+        "title": "Federal government to turn a Kentucky uranium plant into an AI data center and gas power complex",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Department of Energy is harnessing the artificial intelligence boom in its bid to convert another Cold War-era uranium enrichment site, tapping private equity to fund a $100 billion data center complex that will include its own new natural gas and battery storage power plant in Kentucky.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "In March, the department announced a similar project at its Portsmouth Gaseous Diffusion Plant in Ohio.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "race,” Energy Secretary Chris Wright said in a statement last week.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Real estate, energy and data center services are cornerstones in the investment portfolio of New York-headquartered Brookfield, which reports that it has more than $1 trillion in assets under management.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "A Brookfield spokesperson estimated that 30% of the $100 billion in spending would go toward construction of the data center and power components, with the rest of the money being spent on the equipment in the data centers, including servers, routers and semiconductor chips.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Discussions were ongoing with commercial partners to use the data center space, Brookfield spokesperson Simon Maine said.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          },
+          {
+            "fact": "Florida-based NextEra Energy will build and own the power generation components, which are to include 2 gigawatts of natural gas-fired generation, upgrades to transmission networks and 2.6 gigawatts of battery energy storage to support a new 1.8 gigawatt AI data center campus, the department said.",
+            "source_url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "source_name": "Power Engineering"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "AI Data Centers' 125 GW Gap Forces Utilities and Developers Into a New Capital Calculus",
+            "url": "/insights/ai-data-center-125-gw-gap-utilities-developers.html",
+            "date": "2026-07-20",
+            "excerpt": "BofA projects 125 GW of data center load by 2030, but utilities plan only 93 GW of new capacity. The gap reshapes capital allocation for onsite generation, gas engines, and battery storage.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Meta's $14B El Paso Deal Turns AI Compute Into a Lease-and-Guarantee Asset",
+            "url": "/insights/meta-blackrock-el-paso-ai-infrastructure.html",
+            "date": "2026-07-28",
+            "excerpt": "Meta's 1-gigawatt El Paso venture with BlackRock is a new financing template for AI infrastructure: institutional ownership, debt funding, a long-term lease and residual-value protection.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Oaktree and IDF's $1.7B Fuel-Cell Deal Shows AI Power Is Becoming a Real Estate Asset Class",
+            "url": "/insights/oaktree-idf-bloom-energy-ai-power-real-estate.html",
+            "date": "2026-07-17",
+            "excerpt": "IDF and Oaktree commit $1.7B to Bloom Energy fuel cells for Nebius AI cloud. The deal signals that power infrastructure is becoming a financed real estate asset, not just a utility cost.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "A $38M Power Center Refi Shows Retail Debt Is Available for the Right Sponsor and Basis",
+            "url": "/insights/retail-refi-phoenix-power-center.html",
+            "date": "2026-06-21",
+            "excerpt": "Gantry secures $38M permanent loan for Mesa Grand power center in Phoenix. Full-term IO, cash-out proceeds, and an institutional balance sheet lender reveal where retail debt is flowing.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "WildFire Sale Shows Private Equity Can Exit Energy at Scale—If the Buyer Has a Lower Cost of Capital",
+            "url": "/insights/wildfire-sale-private-equity-exit.html",
+            "date": "2026-07-21",
+            "excerpt": "Warburg Pincus and Kayne Anderson sell WildFire Energy to Magnolia Oil & Gas for $4.06B. The deal shows how private equity exits energy when public markets offer cheaper capital.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [
+            {
+              "raw": "$100 billion",
+              "number": "100",
+              "unit": "billion",
+              "context": "a uranium enrichment site, tapping private equity to fund a $100 billion data center complex that will include its own new natural g"
+            },
+            {
+              "raw": "$1 trillion",
+              "number": "1",
+              "unit": "trillion",
+              "context": "adquartered Brookfield, which reports that it has more than $1 trillion in assets under management.\nA Brookfield spokesperson estim"
+            },
+            {
+              "raw": "$100 billion",
+              "number": "100",
+              "unit": "billion",
+              "context": "gement.\nA Brookfield spokesperson estimated that 30% of the $100 billion in spending would go toward construction of the data center"
+            },
+            {
+              "raw": "$17 billion",
+              "number": "17",
+              "unit": "billion",
+              "context": "Paducah site would be completed in 2065 at a cost of about $17 billion, including demolishing buildings, disassembling uranium con"
+            },
+            {
+              "raw": "$100 billion",
+              "number": "100",
+              "unit": "billion",
+              "context": "is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffu"
+            }
+          ],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "brookfield",
+              "context": "ment selected investment firm Brookfield Asset Management to develop a"
+            },
+            {
+              "name": "brookfield",
+              "context": "lio of New York-headquartered Brookfield, which reports that it has mo"
+            },
+            {
+              "name": "brookfield",
+              "context": "in assets under management.\nA Brookfield spokesperson estimated that 3"
+            },
+            {
+              "name": "brookfield",
+              "context": "to use the data center space, Brookfield spokesperson Simon Maine said"
+            },
+            {
+              "name": "brookfield",
+              "context": "of Energy is partnering with Brookfield Asset Management to develop a"
+            }
+          ],
+          "addresses": [],
+          "dates": []
+        },
+        "sources": [
+          {
+            "name": "Power Engineering",
+            "url": "https://www.power-eng.com/gas/federal-government-to-turn-a-kentucky-uranium-plant-into-an-ai-data-center-and-gas-power-complex/",
+            "domain": "power-eng.com",
+            "published": "2026-08-04T19:07:09+00:00",
+            "authority": "secondary",
+            "tier": 2,
+            "reported_fact_count": 8,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 3
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "Editorial-room model was unavailable: RuntimeError."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "Department of Energy is partnering with Brookfield Asset Management to develop a $100 billion AI data center and power plant at the Paducah Gaseous Diffusion Plant in Kentucky.",
+        "kill_reason": "",
+        "generation_mode": "deterministic-editorial-plan"
+      }
+    },
+    {
+      "event_id": "79154727e77034af",
+      "candidate": {
+        "title": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+        "source": "Federal Reserve Press Releases",
+        "summary": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "published": "2026-08-04T20:30:00+00:00",
+        "source_tier": 1,
+        "source_authority": "secondary",
+        "source_lane": "fed_macro",
+        "topics": [
+          "fed_macro"
+        ],
+        "category": "Policy & Regulation",
+        "entities": {
+          "companies": [],
+          "amounts": [],
+          "asset_classes": [],
+          "markets": [],
+          "policy_actions": [],
+          "msa_government_markets": []
+        },
+        "canonical_item": {
+          "item_id": "79154727e77034af",
+          "source_name": "Federal Reserve Press Releases",
+          "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+          "canonical_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+          "headline": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+          "publication_date": "2026-08-04T20:30:00+00:00",
+          "discovery_date": "2026-08-05T13:00:52.809089+00:00",
+          "author": "",
+          "raw_summary": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+          "raw_text": "",
+          "clean_text": "",
+          "source_type": "government",
+          "source_tier": 1,
+          "source_authority": "secondary",
+          "primary_sector": "fed_macro",
+          "secondary_sectors": [
+            "banking_credit"
+          ],
+          "event_type": "",
+          "subsector": "",
+          "classification_confidence": 0.85,
+          "classification_method": "source_prior_and_regex",
+          "city": "",
+          "state": "",
+          "country": "US",
+          "market": "",
+          "property_address": "",
+          "companies": [],
+          "people": [],
+          "buyers": [],
+          "sellers": [],
+          "lenders": [],
+          "developers": [],
+          "government_bodies": [],
+          "transaction_value": 0.0,
+          "transaction_value_raw": "",
+          "debt_amount": 0.0,
+          "equity_amount": 0.0,
+          "fund_size": 0.0,
+          "unit_count": 0,
+          "square_footage": 0,
+          "acreage": 0.0,
+          "megawatts": 0.0,
+          "property_type": "",
+          "financial_magnitude_score": 3,
+          "party_significance_score": 10,
+          "market_impact_score": 7,
+          "strategic_relevance_score": 4,
+          "policy_impact_score": 6,
+          "novelty_score": 7,
+          "source_quality_score": 10,
+          "timeliness_score": 7,
+          "editorial_potential_score": 2,
+          "cross_sector_impact_score": 4,
+          "composite_score": 62.7,
+          "scoring_profile": "fed_macro",
+          "tier": "tier_3_useful_coverage",
+          "status": "scored",
+          "rejection_reason": "",
+          "rejection_code": "",
+          "retry_count": 0,
+          "error_history": [],
+          "cluster_id": "",
+          "is_anchor": false,
+          "article_slug": "",
+          "article_url": "",
+          "generated_at": "",
+          "published_at": "",
+          "created_at": "2026-08-05T13:00:52.809094+00:00",
+          "updated_at": "2026-08-05T13:01:02.148478+00:00"
+        },
+        "pipeline_version": "v2"
+      },
+      "sources": [
+        {
+          "source": "Federal Reserve Press Releases",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+          "domain": "federalreserve.gov",
+          "published": "2026-08-04T20:30:00+00:00",
+          "summary": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+          "source_tier": 1,
+          "source_authority": "secondary"
+        }
+      ],
+      "provisional_format": "brief",
+      "must_read_score": 63,
+      "must_read_breakdown": {
+        "financial_magnitude": 3,
+        "party_significance": 10,
+        "market_impact": 7,
+        "editorial_potential": 2
+      },
+      "selection_tier": "daily_depth",
+      "legal_or_allegation_risk": false,
+      "franchise": {
+        "id": "fed_macro",
+        "name": "Fed & Macro",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "research_audit": {
+        "schema_version": 1,
+        "built_at": "2026-08-05T13:11:13+00:00",
+        "event_id": "79154727e77034af",
+        "title": "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "independent_source_count": 1,
+        "primary_source_count": 0,
+        "usable_full_text_count": 1,
+        "evidence_level": "thin",
+        "reported_facts": [
+          {
+            "fact": "August 04, 2026 Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "EDT The Federal Reserve Board on Tuesday announced its approval of the application by FS Bancorp, Inc., of Mountlake Terrace, Washington, to merge with Pacific West Bancorp, and thereby indirectly acquire Pacific West Bank, both of West Linn, Oregon.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "source_name": "Federal Reserve Press Releases"
+          },
+          {
+            "fact": "For media inquiries, please email [email protected] or call (202) 452-2955.",
+            "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "source_name": "Federal Reserve Press Releases"
+          }
+        ],
+        "prior_light_tower_context": [
+          {
+            "title": "CVC Raises $9.3B for Secondaries, Confronting the Limits of Size",
+            "url": "/insights/cvc-raises-9-3b-for-secondaries-confronting-the-limits-of-si.html",
+            "date": "2026-07-30",
+            "excerpt": "CVC Capital Partners raised $9.3 billion for its sixth secondaries fund, exceeding the $8 billion target by 37%. But deploying that capital without diluting returns will test the firm’s discipline in ",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "Green Manor of Jamaica Lottery: The Rent Floor Is the Financing Tool",
+            "url": "/insights/green-manor-jamaica-rent-floor-financing.html",
+            "date": "2026-07-24",
+            "excerpt": "Green Manor of Jamaica's lottery at 130% AMI reveals how developers use rent floors to underwrite debt in Queens submarkets. A capital markets signal in 20 units.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "34,564 SF of Leasing at 711 Third: The Lease Duration Is the Signal, Not the Square Footage",
+            "url": "/insights/lease-duration-signal-711-third.html",
+            "date": "2026-07-23",
+            "excerpt": "SL Green signs 34,564 SF in two deals at 711 Third Avenue. Fidelity's 10-year lease and Ackman Ziff's renewal show tenants are committing to duration, not just space. The underwriting margin is time.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "$133M Providence Place Mall Sale: The Price of a Court-Ordered Exit",
+            "url": "/insights/providence-place-mall-sale-price.html",
+            "date": "2026-07-23",
+            "excerpt": "Providence Place Mall sells for $133M after years in receivership. The price reveals the discount required to clear a court-ordered sale and what it signals for regional mall liquidity.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          },
+          {
+            "title": "25.3 Acres of Concrete Paved the Way for This Laredo IOS Deal",
+            "url": "/insights/laredo-ios-realterm-acquisition.html",
+            "date": "2026-07-23",
+            "excerpt": "Realterm buys 40-acre IOS facility in Laredo, TX. The 25.3 concrete-paved acres and Heartland Express lease reveal how infrastructure scarcity drives industrial outdoor storage pricing.",
+            "relationship": "Potential prior coverage or comparable; verify the relationship before citing."
+          }
+        ],
+        "counterquestions": [
+          "What material fact would make the favored interpretation wrong?",
+          "Is this event representative of a market shift or merely a single transaction?",
+          "Which party has the shortest clock, least liquidity, or weakest alternative?",
+          "What is reported, what is inferred, and what remains unknown?"
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "desired_format": "brief",
+        "recommended_format": "brief",
+        "format_downgraded": false,
+        "longform_allowed": false,
+        "source_facts": {
+          "amounts": [],
+          "percentages": [],
+          "companies": [
+            {
+              "name": "federal reserve",
+              "context": "August 04, 2026\nFederal Reserve Board announces approval of t"
+            },
+            {
+              "name": "federal reserve",
+              "context": "release at 4:30 p.m. EDT\nThe Federal Reserve Board on Tuesday announced it"
+            },
+            {
+              "name": "federal reserve",
+              "context": "cted] or call (202) 452-2955. Federal Reserve Board announces approval of t"
+            }
+          ],
+          "addresses": [],
+          "dates": [
+            "August 04, 2026"
+          ]
+        },
+        "sources": [
+          {
+            "name": "Federal Reserve Press Releases",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260804b.htm",
+            "domain": "federalreserve.gov",
+            "published": "2026-08-04T20:30:00+00:00",
+            "authority": "secondary",
+            "tier": 1,
+            "reported_fact_count": 3,
+            "full_text_available": true
+          }
+        ],
+        "quote_count": 0
+      },
+      "editorial_room": {
+        "decision": "write",
+        "final_format": "brief",
+        "angle": "Explain the capital decision, constraint, and consequence beneath the event.",
+        "why_now": "The event is recent and entered the quality-bounded daily-depth research queue on a concrete CRE capital or operating signal.",
+        "favored_thesis": "",
+        "alternate_angles": [],
+        "skeptic_objections": [
+          "Do not claim a market-wide shift from one transaction.",
+          "Do not infer unreported motives or private negotiations."
+        ],
+        "reporting_gaps": [
+          "A second independent source has not corroborated the event.",
+          "No primary document is present in the dossier.",
+          "No attributable direct quotation was captured."
+        ],
+        "human_stakes": "",
+        "concrete_detail": "August 04, 2026 Federal Reserve Board announces approval of the application by FS Bancorp, Inc.",
+        "kill_reason": "",
+        "generation_mode": "deepseek-editorial-room"
+      }
+    }
+  ],
+  "articles": [],
+  "held": [
+    "Prologis’ European Rival Segro Accepts $18.8B Takeover Offer: generation held — V2 editorial pipeline did not clear publication: financial_review: The article states that Segro 'has been converting parts of its urban industrial land into carrier-neutral data centers,' a specific detail not supported by the source dossier, which only refers to an 'expanding data center pipeline.' This constitutes an invented factual claim. | fact_verification: Potentially unsupported claim: 'is expected to' | post_revision_fact_verification: Potentially unsupported claim: 'is expected to'",
+    "Federal Reserve Board announces approval of the application by Coastal Bend Bancshares, Inc.: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The approval suggests the deal is likely small and uncontroversial, but without the order details, the full regulatory c)",
+    "Adams Street tops $5bn for secondaries programme as record deal volumes fuel latest raise: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The $5bn+ raise indicates strong institutional appetite, but without details, the fund's risk-return profile is opaque.)",
+    "FDIC issues relief guidance for Michigan banks affected by storms: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The guidance is a deferral of credit risk assessment rather than a forgiveness, betting on economic recovery to validate)",
+    "KKR closes Global Infrastructure Investors V fund with $19.2bn to spend on infrastructure: generation held — V2 editorial pipeline did not clear publication: financial_review: The article states investors are looking for 'mid-to-high single digits' returns; this return expectation is not present in the source dossier and is unsupported.; The article claims KKR's fund is 'targeting 12% IRR'; this specific return target is not found in the evidence and appears invented.; The article mentions 'hyperscalers self-developing with 3.5% cost of capital'; this market claim is not in the dossier and lacks attribution. | fact_verification: Article contains dossier-unverified claims (0 amounts, 1 companies, 0 addresses): companies: starwood | post_revision_financial_review: Missing attribution to the sole sour",
+    "Federal government to turn a Kentucky uranium plant into an AI data center and gas power complex: generation held — V2 editorial pipeline did not clear publication: fact_verification: Potentially unsupported claim: 'is expected to'; Article contains dossier-unverified claims (1 amounts, 0 companies, 0 addresses): amounts: $30 billion near 'imated that 30% of the $100 billion in spending, or roughly $30 billion, would go toward construction of the data center' | post_revision_fact_verification: Potentially unsupported claim: 'is expected to'",
+    "Federal Reserve Board announces approval of the application by FS Bancorp, Inc.: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The approval, though lacking financial detail, indicates continued permissiveness toward small-bank M&A, which could gra); excellence gate: brief stacks too many hypothetical claims"
+  ],
+  "deal_tape_count": 0,
+  "elapsed_seconds": 2411,
+  "git": {
+    "attempted": false,
+    "commit_created": false,
+    "push_ok": false,
+    "delegated_to_workflow": true
+  },
+  "linkedin": {
+    "posted": false,
+    "pdf_posted_count": 0,
+    "review_required": true
+  }
+}
