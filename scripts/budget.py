@@ -39,7 +39,6 @@ LEDGER_PATH = SITE_ROOT / ".editorial-state" / "spend-ledger.json"
 #: is not a budget.
 MODEL_PRICES: dict[str, tuple[float, float]] = {
     "deepseek-v4-pro": (0.30, 1.20),
-    "deepseek-chat": (0.30, 1.20),
     "gpt-4o": (2.50, 10.00),
     "gpt-4o-mini": (0.15, 0.60),
     "default": (1.00, 4.00),

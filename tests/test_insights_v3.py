@@ -25,8 +25,16 @@ _TMP_STATE = Path(tempfile.mkdtemp())
 
 
 def run(**kwargs):
-    """Always redirect artifacts, so tests never clobber a real run's output."""
+    """Isolate every side effect a real run would have.
+
+    Artifacts go to a temp directory so tests never clobber a live run's output,
+    and memory is a fresh empty store -- seeded memory would mark fixture
+    stories as already published and silently empty the enrichment shortlist.
+    """
+    from editorial_memory import EditorialMemory
+
     kwargs.setdefault("state_dir", _TMP_STATE)
+    kwargs.setdefault("memory", EditorialMemory(Path(tempfile.mkdtemp()) / "memory.json"))
     return _run_v3(**kwargs)
 
 FIXTURE = ROOT / "tests" / "fixtures" / "ranker_corpus_2026-08-03.json"
