@@ -112,6 +112,7 @@ def run(
     listing_limit: int = DEFAULT_LISTING_LIMIT,
     items: Sequence[Any] | None = None,
     verbose: bool = True,
+    state_dir: Path | None = None,
 ) -> tuple[RunReport, Any]:
     """Run the full v3 pass. Returns (report, slate_report).
 
@@ -259,27 +260,38 @@ def run(
     report.timings = [t.to_dict() for t in timings]
     report.elapsed_seconds = round(time.perf_counter() - started, 2)
 
-    _write_artifacts(report, slate_report, objects)
+    _write_artifacts(report, slate_report, objects, state_dir=state_dir)
     if verbose:
         print(format_summary(report), flush=True)
     return report, slate_report
 
 
-def _write_artifacts(report: RunReport, slate_report: Any, objects: Sequence[Any]) -> None:
-    """Persist the run so a decision can be inspected afterwards."""
+def _write_artifacts(
+    report: RunReport,
+    slate_report: Any,
+    objects: Sequence[Any],
+    *,
+    state_dir: Path | None = None,
+) -> None:
+    """Persist the run so a decision can be inspected afterwards.
+
+    `state_dir` is overridable so tests never overwrite the artifacts a real run
+    left behind -- which they were doing, making the last live run unreadable.
+    """
+    target = state_dir or STATE_DIR
     try:
-        STATE_DIR.mkdir(parents=True, exist_ok=True)
-        (STATE_DIR / "v3-run.json").write_text(
+        target.mkdir(parents=True, exist_ok=True)
+        (target / "v3-run.json").write_text(
             json.dumps(report.to_dict(), indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
         )
         if slate_report is not None:
-            (STATE_DIR / "v3-slates.json").write_text(
+            (target / "v3-slates.json").write_text(
                 json.dumps(slate_report.to_dict(), indent=1, ensure_ascii=False) + "\n",
                 encoding="utf-8",
             )
         # Every candidate, not just the chosen ones -- the audit gap that made
         # the previous ranker impossible to diagnose after the fact.
-        (STATE_DIR / "v3-candidates.json").write_text(
+        (target / "v3-candidates.json").write_text(
             json.dumps(
                 {
                     "run_at": report.run_at,

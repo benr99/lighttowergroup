@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import sys
+import tempfile
 import types
 import unittest
 from pathlib import Path
@@ -17,7 +18,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import insights_v3  # noqa: E402
-from insights_v3 import RunReport, format_summary, run  # noqa: E402
+from insights_v3 import RunReport, format_summary  # noqa: E402
+from insights_v3 import run as _run_v3  # noqa: E402
+
+_TMP_STATE = Path(tempfile.mkdtemp())
+
+
+def run(**kwargs):
+    """Always redirect artifacts, so tests never clobber a real run's output."""
+    kwargs.setdefault("state_dir", _TMP_STATE)
+    return _run_v3(**kwargs)
 
 FIXTURE = ROOT / "tests" / "fixtures" / "ranker_corpus_2026-08-03.json"
 
@@ -127,7 +137,7 @@ class RunsEndToEnd(unittest.TestCase):
 class WritesArtifacts(unittest.TestCase):
     def test_the_full_candidate_universe_is_persisted(self) -> None:
         run(items=_fixture_documents(), enrich_limit=0, verbose=False)
-        path = insights_v3.STATE_DIR / "v3-candidates.json"
+        path = _TMP_STATE / "v3-candidates.json"
         self.assertTrue(path.exists())
         payload = json.loads(path.read_text(encoding="utf-8"))
         self.assertGreater(payload["count"], 0)
@@ -139,7 +149,7 @@ class WritesArtifacts(unittest.TestCase):
     def test_the_run_report_and_slates_are_written(self) -> None:
         run(items=_fixture_documents(), enrich_limit=0, verbose=False)
         for name in ("v3-run.json", "v3-slates.json"):
-            path = insights_v3.STATE_DIR / name
+            path = _TMP_STATE / name
             self.assertTrue(path.exists(), name)
             json.loads(path.read_text(encoding="utf-8"))
 
