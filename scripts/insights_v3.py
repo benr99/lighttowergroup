@@ -73,6 +73,9 @@ class RunReport:
     degenerate_measures: list[str] = field(default_factory=list)
     score_distribution: dict[str, Any] = field(default_factory=dict)
     retrieval: dict[str, Any] = field(default_factory=dict)
+    novelty: dict[str, int] = field(default_factory=dict)
+    memory: dict[str, Any] = field(default_factory=dict)
+    spend: dict[str, Any] = field(default_factory=dict)
     timings: list[dict[str, Any]] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     elapsed_seconds: float = 0.0
@@ -113,13 +116,17 @@ def run(
     items: Sequence[Any] | None = None,
     verbose: bool = True,
     state_dir: Path | None = None,
+    budget: Any = None,
+    memory: Any = None,
 ) -> tuple[RunReport, Any]:
     """Run the full v3 pass. Returns (report, slate_report).
 
     `items` lets a caller supply pre-ingested documents, which is how tests and
     shadow comparisons avoid hitting the network.
     """
+    from budget import Budget
     from classification import classify_batch
+    from editorial_memory import EditorialMemory
     from event_clustering import cluster_to_objects
     from importance import distribution_report, score_all
     from selection import build_slates
@@ -127,6 +134,7 @@ def run(
 
     started = time.perf_counter()
     report = RunReport(run_at=_now(), mode=mode)
+    budget = budget or Budget()
     timings: list[StageTiming] = []
 
     def stage(name: str):
@@ -203,6 +211,22 @@ def run(
                 report.errors.append(f"eligibility failed for {obj.title[:40]!r}")
         report.eligible = sum(1 for o in objects if o.eligible)
 
+    # ── memory ─────────────────────────────────────────────────────────────
+    # Runs before scoring because novelty is one of the scored measures, and
+    # before enrichment so budget is never spent reading a story we published.
+    with stage("check against what we covered"):
+        try:
+            store = memory if memory is not None else EditorialMemory()
+            if not store.records:
+                seeded = store.seed_from_manifest()
+                if seeded:
+                    report.memory["seeded_from_archive"] = seeded
+            report.novelty = store.apply(objects)
+            report.memory.update(store.report())
+        except Exception as exc:  # noqa: BLE001
+            store = None
+            report.errors.append(f"memory failed: {type(exc).__name__}: {exc}"[:200])
+
     # ── enrich ─────────────────────────────────────────────────────────────
     # Only eligible candidates are worth reading, and only the strongest of
     # those if the budget is tight. Ranking by source tier is a cheap proxy
@@ -211,7 +235,10 @@ def run(
         try:
             from retrieval import Retriever, enrich_objects
 
-            candidates = [o for o in objects if o.eligible]
+            from intelligence_object import NoveltyState
+
+            stale = {NoveltyState.ALREADY_PUBLISHED, NoveltyState.DUPLICATE}
+            candidates = [o for o in objects if o.eligible and o.novelty_state not in stale]
             candidates.sort(key=lambda o: min((s.source_tier for s in o.sources), default=9))
             shortlist = candidates[:enrich_limit]
             before = {o.object_id: o.evidence_level for o in shortlist}
@@ -257,6 +284,17 @@ def run(
             if slate.shortfall_reason:
                 report.shortfalls.append(f"{sector}: {slate.shortfall_reason}")
 
+    with stage("record what we saw"):
+        try:
+            if store is not None:
+                store.observe(objects)
+                store.save()
+                report.memory.update(store.report())
+        except Exception as exc:  # noqa: BLE001
+            report.errors.append(f"memory write failed: {type(exc).__name__}"[:120])
+
+    budget.persist()
+    report.spend = budget.report()
     report.timings = [t.to_dict() for t in timings]
     report.elapsed_seconds = round(time.perf_counter() - started, 2)
 
@@ -329,6 +367,14 @@ def format_summary(report: RunReport) -> str:
         )
     if report.depth_counts:
         lines.append(f"    depth          {report.depth_counts}")
+    if report.novelty:
+        lines.append(f"    novelty        {report.novelty}")
+    if report.spend:
+        s = report.spend
+        lines.append(
+            f"    spend          ${s.get('spent_this_run_usd', 0):.3f} this run, "
+            f"${s.get('spent_today_usd', 0):.3f} of ${s.get('daily_limit_usd', 0):.2f} today"
+        )
     for sector, data in sorted(report.sectors.items()):
         flag = "  <- short" if data["shortfall_reason"] else ""
         lines.append(
