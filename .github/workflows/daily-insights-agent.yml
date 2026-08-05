@@ -132,6 +132,7 @@ jobs:
             --articles "$ARTICLE_COUNT"
             --daily-target 3
             --pipeline-v2
+            --shadow-v3
             --skip-git
             --run-origin github-actions
           )

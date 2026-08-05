@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any
 
 import feedparser
+import requests
 
 from canonical_item import CanonicalItem
 from source_health import SourceHealthLedger
@@ -27,6 +28,9 @@ CONFIG_DIR = SITE_ROOT / "config"
 SOURCE_HEALTH_FILE = SITE_ROOT / ".editorial-state" / "source-health.json"
 
 MAX_WORKERS = 8
+#: Explicit fetch timeouts. Without these one slow host stalls the phase.
+FEED_CONNECT_TIMEOUT = 8
+FEED_READ_TIMEOUT = 15
 LOOKBACK_HOURS = 36
 MAX_ENTRIES_PER_FEED = 500
 
@@ -130,10 +134,27 @@ def fetch_single_feed(
 
     started = time.perf_counter()
     try:
-        feed = feedparser.parse(
+        # feedparser.parse(url) fetches through urllib, which has no timeout by
+        # default, so one unresponsive host could stall a worker indefinitely and
+        # with it the whole ingestion phase. Fetch with explicit connect and read
+        # timeouts and hand feedparser the bytes instead.
+        response = requests.get(
             url,
-            request_headers={"User-Agent": "LightTowerGroup-NewsAgent/2.0"},
+            headers={
+                "User-Agent": "LightTowerGroup-NewsAgent/2.0",
+                "Accept": "application/rss+xml, application/xml, text/xml, */*",
+            },
+            timeout=(FEED_CONNECT_TIMEOUT, FEED_READ_TIMEOUT),
+            allow_redirects=True,
         )
+        if response.status_code != 200:
+            elapsed_ms = int((time.perf_counter() - started) * 1000)
+            source["_health"] = "empty"
+            source["_elapsed_ms"] = elapsed_ms
+            source["_story_count"] = 0
+            source["_http_status"] = response.status_code
+            return items, source, error
+        feed = feedparser.parse(response.content)
 
         if getattr(feed, "bozo", False) and not getattr(feed, "entries", None):
             elapsed_ms = int((time.perf_counter() - started) * 1000)

@@ -1886,6 +1886,9 @@ def main():
                         default="manual", help="Record which scheduler or operator initiated the run")
     parser.add_argument("--pipeline-v2", action="store_true",
                         help="Run the new multi-sector pipeline v2 (ingestion, classification, scoring, ranking)")
+    parser.add_argument("--shadow-v3", action="store_true",
+                        help="Also run the v3 pipeline alongside v2 and record its slates. "
+                             "Shadow only: v3 never selects, generates or publishes.")
     args = parser.parse_args()
     if args.weekly_review:
         run_weekly_review(args)
@@ -2022,6 +2025,33 @@ def main():
 
     # \u2500 Phase 1: Gather \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
     print("[1/8] Gathering stories...")
+
+    # v3 runs first and entirely to one side: it reads its own sources, writes
+    # its own artifacts, and hands nothing to the rest of this function. A
+    # failure here must never affect the edition, so everything is swallowed.
+    if args.shadow_v3:
+        print("\n  [SHADOW V3] Running the v3 pipeline alongside production...")
+        try:
+            from insights_v3 import run as run_v3
+
+            v3_report, _ = run_v3(mode="shadow", verbose=True)
+            run_data["shadow_v3"] = {
+                "ingested": v3_report.documents_ingested,
+                "objects": v3_report.objects_after_clustering,
+                "consolidated": v3_report.documents_consolidated,
+                "eligible": v3_report.eligible,
+                "enriched": v3_report.enriched,
+                "evidence_upgraded": v3_report.evidence_upgraded,
+                "selected": v3_report.selected,
+                "depth_counts": v3_report.depth_counts,
+                "shortfalls": v3_report.shortfalls,
+                "degenerate_measures": v3_report.degenerate_measures,
+                "elapsed": v3_report.elapsed_seconds,
+            }
+        except Exception as e:  # noqa: BLE001
+            run_data["shadow_v3"] = {"error": redact_secret_text(e)}
+            print(f"  [SHADOW V3] failed, production continues: {redact_secret_text(e)}")
+
     v2_results = None
     if args.pipeline_v2:
         print("\n  [PIPELINE V2] Running production multi-sector selection...")
