@@ -285,14 +285,31 @@ class EditorialMemory:
                 NoveltyState.MATERIAL_UPDATE, 6.0, match.event_key,
                 "seen before, and something substantive changed", changes,
             )
+
+        # Having merely *seen* a story is not having covered it. A story sits in
+        # the feeds for two or three days; if we passed on it yesterday it is
+        # still perfectly coverable today, and burying it would mean an
+        # important item that takes a day to surface never gets written. Only
+        # coverage suppresses -- sighting barely counts.
+        if not match.selected:
+            if match.times_seen >= 4:
+                return NoveltyVerdict(
+                    NoveltyState.MINOR_FOLLOW_UP, 5.0, match.event_key,
+                    f"in the feeds {match.times_seen} days running and still uncovered",
+                )
+            return NoveltyVerdict(
+                NoveltyState.NEW, 8.0, match.event_key,
+                "seen previously but never covered, so still ours to write",
+            )
+
         if match.times_seen >= 2:
             return NoveltyVerdict(
                 NoveltyState.DUPLICATE, 1.0, match.event_key,
-                f"seen {match.times_seen} times without changing",
+                f"chosen before and seen {match.times_seen} times without changing",
             )
         return NoveltyVerdict(
             NoveltyState.MINOR_FOLLOW_UP, 3.0, match.event_key,
-            "seen before with nothing substantive added",
+            "chosen before with nothing substantive added",
         )
 
     def apply(self, objects: Iterable[IntelligenceObject]) -> dict[str, int]:

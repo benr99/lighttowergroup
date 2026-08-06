@@ -64,20 +64,35 @@ class RepeatCoverage(unittest.TestCase):
         self.assertLessEqual(verdict.score, 2)
         self.assertIn("starwood", verdict.reason)
 
-    def test_seeing_the_same_story_repeatedly_without_change_is_a_duplicate(self) -> None:
+    def test_a_story_we_chose_and_saw_again_unchanged_is_a_duplicate(self) -> None:
         memory = _memory()
-        story = _obj("Segro accepts $18.8B takeover approach")
+        story = _obj("Segro accepts $18.8B takeover approach", selected=True)
         memory.observe([story])
         memory.observe([story])
         verdict = memory.assess(_obj("Segro accepts $18.8B takeover approach"))
         self.assertEqual(verdict.state, NoveltyState.DUPLICATE)
         self.assertLessEqual(verdict.score, 2)
 
-    def test_seen_once_with_nothing_new_is_a_minor_follow_up(self) -> None:
+    def test_merely_seeing_a_story_does_not_bury_it(self) -> None:
+        """A story we passed on yesterday is still ours to write today.
+
+        Feeds carry an item for two or three days. Penalising a sighting means
+        anything that takes a day to surface never gets covered at all.
+        """
         memory = _memory()
         memory.observe([_obj("Segro accepts $18.8B takeover approach")])
         verdict = memory.assess(_obj("Segro accepts $18.8B takeover approach"))
+        self.assertEqual(verdict.state, NoveltyState.NEW)
+        self.assertGreaterEqual(verdict.score, 7)
+
+    def test_an_item_lingering_uncovered_for_days_does_fade(self) -> None:
+        memory = _memory()
+        story = _obj("Segro accepts $18.8B takeover approach")
+        for _ in range(5):
+            memory.observe([story])
+        verdict = memory.assess(_obj("Segro accepts $18.8B takeover approach"))
         self.assertEqual(verdict.state, NoveltyState.MINOR_FOLLOW_UP)
+        self.assertLess(verdict.score, 7)
 
 
 class RealDevelopments(unittest.TestCase):

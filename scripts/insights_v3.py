@@ -38,8 +38,14 @@ PIPELINE_VERSION = "v3.0"
 
 #: Enrichment is the expensive step, so it is bounded twice: by how many
 #: candidates may be read at all, and by a wall-clock budget for the phase.
-DEFAULT_ENRICH_LIMIT = 60
-DEFAULT_ENRICH_BUDGET_S = 240
+# Set above the typical eligible count deliberately. Reading 60 of 171 eligible
+# candidates left `evidence` with no discriminating power and cost real
+# coverage: raising it to read them all took selections from 29 to 47, evidence
+# upgrades from 30 to 78, and lifted every short sector -- for five extra
+# seconds. Retrieval is cheap; the model calls that follow are not, which is why
+# the budget guards those rather than this.
+DEFAULT_ENRICH_LIMIT = 250
+DEFAULT_ENRICH_BUDGET_S = 420
 DEFAULT_LISTING_LIMIT = 12
 
 

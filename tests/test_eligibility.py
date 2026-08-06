@@ -109,6 +109,51 @@ class PolicyAndMacroFamily(unittest.TestCase):
         self.assertTrue(decision.eligible, decision.reason)
 
 
+class GovernmentActionInAnySector(unittest.TestCase):
+    """What a story IS decides how it is judged, not which sector it sits in.
+
+    Routing by sector alone sent regulatory stories to the transaction rules,
+    which demand a transaction verb and an amount. Forty-three of sixty-eight
+    data-centre stories were thrown away for "no transaction verb" while being
+    among the most consequential items of the day.
+    """
+
+    CASES = (
+        ("Texas Gov. Greg Abbott Halts Data Center Connections To State Grid", "data_centers"),
+        ("Dozens of NJ towns are banning data centers", "data_centers"),
+        ("Trump Reportedly Preparing Ban On Chinese Data Center Companies", "data_centers"),
+        ("FERC approves new interconnection rules for large loads", "energy"),
+        ("OCC finalises capital rules for regional banks", "banking_credit"),
+    )
+
+    def test_regulatory_action_is_judged_as_policy_whatever_the_sector(self) -> None:
+        for title, sector in self.CASES:
+            with self.subTest(title=title[:44]):
+                decision = eligibility.assess(obj(title, sector=sector))
+                self.assertEqual(decision.family, "policy_or_macro")
+                self.assertTrue(decision.eligible, decision.reason)
+
+    def test_an_abbreviated_title_still_reads_as_a_public_body(self) -> None:
+        """"Gov." ends in a period, which defeats a trailing word boundary."""
+        decision = eligibility.assess(
+            obj("Gov. Hochul signs housing bill", sector="commercial_real_estate")
+        )
+        self.assertEqual(decision.family, "policy_or_macro")
+
+    def test_a_commercial_deal_is_still_judged_as_a_transaction(self) -> None:
+        decision = eligibility.assess(
+            obj("Blackstone acquires Phoenix industrial portfolio for $450 million")
+        )
+        self.assertEqual(decision.family, "transaction_or_development")
+        self.assertTrue(decision.eligible)
+
+    def test_a_company_merely_mentioning_regulation_is_not_policy(self) -> None:
+        decision = eligibility.assess(
+            obj("Prologis leases 400,000 sf warehouse in Dallas")
+        )
+        self.assertEqual(decision.family, "transaction_or_development")
+
+
 class InterviewFamily(unittest.TestCase):
     def test_promotional_interview_is_rejected(self) -> None:
         record = next(

@@ -43,7 +43,7 @@ _NON_TRANSACTIONAL_CLASSES = frozenset({
 
 _NAMED_PARTY = re.compile(r"\b[A-Z][A-Za-z&'.-]+(?:\s+[A-Z][A-Za-z&'.-]+)*\b")
 _SCALE = re.compile(
-    r"\b[\d,]+(?:\.\d+)?\s*(?:units?|sf|square feet|acres?|mw|megawatts?|rooms?|keys|bps|basis points)\b",
+    r"\b[\d,]+(?:\.\d+)?\s*(?:units?|sf|square feet|acres?|mw|megawatts?|rooms?|keys|bps|basis points)(?![A-Za-z])",
     re.I,
 )
 _MONEY = re.compile(r"\$\s?[\d,]+(?:\.\d+)?\s*(?:billion|bn|million|mm|trillion|[bmk])?\b", re.I)
@@ -51,7 +51,7 @@ _MONEY = re.compile(r"\$\s?[\d,]+(?:\.\d+)?\s*(?:billion|bn|million|mm|trillion|
 _POLICY_ACTION = re.compile(
     r"\b(?:rais(?:e|ed|es)|cut|cuts|hold(?:s)?|lower(?:s|ed)?|approv\w+|reject\w+|"
     r"propos\w+|finaliz\w+|enact\w+|rul(?:e|ed|ing)|order(?:s|ed)?|"
-    r"vote[sd]?|adopt\w+|impos\w+|ban(?:s|ned)?|mandat\w+)\b",
+    r"vote[sd]?|adopt\w+|impos\w+|ban(?:s|ned)?|mandat\w+)(?![A-Za-z])",
     re.I,
 )
 
@@ -76,8 +76,33 @@ class EligibilityDecision:
         }
 
 
+#: Government or regulatory action, in any sector. A moratorium on data centres,
+#: a governor halting grid connections, a bank regulator changing capital rules
+#: -- none of these have a transaction verb or a dollar figure, and all of them
+#: matter. Routing by sector alone sent them to the transaction rules and threw
+#: them away: 43 of 68 data-centre stories were rejected for "no transaction
+#: verb" while being some of the most consequential items of the day.
+_GOVERNMENT_ACTOR = re.compile(
+    r"\b(?:gov(?:\.|ernor)|mayor|city council|council|commission(?:er)?|regulator|legislature|senate|senator|congress|parliament|state of|county|township|towns?|city of|municipalit\w+|administration|department of|agency|authority|court|judge|attorney general|white house|president|trump|ferc|fdic|occ|epa|hud|fhfa|cfpb|federal reserve|federal government|us treasury)(?![A-Za-z])",
+    re.I,
+)
+_GOVERNMENT_ACTION = re.compile(
+    r"\b(?:bans?|banned|banning|halts?|halted|halting|blocks?|blocked|moratorium|approv\w+|reject\w+|denie[sd]|rules?|ruled|ruling|orders?|ordered|mandat\w+|restrict\w+|prohibit\w+|legislat\w+|ordinance|zoning|rezon\w+|permits?|permitted|licen[cs]\w+|sanction\w+|tariffs?|regulat\w+|investigat\w+|sued?|lawsuit|incentives?|subsid\w+|signs?|signed|vetoe?[sd]?|enact\w+|passes|passed|introduce[sd]?|curtail\w+|caps?|capped)(?![A-Za-z])",
+    re.I,
+)
+
+
+def _is_government_action(text: str) -> bool:
+    """A public body doing something, whatever sector it lands in."""
+    return bool(_GOVERNMENT_ACTOR.search(text) and _GOVERNMENT_ACTION.search(text))
+
+
 def _event_family(obj: IntelligenceObject, traits: dict[str, Any]) -> str:
-    """Which set of rules applies to this object."""
+    """Which set of rules applies to this object.
+
+    Nature first, sector second. What a story *is* decides how it should be
+    judged; the sector it belongs to is only a fallback.
+    """
     if obj.object_class in _NON_TRANSACTIONAL_CLASSES:
         return "data_or_signal"
     content_type = traits["content_type"]
@@ -85,10 +110,13 @@ def _event_family(obj: IntelligenceObject, traits: dict[str, Any]) -> str:
         return "interview_or_opinion"
     if content_type == ContentType.DATA_PUBLICATION:
         return "data_or_signal"
-    if obj.primary_sector in _NON_TRANSACTIONAL_SECTORS:
-        return "policy_or_macro"
     if content_type in ContentType.PRIMARY_AUTHORITY:
         return "primary_document"
+    # Government action outranks the sector default.
+    if _is_government_action(f"{obj.title} {obj.what_happened}"):
+        return "policy_or_macro"
+    if obj.primary_sector in _NON_TRANSACTIONAL_SECTORS:
+        return "policy_or_macro"
     return "transaction_or_development"
 
 
@@ -146,7 +174,11 @@ def assess(obj: IntelligenceObject, *, text: str = "") -> EligibilityDecision:
     if family in ("policy_or_macro", "data_or_signal"):
         # Deliberately no monetary requirement: a Fed decision, a rezoning or a
         # CPI print can be the most consequential item of the day.
-        has_action = bool(_POLICY_ACTION.search(blob))
+        # Use the same, broader action vocabulary that routed this here.
+        # The narrower list missed "halts" and "banning" entirely, so a
+        # governor halting grid connections reached the right family and
+        # was then rejected inside it.
+        has_action = bool(_POLICY_ACTION.search(blob) or _GOVERNMENT_ACTION.search(blob))
         has_numbers = bool(re.search(r"\d", blob))
         if has_action or has_numbers or obj.object_class in _NON_TRANSACTIONAL_CLASSES:
             decision.eligible = True
