@@ -279,6 +279,12 @@ Scored candidates:
 {story_list}"""
 
 
+#: Provider JSON mode is reliable only for short structured answers.
+JSON_MODE_MAX_TOKENS = 2000
+REQUEST_TIMEOUT_S = 90
+LONG_REQUEST_TIMEOUT_S = 240
+
+
 def call_deepseek(
     prompt: str,
     api_key: str,
@@ -302,7 +308,20 @@ def call_deepseek(
         "temperature": temperature,
     }
     if json_mode:
-        payload["response_format"] = {"type": "json_object"}
+        # Provider JSON mode is only safe for short answers. On a reasoning
+        # model a long generation spends the whole budget thinking and returns
+        # finish_reason=length with EMPTY content -- measured at 12,360 tokens
+        # for zero characters, three times over via the retry loop. Every draft
+        # in the first real generation run failed this way. Above this size the
+        # request goes out as ordinary text and _extract_json parses the result,
+        # which it already handles including fenced code blocks. Same article,
+        # half the tokens.
+        if max_tokens <= JSON_MODE_MAX_TOKENS:
+            payload["response_format"] = {"type": "json_object"}
+        else:
+            payload["messages"][-1]["content"] += (
+                "\n\nReturn a single valid JSON object and nothing else."
+            )
     last_error: Exception | None = None
     data: dict[str, Any] | None = None
     for attempt in range(3):
@@ -311,7 +330,7 @@ def call_deepseek(
                 url,
                 headers={"Authorization": f"Bearer {api_key}"},
                 json=payload,
-                timeout=90,
+                timeout=REQUEST_TIMEOUT_S if max_tokens <= JSON_MODE_MAX_TOKENS else LONG_REQUEST_TIMEOUT_S,
             )
             if resp.status_code in {408, 429, 500, 502, 503, 504} and attempt < 2:
                 time.sleep(2 ** attempt)
@@ -329,7 +348,10 @@ def call_deepseek(
                 "Provider returned an empty completion "
                 f"(finish_reason={finish_reason}, reasoning_chars={reasoning_length})"
             )
-        except (requests.Timeout, requests.ConnectionError, ValueError) as exc:
+        except (requests.RequestException, ValueError) as exc:
+            # RequestException covers ChunkedEncodingError, which is what a
+            # connection dropped mid-body raises. It was escaping the retry
+            # loop entirely and surfacing as "Response ended prematurely".
             last_error = exc
         if attempt < 2:
             time.sleep(2 ** attempt)

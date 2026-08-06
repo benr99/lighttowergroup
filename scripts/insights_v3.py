@@ -82,6 +82,7 @@ class RunReport:
     novelty: dict[str, int] = field(default_factory=dict)
     memory: dict[str, Any] = field(default_factory=dict)
     spend: dict[str, Any] = field(default_factory=dict)
+    generation: dict[str, Any] = field(default_factory=dict)
     timings: list[dict[str, Any]] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     elapsed_seconds: float = 0.0
@@ -120,6 +121,9 @@ def run(
     enrich_budget_s: int = DEFAULT_ENRICH_BUDGET_S,
     listing_limit: int = DEFAULT_LISTING_LIMIT,
     items: Sequence[Any] | None = None,
+    generate: bool = False,
+    generation_workers: int = 6,
+    generation_deadline_s: float = 3600,
     verbose: bool = True,
     state_dir: Path | None = None,
     budget: Any = None,
@@ -290,6 +294,40 @@ def run(
             if slate.shortfall_reason:
                 report.shortfalls.append(f"{sector}: {slate.shortfall_reason}")
 
+    # ── write ──────────────────────────────────────────────────────────────
+    # Off by default. When on, the selected slate is written concurrently at the
+    # depth each story's evidence earned. Still returns drafts rather than
+    # publishing them.
+    drafts: list[Any] = []
+    if generate and slate_report is not None:
+        with stage("write the slate"):
+            try:
+                from model_router import select_provider
+                from v3_generation import summarise, write_all
+
+                chosen = [o for s in slate_report.sectors.values() for o in s.selected]
+                provider = None
+                api_key = ""
+                try:
+                    provider = select_provider(for_writing=True)
+                    api_key = provider.get("api_key", "")
+                except Exception as exc:  # noqa: BLE001
+                    report.errors.append(f"no writing provider: {type(exc).__name__}")
+
+                if api_key:
+                    drafts, gen_report = write_all(
+                        chosen, api_key=api_key, provider=provider, budget=budget,
+                        workers=generation_workers, deadline_s=generation_deadline_s,
+                        verbose=verbose,
+                    )
+                    report.generation = gen_report.to_dict()
+                    if verbose:
+                        print(summarise(gen_report), flush=True)
+                else:
+                    report.generation = {"skipped": "no API key available"}
+            except Exception as exc:  # noqa: BLE001
+                report.errors.append(f"generation failed: {type(exc).__name__}: {exc}"[:200])
+
     with stage("record what we saw"):
         try:
             if store is not None:
@@ -375,6 +413,13 @@ def format_summary(report: RunReport) -> str:
         lines.append(f"    depth          {report.depth_counts}")
     if report.novelty:
         lines.append(f"    novelty        {report.novelty}")
+    if report.generation and report.generation.get("requested"):
+        g = report.generation
+        lines.append(
+            f"    written        {g.get('written', 0)}/{g.get('requested', 0)}"
+            f"  in {g.get('elapsed_seconds', 0):.0f}s"
+            f"  (held {g.get('held', 0)}, failed {g.get('failed', 0)})"
+        )
     if report.spend:
         s = report.spend
         lines.append(
@@ -402,6 +447,9 @@ def main() -> int:
     parser.add_argument("--enrich-budget", type=int, default=DEFAULT_ENRICH_BUDGET_S)
     parser.add_argument("--listing-limit", type=int, default=DEFAULT_LISTING_LIMIT)
     parser.add_argument("--sector", action="append", dest="sectors")
+    parser.add_argument("--generate", action="store_true",
+                        help="write the selected slate (drafts only; never publishes)")
+    parser.add_argument("--workers", type=int, default=6)
     args = parser.parse_args()
 
     report, _ = run(
@@ -410,6 +458,8 @@ def main() -> int:
         enrich_limit=args.enrich_limit,
         enrich_budget_s=args.enrich_budget,
         listing_limit=args.listing_limit,
+        generate=args.generate,
+        generation_workers=args.workers,
     )
     return 0 if not report.errors else 0  # diagnostics never fail the caller
 
