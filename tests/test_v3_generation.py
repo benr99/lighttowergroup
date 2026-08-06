@@ -70,7 +70,7 @@ def _budget(daily=5.0) -> Budget:
 class _FakePipeline:
     """Stands in for the seven-stage writer."""
 
-    def __init__(self, *, delay=0.0, status="complete", raises=False):
+    def __init__(self, *, delay=0.0, status="completed", raises=False):
         self.delay, self.status, self.raises = delay, status, raises
         self.calls: list[dict] = []
 
@@ -82,7 +82,8 @@ class _FakePipeline:
             raise RuntimeError("model unavailable")
         return {
             "status": self.status,
-            "article": {"title": item.headline, "body_html": "<p>text</p>"} if self.status == "complete" else None,
+            "article": {"title": item.headline, "body_html": "<p>text</p>"}
+                       if self.status in ("completed", "revised", "review_required") else None,
             "stages_run": ["draft", "review"],
             "errors": [],
         }
@@ -251,7 +252,7 @@ class FailureIsolation(unittest.TestCase):
             calls["n"] += 1
             if calls["n"] == 2:
                 raise RuntimeError("model unavailable")
-            return {"status": "complete", "article": {"title": item.headline},
+            return {"status": "completed", "article": {"title": item.headline},
                     "stages_run": [], "errors": []}
 
         original = _install(flaky)
@@ -263,7 +264,8 @@ class FailureIsolation(unittest.TestCase):
         self.assertEqual(report.failed, 1)
 
     def test_a_held_article_is_counted_separately_from_a_failure(self) -> None:
-        fake = _FakePipeline(status="review_required")
+        """Held means the gates produced no article; failed means it errored."""
+        fake = _FakePipeline(status="draft_failed")
         original = _install(fake)
         try:
             _, report = write_all([_obj("Held story")], budget=_budget(), verbose=False)
@@ -277,6 +279,46 @@ class FailureIsolation(unittest.TestCase):
         _, report = write_all([], budget=_budget(), verbose=False)
         self.assertEqual(report.requested, 0)
         self.assertEqual(report.written, 0)
+
+
+class StatusVocabularyMatchesThePipeline(unittest.TestCase):
+    """A one-letter mismatch reported 0 written when 7 articles existed."""
+
+    def test_the_success_status_is_the_one_the_pipeline_returns(self) -> None:
+        source = (ROOT / "scripts" / "editorial_pipeline.py").read_text(encoding="utf-8")
+        self.assertIn('"completed"', source)
+        self.assertIn("completed", v3_generation.DraftResult.SUCCESS_STATUSES)
+
+    def test_a_completed_article_counts_as_written(self) -> None:
+        fake = _FakePipeline(status="completed")
+        original = _install(fake)
+        try:
+            _, report = write_all([_obj("A story")], budget=_budget(), verbose=False)
+        finally:
+            _restore(original)
+        self.assertEqual(report.written, 1)
+        self.assertEqual(report.held, 0)
+
+    def test_review_required_is_written_but_flagged(self) -> None:
+        fake = _FakePipeline(status="review_required")
+        original = _install(fake)
+        try:
+            results, report = write_all([_obj("A story")], budget=_budget(), verbose=False)
+        finally:
+            _restore(original)
+        self.assertEqual(report.needs_review, 1)
+        self.assertEqual(report.written, 0)
+        self.assertTrue(results[0].needs_review)
+
+    def test_a_status_with_no_article_is_genuinely_held(self) -> None:
+        fake = _FakePipeline(status="draft_failed")
+        original = _install(fake)
+        try:
+            _, report = write_all([_obj("A story")], budget=_budget(), verbose=False)
+        finally:
+            _restore(original)
+        self.assertEqual(report.written, 0)
+        self.assertEqual(report.held, 1)
 
 
 class DoesNotPublish(unittest.TestCase):

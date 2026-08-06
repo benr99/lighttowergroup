@@ -66,13 +66,24 @@ class DraftResult:
     usd: float = 0.0
     skipped_reason: str = ""
 
+    #: What the editorial pipeline actually returns on success. Checking for
+    #: "complete" instead of "completed" made a run report 0 written when seven
+    #: articles had in fact been produced.
+    SUCCESS_STATUSES = frozenset({"completed", "revised"})
+
     @property
     def ok(self) -> bool:
-        return self.status == "complete" and bool(self.article)
+        return bool(self.article) and self.status in self.SUCCESS_STATUSES
+
+    @property
+    def needs_review(self) -> bool:
+        """Written, but the pipeline wants a human to look before publishing."""
+        return self.status == "review_required" and bool(self.article)
 
     def to_dict(self) -> dict[str, Any]:
         data = asdict(self)
         data["ok"] = self.ok
+        data["needs_review"] = self.needs_review
         data.pop("article", None)  # drafts are returned separately, not in the report
         return data
 
@@ -81,6 +92,7 @@ class DraftResult:
 class GenerationReport:
     requested: int = 0
     written: int = 0
+    needs_review: int = 0
     held: int = 0
     skipped_budget: int = 0
     failed: int = 0
@@ -295,6 +307,8 @@ def write_all(
         report.usd += item.usd
         if item.ok:
             report.written += 1
+        elif item.needs_review:
+            report.needs_review += 1
         elif item.status == "skipped":
             report.skipped_budget += 1
         elif item.status == "failed":
@@ -313,6 +327,8 @@ def summarise(report: GenerationReport) -> str:
         f"  wrote {report.written}/{report.requested} in {report.elapsed_seconds:.0f}s"
         f"  (${report.usd:.3f})",
     ]
+    if report.needs_review:
+        lines.append(f"    {report.needs_review} written but flagged for review")
     if report.held:
         lines.append(f"    {report.held} held by the quality gates")
     if report.failed:
