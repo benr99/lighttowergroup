@@ -1,95 +1,97 @@
 {
   "6sqft": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1640,
-    "last_empty_at": "2026-08-03T13:51:26+00:00",
+    "last_elapsed_ms": 1294,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-08T11:40:02+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "ABA Banking Journal": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 263,
-    "last_story_count": 9,
-    "last_success_at": "2026-08-08T11:40:07+00:00",
+    "last_elapsed_ms": 310,
+    "last_story_count": 2,
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "AFIRE": {
-    "consecutive_empty_runs": 7,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 433,
-    "last_empty_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 505,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-04T13:07:03+00:00",
     "status": "needs_review"
   },
   "ATTOM Data": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 365,
-    "last_empty_at": "2026-08-06T13:02:42+00:00",
+    "last_elapsed_ms": 441,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:02+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Affordable Housing Finance": {
-    "consecutive_empty_runs": 13,
+    "consecutive_empty_runs": 15,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 112,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 109,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
   "Agri Investor": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1492,
-    "last_empty_at": "2026-08-06T13:02:55+00:00",
+    "last_elapsed_ms": 1607,
+    "last_empty_at": "2026-08-09T11:40:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:13+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Alt Assets": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1590,
+    "last_elapsed_ms": 2724,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 5,
     "last_success_at": "2026-08-08T11:40:09+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "American Banker": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 89,
-    "last_empty_at": "2026-08-03T13:51:28+00:00",
+    "last_elapsed_ms": 136,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "American Public Power": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 192,
-    "last_empty_at": "2026-08-07T11:54:52+00:00",
+    "last_elapsed_ms": 222,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Appraisal Institute": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 415,
-    "last_empty_at": "2026-08-08T11:40:14+00:00",
+    "last_elapsed_ms": 591,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Atlanta Journal-Constitution": {
     "consecutive_empty_runs": 5,
@@ -102,9 +104,9 @@
   "Axios Cities": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 951,
-    "last_story_count": 13,
-    "last_success_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 1358,
+    "last_story_count": 7,
+    "last_success_at": "2026-08-09T11:39:58+00:00",
     "status": "healthy"
   },
   "Axios Pro Rata": {
@@ -116,24 +118,24 @@
     "status": "empty"
   },
   "BEA News Releases": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 413,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 287,
+    "last_empty_at": "2026-08-09T11:40:03+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-05T13:00:58+00:00",
-    "status": "empty"
+    "status": "needs_review"
   },
   "BLS News Releases": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 297,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 73,
+    "last_empty_at": "2026-08-09T11:40:03+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-05T13:00:58+00:00",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Bank Automation News": {
     "consecutive_empty_runs": 2,
@@ -152,54 +154,58 @@
     "status": "empty"
   },
   "Banking Dive": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 91,
-    "last_story_count": 3,
-    "last_success_at": "2026-08-08T11:40:07+00:00",
-    "status": "healthy"
-  },
-  "Baxtel": {
-    "consecutive_empty_runs": 6,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 588,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
-    "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
-  },
-  "Bisnow (all markets)": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 85,
-    "last_story_count": 10,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
-  },
-  "Bisnow Atlanta": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 264,
-    "last_empty_at": "2026-08-06T13:02:41+00:00",
-    "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
-  },
-  "Bisnow Boston": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 116,
-    "last_empty_at": "2026-08-03T13:51:26+00:00",
-    "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
-  },
-  "Bisnow Chicago": {
     "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 159,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 60,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 3,
+    "last_success_at": "2026-08-08T11:40:07+00:00",
+    "status": "empty"
+  },
+  "Baxtel": {
+    "consecutive_empty_runs": 8,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 609,
+    "last_empty_at": "2026-08-09T11:40:06+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "status": "needs_review"
+  },
+  "Bisnow (all markets)": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 88,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 10,
+    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "status": "empty"
+  },
+  "Bisnow Atlanta": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 141,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 1,
+    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "status": "empty"
+  },
+  "Bisnow Boston": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 134,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 1,
+    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "status": "empty"
+  },
+  "Bisnow Chicago": {
+    "consecutive_empty_runs": 4,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 115,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:45+00:00",
@@ -230,20 +236,20 @@
     "status": "empty"
   },
   "Bisnow Denver": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 195,
-    "last_empty_at": "2026-08-07T11:54:45+00:00",
+    "last_elapsed_ms": 142,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Bisnow Los Angeles": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 162,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 109,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-06T13:02:41+00:00",
@@ -258,30 +264,30 @@
     "status": "empty"
   },
   "Bisnow National": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 168,
-    "last_empty_at": "2026-08-03T13:51:26+00:00",
+    "last_elapsed_ms": 131,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 5,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Bisnow New York": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 187,
-    "last_empty_at": "2026-08-03T13:51:25+00:00",
+    "last_elapsed_ms": 184,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:00+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Bisnow Philadelphia": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 221,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 162,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:45+00:00",
@@ -298,14 +304,14 @@
     "status": "empty"
   },
   "Bisnow Washington DC": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
     "last_elapsed_ms": 133,
-    "last_empty_at": "2026-08-07T11:54:45+00:00",
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Bloomberg Business": {
     "consecutive_empty_runs": 0,
@@ -318,17 +324,17 @@
   "Bloomberg Businessweek": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 843,
-    "last_story_count": 1,
-    "last_success_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 291,
+    "last_story_count": 0,
+    "last_success_at": "2026-08-09T11:39:57+00:00",
     "status": "healthy"
   },
   "Bloomberg Real Estate": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 415,
-    "last_story_count": 19,
-    "last_success_at": "2026-08-08T11:40:02+00:00",
+    "last_elapsed_ms": 378,
+    "last_story_count": 20,
+    "last_success_at": "2026-08-09T11:39:57+00:00",
     "status": "healthy"
   },
   "Boston Globe Business": {
@@ -340,22 +346,22 @@
     "status": "empty"
   },
   "Boston Real Estate Times": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 244,
-    "last_empty_at": "2026-08-08T11:40:11+00:00",
+    "last_elapsed_ms": 129,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-07T11:54:54+00:00",
     "status": "empty"
   },
   "Building Design + Construction": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 336,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
+    "last_elapsed_ms": 1055,
+    "last_empty_at": "2026-08-09T11:40:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Building Design+Construction": {
     "consecutive_empty_runs": 5,
@@ -366,20 +372,20 @@
     "status": "empty"
   },
   "Buyouts Insider": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2125,
-    "last_empty_at": "2026-08-03T13:51:34+00:00",
+    "last_elapsed_ms": 2175,
+    "last_empty_at": "2026-08-09T11:40:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:05+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "CBO": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 173,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 59,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-07T11:54:52+00:00",
@@ -394,42 +400,42 @@
     "status": "empty"
   },
   "CBRE Insights": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 362,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
+    "last_elapsed_ms": 983,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "CFO Dive": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 254,
-    "last_empty_at": "2026-08-03T13:51:38+00:00",
+    "last_elapsed_ms": 196,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-08T11:40:09+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "CFPB Newsroom": {
-    "consecutive_empty_runs": 8,
+    "consecutive_empty_runs": 10,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 193,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 167,
+    "last_empty_at": "2026-08-09T11:40:03+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 0,
     "last_success_at": "2026-08-03T13:51:31+00:00",
     "status": "needs_review"
   },
   "CNBC Real Estate": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 227,
-    "last_empty_at": "2026-08-04T13:06:59+00:00",
+    "last_elapsed_ms": 299,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "CP Executive": {
     "consecutive_empty_runs": 5,
@@ -456,26 +462,30 @@
     "status": "empty"
   },
   "Canary Media": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 180,
-    "last_story_count": 3,
-    "last_success_at": "2026-08-08T11:40:07+00:00",
-    "status": "healthy"
-  },
-  "Capacity Media": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 136,
-    "last_story_count": 3,
-    "last_success_at": "2026-08-08T11:40:11+00:00",
-    "status": "healthy"
-  },
-  "Census Economic Indicators": {
     "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 226,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 139,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 3,
+    "last_success_at": "2026-08-08T11:40:07+00:00",
+    "status": "empty"
+  },
+  "Capacity Media": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 243,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 3,
+    "last_success_at": "2026-08-08T11:40:11+00:00",
+    "status": "empty"
+  },
+  "Census Economic Indicators": {
+    "consecutive_empty_runs": 4,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 232,
+    "last_empty_at": "2026-08-09T11:40:03+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:52+00:00",
@@ -498,10 +508,10 @@
     "status": "empty"
   },
   "CityLand NYC": {
-    "consecutive_empty_runs": 7,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 218,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 232,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-04T13:06:59+00:00",
@@ -510,9 +520,9 @@
   "CleanTechnica": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 193,
-    "last_story_count": 20,
-    "last_success_at": "2026-08-08T11:40:08+00:00",
+    "last_elapsed_ms": 162,
+    "last_story_count": 15,
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "CoStar News": {
@@ -532,44 +542,52 @@
     "status": "empty"
   },
   "Commercial Observer": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 147,
+    "last_elapsed_ms": 166,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 12,
     "last_success_at": "2026-08-08T11:40:00+00:00",
-    "status": "healthy"
-  },
-  "Connect CRE": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 789,
-    "last_story_count": 10,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
-  },
-  "Construction Dive": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 146,
-    "last_story_count": 4,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
-  },
-  "Construction Equipment Guide": {
-    "consecutive_empty_runs": 6,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 467,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
-    "last_empty_detail": "feedparser returned no entries",
     "status": "empty"
   },
-  "Converge Digest": {
-    "consecutive_empty_runs": 0,
+  "Connect CRE": {
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 678,
+    "last_elapsed_ms": 735,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 10,
+    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "status": "empty"
+  },
+  "Construction Dive": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 115,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 4,
+    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "status": "empty"
+  },
+  "Construction Equipment Guide": {
+    "consecutive_empty_runs": 8,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 651,
+    "last_empty_at": "2026-08-09T11:40:06+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "status": "needs_review"
+  },
+  "Converge Digest": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 691,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 5,
     "last_success_at": "2026-08-08T11:40:11+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Crain's NY Business": {
     "consecutive_empty_runs": 5,
@@ -580,34 +598,38 @@
     "status": "empty"
   },
   "Crunchbase News": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 175,
+    "last_elapsed_ms": 139,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-08T11:40:06+00:00",
-    "status": "healthy"
-  },
-  "Curbed": {
-    "consecutive_empty_runs": 6,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 689,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
-    "last_empty_detail": "feedparser returned no entries",
     "status": "empty"
   },
-  "Curbed NY": {
-    "consecutive_empty_runs": 0,
+  "Curbed": {
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 316,
+    "last_elapsed_ms": 646,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "status": "needs_review"
+  },
+  "Curbed NY": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 342,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 4,
     "last_success_at": "2026-08-08T11:40:02+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Cushman Research Beat": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 205,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
+    "last_elapsed_ms": 324,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-06T13:02:53+00:00",
@@ -622,19 +644,19 @@
     "status": "empty"
   },
   "Dallas Morning News Business": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 214,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
+    "last_elapsed_ms": 188,
+    "last_empty_at": "2026-08-09T11:40:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Data Center Dynamics": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 287,
-    "last_story_count": 20,
-    "last_success_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 182,
+    "last_story_count": 1,
+    "last_success_at": "2026-08-09T11:40:01+00:00",
     "status": "healthy"
   },
   "Data Center Frontier": {
@@ -646,20 +668,20 @@
     "status": "empty"
   },
   "Data Center Knowledge": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 153,
-    "last_empty_at": "2026-08-03T13:51:39+00:00",
+    "last_elapsed_ms": 490,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-08T11:40:06+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Data Center POST": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1547,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 2495,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-06T13:02:50+00:00",
@@ -682,36 +704,38 @@
     "status": "healthy"
   },
   "EIA Today in Energy": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 9300,
-    "last_empty_at": "2026-08-07T11:54:59+00:00",
+    "last_elapsed_ms": 8205,
+    "last_empty_at": "2026-08-09T11:40:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:16+00:00",
-    "status": "healthy"
-  },
-  "Energy Storage News": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 133,
-    "last_story_count": 5,
-    "last_success_at": "2026-08-08T11:40:07+00:00",
-    "status": "healthy"
-  },
-  "Engineering News-Record": {
-    "consecutive_empty_runs": 6,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 396,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
-    "last_empty_detail": "feedparser returned no entries",
     "status": "empty"
   },
-  "FDIC Press Releases": {
-    "consecutive_empty_runs": 4,
+  "Energy Storage News": {
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1964,
-    "last_empty_at": "2026-08-08T11:40:05+00:00",
+    "last_elapsed_ms": 100,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 5,
+    "last_success_at": "2026-08-08T11:40:07+00:00",
+    "status": "empty"
+  },
+  "Engineering News-Record": {
+    "consecutive_empty_runs": 8,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 137,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "status": "needs_review"
+  },
+  "FDIC Press Releases": {
+    "consecutive_empty_runs": 6,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 1397,
+    "last_empty_at": "2026-08-09T11:39:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-06T13:02:47+00:00",
@@ -726,10 +750,10 @@
     "status": "empty"
   },
   "Family Capital": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 424,
-    "last_empty_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 311,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-07T11:54:50+00:00",
@@ -754,16 +778,16 @@
   "Federal Register \u2014 DOE": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 368,
-    "last_story_count": 22,
-    "last_success_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 587,
+    "last_story_count": 9,
+    "last_success_at": "2026-08-09T11:40:04+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 FDIC": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 771,
-    "last_empty_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 102,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-07T11:54:53+00:00",
@@ -772,40 +796,42 @@
   "Federal Register \u2014 FERC": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 410,
-    "last_story_count": 19,
-    "last_success_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 250,
+    "last_story_count": 6,
+    "last_success_at": "2026-08-09T11:40:03+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 FHFA": {
-    "consecutive_empty_runs": 7,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 734,
-    "last_empty_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 170,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
   "Federal Register \u2014 Federal Reserve": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 286,
+    "last_elapsed_ms": 106,
+    "last_empty_at": "2026-08-09T11:40:03+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:10+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Federal Register \u2014 HUD": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 474,
+    "last_elapsed_ms": 302,
     "last_story_count": 2,
-    "last_success_at": "2026-08-08T11:40:10+00:00",
+    "last_success_at": "2026-08-09T11:40:04+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 OCC": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 613,
-    "last_empty_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 144,
+    "last_empty_at": "2026-08-09T11:40:03+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-06T13:02:53+00:00",
@@ -814,17 +840,17 @@
   "Federal Register \u2014 SEC": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 672,
-    "last_story_count": 16,
-    "last_success_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 328,
+    "last_story_count": 5,
+    "last_success_at": "2026-08-09T11:40:03+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 Treasury": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 454,
-    "last_story_count": 5,
-    "last_success_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 221,
+    "last_story_count": 4,
+    "last_success_at": "2026-08-09T11:40:03+00:00",
     "status": "healthy"
   },
   "Federal Reserve Banking Regulation": {
@@ -844,88 +870,88 @@
     "status": "empty"
   },
   "Federal Reserve Enforcement": {
-    "consecutive_empty_runs": 10,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 190,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 252,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 15,
     "last_success_at": "2026-07-27T23:23:51+00:00",
     "status": "needs_review"
   },
   "Federal Reserve FEDS Notes": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 124,
-    "last_empty_at": "2026-08-07T11:54:52+00:00",
+    "last_elapsed_ms": 69,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:09+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Federal Reserve H.8 Bank Data": {
-    "consecutive_empty_runs": 10,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 294,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 658,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 72,
     "last_success_at": "2026-07-27T23:23:52+00:00",
     "status": "needs_review"
   },
   "Federal Reserve Monetary Policy": {
-    "consecutive_empty_runs": 10,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 174,
-    "last_empty_at": "2026-08-08T11:40:02+00:00",
+    "last_elapsed_ms": 266,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 15,
     "last_success_at": "2026-07-27T23:23:51+00:00",
     "status": "needs_review"
   },
   "Federal Reserve Press (Banking Structure)": {
-    "consecutive_empty_runs": 8,
+    "consecutive_empty_runs": 10,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 126,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 67,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
   "Federal Reserve Press Releases": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 177,
-    "last_empty_at": "2026-08-08T11:40:02+00:00",
+    "last_elapsed_ms": 180,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-05T13:00:52+00:00",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Federal Reserve Speeches": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 205,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 266,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-06T13:02:43+00:00",
     "status": "empty"
   },
   "Federal Reserve Testimony": {
-    "consecutive_empty_runs": 10,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
     "last_elapsed_ms": 212,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 15,
     "last_success_at": "2026-07-27T23:23:51+00:00",
     "status": "needs_review"
   },
   "Federal Reserve Working Papers": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 151,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 110,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:52+00:00",
@@ -934,9 +960,9 @@
   "Fortune (general)": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 210,
-    "last_story_count": 7,
-    "last_success_at": "2026-08-08T11:40:05+00:00",
+    "last_elapsed_ms": 171,
+    "last_story_count": 9,
+    "last_success_at": "2026-08-09T11:39:59+00:00",
     "status": "healthy"
   },
   "Freddie Mac Perspectives": {
@@ -964,10 +990,10 @@
     "status": "empty"
   },
   "GAO WatchBlog": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 259,
-    "last_empty_at": "2026-08-08T11:40:09+00:00",
+    "last_elapsed_ms": 62,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:52+00:00",
@@ -984,9 +1010,9 @@
   "Gothamist": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 289,
-    "last_story_count": 16,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 272,
+    "last_story_count": 7,
+    "last_success_at": "2026-08-09T11:39:56+00:00",
     "status": "healthy"
   },
   "Governing": {
@@ -998,10 +1024,10 @@
     "status": "empty"
   },
   "Green Street Advisors": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 945,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 1215,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:47+00:00",
@@ -1016,10 +1042,10 @@
     "status": "empty"
   },
   "HUD (general)": {
-    "consecutive_empty_runs": 8,
+    "consecutive_empty_runs": 10,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 799,
-    "last_empty_at": "2026-08-08T11:40:04+00:00",
+    "last_elapsed_ms": 710,
+    "last_empty_at": "2026-08-09T11:39:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
@@ -1040,20 +1066,24 @@
     "status": "empty"
   },
   "Heatmap News": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 335,
+    "last_elapsed_ms": 293,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 7,
     "last_success_at": "2026-08-08T11:40:11+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "HousingWire": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 112,
+    "last_elapsed_ms": 152,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Houston Chronicle Business": {
     "consecutive_empty_runs": 5,
@@ -1064,22 +1094,22 @@
     "status": "empty"
   },
   "Hydrogen Fuel News": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 298,
-    "last_empty_at": "2026-08-08T11:40:08+00:00",
+    "last_elapsed_ms": 263,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:51+00:00",
     "status": "empty"
   },
   "ICSC": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 600,
-    "last_empty_at": "2026-08-08T11:40:14+00:00",
+    "last_elapsed_ms": 355,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "IMF": {
     "consecutive_empty_runs": 2,
@@ -1090,14 +1120,14 @@
     "status": "empty"
   },
   "IPE Real Assets": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 549,
-    "last_empty_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 700,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-05T13:00:55+00:00",
-    "status": "empty"
+    "status": "needs_review"
   },
   "IREI News": {
     "consecutive_empty_runs": 0,
@@ -1116,12 +1146,12 @@
     "status": "empty"
   },
   "Inside Mortgage Finance": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 264,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
+    "last_elapsed_ms": 107,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Institutional Investor": {
     "consecutive_empty_runs": 2,
@@ -1132,12 +1162,14 @@
     "status": "empty"
   },
   "Institutional Real Estate": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 289,
+    "last_elapsed_ms": 438,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-08T11:40:02+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "JLL Data Centers": {
     "consecutive_empty_runs": 2,
@@ -1148,12 +1180,12 @@
     "status": "empty"
   },
   "JLL Trends": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 367,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
+    "last_elapsed_ms": 402,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "LA Business Journal": {
     "consecutive_empty_runs": 5,
@@ -1164,20 +1196,24 @@
     "status": "empty"
   },
   "Latitude Media": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 203,
+    "last_elapsed_ms": 229,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:11+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Light Reading": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 444,
+    "last_elapsed_ms": 685,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-08-08T11:40:11+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Lincoln Institute": {
     "consecutive_empty_runs": 5,
@@ -1188,10 +1224,10 @@
     "status": "empty"
   },
   "Lument": {
-    "consecutive_empty_runs": 7,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 261,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
+    "last_elapsed_ms": 189,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
@@ -1212,12 +1248,12 @@
     "status": "empty"
   },
   "Marcus & Millichap Research": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 912,
-    "last_empty_at": "2026-08-08T11:40:14+00:00",
+    "last_elapsed_ms": 928,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "MarketWatch Real Estate": {
     "consecutive_empty_runs": 5,
@@ -1237,19 +1273,19 @@
   },
   "Miami Herald Business": {
     "consecutive_empty_runs": 7,
-    "consecutive_failures": 3,
-    "last_elapsed_ms": 15221,
+    "consecutive_failures": 4,
+    "last_elapsed_ms": 15153,
     "last_empty_at": "2026-08-05T13:00:53+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.miamiherald.com', port=443): Read timed out. (read timeout=15)",
-    "last_failure_at": "2026-08-07T11:53:06+00:00",
+    "last_failure_at": "2026-08-09T11:39:11+00:00",
     "status": "degraded"
   },
   "Miami Today": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1259,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
+    "last_elapsed_ms": 1385,
+    "last_empty_at": "2026-08-09T11:40:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-06T13:02:54+00:00",
@@ -1280,28 +1316,28 @@
     "status": "healthy"
   },
   "Mortgage Professional America": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 289,
-    "last_empty_at": "2026-08-03T13:51:27+00:00",
+    "last_elapsed_ms": 227,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Multi-Housing News": {
-    "consecutive_empty_runs": 13,
+    "consecutive_empty_runs": 15,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 110,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 97,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
   "Multifamily Executive": {
-    "consecutive_empty_runs": 7,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 149,
-    "last_empty_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 231,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
@@ -1314,10 +1350,10 @@
     "status": "empty"
   },
   "NAIOP": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 106,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
+    "last_elapsed_ms": 85,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:55+00:00",
@@ -1342,14 +1378,14 @@
     "status": "empty"
   },
   "NLC": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 81,
-    "last_empty_at": "2026-08-07T11:54:52+00:00",
+    "last_elapsed_ms": 37,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:09+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "NMHC": {
     "consecutive_empty_runs": 5,
@@ -1360,10 +1396,10 @@
     "status": "empty"
   },
   "NREI": {
-    "consecutive_empty_runs": 13,
+    "consecutive_empty_runs": 15,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 95,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 160,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
@@ -1384,10 +1420,10 @@
     "status": "empty"
   },
   "NY Fed Liberty Street Economics": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1526,
-    "last_empty_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 1207,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:54+00:00",
@@ -1396,11 +1432,11 @@
   "NY Post Real Estate": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 173,
+    "last_elapsed_ms": 169,
     "last_empty_at": "2026-08-06T13:02:42+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 7,
-    "last_success_at": "2026-08-08T11:40:02+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-08-09T11:39:57+00:00",
     "status": "healthy"
   },
   "NY State Governor Press": {
@@ -1414,16 +1450,16 @@
   "NY Times Real Estate": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 110,
-    "last_story_count": 4,
-    "last_success_at": "2026-08-08T11:40:02+00:00",
+    "last_elapsed_ms": 197,
+    "last_story_count": 2,
+    "last_success_at": "2026-08-09T11:39:57+00:00",
     "status": "healthy"
   },
   "NYC City Council": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 280,
-    "last_empty_at": "2026-08-08T11:40:08+00:00",
+    "last_elapsed_ms": 178,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-06T13:02:48+00:00",
@@ -1432,9 +1468,9 @@
   "NYC Council Legistar": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 284,
+    "last_elapsed_ms": 200,
     "last_story_count": 1,
-    "last_success_at": "2026-08-08T11:40:11+00:00",
+    "last_success_at": "2026-08-09T11:40:04+00:00",
     "status": "healthy"
   },
   "NYC Dept of Buildings": {
@@ -1464,9 +1500,9 @@
   "NYT DealBook": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 127,
+    "last_elapsed_ms": 149,
     "last_story_count": 2,
-    "last_success_at": "2026-08-08T11:40:06+00:00",
+    "last_success_at": "2026-08-09T11:40:00+00:00",
     "status": "healthy"
   },
   "National Association of Realtors": {
@@ -1494,38 +1530,42 @@
     "status": "empty"
   },
   "National Mortgage News": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 257,
+    "last_elapsed_ms": 189,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 7,
     "last_success_at": "2026-08-08T11:40:11+00:00",
-    "status": "healthy"
-  },
-  "National Multifamily Housing Council": {
-    "consecutive_empty_runs": 6,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 344,
-    "last_empty_at": "2026-08-08T11:40:12+00:00",
-    "last_empty_detail": "feedparser returned no entries",
     "status": "empty"
   },
-  "Natural Gas Intelligence": {
-    "consecutive_empty_runs": 0,
+  "National Multifamily Housing Council": {
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 555,
+    "last_elapsed_ms": 412,
+    "last_empty_at": "2026-08-09T11:40:05+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "status": "needs_review"
+  },
+  "Natural Gas Intelligence": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 496,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-08T11:40:07+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "New Private Markets": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 3113,
-    "last_empty_at": "2026-08-03T13:51:34+00:00",
+    "last_elapsed_ms": 1572,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "New York Fed": {
     "consecutive_empty_runs": 2,
@@ -1538,16 +1578,16 @@
   "New York YIMBY": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 472,
+    "last_elapsed_ms": 330,
     "last_story_count": 5,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "last_success_at": "2026-08-09T11:39:56+00:00",
     "status": "healthy"
   },
   "Newmark Research": {
-    "consecutive_empty_runs": 13,
+    "consecutive_empty_runs": 15,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 270,
-    "last_empty_at": "2026-08-08T11:40:02+00:00",
+    "last_elapsed_ms": 169,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
@@ -1556,7 +1596,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-08-08T11:40:08+00:00",
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Banking/Credit Discovery": {
@@ -1564,7 +1604,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-08-08T11:40:09+00:00",
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Data Centers Discovery": {
@@ -1572,7 +1612,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-08-08T11:40:09+00:00",
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Energy Discovery": {
@@ -1580,7 +1620,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-08-08T11:40:09+00:00",
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Fed/Macro Discovery": {
@@ -1588,7 +1628,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-08-08T11:40:09+00:00",
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Local Government Discovery": {
@@ -1596,7 +1636,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-08-08T11:40:09+00:00",
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Private Equity Discovery": {
@@ -1604,24 +1644,24 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-08-08T11:40:09+00:00",
+    "last_success_at": "2026-08-09T11:40:02+00:00",
     "status": "healthy"
   },
   "OCC Bulletins": {
-    "consecutive_empty_runs": 7,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 338,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 325,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-04T13:07:00+00:00",
     "status": "needs_review"
   },
   "OCC News Releases": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 392,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 256,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:47+00:00",
@@ -1630,9 +1670,9 @@
   "Observer (general)": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 346,
-    "last_story_count": 11,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 407,
+    "last_story_count": 2,
+    "last_success_at": "2026-08-09T11:39:56+00:00",
     "status": "healthy"
   },
   "Observer Real Estate": {
@@ -1646,28 +1686,32 @@
     "status": "empty"
   },
   "Offshore Wind": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 413,
+    "last_elapsed_ms": 133,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 5,
     "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "PE Hub": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 3036,
+    "last_elapsed_ms": 2538,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 5,
     "last_success_at": "2026-08-08T11:40:06+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "PERE": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1338,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
+    "last_elapsed_ms": 1239,
+    "last_empty_at": "2026-08-09T11:40:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "PERE News": {
     "consecutive_empty_runs": 5,
@@ -1678,20 +1722,24 @@
     "status": "empty"
   },
   "PV Magazine": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 676,
+    "last_elapsed_ms": 209,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-08-08T11:40:07+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Payments Dive": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 85,
+    "last_elapsed_ms": 60,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Pensions & Investments": {
     "consecutive_empty_runs": 2,
@@ -1726,92 +1774,104 @@
     "status": "empty"
   },
   "Power Engineering": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 134,
-    "last_empty_at": "2026-08-08T11:40:11+00:00",
+    "last_elapsed_ms": 143,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-07T11:54:54+00:00",
     "status": "empty"
   },
   "Power Magazine": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 96,
-    "last_empty_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 77,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-08-07T11:54:50+00:00",
     "status": "empty"
   },
   "Private Debt Investor": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 2628,
-    "last_story_count": 2,
-    "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
-  },
-  "Private Equity International": {
     "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2456,
-    "last_empty_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 1265,
+    "last_empty_at": "2026-08-09T11:40:00+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 2,
+    "last_success_at": "2026-08-08T11:40:08+00:00",
+    "status": "empty"
+  },
+  "Private Equity International": {
+    "consecutive_empty_runs": 4,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 2399,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-08-07T11:54:49+00:00",
     "status": "empty"
   },
   "Private Funds CFO": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 1859,
-    "last_story_count": 1,
-    "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
-  },
-  "Propmodo": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 164,
-    "last_story_count": 2,
-    "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
-  },
-  "RE Business Online": {
-    "consecutive_empty_runs": 0,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 3806,
-    "last_story_count": 20,
-    "last_success_at": "2026-08-08T11:40:05+00:00",
-    "status": "healthy"
-  },
-  "REIT.com": {
     "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 425,
-    "last_empty_at": "2026-08-08T11:40:08+00:00",
+    "last_elapsed_ms": 2724,
+    "last_empty_at": "2026-08-09T11:40:03+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 1,
+    "last_success_at": "2026-08-08T11:40:08+00:00",
+    "status": "empty"
+  },
+  "Propmodo": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 210,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 2,
+    "last_success_at": "2026-08-08T11:40:01+00:00",
+    "status": "empty"
+  },
+  "RE Business Online": {
+    "consecutive_empty_runs": 2,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 256,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 20,
+    "last_success_at": "2026-08-08T11:40:05+00:00",
+    "status": "empty"
+  },
+  "REIT.com": {
+    "consecutive_empty_runs": 4,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 209,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-07T11:54:51+00:00",
     "status": "empty"
   },
   "REJournals": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 344,
+    "last_elapsed_ms": 267,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 9,
     "last_success_at": "2026-08-08T11:40:10+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "RTO Insider": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 565,
+    "last_elapsed_ms": 528,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-08-08T11:40:07+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Real Capital Analytics": {
     "consecutive_empty_runs": 2,
@@ -1822,42 +1882,44 @@
     "status": "empty"
   },
   "Real Estate Business Online": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 4058,
+    "last_elapsed_ms": 314,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 20,
     "last_success_at": "2026-08-08T11:40:14+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Real Estate Weekly": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 953,
-    "last_empty_at": "2026-08-08T11:40:01+00:00",
+    "last_elapsed_ms": 955,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-06T13:02:41+00:00",
     "status": "empty"
   },
   "RealPage": {
-    "consecutive_empty_runs": 10,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 898,
-    "last_empty_at": "2026-08-08T11:40:02+00:00",
+    "last_elapsed_ms": 1392,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 691,
     "last_success_at": "2026-07-27T23:23:21+00:00",
     "status": "needs_review"
   },
   "Renewable Energy World": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 94,
-    "last_empty_at": "2026-08-05T13:00:56+00:00",
+    "last_elapsed_ms": 72,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-08T11:40:06+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Reuters Business": {
     "consecutive_empty_runs": 5,
@@ -1900,34 +1962,34 @@
     "status": "empty"
   },
   "SEC Litigation Releases": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 188,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 263,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-05T13:00:53+00:00",
-    "status": "empty"
+    "status": "needs_review"
   },
   "SEC Press Releases": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 243,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 256,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-06T13:02:43+00:00",
     "status": "empty"
   },
   "SEC Speeches and Statements": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 213,
-    "last_empty_at": "2026-08-07T11:54:46+00:00",
+    "last_elapsed_ms": 272,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:03+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "SEC Testimony": {
     "consecutive_empty_runs": 2,
@@ -1948,20 +2010,22 @@
     "status": "empty"
   },
   "Scotsman Guide": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 258,
+    "last_elapsed_ms": 230,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-08-08T11:40:11+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Seattle DJC": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 687,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
+    "last_elapsed_ms": 796,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Seattle Times Business": {
     "consecutive_empty_runs": 5,
@@ -1972,63 +2036,65 @@
     "status": "empty"
   },
   "Secondaries Investor": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1993,
-    "last_empty_at": "2026-08-03T13:20:14+00:00",
+    "last_elapsed_ms": 1745,
+    "last_empty_at": "2026-08-09T11:40:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:05+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Seeking Alpha REITs": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 138,
+    "last_elapsed_ms": 103,
     "last_story_count": 30,
-    "last_success_at": "2026-08-08T11:40:11+00:00",
+    "last_success_at": "2026-08-09T11:40:05+00:00",
     "status": "healthy"
   },
   "Shopping Center Business": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1169,
-    "last_empty_at": "2026-08-07T11:54:46+00:00",
+    "last_elapsed_ms": 868,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 4,
     "last_success_at": "2026-08-08T11:40:02+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Skift": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 114,
-    "last_story_count": 8,
-    "last_success_at": "2026-08-08T11:40:11+00:00",
+    "last_elapsed_ms": 90,
+    "last_story_count": 2,
+    "last_success_at": "2026-08-09T11:40:04+00:00",
     "status": "healthy"
   },
   "Smart Electric Power Alliance": {
-    "consecutive_empty_runs": 10,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 295,
-    "last_empty_at": "2026-08-08T11:40:08+00:00",
+    "last_elapsed_ms": 179,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
   "Solar Power World": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 232,
+    "last_elapsed_ms": 131,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "TechCrunch": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 66,
-    "last_story_count": 14,
-    "last_success_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 124,
+    "last_story_count": 5,
+    "last_success_at": "2026-08-09T11:40:01+00:00",
     "status": "healthy"
   },
   "Term Sheet (Fortune)": {
@@ -2040,22 +2106,24 @@
     "status": "empty"
   },
   "The City NYC": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 405,
+    "last_elapsed_ms": 460,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "The DI Wire": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 90,
-    "last_empty_at": "2026-08-08T11:40:08+00:00",
+    "last_elapsed_ms": 82,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-08-05T13:00:57+00:00",
-    "status": "empty"
+    "status": "needs_review"
   },
   "The Deal": {
     "consecutive_empty_runs": 2,
@@ -2100,24 +2168,24 @@
   "The Registry Puget Sound": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 172,
-    "last_story_count": 10,
-    "last_success_at": "2026-08-08T11:40:12+00:00",
+    "last_elapsed_ms": 256,
+    "last_story_count": 1,
+    "last_success_at": "2026-08-09T11:40:05+00:00",
     "status": "healthy"
   },
   "The Registry SF": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 291,
-    "last_story_count": 10,
-    "last_success_at": "2026-08-08T11:40:10+00:00",
+    "last_elapsed_ms": 194,
+    "last_story_count": 1,
+    "last_success_at": "2026-08-09T11:40:04+00:00",
     "status": "healthy"
   },
   "Top1000Funds": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 568,
-    "last_empty_at": "2026-08-08T11:40:06+00:00",
+    "last_elapsed_ms": 671,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-07T11:54:50+00:00",
@@ -2132,28 +2200,28 @@
     "status": "empty"
   },
   "Trepp Blog": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 573,
-    "last_empty_at": "2026-08-03T13:51:28+00:00",
+    "last_elapsed_ms": 206,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-08T11:40:02+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "US Treasury (general)": {
-    "consecutive_empty_runs": 8,
+    "consecutive_empty_runs": 10,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 302,
-    "last_empty_at": "2026-08-08T11:40:03+00:00",
+    "last_elapsed_ms": 320,
+    "last_empty_at": "2026-08-09T11:39:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
   "Units Magazine (NAA)": {
-    "consecutive_empty_runs": 7,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 277,
-    "last_empty_at": "2026-08-08T11:40:11+00:00",
+    "last_elapsed_ms": 323,
+    "last_empty_at": "2026-08-09T11:40:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "status": "needs_review"
   },
@@ -2166,22 +2234,24 @@
     "status": "empty"
   },
   "Urban Land Institute": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 113,
-    "last_empty_at": "2026-08-03T13:51:26+00:00",
+    "last_elapsed_ms": 140,
+    "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:01+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Utility Dive": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 91,
+    "last_elapsed_ms": 55,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
+    "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-08T11:40:06+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Utility Week": {
     "consecutive_empty_runs": 2,
@@ -2200,14 +2270,14 @@
     "status": "empty"
   },
   "Venture Capital Journal": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 3967,
-    "last_empty_at": "2026-08-04T13:07:05+00:00",
+    "last_elapsed_ms": 2742,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:08+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "WSJ Pro Private Equity": {
     "consecutive_empty_runs": 0,
@@ -2218,12 +2288,12 @@
     "status": "healthy"
   },
   "Walker & Dunlop": {
-    "consecutive_empty_runs": 6,
+    "consecutive_empty_runs": 8,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 558,
-    "last_empty_at": "2026-08-08T11:40:13+00:00",
+    "last_elapsed_ms": 894,
+    "last_empty_at": "2026-08-09T11:40:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "status": "empty"
+    "status": "needs_review"
   },
   "Wall Street Journal": {
     "consecutive_empty_runs": 2,
@@ -2238,20 +2308,20 @@
   "Washington Post Business": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 9367,
-    "last_story_count": 9,
-    "last_success_at": "2026-08-08T11:40:11+00:00",
+    "last_elapsed_ms": 8221,
+    "last_story_count": 2,
+    "last_success_at": "2026-08-09T11:40:05+00:00",
     "status": "healthy"
   },
   "Windpower Monthly": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 92,
-    "last_empty_at": "2026-08-03T13:51:36+00:00",
+    "last_elapsed_ms": 64,
+    "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-08T11:40:07+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "World Bank": {
     "consecutive_empty_runs": 2,
@@ -2262,20 +2332,20 @@
     "status": "empty"
   },
   "World Nuclear News": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 2,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 989,
-    "last_empty_at": "2026-08-03T13:51:38+00:00",
+    "last_elapsed_ms": 725,
+    "last_empty_at": "2026-08-09T11:40:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 4,
     "last_success_at": "2026-08-08T11:40:09+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Yardi Blog": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 199,
-    "last_empty_at": "2026-08-08T11:40:02+00:00",
+    "last_elapsed_ms": 274,
+    "last_empty_at": "2026-08-09T11:39:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-06T13:02:42+00:00",
@@ -2292,9 +2362,9 @@
   "Yield PRO": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1849,
-    "last_story_count": 10,
-    "last_success_at": "2026-08-08T11:40:12+00:00",
+    "last_elapsed_ms": 1876,
+    "last_story_count": 4,
+    "last_success_at": "2026-08-09T11:40:06+00:00",
     "status": "healthy"
   }
 }
