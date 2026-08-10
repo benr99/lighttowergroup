@@ -62,6 +62,7 @@ class DraftResult:
     article: dict[str, Any] | None = None
     stages_run: list[str] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    diagnostics: dict[str, Any] = field(default_factory=dict)
     seconds: float = 0.0
     usd: float = 0.0
     skipped_reason: str = ""
@@ -129,6 +130,24 @@ def object_to_canonical(obj: IntelligenceObject) -> Any:
     return item
 
 
+def _stage_diagnostics(stages: Any) -> dict[str, Any]:
+    """Persist gate decisions without duplicating complete generated articles."""
+    if not isinstance(stages, dict):
+        return {}
+    allowed = {
+        "status", "passed", "score_1_10", "summary", "issues", "reason",
+        "opening_quality", "worst_sentence", "error",
+    }
+    diagnostics: dict[str, Any] = {}
+    for name, payload in stages.items():
+        if not isinstance(payload, dict):
+            continue
+        diagnostics[str(name)] = {
+            key: value for key, value in payload.items() if key in allowed
+        }
+    return diagnostics
+
+
 def object_to_dossier(obj: IntelligenceObject) -> dict[str, Any]:
     """Assemble the evidence the writer is permitted to use.
 
@@ -137,15 +156,24 @@ def object_to_dossier(obj: IntelligenceObject) -> dict[str, Any]:
     """
     sources = [
         {
+            "name": ref.source_name,
             "source": ref.source_name,
             "url": ref.canonical_url or ref.source_url,
             "published": ref.publication_date,
+            "authority": "primary" if ref.is_primary_authority else "secondary",
+            "tier": ref.source_tier,
             "source_tier": ref.source_tier,
             "is_primary": ref.is_primary_authority,
             "retrieval": ref.retrieval_status,
             "chars": ref.text_chars,
+            "text": ref.retrieved_text,
+            "full_text_excerpt": ref.retrieved_text,
+            "summary": obj.what_happened if index == 0 else "",
+            "reported_facts": [
+                fact.to_dict() for fact in obj.facts if fact.source_item_id == ref.item_id
+            ],
         }
-        for ref in obj.sources
+        for index, ref in enumerate(obj.sources)
     ]
     facts = [
         {
@@ -158,6 +186,11 @@ def object_to_dossier(obj: IntelligenceObject) -> dict[str, Any]:
         }
         for fact in obj.facts
     ]
+    try:
+        from fact_extractor import extract_facts
+        source_facts = extract_facts("\n".join(ref.retrieved_text for ref in obj.sources))
+    except Exception:  # noqa: BLE001
+        source_facts = {}
     return {
         "event_id": obj.object_id,
         "title": obj.title,
@@ -167,9 +200,12 @@ def object_to_dossier(obj: IntelligenceObject) -> dict[str, Any]:
         "event_type": obj.event_type,
         "sources": sources,
         "facts": facts,
+        "reported_facts": facts,
+        "source_facts": source_facts,
         "material_claims": list(obj.material_claims),
         "market_consequences": list(obj.market_consequences),
         "missing_information": list(obj.missing_information),
+        "reporting_gaps": list(obj.missing_information),
         "evidence_level": obj.evidence_level,
         "independent_source_count": obj.independent_source_count,
         "primary_source_count": obj.primary_source_count,
@@ -177,6 +213,9 @@ def object_to_dossier(obj: IntelligenceObject) -> dict[str, Any]:
         "novelty": obj.novelty_state,
         "prior_coverage": list(obj.prior_published_slugs),
         "material_changes": list(obj.material_changes),
+        "longform_allowed": (
+            obj.independent_source_count >= 3 and obj.usable_full_text_count >= 2
+        ),
         "evidence_level_note": (
             "Single feed summary only. State what happened and stop; do not "
             "advance a thesis this cannot support."
@@ -231,6 +270,7 @@ def write_one(
         result.article = outcome.get("article")
         result.stages_run = list(outcome.get("stages_run") or outcome.get("stages", {}).keys())
         result.errors = list(outcome.get("errors") or [])
+        result.diagnostics = _stage_diagnostics(outcome.get("stages"))
         if result.article and not result.article.get("format"):
             result.article["format"] = spec["format"]
     except Exception as exc:  # noqa: BLE001

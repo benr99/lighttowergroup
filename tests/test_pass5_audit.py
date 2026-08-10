@@ -3,6 +3,7 @@ import sys
 import os
 import json
 import unittest
+from unittest.mock import patch
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
 sys.path.insert(0, 'scripts')
 
@@ -46,8 +47,10 @@ item.tier = "tier_3_useful_coverage"
 item.composite_score = 50.0
 item.item_id = item.generate_id()
 
-# Run with override key
-result = pipeline.run(item, api_key="key_B")
+# Exercise the override contract without allowing an audit test to call live
+# providers or contaminate production provider diagnostics.
+with patch("editorial_pipeline._HAS_LLM", False):
+    result = pipeline.run(item, api_key="key_B")
 # In offline mode, should still complete
 all_pass &= pass_or_fail(result['status'] in ('completed', 'draft_failed', 'offline', 'failed'),
     "run() with api_key override returns valid status")

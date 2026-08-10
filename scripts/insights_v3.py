@@ -10,15 +10,16 @@ pass, which is the only way the design actually delivers anything:
     eligibility per-event-family rules, not one keyword gate
     enrich      read the actual articles, so evidence stops being a summary
     score       0-100, every measure varying, every score explaining itself
-    select      ten per sector against a real quality floor, plus a global slate
+    select      broad scouting slates plus a capped global publication slate
 
 Order matters and is not arbitrary. Enrichment runs *after* eligibility so the
 expensive reading is spent only on candidates that could plausibly be published;
 it runs *before* scoring because evidence strength is itself a scored measure and
 depth is capped by it.
 
-Shadow by default. `run()` writes artifacts and returns a report; it never
-publishes. Production selection still belongs to v2 until a cutover is approved.
+Shadow by default. Preview writes drafts but never public files. Publish mode is
+explicit and uses the tested v3 publisher; production remains on v2 until the
+workflow cutover is approved.
 """
 
 from __future__ import annotations
@@ -73,6 +74,10 @@ class RunReport:
     enriched: int = 0
     evidence_upgraded: int = 0
     selected: int = 0
+    publication_candidates: int = 0
+    daily_target: int = 3
+    article_limit: int = 5
+    daily_target_met: bool = False
     sectors: dict[str, Any] = field(default_factory=dict)
     depth_counts: dict[str, int] = field(default_factory=dict)
     shortfalls: list[str] = field(default_factory=list)
@@ -83,7 +88,10 @@ class RunReport:
     memory: dict[str, Any] = field(default_factory=dict)
     spend: dict[str, Any] = field(default_factory=dict)
     generation: dict[str, Any] = field(default_factory=dict)
+    publication: dict[str, Any] = field(default_factory=dict)
+    provider: dict[str, Any] = field(default_factory=dict)
     timings: list[dict[str, Any]] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     elapsed_seconds: float = 0.0
 
@@ -122,6 +130,11 @@ def run(
     listing_limit: int = DEFAULT_LISTING_LIMIT,
     items: Sequence[Any] | None = None,
     generate: bool = False,
+    publish_articles: bool = False,
+    include_review_required: bool = False,
+    daily_target: int = 3,
+    article_limit: int = 5,
+    quality_floor: float = 40.0,
     generation_workers: int = 6,
     generation_deadline_s: float = 3600,
     verbose: bool = True,
@@ -139,12 +152,44 @@ def run(
     from editorial_memory import EditorialMemory
     from event_clustering import cluster_to_objects
     from importance import distribution_report, score_all
-    from selection import build_slates
+    from selection import MAX_DAILY_ARTICLES, build_slates
     import eligibility
+    from model_router import configure_state_dir
+
+    if mode not in {"shadow", "preview", "publish"}:
+        raise ValueError(f"unsupported v3 mode: {mode}")
+    if mode == "shadow" and (generate or publish_articles):
+        raise ValueError("shadow mode cannot generate or publish")
+    if mode == "preview" and publish_articles:
+        raise ValueError("preview mode cannot publish")
+    if publish_articles and not generate:
+        raise ValueError("publishing requires generation")
+    if mode == "preview":
+        generate = True
+    if mode == "publish":
+        generate = True
+        publish_articles = True
+
+    # Keep preview/test diagnostics out of production durable state. Production
+    # runs without an override explicitly reset the router to the canonical
+    # repository state directory in case this function is reused in-process.
+    configure_state_dir(state_dir)
+
+    daily_target = max(0, min(int(daily_target), MAX_DAILY_ARTICLES))
+    article_limit = max(daily_target, min(int(article_limit), MAX_DAILY_ARTICLES))
 
     started = time.perf_counter()
-    report = RunReport(run_at=_now(), mode=mode)
-    budget = budget or Budget()
+    report = RunReport(
+        run_at=_now(), mode=mode,
+        daily_target=daily_target, article_limit=article_limit,
+    )
+    budget = budget or Budget(
+        ledger_path=(state_dir / "spend-ledger.json") if state_dir is not None else None
+    )
+    store = None
+    slate_report = None
+    drafts: list[Any] = []
+    pub_report = None
     timings: list[StageTiming] = []
 
     def stage(name: str):
@@ -182,9 +227,9 @@ def run(
                     report.documents_from_listings = len(converted)
                     blocked = sum(1 for r in listing_reports if r.status == "blocked")
                     if blocked:
-                        report.errors.append(f"{blocked} index page(s) refused our agent")
+                        report.warnings.append(f"{blocked} index page(s) refused our agent")
             except Exception as exc:  # noqa: BLE001
-                report.errors.append(f"listing read failed: {type(exc).__name__}: {exc}"[:200])
+                report.warnings.append(f"listing read failed: {type(exc).__name__}: {exc}"[:200])
     else:
         report.documents_from_feeds = len(documents)
 
@@ -226,7 +271,9 @@ def run(
     # before enrichment so budget is never spent reading a story we published.
     with stage("check against what we covered"):
         try:
-            store = memory if memory is not None else EditorialMemory()
+            store = memory if memory is not None else EditorialMemory(
+                path=(state_dir / "editorial-memory.json") if state_dir is not None else None
+            )
             if not store.records:
                 seeded = store.seed_from_manifest()
                 if seeded:
@@ -273,15 +320,23 @@ def run(
         report.degenerate_measures = distribution.get("degenerate", [])
         report.score_distribution = distribution.get("final_score", {})
         if report.degenerate_measures:
-            report.errors.append(
+            report.warnings.append(
                 "scoring measures with no discriminating power: "
                 + ", ".join(report.degenerate_measures)
             )
 
     # ── select ─────────────────────────────────────────────────────────────
     with stage("choose the slates"):
-        slate_report = build_slates(objects, sectors=sectors)
+        slate_report = build_slates(
+            objects,
+            sectors=sectors,
+            floor=quality_floor,
+            publication_target=daily_target,
+            article_limit=article_limit,
+        )
         report.selected = slate_report.total_selected
+        report.publication_candidates = len(slate_report.publication_slate)
+        report.daily_target_met = slate_report.publication_target_met
         report.depth_counts = dict(slate_report.depth_counts)
         for sector, slate in slate_report.sectors.items():
             report.sectors[sector] = {
@@ -298,19 +353,25 @@ def run(
     # Off by default. When on, the selected slate is written concurrently at the
     # depth each story's evidence earned. Still returns drafts rather than
     # publishing them.
-    drafts: list[Any] = []
     if generate and slate_report is not None:
         with stage("write the slate"):
             try:
                 from model_router import select_provider
                 from v3_generation import summarise, write_all
 
-                chosen = [o for s in slate_report.sectors.values() for o in s.selected]
+                # Per-sector slates are scouting diagnostics. Only the bounded
+                # global publication slate may consume model calls or reach the
+                # site.
+                chosen = list(slate_report.publication_slate)
                 provider = None
                 api_key = ""
                 try:
                     provider = select_provider(for_writing=True)
                     api_key = provider.get("api_key", "")
+                    report.provider = {
+                        key: provider.get(key)
+                        for key in ("provider", "model", "fallback", "purpose")
+                    }
                 except Exception as exc:  # noqa: BLE001
                     report.errors.append(f"no writing provider: {type(exc).__name__}")
 
@@ -321,12 +382,52 @@ def run(
                         verbose=verbose,
                     )
                     report.generation = gen_report.to_dict()
+                    if gen_report.failed:
+                        message = (
+                            f"{gen_report.failed} of {gen_report.requested} article generations failed"
+                        )
+                        if gen_report.written == 0 and gen_report.needs_review == 0:
+                            report.errors.append(message)
+                        else:
+                            report.warnings.append(message)
                     if verbose:
                         print(summarise(gen_report), flush=True)
                 else:
                     report.generation = {"skipped": "no API key available"}
             except Exception as exc:  # noqa: BLE001
                 report.errors.append(f"generation failed: {type(exc).__name__}: {exc}"[:200])
+
+    # -- publish -------------------------------------------------------------
+    # Explicit and off in shadow/preview. The publisher is idempotent and holds
+    # review-required work unless a human deliberately overrides that behavior.
+    if publish_articles:
+        with stage("publish"):
+            try:
+                from v3_publish import publish as publish_drafts
+                from v3_publish import summarise as summarise_publish
+
+                by_id = {o.object_id: o for o in objects}
+                pub_report = publish_drafts(
+                    drafts,
+                    by_id,
+                    memory=store,
+                    include_review_required=include_review_required,
+                )
+                report.publication = pub_report.to_dict()
+                if pub_report.failed:
+                    message = f"{pub_report.failed} publication operation(s) failed"
+                    if pub_report.published == 0:
+                        report.errors.append(message)
+                    else:
+                        report.warnings.append(message)
+                if pub_report.published < daily_target:
+                    report.warnings.append(
+                        f"published {pub_report.published} of the daily target {daily_target}"
+                    )
+                if verbose:
+                    print(summarise_publish(pub_report), flush=True)
+            except Exception as exc:  # noqa: BLE001
+                report.errors.append(f"publish failed: {type(exc).__name__}: {exc}"[:200])
 
     with stage("record what we saw"):
         try:
@@ -339,10 +440,34 @@ def run(
 
     budget.persist()
     report.spend = budget.report()
+    try:
+        from model_router import provider_summary
+        report.provider.update(provider_summary(since=report.run_at))
+    except Exception:  # noqa: BLE001
+        pass
     report.timings = [t.to_dict() for t in timings]
     report.elapsed_seconds = round(time.perf_counter() - started, 2)
 
-    _write_artifacts(report, slate_report, objects, state_dir=state_dir)
+    _write_artifacts(report, slate_report, objects, drafts=drafts, state_dir=state_dir)
+    if publish_articles and pub_report is not None:
+        try:
+            from v3_publish import finalize_publication
+
+            finalize_publication(
+                pub_report,
+                report,
+                slate_report,
+                objects,
+                memory=store,
+                budget=budget,
+                state_dir=state_dir,
+            )
+            report.publication = pub_report.to_dict()
+        except Exception as exc:  # noqa: BLE001
+            report.errors.append(
+                f"publication finalization failed: {type(exc).__name__}: {exc}"[:400]
+            )
+        _write_artifacts(report, slate_report, objects, drafts=drafts, state_dir=state_dir)
     if verbose:
         print(format_summary(report), flush=True)
     return report, slate_report
@@ -353,6 +478,7 @@ def _write_artifacts(
     slate_report: Any,
     objects: Sequence[Any],
     *,
+    drafts: Sequence[Any] = (),
     state_dir: Path | None = None,
 ) -> None:
     """Persist the run so a decision can be inspected afterwards.
@@ -387,6 +513,24 @@ def _write_artifacts(
             + "\n",
             encoding="utf-8",
         )
+        if drafts:
+            (target / "v3-drafts.json").write_text(
+                json.dumps(
+                    {
+                        "run_at": report.run_at,
+                        "pipeline_version": PIPELINE_VERSION,
+                        "count": len(drafts),
+                        "drafts": [
+                            {**draft.to_dict(), "article": draft.article}
+                            for draft in drafts
+                        ],
+                    },
+                    indent=1,
+                    ensure_ascii=False,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
     except Exception as exc:  # noqa: BLE001
         report.errors.append(f"artifact write failed: {type(exc).__name__}")
 
@@ -402,6 +546,8 @@ def format_summary(report: RunReport) -> str:
         f"    eligible       {report.eligible}",
         f"    read in full   {report.enriched}  ({report.evidence_upgraded} evidence upgrades)",
         f"    selected       {report.selected}",
+        f"    publication    {report.publication_candidates}/{report.article_limit} candidates"
+        f"  (daily target {report.daily_target}; met {str(report.daily_target_met).lower()})",
     ]
     if report.score_distribution:
         d = report.score_distribution
@@ -413,12 +559,26 @@ def format_summary(report: RunReport) -> str:
         lines.append(f"    depth          {report.depth_counts}")
     if report.novelty:
         lines.append(f"    novelty        {report.novelty}")
+    if report.provider:
+        lines.append(
+            f"    provider       {report.provider.get('provider', 'not selected')}"
+            f"/{report.provider.get('model', '')}"
+            f"  ({report.provider.get('successful_calls', 0)} calls,"
+            f" {report.provider.get('fallback_calls', 0)} fallback)"
+        )
     if report.generation and report.generation.get("requested"):
         g = report.generation
         lines.append(
             f"    written        {g.get('written', 0)}/{g.get('requested', 0)}"
             f"  in {g.get('elapsed_seconds', 0):.0f}s"
             f"  (held {g.get('held', 0)}, failed {g.get('failed', 0)})"
+        )
+    if report.publication:
+        p = report.publication
+        lines.append(
+            f"    published      {p.get('published', 0)}/{p.get('requested', 0)}"
+            f"  ({p.get('skipped_review', 0)} held for review,"
+            f" {p.get('skipped_existing', 0)} already live)"
         )
     if report.spend:
         s = report.spend
@@ -434,22 +594,29 @@ def format_summary(report: RunReport) -> str:
         )
     if report.degenerate_measures:
         lines.append(f"    WARNING: dead measures {report.degenerate_measures}")
+    for warning in report.warnings[:5]:
+        lines.append(f"    ~ {warning}")
     for err in report.errors[:5]:
         lines.append(f"    ! {err}")
     return "\n".join(lines)
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run the v3 editorial pipeline (shadow)")
-    parser.add_argument("--mode", default="shadow", choices=["shadow"],
-                        help="only shadow is supported; v3 does not publish")
+    parser = argparse.ArgumentParser(description="Run the v3 editorial pipeline")
+    parser.add_argument("--mode", default="shadow", choices=["shadow", "preview", "publish"],
+                        help="shadow scores, preview writes drafts, publish updates the site")
     parser.add_argument("--enrich-limit", type=int, default=DEFAULT_ENRICH_LIMIT)
     parser.add_argument("--enrich-budget", type=int, default=DEFAULT_ENRICH_BUDGET_S)
     parser.add_argument("--listing-limit", type=int, default=DEFAULT_LISTING_LIMIT)
     parser.add_argument("--sector", action="append", dest="sectors")
-    parser.add_argument("--generate", action="store_true",
-                        help="write the selected slate (drafts only; never publishes)")
     parser.add_argument("--workers", type=int, default=6)
+    parser.add_argument("--daily-target", type=int, default=3)
+    parser.add_argument("--article-limit", type=int, default=5)
+    parser.add_argument("--quality-floor", type=float, default=40.0)
+    parser.add_argument("--include-review", action="store_true",
+                        help="manual only: include drafts flagged for editorial review")
+    parser.add_argument("--state-dir", type=Path,
+                        help="operator/testing override for run artifacts and durable state")
     args = parser.parse_args()
 
     report, _ = run(
@@ -458,10 +625,18 @@ def main() -> int:
         enrich_limit=args.enrich_limit,
         enrich_budget_s=args.enrich_budget,
         listing_limit=args.listing_limit,
-        generate=args.generate,
+        generate=args.mode in {"preview", "publish"},
+        publish_articles=args.mode == "publish",
+        include_review_required=args.include_review,
+        daily_target=args.daily_target,
+        article_limit=args.article_limit,
+        quality_floor=args.quality_floor,
         generation_workers=args.workers,
+        state_dir=args.state_dir,
     )
-    return 0 if not report.errors else 0  # diagnostics never fail the caller
+    # Shadow is diagnostic and may report weak measures without taking down the
+    # production v2 edition. Preview and publish must fail visibly on real errors.
+    return 0 if not report.errors or args.mode == "shadow" else 1
 
 
 if __name__ == "__main__":

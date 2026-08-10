@@ -290,7 +290,10 @@ def _find_policy_actions(text: str) -> list[str]:
 
 def _find_known_institutions(text: str) -> list[str]:
     lower = text.lower()
-    found = [name for name in KNOWN_INSTITUTIONS if name in lower]
+    found = [
+        name for name in KNOWN_INSTITUTIONS
+        if re.search(rf"(?<![a-z0-9]){re.escape(name)}(?![a-z0-9])", lower)
+    ]
     return list(dict.fromkeys(found))[:10]
 
 

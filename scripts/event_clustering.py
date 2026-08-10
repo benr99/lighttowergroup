@@ -237,8 +237,6 @@ def build_intelligence_object(
     """Assemble one IntelligenceObject from a cluster of documents."""
     primary = _primary_item(cluster)
     refs = merge_sources(source_ref_from_item(item) for item in cluster)
-    for ref in refs:
-        ref.is_primary_authority = ref.source_tier <= 1
 
     cluster_id = ""
     for item in cluster:

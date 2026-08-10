@@ -33,6 +33,45 @@ class EditorialPipeline:
         self.stages_run: list[str] = []
         self.errors: list[str] = []
 
+    def _request_json(
+        self,
+        prompt: str,
+        *,
+        max_tokens: int,
+        temperature: float,
+        required_fields: list[str] | None = None,
+        system: str = "",
+    ) -> dict[str, Any]:
+        """Request a typed JSON object, retrying one malformed model response.
+
+        Transport and provider fallback live in ``call_deepseek``. This bounded
+        retry handles the separate failure mode where a healthy provider returns
+        truncated or syntactically invalid JSON. A second invalid response still
+        fails closed.
+        """
+        parse_errors: list[str] = []
+        for attempt in range(2):
+            request_prompt = prompt
+            if attempt:
+                request_prompt += (
+                    "\n\nJSON CONTRACT RETRY: Return one complete JSON object only. "
+                    "Do not use markdown fences, commentary, or trailing text."
+                )
+            raw = call_deepseek(
+                request_prompt,
+                self.api_key,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                json_mode=True,
+                system=system,
+                provider=self.provider or None,
+            )
+            try:
+                return _extract_json(raw, required_fields=required_fields)
+            except ValueError as exc:
+                parse_errors.append(str(exc)[:240])
+        raise ValueError("Invalid JSON contract after retry: " + " | ".join(parse_errors))
+
     # ── Stage 1: Analytical Brief (deterministic, no LLM) ──
     def stage_analytical_brief(self, item: CanonicalItem, dossier: dict[str, Any] | None = None) -> dict[str, Any]:
         """Build the structured pre-writing analytical brief."""
@@ -220,17 +259,11 @@ in body_html. Use only URLs present in the dossier. Return JSON only.
             return {"status": "skipped", "reason": "No LLM available (offline or no API key)"}
 
         try:
-            raw = call_deepseek(
+            article = self._request_json(
                 prompt_context["user_prompt"],
-                self.api_key,
                 max_tokens=prompt_context.get("max_tokens", 5200),
                 temperature=prompt_context.get("temperature", 0.2),
-                json_mode=True,
                 system=prompt_context.get("system_prompt", ""),
-                provider=self.provider or None,
-            )
-            article = _extract_json(
-                raw,
                 required_fields=[
                     "body_html", "title", "excerpt", "sources", "excellence_ledger"
                 ],
@@ -260,7 +293,7 @@ in body_html. Use only URLs present in the dossier. Return JSON only.
         evidence_level = str((dossier or {}).get("evidence_level") or "unknown")
         source_count = int((dossier or {}).get("independent_source_count") or 0)
         evidence_text = (
-            dossier_prompt_payload(dossier, max_chars=9000)
+                dossier_prompt_payload(dossier, max_chars=24000)
             if isinstance(dossier, dict)
             else "No dossier supplied."
         )
@@ -310,18 +343,15 @@ CALIBRATION RULES:
 Return JSON with: {{issues: [list of specific problems], passed: true/false, score_1_10: int, summary: string}}
 """
         try:
-            raw = call_deepseek(
+            result = self._request_json(
                 prompt,
-                self.api_key,
                 # Reasoning-capable DeepSeek models count hidden reasoning
                 # against this ceiling. A 1,000-token cap can expire before
                 # the compact JSON review reaches message.content.
                 max_tokens=4000,
                 temperature=0.1,
-                json_mode=True,
-                provider=self.provider or None,
+                required_fields=["issues", "passed", "score_1_10", "summary"],
             )
-            result = _extract_json(raw)
             result["status"] = "completed"
             result["passed"] = result.get("passed") is True
             return result
@@ -360,17 +390,14 @@ Check for:
 Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening_quality: string, worst_sentence: string, summary: string}}
 """
         try:
-            raw = call_deepseek(
+            result = self._request_json(
                 prompt,
-                self.api_key,
                 # Leave enough room for hidden reasoning plus the complete
                 # typed review contract; truncated contracts still fail closed.
                 max_tokens=4000,
                 temperature=0.1,
-                json_mode=True,
-                provider=self.provider or None,
+                required_fields=["issues", "passed", "score_1_10", "summary"],
             )
-            result = _extract_json(raw)
             result["status"] = "completed"
             result["passed"] = result.get("passed") is True
             return result
@@ -533,16 +560,10 @@ excellence_ledger is mandatory; its memorable_line must appear verbatim in
 body_html and every claim_evidence source_url must be an exact dossier URL.
 """
         try:
-            raw = call_deepseek(
+            revised = self._request_json(
                 prompt,
-                self.api_key,
                 max_tokens=10000,
                 temperature=0.15,
-                json_mode=True,
-                provider=self.provider or None,
-            )
-            revised = _extract_json(
-                raw,
                 required_fields=[
                     "body_html", "title", "excerpt", "sources", "excellence_ledger"
                 ],

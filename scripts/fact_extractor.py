@@ -5,6 +5,7 @@ can be traced to specific source sentences. Zero LLM calls — pure regex.
 """
 
 from __future__ import annotations
+from decimal import Decimal, InvalidOperation
 import re
 from typing import Any
 
@@ -13,7 +14,7 @@ def extract_amounts(text: str) -> list[dict[str, Any]]:
     """Extract dollar amounts with surrounding context."""
     amounts = []
     for match in re.finditer(
-        r'\$\s*([\d,.]+(?:\.\d+)?)\s*(million|billion|trillion|mm|bn|m|b)?\b',
+        r'\$\s*([\d,.]+(?:\.\d+)?)\s*(thousand|million|billion|trillion|mm|bn|k|m|b)?\b',
         str(text or ""), re.IGNORECASE
     ):
         start = max(0, match.start() - 60)
@@ -26,6 +27,35 @@ def extract_amounts(text: str) -> list[dict[str, Any]]:
             "context": context,
         })
     return amounts
+
+
+_AMOUNT_MULTIPLIERS = {
+    "": Decimal("1"),
+    "k": Decimal("1000"),
+    "thousand": Decimal("1000"),
+    "m": Decimal("1000000"),
+    "mm": Decimal("1000000"),
+    "million": Decimal("1000000"),
+    "b": Decimal("1000000000"),
+    "bn": Decimal("1000000000"),
+    "billion": Decimal("1000000000"),
+    "trillion": Decimal("1000000000000"),
+}
+
+
+def normalized_amount_value(amount: dict[str, Any]) -> Decimal | None:
+    """Return a dollar amount in base dollars for representation-safe matching.
+
+    Sources commonly write ``$1,567 million`` while an article writes the
+    equivalent ``$1.567 billion``. Comparing only the printed digits creates a
+    false unsupported-claim hold even though the values are identical.
+    """
+    try:
+        number = Decimal(str(amount.get("number", "")).replace(",", ""))
+        multiplier = _AMOUNT_MULTIPLIERS[str(amount.get("unit", "")).lower()]
+    except (InvalidOperation, KeyError):
+        return None
+    return number * multiplier
 
 
 def extract_percentages(text: str) -> list[dict[str, Any]]:
@@ -64,7 +94,8 @@ def extract_companies(text: str) -> list[dict[str, Any]]:
     companies = []
     text_lower = str(text or "").lower()
     for institution in _KNOWN_INSTITUTIONS:
-        for match in re.finditer(re.escape(institution), text_lower):
+        pattern = rf"(?<![a-z0-9]){re.escape(institution)}(?![a-z0-9])"
+        for match in re.finditer(pattern, text_lower):
             start = max(0, match.start() - 30)
             end = min(len(text), match.end() + 30)
             companies.append({
@@ -123,12 +154,11 @@ def audit_article_facts(
     # Check amounts
     unmatched_amounts = []
     for a in article_facts["amounts"]:
-        article_num = re.sub(r'[,]', '', a["number"])
-        article_unit = a["unit"]
+        article_value = normalized_amount_value(a)
         found = False
         for s in source_facts.get("amounts", []):
-            source_num = re.sub(r'[,]', '', s["number"])
-            if article_num == source_num:
+            source_value = normalized_amount_value(s)
+            if article_value is not None and article_value == source_value:
                 found = True
                 break
         if not found:

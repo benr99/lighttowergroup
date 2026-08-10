@@ -44,13 +44,24 @@ def _sector_taxonomy() -> dict[str, Any]:
 # Ordered: the first matching rule wins, most specific first.
 
 _CONTENT_RULES: tuple[tuple[str, re.Pattern[str]], ...] = (
+    (ContentType.ADMINISTRATIVE_NOTICE, re.compile(
+        r"^(?:agency information collection activities|sunshine act meetings?|"
+        r"submission for omb review|comment request on .+ forms?|"
+        r"joint industry plan;?\s+order|notice of (?:public )?meeting|"
+        r"information collection request|request for comments? on information collection)\b",
+        re.I)),
+    (ContentType.DIGEST, re.compile(
+        r"\b(?:sunday summary|week(?:ly|end) (?:roundup|recap|digest)|daily digest|"
+        r"morning news|recent news from .{1,100}:\s*(?:jan|feb|mar|apr|may|jun|jul|"
+        r"aug|sep|oct|nov|dec)\.?\s+\d{1,2})\b", re.I)),
     (ContentType.EVENT_PROMOTION, re.compile(
         r"\b(?:webinar|register (?:now|today)|save the date|join us|"
         r"conference|summit|expo|awards? (?:gala|dinner|ceremony)|nominations? open)\b", re.I)),
     (ContentType.MARKETING, re.compile(
         r"\b(?:sponsored|advertorial|partner content|brought to you by|"
         r"our (?:solution|platform|product)|contact us today|request a demo|"
-        r"white ?paper|case study)\b", re.I)),
+        r"white ?paper|case study|sign up for|subscribe to|newsletter sign[- ]?up|"
+        r"request access|invalid feed)\b", re.I)),
     (ContentType.LISTICLE, re.compile(
         r"\b(?:top \d+|best \d+|\d+ (?:ways|things|tips|reasons|trends|predictions)|"
         r"ranking of|the \d+ (?:best|worst))\b", re.I)),
@@ -147,10 +158,6 @@ def classify_content_type(
     summary = summary or ""
     blob = f"{headline} {summary}"
 
-    # Source type is authoritative when the publisher is a primary body.
-    if source_type in {"government", "government_research", "regulator"}:
-        return ContentType.PRIMARY_DOCUMENT, 0.9, [f"source_type={source_type}"]
-
     matches: list[tuple[str, float, str]] = []
     for content_type, pattern in _CONTENT_RULES:
         # Headline evidence outweighs body evidence: boilerplate lives in bodies.
@@ -172,6 +179,11 @@ def classify_content_type(
                 f"(overrode weak {content_type} signal: {evidence})",
             ]
         return content_type, confidence, [evidence]
+
+    # Primary provenance is meaningful, but it cannot convert a procedural
+    # notice or another known low-value content shape into editorial signal.
+    if source_type in {"government", "government_research", "regulator"}:
+        return ContentType.PRIMARY_DOCUMENT, 0.9, [f"source_type={source_type}"]
 
     if _TRANSACTION_VERBS.search(blob):
         return ContentType.NEWS_REPORT, 0.7, ["transaction verb present"]

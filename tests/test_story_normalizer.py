@@ -63,6 +63,10 @@ class StoryNormalizerTests(unittest.TestCase):
         self.assertIn("leasing", item["topics"])
         self.assertIn("market_fundamentals", item["topics"])
         self.assertTrue(item["attention_features"]["has_material_operating_signal"])
+        self.assertNotIn(
+            "occ", item["entities"]["companies"],
+            "the OCC regulator abbreviation must not be extracted from 'occupancy'",
+        )
 
     def test_abbreviated_area_units_count_as_material_leasing(self) -> None:
         item = normalize(

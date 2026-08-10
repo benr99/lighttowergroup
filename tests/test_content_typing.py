@@ -65,6 +65,25 @@ class BlocksPromotionalAndEvergreen(unittest.TestCase):
             ContentType.PERSONNEL_NOTICE,
         )
 
+    def test_roundups_are_not_treated_as_single_news_events(self) -> None:
+        for headline in (
+            "Sunday Summary: Seven. Hundred. Fifty. Billion.",
+            "Recent news from Treasury's Office of Foreign Assets Control: Aug. 10",
+            "Weekend Roundup: The Deals You Missed",
+        ):
+            with self.subTest(headline=headline):
+                self.assertEqual(classify_content_type(headline)[0], ContentType.DIGEST)
+                self.assertIn(ContentType.DIGEST, ContentType.NEVER_ELIGIBLE)
+
+    def test_signup_and_invalid_feed_shapes_are_marketing(self) -> None:
+        for headline in (
+            "Sign up for our daily capital markets newsletter",
+            "Subscribe to receive the latest private equity news",
+            "Invalid feed",
+        ):
+            with self.subTest(headline=headline):
+                self.assertEqual(classify_content_type(headline)[0], ContentType.MARKETING)
+
 
 class InterviewsRequireMaterialDisclosure(unittest.TestCase):
     def test_the_invesco_interview_has_no_material_disclosure(self) -> None:
@@ -120,6 +139,19 @@ class KeepsGenuineIntelligence(unittest.TestCase):
         )
         self.assertEqual(content_type, ContentType.PRIMARY_DOCUMENT)
         self.assertGreater(confidence, 0.8)
+
+    def test_procedural_government_notices_are_not_editorial_signal(self) -> None:
+        for headline in (
+            "Agency Information Collection Activities: Comment Request",
+            "Sunshine Act Meetings",
+            "Joint Industry Plan; Order",
+        ):
+            with self.subTest(headline=headline):
+                content_type, _, evidence = classify_content_type(
+                    headline, source_type="government"
+                )
+                self.assertEqual(content_type, ContentType.ADMINISTRATIVE_NOTICE, evidence)
+                self.assertIn(content_type, ContentType.NEVER_ELIGIBLE)
 
 
 class TaxonomyPopulation(unittest.TestCase):

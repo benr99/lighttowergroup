@@ -38,7 +38,7 @@ from typing import Any, Iterable, Sequence
 
 import requests
 
-from intelligence_object import RetrievalStatus
+from intelligence_object import Fact, RetrievalStatus
 
 SITE_ROOT = Path(__file__).resolve().parents[1]
 CACHE_DIR = SITE_ROOT / ".editorial-state" / "retrieval-cache"
@@ -462,6 +462,7 @@ def enrich_objects(
     results, report = retriever.fetch_many(wanted, budget_seconds=budget_seconds)
 
     for obj in objects:
+        fact_index = {(fact.name, str(fact.value).lower()): fact for fact in obj.facts}
         for ref in obj.sources[:max_sources_per_object]:
             url = ref.canonical_url or ref.source_url
             result = results.get(url)
@@ -470,6 +471,58 @@ def enrich_objects(
             ref.retrieval_status = result.status
             if result.text_chars:
                 ref.text_chars = result.text_chars
+            if result.text:
+                ref.retrieved_text = result.text[:12_000]
+                try:
+                    from fact_extractor import extract_facts
+
+                    extracted = extract_facts(ref.retrieved_text)
+                    groups = (
+                        ("amount", extracted.get("amounts", []), "raw"),
+                        ("percentage", extracted.get("percentages", []), "raw"),
+                        ("company", extracted.get("companies", []), "name"),
+                    )
+                    for fact_name, values, value_key in groups:
+                        for value in values[:20]:
+                            raw_value = str(value.get(value_key) or "").strip()
+                            if not raw_value:
+                                continue
+                            key = (fact_name, raw_value.lower())
+                            current = fact_index.get(key)
+                            if current is not None:
+                                if ref.item_id and ref.item_id != current.source_item_id:
+                                    if ref.item_id not in current.corroborating_item_ids:
+                                        current.corroborating_item_ids.append(ref.item_id)
+                                continue
+                            current = Fact(
+                                name=fact_name,
+                                value=raw_value,
+                                evidence_span=str(value.get("context") or raw_value)[:500],
+                                source_item_id=ref.item_id,
+                                confidence=0.9,
+                            )
+                            obj.facts.append(current)
+                            fact_index[key] = current
+                    for fact_name, values in (
+                        ("address", extracted.get("addresses", [])),
+                        ("date", extracted.get("dates", [])),
+                    ):
+                        for raw_value in values[:12]:
+                            raw_value = str(raw_value).strip()
+                            key = (fact_name, raw_value.lower())
+                            if not raw_value or key in fact_index:
+                                continue
+                            current = Fact(
+                                name=fact_name,
+                                value=raw_value,
+                                evidence_span=raw_value,
+                                source_item_id=ref.item_id,
+                                confidence=0.85,
+                            )
+                            obj.facts.append(current)
+                            fact_index[key] = current
+                except Exception:  # noqa: BLE001
+                    pass
             if result.canonical_url:
                 ref.canonical_url = result.canonical_url
             if result.published_at and not ref.publication_date:

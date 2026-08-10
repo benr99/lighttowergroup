@@ -45,6 +45,13 @@ FORMAT_SPECS: dict[str, dict[str, Any]] = {
         "minimum_independent_sources": 3,
         "purpose": "A deeply reported, thesis-led analysis that changes how the reader understands the event.",
     },
+    "analysis": {
+        "label": "Market Analysis",
+        "min_words": 400,
+        "max_words": 750,
+        "minimum_independent_sources": 2,
+        "purpose": "A source-grounded analysis with one bounded capital-markets argument.",
+    },
     "brief": {
         "label": "Intelligence Brief",
         "min_words": 240,

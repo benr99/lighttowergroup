@@ -228,6 +228,11 @@ class EvidenceUpgrade(unittest.TestCase):
         enrich_objects([obj], retriever=r, budget_seconds=30)
 
         self.assertEqual(obj.sources[0].retrieval_status, RetrievalStatus.FULL_TEXT)
+        self.assertIn("Blackstone agreed", obj.sources[0].retrieved_text)
+        self.assertTrue(
+            any(fact.name == "amount" and "$450 million" in str(fact.value)
+                for fact in obj.facts)
+        )
         self.assertEqual(obj.evidence_level, "single_full_text")
         self.assertEqual(obj.cap_depth_to_evidence("tier_a"), "tier_b")
 

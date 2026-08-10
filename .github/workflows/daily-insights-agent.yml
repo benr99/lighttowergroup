@@ -29,6 +29,14 @@ on:
           - "1"
           - "3"
           - "5"
+      pipeline:
+        description: "Production engine; v2 remains available as the manual rollback path"
+        required: true
+        default: "v3"
+        type: choice
+        options:
+          - v3
+          - v2
 
 concurrency:
   group: curated-insights-edition
@@ -124,25 +132,38 @@ jobs:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           RUN_MODE: ${{ steps.policy.outputs.mode }}
           ARTICLE_COUNT: ${{ inputs.article_count || '5' }}
+          PIPELINE: ${{ github.event_name == 'workflow_dispatch' && inputs.pipeline || 'v3' }}
         working-directory: scripts
         shell: bash
         run: |
-          args=(
-            --selection-mode edition
-            --articles "$ARTICLE_COUNT"
-            --daily-target 3
-            --pipeline-v2
-            --shadow-v3
-            --skip-git
-            --run-origin github-actions
-          )
-          case "$RUN_MODE" in
-            shadow) args+=(--shadow) ;;
-            preview) args+=(--dry-run) ;;
-            publish) ;;
-            *) echo "Unsupported run mode: $RUN_MODE" >&2; exit 2 ;;
+          case "$PIPELINE" in
+            v3)
+              python insights_v3.py \
+                --mode "$RUN_MODE" \
+                --daily-target 3 \
+                --article-limit "$ARTICLE_COUNT" \
+                --quality-floor 40 \
+                --workers 3
+              ;;
+            v2)
+              args=(
+                --selection-mode edition
+                --articles "$ARTICLE_COUNT"
+                --daily-target 3
+                --pipeline-v2
+                --skip-git
+                --run-origin github-actions
+              )
+              case "$RUN_MODE" in
+                shadow) args+=(--shadow) ;;
+                preview) args+=(--dry-run) ;;
+                publish) ;;
+                *) echo "Unsupported run mode: $RUN_MODE" >&2; exit 2 ;;
+              esac
+              python daily_news_agent.py "${args[@]}"
+              ;;
+            *) echo "Unsupported pipeline: $PIPELINE" >&2; exit 2 ;;
           esac
-          python daily_news_agent.py "${args[@]}"
 
       - name: Validate the generated edition before deployment
         if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
@@ -183,8 +204,10 @@ jobs:
         shell: bash
         run: |
           REVIEW="$(python -c "import json; print(str(json.load(open('.editorial-state/publication-decision.json'))['review_required']).lower())")"
+          AUTO="$(python -c "import json; print(str(json.load(open('.editorial-state/publication-decision.json')).get('auto_publish_allowed', False)).lower())")"
           echo "review=$REVIEW" >> "$GITHUB_OUTPUT"
-          if [[ "$REVIEW" == "true" ]]; then
+          echo "auto=$AUTO" >> "$GITHUB_OUTPUT"
+          if [[ "$REVIEW" == "true" || "$AUTO" != "true" ]]; then
             echo "branch=codex/editorial-review-${{ github.run_id }}" >> "$GITHUB_OUTPUT"
           else
             echo "branch=main" >> "$GITHUB_OUTPUT"
@@ -197,11 +220,27 @@ jobs:
           --branch "${{ steps.publication.outputs.branch }}"
           --message "Publish curated Insights edition ${{ github.run_id }}"
 
+      - name: Verify the live deployment or roll back safely
+        if: >-
+          steps.policy.outputs.skip != 'true' &&
+          steps.policy.outputs.mode == 'publish' &&
+          steps.publication.outputs.branch == 'main'
+        shell: bash
+        run: |
+          RELEASE_SHA="$(git rev-parse HEAD)"
+          if ! python scripts/verify_deployment.py \
+            --base-url "https://lighttowergroup.co" \
+            --release-sha "$RELEASE_SHA" \
+            --timeout-seconds 600; then
+            python scripts/rollback_release.py --expected-sha "$RELEASE_SHA"
+            exit 1
+          fi
+
       - name: Open the editorial review
         if: >-
           steps.policy.outputs.skip != 'true' &&
           steps.policy.outputs.mode == 'publish' &&
-          steps.publication.outputs.review == 'true'
+          steps.publication.outputs.branch != 'main'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash

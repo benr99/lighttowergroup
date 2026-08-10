@@ -123,6 +123,13 @@ class ObjectAssembly(unittest.TestCase):
         obj = build_intelligence_object(cluster)
         self.assertEqual(obj.title, "Federal Reserve issues FOMC statement")
         self.assertEqual(obj.primary_sector, "fed_macro")
+        self.assertTrue(any(source.is_primary_authority for source in obj.sources))
+
+    def test_tier_one_publication_is_not_mislabeled_primary_authority(self) -> None:
+        obj = build_intelligence_object([
+            item("Reuters reports a $500 million acquisition", tier=1, authority="secondary")
+        ])
+        self.assertFalse(obj.sources[0].is_primary_authority)
 
     def test_object_records_every_supporting_source(self) -> None:
         cluster = [
