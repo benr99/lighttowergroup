@@ -25,8 +25,10 @@ from typing import Any, Iterable, Sequence
 
 from intelligence_object import IntelligenceObject
 
-#: Minimum score to occupy a slot. Below this an empty slot is the honest answer.
-QUALITY_FLOOR = 35.0
+#: Minimum score to occupy a publishable slot. `importance.py` defines 0-39 as
+#: ``not_publishable``; keeping a lower floor here allowed the selector to send
+#: its own rejected band to the writer.
+QUALITY_FLOOR = 40.0
 
 #: Depth thresholds, before the evidence cap is applied.
 TIER_A_FLOOR = 70.0
@@ -34,6 +36,8 @@ TIER_B_FLOOR = 50.0
 
 SECTOR_TARGET = 10
 GLOBAL_TARGET = 10
+DEFAULT_DAILY_TARGET = 3
+MAX_DAILY_ARTICLES = 5
 
 #: Soft caps, applied only when an alternative of adequate quality exists.
 MAX_PER_SOURCE = 3
@@ -85,6 +89,10 @@ class SectorSlate:
 class SlateReport:
     sectors: dict[str, SectorSlate] = field(default_factory=dict)
     global_top: list[IntelligenceObject] = field(default_factory=list)
+    publication_slate: list[IntelligenceObject] = field(default_factory=list)
+    publication_target: int = DEFAULT_DAILY_TARGET
+    article_limit: int = MAX_DAILY_ARTICLES
+    publication_runner_up: dict[str, Any] | None = None
     total_considered: int = 0
     total_selected: int = 0
     depth_counts: dict[str, int] = field(default_factory=dict)
@@ -93,6 +101,10 @@ class SlateReport:
     @property
     def has_shortfall(self) -> bool:
         return bool(self.shortfalls)
+
+    @property
+    def publication_target_met(self) -> bool:
+        return len(self.publication_slate) >= self.publication_target
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -106,6 +118,24 @@ class SlateReport:
                 {"rank": o.global_rank, "sector": o.primary_sector,
                  "title": o.title, "score": o.final_score, "depth": o.recommended_depth}
                 for o in self.global_top
+            ],
+            "publication_target": self.publication_target,
+            "article_limit": self.article_limit,
+            "publication_target_met": self.publication_target_met,
+            "publication_runner_up": self.publication_runner_up,
+            "publication_slate": [
+                {
+                    "rank": index,
+                    "role": "daily" if index <= self.publication_target else "reserve",
+                    "sector": o.primary_sector,
+                    "title": o.title,
+                    "score": o.final_score,
+                    "band": o.tier,
+                    "depth": o.recommended_depth,
+                    "evidence": o.evidence_level,
+                    "why": o.selection_rationale,
+                }
+                for index, o in enumerate(self.publication_slate, 1)
             ],
         }
 
@@ -124,6 +154,10 @@ def assign_depth(obj: IntelligenceObject) -> str:
         wanted = "tier_b"
     else:
         wanted = "tier_c"
+    if wanted == "tier_a" and not (
+        obj.independent_source_count >= 3 and obj.usable_full_text_count >= 2
+    ):
+        wanted = "tier_b"
     return obj.cap_depth_to_evidence(wanted)
 
 
@@ -157,7 +191,10 @@ def select_for_sector(
     slate.eligible = len(eligible)
 
     qualified = sorted(
-        (o for o in eligible if o.final_score >= floor),
+        (
+            o for o in eligible
+            if o.final_score >= floor and o.tier != "not_publishable"
+        ),
         key=lambda o: (-o.final_score, o.title),
     )
     slate.above_floor = len(qualified)
@@ -242,10 +279,22 @@ def build_slates(
     target: int = SECTOR_TARGET,
     floor: float = QUALITY_FLOOR,
     global_target: int = GLOBAL_TARGET,
+    publication_target: int = DEFAULT_DAILY_TARGET,
+    article_limit: int = MAX_DAILY_ARTICLES,
 ) -> SlateReport:
-    """Produce per-sector slates and a global ranking."""
+    """Produce scouting slates and the bounded final publication slate.
+
+    Per-sector slates are intentionally broad diagnostic shortlists. Only the
+    globally ranked ``publication_slate`` is allowed to reach generation.
+    """
     objects = list(objects)
-    report = SlateReport(total_considered=len(objects))
+    publication_target = max(0, min(int(publication_target), MAX_DAILY_ARTICLES))
+    article_limit = max(publication_target, min(int(article_limit), MAX_DAILY_ARTICLES))
+    report = SlateReport(
+        total_considered=len(objects),
+        publication_target=publication_target,
+        article_limit=article_limit,
+    )
 
     found = sectors or sorted({o.primary_sector for o in objects if o.primary_sector})
     for sector in found:
@@ -260,7 +309,22 @@ def build_slates(
         sorted(selected, key=lambda o: (-o.final_score, o.title)), 1
     ):
         obj.global_rank = position
-    report.global_top = sorted(selected, key=lambda o: o.global_rank)[:global_target]
+    globally_ranked = sorted(selected, key=lambda o: o.global_rank)
+    report.global_top = globally_ranked[:global_target]
+    report.publication_slate = globally_ranked[:article_limit]
+    if len(globally_ranked) > article_limit and report.publication_slate:
+        last = report.publication_slate[-1]
+        next_best = globally_ranked[article_limit]
+        report.publication_runner_up = {
+            "title": next_best.title,
+            "score": next_best.final_score,
+            "gap_to_last_selected": round(last.final_score - next_best.final_score, 1),
+            "explanation": (
+                f'"{last.title[:60]}" took publication slot {article_limit} at '
+                f'{last.final_score:.1f}; "{next_best.title[:60]}" was next at '
+                f'{next_best.final_score:.1f}'
+            ),
+        }
 
     for obj in selected:
         report.depth_counts[obj.recommended_depth] = (

@@ -83,7 +83,7 @@ class EligibilityDecision:
 #: them away: 43 of 68 data-centre stories were rejected for "no transaction
 #: verb" while being some of the most consequential items of the day.
 _GOVERNMENT_ACTOR = re.compile(
-    r"\b(?:gov(?:\.|ernor)|mayor|city council|council|commission(?:er)?|regulator|legislature|senate|senator|congress|parliament|state of|county|township|towns?|city of|municipalit\w+|administration|department of|agency|authority|court|judge|attorney general|white house|president|trump|ferc|fdic|occ|epa|hud|fhfa|cfpb|federal reserve|federal government|us treasury)(?![A-Za-z])",
+    r"\b(?:gov(?:\.|ernor)|mayor|city council|council|commission(?:er)?|regulator|legislature|senate|senator|congress|parliament|state of|county|township|towns?|city of|municipalit\w+|administration|department of|agency|authority|court|judge|attorney general|white house|president (?:trump|biden|of the united states)|trump administration|ferc|fdic|occ|epa|hud|fhfa|cfpb|federal reserve|federal government|us treasury)(?![A-Za-z])",
     re.I,
 )
 _GOVERNMENT_ACTION = re.compile(
@@ -94,7 +94,89 @@ _GOVERNMENT_ACTION = re.compile(
 
 def _is_government_action(text: str) -> bool:
     """A public body doing something, whatever sector it lands in."""
-    return bool(_GOVERNMENT_ACTOR.search(text) and _GOVERNMENT_ACTION.search(text))
+    actor = bool(_GOVERNMENT_ACTOR.search(text))
+    if not actor:
+        actor = bool(re.search(
+            r"\btrump\b(?=.{0,60}\b(?:ban|order|tariff|sanction|rule|bill|policy)\b)",
+            text,
+            re.I,
+        ))
+    return bool(actor and _GOVERNMENT_ACTION.search(text))
+
+
+_BEAT_ANCHORS = {
+    "commercial_real_estate": re.compile(
+        r"\b(?:commercial real estate|real estate|reit|multifamily|apartments?|"
+        r"office (?:building|tower|market|space|lease|property)|industrial(?: "
+        r"(?:building|portfolio|property|space))?|warehouses?|logistics (?:facility|portfolio|property)|"
+        r"shopping centers?|retail (?:center|property)|hotels?|hospitality|mixed-use|"
+        r"student housing|senior housing|self-storage|affordable housing|"
+        r"commercial propert(?:y|ies)|investment propert(?:y|ies)|acquisition debt|"
+        r"construction (?:loan|financing)|commercial mortgage|cmbs|cre clo|"
+        r"\d[\d,]*\s+(?:units?|square feet|sq\.?\s*ft\.?|sf)\b|"
+        r"zoning|rezoning|land use|breaks? ground|savills|eastdil|cbre|jll|"
+        r"cushman|newmark|colliers|prologis|vornado|sl green)\b",
+        re.I,
+    ),
+    "private_equity": re.compile(
+        r"\b(?:private equity|buyout|take-private|portfolio company|continuation vehicle|"
+        r"secondaries|fund close|fundrais\w+|general partner|limited partner|"
+        r"private markets|sponsor-backed|growth equity|leveraged buyout|lp-led|gp-led)\b",
+        re.I,
+    ),
+    "data_centers": re.compile(
+        r"\b(?:data cent(?:er|re)s?|datacenter|hyperscale|colocation|server farm|"
+        r"compute campus|ai infrastructure|gpu cloud|power (?:campus|demand)|megawatts?|gw)\b",
+        re.I,
+    ),
+    "energy": re.compile(
+        r"\b(?:power grid|electric utilit\w+|electricity|generation capacity|renewable|"
+        r"solar|wind farm|battery storage|energy infrastructure|transmission|pipeline|"
+        r"natural gas|lng|oil|nuclear|ferc|interconnection)\b",
+        re.I,
+    ),
+    "banking_credit": re.compile(
+        r"\b(?:banks?|lenders?|lending|credit|commercial loans?|deposits?|"
+        r"capital requirements?|loan losses?|charge-offs?|fdic|occ|cfpb|"
+        r"financial institutions?|private credit|direct lending|mortgage|cmbs|"
+        r"ism|pmi|manufacturing sector)\b",
+        re.I,
+    ),
+    "fed_macro": re.compile(
+        r"\b(?:federal reserve|fomc|fed funds?|interest rates?|inflation|cpi|ppi|"
+        r"gdp|payrolls?|unemployment|treasury (?:yield|market|securities)|yield curve|"
+        r"monetary policy|financial conditions|strips?)\b",
+        re.I,
+    ),
+    "local_government": re.compile(
+        r"\b(?:city council|planning commission|zoning|rezoning|land use|housing|"
+        r"development|property tax|tax abatement|building permits?|mayor|governor|"
+        r"municipal|county)\b",
+        re.I,
+    ),
+}
+
+_CONSUMER_PROPERTY = re.compile(
+    r"\b(?:single-family home|historic house|dream home|celebrity mansion|homebuyer|"
+    r"homeowner|house (?:for sale|selling)|condo of the week)\b",
+    re.I,
+)
+
+
+def _has_beat_anchor(obj: IntelligenceObject, text: str) -> bool:
+    pattern = _BEAT_ANCHORS.get(obj.primary_sector)
+    if pattern is None:
+        return False
+    if obj.primary_sector == "commercial_real_estate" and _CONSUMER_PROPERTY.search(text):
+        institutional = re.search(
+            r"\b(?:commercial|multifamily|apartments?|portfolio|reit|development|"
+            r"office (?:building|tower)|industrial|mixed-use|affordable housing)\b",
+            text,
+            re.I,
+        )
+        if not institutional:
+            return False
+    return bool(pattern.search(text))
 
 
 def _event_family(obj: IntelligenceObject, traits: dict[str, Any]) -> str:
@@ -123,11 +205,14 @@ def _event_family(obj: IntelligenceObject, traits: dict[str, Any]) -> str:
 def assess(obj: IntelligenceObject, *, text: str = "") -> EligibilityDecision:
     """Decide eligibility for one object."""
     blob = text or f"{obj.title} {obj.what_happened}"
+    source_type = "government" if any(
+        source.is_primary_authority for source in obj.sources
+    ) else ""
     traits = describe(
         obj.title,
         obj.what_happened,
         sector=obj.primary_sector,
-        source_type="",
+        source_type=source_type,
     )
     content_type = traits["content_type"]
     family = _event_family(obj, traits)
@@ -152,6 +237,15 @@ def assess(obj: IntelligenceObject, *, text: str = "") -> EligibilityDecision:
     if not obj.primary_sector:
         decision.disqualifiers.append("unclassified sector")
         decision.reason = "object has no primary sector"
+        decision.confidence = 0.8
+        return decision
+
+    if not _has_beat_anchor(obj, blob):
+        decision.disqualifiers.append("no Light Tower beat anchor")
+        decision.reason = (
+            f"item is classified as {obj.primary_sector} but contains no specific "
+            "institutional capital-markets or real-assets anchor"
+        )
         decision.confidence = 0.8
         return decision
 
@@ -251,7 +345,15 @@ def apply(obj: IntelligenceObject, *, text: str = "") -> IntelligenceObject:
     obj.eligible = decision.eligible
     obj.eligibility_reason = decision.reason
     obj.disqualifiers = list(decision.disqualifiers)
-    traits = describe(obj.title, obj.what_happened, sector=obj.primary_sector)
+    source_type = "government" if any(
+        source.is_primary_authority for source in obj.sources
+    ) else ""
+    traits = describe(
+        obj.title,
+        obj.what_happened,
+        sector=obj.primary_sector,
+        source_type=source_type,
+    )
     obj.content_type = traits["content_type"]
     if not obj.event_type:
         obj.event_type = traits["event_type"]

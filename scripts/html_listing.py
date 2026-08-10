@@ -223,12 +223,12 @@ def read_listings(
 
 def to_canonical_items(items: Iterable[ListingItem], *, source_tier: int = 3) -> list[Any]:
     """Adapt listing results to the shape the rest of the pipeline expects."""
-    from canonical_item import CanonicalItem
+    from canonical_item import CanonicalItem, normalize_headline
 
     out = []
     for item in items:
         node = CanonicalItem(
-            headline=item.title,
+            headline=normalize_headline(item.title),
             source_url=item.url,
             canonical_url=item.url,
             source_name=item.source_name,

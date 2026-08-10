@@ -290,6 +290,42 @@ class InsightsV2ProductionTests(unittest.TestCase):
         self.assertIn("one credible source", captured["prompt"])
         self.assertIn("Do NOT fail", captured["prompt"])
 
+    def test_malformed_json_contract_is_retried_once(self):
+        pipeline = EditorialPipeline(api_key="key")
+        responses = [
+            '{"issues": ["truncated"]',
+            '{"issues": [], "passed": true, "score_1_10": 9, "summary": "clear"}',
+        ]
+        with patch("editorial_pipeline.call_deepseek", side_effect=responses) as mocked:
+            result = pipeline._request_json(
+                "Review this",
+                max_tokens=100,
+                temperature=0.1,
+                required_fields=["issues", "passed", "score_1_10", "summary"],
+            )
+        self.assertTrue(result["passed"])
+        self.assertEqual(mocked.call_count, 2)
+
+    def test_financial_reviewer_receives_the_same_late_dossier_evidence_as_writer(self):
+        item = make_item()
+        dossier = dossier_for(item)
+        dossier["sources"][0]["full_text_excerpt"] = "A" * 9500 + " LATE EVIDENCE FACT"
+        pipeline = EditorialPipeline(api_key="key")
+        captured = {}
+
+        def fake_review(prompt, *_args, **_kwargs):
+            captured["prompt"] = prompt
+            return '{"issues": [], "passed": true, "score_1_10": 9, "summary": "bounded"}'
+
+        with patch("editorial_pipeline.call_deepseek", side_effect=fake_review):
+            pipeline.stage_financial_review(
+                {"body_html": "<p>Article.</p>"},
+                {"central_financial_question": "Why?", "thesis": "Test", "key_numbers": []},
+                dossier=dossier,
+                article_format="analysis",
+            )
+        self.assertIn("LATE EVIDENCE FACT", captured["prompt"])
+
     def test_pipeline_v2_exposes_ranked_items_to_the_production_orchestrator(self):
         import pipeline_v2
 
@@ -380,6 +416,7 @@ class InsightsV2ProductionTests(unittest.TestCase):
             "sources": [{"name": item.source_name, "url": item.source_url}],
         }
         with (
+            patch("editorial_pipeline._HAS_LLM", False),
             patch.object(pipeline, "stage_draft", return_value={"status": "completed", "article": draft}),
             patch.object(pipeline, "stage_financial_review", return_value={"passed": False, "issues": ["review unavailable"]}),
             patch.object(pipeline, "stage_editorial_review", return_value={"passed": True, "issues": []}),

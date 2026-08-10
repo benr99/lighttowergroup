@@ -20,6 +20,8 @@ from intelligence_object import (  # noqa: E402
     SourceRef,
 )
 from selection import (  # noqa: E402
+    DEFAULT_DAILY_TARGET,
+    MAX_DAILY_ARTICLES,
     QUALITY_FLOOR,
     TIER_A_FLOOR,
     assign_depth,
@@ -76,6 +78,20 @@ class WeakItemsAreNeverPromoted(unittest.TestCase):
         self.assertEqual(report.sectors["data_centers"].selected, [])
         self.assertTrue(any(s["sector"] == "data_centers" for s in report.shortfalls))
 
+    def test_the_floor_matches_the_publishable_band(self) -> None:
+        self.assertEqual(QUALITY_FLOOR, 40.0)
+        weak = obj("Internally not publishable", 39.9)
+        weak.tier = "not_publishable"
+        self.assertEqual(select_for_sector([weak], weak.primary_sector).selected, [])
+
+    def test_not_publishable_band_never_advances_even_with_a_high_score(self) -> None:
+        contradictory = obj("Bad classification", 90.0)
+        contradictory.tier = "not_publishable"
+        self.assertEqual(
+            select_for_sector([contradictory], contradictory.primary_sector).selected,
+            [],
+        )
+
 
 class RankingAndExplanation(unittest.TestCase):
     def test_items_are_ranked_by_score(self) -> None:
@@ -112,6 +128,31 @@ class RankingAndExplanation(unittest.TestCase):
         self.assertEqual(report.global_top[0].global_rank, 1)
         self.assertEqual(report.total_selected, 3)
 
+    def test_only_the_bounded_global_slate_reaches_publication(self) -> None:
+        objects = [
+            obj(f"Publishable deal {i}", 90.0 - i, sector="commercial_real_estate")
+            for i in range(8)
+        ]
+        report = build_slates(objects, publication_target=3, article_limit=5)
+        self.assertEqual(len(report.publication_slate), 5)
+        self.assertEqual([o.final_score for o in report.publication_slate], [90, 89, 88, 87, 86])
+        self.assertTrue(report.publication_target_met)
+        self.assertIsNotNone(report.publication_runner_up)
+
+    def test_default_contract_is_three_with_a_hard_maximum_of_five(self) -> None:
+        objects = [obj(f"Deal {i}", 90.0 - i) for i in range(12)]
+        report = build_slates(objects)
+        self.assertEqual(report.publication_target, DEFAULT_DAILY_TARGET)
+        self.assertEqual(report.article_limit, MAX_DAILY_ARTICLES)
+        self.assertEqual(len(report.publication_slate), MAX_DAILY_ARTICLES)
+
+    def test_article_limit_cannot_exceed_the_system_maximum(self) -> None:
+        objects = [obj(f"Deal {i}", 90.0 - i) for i in range(12)]
+        report = build_slates(objects, publication_target=9, article_limit=99)
+        self.assertEqual(report.publication_target, MAX_DAILY_ARTICLES)
+        self.assertEqual(report.article_limit, MAX_DAILY_ARTICLES)
+        self.assertEqual(len(report.publication_slate), MAX_DAILY_ARTICLES)
+
 
 class DepthMatchesEvidence(unittest.TestCase):
     """Ambition is capped by what the sources can support."""
@@ -123,16 +164,31 @@ class DepthMatchesEvidence(unittest.TestCase):
         self.assertEqual(assign_depth(thin), "tier_c")
 
     def test_a_high_score_on_strong_evidence_earns_a_feature(self) -> None:
-        strong = obj("Major deal, corroborated", 85.0, evidence=EvidenceLevel.PRIMARY_CORROBORATED)
+        strong = obj(
+            "Major deal, corroborated", 85.0,
+            evidence=EvidenceLevel.PRIMARY_CORROBORATED, sources=3,
+        )
+        for index, source in enumerate(strong.sources):
+            source.source_name = f"Publisher {index}"
         self.assertEqual(assign_depth(strong), "tier_a")
+
+    def test_two_sources_support_analysis_but_not_a_flagship(self) -> None:
+        strong = obj("Major deal, two sources", 85.0, evidence=EvidenceLevel.CORROBORATED)
+        self.assertEqual(assign_depth(strong), "tier_b")
 
     def test_a_middling_story_gets_a_standard_article(self) -> None:
         middling = obj("Solid deal", 58.0, evidence=EvidenceLevel.CORROBORATED)
         self.assertEqual(assign_depth(middling), "tier_b")
 
     def test_depths_are_counted_for_the_run_report(self) -> None:
+        flagship = obj(
+            "Big corroborated", 88.0,
+            evidence=EvidenceLevel.PRIMARY_CORROBORATED, sources=3,
+        )
+        for index, source in enumerate(flagship.sources):
+            source.source_name = f"Publisher {index}"
         report = build_slates([
-            obj("Big corroborated", 88.0, evidence=EvidenceLevel.PRIMARY_CORROBORATED),
+            flagship,
             obj("Middling", 55.0, evidence=EvidenceLevel.CORROBORATED),
             obj("Thin", 44.0, evidence=EvidenceLevel.SINGLE_SUMMARY, full_text=False, sources=1),
         ])

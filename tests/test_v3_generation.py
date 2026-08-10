@@ -43,6 +43,8 @@ def _obj(title: str, *, depth: str = "tier_b", sources: int = 1,
             item_id=f"s{i}", source_name=f"Publisher {i}",
             canonical_url=f"https://p{i}.example.com/story",
             source_tier=2, text_chars=4000 if full_text else 200,
+            retrieved_text=("Blackstone closed the transaction for $450 million."
+                            if full_text else ""),
             retrieval_status=RetrievalStatus.FULL_TEXT if full_text else RetrievalStatus.SUMMARY_ONLY,
         )
         for i in range(sources)
@@ -151,6 +153,7 @@ class TheDossierIsTheBoundary(unittest.TestCase):
         self.assertEqual(dossier["facts"][0]["evidence"], "$450 million")
         self.assertEqual(dossier["independent_source_count"], 2)
         self.assertIn("evidence_level_note", dossier)
+        self.assertIn("$450 million", dossier["sources"][0]["text"])
 
     def test_a_thin_dossier_says_so_in_words_the_writer_will_read(self) -> None:
         dossier = object_to_dossier(_obj("Thin story", full_text=False))

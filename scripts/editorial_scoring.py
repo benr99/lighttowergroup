@@ -282,7 +282,7 @@ Scored candidates:
 #: Provider JSON mode is reliable only for short structured answers.
 JSON_MODE_MAX_TOKENS = 2000
 REQUEST_TIMEOUT_S = 90
-LONG_REQUEST_TIMEOUT_S = 240
+LONG_REQUEST_TIMEOUT_S = 150
 
 
 def call_deepseek(
@@ -295,76 +295,118 @@ def call_deepseek(
     provider: dict[str, Any] | None = None,
     system: str = "",
 ) -> str:
-    url = (provider or {}).get("url", "https://api.deepseek.com/v1/chat/completions")
-    model = (provider or {}).get("model", MODEL_NAME)
-    messages = []
+    from model_router import log_provider_event, provider_chain
+
+    preferred = dict(provider or {})
+    preferred.setdefault("provider", "deepseek")
+    preferred.setdefault("model", MODEL_NAME)
+    preferred.setdefault("url", "https://api.deepseek.com/v1/chat/completions")
+    preferred.setdefault("fallback", False)
+    preferred["api_key"] = preferred.get("api_key") or api_key
+    chain = provider_chain(preferred, for_writing=max_tokens > JSON_MODE_MAX_TOKENS)
+    if not chain:
+        raise RuntimeError("LLM request has no configured provider")
+
+    messages: list[dict[str, str]] = []
     if system:
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
-    payload = {
-        "model": model,
-        "messages": messages,
-        "max_tokens": max_tokens,
-        "temperature": temperature,
-    }
-    if json_mode:
-        # Provider JSON mode is only safe for short answers. On a reasoning
-        # model a long generation spends the whole budget thinking and returns
-        # finish_reason=length with EMPTY content -- measured at 12,360 tokens
-        # for zero characters, three times over via the retry loop. Every draft
-        # in the first real generation run failed this way. Above this size the
-        # request goes out as ordinary text and _extract_json parses the result,
-        # which it already handles including fenced code blocks. Same article,
-        # half the tokens.
-        if max_tokens <= JSON_MODE_MAX_TOKENS:
-            payload["response_format"] = {"type": "json_object"}
-        else:
-            payload["messages"][-1]["content"] += (
-                "\n\nReturn a single valid JSON object and nothing else."
+    errors: list[str] = []
+    for provider_index, candidate in enumerate(chain):
+        name = str(candidate.get("provider") or "unknown")
+        model = str(candidate.get("model") or MODEL_NAME)
+        payload: dict[str, Any] = {
+            "model": model,
+            "messages": [dict(message) for message in messages],
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+        }
+        if json_mode:
+            # Long reasoning requests frequently exhaust JSON mode before the
+            # visible answer. For those, request plain text and parse it later.
+            if max_tokens <= JSON_MODE_MAX_TOKENS:
+                payload["response_format"] = {"type": "json_object"}
+            else:
+                payload["messages"][-1]["content"] += (
+                    "\n\nReturn a single valid JSON object and nothing else."
+                )
+
+        last_error: Exception | None = None
+        started = time.monotonic()
+        max_attempts = 2
+        for attempt in range(1, max_attempts + 1):
+            data: dict[str, Any] | None = None
+            try:
+                resp = requests.post(
+                    str(candidate.get("url")),
+                    headers={"Authorization": f"Bearer {candidate.get('api_key')}"},
+                    json=payload,
+                    timeout=(
+                        REQUEST_TIMEOUT_S
+                        if max_tokens <= JSON_MODE_MAX_TOKENS
+                        else LONG_REQUEST_TIMEOUT_S
+                    ),
+                )
+                if resp.status_code in {408, 429, 500, 502, 503, 504} and attempt < max_attempts:
+                    time.sleep(2 ** (attempt - 1))
+                    continue
+                resp.raise_for_status()
+                data = resp.json()
+                choice = (data.get("choices") or [{}])[0]
+                message = choice.get("message") or {}
+                content = str(message.get("content") or "").strip()
+                if not content:
+                    reasoning_length = len(str(message.get("reasoning_content") or ""))
+                    finish_reason = str(choice.get("finish_reason") or "unknown")
+                    raise ValueError(
+                        "empty completion "
+                        f"(finish_reason={finish_reason}, reasoning_chars={reasoning_length})"
+                    )
+                usage = data.get("usage", {})
+                log_provider_event(
+                    "provider_call",
+                    outcome="success",
+                    provider=name,
+                    model=model,
+                    fallback=provider_index > 0 or bool(candidate.get("fallback")),
+                    attempt=attempt,
+                    seconds=round(time.monotonic() - started, 2),
+                    input_tokens=int(usage.get("prompt_tokens") or 0),
+                    output_tokens=int(usage.get("completion_tokens") or 0),
+                )
+                try:
+                    from cost_tracker import track_llm_cost
+                    track_llm_cost("scoring", usage.get("total_tokens", 1000))
+                except ImportError:
+                    pass
+                return content
+            except (requests.RequestException, ValueError) as exc:
+                last_error = exc
+            if attempt < max_attempts:
+                time.sleep(2 ** (attempt - 1))
+
+        detail = f"{type(last_error).__name__}: {last_error}"
+        errors.append(f"{name}/{model}: {detail}")
+        log_provider_event(
+            "provider_call",
+            outcome="failed",
+            provider=name,
+            model=model,
+            fallback=provider_index > 0 or bool(candidate.get("fallback")),
+            attempts=max_attempts,
+            seconds=round(time.monotonic() - started, 2),
+            error=detail[:240],
+        )
+        if provider_index + 1 < len(chain):
+            log_provider_event(
+                "provider_switch",
+                reason="call_failed",
+                from_provider=name,
+                to_provider=chain[provider_index + 1].get("provider"),
+                detail=detail[:240],
             )
-    last_error: Exception | None = None
-    data: dict[str, Any] | None = None
-    for attempt in range(3):
-        try:
-            resp = requests.post(
-                url,
-                headers={"Authorization": f"Bearer {api_key}"},
-                json=payload,
-                timeout=REQUEST_TIMEOUT_S if max_tokens <= JSON_MODE_MAX_TOKENS else LONG_REQUEST_TIMEOUT_S,
-            )
-            if resp.status_code in {408, 429, 500, 502, 503, 504} and attempt < 2:
-                time.sleep(2 ** attempt)
-                continue
-            resp.raise_for_status()
-            data = resp.json()
-            choice = (data.get("choices") or [{}])[0]
-            message = choice.get("message") or {}
-            content = message.get("content")
-            if str(content or "").strip():
-                break
-            reasoning_length = len(str(message.get("reasoning_content") or ""))
-            finish_reason = str(choice.get("finish_reason") or "unknown")
-            last_error = ValueError(
-                "Provider returned an empty completion "
-                f"(finish_reason={finish_reason}, reasoning_chars={reasoning_length})"
-            )
-        except (requests.RequestException, ValueError) as exc:
-            # RequestException covers ChunkedEncodingError, which is what a
-            # connection dropped mid-body raises. It was escaping the retry
-            # loop entirely and surfacing as "Response ended prematurely".
-            last_error = exc
-        if attempt < 2:
-            time.sleep(2 ** attempt)
-    if data is None or not str(((data.get("choices") or [{}])[0].get("message") or {}).get("content") or "").strip():
-        raise RuntimeError(f"LLM request failed after 3 attempts: {type(last_error).__name__}: {last_error}")
-    # Track cost
-    try:
-        from cost_tracker import track_llm_cost
-        usage = data.get("usage", {})
-        track_llm_cost("scoring", usage.get("total_tokens", 1000))
-    except ImportError:
-        pass
-    return data["choices"][0]["message"]["content"].strip()
+
+    raise RuntimeError("LLM request exhausted provider chain: " + " | ".join(errors))
 
 
 def _normalize_score_row(row: dict[str, Any], candidate: dict[str, Any], index: int) -> dict[str, Any]:

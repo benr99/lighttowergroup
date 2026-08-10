@@ -7,6 +7,7 @@ validatable data structure.
 
 from __future__ import annotations
 import hashlib
+import html
 import json
 import re
 from dataclasses import dataclass, field, asdict
@@ -17,6 +18,72 @@ from urllib.parse import urlparse
 
 _THRESHOLDS_CACHE: dict[str, Any] | None = None
 _THRESHOLDS_PATH: Path | None = None
+_TITLE_TAG = re.compile(r"<[^>]+>")
+_TITLE_PREFIX = re.compile(r"^[\"']*>+\s*")
+_TITLE_SPACE = re.compile(r"\s+")
+_PRIMARY_SOURCE_TYPES = frozenset({"government", "government_research", "regulator"})
+
+
+def repair_mojibake(value: Any) -> str:
+    """Undo one or two accidental UTF-8-as-Windows-1252 decoding passes."""
+    text = str(value or "")
+    def score(item: str) -> int:
+        return sum(item.count(marker) for marker in ("Ã", "Â", "â", "ð")) + sum(
+            1 for character in item if 0x80 <= ord(character) <= 0x9F
+        )
+
+    for _ in range(2):
+        before = score(text)
+        if before == 0:
+            break
+        candidates = []
+        for codec in ("cp1252", "latin1"):
+            try:
+                candidate = text.encode(codec).decode("utf-8")
+            except (UnicodeEncodeError, UnicodeDecodeError):
+                continue
+            candidates.append(candidate)
+        # Some bad decoders leave C1 control characters mixed with cp1252
+        # punctuation. Reconstruct the original byte stream character by
+        # character so those otherwise-undefined bytes can still be repaired.
+        try:
+            mixed = bytearray()
+            for character in text:
+                try:
+                    mixed.extend(character.encode("cp1252"))
+                except UnicodeEncodeError:
+                    codepoint = ord(character)
+                    if codepoint > 255:
+                        raise
+                    mixed.append(codepoint)
+            candidates.append(bytes(mixed).decode("utf-8"))
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+        if not candidates:
+            break
+        candidate = min(
+            candidates,
+            key=score,
+        )
+        if score(candidate) >= before:
+            break
+        text = candidate
+    return text
+
+
+def normalize_text(value: Any) -> str:
+    """Normalize entities, markup, mojibake, control characters, and spacing."""
+    text = repair_mojibake(html.unescape(str(value or "")))
+    text = _TITLE_TAG.sub(" ", text)
+    text = "".join(ch for ch in text if ch >= " " or ch in "\t\n")
+    return _TITLE_SPACE.sub(" ", text).strip()
+
+
+def normalize_headline(value: Any) -> str:
+    """Return a safe, human-readable headline from inconsistent feed markup."""
+    text = normalize_text(value)
+    text = _TITLE_PREFIX.sub("", text)
+    return _TITLE_SPACE.sub(" ", text).strip().strip("'\"")
 
 
 def _get_thresholds_cache() -> dict[str, Any]:
@@ -154,13 +221,19 @@ class CanonicalItem:
         item.source_name = source.get("name", "")
         item.source_url = entry.get("link", "")
         item.canonical_url = entry.get("link", "")
-        item.headline = (entry.get("title") or "").strip()
+        item.headline = normalize_headline(entry.get("title"))
         item.publication_date = entry.get("published") or ""
         item.author = entry.get("author") or ""
-        item.raw_summary = (entry.get("summary") or "").strip()
+        item.raw_summary = normalize_text(entry.get("summary"))
         item.source_type = source.get("source_type", "")
         item.source_tier = int(source.get("tier", 3))
-        item.source_authority = "secondary"
+        configured_authority = str(source.get("source_authority") or "").lower()
+        if configured_authority in {"primary", "secondary"}:
+            item.source_authority = configured_authority
+        else:
+            item.source_authority = (
+                "primary" if item.source_type in _PRIMARY_SOURCE_TYPES else "secondary"
+            )
         configured_sectors = [
             str(sector).strip()
             for sector in (source.get("sectors") or [])

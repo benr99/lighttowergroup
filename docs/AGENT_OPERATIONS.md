@@ -1,167 +1,267 @@
-# Curated Insights operations
+# Insights Generator v3 operations
 
-The production publisher is `.github/workflows/daily-insights-agent.yml`. It is
-the only scheduler authorized by `.editorial-state/scheduler.json`.
+This is the production runbook for Light Tower Insights. The active scheduler is
+`.github/workflows/daily-insights-agent.yml`; the active engine is
+`scripts/insights_v3.py`. The older v2 engine remains available only as an
+explicit manual rollback choice in the workflow.
 
-The legacy Windows task may remain registered as a recovery mechanism, but
-`scripts/agent_runtime.py` reads the scheduler lease before doing any Git or
-editorial work. While the lease belongs to `github-actions`, the local task
-exits successfully without publishing. This prevents duplicate same-day runs.
+## Production contract
 
-## Schedule
+- Publish at approximately 07:07 New York time every day.
+- Target three publishable articles; never publish more than five.
+- Never fill the slate below the global quality floor merely to hit volume.
+- Long-form treatment requires at least three independent sources and two
+  usable full texts. Thinner evidence is shortened to analysis or a brief.
+- A draft that fails financial, editorial, source, or deterministic fact review
+  is withheld. A cleared subset may still publish.
+- `shadow` cannot generate or publish. `preview` can generate drafts but cannot
+  alter public files. Only `publish` can build a release package.
+- Public writes are limited to the generated-files allowlist.
+- A main-branch release is not successful until the live edition and every new
+  article are reachable and match the local release.
 
-GitHub Actions triggers at both `11:07` and `12:07` UTC. A New York local-time
-guard permits only the trigger that maps to `07:07 America/New_York`. This
-handles EDT and EST without manual cron changes.
+## Schedule and workflow
 
-The workflow may also be started manually from the Actions tab.
+GitHub Actions registers `11:07` and `12:07` UTC schedules. The schedule-policy
+guard permits only the trigger that maps to 07:07 in `America/New_York`, so one
+run occurs through both daylight and standard time. Scheduled runs use
+`mode=publish`, `pipeline=v3`, a daily target of three, and a five-candidate
+ceiling.
 
-## Required GitHub configuration
+Manual workflow inputs:
+
+- `mode`: `shadow`, `preview`, or `publish`;
+- `article_count`: `1`, `3`, or `5`;
+- `pipeline`: `v3` by default, or `v2` for emergency rollback.
+
+The workflow validates the committed baseline, checks the provider, builds the
+edition, validates it again, uploads a 30-day evidence artifact, publishes only
+the allowlist, and verifies the live deployment. Work held by editorial gates
+remains in the artifact; it is not silently forced into the public edition.
+
+## Required repository configuration
 
 Repository secrets:
 
-- `DEEPSEEK_API_KEY`: editorial-room planning, writing, revision, and social copy.
-- `NEWSAPI_KEY`: supplemental discovery, including Culture of Capital queries.
+- `DEEPSEEK_API_KEY` — primary classification, writing, and review provider;
+- `OPENAI_API_KEY` — per-call alternate provider;
+- `NEWSAPI_KEY` — optional supplemental discovery.
 
-Workflow permissions must permit contents and pull-request writes.
+Actions workflow permissions must be `read and write`. Enable **Allow GitHub
+Actions to create and approve pull requests** so an operator-selected review
+release can open its pull request. The workflow itself declares:
 
-Anthropic is not used by the Insights workflow.
+```yaml
+permissions:
+  contents: write
+  pull-requests: write
+```
 
-## Required Netlify configuration
+Netlify must continue deploying `main` to `https://lighttowergroup.co`.
 
-- `RESEND_API_KEY`: newsletter contacts and reader-feedback email.
-- `RESEND_SEGMENT_ID`: Resend segment receiving edition subscribers.
-- `RESEND_AUDIENCE_ID`: optional backward-compatible alias for the segment ID.
-- `NOTIFY_EMAIL`: reader-feedback destination; defaults to `ben@lighttowergroup.co`.
-- `FROM_EMAIL`: verified Resend sender; defaults to `noreply@lighttowergroup.co`.
-- `EDITORIAL_FEEDBACK_WEBHOOK_URL`: optional durable feedback sink.
-- `EDITORIAL_FEEDBACK_WEBHOOK_TOKEN`: optional bearer token for that sink.
+## Pipeline stages
 
-If neither the webhook nor Resend is configured, the feedback endpoint returns
-an explicit service-unavailable response. It never pretends to save a response.
+1. Fetch active RSS/Atom sources and lawful index-page replacements.
+2. Normalize titles, repair encoding, and classify sectors.
+3. Cluster duplicate coverage into one intelligence object.
+4. Reject marketing, digests, administrative notices, consumer/lifestyle
+   housing, and items without a real beat anchor.
+5. Compare against durable editorial memory and the published archive.
+6. Retrieve article text and transfer actual source authority and evidence.
+7. Score importance and build sector scouting slates.
+8. Choose one bounded global slate: target three, maximum five, floor 40.
+9. Build a dossier whose retrieved source text is the writer's factual boundary.
+10. Draft in parallel at the maximum depth the evidence supports.
+11. Run financial review, editorial review, deterministic fact verification,
+    revision when needed, and post-revision re-review.
+12. Render cleared pages, social images, related metadata, `insights.json`, RSS,
+    sitemap, edition documents, run audit, decision, and deployment manifest.
+13. Commit and push only the generated allowlist.
+14. Poll the live edition and every new article for up to ten minutes.
+15. If verification fails, revert only when local `HEAD` and `origin/main` still
+    equal the exact failed release; otherwise stop without touching newer work.
 
-## Production sequence
+## Provider behavior
 
-1. Verify the current repository and test suite.
-2. Gather RSS, federal, NewsAPI, and watchlist discovery.
-3. Pre-enrich a bounded CRE candidate set with retrieved full text so material
-   facts hidden behind generic headlines can affect selection.
-4. Cluster headlines into distinct events and attach corroborating sources from
-   the wider feed pool.
-5. Suppress recent semantic repeats using title, amount, address, institution,
-   market, asset, and context signals.
-6. Score must-read value, assign a strict queue, and fill a quality-bounded
-   daily-depth research queue toward a target of three pieces.
-7. Fetch every independent source in each selected event.
-8. Build a source/claim dossier.
-9. Let the assigning editor and skeptic kill, defer, shorten, or assign format.
-10. Generate and independently validate the writing.
-11. Render articles, edition JSON, social assets, RSS, and sitemap.
-12. Validate generated artifacts.
-13. Upload the audit artifact and GitHub run summary.
-14. Resolve publication:
-    - supported routine and daily-depth briefs may publish to `main`;
-    - flagship, Culture of Capital, legally sensitive, insufficient-evidence,
-      and fact-poor work publishes to a review branch and opens a pull request.
+DeepSeek is preferred. Each provider gets two bounded transport attempts. If
+the primary still fails, that individual call switches to OpenAI; the rest of
+the article does not become permanently pinned to the fallback. A syntactically
+invalid JSON contract receives one separate bounded retry. Two invalid
+contracts fail closed.
 
-Netlify production deployment begins only after the same validation suite has
-passed. Review pull requests receive a Netlify Deploy Preview when the
-repository's normal Netlify Git integration is active.
+Secret-free diagnostics record provider, model, outcome, attempts, latency,
+token counts when available, fallback use, and switches. Prompts, API keys, and
+authorization headers are never logged. The provider log compacts after 512 KB.
 
-## Durable state
+## Evidence and fact controls
 
-Tracked operating state lives in `.editorial-state/` and is blocked from public
+The writer and reviewers receive the same dossier window. Every public source
+URL must be an exact dossier URL. The deterministic audit checks monetary
+amounts, known institutions, addresses, key brief numbers, and unsupported
+claim phrases. Equivalent representations such as `$1,567 million` and
+`$1.567 billion` compare in base dollars, while genuinely different magnitudes
+remain a hold.
+
+Review-required draft artifacts include the exact stage decisions, scores,
+issues, summaries, and errors without duplicating full articles inside every
+stage record.
+
+## Durable and retained state
+
+Tracked operating state lives in `.editorial-state/` and is denied from public
 web access by `netlify.toml`.
 
-- `scheduler.json`: single-scheduler lease.
-- `audience-signals.json`: bounded learning weights.
-- `discovery-watchlist.json`: editable culture and original-reporting radar.
-- `source-health.json`: feed reliability across cloud runs.
-- `event-memory.json`: event IDs and past decisions.
-- `runs/YYYY-MM-DD.json`: compact selection, dossier, and decision audit.
-- `publication-decision.json`: auto-publish versus editorial-review decision.
-- `generated-files.json`: exact safe allowlist for the publish commit.
-- `run-summary.md`: human-readable Actions summary and pull-request body.
+- `editorial-memory.json`: observed and published event memory;
+- `spend-ledger.json`: shared daily spend history, retained for 60 days;
+- `provider-log.jsonl`: compact secret-free provider diagnostics;
+- `source-health.json`: measured feed health and quarantine state;
+- `runs/YYYY-MM-DD.json`: compact daily audit record;
+- `publication-decision.json`: automatic-publication decision;
+- `generated-files.json`: exact release allowlist;
+- `run-summary.md`: human-readable Actions summary.
 
-Retrieved article bodies and captured quotations are excluded from durable Git
-history. The audit retains source URLs, evidence counts, reported-fact controls,
-reporting gaps, decisions, and scores.
+Large candidate, slate, run, and draft diagnostics are ignored by Git and kept
+in the workflow artifact. Retrieved article bodies are not added to durable Git
+history. An operator-supplied `--state-dir` redirects memory, spend, artifacts,
+and provider diagnostics together, which keeps canaries and tests isolated.
 
-Event memory records what the desk considered; it is not proof of publication.
-Only the public article archive can create a hard same-event publication veto.
-Recent scan memory contributes a small scoring penalty so a previously rejected
-story can still earn research when better evidence or a better angle appears.
+## Spend and runtime limits
 
-GitHub Actions also uploads state and edition output as a 30-day artifact.
+`config/thresholds.json` supplies the default `$25` daily LLM ceiling and
+per-article ceiling. All runs on the same UTC date share the durable spend
+ledger. `LTG_MAX_DAILY_USD` may lower or raise the daily ceiling for an operator
+run without editing the repository. Budget refusal is a normal shorter-edition
+outcome and is reported explicitly.
 
-## Public edition files
+The workflow job has a 120-minute ceiling. Generation is concurrent and each
+individual result is isolated, so one failed article does not discard cleared
+work.
 
-- `latest-edition.json`: current public edition.
-- `editions/YYYY-MM-DD.json`: immutable historical edition.
-- `insights.json`: article archive manifest.
-- `feed.xml`: RSS and Google News-compatible feed.
-- `sitemap.xml`: site index.
+## Local commands
 
-The operating target is three publishable articles per day, with up to five
-research assignments to allow for kills and source failure. An edition can
-still contain no article when the evidence genuinely does not support
-publication. `no_publishable_story` is a successful safety outcome, and the run
-also records that the daily target was missed.
+Run from the repository root with the repository virtual environment.
 
-## Manual validation
-
-From the repository root:
+Full validation:
 
 ```powershell
 $env:PYTHONDONTWRITEBYTECODE='1'
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv\Scripts\python.exe scripts\validate_publication.py
-node --check edition.js
-node --check netlify\functions\newsletter-subscribe.js
-node --check netlify\functions\editorial-feedback.js
+python -m py_compile scripts\*.py
+python -m unittest discover -s tests -v
+python scripts\validate_publication.py
+npm.cmd run check:js
+npm.cmd run test:js
 ```
 
-Run a no-write editorial simulation:
+Selection-only canary:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\daily_news_agent.py `
-  --selection-mode edition `
-  --articles 5 `
-  --daily-target 3 `
-  --dry-run `
-  --run-origin manual
+python scripts\insights_v3.py --mode shadow `
+  --daily-target 3 --article-limit 5 --quality-floor 40 --workers 3 `
+  --state-dir .editorial-state\canary\shadow
 ```
 
-Run selection only:
+Real no-public-write canary:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\daily_news_agent.py `
-  --selection-mode edition `
-  --articles 5 `
-  --daily-target 3 `
-  --shadow `
-  --run-origin manual
+python scripts\insights_v3.py --mode preview `
+  --daily-target 3 --article-limit 3 --quality-floor 40 --workers 3 `
+  --state-dir .editorial-state\canary\preview
 ```
 
-## Review checklist
+Do not use `--include-review` in automation. It is a deliberate manual override
+for a human who has inspected the exact held drafts and sources.
 
-Before merging an editorial-review pull request:
+## Reading a run
 
-- Confirm the event is new relative to linked archive matches.
-- Open every source URL.
-- Verify quotes, numbers, parties, dates, and causality.
-- Read the skeptic objections and reporting gaps.
-- Confirm the headline does not overstate one transaction as a market.
-- Confirm any physical or human detail appears in a cited source.
-- Read aloud for repeated abstractions or generated rhythm.
-- Confirm the article deserves its assigned format.
-- Prefer shortening or killing to repairing weak source material with prose.
+Start with `.editorial-state/v3-run.json` or the isolated run directory.
 
-## Switching back to the local scheduler
+Healthy production-equivalent indicators:
 
-Only change `.editorial-state/scheduler.json` to
-`"active_scheduler": "local-scheduler"` after disabling the GitHub schedule or
-otherwise ensuring it cannot publish. Never authorize both.
+- `daily_target_met: true` when at least three candidates cleared selection;
+- `generation.written` near three, with every hold explained in `results`;
+- `provider.successful_calls` greater than zero and provider failures visible;
+- `spend.exhausted: false` unless an intentional ceiling stopped work;
+- `publication.failed: 0`;
+- publication decision `auto_publish_allowed: true` before main publication;
+- live verification reports the expected edition and article count.
 
-The local runtime uses curated edition mode and no longer supports unlimited
-bucketed publication.
+`no_publishable_story` is safe but not a healthy volume result. Investigate
+selection, retrieval, and holds before the next schedule.
+
+## Troubleshooting
+
+### Feed outage or zero documents
+
+Check `source-health.json` and the ingestion line in the run report. A broad
+network/DNS failure is not evidence that 170 feeds broke simultaneously. Retry
+with confirmed outbound access. Do not lower relevance gates in response to a
+transport outage.
+
+### Fewer than three publication candidates
+
+Inspect `v3-candidates.json`, `v3-slates.json`, eligibility reasons, score
+distribution, and the runner-up. Confirm the input supply is real before
+changing the floor. Never promote digests, administrative notices, marketing,
+consumer housing, or unrelated finance to fill the number.
+
+### Draft held for review
+
+Read `v3-drafts.json` and the draft's `diagnostics` in this order:
+
+1. post-revision fact verification;
+2. post-revision financial review;
+3. post-revision editorial review;
+4. provider/JSON errors;
+5. original reviews and revision result.
+
+Fix false equivalence, dossier truncation, or contract parsing in code. Do not
+convert a failed gate to a pass merely to meet the target.
+
+### Provider failure
+
+Inspect `provider-log.jsonl` and the run's provider summary. If DeepSeek failed
+and OpenAI succeeded, the system operated as designed. If both failed, confirm
+both secrets and provider status. A provider preflight failure stops generation
+before public files are changed.
+
+### Review pull request fails to open
+
+Verify the repository setting allowing Actions to create pull requests. The
+`contents: write` and `pull-requests: write` declarations alone are not enough.
+The generated review branch and artifact remain recoverable even if PR creation
+fails.
+
+### Live verification fails
+
+Check Netlify build/deploy status and request
+`latest-edition.json?release=<sha>`. The workflow automatically invokes the
+safe rollback script only if nobody has advanced `main`. If `main` moved, the
+script refuses to revert and requires an operator to inspect the newer state.
+
+## Emergency rollback
+
+Preferred rollback is the workflow input `pipeline=v2`, which leaves v3 code in
+place while running the previous production engine. Use it only while a v3
+incident is being diagnosed.
+
+For an exact failed publication commit, the workflow uses:
+
+```powershell
+python scripts\rollback_release.py --expected-sha <failed-release-sha>
+```
+
+This command is intentionally strict: it refuses unless local `HEAD` and
+`origin/main` both still equal that exact SHA. It creates a normal revert commit
+and verifies the remote push; it never force-pushes or resets history.
+
+## Release acceptance checklist
+
+- Full Python and JavaScript suites pass.
+- A real preview writes three cleared articles with no public changes.
+- Workflow syntax and manual v3 path are present; v2 rollback remains present.
+- Required Actions permissions and secrets are configured.
+- The cutover commit reaches `main` through a reviewed branch/PR.
+- A manual `mode=publish`, `pipeline=v3` run completes.
+- `latest-edition.json` and every new article verify on the live domain.
+- A second production-equivalent run completes without duplication, state loss,
+  unbounded spend, or unexplained holds.

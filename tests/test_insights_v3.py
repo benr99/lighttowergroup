@@ -171,16 +171,43 @@ class WritesArtifacts(unittest.TestCase):
 class ShadowIsolation(unittest.TestCase):
     """v3 must be unable to affect the edition it runs beside."""
 
-    def test_v3_never_publishes_or_writes_public_files(self) -> None:
+    def test_the_orchestrator_never_touches_public_indexes_directly(self) -> None:
         source = (ROOT / "scripts" / "insights_v3.py").read_text(encoding="utf-8")
-        for forbidden in ("insights.json", "sitemap.xml", "feed.xml", "publish_generated",
-                          "git commit", "git push", "generated-files.json"):
+        for forbidden in ("insights.json", "sitemap.xml", "feed.xml",
+                          "publish_generated", "git commit", "git push"):
             self.assertNotIn(forbidden, source,
-                             f"the shadow pipeline references {forbidden!r}")
+                             f"the orchestrator references {forbidden!r} directly")
 
-    def test_only_shadow_mode_is_accepted(self) -> None:
+    def test_default_mode_is_shadow_and_does_not_write_or_publish(self) -> None:
         report, _ = run(items=_fixture_documents(), enrich_limit=0, verbose=False)
         self.assertEqual(report.mode, "shadow")
+        self.assertEqual(report.generation, {})
+        self.assertEqual(report.publication, {})
+
+    def test_shadow_rejects_generation_or_publication(self) -> None:
+        with self.assertRaisesRegex(ValueError, "shadow mode"):
+            run(items=_fixture_documents(), enrich_limit=0, generate=True, verbose=False)
+        with self.assertRaisesRegex(ValueError, "shadow mode"):
+            run(items=_fixture_documents(), enrich_limit=0,
+                generate=True, publish_articles=True, verbose=False)
+
+    def test_preview_generates_but_cannot_publish(self) -> None:
+        with self.assertRaisesRegex(ValueError, "preview mode"):
+            run(items=_fixture_documents(), enrich_limit=0, mode="preview",
+                publish_articles=True, generate=True, verbose=False)
+
+    def test_publication_requires_generation_when_called_explicitly(self) -> None:
+        with self.assertRaisesRegex(ValueError, "requires generation"):
+            run(items=_fixture_documents(), enrich_limit=0, mode="publish",
+                publish_articles=True, generate=False, verbose=False)
+
+    def test_generation_is_bounded_to_the_global_publication_slate(self) -> None:
+        source = (ROOT / "scripts" / "insights_v3.py").read_text(encoding="utf-8")
+        self.assertIn("chosen = list(slate_report.publication_slate)", source)
+        self.assertNotIn(
+            "chosen = [o for s in slate_report.sectors.values() for o in s.selected]",
+            source,
+        )
 
     def test_v3_writes_only_inside_the_editorial_state_directory(self) -> None:
         self.assertEqual(insights_v3.STATE_DIR.name, ".editorial-state")
@@ -195,11 +222,13 @@ class ShadowIsolation(unittest.TestCase):
                       "a v3 failure must never reach the edition")
         self.assertIn("production continues", block)
 
-    def test_the_workflow_runs_v3_in_shadow_beside_v2(self) -> None:
+    def test_the_workflow_runs_v3_with_an_explicit_v2_rollback_path(self) -> None:
         workflow = (ROOT / ".github" / "workflows" / "daily-insights-agent.yml").read_text(encoding="utf-8")
-        self.assertIn("--shadow-v3", workflow)
+        self.assertIn("python insights_v3.py", workflow)
+        self.assertIn("inputs.pipeline || 'v3'", workflow)
+        self.assertIn("v2)", workflow)
         self.assertIn("--pipeline-v2", workflow,
-                      "v2 must remain the production selector until cutover")
+                      "v2 must remain available as the operator rollback path")
 
 
 class BoundedWork(unittest.TestCase):

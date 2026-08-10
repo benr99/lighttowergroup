@@ -184,6 +184,7 @@ class SourceRefHelpers(unittest.TestCase):
         source_url = "https://example.com/a"
         canonical_url = "https://example.com/a"
         source_tier = 2
+        source_authority = "secondary"
         publication_date = "2026-08-03T00:00:00+00:00"
         raw_summary = "short summary"
         raw_text = ""
@@ -193,6 +194,14 @@ class SourceRefHelpers(unittest.TestCase):
         self.assertEqual(source_ref_from_item(item).retrieval_status, RetrievalStatus.SUMMARY_ONLY)
         item.raw_text = "x" * 2000
         self.assertEqual(source_ref_from_item(item).retrieval_status, RetrievalStatus.FULL_TEXT)
+
+    def test_source_authority_is_not_inferred_from_tier(self) -> None:
+        item = self._Item()
+        item.source_tier = 1
+        item.source_authority = "secondary"
+        self.assertFalse(source_ref_from_item(item).is_primary_authority)
+        item.source_authority = "primary"
+        self.assertTrue(source_ref_from_item(item).is_primary_authority)
 
     def test_merge_keeps_the_richest_retrieval_per_url(self) -> None:
         merged = merge_sources([

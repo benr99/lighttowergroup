@@ -22,7 +22,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from typing import Any, Iterable
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 # ── Controlled vocabularies ────────────────────────────────────────────────
@@ -63,13 +63,15 @@ class ContentType:
     PERSONNEL_NOTICE = "personnel_notice"
     LISTICLE = "listicle"
     EVENT_PROMOTION = "event_promotion"
+    ADMINISTRATIVE_NOTICE = "administrative_notice"
+    DIGEST = "digest"
     UNKNOWN = "unknown"
 
     ALL = frozenset({
         NEWS_REPORT, PRESS_RELEASE, PRIMARY_DOCUMENT, REGULATORY_FILING,
         EARNINGS_MATERIAL, DATA_PUBLICATION, RESEARCH_REPORT, INTERVIEW,
         OPINION, EXPLAINER, MARKETING, PERSONNEL_NOTICE, LISTICLE,
-        EVENT_PROMOTION, UNKNOWN,
+        EVENT_PROMOTION, ADMINISTRATIVE_NOTICE, DIGEST, UNKNOWN,
     })
 
     #: Content that is never editorial intelligence on its own. An interview or
@@ -77,6 +79,8 @@ class ContentType:
     #: which is a separate test, per the editorial mandate.
     NEVER_ELIGIBLE = frozenset({
         MARKETING, EXPLAINER, PERSONNEL_NOTICE, LISTICLE, EVENT_PROMOTION,
+        ADMINISTRATIVE_NOTICE,
+        DIGEST,
     })
 
     #: Content carrying primary authority; corroboration requirements relax.
@@ -161,6 +165,7 @@ class SourceRef:
     publication_date: str = ""
     is_primary_authority: bool = False
     text_chars: int = 0
+    retrieved_text: str = ""
     discovery_channel: str = "rss"
 
     def to_dict(self) -> dict[str, Any]:
@@ -472,9 +477,13 @@ def source_ref_from_item(item: Any, *, discovery_channel: str = "rss") -> Source
         source_url=getattr(item, "source_url", "") or "",
         canonical_url=getattr(item, "canonical_url", "") or "",
         source_tier=tier,
+        is_primary_authority=(
+            str(getattr(item, "source_authority", "")).lower() == "primary"
+        ),
         publication_date=getattr(item, "publication_date", "") or "",
         retrieval_status=retrieval,
         text_chars=text_chars or summary_chars,
+        retrieved_text=(getattr(item, "raw_text", "") or "")[:12_000],
         discovery_channel=discovery_channel,
     )
 

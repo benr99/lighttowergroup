@@ -29,13 +29,15 @@ FIXTURE = ROOT / "tests" / "fixtures" / "ranker_corpus_2026-08-03.json"
 
 def obj(title: str, summary: str = "", *, sector: str = "commercial_real_estate",
         sources: int = 1, object_class: str = ObjectClass.DISCRETE_EVENT,
-        tier: int = 3, full_text: bool = False) -> IntelligenceObject:
+        tier: int = 3, full_text: bool = False,
+        primary_authority: bool = False) -> IntelligenceObject:
     refs = [
         SourceRef(
             item_id=f"s{i}",
             source_name=f"Publisher {i}",
             canonical_url=f"https://p{i}.com/a",
             source_tier=tier,
+            is_primary_authority=primary_authority,
             retrieval_status=RetrievalStatus.FULL_TEXT if full_text else RetrievalStatus.SUMMARY_ONLY,
         )
         for i in range(sources)
@@ -194,6 +196,41 @@ class HardDisqualifiers(unittest.TestCase):
     def test_unclassified_sector_is_rejected(self) -> None:
         decision = eligibility.assess(obj("Something happened for $50 million", sector=""))
         self.assertFalse(decision.eligible)
+
+    def test_administrative_notice_is_rejected_even_from_primary_authority(self) -> None:
+        node = obj(
+            "Agency Information Collection Activities: Comment Request",
+            sector="banking_credit",
+            tier=1,
+            primary_authority=True,
+        )
+        decision = eligibility.assess(node)
+        self.assertFalse(decision.eligible)
+        self.assertIn("content_type=administrative_notice", decision.disqualifiers)
+        eligibility.apply(node)
+        self.assertEqual(node.content_type, ContentType.ADMINISTRATIVE_NOTICE)
+
+    def test_source_priors_cannot_turn_unrelated_finance_into_cre(self) -> None:
+        for title, summary in (
+            ("HFTs Shun India Stock Closing Auction", "SEBI changed short-selling rules."),
+            ("SGL Carbon Q2 Earnings Call Transcript", "The manufacturer reported revenue."),
+            (
+                "Foreign licensing business earns $59.5 million as Gulf developers pay",
+                "Two developers paid brand licensing fees.",
+            ),
+        ):
+            with self.subTest(title=title):
+                decision = eligibility.assess(obj(title, summary))
+                self.assertFalse(decision.eligible)
+                self.assertIn("no Light Tower beat anchor", decision.disqualifiers)
+
+    def test_consumer_house_story_is_not_institutional_real_estate(self) -> None:
+        decision = eligibility.assess(obj(
+            "Historic Maine house selling for $1 before demolition",
+            "A single-family home must be moved by its buyer.",
+        ))
+        self.assertFalse(decision.eligible)
+        self.assertIn("no Light Tower beat anchor", decision.disqualifiers)
 
 
 class DecisionContract(unittest.TestCase):
