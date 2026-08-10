@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import v3_publish  # noqa: E402
 from intelligence_object import IntelligenceObject, SourceRef  # noqa: E402
 from v3_generation import DraftResult  # noqa: E402
-from v3_publish import make_slug, publish  # noqa: E402
+from v3_publish import _article_payload, make_slug, publish  # noqa: E402
 
 
 def _obj(title: str, *, sector: str = "commercial_real_estate") -> IntelligenceObject:
@@ -82,6 +82,17 @@ class Slugs(unittest.TestCase):
 
 
 class PublishesFinishedWork(unittest.TestCase):
+    def test_v3_payload_satisfies_the_real_shared_renderer_contract(self) -> None:
+        from daily_news_agent import render_html
+
+        obj = _obj("Blackstone acquires Phoenix portfolio for $450 million")
+        draft = _draft(obj)
+        payload = _article_payload(draft, obj, make_slug(draft.title))
+        html = render_html(payload)
+        self.assertIn(payload["date"], html)
+        self.assertIn(payload["date_iso"], html)
+        self.assertIn(payload["title"], html)
+
     def test_a_completed_draft_becomes_a_page(self) -> None:
         obj = _obj("Blackstone acquires Phoenix portfolio for $450 million")
         with _Sandbox() as box:
