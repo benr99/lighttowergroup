@@ -38,6 +38,20 @@ def calculate_read_time(body_html: str) -> int:
 
 
 def _article_summary(article: dict[str, Any]) -> dict[str, Any]:
+    source_domains = {
+        str(source.get("url", "")).split("/")[2].lower().removeprefix("www.")
+        for source in article.get("sources", [])
+        if isinstance(source, dict) and str(source.get("url", "")).startswith(("http://", "https://"))
+    }
+    # v3 deliberately builds the public edition from compact article summaries,
+    # rather than embedding the full source list a second time. Preserve the
+    # already-audited count in that path while still deriving it for v2/full
+    # article payloads. Without this fallback, a valid one-source brief appeared
+    # as "0 sources" in latest-edition.json after an otherwise successful run.
+    try:
+        reported_source_count = max(0, int(article.get("source_count") or 0))
+    except (TypeError, ValueError):
+        reported_source_count = 0
     return {
         "event_id": article.get("event_id"),
         "title": article.get("title"),
@@ -51,11 +65,7 @@ def _article_summary(article: dict[str, Any]) -> dict[str, Any]:
         "must_read_score": article.get("must_read_score"),
         "selection_tier": article.get("selection_tier"),
         "read_time": calculate_read_time(str(article.get("body_html", ""))),
-        "source_count": len({
-            str(source.get("url", "")).split("/")[2].lower().removeprefix("www.")
-            for source in article.get("sources", [])
-            if isinstance(source, dict) and str(source.get("url", "")).startswith(("http://", "https://"))
-        }),
+        "source_count": max(reported_source_count, len(source_domains)),
     }
 
 

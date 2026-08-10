@@ -109,7 +109,16 @@ def _article_payload(draft: Any, obj: Any, slug: str) -> dict[str, Any]:
     article.setdefault("research_evidence_level", obj.evidence_level)
     article.setdefault("research_usable_full_text_count", obj.usable_full_text_count)
     article.setdefault("research_reported_fact_count", len(obj.facts))
-    article["source_count"] = obj.independent_source_count
+    article_source_keys = {
+        str(source.get("url") or source.get("name") or "").strip().lower()
+        for source in article.get("sources", [])
+        if isinstance(source, dict) and (source.get("url") or source.get("name"))
+    }
+    # The clustered intelligence object remains authoritative, but a provider
+    # may return a useful source list even when an imported/legacy object has no
+    # populated SourceRef. Never render an article as having zero sources when
+    # its payload demonstrably carries one or more.
+    article["source_count"] = max(obj.independent_source_count, len(article_source_keys))
     article["source_name"] = obj.sources[0].source_name if obj.sources else ""
     article["source_url"] = (
         obj.sources[0].canonical_url or obj.sources[0].source_url if obj.sources else ""
@@ -120,6 +129,11 @@ def _article_payload(draft: Any, obj: Any, slug: str) -> dict[str, Any]:
             for ref in obj.sources
             if (ref.canonical_url or ref.source_url)
         ]
+        article["source_count"] = max(article["source_count"], len({
+            str(source.get("url") or source.get("name") or "").strip().lower()
+            for source in article["sources"]
+            if source.get("url") or source.get("name")
+        }))
     return article
 
 
