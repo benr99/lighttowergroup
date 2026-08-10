@@ -21,6 +21,33 @@ from v3_publish import PublishReport, finalize_publication  # noqa: E402
 
 
 class CompleteReleasePackage(unittest.TestCase):
+    def test_article_payload_never_reports_zero_when_a_source_is_present(self) -> None:
+        draft = SimpleNamespace(
+            depth="tier_c",
+            article={
+                "title": "A sourced brief",
+                "excerpt": "A concise sourced brief.",
+                "sources": [{"name": "Example Markets", "url": "https://example.com/story"}],
+            },
+        )
+        obj = SimpleNamespace(
+            title="A sourced brief",
+            primary_sector="commercial_real_estate",
+            primary_subsector="multifamily",
+            event_type="transaction",
+            object_id="event-1",
+            final_score=50,
+            evidence_level="single_full_text",
+            usable_full_text_count=1,
+            facts=[],
+            independent_source_count=0,
+            sources=[],
+        )
+
+        article = v3_publish._article_payload(draft, obj, "a-sourced-brief")
+
+        self.assertEqual(article["source_count"], 1)
+
     def test_manifest_carries_memory_spend_edition_and_public_files(self) -> None:
         root = Path(tempfile.mkdtemp())
         state = root / ".editorial-state"
@@ -115,6 +142,8 @@ class CompleteReleasePackage(unittest.TestCase):
         decision = json.loads((state / "publication-decision.json").read_text(encoding="utf-8"))
         self.assertTrue(decision["auto_publish_allowed"])
         self.assertFalse(decision["review_required"])
+        edition = json.loads((root / "latest-edition.json").read_text(encoding="utf-8"))
+        self.assertEqual(edition["briefs"][0]["source_count"], 2)
 
 
 if __name__ == "__main__":
