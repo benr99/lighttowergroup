@@ -1,0 +1,601 @@
+{
+  "run_at": "2026-08-10T14:05:12.622224+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 450,
+  "documents_from_feeds": 347,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 419,
+  "documents_consolidated": 31,
+  "eligible": 48,
+  "enriched": 48,
+  "evidence_upgraded": 20,
+  "selected": 16,
+  "publication_candidates": 3,
+  "daily_target": 3,
+  "article_limit": 3,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 14,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "14 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "commercial_real_estate": {
+      "considered": 244,
+      "eligible": 26,
+      "selected": 7,
+      "target": 10,
+      "shortfall_reason": "only 7 of 26 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 43,
+      "eligible": 7,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 61,
+      "eligible": 9,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 14,
+      "eligible": 4,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 40,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 8,
+    "tier_c": 8
+  },
+  "shortfalls": [
+    "banking_credit: 14 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "commercial_real_estate: only 7 of 26 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 4 of 7 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 9 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 3 of 4 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 9.1,
+    "max": 72.4,
+    "mean": 22.5,
+    "stdev": 8.77,
+    "range_used": 63.3
+  },
+  "retrieval": {
+    "requested": 48,
+    "fetched": 45,
+    "from_cache": 0,
+    "blocked": 2,
+    "failed": 1,
+    "skipped_budget": 0,
+    "bytes_downloaded": 8522184,
+    "elapsed_ms": 18641,
+    "by_status": {
+      "full_text": 20,
+      "partial_text": 25,
+      "failed": 1,
+      "blocked": 2
+    }
+  },
+  "novelty": {
+    "new": 419
+  },
+  "memory": {
+    "seeded_from_archive": 400,
+    "events_remembered": 819,
+    "published": 401,
+    "seen_but_not_run": 418,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-10",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.21,
+    "spent_today_usd": 0.21,
+    "remaining_usd": 24.79,
+    "exhausted": false,
+    "total_calls": 3,
+    "refused_calls": 0,
+    "elapsed_seconds": 446.4,
+    "by_stage": {
+      "generation": {
+        "calls": 3,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.21,
+        "seconds": 1026.6,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "2384f8038aaa4bda",
+        "usd": 0.07
+      },
+      {
+        "id": "2f394756dd5eae38",
+        "usd": 0.07
+      },
+      {
+        "id": "1d95db161ad1e23c",
+        "usd": 0.07
+      }
+    ]
+  },
+  "generation": {
+    "requested": 3,
+    "written": 1,
+    "needs_review": 2,
+    "held": 0,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 389.4,
+    "usd": 0.21,
+    "by_depth": {
+      "tier_b": 3
+    },
+    "results": [
+      {
+        "object_id": "2384f8038aaa4bda",
+        "title": "What’s Driving CMBS Distress in the Top U.S. Metro Areas",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "review_required",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10,
+            "summary": "The article faithfully reports all financial figures from the source, correctly attributes the data to Commercial Observer and CRED iQ, and explains the meaning behind the numbers — chiefly, that a few large distressed loans distort metro-level distress rates. The analysis distinguishes between headline figures and concentration effects, identifies the shift from office to multifamily distress, and draws only evidence-bounded conclusions. No unsupported claims or factual errors are present, and the analytical depth meets the brief.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Opens with a vivid, concrete premise—a single building can distort a metro’s distress picture—then immediately grounds it in specific metro data, creating a strong hook.",
+            "worst_sentence": "Across those 50 markets, $45.8 billion of the $393.5 billion in outstanding CMBS balance is distressed, a balance-weighted rate of 11.6 percent, per CRED iQ data reported by Commercial Observer.",
+            "summary": "The article is a tightly constructed, professional analysis that avoids template language, varies sentence rhythm, and closes with a memorable punchline. One data-heavy sentence is slightly cluttered, but overall writing quality is excellent.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [
+              "Article contains dossier-unverified claims (3 amounts, 0 companies, 0 addresses): amounts: $53 million near 'roperty, a $61 million loan in Santa Rosa Beach, Florida, a $53 million Las Vegas complex, and others.</p><p>Denver’s 13', $50 million near 'distress rates can be deceptive. A metro with a handful of $50 million to $100 million problem loans will look far worse', $100 million near 'can be deceptive. A metro with a handful of $50 million to $100 million problem loans will look far worse than one with '"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [
+              "The article asserts that 'many apartment loans were underwritten with aggressive rent growth assumptions during the boom, and now face higher cap rates and floating-rate resets' without attributing this causal explanation to any source. This claim about the drivers of multifamily distress goes beyond the factual boundary of the dossier, which reports the rise in delinquency but not its underwriting causes. Presenting it as fact without attribution or labeling it as speculation creates an unsupported analytical leap."
+            ],
+            "passed": false,
+            "score_1_10": 7,
+            "summary": "The article accurately conveys the core CMBS distress data from the Commercial Observer, including metro rankings, balance-weighted rates, and the shift from office to multifamily. However, it introduces an unsupported causal explanation for the multifamily trend—overly aggressive rent growth assumptions, higher cap rates, floating-rate resets—that is not found in the source and is not presented as analysis or speculation. This weakens the analytical rigor.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Minor cliché in transition: 'Nowhere is this more evident than in the July numbers.'"
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Specific and engaging, instantly contrasts headline distress with underlying cause.",
+            "worst_sentence": "Nowhere is this more evident than in the July numbers.",
+            "summary": "A sharply written, well-structured analysis with a strong hook, varied sentences, and a pointed, professional conclusion. The voice is knowledgeable and conversational, avoiding AI clichés. Only a single transitional phrase slightly weakens the otherwise crisp prose.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 282.2,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": true
+      },
+      {
+        "object_id": "2f394756dd5eae38",
+        "title": "Stripping STRIPs Trading Activity",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [
+              "The assertion that price discovery for long-dated zero-coupon obligations is \"dominated by a handful of institutional actors\" is an inference that goes slightly beyond the source. The NY Fed post notes high dealer-to-client volume and large trade sizes, indicating strong institutional participation, but does not explicitly claim that price discovery is dominated by a small number of actors. This is a reasonable analytical leap for an intelligence brief, but it edges toward unsupported interpretation."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article faithfully reproduces all material figures from the NY Fed source and clearly links the  exclusion of STRIPS volume from FINRA's public data to practical consequences for market transparency, liquidity assessment, and long-end pricing. The analytical argument is well-grounded in the evidence, and the incentive landscape (who is affected, why it matters now) is explicitly addressed. The minor overstatement on price discovery dominance does not detract from the overall accuracy or depth.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "excellent, hooks with a specific and surprising data point immediately",
+            "worst_sentence": "Corporate treasurers and real estate investors who benchmark their cost of capital against the 10- and 30-year points of the curve should notice: the daily stripping and reconstitution flow itself averages $1.8 billion and $1.6 billion, respectively, further evidence that the long end is continuously repackaged to meet institutional demand.",
+            "summary": "A tightly written, data-driven piece that effectively exposes a blind spot in public Treasury volume data and its concrete consequences for long-duration investors. The opening is specific and gripping, the structure flows logically from problem to evidence to implication, and the conclusion is pointed and actionable. Voice is that of an authoritative market professional, not an institution, and the article avoids formulaic AI language.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [
+              "Article contains dossier-unverified claims (4 amounts, 0 companies, 0 addresses): amounts: $1.8 billion near 'the daily stripping and reconstitution flow itself averages $1.8 billion and $1.6 billion, respectively, further evidenc', $1.6 billion near 'ng and reconstitution flow itself averages $1.8 billion and $1.6 billion, respectively, further evidence that the long e', $3.9 billion near 'onal demand.</p><p>The daily trading volume of $5.6 billion—$3.9 billion in principal STRIPS and $1.8 billion in coupon '"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [
+              "The article states that STRIPS are created by detaching 'the twenty semi-annual coupon payments and the principal repayment of a standard Treasury note or bond.' While the NY Fed source uses a 10-year note as an example (which has 20 semi-annual coupon payments), not all standard Treasury notes and bonds have exactly 20 coupons. A 30-year bond has 40 semi-annual payments. The phrasing is slightly imprecise and could mislead readers about the variability of coupon counts across different maturities."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the NY Fed's analysis of STRIPS trading activity, correctly citing all key figures and drawing reasonable inferences about market transparency. The only minor flaw is a slight imprecision in the generic description of the stripping process, which does not undermine the overall analytical depth or factual integrity.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Specific, hard-hitting opener that hooks with a concrete dollar figure and the surprise that public data ignores it.",
+            "worst_sentence": "The gap means that a significant share of trading in zero-coupon long-dated obligations occurs between dealers and large institutional end-users, and this activity is missing from the headline Treasury volume prints.",
+            "summary": "A tightly written market analysis that explains an invisible Treasury market, its importance for long-duration investors, and the implications of truncated public data—all in a professional, varied voice with zero AI tics and a substantive, actionable close.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 355.0,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1d95db161ad1e23c",
+        "title": "Equity Residential and AvalonBay: Inside the $71B Mega Multifamily Merger",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "review_required",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [
+          "financial_review: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=18381)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article faithfully and insightfully uses the Commercial Observer source as its exclusive factual foundation. All financial figures, quotes, and market data are accurately reported and properly attributed. The analysis goes beyond mere summary by explaining the significance of the $950 per apartment synergy figure and framing the merger as a defensive response to a permanently higher cost of capital. The article clearly distinguishes reported facts from editorial interpretation, and it identifies the central open question of future earnings growth. No factual errors, unsupported claims, or attributions gaps are present.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "SpaceX comparison feels out of place and unclear, weakening the analogy."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Specific, hooks with a precise date and a startling dollar figure that immediately establishes stakes.",
+            "worst_sentence": "\"The market has not piled into this as they did with SpaceX.\"",
+            "summary": "A sharply observed, voice-driven analysis of a landmark REIT merger that explains the defensive logic behind the deal, supports it with concrete numbers and expert quotes, and closes with the right future-facing question.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [
+              "Article contains dossier-unverified claims (1 amounts, 0 companies, 0 addresses): amounts: $950 near 'pread across a 183,000-unit portfolio, works out to roughly $950 per apartment. It is a number that matters, but it is n'"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "status": "unavailable",
+            "issues": [
+              "Financial review unavailable: RuntimeError"
+            ],
+            "passed": false,
+            "score_1_10": 0,
+            "summary": "Financial review failed closed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Minor clunky phrasing in 'The companies themselves pointed to $175 million...' could be more direct."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Strong, hooks with a specific date and surprising number, then contrasts with market's muted reaction.",
+            "worst_sentence": "The companies themselves pointed to $175 million in expected cost synergies within 18 months of closing.",
+            "summary": "The article is well-structured, with a compelling narrative, varied sentences, no AI language, and a pointed conclusion. The voice is confident and professional. A minor phrasing tweak is the only blemish.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 389.4,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": true
+      }
+    ]
+  },
+  "publication": {
+    "requested": 3,
+    "published": 1,
+    "skipped_existing": 0,
+    "skipped_review": 2,
+    "failed": 0,
+    "files_written": [
+      "insights/the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out_social.png",
+      "insights/the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "2f394756dd5eae38",
+        "title": "The $5.6 Billion Treasury Trade That FINRA’s Tape Leaves Out",
+        "slug": "the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out",
+        "url": "/insights/the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out.html",
+        "category": "Capital Markets",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "2384f8038aaa4bda",
+        "slug": "",
+        "title": "What’s Driving CMBS Distress in the Top U.S. Metro Areas",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "flagged for review"
+      },
+      {
+        "object_id": "2f394756dd5eae38",
+        "slug": "the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out",
+        "title": "Stripping STRIPs Trading Activity",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1d95db161ad1e23c",
+        "slug": "",
+        "title": "Equity Residential and AvalonBay: Inside the $71B Mega Multifamily Merger",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "flagged for review"
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 21,
+    "successful_calls": 19,
+    "failed_provider_attempts": 2,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 22.71,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 9.93,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.07,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.2,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.52,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 3.06,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 18.75,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.07,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 390.93,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.13,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.04,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence",
+    "published 1 of the daily target 3"
+  ],
+  "errors": [],
+  "elapsed_seconds": 446.41,
+  "status": "success",
+  "candidate_count": 450,
+  "event_count": 419,
+  "articles": [
+    {
+      "event_id": "2f394756dd5eae38",
+      "title": "The $5.6 Billion Treasury Trade That FINRA’s Tape Leaves Out",
+      "slug": "the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out",
+      "url": "/insights/the-5-6-billion-treasury-trade-that-finra-s-tape-leaves-out.html",
+      "category": "Capital Markets",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [
+    "What’s Driving CMBS Distress in the Top U.S. Metro Areas",
+    "Equity Residential and AvalonBay: Inside the $71B Mega Multifamily Merger"
+  ],
+  "article_count": 1
+}

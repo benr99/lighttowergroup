@@ -1,9 +1,15 @@
 {
-  "schema_version": 1,
-  "edition_status": "no_publishable_story",
+  "schema_version": 2,
+  "pipeline_version": "v3.0",
+  "edition_status": "ready",
   "review_required": false,
   "auto_publish_allowed": true,
   "reasons": [],
-  "article_count": 0,
-  "generated_at": "2026-08-09T12:28:26+00:00"
+  "held_for_review": [
+    "What’s Driving CMBS Distress in the Top U.S. Metro Areas",
+    "Equity Residential and AvalonBay: Inside the $71B Mega Multifamily Merger"
+  ],
+  "article_count": 1,
+  "failed_count": 0,
+  "generated_at": "2026-08-10T14:12:39+00:00"
 }
