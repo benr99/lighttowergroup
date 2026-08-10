@@ -88,7 +88,12 @@ def _article_payload(draft: Any, obj: Any, slug: str) -> dict[str, Any]:
     article.setdefault("subtitle", article.get("excerpt", "")[:160])
     article.setdefault("meta_description", article.get("excerpt", "")[:200])
     article.setdefault("category", _category_for(obj.primary_sector))
-    article.setdefault("date_iso", datetime.now(timezone.utc).isoformat())
+    now = datetime.now(timezone.utc)
+    article.setdefault("date_iso", now.isoformat())
+    # The shared article renderer displays this human-readable field while its
+    # structured data uses date_iso. v3 originally supplied only the latter,
+    # so otherwise-valid production drafts failed at render time.
+    article.setdefault("date", now.strftime("%B %d, %Y"))
     article.setdefault("tags", [t for t in (obj.primary_sector, obj.primary_subsector,
                                             obj.event_type) if t])
     article.setdefault(
