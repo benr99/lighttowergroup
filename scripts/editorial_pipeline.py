@@ -348,7 +348,7 @@ Return JSON with: {{issues: [list of specific problems], passed: true/false, sco
                 # Reasoning-capable DeepSeek models count hidden reasoning
                 # against this ceiling. A 1,000-token cap can expire before
                 # the compact JSON review reaches message.content.
-                max_tokens=4000,
+                max_tokens=6000,
                 temperature=0.1,
                 required_fields=["issues", "passed", "score_1_10", "summary"],
             )
@@ -394,7 +394,7 @@ Return JSON with: {{issues: [list], passed: true/false, score_1_10: int, opening
                 prompt,
                 # Leave enough room for hidden reasoning plus the complete
                 # typed review contract; truncated contracts still fail closed.
-                max_tokens=4000,
+                max_tokens=6000,
                 temperature=0.1,
                 required_fields=["issues", "passed", "score_1_10", "summary"],
             )
@@ -684,6 +684,44 @@ body_html and every claim_evidence source_url must be an exact dossier URL.
                 and post_ed.get("passed") is True
                 and post_fact.get("passed") is True
             ):
+                # One bounded correction cycle is justified when the completed
+                # post-revision reviews identify concrete, fixable defects. A
+                # provider outage remains a hold; rewriting without a usable
+                # reviewer would only hide the missing control.
+                post_reviews = (post_fin, post_ed, post_fact)
+                review_available = all(
+                    review.get("status") != "unavailable" for review in post_reviews
+                )
+                has_specific_issues = any(review.get("issues") for review in post_reviews)
+                if review_available and has_specific_issues:
+                    second_revision = self.stage_final_revision(
+                        final_article, prompt_ctx, post_fin, post_ed, post_fact
+                    )
+                    result["stages"]["second_revision"] = second_revision
+                    if second_revision.get("status") == "revised":
+                        corrected = second_revision.get("article", final_article)
+                        result["article"] = corrected
+                        second_fin = self.stage_financial_review(
+                            corrected,
+                            brief,
+                            dossier=dossier,
+                            article_format=article_format,
+                        )
+                        second_ed = self.stage_editorial_review(corrected)
+                        second_fact = self.stage_fact_verification(corrected, brief, dossier)
+                        result["stages"]["second_revision_financial_review"] = second_fin
+                        result["stages"]["second_revision_editorial_review"] = second_ed
+                        result["stages"]["second_revision_fact_verification"] = second_fact
+                        if (
+                            second_fin.get("passed") is True
+                            and second_ed.get("passed") is True
+                            and second_fact.get("passed") is True
+                        ):
+                            result["status"] = "completed"
+                            result["stages_run"] = self.stages_run
+                            result["errors"] = list(self.errors)
+                            return result
+
                 result["status"] = "review_required"
                 result["stages_run"] = self.stages_run
                 result["errors"] = list(self.errors)

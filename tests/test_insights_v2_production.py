@@ -96,7 +96,7 @@ class InsightsV2ProductionTests(unittest.TestCase):
     def test_reasoning_model_reviewers_have_room_for_complete_json(self):
         source = (ROOT / "scripts" / "editorial_pipeline.py").read_text(encoding="utf-8")
 
-        self.assertGreaterEqual(source.count("max_tokens=4000"), 2)
+        self.assertGreaterEqual(source.count("max_tokens=6000"), 2)
 
     def test_shadow_summary_reports_target_as_not_evaluated(self):
         from edition_manager import render_run_summary
@@ -425,6 +425,44 @@ class InsightsV2ProductionTests(unittest.TestCase):
         ):
             result = pipeline.run(item, dossier)
         self.assertEqual(result["status"], "review_required")
+
+    def test_one_bounded_second_revision_can_clear_concrete_post_review_findings(self):
+        item = make_item()
+        dossier = dossier_for(item)
+        pipeline = EditorialPipeline(api_key="key")
+        draft = {
+            "title": "Acme's $100 Million Clock",
+            "body_html": "<p>Acme closed a $100 million financing.</p>",
+            "excerpt": "Acme refinanced the property.",
+            "sources": [{"name": item.source_name, "url": item.source_url}],
+        }
+        revised = {**draft, "body_html": "<p>Acme disclosed a $100 million financing.</p>"}
+        corrected = {**draft, "body_html": "<p>Acme disclosed a financing.</p>"}
+        passed = {"status": "completed", "passed": True, "issues": []}
+        failed = {
+            "status": "completed", "passed": False,
+            "issues": ["Delete the unsupported causal sentence"],
+        }
+        with (
+            patch("editorial_pipeline._HAS_LLM", False),
+            patch.object(pipeline, "stage_draft", return_value={"status": "completed", "article": draft}),
+            patch.object(pipeline, "stage_financial_review", side_effect=[failed, failed, passed]),
+            patch.object(pipeline, "stage_editorial_review", side_effect=[passed, passed, passed]),
+            patch.object(pipeline, "stage_fact_verification", side_effect=[passed, passed, passed]),
+            patch.object(
+                pipeline,
+                "stage_final_revision",
+                side_effect=[
+                    {"status": "revised", "article": revised},
+                    {"status": "revised", "article": corrected},
+                ],
+            ),
+        ):
+            result = pipeline.run(item, dossier)
+
+        self.assertEqual(result["status"], "completed")
+        self.assertEqual(result["article"], corrected)
+        self.assertIn("second_revision_financial_review", result["stages"])
 
     def test_generated_article_uses_dossier_sources_not_model_sources(self):
         item = make_item()
