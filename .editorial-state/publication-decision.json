@@ -1,9 +1,12 @@
 {
   "schema_version": 1,
-  "edition_status": "no_publishable_story",
-  "review_required": false,
-  "auto_publish_allowed": true,
-  "reasons": [],
-  "article_count": 0,
-  "generated_at": "2026-08-09T12:28:26+00:00"
+  "edition_status": "ready",
+  "review_required": true,
+  "auto_publish_allowed": false,
+  "reasons": [
+    "Evidence-bounded brief lacks enough retrieved facts for automatic publication: Stocks Stall as Rate-Hike Bets Fade, Oil Break Above $84",
+    "Evidence-bounded brief lacks enough retrieved facts for automatic publication: Duke Energy's $1.75B Equity Unit Sale: Deleveraging Before the Buildout"
+  ],
+  "article_count": 2,
+  "generated_at": "2026-08-10T12:45:23+00:00"
 }

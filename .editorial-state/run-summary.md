@@ -1,21 +1,23 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **100**
-- Distinct events: **100**
-- Articles: **0**
+- Candidates: **213**
+- Distinct events: **213**
+- Articles: **2**
 - Daily target: **3**
 - Daily target met: **no**
 - Research candidates: **7**
 - Deal-tape items: **0**
 - Archive repeats suppressed: **0**
 
+## Published candidates
+
+- **brief** — Stocks Stall as Rate-Hike Bets Fade, Oil Break Above $84 (1 sources; daily_depth selection)
+- **brief** — Duke Energy's $1.75B Equity Unit Sale: Deleveraging Before the Buildout (1 sources; daily_depth selection)
+
 ## Held or downgraded
 
-- Second Notice of HUD Non-Vacant Loan Sale (HNVLS 2026-1): final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The auction delay is direct evidence that the bid-ask spread on time-sensitive federal loan paper has widened, as bidder)
-- Plan of Action Under the Defense Production Act (Material Sufficiency Committee): final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The notice signals strategic intent but does not close the economic case for the physical assets the consortium would ne)
-- BFC Partners and SAA Canopy Group Joint Venture Secures $270M for Syracuse New York Affordable Housing Redevelopment and Renovation Project: final controls held — independent quality gate: formulaic 'X signals/reveals Y' pattern; independent quality gate: formulaic question framing; independent quality gate: central claim not supported by sources (confidence: 0%, missing: The deal illustrates that even in high-rate environments, affordable projects can get financed if public subsidies absor)
-- 584-Unit Mixed-Use Tower Approved for 415-417 Hoboken Avenue in Journal Square, Jersey City: generation held — V2 editorial pipeline did not clear publication: financial_review: The article states the office space is 'a product the market has been avoiding for four years' and that 'Office demand in Northern New Jersey has been weak, with vacancies elevated and little new construction.' These are unsupported factual claims not present in the source dossier. No attribution is given for this market data, which exceeds the dossier's factual boundary and presents outside assertions as established fact. | post_revision_financial_review: Missing attribution: The article presents details from a single secondary source (New York YIMBY) as unqualified facts without citing the source, violating the standard tha
-- HUD's Implementation of the Fair Housing Act's Disparate Impact Standard; Amendments to HUD's Title VI Regulations: final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The proposal marks a deregulatory pivot that could reduce fair lending compliance burdens for federally funded CRE lende)
-- Plan of Action Under the Defense Production Act (Market-Integrated Fuel Utilization Committee): final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: Based on the publicly accessible summary, the notice confirms a governance framework but discloses no specific procureme); excellence gate: memorable line does not appear in the article
-- Plan of Action Under the Defense Production Act (Human Mobilization Committee): final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The committee provides a legally protected mechanism to de-risk workforce availability for nuclear fuel cycle projects, )
+- Second Notice of HUD Non-Vacant Loan Sale (HNVLS 2026-1): final controls held — independent quality gate: central claim not supported by sources (confidence: 0%, missing: The delay signals that market conditions have shifted since January, widening the bid-ask spread on these loan pools.; The final discount will reveal the market’s assessment of loss severity in the current environment.)
+- $10 Billion Tesla Solar Factory in Texas? And $20–25 Billion TERAFAB Project in Midst of AI Bubble?: generation held — V2 editorial pipeline did not clear publication: post_revision_financial_review: The article states that the factory would integrate 'module manufacturing' alongside ingot, wafer, and cell production. The CleanTechnica source only describes cell production stages (wafer, ingot, coating, metallization, cell testing) and does not mention module assembly. This claim is unsupported by the dossier.
+- 639-Unit Residential Conversion Progresses At 750 Third Avenue In Midtown East, Manhattan: generation held — V2 editorial pipeline did not clear publication: financial_review: The article asserts that the building 'would struggle to re-lease at pre-2020 rents' and that the conversion was chosen because 'the math of office ownership in this submarket deteriorated faster than the assumptions behind a ground-up residential development.' These claims about prior leasing performance and market deterioration are not supported by the dossier—the source provides no data on the building's rent roll, market rents, or leasing conditions. Presenting this as fact without attribution introduces an invented narrative.; The article states that 'Without the nearly complete property tax abatement, the yield on cost 
+- Stripping STRIPs Trading Activity: generation held — V2 editorial pipeline did not clear publication: fact_verification: Article contains dossier-unverified claims (2 amounts, 1 companies, 0 addresses): amounts: $1.827 billion near 'mechanism is visible: from mid-2024 to mid-2025, an average $1.827 billion was stripped each day and $1.567 billion reco', $1.567 billion near "d-2025, an average $1.827 billion was stripped each day and $1.567 billion reconstituted, reflecting traders' efforts to"; companies: federal reserve | post_revision_fact_verification: Article contains dossier-unverified claims (0 amounts, 1 companies, 0 addresses): companies: federal reserve
