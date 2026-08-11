@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **457**
-- Distinct events: **426**
-- Articles: **3**
+- Candidates: **727**
+- Distinct events: **676**
+- Articles: **4**
 - Daily target: **3**
 - Daily target met: **yes**
 - Research candidates: **0**
@@ -12,6 +12,11 @@
 
 ## Published candidates
 
-- **brief** — A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured (1 sources; v3_daily_slate selection)
-- **brief** — AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet (1 sources; v3_daily_slate selection)
-- **analysis** — Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets (1 sources; v3_daily_slate selection)
+- **analysis** — Nvidia’s $500bn pact turns GPUs into infrastructure collateral (1 sources; v3_daily_slate selection)
+- **analysis** — HBT Financial Buys Its Way to the $10B Cliff, Shedding Mortgage Risk (1 sources; v3_daily_slate selection)
+- **analysis** — RCS Founder Puts $50M of His Own Cash Behind $350M Office Distress Bet (1 sources; v3_daily_slate selection)
+- **analysis** — CMBS Special Servicing Falls, But a $280M Hotel Loan Shows Distress Isn't Done (1 sources; v3_daily_slate selection)
+
+## Held or downgraded
+
+- Report: Federal Home Loan Banks supported $8.4B in community lending in 2025
