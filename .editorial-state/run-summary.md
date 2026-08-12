@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **789**
-- Distinct events: **732**
-- Articles: **4**
+- Candidates: **457**
+- Distinct events: **426**
+- Articles: **3**
 - Daily target: **3**
 - Daily target met: **yes**
 - Research candidates: **0**
@@ -12,11 +12,6 @@
 
 ## Published candidates
 
-- **analysis** — Office Tops CMBS Volume, But Multifamily Hides the Leverage Risk (1 sources; v3_daily_slate selection)
-- **analysis** — Nvidia’s $500bn pact turns AI chips into collateral (1 sources; v3_daily_slate selection)
-- **analysis** — NVIDIA and Wall Street’s Biggest Landlords Try to Turn GPUs Into a $500B Asset Class (1 sources; v3_daily_slate selection)
-- **analysis** — H&R REIT’s Breakup Values Pieces Over the Whole at C$3.4 Billion (1 sources; v3_daily_slate selection)
-
-## Held or downgraded
-
-- GO Residential, Blackstone, Others Get H&R REIT Assets In $4.8B Breakup Deal
+- **brief** — A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured (1 sources; v3_daily_slate selection)
+- **brief** — AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet (1 sources; v3_daily_slate selection)
+- **analysis** — Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets (1 sources; v3_daily_slate selection)
