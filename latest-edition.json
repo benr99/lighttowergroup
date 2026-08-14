@@ -1,22 +1,52 @@
 {
   "schema_version": 1,
-  "edition_date": "2026-08-14",
-  "generated_at": "2026-08-14T12:03:21+00:00",
+  "edition_date": "2026-08-10",
+  "generated_at": "2026-08-10T14:36:27+00:00",
   "status": "ready",
   "dek": "The few capital decisions worth understanding today—reported with scarcity, evidence, and a point of view.",
   "flagship": null,
   "briefs": [
     {
-      "event_id": "8de082c007d92159",
-      "title": "The $248.9M Refi That Was About the Tranche",
+      "event_id": "09e0e03765f4e669",
+      "title": "A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured",
       "subtitle": null,
-      "slug": "the-248-9m-refi-that-was-about-the-tranche",
-      "url": "/insights/the-248-9m-refi-that-was-about-the-tranche.html",
-      "category": "Capital Markets",
+      "slug": "a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured",
+      "url": "/insights/a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "format_label": "Intelligence Brief",
+      "franchise": null,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "read_time": 1,
+      "source_count": 1
+    },
+    {
+      "event_id": "1d95db161ad1e23c",
+      "title": "AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet",
+      "subtitle": null,
+      "slug": "avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet",
+      "url": "/insights/avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "format_label": "Intelligence Brief",
+      "franchise": null,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "read_time": 1,
+      "source_count": 1
+    },
+    {
+      "event_id": "2384f8038aaa4bda",
+      "title": "Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets",
+      "subtitle": null,
+      "slug": "multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets",
+      "url": "/insights/multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets.html",
+      "category": "Market Analysis",
       "format": "analysis",
       "format_label": "Intelligence Brief",
       "franchise": null,
-      "must_read_score": 62,
+      "must_read_score": 57,
       "selection_tier": "v3_daily_slate",
       "read_time": 1,
       "source_count": 1
@@ -26,7 +56,7 @@
   "data_note": null,
   "deal_tape": [],
   "reader_prompt": {
-    "id": "2026-08-14-capital-assumption",
+    "id": "2026-08-10-capital-assumption",
     "question": "What story deserves a deeper Light Tower investigation next?",
     "options": [
       "Refinancing liquidity is healthier than it looks",
@@ -36,14 +66,14 @@
     ]
   },
   "selection_summary": {
-    "raw_candidates": 760,
-    "distinct_events": 707,
-    "articles": 1,
+    "raw_candidates": 457,
+    "distinct_events": 426,
+    "articles": 3,
     "deal_tape_items": 0,
     "duplicate_groups": 0,
     "archive_repeats": 0,
     "daily_target": 3,
-    "daily_target_met": false,
+    "daily_target_met": true,
     "no_flagship": true
   }
 }
