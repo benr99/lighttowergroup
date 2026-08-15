@@ -1,8 +1,8 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **684**
-- Distinct events: **634**
+- Candidates: **457**
+- Distinct events: **426**
 - Articles: **3**
 - Daily target: **3**
 - Daily target met: **yes**
@@ -12,6 +12,6 @@
 
 ## Published candidates
 
-- **analysis** — Citi Buys a Way to Shift Reward Costs to Merchants (1 sources; v3_daily_slate selection)
-- **analysis** — Lenders begin pricing local opposition into data centre credit risk (1 sources; v3_daily_slate selection)
-- **analysis** — UCLA Buyer Picks Up a West LA Co-Living Asset From Receivership (1 sources; v3_daily_slate selection)
+- **brief** — A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured (1 sources; v3_daily_slate selection)
+- **brief** — AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet (1 sources; v3_daily_slate selection)
+- **analysis** — Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets (1 sources; v3_daily_slate selection)
