@@ -1,0 +1,489 @@
+{
+  "run_at": "2026-08-16T11:29:22.739139+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 257,
+  "documents_from_feeds": 154,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 250,
+  "documents_consolidated": 7,
+  "eligible": 12,
+  "enriched": 9,
+  "evidence_upgraded": 4,
+  "selected": 3,
+  "publication_candidates": 3,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 19,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 165,
+      "eligible": 4,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 17,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "energy": {
+      "considered": 22,
+      "eligible": 2,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 7,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "7 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "local_government": {
+      "considered": 1,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 19,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "19 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 3
+  },
+  "shortfalls": [
+    "banking_credit: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "commercial_real_estate: only 2 of 4 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "energy: 2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: 7 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "local_government: 1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: 19 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "story_richness",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 49.2,
+    "mean": 20.9,
+    "stdev": 6.49,
+    "range_used": 49.2
+  },
+  "retrieval": {
+    "requested": 9,
+    "fetched": 9,
+    "from_cache": 0,
+    "blocked": 0,
+    "failed": 0,
+    "skipped_budget": 0,
+    "bytes_downloaded": 1176372,
+    "elapsed_ms": 1412,
+    "by_status": {
+      "partial_text": 5,
+      "full_text": 4
+    }
+  },
+  "novelty": {
+    "new": 247,
+    "duplicate": 3
+  },
+  "memory": {
+    "events_remembered": 1028,
+    "published": 405,
+    "seen_but_not_run": 623,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-16",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.09,
+    "spent_today_usd": 0.09,
+    "remaining_usd": 24.91,
+    "exhausted": false,
+    "total_calls": 3,
+    "refused_calls": 0,
+    "elapsed_seconds": 357.4,
+    "by_stage": {
+      "generation": {
+        "calls": 3,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.09,
+        "seconds": 758.3,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "21d1ce3a5538316a",
+        "usd": 0.03
+      },
+      {
+        "id": "736283e30c83efec",
+        "usd": 0.03
+      },
+      {
+        "id": "6c3e1145a8a75fa2",
+        "usd": 0.03
+      }
+    ]
+  },
+  "generation": {
+    "requested": 3,
+    "written": 1,
+    "needs_review": 0,
+    "held": 2,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 325.0,
+    "usd": 0.09,
+    "by_depth": {
+      "tier_c": 3
+    },
+    "results": [
+      {
+        "object_id": "21d1ce3a5538316a",
+        "title": "Trump-linked crypto firm gets OCC nod for trust bank charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 29 column 6 (char 4145) | Invalid provider JSON object: Expecting ',' delimiter: line 29 column 6 (char 4196)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 29 column 6 (char 4145) | Invalid provider JSON object: Expecting ',' delimiter: line 29 column 6 (char 4196)"
+          }
+        },
+        "seconds": 194.1,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "736283e30c83efec",
+        "title": "Housing Lottery Launches for SOLACE at 74 St Marks Place in Park Slope, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=32870) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=32870) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 239.2,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "6c3e1145a8a75fa2",
+        "title": "Walker & Dunlop Arranges $33.2M Acquisition Loan for Los Angeles Multifamily Rental Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10,
+            "summary": "The article accurately reflects the dossier: it reports the $33.2M fixed-rate full-term interest-only Freddie Mac loan, borrower and property details, and the Frazier quote without distortion. It clearly separates disclosed facts from calculated metrics, labels the $251,500 per unit as arithmetic rather than valuation, and explicitly identifies missing underwriting terms such as rate, term, LTV, DSCR, purchase price, and cap rate. Its forward-looking statements are appropriately conditional and do not assert unsupported returns or valuations.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "The second sentence is elliptical and slightly awkward: 'That structure is the story before the address is' could be clearer.",
+              "There is a repetitive negation pattern: 'not a valuation,' 'not the address,' 'not just leverage,' which becomes a stylistic tic.",
+              "The location list near the end is dense and slightly slows momentum.",
+              "The question 'Why this structure now?' is followed by location and demand data, but the connection to the financing structure is implied rather than directly answered.",
+              "The phrase 'the address is' without a complement is grammatically unclear."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and analytical: it foregrounds the financing structure over the property name, though the second sentence is slightly elliptical.",
+            "worst_sentence": "That structure is the story before the address is.",
+            "summary": "A sharp, professional CRE finance brief that emphasizes structural risk and missing data, with a strong voice and a precise conditional conclusion. Minor awkwardness and repetitive negation patterns keep it from a higher score.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately uses the disclosed transaction facts, clearly distinguishes the calculated per-unit loan metric from unknown underwriting terms, identifies missing pricing and leverage data, and frames its conclusions as conditional rather than asserting unsupported returns or valuations.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "The opening repeats 'arranged' within the first three sentences, which creates a slight redundancy.",
+              "The phrase 'The financing structure is the story before the property address' is a forced meta-commentary rather than a natural hook.",
+              "The section about missing data and per-unit math becomes repetitive: the article states what the arithmetic does not show multiple times.",
+              "Rhetorical questions like 'Why this structure now?' and 'The next test is...' feel formulaic and interrupt the analytical flow.",
+              "The conclusion is conditional and leaves the reader with two possible interpretations rather than a definitive editorial stance."
+            ],
+            "passed": true,
+            "score_1_10": 7,
+            "opening_quality": "Specific and substantive, but the second sentence's meta-commentary is slightly forced.",
+            "worst_sentence": "The financing structure is the story before the property address.",
+            "summary": "A competent and professional deal analysis that uses specific details well and avoids the worst AI clichés, but it is held back by a slightly forced lede, some repetitive data commentary, and formulaic rhetorical scaffolding.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 325.0,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 3,
+    "published": 1,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments_social.png",
+      "insights/walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "6c3e1145a8a75fa2",
+        "title": "Walker & Dunlop Places $33.2M Freddie IO Loan on Miracle Mile Apartments",
+        "slug": "walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments",
+        "url": "/insights/walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "21d1ce3a5538316a",
+        "slug": "",
+        "title": "Trump-linked crypto firm gets OCC nod for trust bank charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "736283e30c83efec",
+        "slug": "",
+        "title": "Housing Lottery Launches for SOLACE at 74 St Marks Place in Park Slope, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "6c3e1145a8a75fa2",
+        "slug": "walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments",
+        "title": "Walker & Dunlop Arranges $33.2M Acquisition Loan for Los Angeles Multifamily Rental Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 14,
+    "successful_calls": 10,
+    "failed_provider_attempts": 4,
+    "fallback_calls": 0,
+    "switches": 2,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 16.76,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.16,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.08,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.3,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 4.03,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 1.44,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 326.34,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.04,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, story_richness, evidence",
+    "published 1 of the daily target 3"
+  ],
+  "errors": [],
+  "elapsed_seconds": 357.41,
+  "status": "success",
+  "candidate_count": 257,
+  "event_count": 250,
+  "articles": [
+    {
+      "event_id": "6c3e1145a8a75fa2",
+      "title": "Walker & Dunlop Places $33.2M Freddie IO Loan on Miracle Mile Apartments",
+      "slug": "walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments",
+      "url": "/insights/walker-dunlop-places-33-2m-freddie-io-loan-on-miracle-mile-apartments.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 1
+}
