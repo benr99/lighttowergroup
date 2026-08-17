@@ -1,0 +1,749 @@
+{
+  "run_at": "2026-08-17T11:34:53.775684+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 338,
+  "documents_from_feeds": 235,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 329,
+  "documents_consolidated": 9,
+  "eligible": 17,
+  "enriched": 14,
+  "evidence_upgraded": 6,
+  "selected": 6,
+  "publication_candidates": 5,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": true,
+  "sectors": {
+    "banking_credit": {
+      "considered": 26,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "commercial_real_estate": {
+      "considered": 194,
+      "eligible": 3,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 3 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 30,
+      "eligible": 6,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 48,
+      "eligible": 5,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 6,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 22,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 3,
+    "tier_c": 3
+  },
+  "shortfalls": [
+    "banking_credit: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "commercial_real_estate: only 2 of 3 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 2 of 6 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 5 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "local_government: 3 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "story_richness",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 67.2,
+    "mean": 20.4,
+    "stdev": 7.19,
+    "range_used": 67.2
+  },
+  "retrieval": {
+    "requested": 14,
+    "fetched": 11,
+    "from_cache": 0,
+    "blocked": 1,
+    "failed": 2,
+    "skipped_budget": 0,
+    "bytes_downloaded": 2575869,
+    "elapsed_ms": 1952,
+    "by_status": {
+      "full_text": 6,
+      "partial_text": 5,
+      "failed": 2,
+      "blocked": 1
+    }
+  },
+  "novelty": {
+    "new": 326,
+    "duplicate": 3
+  },
+  "memory": {
+    "events_remembered": 1106,
+    "published": 407,
+    "seen_but_not_run": 699,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-17",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.27,
+    "spent_today_usd": 0.27,
+    "remaining_usd": 24.73,
+    "exhausted": false,
+    "total_calls": 5,
+    "refused_calls": 0,
+    "elapsed_seconds": 890.6,
+    "by_stage": {
+      "generation": {
+        "calls": 5,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.27,
+        "seconds": 1926.6,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "f96a617fde8d01db",
+        "usd": 0.07
+      },
+      {
+        "id": "106bc8a72f123aaa",
+        "usd": 0.07
+      },
+      {
+        "id": "f73b5335b71f496d",
+        "usd": 0.07
+      },
+      {
+        "id": "50961aa33a44d952",
+        "usd": 0.03
+      },
+      {
+        "id": "24212a9d1d5d6e6f",
+        "usd": 0.03
+      }
+    ]
+  },
+  "generation": {
+    "requested": 5,
+    "written": 3,
+    "needs_review": 0,
+    "held": 2,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 855.0,
+    "usd": 0.27,
+    "by_depth": {
+      "tier_b": 3,
+      "tier_c": 2
+    },
+    "results": [
+      {
+        "object_id": "f96a617fde8d01db",
+        "title": "Dell’Oro: Data Center IT Components Market to Reach $1.8 Trillion by 2030",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 5248) | Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 4842)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 5248) | Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 4842)"
+          }
+        },
+        "seconds": 242.7,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "106bc8a72f123aaa",
+        "title": "How Trent Johnson, Brian Landrum at Harbert Management Corp. Invest in Senior Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=36192) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=36192) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 263.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "f73b5335b71f496d",
+        "title": "Nvidia halves Ohio OpenAI backstop to under $120bn: Why it happened, and why it matters",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the dossier's reported figures and sourcing, clearly attributes claims to the Wall Street Journal via the source material, and builds a coherent, evidence-bounded argument about capital constraints and risk reallocation. It explains what the numbers mean rather than merely listing them, distinguishes reported facts from analytical interpretation, and identifies the key unresolved question. No material factual or analytical defects found.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Minor imprecision: 'halving it' describes a cut from $250bn to less than $120bn, which is more than half.",
+              "Jargon not defined: 'neocloud pattern' may confuse non-specialist readers.",
+              "The phrase 'next signal to watch' is a mild analytical cliché.",
+              "Dense phrasing in 'circular-financing loop is under visible strain' could be more direct."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and effective: it replaces a scale headline with the actual financial exposure and immediately signals the story's stakes.",
+            "worst_sentence": "That is the neocloud pattern now moving upward.",
+            "summary": "A sharp, well-structured analytical piece that explains the significance of Nvidia's reduced guarantee, though it has minor imprecision and some jargon that slightly blunt its accessibility.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10,
+            "summary": "The article accurately reflects the dossier's facts and adds useful analytical framing: it identifies the revision as a capital-constraint and risk-reallocation event rather than a power or land problem, explains the implications for OpenAI's credit burden, and correctly attributes the reported figures and Journal-based sourcing. It clearly distinguishes reported facts from analytical interpretation and leaves unresolved questions, such as who backstops later phases, appropriately open.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Minor repetition of 'cutting by more than half' and 'backstop' within a short span.",
+              "Several consecutive sentences begin with 'The...', creating a slightly monotonous rhythm.",
+              "One sentence is quite long and dense, requiring re-reading."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong, specific hook: it contrasts the 10-gigawatt headline with the reduced dollar guarantee and immediately frames the analytical angle.",
+            "worst_sentence": "Nvidia has cut the financial guarantee underpinning OpenAI’s proposed Ohio data centre project, according to the Wall Street Journal, limiting its backstop to the first phase of a campus that would be the largest data centre project announced to date if built in full.",
+            "summary": "A sharp, well-structured editorial that reframes the OpenAI-Nvidia Ohio campus news as a capital-constraint and risk-reallocation story. It has a clear analytical voice and a strong closing implication, with only minor repetitiveness and one overly dense sentence.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 344.5,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "50961aa33a44d952",
+        "title": "Australian Renewable Energy Agency backs UNSW research into grid-forming battery storage and system strength",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10,
+            "summary": "The article accurately reports the ARENA-UNSW PROFILES funding amount and purpose, the 38% synchronous condenser cost blowout, AEMO's 2026 risk review finding, the 74% share of the 33.2GW NEM battery pipeline using grid-forming inverters, and the Type 2 Transitional Services trial context. It distinguishes sourced facts from analytical inference and explains the commercial incentives and risks without unsupported financial claims.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Three consecutive paragraphs open with formulaic signpost phrases ('The problem is specific', 'The commercial stakes sit in the pipeline', 'The unresolved question is'), giving the middle a slightly template-like rhythm.",
+              "The closing sentence points to future evidence sources rather than landing a final implication for the reader.",
+              "Dense industry phrasing such as 'Type 2 Transitional Services procurement' and 'minimum system strength fault-current standard' may be opaque to non-specialist readers."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong: it hooks with a specific cost blowout and a commercial stakes angle rather than a generic announcement.",
+            "worst_sentence": "The reasonable inference is that a positive technical result would give grid-forming BESS developers a route into contracted system strength revenue, while an unfavourable result would preserve demand for synchronous condensers.",
+            "summary": "A specific, well-sourced industry analysis with a strong opening and professional voice. It avoids AI clichés but has mild formulaic signposting and a forward-looking conclusion.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10,
+            "summary": "The article accurately reflects the dossier's key facts and figures—AU$6.52 million/US$4.24 million ARENA grant, 38% synchronous condenser cost blowout, 74% share of Australia's 33.2GW NEM battery pipeline, AEMO's 2026 risk-review gap, and Type 2 Transitional Services proposal—while properly framing the commercial implications as conditional. It distinguishes reported facts from forward-looking incentive analysis and does not invent unsupported financial returns or valuations.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "One sentence is slightly bureaucratic: 'The work responds to that gap in AEMO’s Transition Plan for System Security.' It could state more directly what the project will test or deliver.",
+              "The second paragraph packs multiple entities and dates; splitting it slightly could improve readability."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and involving: it anchors the piece in a 38% cost blowout and turns a technical fault-current issue into a commercial decision.",
+            "worst_sentence": "The work responds to that gap in AEMO’s Transition Plan for System Security.",
+            "summary": "Clean, professional trade journalism with strong technical detail and clear commercial stakes. Avoids AI cliches and ends with a concrete unresolved question.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 484.3,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "24212a9d1d5d6e6f",
+        "title": "Econergy signs financing agreements for 150MW solar-plus-storage project in Romania",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the disclosed financing, CfD, capacity, and timeline figures, clearly distinguishes a calculated blended metric from reported unit costs, and identifies material gaps such as undisclosed revenue for the remaining solar/BESS capacity and the EUR/USD currency mismatch. It does not invent missing loan pricing or return data.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "The closing sentence uses 'The next signal', a slightly forward-looking, template-like phrase; a more direct implication would be stronger.",
+              "Sentence starts are repetitive: many begin with 'The/That/This', which flattens rhythm.",
+              "The piece is one dense block; short paragraphs or subheads would improve readability.",
+              "Some financial jargon such as 'blended arithmetic proxy' and 'conditions precedent' is left unexplained for a general audience."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and effective: it names the deal size, project, location, and immediately complicates the announcement with the not-yet-funded caveat.",
+            "worst_sentence": "The competition matters because the Părău 2 strike price is the only publicly disclosed fixed-price support for a project that must now move from financing agreements to financial close and construction completion.",
+            "summary": "A knowledgeable, analytical brief that clearly flags project risks and missing disclosures. The writing is generally strong though dense, with minor repetitive sentence starts and one templated forward-looking phrase.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the source's disclosed financing, CfD award, timeline, and counterparty details. It distinguishes reported facts from its calculated €/MW metric, explicitly flags material unknowns such as uncontracted revenue and currency mismatch, and does not overstate the signing as financial close.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Opening phrase 'Announced 14 August' lacks 'on' and slightly dangles before the subject.",
+              "The EPC sentence is clause-heavy and temporally ambiguous ('signed in October 2025 and worked on phase one, which was commissioned in 2024').",
+              "A couple of section headings are sentence fragments that assume prior context."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific, factual hook with amount, project size, location and closing caveat.",
+            "worst_sentence": "Shanghai Electric signed the EPC agreement in October 2025 and worked on phase one, which was commissioned in 2024, giving the project a known construction counterparty.",
+            "summary": "A concise, professional brief that leads with a concrete deal, explains lender and revenue gaps, and ends on the right implication. Minor grammatical and clausal awkwardness keep it from a top score, but it avoids AI language and formulaic structure.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 592.0,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 5,
+    "published": 3,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/nvidia-cuts-openai-s-ohio-backstop-to-under-120bn_social.png",
+      "insights/nvidia-cuts-openai-s-ohio-backstop-to-under-120bn.html",
+      "insights/arena-funds-unsw-grid-forming-battery-fault-current-test_social.png",
+      "insights/arena-funds-unsw-grid-forming-battery-fault-current-test.html",
+      "insights/econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test_social.png",
+      "insights/econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/nvidia-cuts-openai-s-ohio-backstop-to-under-120bn_related.json",
+      "insights/arena-funds-unsw-grid-forming-battery-fault-current-test_related.json",
+      "insights/econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "f73b5335b71f496d",
+        "title": "Nvidia cuts OpenAI's Ohio backstop to under $120bn",
+        "slug": "nvidia-cuts-openai-s-ohio-backstop-to-under-120bn",
+        "url": "/insights/nvidia-cuts-openai-s-ohio-backstop-to-under-120bn.html",
+        "category": "Capital Markets",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 67,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "50961aa33a44d952",
+        "title": "ARENA funds UNSW grid-forming battery fault-current test",
+        "slug": "arena-funds-unsw-grid-forming-battery-fault-current-test",
+        "url": "/insights/arena-funds-unsw-grid-forming-battery-fault-current-test.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "24212a9d1d5d6e6f",
+        "title": "Econergy’s €229m Părău 2 financing still faces a three-month close test",
+        "slug": "econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test",
+        "url": "/insights/econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "f96a617fde8d01db",
+        "slug": "",
+        "title": "Dell’Oro: Data Center IT Components Market to Reach $1.8 Trillion by 2030",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "106bc8a72f123aaa",
+        "slug": "",
+        "title": "How Trent Johnson, Brian Landrum at Harbert Management Corp. Invest in Senior Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "f73b5335b71f496d",
+        "slug": "nvidia-cuts-openai-s-ohio-backstop-to-under-120bn",
+        "title": "Nvidia halves Ohio OpenAI backstop to under $120bn: Why it happened, and why it matters",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nvidia-cuts-openai-s-ohio-backstop-to-under-120bn.html",
+        "reason": ""
+      },
+      {
+        "object_id": "50961aa33a44d952",
+        "slug": "arena-funds-unsw-grid-forming-battery-fault-current-test",
+        "title": "Australian Renewable Energy Agency backs UNSW research into grid-forming battery storage and system strength",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/arena-funds-unsw-grid-forming-battery-fault-current-test.html",
+        "reason": ""
+      },
+      {
+        "object_id": "24212a9d1d5d6e6f",
+        "slug": "econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test",
+        "title": "Econergy signs financing agreements for 150MW solar-plus-storage project in Romania",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 34,
+    "successful_calls": 24,
+    "failed_provider_attempts": 10,
+    "fallback_calls": 0,
+    "switches": 5,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 20.45,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 5.44,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.05,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.13,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.42,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 5.39,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 2.01,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.06,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 856.37,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.29,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.04,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, story_richness, evidence"
+  ],
+  "errors": [],
+  "elapsed_seconds": 890.64,
+  "status": "success",
+  "candidate_count": 338,
+  "event_count": 329,
+  "articles": [
+    {
+      "event_id": "f73b5335b71f496d",
+      "title": "Nvidia cuts OpenAI's Ohio backstop to under $120bn",
+      "slug": "nvidia-cuts-openai-s-ohio-backstop-to-under-120bn",
+      "url": "/insights/nvidia-cuts-openai-s-ohio-backstop-to-under-120bn.html",
+      "category": "Capital Markets",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 67,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "50961aa33a44d952",
+      "title": "ARENA funds UNSW grid-forming battery fault-current test",
+      "slug": "arena-funds-unsw-grid-forming-battery-fault-current-test",
+      "url": "/insights/arena-funds-unsw-grid-forming-battery-fault-current-test.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "24212a9d1d5d6e6f",
+      "title": "Econergy’s €229m Părău 2 financing still faces a three-month close test",
+      "slug": "econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test",
+      "url": "/insights/econergy-s-229m-p-r-u-2-financing-still-faces-a-three-month-close-test.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 3
+}
