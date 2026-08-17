@@ -1,8 +1,8 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **338**
-- Distinct events: **329**
+- Candidates: **457**
+- Distinct events: **426**
 - Articles: **3**
 - Daily target: **3**
 - Daily target met: **yes**
@@ -12,6 +12,6 @@
 
 ## Published candidates
 
-- **analysis** — Nvidia cuts OpenAI's Ohio backstop to under $120bn (1 sources; v3_daily_slate selection)
-- **brief** — ARENA funds UNSW grid-forming battery fault-current test (1 sources; v3_daily_slate selection)
-- **brief** — Econergy’s €229m Părău 2 financing still faces a three-month close test (1 sources; v3_daily_slate selection)
+- **brief** — A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured (1 sources; v3_daily_slate selection)
+- **brief** — AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet (1 sources; v3_daily_slate selection)
+- **analysis** — Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets (1 sources; v3_daily_slate selection)
