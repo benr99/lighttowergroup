@@ -1,19 +1,17 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **757**
-- Distinct events: **707**
-- Articles: **1**
+- Candidates: **457**
+- Distinct events: **426**
+- Articles: **3**
 - Daily target: **3**
-- Daily target met: **no**
+- Daily target met: **yes**
 - Research candidates: **0**
 - Deal-tape items: **0**
 - Archive repeats suppressed: **0**
 
 ## Published candidates
 
-- **analysis** — Atrium Maps the $1.3 Trillion Debt Stack Behind U.S. Data Centers (1 sources; v3_daily_slate selection)
-
-## Held or downgraded
-
-- Nvidia halves Ohio OpenAI backstop to under $120bn: Why it happened, and why it matters
+- **brief** — A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured (1 sources; v3_daily_slate selection)
+- **brief** — AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet (1 sources; v3_daily_slate selection)
+- **analysis** — Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets (1 sources; v3_daily_slate selection)
