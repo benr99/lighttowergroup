@@ -1,0 +1,676 @@
+{
+  "run_at": "2026-08-18T11:35:30.381348+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 757,
+  "documents_from_feeds": 654,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 707,
+  "documents_consolidated": 50,
+  "eligible": 85,
+  "enriched": 82,
+  "evidence_upgraded": 46,
+  "selected": 24,
+  "publication_candidates": 5,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 61,
+      "eligible": 9,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 372,
+      "eligible": 53,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 73,
+      "eligible": 11,
+      "selected": 7,
+      "target": 10,
+      "shortfall_reason": "only 7 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 112,
+      "eligible": 8,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 20,
+      "eligible": 1,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 1 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 4,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 65,
+      "eligible": 3,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 15,
+    "tier_c": 9
+  },
+  "shortfalls": [
+    "banking_credit: only 4 of 9 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 7 of 11 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 8 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 1 of 1 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 4 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: 3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 67.2,
+    "mean": 22.9,
+    "stdev": 9.16,
+    "range_used": 67.2
+  },
+  "retrieval": {
+    "requested": 83,
+    "fetched": 81,
+    "from_cache": 0,
+    "blocked": 0,
+    "failed": 2,
+    "skipped_budget": 0,
+    "bytes_downloaded": 15905292,
+    "elapsed_ms": 32109,
+    "by_status": {
+      "full_text": 46,
+      "partial_text": 35,
+      "failed": 2
+    }
+  },
+  "novelty": {
+    "new": 704,
+    "duplicate": 3
+  },
+  "memory": {
+    "events_remembered": 1484,
+    "published": 405,
+    "seen_but_not_run": 1079,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-18",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.35,
+    "spent_today_usd": 0.35,
+    "remaining_usd": 24.65,
+    "exhausted": false,
+    "total_calls": 5,
+    "refused_calls": 0,
+    "elapsed_seconds": 1218.6,
+    "by_stage": {
+      "generation": {
+        "calls": 5,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.35,
+        "seconds": 2891.5,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "38f918db9316123f",
+        "usd": 0.07
+      },
+      {
+        "id": "106bc8a72f123aaa",
+        "usd": 0.07
+      },
+      {
+        "id": "210e7124fd222476",
+        "usd": 0.07
+      },
+      {
+        "id": "a4ff5af5da395da7",
+        "usd": 0.07
+      },
+      {
+        "id": "f73b5335b71f496d",
+        "usd": 0.07
+      }
+    ]
+  },
+  "generation": {
+    "requested": 5,
+    "written": 1,
+    "needs_review": 1,
+    "held": 3,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 1147.5,
+    "usd": 0.35,
+    "by_depth": {
+      "tier_b": 5
+    },
+    "results": [
+      {
+        "object_id": "38f918db9316123f",
+        "title": "Vivmark Details Merged Entity, Becomes Largest U.S. Apartment REIT By Far",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34353) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34353) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 286.9,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "106bc8a72f123aaa",
+        "title": "How Trent Johnson, Brian Landrum at Harbert Management Corp. Invest in Senior Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 17 column 222 (char 6216) | Invalid provider JSON object: Expecting ',' delimiter: line 17 column 219 (char 4911)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 17 column 222 (char 6216) | Invalid provider JSON object: Expecting ',' delimiter: line 17 column 219 (char 4911)"
+          }
+        },
+        "seconds": 286.3,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "210e7124fd222476",
+        "title": "Atrium Launches AI Platform, Tracking $1.3T of U.S. Data Center Development Credit",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [
+              "The article says 'another 75 projects worth $130 billion blocked or delayed' in early 2026, which could imply additive to the 48 canceled projects. The source wording is ambiguous: it says the number 'has since grown to 75 projects,' which may mean a cumulative or separate count, not necessarily an additional 75."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately and clearly synthesizes Atrium's reported figures on $1.3 trillion in identifiable data center financing, including utility debt, syndicated facilities, private credit, hyperscaler debt, maturity walls, and grid/political risks. It appropriately attributes claims to Atrium and frames the analytical significance, with only a minor ambiguity in the characterization of 2026 blocked/delayed developments.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Attribution is repetitive: the piece relies heavily on 'Atrium reports/says/writes/counts' across nearly every paragraph.",
+              "The middle sections are number-dense and occasionally read like a data list rather than synthesized analysis.",
+              "Some language edges into business cliché or vague idiom, such as 'the larger action' and 'sharpest warning'.",
+              "The Loudoun County comparison is grammatically ambiguous: 'hosts 306 facilities—more than 45 U.S. states' could be read as hosting states rather than facilities.",
+              "The quote 'Private credit's arrival is real' is generic and adds little as an isolated pull."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong and specific: it opens with a contrarian, concrete hook—the regional utility as the largest credit bucket—rather than a generic market overview.",
+            "worst_sentence": "Loudoun County, Virginia hosts 306 facilities—more than 45 U.S. states—and state lawmakers have proposed restrictions.",
+            "summary": "A strong, data-rich article with a clear structure and a decisive closing implication. It reads like a knowledgeable professional, though repetitive attribution and dense numeric passages slightly weaken narrative momentum.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the Atrium platform data reported by Commercial Observer: the $1.3 trillion identifiable debt stack, $93.1 billion overlap, $1.1 trillion attributed across property mortgages, syndicated facilities, private credit, hyperscaler debt, and utility borrowings; the debt totals, lender rankings, refinancing wall, and grid/political risk figures all match the source. It explains the significance of utility financing, syndicated participation, refinancing rate pressure, and physical power constraints, and appropriately frames the unresolved risk.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Debt-category distinctions can blur: utility syndicated facilities at $428B versus overall syndicated facilities at $224B is only reconciled by the earlier $93B overlap note, which may confuse readers.",
+              "Several paragraphs rely on repeated numeric-list structures ('leads at', 'followed by', 'the platform counts/finds'), slightly flattening the voice.",
+              "The canceled/blocked data point mixes two metrics ($158B canceled in 2025, then 75 projects representing $130B by early 2026) without enough connective logic.",
+              "The piece is very data-dense and lacks a human or operator quote that could relieve the statistical load."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong and specific: it opens with a contrarian answer (regional utility, not hyperscaler or private credit) and immediately anchors it with a concrete figure.",
+            "worst_sentence": "The platform counts 48 national developments worth $158 billion canceled in 2025; by early 2026, the number of blocked or delayed projects had grown to 75, representing $130 billion.",
+            "summary": "A data-rich, authoritative analysis with a strong hook, logical structure, and a decisive ending. Minor clarity and density issues prevent a higher score.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 795.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a4ff5af5da395da7",
+        "title": "Most consumers save no money as inflation erodes buying power: EY",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Serious Card Delinquency Hits 12.8% as Savings Run Dry\",\n  \"subtitle\": \"The 90-day-plus credit card delinquency share rose from 7.6% to 12.8%, testing consumer credit and retail exposure | Invalid provider JSON object: Expecting ',' delimiter: line 14 column 195 (char 4857)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Serious Card Delinquency Hits 12.8% as Savings Run Dry\",\n  \"subtitle\": \"The 90-day-plus credit card delinquency share rose from 7.6% to 12.8%, testing consumer credit and retail exposure | Invalid provider JSON object: Expecting ',' delimiter: line 14 column 195 (char 4857)"
+          }
+        },
+        "seconds": 375.7,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "f73b5335b71f496d",
+        "title": "Nvidia halves Ohio OpenAI backstop to under $120bn: Why it happened, and why it matters",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "review_required",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the dossier's reported facts and attributed reporting. It explains the significance of the reduced backstop as a reallocation of risk rather than a retreat, clearly identifies OpenAI's unproven credit position, and notes unresolved questions about remaining phases. No unsupported financial figures or analytical overreach were found.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Some sentence openings are repetitive, with multiple paragraphs beginning 'The [noun]...' or a company name, which can flatten rhythm.",
+              "Jargon density is high ('first-loss exposure', 'refinancing wall', 'credit backstop') without brief glosses, which may limit accessibility.",
+              "The reference to 'Capacity reported' is abrupt and could confuse readers unfamiliar with the outlet."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong: it opens with a specific contrast between the unchanged lease and the changed first-loss backstop, immediately framing the stakes.",
+            "worst_sentence": "The backstop mechanism was designed squarely at smaller merchant GPU cloud operators carrying a refinancing wall.",
+            "summary": "The article is a sharp, analytically dense business story with a clear thesis and logical progression. Minor issues are repetitive sentence openings and heavy finance jargon, but it avoids AI clichés and ends with a specific test rather than a vague forward look.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the dossier, properly attributes the WSJ and Capacity reporting, and provides a clear, evidence-bounded analytical frame around capital risk and first-loss exposure without inventing unsupported figures.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "A few sentences are overpacked with clauses and em dashes, making them harder to parse.",
+              "The phrase \"designed squarely at\" is unidiomatic; \"designed squarely for\" or \"aimed at\" would be cleaner.",
+              "The credit backstop explanation uses an awkward interrupted clause that slightly muddles a key definition."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Excellent: starts with a specific development and immediately frames the real change—risk absorption—rather than a generic announcement.",
+            "worst_sentence": "It is capital, in the form of a credit backstop—a promise to cover payments if OpenAI cannot—that was substituting for OpenAI's own unproven balance sheet.",
+            "summary": "The article is a well-reported, analytically sharp piece that treats a financial revision as a story about shifting risk rather than retreat. Structure and voice are strong; minor sentence-level clunkiness holds it back from a top score.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [
+              "Potentially unsupported claim: 'is expected to'"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          },
+          "second_revision": {
+            "status": "revised"
+          },
+          "second_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the source dossier and clearly attributes the WSJ-reported figures. It explains the meaning of the scaled-back guarantee, the first-loss/backstop mechanism, OpenAI's unproven credit profile, and the circular financing incentive structure without inventing unsupported figures. The analytical conclusion that capital is the immediate constraint is evidence-bounded and does not hide unresolved terms.",
+            "status": "completed"
+          },
+          "second_revision_editorial_review": {
+            "issues": [
+              "Defines 'first-loss exposure' late, after using 'first loss' in the opening; moving the definition earlier would improve clarity.",
+              "A few sentence openings repeat the 'It is...' construction, slightly flattening the rhythm."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong and specific: it identifies the unchanged lease and immediately isolates the real change in who absorbs the first loss.",
+            "worst_sentence": "First-loss exposure is the obligation to absorb initial losses if the tenant cannot pay.",
+            "summary": "A sharp, specific analysis that avoids AI clichés and formulaic structure. Minor issues with late definitions and occasional repetitive sentence openings, but overall professional and well-argued.",
+            "status": "completed"
+          },
+          "second_revision_fact_verification": {
+            "issues": [
+              "Potentially unsupported claim: 'is expected to'"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          }
+        },
+        "seconds": 1147.5,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": true
+      }
+    ]
+  },
+  "publication": {
+    "requested": 5,
+    "published": 1,
+    "skipped_existing": 0,
+    "skipped_review": 1,
+    "failed": 0,
+    "files_written": [
+      "insights/atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers_social.png",
+      "insights/atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "210e7124fd222476",
+        "title": "Atrium Maps the $1.3 Trillion Debt Stack Behind U.S. Data Centers",
+        "slug": "atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers",
+        "url": "/insights/atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers.html",
+        "category": "Capital Markets",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 66,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "38f918db9316123f",
+        "slug": "",
+        "title": "Vivmark Details Merged Entity, Becomes Largest U.S. Apartment REIT By Far",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "106bc8a72f123aaa",
+        "slug": "",
+        "title": "How Trent Johnson, Brian Landrum at Harbert Management Corp. Invest in Senior Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "210e7124fd222476",
+        "slug": "atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers",
+        "title": "Atrium Launches AI Platform, Tracking $1.3T of U.S. Data Center Development Credit",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a4ff5af5da395da7",
+        "slug": "",
+        "title": "Most consumers save no money as inflation erodes buying power: EY",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "f73b5335b71f496d",
+        "slug": "",
+        "title": "Nvidia halves Ohio OpenAI backstop to under $120bn: Why it happened, and why it matters",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "flagged for review"
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 32,
+    "successful_calls": 24,
+    "failed_provider_attempts": 8,
+    "fallback_calls": 0,
+    "switches": 4,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.15,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 12.04,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.08,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.33,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.6,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 6.81,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 32.23,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.08,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 1149.1,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.11,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.04,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence",
+    "published 1 of the daily target 3"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1218.58,
+  "status": "success",
+  "candidate_count": 757,
+  "event_count": 707,
+  "articles": [
+    {
+      "event_id": "210e7124fd222476",
+      "title": "Atrium Maps the $1.3 Trillion Debt Stack Behind U.S. Data Centers",
+      "slug": "atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers",
+      "url": "/insights/atrium-maps-the-1-3-trillion-debt-stack-behind-u-s-data-centers.html",
+      "category": "Capital Markets",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 66,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [
+    "Nvidia halves Ohio OpenAI backstop to under $120bn: Why it happened, and why it matters"
+  ],
+  "article_count": 1
+}
