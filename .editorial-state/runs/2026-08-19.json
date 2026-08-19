@@ -1,0 +1,576 @@
+{
+  "run_at": "2026-08-19T11:34:20.453854+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 780,
+  "documents_from_feeds": 677,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 729,
+  "documents_consolidated": 51,
+  "eligible": 79,
+  "enriched": 76,
+  "evidence_upgraded": 34,
+  "selected": 22,
+  "publication_candidates": 5,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 62,
+      "eligible": 6,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 377,
+      "eligible": 46,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 82,
+      "eligible": 10,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 10 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 117,
+      "eligible": 11,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 14,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 4,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 73,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 14,
+    "tier_c": 8
+  },
+  "shortfalls": [
+    "banking_credit: only 4 of 6 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 4 of 10 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 1 of 11 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 65.5,
+    "mean": 22.2,
+    "stdev": 8.41,
+    "range_used": 65.5
+  },
+  "retrieval": {
+    "requested": 77,
+    "fetched": 74,
+    "from_cache": 0,
+    "blocked": 0,
+    "failed": 3,
+    "skipped_budget": 0,
+    "bytes_downloaded": 13877167,
+    "elapsed_ms": 23311,
+    "by_status": {
+      "full_text": 34,
+      "partial_text": 40,
+      "failed": 3
+    }
+  },
+  "novelty": {
+    "new": 726,
+    "duplicate": 3
+  },
+  "memory": {
+    "events_remembered": 1506,
+    "published": 405,
+    "seen_but_not_run": 1101,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-19",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.35,
+    "spent_today_usd": 0.35,
+    "remaining_usd": 24.65,
+    "exhausted": false,
+    "total_calls": 5,
+    "refused_calls": 0,
+    "elapsed_seconds": 829.2,
+    "by_stage": {
+      "generation": {
+        "calls": 5,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.35,
+        "seconds": 2051.1,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "02c1d336e6460a54",
+        "usd": 0.07
+      },
+      {
+        "id": "3f7cb5d991ec92be",
+        "usd": 0.07
+      },
+      {
+        "id": "4f04098d0a5b41c3",
+        "usd": 0.07
+      },
+      {
+        "id": "3de7c5e0cdf6baa9",
+        "usd": 0.07
+      },
+      {
+        "id": "d6ae7eae37a9ebef",
+        "usd": 0.07
+      }
+    ]
+  },
+  "generation": {
+    "requested": 5,
+    "written": 1,
+    "needs_review": 0,
+    "held": 4,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 764.4,
+    "usd": 0.35,
+    "by_depth": {
+      "tier_b": 5
+    },
+    "results": [
+      {
+        "object_id": "02c1d336e6460a54",
+        "title": "Keysight Tops $2 Billion in Orders as AI Infrastructure Drives Record Q3",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Keysight’s $2.09B Orders Outrun Revenue as AI Validation Demand Builds\",\n  \"subtitle\": \"Record backlog and 33.2% operating margin suggest AI infrastructure spending is translating into d | Invalid provider JSON object: Expecting ',' delimiter: line 15 column 203 (char 6486)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Keysight’s $2.09B Orders Outrun Revenue as AI Validation Demand Builds\",\n  \"subtitle\": \"Record backlog and 33.2% operating margin suggest AI infrastructure spending is translating into d | Invalid provider JSON object: Expecting ',' delimiter: line 15 column 203 (char 6486)"
+          }
+        },
+        "seconds": 406.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "3f7cb5d991ec92be",
+        "title": "Atrium Launches AI Platform Tracking $1.3T of U.S. Data Center Development Credit",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 14 column 213 (char 6082) | Invalid provider JSON object: Expecting ',' delimiter: line 14 column 184 (char 5661)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 14 column 213 (char 6082) | Invalid provider JSON object: Expecting ',' delimiter: line 14 column 184 (char 5661)"
+          }
+        },
+        "seconds": 484.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "4f04098d0a5b41c3",
+        "title": "OCVibe’s Scott Frick On Building a $5B District Around Anaheim’s Honda Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately synthesizes the Commercial Observer interview with Scott Frick and frames the key analytical question: whether OCVibe can generate year-round demand beyond Honda Center event traffic. It correctly attributes reported figures and quotes, explains the significance of the Samuelis' placemaking-first sequence and no-outside-investor structure, and clearly identifies the unresolved test of weekday restaurant performance. No unsupported financial figures or analytical overreach are present.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Possible contradiction/ambiguity: Katella Commons is introduced as a 50,000-square-foot food hall but later listed as a 5,000-capacity concert venue, which could confuse readers.",
+              "A few sentences are overpacked with titles and clauses, slightly slowing comprehension.",
+              "Minor imprecision: 'that single term' refers to a longer quoted arrangement rather than a literal single term."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and effective: it hooks with a concrete landlord concession and direct quote, then immediately frames the central risk instead of using generic scene-setting.",
+            "worst_sentence": "The first major pieces open in 2027: Katella Commons, a 5,000-capacity concert venue, and The Weave, where flexible-office operator Kiln has committed to a full floor.",
+            "summary": "A strong, well-reported commercial real estate story with a clear narrative thesis and concrete closing implication. The writing is confident and mostly clean, though a likely inconsistency around Katella Commons and a few overpacked sentences keep it from being flawless.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article is accurate against the source dossier. It attributes key figures and quotes to Scott Frick/Commercial Observer, explains what the numbers mean by distinguishing event-driven surges from the year-round demand challenge, and frames the unresolved risk around non-event demand without inventing unsupported financial metrics or hiding gaps.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "The 'not X. It is Y.' construction appears multiple times ('The problem is not... It is...', 'The decision that matters is not... It is...', 'The pitch to tenants is not... It is...'). It is effective but slightly repetitive.",
+              "The project overview paragraph is list-heavy and briefly slows the momentum created by the opening."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong and specific, with a concrete detail and a clear tension: event-night success versus weekday survival.",
+            "worst_sentence": "The plan includes 170,000 square feet of mass-timber office, more than 2,000 apartments, two hotels, more than 35 dining concepts, and 20 acres of parks and plazas.",
+            "summary": "The article is tightly written and built around a real argument about sequencing rather than a formulaic development story. It opens with a vivid detail, maintains a professional voice, and ends with a concrete test. Minor repetition and one list-heavy paragraph prevent it from scoring higher.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 610.6,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3de7c5e0cdf6baa9",
+        "title": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 40 column 6 (char 5881) | Could not parse JSON from response: {\n  \"title\": \"SEC: Tricolor Left $945M ABS Claim on Double-Pledged Auto Loans\",\n  \"subtitle\": \"Charges allege former executives fabricated lien-free collateral and current loan metrics in subprime aut"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 40 column 6 (char 5881) | Could not parse JSON from response: {\n  \"title\": \"SEC: Tricolor Left $945M ABS Claim on Double-Pledged Auto Loans\",\n  \"subtitle\": \"Charges allege former executives fabricated lien-free collateral and current loan metrics in subprime aut"
+          }
+        },
+        "seconds": 270.0,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "d6ae7eae37a9ebef",
+        "title": "Pinnacle Group Sells Rights to Upper West Side Apartment Tower for $88M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 15 column 194 (char 4964) | Could not parse JSON from response: {\n  \"title\": \"Pinnacle Sells West 96th Street Rights to Lightstone for $88M\",\n  \"subtitle\": \"The $11M Series C surplus after a $65M senior loan shows how much of the price was already claimed.\",\n  \"sl"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 15 column 194 (char 4964) | Could not parse JSON from response: {\n  \"title\": \"Pinnacle Sells West 96th Street Rights to Lightstone for $88M\",\n  \"subtitle\": \"The $11M Series C surplus after a $65M senior loan shows how much of the price was already claimed.\",\n  \"sl"
+          }
+        },
+        "seconds": 280.3,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 5,
+    "published": 1,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen_social.png",
+      "insights/ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "4f04098d0a5b41c3",
+        "title": "OCVibe’s $5B Bet Rests on a Landlord-Paid Kitchen",
+        "slug": "ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen",
+        "url": "/insights/ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 63,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "02c1d336e6460a54",
+        "slug": "",
+        "title": "Keysight Tops $2 Billion in Orders as AI Infrastructure Drives Record Q3",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "3f7cb5d991ec92be",
+        "slug": "",
+        "title": "Atrium Launches AI Platform Tracking $1.3T of U.S. Data Center Development Credit",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "4f04098d0a5b41c3",
+        "slug": "ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen",
+        "title": "OCVibe’s Scott Frick On Building a $5B District Around Anaheim’s Honda Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3de7c5e0cdf6baa9",
+        "slug": "",
+        "title": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "d6ae7eae37a9ebef",
+        "slug": "",
+        "title": "Pinnacle Group Sells Rights to Upper West Side Apartment Tower for $88M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 21,
+    "successful_calls": 19,
+    "failed_provider_attempts": 2,
+    "fallback_calls": 0,
+    "switches": 1,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 22.18,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.74,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.38,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.71,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 8.42,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 23.45,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.12,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 765.9,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.11,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.06,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence",
+    "published 1 of the daily target 3"
+  ],
+  "errors": [],
+  "elapsed_seconds": 829.18,
+  "status": "success",
+  "candidate_count": 780,
+  "event_count": 729,
+  "articles": [
+    {
+      "event_id": "4f04098d0a5b41c3",
+      "title": "OCVibe’s $5B Bet Rests on a Landlord-Paid Kitchen",
+      "slug": "ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen",
+      "url": "/insights/ocvibe-s-5b-bet-rests-on-a-landlord-paid-kitchen.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 63,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 1
+}
