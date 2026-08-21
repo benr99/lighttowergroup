@@ -1,0 +1,579 @@
+{
+  "run_at": "2026-08-21T11:34:44.141559+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 746,
+  "documents_from_feeds": 643,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 701,
+  "documents_consolidated": 45,
+  "eligible": 77,
+  "enriched": 74,
+  "evidence_upgraded": 26,
+  "selected": 20,
+  "publication_candidates": 5,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 53,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 359,
+      "eligible": 47,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 66,
+      "eligible": 6,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 123,
+      "eligible": 10,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 10 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 32,
+      "eligible": 7,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 65,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 10,
+    "tier_c": 10
+  },
+  "shortfalls": [
+    "banking_credit: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 6 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 3 of 10 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 4 of 7 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 59.5,
+    "mean": 22.4,
+    "stdev": 8.15,
+    "range_used": 59.5
+  },
+  "retrieval": {
+    "requested": 74,
+    "fetched": 74,
+    "from_cache": 0,
+    "blocked": 0,
+    "failed": 0,
+    "skipped_budget": 0,
+    "bytes_downloaded": 14554036,
+    "elapsed_ms": 29623,
+    "by_status": {
+      "partial_text": 48,
+      "full_text": 26
+    }
+  },
+  "novelty": {
+    "new": 698,
+    "duplicate": 3
+  },
+  "memory": {
+    "events_remembered": 1482,
+    "published": 405,
+    "seen_but_not_run": 1077,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-21",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.35,
+    "spent_today_usd": 0.35,
+    "remaining_usd": 24.65,
+    "exhausted": false,
+    "total_calls": 5,
+    "refused_calls": 0,
+    "elapsed_seconds": 1228.3,
+    "by_stage": {
+      "generation": {
+        "calls": 5,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.35,
+        "seconds": 2423.3,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "5e26c1a2547f0de1",
+        "usd": 0.07
+      },
+      {
+        "id": "279694899a6bd3dc",
+        "usd": 0.07
+      },
+      {
+        "id": "91080301bef09a9f",
+        "usd": 0.07
+      },
+      {
+        "id": "d8562a753bfc28e6",
+        "usd": 0.07
+      },
+      {
+        "id": "ee8ab7a6bfc8d30b",
+        "usd": 0.07
+      }
+    ]
+  },
+  "generation": {
+    "requested": 5,
+    "written": 1,
+    "needs_review": 0,
+    "held": 4,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 1160.5,
+    "usd": 0.35,
+    "by_depth": {
+      "tier_b": 5
+    },
+    "results": [
+      {
+        "object_id": "5e26c1a2547f0de1",
+        "title": "Sixty Beverly Hills Hotel Heads Back To Special Servicing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34588) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34588) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 275.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "279694899a6bd3dc",
+        "title": "Trump calls Fed 'political' as rate-cut case divides market",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34288) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34288) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 295.5,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "91080301bef09a9f",
+        "title": "Cushman & Wakefield Arranges $450M Sale of Tri-State Commercial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=36048) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=36048) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 293.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "d8562a753bfc28e6",
+        "title": "Interra Realty Brokers Edgewater Apartment Transaction",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 15 column 168 (char 3946) | Invalid provider JSON object: Expecting ',' delimiter: line 13 column 153 (char 3578)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 15 column 168 (char 3946) | Invalid provider JSON object: Expecting ',' delimiter: line 13 column 153 (char 3578)"
+          }
+        },
+        "seconds": 399.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "ee8ab7a6bfc8d30b",
+        "title": "PGIM Loans $83M to Refi 325-Unit New Jersey Apartment Complex",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [
+              "The article says the property is 'in Roselle, N.J.' but the source identifies it as 'Roselle Park, N.J.' The property name Meridia Roselle Park 10 and address 10 West Westfield Avenue confirm Roselle Park; Roselle and Roselle Park are distinct municipalities."
+            ],
+            "passed": false,
+            "score_1_10": 7,
+            "summary": "The analysis is strong: it uses the disclosed figures accurately, derives per-unit metrics, explicitly flags missing underwriting terms, and explains the structural trade-off of separate bridge loans. The sole material defect is a factual location error, placing the asset in Roselle rather than Roselle Park, N.J.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Several consecutive sentences begin with 'The' or a proper noun, creating a slightly repetitive cadence.",
+              "The phrase 'The more revealing number is not the size. It is the structure' is a minor category error: structure is not a number.",
+              "The ending's 'next signal' is a familiar forward-looking construction and could be replaced with a more concrete market test.",
+              "The phrase 'What the numbers do not show is the actual pressure' is somewhat abstract and could be grounded with the specific missing metrics sooner."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and hooked with a contrarian comparison: the building isn't the biggest, but it is the final piece in a $369.5 million financing program.",
+            "worst_sentence": "The next signal is whether any of the five assets gets a permanent loan in the next twelve to eighteen months, and at what spread.",
+            "summary": "A sharp, analytical commercial real estate finance story that prioritizes structure and refinancing risk over transaction size. It reads like a knowledgeable professional, though a few repetitive sentence openings and a slightly forward-looking ending keep it from a higher score.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [
+              "Article contains dossier-unverified claims (2 amounts, 0 companies, 0 addresses): amounts: $276,000 near 'and the total is $369.5 million. That works out to roughly $276,000 per unit across the portfolio. Roselle Park itself c', $254,000 near 't across the portfolio. Roselle Park itself comes in around $254,000 per unit.</p><p>The more revealing number is not th'"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately uses the single source, correctly reports the disclosed financing figures, distinguishes reported facts from arithmetic or underwriting, and explicitly identifies the missing loan terms. Its structural analysis of separate bridge loans versus portfolio-level refinancing risk is logically grounded in the source quote and does not invent unsupported returns, valuations, or market conditions.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Minor: one or two analytical sentences are dense with jargon and could be split for readability without losing meaning."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Specific and effective. It anchors on a single address and a counterintuitive 'last one that mattered' hook, avoiding a generic market overview.",
+            "worst_sentence": "If the other four assets carry more debt per unit than Roselle Park, that may reflect unit mix, rent levels, or land basis—not which property will face the harder refinancing conversation later.",
+            "summary": "The article is tightly structured, professional, and analytical. It moves from a specific deal to portfolio-level structure and ends with a concrete market test, while avoiding AI clichés and formulaic transitions.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 1160.5,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 5,
+    "published": 1,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/the-369-5m-refi-built-to-run-five-separate-clocks_social.png",
+      "insights/the-369-5m-refi-built-to-run-five-separate-clocks.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/the-369-5m-refi-built-to-run-five-separate-clocks_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "ee8ab7a6bfc8d30b",
+        "title": "The $369.5M Refi Built to Run Five Separate Clocks",
+        "slug": "the-369-5m-refi-built-to-run-five-separate-clocks",
+        "url": "/insights/the-369-5m-refi-built-to-run-five-separate-clocks.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "5e26c1a2547f0de1",
+        "slug": "",
+        "title": "Sixty Beverly Hills Hotel Heads Back To Special Servicing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "279694899a6bd3dc",
+        "slug": "",
+        "title": "Trump calls Fed 'political' as rate-cut case divides market",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "91080301bef09a9f",
+        "slug": "",
+        "title": "Cushman & Wakefield Arranges $450M Sale of Tri-State Commercial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "d8562a753bfc28e6",
+        "slug": "",
+        "title": "Interra Realty Brokers Edgewater Apartment Transaction",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "ee8ab7a6bfc8d30b",
+        "slug": "the-369-5m-refi-built-to-run-five-separate-clocks",
+        "title": "PGIM Loans $83M to Refi 325-Unit New Jersey Apartment Complex",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-369-5m-refi-built-to-run-five-separate-clocks.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 24,
+    "successful_calls": 12,
+    "failed_provider_attempts": 12,
+    "fallback_calls": 0,
+    "switches": 6,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 16.84,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 5.22,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.14,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.52,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.08,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 12.16,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 29.76,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.15,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 1162.19,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.18,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.07,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence",
+    "published 1 of the daily target 3"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1228.32,
+  "status": "success",
+  "candidate_count": 746,
+  "event_count": 701,
+  "articles": [
+    {
+      "event_id": "ee8ab7a6bfc8d30b",
+      "title": "The $369.5M Refi Built to Run Five Separate Clocks",
+      "slug": "the-369-5m-refi-built-to-run-five-separate-clocks",
+      "url": "/insights/the-369-5m-refi-built-to-run-five-separate-clocks.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 1
+}
