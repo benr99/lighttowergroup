@@ -1,8 +1,4592 @@
 {
  "schema_version": 1,
- "updated_at": "2026-08-10T14:36:27.259587+00:00",
- "count": 847,
+ "updated_at": "2026-08-23T11:36:43.363174+00:00",
+ "count": 1039,
  "events": [
+  {
+   "event_key": "6cc2b9430f89255f",
+   "title": "Sign Up for DealBook",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "agreed",
+   "source_urls": [
+    "https://www.nytimes.com/newsletters/signup/DK"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "30dfff31fe265f7b",
+   "title": "Banister Hydro, Inc.; Notice of Reasonable Period of Time for Water Quality Certification Application",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/10/2026-16241/banister-hydro-inc-notice-of-reasonable-period-of-time-for-water-quality-certification-application",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17257/bangor-pacific-hydro-associates-notice-of-reasonable-period-of-time-for-water-quality-certification"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "31e2ed0db2504a72",
+   "title": "Combined Notice of Filings",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/10/2026-16240/combined-notice-of-filings",
+    "https://www.federalregister.gov/documents/2026/08/10/2026-16235/combined-notice-of-filings-1",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17246/combined-notice-of-filings-1",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17245/combined-notice-of-filings"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "465b57c1b49924a0",
+   "title": "Agency Information Collection Activities; Submission for OMB Review; Comment Request; Extension: Rule 8b-1 to 8b-5; 8b-10 to 8b-22; and 8b-25 to 8b-31",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/10/2026-16202/agency-information-collection-activities-submission-for-omb-review-comment-request-extension-rule",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17189/agency-information-collection-activities-submission-for-omb-review-comment-request-extension-rule"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ec5a86865595945d",
+   "title": "Agency Information Collection Activities; Proposed Collection; Comment Request; Extension: Form N-8B-2",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 4,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/10/2026-16199/agency-information-collection-activities-proposed-collection-comment-request-extension-form-n-8b-2",
+    "https://www.federalregister.gov/documents/2026/08/10/2026-16198/agency-information-collection-activities-proposed-collection-comment-request-extension-form-n-17f-2",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17226/agency-information-collection-activities-proposed-collection-comment-request-extension-form-n-54a",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17225/agency-information-collection-activities-proposed-collection-comment-request-extension-rule-17f-1",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17224/agency-information-collection-activities-proposed-collection-comment-request-extension-rule-163",
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17223/agency-information-collection-activities-proposed-collection-comment-request-extension-rule-433"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a8f3976fc1c432e1",
+   "title": "Invalid feed",
+   "primary_sector": "local_government",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://legistar.council.nyc.gov/Gateway.aspx?M=C&From=RSS&Mode=This+Month"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "8f95f3799624630d",
+   "title": "Primary Policy Priorities and Goals",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nmhc.org/advocacy/nmhc-primary-policy-priorities-and-goals/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "68c9c582f6c007c7",
+   "title": "Douglas M. Bibby NMHC Research Foundation",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nmhc.org/research-insight/douglas-m-bibby-nmhc-research-foundation/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "1656e5d11c05386b",
+   "title": "Guide to Mortgage Lending to First-Time Homebuyers",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/products/322472-guide-to-mortgage-lending-to-first-time-homebuyers"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "07038294d3fb811e",
+   "title": "Mortgage Servicing Rights Report: 1Q26 (PDF)",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/products/323302-mortgage-servicing-rights-report-1q26-pdf"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6c3624b26bf02f52",
+   "title": "Lender Profiles 1Q26: Top 25 (PDF)",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/products/323273-lender-profiles-1q26-top-25-pdf"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c3bb91d5ca6d1954",
+   "title": "Mortgage Profitability Report 1Q26 (PDF)",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/products/323220-mortgage-profitability-report-1q26pdf"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6cd359b546de3d86",
+   "title": "Top Mortgage Players: 1Q26 (PDF)",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/products/323218-top-mortgage-players-1q26-pdf"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c1c9f958648307e1",
+   "title": "Agency Seller-Issuer Profile: 1Q26 (PDF)",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/products/323159-agency-seller-issuer-profile-1q26-pdf"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3d95e5556bdbe613",
+   "title": "2026 Mortgage Market Statistical Annual (PDF)",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/products/320686-2026-mortgage-market-statistical-annual-pdf"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ce5e9b7701b18beb",
+   "title": "NTT Data Reports $500M Data Center Investment in Q1 Results",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": true,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 500000000.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/ntt-data-reports-500m-data-center-investment-in-q1-results"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "1819d313c94c04d0",
+   "title": "Meta Signs 176MWdc solar PPA with Zelestra in Texas",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "agreed",
+   "source_urls": [
+    "https://baxtel.com/news/meta-signs-176mwdc-solar-ppa-with-zelestra-in-texas"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "4c68f5c586cad010",
+   "title": "Google Signs 100MW PPA with EnBW for Power",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "agreed",
+   "source_urls": [
+    "https://baxtel.com/news/google-signs-100mw-ppa-with-enbw-for-power"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d1723b8b6fe17df8",
+   "title": "SoleCrypt Plans 20MW Solar Powered Data Center in Bizerte, Tunisia",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://baxtel.com/news/solecrypt-plans-20mw-solar-powered-data-center-in-bizerte-tunisia"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3b1b7579fe84d5be",
+   "title": "Partners Group to Invest $1bn in AVK to Expand Data Center Microgrid Offering",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": true,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 1000000000.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/partners-group-to-invest-1bn-in-avk-to-expand-data-center-microgrid-offering"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "5c2f518a2ea79ed3",
+   "title": "SpaceX's First Earnings Call Was Mostly a Data Center Call",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": true,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/spacex-s-first-earnings-call-was-mostly-a-data-center-call"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d11ff144bc3e719c",
+   "title": "AWS Plans 800,000 sq ft Data Center Campus at GWU Site in Ashburn",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://baxtel.com/news/aws-plans-800-000-sq-ft-data-center-campus-at-gwu-site-in-ashburn"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "af686b5984e332d6",
+   "title": "Managers Fifth Wall’s Wallace: ‘SpaceX is the next iteration of real estate as an industry’ 28 July 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/fifth-walls-wallace-spacex-is-the-next-iteration-of-real-estate-as-an-industry/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f334fe149dfe49ef",
+   "title": "News & analysis ‘A much more dynamic affair’: Inside PERE’s next chapter 15 July 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/a-much-more-dynamic-affair-inside-peres-next-chapter/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e39e66642cf65be0",
+   "title": "News & analysis PERE Credit 100 launch arrives at an industry-wide inflection point 18 June 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/pere-credit-100-launch-arrives-at-an-industry-wide-inflection-point/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bcd9cf82b2fd1e8f",
+   "title": "Featured Digital Realty CEO Andy Power: Private fundraising is ‘critical to the success of our company’ 04 June 2026",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/digital-realty-ceo-andy-power-private-fundraising-is-critical-to-the-success-of-our-company/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "31f50a89612c0e79",
+   "title": "Managers ‘A lot of unnecessary risk’: Lagging performance puts managers’ losses under scrutiny 19 May 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/a-lot-of-unnecessary-risk-lagging-performance-puts-managers-losses-under-scrutiny/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a4a335ecabaaed1c",
+   "title": "Sponsored Arrow Global’s playbook for value-add returns in European hospitality 21 April 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/arrow-globals-playbook-for-value-add-returns-in-european-hospitality/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e73d5d025326c0de",
+   "title": "Sponsored ‘A golden period’: Seizing the moment in European real estate credit 30 March 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/a-golden-period-seizing-the-moment-in-european-real-estate-credit/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6fc6e928ca4271f2",
+   "title": "Sponsored Beyond rivalry: How banks and alt lenders are swapping competition for co-operation 17 March 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/beyond-rivalry-how-banks-and-alt-lenders-are-swapping-competition-for-cooperation/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "74fbcd781e2adf37",
+   "title": "Sponsored How back leverage is revolutionizing European real estate debt markets 04 March 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/how-back-leverage-is-revolutionizing-european-real-estate-debt-markets/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f50c389540cf18cc",
+   "title": "Sponsored Why European real estate credit looks safer than equity in the new cycle 10 February 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/why-european-real-estate-credit-looks-safer-than-equity-in-the-new-cycle/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bf5f2a264c010936",
+   "title": "Sponsored The AI revolution: How infrastructure is adapting 28 January 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/the-ai-revolution-how-infrastructure-is-adapting/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a299b42e9ed7d410",
+   "title": "US credit roundtable: Competitive pressures weigh on managers 10 min read • 01 June 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/roundtable-competitive-pressures-weigh-on-us-managers/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3f3a3009a8421e38",
+   "title": "Germany roundtable: The challenge of unlocking the country’s potential 10 min read • 01 May 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/roundtable-the-challenge-of-unlocking-germanys-potential/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "379f0118fb760bfc",
+   "title": "Europe roundtable: Can the region step up in a time of opportunity? 10 min read • 02 March 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.perenews.com/equity/roundtable-can-europe-step-up-in-a-time-of-opportunity/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a453c1310599c593",
+   "title": "Best of the Best Project Awards",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/enr-award-of-excellence"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "8bb3dceb332ba577",
+   "title": "Groundbreaking Women in Construction WEST",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/groundbreaking-women-in-construction"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "08329be3c99338ea",
+   "title": "Year In Construction Photo Contest",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/Year-In-Construction-Photo-Contest"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "7765caecd6a85ad3",
+   "title": "COMING SOON: 2026 Giants 400 Report: Ranking the nation's largest architecture, engineering, and construction firms",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/giants-400/article/55396695/coming-soon-2026-giants-400-report-ranking-the-nations-largest-architecture-engineering-and-construction-firms"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "7bb86a048ad06eaa",
+   "title": "Asphalt / Concrete / Paving",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-asphalt-concrete-paving-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "eba251a2292548aa",
+   "title": "Cold Planers / Milling Machines",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-cold-planers-milling-machines-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "55192d52fa241cfa",
+   "title": "Conveyors / Feeders / Stackers",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-conveyors-feeders-stackers-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "dd90ada704fa5640",
+   "title": "Trenching / Boring / Cable Plows",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-trenching-boring-cable-plows-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "77e3069000ca9b43",
+   "title": "Other Asphalt / Concrete Equipment",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-other-asphalt-concrete-equipment-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "709540df606afc41",
+   "title": "Augers / Post Diggers / Drivers",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-augers-post-diggers-drivers-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "78b2d566574583f0",
+   "title": "Crushers / Pulverizers / Shears",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-crushers-pulverizers-shears-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "1e7293b06d1d6fc5",
+   "title": "Walk / Tow Behind Compactors",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.constructionequipmentguide.com/used-walk-tow-behind-compactors-for-sale/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "592608b191a7c577",
+   "title": "Energy & Sustainability Learn More",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/services/energy-and-sustainability-solutions"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bede76af6a2c0782",
+   "title": "Podcast Halfway There: What’s Shaping Commercial Real Estate at Midyear 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/podcasts/2026-ep33-whats-shaping-commercial-real-estate-at-midyear-2026"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3be52dfe67586eec",
+   "title": "Book European Real Estate Market Outlook Midyear Review 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/books/european-real-estate-market-outlook-midyear-review-2026"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "477f5953c4a80558",
+   "title": "Report 2026 Asia Pacific Real Estate Market Outlook Mid-Year Review",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/reports/2026-asia-pacific-real-estate-market-outlook-mid-year-review"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a509ec11eee7a178",
+   "title": "Book UK Real Estate Market Outlook Midyear Review 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/books/uk-real-estate-market-outlook-midyear-review-2026"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6153af57f8c26911",
+   "title": "Continued Prime Space Recovery Augurs Well for the Rest of the Office Market",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/briefs/eacotm-continued-prime-space-recovery-augurs-well-for-the-rest-of-the-office-market"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c00799444440354b",
+   "title": "U.S. Cap Rate Survey H2 2025",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/reports/us-cap-rate-survey-h2-2025",
+    "https://www.cbre.com/insights/reports/us-cap-rate-survey-h1-2026"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "1abe053d0725c973",
+   "title": "Net-Lease Investment Volume Increases by 13%",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/figures/q2-2026-us-net-lease-investment-figures"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ae9c729cdb4adfd1",
+   "title": "Lab/R&D Fundamentals Weaken Despite Improving Demand Drivers",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/figures/q2-2026-us-life-sciences-figures"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "669a320d09aefb4a",
+   "title": "Immersive Data for Major Markets",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/global-office-rent-tracker"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "9e8c27b0117f95b5",
+   "title": "Global Privacy and Cookie Notice",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/about-us/global-privacy-and-cookie-notice"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bc25d79ebcafb158",
+   "title": "The climate inflection point Developing climate resilience for real estate will require radical engineering, nature-based and AI-powered solutions",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.jll.com/en-us/insights/future-vision-climate-inflection-point-risk-resilience-adaptation"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d973dd87c92b77ae",
+   "title": "Get set for the 5th Industrial Revolution Real estate strategies for an AI-powered world",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.jll.com/en-us/insights/future-vision-real-estate-strategies-for-an-ai-powered-world"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "83b32bff95f1dcd0",
+   "title": "Prepare yourself for the future of retail Hybrid places, sustainable stores, shopper assistants and more",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-10T14:12:38.997837+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 3,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.jll.com/en-us/insights/future-vision-prepare-yourself-for-the-future-of-retail"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "14c3fb4eeeac45d7",
+   "title": "FDNY data shows lithium-ion battery fires on track to surpass last year’s totals",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://gothamist.com/news/fdny-data-shows-lithium-ion-battery-fires-on-track-to-surpass-last-years-totals"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f44081fd85f837de",
+   "title": "Fewer homeless New Yorkers died last year even as population remained at record high",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://gothamist.com/news/fewer-homeless-new-yorkers-died-last-year-even-as-population-remained-at-record-high"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "8aa44c9afc1db499",
+   "title": "Tisch pledges NYPD's support at Central Synagogue, a week after Shabbat attack",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://gothamist.com/news/tisch-pledges-nypds-support-at-central-synagogue-a-week-after-shabbat-attack"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "4392a74ee279ea80",
+   "title": "At anarchist bookstore, news of NYC socialist leader’s $1.5M home met with a shrug",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 1500000.0,
+   "status": "",
+   "source_urls": [
+    "https://gothamist.com/news/at-anarchist-bookstore-news-of-nyc-socialist-leaders-15m-home-met-with-a-shrug"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "61533903137d105a",
+   "title": "US Open Fan Week starts Sunday. Here are the other NYC streets closing this weekend.",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "launched",
+   "source_urls": [
+    "https://gothamist.com/news/us-open-fan-week-starts-sunday-here-are-the-other-nyc-streets-closing-this-weekend"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e907d6c05f15f207",
+   "title": "Delaney Hall detainees say they're crime victims. They hope that lets them stay in the US.",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://gothamist.com/news/delaney-hall-detainees-say-theyre-crime-victims-they-hope-that-lets-them-stay-in-the-us"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2599a1cb8d21cbdf",
+   "title": "How Venice and New Media Art Are Making the White Cube Increasingly Obsolete",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://observer.com/2026/08/opinion-arts-venice-biennale-moving-white-cube-curating-market-insights/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "133964ecedc6f704",
+   "title": "Willow House Mural Debuts At 1404 Willow Avenue In Hoboken, New Jersey",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://newyorkyimby.com/2026/08/willow-house-mural-debuts-at-1404-willow-avenue-in-hoboken-new-jersey.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a5874c9972374a2f",
+   "title": "Permits Filed for 62 Nixon Court in Gravesend, Brooklyn",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://newyorkyimby.com/2026/08/permits-filed-for-62-nixon-court-in-gravesend-brooklyn.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "1484c1390a42cf24",
+   "title": "362-372 Livingston Street Nears Completion in Downtown Brooklyn",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://newyorkyimby.com/2026/08/362-372-livingston-street-nears-completion-in-downtown-brooklyn.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "fabd3bc707f3463c",
+   "title": "1150 Broadway Development Site Purchased In Bed-Stuy, Brooklyn",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": true,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 23500000.0,
+   "status": "",
+   "source_urls": [
+    "https://newyorkyimby.com/2026/08/1150-broadway-development-site-purchased-in-bedford-stuyvesant-brooklyn.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d903c2f14d35a781",
+   "title": "Permits Filed for 1456 East Gun Hill Road in Pelham Gardens, The Bronx",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://newyorkyimby.com/2026/08/permits-filed-for-1456-east-gun-hill-road-in-pelham-gardens-the-bronx.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "9478f3c3e6e7c169",
+   "title": "LISTEN: ‘Thou Shall Not Push Your Neighbor Around’",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.thecityreporter.nyc/2026/08/22/mike-wallace-greater-gotham-war-trilogy-joel-feingold-litnyc-podcast/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "da8b0d5ad10b5a89",
+   "title": "What can the government do to lower mortgage rates?",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.housingwire.com/articles/what-can-the-government-do-to-lower-mortgage-rates/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c6b293d7c8101a4b",
+   "title": "Six investors reveal the biggest market risks — and one strategy they agree on",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "agreed",
+   "source_urls": [
+    "https://www.cnbc.com/2026/08/22/investors-market-risks-diversification-stocks-kospi.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "51ad99d5aca72cc2",
+   "title": "Europe’s Luxury Giants Discern Green Shoots in Key China Market",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/europe-s-luxury-giants-discern-green-shoots-in-key-china-market"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "74edcac3fea45e76",
+   "title": "F1 Reviews China Boy Band’s Logo for Similarities: Global Times",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/f1-reviews-china-boy-band-s-logo-for-similarities-global-times"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "4649038b04a0488d",
+   "title": "Mexican Governor Wanted by US Over Cartel Ties Seeks Leave Again",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/mexican-governor-wanted-by-us-over-cartel-ties-seeks-leave-again"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "50815e9a5552a742",
+   "title": "Australia Reports First Bird Flu Case in a Mammal as Seal Dies",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/australia-reports-first-bird-flu-case-in-a-mammal-as-seal-dies"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f72d08b47204159f",
+   "title": "India Rescues Two of Ship’s 24 Crew Members After Distress Alert",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "launched",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/india-rescues-two-of-ship-s-24-crew-members-after-distress-alert"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "fe5fbec6b6a2dbe8",
+   "title": "New Zealand Opposition Vows to Restore RBNZ Dual Mandate",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/new-zealand-labour-opposition-vows-to-restore-rbnz-dual-mandate"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2c6b64468e18906f",
+   "title": "Malaysia Rules Out $1.9 Billion Takeover of Passport Supplier",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 1900000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/malaysia-rules-out-1-9-billion-takeover-of-passport-supplier"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c684132428941bcf",
+   "title": "Korean Traders Chase 40% Coupons as Risk Appetite Survives Rout",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-23/korean-traders-chase-40-coupons-as-risk-appetite-survives-rout"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "588b8da363c0e61b",
+   "title": "Bloomberg Previews Jackson Hole Symposium",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/bloomberg-previews-jackson-hole-symposium-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "49ac746683c63784",
+   "title": "Juicy Yields Draw Junk Bond Buyers to Investment-Grade AI Debt",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-22/juicy-yields-draw-junk-bond-buyers-to-investment-grade-ai-debt"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "15162382578125e2",
+   "title": "Bloomberg This Weekend 8/22/2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/bloomberg-this-weekend-8-22-2026-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3ccf83c11fa993e1",
+   "title": "Pointed! Bloomberg's Weekly News Quiz For Risk-Takers",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/pointed-bloomberg-s-weekly-news-quiz-for-risk-takers-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "51e1083616dfa5d7",
+   "title": "US Colleges Face a Shrinking Student Pipeline",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/us-colleges-face-a-shrinking-student-pipeline-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b11340b51e3f8df0",
+   "title": "Sanctions Target Iran’s Weakened Regional Network",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/sanctions-target-iran-s-weakened-regional-network-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "edaa9b6d125ea1ed",
+   "title": "Small Dogs, Big Demand as Dachshund Popularity Takes Off",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/small-dogs-big-demand-as-dachshund-popularity-takes-off-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "420d7a9f9a8bc33e",
+   "title": "Study Shows AI Hitting Paychecks, Not Payrolls",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/study-shows-ai-hitting-paychecks-not-payrolls"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "92e42f40da90cdfb",
+   "title": "Casinos Shift Focus From Gambling to Lure Gen Z With Sports, Dining",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/articles/2026-08-22/casinos-shift-focus-from-gambling-to-lure-gen-z-with-sports-dining"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "62a1430a32776a61",
+   "title": "American Whiskey Pays Price for Canada Trade Rift",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/american-whiskey-pays-price-for-canada-trade-rift-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "de34e669c979f975",
+   "title": "MI6 Veteran Warns Against Politicizing Intelligence",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/mi6-veteran-warns-against-politicizing-intelligence-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "0a0e2280166a1ae3",
+   "title": "Canada Pushes Back as US Trade Talks Collapse",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 20000000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bloomberg.com/news/videos/2026-08-22/canada-pushes-back-as-us-trade-talks-collapse-video"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3ded7a69d17b77de",
+   "title": "Rare Frank Gehry-designed LA loft asks $2.39M and comes with storied history: ‘People painted on the walls’",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 2390000.0,
+   "status": "",
+   "source_urls": [
+    "https://nypost.com/2026/08/22/real-estate/rare-frank-gehry-loft-asks-2-39m-in-santa-monica/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6f4243cc0662e8b2",
+   "title": "This Old, Very Old, Hamptons House",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "http://www.curbed.com/article/pamela-morgan-springs-east-hampton-cottage-restoration.html?utm_source=rss&utm_medium=social_acct&utm_campaign=feed-part"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b7dda4b673808f46",
+   "title": "My Neighbor Installed a Camera Pointing to My Yard. Is That Legal?",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/22/realestate/neighbors-cameras-visual-surveillance.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d0f2f9a3c94a7695",
+   "title": "Wanted: Two Bedrooms for a New Chapter in Setúbal, Portugal. Was $400,000 Enough?",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 400000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/quiz/2026/08/20/realestate/setubal-portugal-home-sales-prices.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "78c2eaa35656f50b",
+   "title": "A ‘Survivor’ Castaway’s First Challenge: Finding an Apartment",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/23/realestate/survivor-stephanie-berger-rental-apartment.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c1ed683ee07a2268",
+   "title": "Flock cameras join data centers as a top AI boogeyman in 2026 midterms",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.axios.com/2026/08/23/flock-cameras-data-centers-ai-midterms-2026-tech"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b14c5a56d150b151",
+   "title": "Scoop: Mike Rogers-AIPAC rupture roils Michigan Senate race",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.axios.com/2026/08/22/mike-rogers-aipac-michigan-senate"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e42ef79eee75a8b9",
+   "title": "U.S.-Canada trade talks collapse, massive tariffs to take effect",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.axios.com/2026/08/22/us-canada-tariffs-trade-trump-carney"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "9103bbfc0fcde923",
+   "title": "Trump finds tamping down costs to be tricky",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.axios.com/2026/08/22/trump-affordability-beef-consumers"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "0f358578ed190479",
+   "title": "‘I had no one to bird with who wasn’t 20 years older than me’: Meet the Gen Zers who transformed grandma’s hobby into an analog craze",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/23/gen-z-birding-analog-hobby-college-bird-watching/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bb78ba714c01b5f8",
+   "title": "The CEO of $1.2 billion learning platform Preply says it all started with his online search for an English tutor",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 1200000000.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/23/kirill-bigai-ceo-of-1-2-billion-learning-platform-preply-it-all-started-with-online-search-for-english-tutor/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "75aa8a7f6345fd70",
+   "title": "OTC Markets CEO: 250 years of market history just collided with a new SEC rule",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "closed",
+   "source_urls": [
+    "https://fortune.com/2026/08/23/otc-markets-ceo-250-years-of-market-history-just-collided-with-a-new-sec-rule/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "09ffc20e3351077a",
+   "title": "American billionaires are showing off their farmland for elaborate hobbies, but a buying spree among the ultrarich risks pricing farmers out",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/23/american-billionaires-buying-farmland-alternative-asset-pricing-farmers-out/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "0e0cb51bb29257fd",
+   "title": "Women want ‘dads,’ not ‘duds’: A Nobel-winning historian has a theory for falling birthrates, but the economics aren’t so straightforward",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/23/women-dads-not-duds-claudia-goldin-birthrate-economics-data/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "683dd65f70d047bb",
+   "title": "Mark Walter’s sports empire offers a glimpse of the money machine behind private credit—and the plumbing keeping it together",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/23/mark-walter-sports-private-credit-insurance-finances/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d96abc5943ffcac6",
+   "title": "SpaceX is hiring in natural gas trading for energy needs",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/22/spacex-natural-gas-trader-chip-making-rocket-fuel/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "4691fecdae2ed6a8",
+   "title": "At Olympics-like event, Chinese robots smash athletic records set by humans — including Usain Bolt’s 100-meter sprint time",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/22/chinese-robots-beijing-games-athletic-records-humans-usain-bolt/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a5b22756e2bf7bc9",
+   "title": "Venezuela abandoning the bolivar and adopting the U.S. dollar would be the biggest currency switch since the advent of the euro, Hanke says",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/22/dollarization-venezuela-bolivar-currency-switch-hyperinflation-oil-revenue-debt-steve-hanke/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "626cf8e6912ab263",
+   "title": "Trump’s stock disclosure shows more than 1,000 trades in June",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 263100000.00000003,
+   "status": "",
+   "source_urls": [
+    "https://fortune.com/2026/08/22/trump-stock-market-trading-disclosure-june-vanguard-etf/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a012175da1eec451",
+   "title": "Harvard Is Selling a $699 Course Taught by A.I. Clones of Its Faculty",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 699.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/22/business/dealbook/harvard-ai-faculty.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d08e6158ecfa52ec",
+   "title": "How Big Tech Captured American Schools",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/23/business/schools-big-tech-google-microsoft.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "dcf4800a3ee9ca06",
+   "title": "Trump’s Top Trade Representative Details Offer That Canada Rejected",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/22/business/economy/greer-us-canada-trade-deal.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e66016e9cd669f6c",
+   "title": "Paramount and California to Hold Preliminary Talks on Warner Bros. Deal",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 111000000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/22/business/paramount-california-warner-bros.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e690525190f45206",
+   "title": "The Economy Got Used to Low Borrowing Costs. Their Exit Could Pose Risks.",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/22/business/bonds-borrowing-costs-economy.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "aec7d0b95cad81fb",
+   "title": "Shein, a Fast-Fashion Giant, Struggles to Grow Ahead of a Much-Delayed IPO",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.nytimes.com/2026/08/21/business/shein-ipo-questions.html"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "97dec83eb60a46f7",
+   "title": "Two years after launch, Walmart’s Flipkart is closing in on India’s quick-commerce leaders",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/two-years-after-launch-walmarts-flipkart-is-closing-in-on-indias-quick-commerce-leaders/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "75c3c68f886979f9",
+   "title": "Harvard’s $699 startup bootcamp offers AI avatars of its instructors",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 699.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/harvards-699-startup-bootcamp-offers-ai-avatars-of-its-instructors/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "578f97bc1b5da8fe",
+   "title": "Will the DOJ’s investigation into a16z spook other VCs?",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/will-the-dojs-investigation-into-a16z-spook-other-vcs/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ea17f362d7c99395",
+   "title": "Inherent, founded by DeepMind alumni, says its AI ‘teammate’ just outperformed Anthropic and OpenAI at replicating research",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "4377860c5b714f4c",
+   "title": "OpenAI says California should strengthen its AI safety bill",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/openai-says-california-should-strengthen-its-ai-safety-bill/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e1f45116b022f33e",
+   "title": "Frontier AI labs still won’t say how they’d contain a rogue model",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "45c68e6607079633",
+   "title": "US battery startups have found a lifeline in defense",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 500000000.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/us-battery-startups-have-found-a-lifeline-in-defense/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "48e391055d0c33af",
+   "title": "Pixel 11 Pro XL review: Snappier cameras can’t hide an iterative upgrade",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/22/pixel-11-pro-xl-review-snappier-cameras-cant-hide-an-iterative-upgrade/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "342cb74f5a12adb4",
+   "title": "Michael Polansky is training an AI model on skin that’s still alive",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/21/michael-polansky-is-training-an-ai-model-on-skin-thats-still-alive/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "5644681004a79a38",
+   "title": "Japanese space tech startup Letara expands beyond satellite thrusters with $16M",
+   "primary_sector": "private_equity",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 16000000.0,
+   "status": "",
+   "source_urls": [
+    "https://techcrunch.com/2026/08/21/japanese-space-tech-startup-letara-expands-beyond-satellite-thrusters-with-16m/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c51599f98a86d7ad",
+   "title": "AC-Coupled vs. DC-Coupled",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.pv-magazine.com/2026/08/22/ac-coupled-vs-dc-coupled/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "fbfb463f914a6b90",
+   "title": "Lithium-ion batteries are reshaping data centers, fire safety must keep pace",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.datacenterdynamics.com/en/opinions/lithium-ion-batteries-are-reshaping-data-centers-fire-safety-must-keep-pace/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e5fc6aaa112ef3d6",
+   "title": "Sponsored: Why speed to power starts before the grid",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.datacenterdynamics.com/en/marketwatch/why-speed-to-power-starts-before-the-grid/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "fee673da61cf855d",
+   "title": "Sponsored: What coolant should you use for data center liquid cooling?",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.datacenterdynamics.com/en/opinions/what-coolant-should-you-use-for-data-center-liquid-cooling/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "003a85f5ad3037d4",
+   "title": "Ignis and Acciona look to build a data center in Segovia, Spain",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.datacenterdynamics.com/en/news/ignis-and-acciona-join-forces-to-build-a-data-center-in-segovia/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "7e765f1ee786dd8e",
+   "title": "Building data centers is getting easier. Building trust is not",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.datacenterdynamics.com/en/opinions/building-data-centers-is-getting-easier-building-trust-is-not/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "41ae0b6b34832bbc",
+   "title": "Terronova starts work on 300MW data center campus outside São Paulo, Brazil",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.datacenterdynamics.com/en/news/terranova-boosts-technology-infrastructure-with-the-construction-of-one-of-latin-americas-first-ai-data-centers/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "5a31a7c8bb9b7e00",
+   "title": "Sponsored: Powering data centers is no longer a simple matter of supply and demand",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.datacenterdynamics.com/en/marketwatch/powering-data-centers-is-no-longer-a-simple-matter-of-supply-and-demand/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c273c21e10577224",
+   "title": "A Hydrogen Generator Charged An Electric Ship. Why Was Hydrogen There?",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/23/hydrogen-ship-charging-tilbury-battery-test/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bb5c00e46a5e2a26",
+   "title": "Red States Are Killin’ It With Their Solar Factories",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/solar-factory-microgrids-ev-charging-startup-translucent-energy/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "101c242ab8445b42",
+   "title": "China Tightens Restrictions On Electric Door Handles, Forcing Tesla To Recall 3 Million Vehicles",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/china-tightens-restrictions-on-electric-door-handles-forcing-tesla-to-recall-3-million-vehicles/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b9ab0494a330d32f",
+   "title": "For Lagging Automakers: Stop Pouring Money Into The Wrong Powertrains",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/for-lagging-automakers-stop-pouring-money-into-the-wrong-powertrains/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bca87e87b84599d9",
+   "title": "Starlink Is Now The Largest ISP In Zimbabwe By Subscriber Count!",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "launched",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/starlink-is-now-the-largest-isp-in-zimbabwe-by-subscriber-count/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "860b2f4a7561647f",
+   "title": "The ICE Meltdown Continues — July’s China EV Sales Report (44% BEV Share)",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/the-ice-meltdown-continues-julys-china-ev-sales-report-44-bev-share/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "9d8fd78555ce8251",
+   "title": "Ed Darmanin’s Big Lap — Part 2: Sydney to Broome",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/ed-darmanins-big-lap-part-2-sydney-to-broome/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "11f1de309093d5a0",
+   "title": "CleanTechnica Evangelist Report Card",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/cleantechnica-evangelist-report-card/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3a7bf7fdb7f6a199",
+   "title": "Heart Aerospace Just Flew The Aviation Transition Investors Should Be Putting Billions Into",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/22/heart-aerospace-x1-electric-aviation-transition/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f2d173473eabf9a8",
+   "title": "Who Was Right About Tesla Robotaxi Deployment in 2025?",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/21/who-was-right-about-tesla-robotaxi-deployment-in-2025/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c608d542f4ff2cfd",
+   "title": "Genesis Ushers In A New Age of Fully Electric Luxury with the Flagship GV90 SUV",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/21/genesis-ushers-in-a-new-age-of-fully-electric-luxury-with-the-flagship-gv90-suv/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d1a5b581c581e559",
+   "title": "ENGWE Packs Extra Power Into The New M20 3.0 — CleanTechnica Tested",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/21/engwe-packs-extra-power-into-the-new-m20-3-0-cleantechnica-tested/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "02ea50b4e5bc3f02",
+   "title": "ICYMI: Enbridge’s Line 5 Has Another Frac Out As Reroute Challenge And Intimidation Concerns Escalate",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/21/icymi-enbridges-line-5-has-another-frac-out-as-reroute-challenge-and-intimidation-concerns-escalate/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "5e236e58f94314f8",
+   "title": "Cleveland-Cliffs Redirects Half a Billion Dollars in Clean Steel Funding to Coal at Middletown Works",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 500000000.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/21/cleveland-cliffs-redirects-half-a-billion-dollars-in-clean-steel-funding-to-coal-at-middletown-works/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a282f281428b323b",
+   "title": "Hyundai EV Owners Get 20% Discount On Fast Charging",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://cleantechnica.com/2026/08/21/hyundai-ev-owners-get-20-discount-on-fast-charging/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f33ab64d91903874",
+   "title": "U.S.-Canada breakdown shows limits of Trump’s aggressive trade strategy",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.washingtonpost.com/business/2026/08/23/us-canada-breakdown-shows-limits-trumps-aggressive-trade-strategy/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d0d108f5dd27977a",
+   "title": "Trump’s new tariffs on Canada will hit everything from whisky to hockey sticks",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.washingtonpost.com/business/2026/08/22/trumps-new-tariffs-canada-will-hit-everything-whisky-hockey-sticks/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "43651a855e24ea96",
+   "title": "Canada sets retaliatory tariffs in response to 50% U.S. levies as trade talks fail",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.washingtonpost.com/business/2026/08/22/new-50-percent-tariffs-canada-go-into-effect-after-deal-with-us-falls-through/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f97ecd31e259566f",
+   "title": "After decades of free spending, Washington is facing some unpalatable choices",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 40000000000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.washingtonpost.com/business/2026/08/22/debt-surpasses-40-trillion-bill-washington-spending-comes-due/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "21a823eb4323226f",
+   "title": "Need a budget fix? My new video podcast can help.",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "agreed",
+   "source_urls": [
+    "https://www.washingtonpost.com/business/2026/08/22/need-budget-fix-my-new-video-podcast-can-help/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "8f045217368afddd",
+   "title": "Natural Gas Pipeline Company of America LLC; Horizon Pipeline Company, L.L.C.; Notice of Application and Establishing Intervention Deadline",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://unblock.federalregister.gov"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "36c552947b007267",
+   "title": "Employer Contributions to Trump Accounts and Nondiscrimination Rules for Dependent Care Assistance Programs",
+   "primary_sector": "fed_macro",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/C1-2026-16314/employer-contributions-to-trump-accounts-and-nondiscrimination-rules-for-dependent-care-assistance"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b50f6af39edac9b6",
+   "title": "Open Meeting of the Taxpayer Advocacy Panel Joint Committee",
+   "primary_sector": "fed_macro",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "launched",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17249/open-meeting-of-the-taxpayer-advocacy-panel-joint-committee"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "5f86d3760f008449",
+   "title": "Self-Regulatory Organizations; NYSE American LLC; Notice of Designation of a Longer Period for Commission Action on a Proposed Rule Change To Amend Rules 903G and 906G",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17206/self-regulatory-organizations-nyse-american-llc-notice-of-designation-of-a-longer-period-for"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "4d01545918561b8a",
+   "title": "Self-Regulatory Organizations; NYSE Arca, Inc.; Notice of Designation of a Longer Period for Commission Action on a Proposed Rule Change To Amend Rules 5.32-O and 5.35-O",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17205/self-regulatory-organizations-nyse-arca-inc-notice-of-designation-of-a-longer-period-for-commission"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "86924eb361c1ac02",
+   "title": "Self-Regulatory Organizations; NYSE Arca, Inc.; Notice of Filing and Immediate Effectiveness of a Proposed Rule Change To Modify the NYSE Arca Options Fee Schedule To Eliminate Customer and Professional Customer Fees and Introduce a Floor Broker Incentive for Trading in Certain MSCI Related Index Options",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17204/self-regulatory-organizations-nyse-arca-inc-notice-of-filing-and-immediate-effectiveness-of-a"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ac014b67033423ea",
+   "title": "Self-Regulatory Organizations; Cboe Exchange, Inc.; Notice of Filing and Immediate Effectiveness of a Proposed Rule Change To Update Its Fees Schedule in Connection With Binary Options That Overlie the Mini-S&P 500 Index",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17203/self-regulatory-organizations-cboe-exchange-inc-notice-of-filing-and-immediate-effectiveness-of-a"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "0e28278845474e23",
+   "title": "Self-Regulatory Organizations; MEMX LLC; Notice of Filing and Immediate Effectiveness of a Proposed Rule Change To Amend the Exchange's Fee Schedule",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17202/self-regulatory-organizations-memx-llc-notice-of-filing-and-immediate-effectiveness-of-a-proposed"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "26ccba3c3241df05",
+   "title": "Self-Regulatory Organizations; Investors Exchange LLC; Notice of Filing and Immediate Effectiveness of Proposed Rule Change To Correct an Internal Cross-Reference Error in Rule 23.150",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17201/self-regulatory-organizations-investors-exchange-llc-notice-of-filing-and-immediate-effectiveness-of"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2d91b11fc21eba8d",
+   "title": "Pender Real Estate Credit Fund, et al.",
+   "primary_sector": "banking_credit",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://unblock.federalregister.gov"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2a3061698e49542a",
+   "title": "60-Day Notice of Proposed Information Collection: Capital Advance Section 811 Grant Application for Supportive Housing for Persons With Disabilities",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17210/60-day-notice-of-proposed-information-collection-capital-advance-section-811-grant-application-for"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c2cba8467ecb7034",
+   "title": "Local Syndication Group Buys 16-Unit Carlmont Hills Apartments for $5.75MM in Belmont, California",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 5750000.0,
+   "status": "",
+   "source_urls": [
+    "https://news.theregistrysf.com/local-syndication-group-buys-16-unit-carlmont-hills-apartments-for-5-75mm-in-belmont-california/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2c5935d308edcb49",
+   "title": "Environmental Management Site-Specific Advisory Board, Idaho Cleanup Project",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17221/environmental-management-site-specific-advisory-board-idaho-cleanup-project"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ed1d9a4f45de8c59",
+   "title": "Environmental Management Site-Specific Advisory Board, Paducah",
+   "primary_sector": "energy",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.federalregister.gov/documents/2026/08/24/2026-17220/environmental-management-site-specific-advisory-board-paducah"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "c37532902fadfc27",
+   "title": "In Praise of Kayak, 21 Years Later",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://skift.com/2026/08/22/in-praise-of-kayak-21-years-later/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "daae8cf4e91632ab",
+   "title": "Nvidia Stock May Plunge After Earnings, Even If It Beats",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939394-nvidia-stock-may-plunge-after-earnings-even-if-it-beats?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "7189894fcfca83d8",
+   "title": "Wall Street Week Ahead",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939423-wall-street-week-ahead?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f483dc8458695083",
+   "title": "Fully Covered 11-14% Yields: Big Cash Flow For Pennies On The Dollar",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939400-fully-covered-11-14-percent-yields-big-cash-flow-for-pennies-on-dollar?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "1f97d278365e7afa",
+   "title": "Altria: Attractive Yield, But I'm Still Waiting For A Better Entry",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939047-altria-attractive-yield-but-still-waiting-for-better-entry-maintain-hold?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "8783f0de3c04b419",
+   "title": "Treasury Buybacks: America Has Three Doors, And None Solve The Problem",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939416-treasury-buybacks-america-has-three-doors-and-none-solve-the-problem?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2a861239f33a78b4",
+   "title": "Teleflex: Strong Company Undergoing Messy Transition, Hold",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939415-teleflex-stock-strong-company-undergoing-messy-transition-hold?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a5353055cf497d05",
+   "title": "Camtek: AI Packaging Complexity Is Turning Inspection Into A Secular Toll Road",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939414-camtek-ai-packaging-complexity-is-turning-inspection-into-a-secular-toll-road?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "53b1b35574f04a15",
+   "title": "Boot Barn: Strong Store Expansion And E-Commerce To Drive Growth",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939413-boot-barn-strong-store-expansion-and-e-commerce-to-drive-growth?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6915b542f55f1761",
+   "title": "Blue Ridge Bankshares: Not All Acquisitions Come With A Big Premium",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939412-blue-ridge-bankshares-not-all-acquisitions-come-with-a-big-premium?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bdc19737bd959fcd",
+   "title": "Prelude Therapeutics: A Prognosis After Year-Long Rally",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939410-prelude-therapeutics-prognosis-after-year-long-rally?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "4b3526c36afedd17",
+   "title": "Sezzle: The Numbers Don't Support The Selloff",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939409-sezzle-stock-numbers-dont-support-the-selloff?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3b8e80057f1c0730",
+   "title": "Dynex Capital: A 15% Yield Built To Absorb A Rate Hit",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939408-dynex-capital-stock-15-percent-yield-built-to-absorb-rate-hit?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3be83cfc116b9770",
+   "title": "TWFG: The P&C Cycle Presents Higher Hurdles",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939407-twfg-the-p-and-c-cycle-presents-higher-hurdles?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e984b0a5ee687c1f",
+   "title": "Here's Why You Should Watch Red Cat In H2 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939405-heres-why-you-should-watch-red-cat-stock-2h26?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "fbc7c8e346292b45",
+   "title": "Atlassian: No Denying Now That AI Is A Tailwind",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939403-atlassian-no-denying-now-that-ai-is-a-tailwind?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ab7d446c861e6a08",
+   "title": "Brookfield Corporation: Buybacks, Corporate Simplification, And Record AUM (Rating Downgrade)",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939402-brookfield-corporation-buybacks-corporate-simplification-and-record-aum?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ccf3be3b61b27c73",
+   "title": "Ameresco: A $1.5 Billion AI Power Backlog Changes The Story",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 1500000000.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939401-ameresco-stock-15-billion-ai-power-backlog-changes-story?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b40a044bc8244490",
+   "title": "Corpay's Corporate Payments Push Could Unlock Its Next Growth Phase",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939399-corpays-stock-corporate-payments-push-could-unlock-next-growth-phase?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "99c2e66135e803b7",
+   "title": "Siemens Healthineers: Successful Investment, Updating For H2 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939397-siemens-healthineers-successful-investment-updating-for-2h26?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d390dff03fabd257",
+   "title": "Scott Bessent Might Have Started The Bitcoin Bull Cycle",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939395-scott-bessent-might-have-started-the-bitcoin-bull-cycle?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ee0601b854c73189",
+   "title": "Hewlett Packard Enterprise: AI Infrastructure And Juniper Could Unlock The Next Growth Phase",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939392-hewlett-packard-enterprise-ai-infrastructure-and-juniper-could-unlock-the-next-growth-phase?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "37165096a018d83d",
+   "title": "Week Ahead: Warsh At Jackson Hole",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939393-week-ahead-warsh-at-jackson-hole?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2883e59a0b2d8ea0",
+   "title": "Novanta: A Strong Year So Far, Fully Priced In",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939391-novanta-a-strong-year-so-far-fully-priced-in?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "38c5b75379afb23b",
+   "title": "Even After Doubling, Seneca Foods Corporation Offers Tasty Upside",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939390-even-after-doubling-seneca-foods-corporation-offers-tasty-upside?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "293ba45c5a8fb557",
+   "title": "ABN AMRO: Improved Profitability And Surplus Capital Warrant An Upgrade",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939389-abn-amro-improved-profitability-and-surplus-capital-warrant-an-upgrade?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "68a11f700989677b",
+   "title": "What Happened In Philly?",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939269-what-happened-in-philly?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "22c7254613893f54",
+   "title": "CEF Weekly Review: XFLT Gets New Sub-Adviser Over The Line",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939388-cef-weekly-review-xflt-gets-new-sub-adviser-over-the-line?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "baa1fc983c49a60d",
+   "title": "Politics And The Markets 08/23/26",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4931534-politics-and-the-markets-082326?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6b641caca22ea14f",
+   "title": "Safe Pro Group: AI Takes Off, But A High-Risk Buy",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939387-safe-pro-group-ai-takes-off-but-a-high-risk-buy?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d090fe5a9fb308e6",
+   "title": "Teleflex: Portfolio Surgery Creates A Better Medtech Compounder",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://seekingalpha.com/article/4939386-teleflex-portfolio-stock-surgery-creates-better-medtech-compounder?source=feed_all_articles"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6f9ad39e209fb15c",
+   "title": "34-Unit Crown Point Apartments Trades for $4.78MM in Southeast Portland",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 4780000.0,
+   "status": "closed",
+   "source_urls": [
+    "https://news.theregistryps.com/34-unit-crown-point-apartments-trades-for-4-78mm-in-southeast-portland/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e12bcc5612403069",
+   "title": "UMC Welcomes Justin Kim, P.E. as Project Executive",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://news.theregistryps.com/umc-welcomes-justin-kim-p-e-as-project-executive/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "cd262ba7521c39a8",
+   "title": "Think You Know Network History? Take our “Guess the Year” Exam",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://convergedigest.com/guess-the-year-network-history-exam/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "89a4af2b496593a9",
+   "title": "SK hynix Maps CPO Roadmap as AI Scaling Shifts from Chips to Systems",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://convergedigest.com/sk-hynix-cpo-roadmap-ai-optical-memory/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "79d90661e97a1946",
+   "title": "Purchase-Mortgage and Refi Volume Diverge in Second Quarter",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238344-purchase-mortgage-and-refi-volume-diverge-in-second-quarter"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bfeb6dd594e7c944",
+   "title": "Losses Increase at Homebuilder Hovnanian Enterprises",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238345-losses-increase-at-homebuilder-hovnanian-enterprises"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "ace434f14ddec948",
+   "title": "Insurance Companies Add to Whole-Loan Mortgage Holdings",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238346-insurance-companies-add-to-whole-loan-mortgage-holdings"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f4a2ed2bae49655f",
+   "title": "New Listings for Homes Up, Asking Price Slips",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238348-new-listings-for-homes-up-asking-price-slips"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "14d1b691db4bc4dc",
+   "title": "GSEs Deliver Consistent Profits; No Closer to Solvency",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238213-consistent-profits-no-closer-to-solvency"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b1b39395aa0ea323",
+   "title": "Bank Mortgage Earnings Tick Up in Second Quarter",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238210-bank-mortgage-earnings-tick-up-in-second-quarter"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "653c9ffba0fd3291",
+   "title": "Non-Agency Pushes CMBS Issuance Up Slightly in 2Q",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238241-non-agency-pushes-cmbs-issuance-up-slightly-in-2q26"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "76c82f1af3a156d2",
+   "title": "PMIs Gain Purchase Share, Refinance Share Slips",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.insidemortgagefinance.com/articles/238244-private-mi-gained-purchase-share-in-q2-as-refi-share-slipped"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "05d579a1df3e19c5",
+   "title": "20 Markets Hold 60% Of Hyperscale Data Center Capacity – Synergy Aug 22, 2026",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/20-markets-hold-60-of-hyperscale-data-center-capacity-synergy"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "44fb5d5bbf3ebb42",
+   "title": "Fort Peck Tribes Ban Talks With Data Center Developers In Montana",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/fort-peck-tribes-ban-talks-with-data-center-developers-in-montana"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "dc40ff5167c9903e",
+   "title": "Rocket Lab Has No Plans To Enter The Orbital Data Center Market",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://baxtel.com/news/rocket-lab-has-no-plans-to-enter-the-orbital-data-center-market"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "a90ddf642ee977ce",
+   "title": "STT GDC Exits Planned Vietnam Data Center Project",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/stt-gdc-exits-planned-vietnam-data-center-project"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "d1101e5ef97d52f8",
+   "title": "Nvidia Backs Data Center-Powered Land Company Cloverleaf",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/nvidia-backs-data-center-powered-land-company-cloverleaf"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "99ca041bdb0c2cae",
+   "title": "Harworth Signs Exclusivity Deal With Data Center Provider For UK Site",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "agreed",
+   "source_urls": [
+    "https://baxtel.com/news/harworth-signs-exclusivity-deal-with-data-center-provider-for-uk-site"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "8307d99063be644a",
+   "title": "Data Center Rumored To Be Coming To Hofheim, Germany",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/data-center-rumored-to-be-coming-to-hofheim-germany"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "0d0feaa6ce8a59c0",
+   "title": "STT GDC Secures $1.37bn Funding for 166MW Malaysia Data Center",
+   "primary_sector": "data_centers",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 1370000000.0,
+   "status": "",
+   "source_urls": [
+    "https://baxtel.com/news/stt-gdc-secures-1-37bn-funding-for-166mw-malaysia-data-center"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "92cbb20f7345bd6b",
+   "title": "Managers Tristan Capital’s Ric Lewis: ‘The market’s a closed circle’ 12 August 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "closed",
+   "source_urls": [
+    "https://www.perenews.com/equity/tristan-capitals-ric-lewis-the-markets-a-closed-circle/"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bd6fed0e3e314116",
+   "title": "Podcast: Allie Kelly on solar-powered roads, sustainable land management, and the legacy of The Ray.",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/media/podcasts/781-enr-critical-path-podcast/play/168-allie-kelly-on-solar-powered-roads-sustainable-land-management-and-the-legacy-of-the-ray"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "bacc49d3400cd656",
+   "title": "At the Frontier of Change: How—or Where—to Rebuild as Alaska's Permafrost Disappears",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63528-at-the-frontier-of-change-howor-whereto-rebuild-as-alaskas-permafrost-disappears"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "62b693690776d8df",
+   "title": "ENR's Top 250 International Contractors Dig Into Market Solutions",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63521-enrs-top-250-international-contractors-dig-into-market-solutions"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "150917b3d44281f8",
+   "title": "Team Boosts Radioactive Waste Removal from Underground Tanks at DOE Hanford Site",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63546-team-boosts-radioactive-waste-removal-from-underground-tanks-at-doe-hanford-site"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "06b9a717ca285f4f",
+   "title": "Waterways Council Presses for Unified Project Management at Corps in Next WRDA",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63534-waterways-council-presses-for-unified-project-management-at-corps-in-next-wrda"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "cbfac8f260bd0e01",
+   "title": "Mumbai Awards Afcons $200M Deep Water Tunnel",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 200000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63543-mumbai-awards-afcons-200m-deep-water-tunnel"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "2354417c35df6471",
+   "title": "Fire Damages $51M Public Works Building Under Construction in Wisconsin",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 51000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63541-fire-damages-51m-public-works-building-under-construction-in-wisconsin"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6e49cfaaaab7d387",
+   "title": "Massachusetts’ High Court Green Lights Boston’s Pro Women’s Soccer Stadium",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63542-massachusetts-high-court-green-lights-bostons-pro-womens-soccer-stadium"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "66d1cabd1477f76d",
+   "title": "MHI, L&T Win Contract for 31-Mile People Mover at New $35B Dubai Airport",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 35000000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63539-mhi-l-and-t-win-contract-for-31-mile-people-mover-at-new-35b-dubai-airport"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e315873bd9698368",
+   "title": "Bowman Consulting Announces $1B Cash Sale to Louisiana-based Private Equity Firm",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 1000000000.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63524-bowman-consulting-announces-1b-cash-sale-to-louisiana-based-private-equity-firm"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3dc63437afc872f2",
+   "title": "From the Archives: October 5, 1950",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.enr.com/articles/63536-from-the-archives-october-5-1950"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "255bfde36f4c0a51",
+   "title": "Micron Plans Boise Research Facility as $10B Semiconductor Initiative Takes Shape",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 10000000000.0,
+   "status": "proposed",
+   "source_urls": [
+    "https://www.enr.com/articles/63535-micron-plans-boise-research-facility-as-10b-semiconductor-initiative-takes-shape"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b95f5a59d74c60e2",
+   "title": "Top 200 Architecture Firms for 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/giants-400/article/55398941/top-200-architecture-firms-for-2026"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f2a0b8afade03f4c",
+   "title": "The mall of the future, driven by the teens of today",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/building-sector-reports/shopping-centers/article/55389611/the-mall-of-the-future-driven-by-the-teens-of-today"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "52c9ff7358136e69",
+   "title": "First of 10 3D-printed barracks opens at Fort Bliss",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "launched",
+   "source_urls": [
+    "https://www.bdcnetwork.com/aec-tech/3d-printing/article/55398092/first-of-10-3d-printed-barracks-opens-at-fort-bliss"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "b23f341a6a5056e2",
+   "title": "Santa Barbara development offers multiple housing types and retail spaces",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/building-sector-reports/multifamily-housing/article/55398023/santa-barbara-development-offers-multiple-housing-types-and-retail-spaces"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3fc7e0e23cc2f9b9",
+   "title": "Top building products for July 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/products-and-materials/news/55397077/july-2026-top-15-building-products-for-architects-builders"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3605979ea5b87cc9",
+   "title": "The power of narrative in interior design: Every space has a story to tell",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/interior-architecture/blog/55399792/the-power-of-narrative-in-interior-design-every-space-has-a-story-to-tell"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "07be194a3ec87875",
+   "title": "Project management lessons from the field",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/building-team/architects/blog/55399116/project-management-lessons-from-the-field"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e84280ce73b0351f",
+   "title": "Repurposing industrial spaces into cutting edge targeted radiotherapy facilities",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/building-sector-reports/laboratories/blog/55398401/repurposing-industrial-spaces-into-cutting-edge-targeted-radiotherapy-facilities"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "3307c8218e940914",
+   "title": "Geoexchange system installation: 6 steps that prioritize safety and efficiency",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/energy-efficiency/geothermal-technology/blog/55397684/geoexchange-system-installation-6-steps-that-prioritize-safety-and-efficiency"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "f6376405e6275b75",
+   "title": "Top 40 Engineering Architecture Firms for 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 2,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/giants-400/article/55399994/top-40-engineering-architecture-firms-for-2026",
+    "https://www.bdcnetwork.com/giants-400/article/55399173/top-90-architecture-engineering-firms-for-2026"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "8937fd2087fda4dc",
+   "title": "Top 80 Engineering Firms for 2026",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/giants-400/article/55399606/top-80-engineering-firms-for-2026"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "e6e0c3e3bda3d521",
+   "title": "Former Sunkist Corporate Headquarters in Los Angeles designated historic-cultural monument",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/adaptive-reuse/article/55398119/former-sunkist-corporate-headquarters-in-los-angeles-designated-historic-cultural-monument"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "cfe5aacf5644d23a",
+   "title": "JPMorganChase will finance one million affordable housing units through 2035",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.bdcnetwork.com/building-sector-reports/multifamily-housing/article/55398011/jpmorganchase-will-finance-one-million-affordable-housing-units-through-2035"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "0c91d9f9f9037875",
+   "title": "The Vanity Economy: How Beauty & Specialty Fitness Are Influencing Retail Demand",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/briefs/the-vanity-economy-how-beauty-and-specialty-fitness-are-influencing-retail-demand"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "6f04135fe0a181e7",
+   "title": "Record Rents Support MOB Market Stability",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/insights/figures/q2-2026-us-medical-outpatient-buildings-figures"
+   ],
+   "angles": []
+  },
+  {
+   "event_key": "cc415abc824ddbc6",
+   "title": "Protecting Your Data at CBRE",
+   "primary_sector": "commercial_real_estate",
+   "first_seen": "2026-08-23T11:36:43.354232+00:00",
+   "last_seen": "2026-08-23T11:36:43.354232+00:00",
+   "times_seen": 1,
+   "selected": false,
+   "published": false,
+   "published_slug": "",
+   "published_at": "",
+   "largest_amount": 0.0,
+   "status": "",
+   "source_urls": [
+    "https://www.cbre.com/about-us/protecting-your-data-at-cbre"
+   ],
+   "angles": []
+  },
   {
    "event_key": "7a8a9f586bc7f4cd",
    "title": "Stripping STRIPs Trading Activity",
@@ -2561,24 +7145,6 @@
    "angles": []
   },
   {
-   "event_key": "6cc2b9430f89255f",
-   "title": "Sign Up for DealBook",
-   "primary_sector": "private_equity",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "agreed",
-   "source_urls": [
-    "https://www.nytimes.com/newsletters/signup/DK"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "abaed4e083351e0f",
    "title": "Global New Unicorn Counts In The First Half Of 2026 Have Already Surpassed 2025’s Totals",
    "primary_sector": "private_equity",
@@ -3929,43 +8495,6 @@
    "angles": []
   },
   {
-   "event_key": "30dfff31fe265f7b",
-   "title": "Banister Hydro, Inc.; Notice of Reasonable Period of Time for Water Quality Certification Application",
-   "primary_sector": "energy",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.federalregister.gov/documents/2026/08/10/2026-16241/banister-hydro-inc-notice-of-reasonable-period-of-time-for-water-quality-certification-application"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "31e2ed0db2504a72",
-   "title": "Combined Notice of Filings",
-   "primary_sector": "energy",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.federalregister.gov/documents/2026/08/10/2026-16240/combined-notice-of-filings",
-    "https://www.federalregister.gov/documents/2026/08/10/2026-16235/combined-notice-of-filings-1"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "843e4d02442a8bbf",
    "title": "Consolidated Hydro New York, LLC; Notice of Settlement Agreement and Soliciting Comments",
    "primary_sector": "energy",
@@ -4038,24 +8567,6 @@
    "angles": []
   },
   {
-   "event_key": "465b57c1b49924a0",
-   "title": "Agency Information Collection Activities; Submission for OMB Review; Comment Request; Extension: Rule 8b-1 to 8b-5; 8b-10 to 8b-22; and 8b-25 to 8b-31",
-   "primary_sector": "banking_credit",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.federalregister.gov/documents/2026/08/10/2026-16202/agency-information-collection-activities-submission-for-omb-review-comment-request-extension-rule"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "a601d079f65a9c95",
    "title": "Joint Industry Plan; Order Granting Approval of the Twenty-Seventh Amendment to the National Market System Plan To Address Extraordinary Market Volatility To Establish Temporary Price Band Protections in Overnight Trading",
    "primary_sector": "banking_credit",
@@ -4070,25 +8581,6 @@
    "status": "proposed",
    "source_urls": [
     "https://www.federalregister.gov/documents/2026/08/10/2026-16201/joint-industry-plan-order-granting-approval-of-the-twenty-seventh-amendment-to-the-national-market"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "ec5a86865595945d",
-   "title": "Agency Information Collection Activities; Proposed Collection; Comment Request; Extension: Form N-8B-2",
-   "primary_sector": "banking_credit",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "proposed",
-   "source_urls": [
-    "https://www.federalregister.gov/documents/2026/08/10/2026-16199/agency-information-collection-activities-proposed-collection-comment-request-extension-form-n-8b-2",
-    "https://www.federalregister.gov/documents/2026/08/10/2026-16198/agency-information-collection-activities-proposed-collection-comment-request-extension-form-n-17f-2"
    ],
    "angles": []
   },
@@ -4575,24 +9067,6 @@
    "status": "",
    "source_urls": [
     "https://rejournals.com/texas-icon-will-curtis-raising-industry-standards-through-education-and-service/?utm_source=rss&utm_medium=rss&utm_campaign=texas-icon-will-curtis-raising-industry-standards-through-education-and-service"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "a8f3976fc1c432e1",
-   "title": "Invalid feed",
-   "primary_sector": "local_government",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://legistar.council.nyc.gov/Gateway.aspx?M=C&From=RSS&Mode=This+Month"
    ],
    "angles": []
   },
@@ -5317,42 +9791,6 @@
    "angles": []
   },
   {
-   "event_key": "8f95f3799624630d",
-   "title": "Primary Policy Priorities and Goals",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.nmhc.org/advocacy/nmhc-primary-policy-priorities-and-goals/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "68c9c582f6c007c7",
-   "title": "Douglas M. Bibby NMHC Research Foundation",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.nmhc.org/research-insight/douglas-m-bibby-nmhc-research-foundation/"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "9175e82970695513",
    "title": "Servicing Share for Rocket, Chase Down in Second Quarter",
    "primary_sector": "commercial_real_estate",
@@ -5421,132 +9859,6 @@
    "status": "",
    "source_urls": [
     "https://www.insidemortgagefinance.com/articles/238221-weak-jobs-report-could-delay-rate-hike-by-fed"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "1656e5d11c05386b",
-   "title": "Guide to Mortgage Lending to First-Time Homebuyers",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.insidemortgagefinance.com/products/322472-guide-to-mortgage-lending-to-first-time-homebuyers"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "07038294d3fb811e",
-   "title": "Mortgage Servicing Rights Report: 1Q26 (PDF)",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.insidemortgagefinance.com/products/323302-mortgage-servicing-rights-report-1q26-pdf"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "6c3624b26bf02f52",
-   "title": "Lender Profiles 1Q26: Top 25 (PDF)",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.insidemortgagefinance.com/products/323273-lender-profiles-1q26-top-25-pdf"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "c3bb91d5ca6d1954",
-   "title": "Mortgage Profitability Report 1Q26 (PDF)",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.insidemortgagefinance.com/products/323220-mortgage-profitability-report-1q26pdf"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "6cd359b546de3d86",
-   "title": "Top Mortgage Players: 1Q26 (PDF)",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.insidemortgagefinance.com/products/323218-top-mortgage-players-1q26-pdf"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "c1c9f958648307e1",
-   "title": "Agency Seller-Issuer Profile: 1Q26 (PDF)",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.insidemortgagefinance.com/products/323159-agency-seller-issuer-profile-1q26-pdf"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "3d95e5556bdbe613",
-   "title": "2026 Mortgage Market Statistical Annual (PDF)",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.insidemortgagefinance.com/products/320686-2026-mortgage-market-statistical-annual-pdf"
    ],
    "angles": []
   },
@@ -5695,24 +10007,6 @@
    "angles": []
   },
   {
-   "event_key": "ce5e9b7701b18beb",
-   "title": "NTT Data Reports $500M Data Center Investment in Q1 Results",
-   "primary_sector": "data_centers",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": true,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 500000000.0,
-   "status": "",
-   "source_urls": [
-    "https://baxtel.com/news/ntt-data-reports-500m-data-center-investment-in-q1-results"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "fb1df0d77656f1e8",
    "title": "PowerHouse Files Plans for 300MW Data Center Campus Near Dallas-Fort Worth",
    "primary_sector": "data_centers",
@@ -5749,78 +10043,6 @@
    "angles": []
   },
   {
-   "event_key": "1819d313c94c04d0",
-   "title": "Meta Signs 176MWdc solar PPA with Zelestra in Texas",
-   "primary_sector": "energy",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "agreed",
-   "source_urls": [
-    "https://baxtel.com/news/meta-signs-176mwdc-solar-ppa-with-zelestra-in-texas"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "4c68f5c586cad010",
-   "title": "Google Signs 100MW PPA with EnBW for Power",
-   "primary_sector": "energy",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "agreed",
-   "source_urls": [
-    "https://baxtel.com/news/google-signs-100mw-ppa-with-enbw-for-power"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "d1723b8b6fe17df8",
-   "title": "SoleCrypt Plans 20MW Solar Powered Data Center in Bizerte, Tunisia",
-   "primary_sector": "data_centers",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "proposed",
-   "source_urls": [
-    "https://baxtel.com/news/solecrypt-plans-20mw-solar-powered-data-center-in-bizerte-tunisia"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "3b1b7579fe84d5be",
-   "title": "Partners Group to Invest $1bn in AVK to Expand Data Center Microgrid Offering",
-   "primary_sector": "data_centers",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": true,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 1000000000.0,
-   "status": "",
-   "source_urls": [
-    "https://baxtel.com/news/partners-group-to-invest-1bn-in-avk-to-expand-data-center-microgrid-offering"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "28a8bf681c64a864",
    "title": "LG to Invest Additional $910m in 200MW Data Center Near Seoul",
    "primary_sector": "data_centers",
@@ -5835,42 +10057,6 @@
    "status": "",
    "source_urls": [
     "https://baxtel.com/news/lg-to-invest-additional-910m-in-200mw-data-center-near-seoul"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "5c2f518a2ea79ed3",
-   "title": "SpaceX's First Earnings Call Was Mostly a Data Center Call",
-   "primary_sector": "data_centers",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": true,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://baxtel.com/news/spacex-s-first-earnings-call-was-mostly-a-data-center-call"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "d11ff144bc3e719c",
-   "title": "AWS Plans 800,000 sq ft Data Center Campus at GWU Site in Ashburn",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "proposed",
-   "source_urls": [
-    "https://baxtel.com/news/aws-plans-800-000-sq-ft-data-center-campus-at-gwu-site-in-ashburn"
    ],
    "angles": []
   },
@@ -5893,96 +10079,6 @@
    "angles": []
   },
   {
-   "event_key": "af686b5984e332d6",
-   "title": "Managers Fifth Wall’s Wallace: ‘SpaceX is the next iteration of real estate as an industry’ 28 July 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/fifth-walls-wallace-spacex-is-the-next-iteration-of-real-estate-as-an-industry/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "f334fe149dfe49ef",
-   "title": "News & analysis ‘A much more dynamic affair’: Inside PERE’s next chapter 15 July 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/a-much-more-dynamic-affair-inside-peres-next-chapter/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "e39e66642cf65be0",
-   "title": "News & analysis PERE Credit 100 launch arrives at an industry-wide inflection point 18 June 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/pere-credit-100-launch-arrives-at-an-industry-wide-inflection-point/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "bcd9cf82b2fd1e8f",
-   "title": "Featured Digital Realty CEO Andy Power: Private fundraising is ‘critical to the success of our company’ 04 June 2026",
-   "primary_sector": "private_equity",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/digital-realty-ceo-andy-power-private-fundraising-is-critical-to-the-success-of-our-company/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "31f50a89612c0e79",
-   "title": "Managers ‘A lot of unnecessary risk’: Lagging performance puts managers’ losses under scrutiny 19 May 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/a-lot-of-unnecessary-risk-lagging-performance-puts-managers-losses-under-scrutiny/"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "fcb5b3db247acc34",
    "title": "News & analysis Sixth Street’s Alvarado: Future winners ‘need to be more than capital’ 08 May 2026",
    "primary_sector": "commercial_real_estate",
@@ -5997,222 +10093,6 @@
    "status": "",
    "source_urls": [
     "https://www.perenews.com/equity/sixth-streets-alvarado-future-winners-need-to-be-more-than-capital/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "a4a335ecabaaed1c",
-   "title": "Sponsored Arrow Global’s playbook for value-add returns in European hospitality 21 April 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/arrow-globals-playbook-for-value-add-returns-in-european-hospitality/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "e73d5d025326c0de",
-   "title": "Sponsored ‘A golden period’: Seizing the moment in European real estate credit 30 March 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/a-golden-period-seizing-the-moment-in-european-real-estate-credit/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "6fc6e928ca4271f2",
-   "title": "Sponsored Beyond rivalry: How banks and alt lenders are swapping competition for co-operation 17 March 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/beyond-rivalry-how-banks-and-alt-lenders-are-swapping-competition-for-cooperation/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "74fbcd781e2adf37",
-   "title": "Sponsored How back leverage is revolutionizing European real estate debt markets 04 March 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/how-back-leverage-is-revolutionizing-european-real-estate-debt-markets/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "f50c389540cf18cc",
-   "title": "Sponsored Why European real estate credit looks safer than equity in the new cycle 10 February 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/why-european-real-estate-credit-looks-safer-than-equity-in-the-new-cycle/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "bf5f2a264c010936",
-   "title": "Sponsored The AI revolution: How infrastructure is adapting 28 January 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/the-ai-revolution-how-infrastructure-is-adapting/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "a299b42e9ed7d410",
-   "title": "US credit roundtable: Competitive pressures weigh on managers 10 min read • 01 June 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/roundtable-competitive-pressures-weigh-on-us-managers/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "3f3a3009a8421e38",
-   "title": "Germany roundtable: The challenge of unlocking the country’s potential 10 min read • 01 May 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/roundtable-the-challenge-of-unlocking-germanys-potential/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "379f0118fb760bfc",
-   "title": "Europe roundtable: Can the region step up in a time of opportunity? 10 min read • 02 March 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.perenews.com/equity/roundtable-can-europe-step-up-in-a-time-of-opportunity/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "a453c1310599c593",
-   "title": "Best of the Best Project Awards",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.enr.com/enr-award-of-excellence"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "8bb3dceb332ba577",
-   "title": "Groundbreaking Women in Construction WEST",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.enr.com/groundbreaking-women-in-construction"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "08329be3c99338ea",
-   "title": "Year In Construction Photo Contest",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.enr.com/Year-In-Construction-Photo-Contest"
    ],
    "angles": []
   },
@@ -6595,24 +10475,6 @@
    "angles": []
   },
   {
-   "event_key": "7765caecd6a85ad3",
-   "title": "COMING SOON: 2026 Giants 400 Report: Ranking the nation's largest architecture, engineering, and construction firms",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.bdcnetwork.com/giants-400/article/55396695/coming-soon-2026-giants-400-report-ranking-the-nations-largest-architecture-engineering-and-construction-firms"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "4677545ec744e79c",
    "title": "Top 45 Religious Facility Construction Firms for 2025",
    "primary_sector": "commercial_real_estate",
@@ -6703,276 +10565,6 @@
    "angles": []
   },
   {
-   "event_key": "7bb86a048ad06eaa",
-   "title": "Asphalt / Concrete / Paving",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-asphalt-concrete-paving-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "eba251a2292548aa",
-   "title": "Cold Planers / Milling Machines",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-cold-planers-milling-machines-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "55192d52fa241cfa",
-   "title": "Conveyors / Feeders / Stackers",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-conveyors-feeders-stackers-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "dd90ada704fa5640",
-   "title": "Trenching / Boring / Cable Plows",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-trenching-boring-cable-plows-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "77e3069000ca9b43",
-   "title": "Other Asphalt / Concrete Equipment",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-other-asphalt-concrete-equipment-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "709540df606afc41",
-   "title": "Augers / Post Diggers / Drivers",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-augers-post-diggers-drivers-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "78b2d566574583f0",
-   "title": "Crushers / Pulverizers / Shears",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-crushers-pulverizers-shears-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "1e7293b06d1d6fc5",
-   "title": "Walk / Tow Behind Compactors",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.constructionequipmentguide.com/used-walk-tow-behind-compactors-for-sale/"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "592608b191a7c577",
-   "title": "Energy & Sustainability Learn More",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/services/energy-and-sustainability-solutions"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "bede76af6a2c0782",
-   "title": "Podcast Halfway There: What’s Shaping Commercial Real Estate at Midyear 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/podcasts/2026-ep33-whats-shaping-commercial-real-estate-at-midyear-2026"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "3be52dfe67586eec",
-   "title": "Book European Real Estate Market Outlook Midyear Review 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/books/european-real-estate-market-outlook-midyear-review-2026"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "477f5953c4a80558",
-   "title": "Report 2026 Asia Pacific Real Estate Market Outlook Mid-Year Review",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/reports/2026-asia-pacific-real-estate-market-outlook-mid-year-review"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "a509ec11eee7a178",
-   "title": "Book UK Real Estate Market Outlook Midyear Review 2026",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/books/uk-real-estate-market-outlook-midyear-review-2026"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "6153af57f8c26911",
-   "title": "Continued Prime Space Recovery Augurs Well for the Rest of the Office Market",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/briefs/eacotm-continued-prime-space-recovery-augurs-well-for-the-rest-of-the-office-market"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "c00799444440354b",
-   "title": "U.S. Cap Rate Survey H2 2025",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/reports/us-cap-rate-survey-h2-2025"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "f78263a9d776f25f",
    "title": "U.S. Real Estate Market Outlook Midyear Review 2026",
    "primary_sector": "commercial_real_estate",
@@ -7027,42 +10619,6 @@
    "angles": []
   },
   {
-   "event_key": "1abe053d0725c973",
-   "title": "Net-Lease Investment Volume Increases by 13%",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/figures/q2-2026-us-net-lease-investment-figures"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "ae9c729cdb4adfd1",
-   "title": "Lab/R&D Fundamentals Weaken Despite Improving Demand Drivers",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/figures/q2-2026-us-life-sciences-figures"
-   ],
-   "angles": []
-  },
-  {
    "event_key": "3c19dfeed6b96db2",
    "title": "Q2 2026 U.S. Capital Markets Report",
    "primary_sector": "commercial_real_estate",
@@ -7077,96 +10633,6 @@
    "status": "",
    "source_urls": [
     "https://www.cbre.com/insights/figures/q2-2026-us-capital-markets-report"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "669a320d09aefb4a",
-   "title": "Immersive Data for Major Markets",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/insights/global-office-rent-tracker"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "9e8c27b0117f95b5",
-   "title": "Global Privacy and Cookie Notice",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.cbre.com/about-us/global-privacy-and-cookie-notice"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "bc25d79ebcafb158",
-   "title": "The climate inflection point Developing climate resilience for real estate will require radical engineering, nature-based and AI-powered solutions",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.jll.com/en-us/insights/future-vision-climate-inflection-point-risk-resilience-adaptation"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "d973dd87c92b77ae",
-   "title": "Get set for the 5th Industrial Revolution Real estate strategies for an AI-powered world",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.jll.com/en-us/insights/future-vision-real-estate-strategies-for-an-ai-powered-world"
-   ],
-   "angles": []
-  },
-  {
-   "event_key": "83b32bff95f1dcd0",
-   "title": "Prepare yourself for the future of retail Hybrid places, sustainable stores, shopper assistants and more",
-   "primary_sector": "commercial_real_estate",
-   "first_seen": "2026-08-10T14:12:38.997837+00:00",
-   "last_seen": "2026-08-10T14:36:27.241617+00:00",
-   "times_seen": 2,
-   "selected": false,
-   "published": false,
-   "published_slug": "",
-   "published_at": "",
-   "largest_amount": 0.0,
-   "status": "",
-   "source_urls": [
-    "https://www.jll.com/en-us/insights/future-vision-prepare-yourself-for-the-future-of-retail"
    ],
    "angles": []
   },
