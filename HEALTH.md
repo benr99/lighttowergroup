@@ -1,6 +1,6 @@
 # Light Tower Insights — Pipeline Health
 
-**Last updated:** 2026-08-17 14:28 UTC
+**Last updated:** 2026-08-24 14:44 UTC
 
 ## Feeds
 - 0 healthy, 0 quarantined
@@ -12,7 +12,7 @@
 - Est. LLM cost (30d): $0
 
 ## LLM Provider
-- Last fallback: 2026-08-10T14:31 — call_failed
+- Last fallback: 2026-08-24T11:51 — call_failed
 
 ## Skip Log
 - Check .editorial-state/skip-log.json for thin-news-day details.
