@@ -1,0 +1,840 @@
+{
+  "run_at": "2026-08-24T11:37:39.758055+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 324,
+  "documents_from_feeds": 221,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 314,
+  "documents_consolidated": 10,
+  "eligible": 17,
+  "enriched": 14,
+  "evidence_upgraded": 7,
+  "selected": 5,
+  "publication_candidates": 5,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": true,
+  "sectors": {
+    "banking_credit": {
+      "considered": 15,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "commercial_real_estate": {
+      "considered": 191,
+      "eligible": 4,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 21,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 49,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 5,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "5 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "local_government": {
+      "considered": 2,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 31,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 1,
+    "tier_c": 4
+  },
+  "shortfalls": [
+    "banking_credit: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "commercial_real_estate: only 3 of 4 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: 5 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 50.0,
+    "mean": 21.0,
+    "stdev": 6.69,
+    "range_used": 50.0
+  },
+  "retrieval": {
+    "requested": 14,
+    "fetched": 11,
+    "from_cache": 0,
+    "blocked": 1,
+    "failed": 2,
+    "skipped_budget": 0,
+    "bytes_downloaded": 2498453,
+    "elapsed_ms": 3452,
+    "by_status": {
+      "failed": 2,
+      "full_text": 7,
+      "blocked": 1,
+      "partial_text": 4
+    }
+  },
+  "novelty": {
+    "new": 311,
+    "duplicate": 3
+  },
+  "memory": {
+    "events_remembered": 1095,
+    "published": 408,
+    "seen_but_not_run": 687,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-24",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.19,
+    "spent_today_usd": 0.19,
+    "remaining_usd": 24.81,
+    "exhausted": false,
+    "total_calls": 5,
+    "refused_calls": 0,
+    "elapsed_seconds": 1298.8,
+    "by_stage": {
+      "generation": {
+        "calls": 5,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.19,
+        "seconds": 2725.3,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "307acfa3b6376dbc",
+        "usd": 0.07
+      },
+      {
+        "id": "d77e1faf2351907b",
+        "usd": 0.03
+      },
+      {
+        "id": "997bcb1f5faa477f",
+        "usd": 0.03
+      },
+      {
+        "id": "8cf78654e038951d",
+        "usd": 0.03
+      },
+      {
+        "id": "b597b60929cf6326",
+        "usd": 0.03
+      }
+    ]
+  },
+  "generation": {
+    "requested": 5,
+    "written": 4,
+    "needs_review": 0,
+    "held": 1,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 1260.7,
+    "usd": 0.19,
+    "by_depth": {
+      "tier_b": 1,
+      "tier_c": 4
+    },
+    "results": [
+      {
+        "object_id": "307acfa3b6376dbc",
+        "title": "12-Story Multifamily Residence Coming Soon to 2 South Main Street in Port Chester, Westchester County",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=36081) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=36081) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 325.4,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "d77e1faf2351907b",
+        "title": "Inland completes equity raise for QOZ project in downtown St. Paul",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The brief accurately reports the disclosed equity raise, ownership stake, project specifications, and development partners, and it clearly distinguishes reported facts from undisclosed items such as total project cost, debt, and returns. Its analytical claims are bounded by the source and framed as interpretation rather than verified underwriting data.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "The closing sentence is slightly vague: 'without a gap the announcement leaves unnamed' could be clearer.",
+              "Some phrasing is jargon-heavy, such as 'transfers some execution risk away from a first-time partnership.'",
+              "A few clipped declarative sentences are effective, but later analysis leans on abstract risk language rather than concrete detail."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong and specific: it opens with the closed equity raise itself, not a generic market statement.",
+            "worst_sentence": "Repetition is a reported fact, not a guarantee, but it transfers some execution risk away from a first-time partnership.",
+            "summary": "A concise, informed deal analysis with a clear point of view and logical flow; some later sentences are slightly jargon-heavy or vague but overall quality is high.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reports the disclosed equity raise, ownership stake, project specifications, and development team, while clearly separating reported facts from interpretive analysis. It notes material undisclosed items—total project cost, debt, and projected return—and provides a reasonable, evidence-bounded argument about the significance of the equity close without inventing underwriting figures.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "The amenity and finish list reads like a press release and slows momentum.",
+              "Some sentences are dense with entity names and percentages, requiring a second read.",
+              "The phrase 'operating cast is disclosed' is slightly strained as a metaphor.",
+              "The article could state earlier why the equity close matters beyond the capital-stack order."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong and specific: 'The money is in' hooks immediately, then grounds the reader in a concrete equity close.",
+            "worst_sentence": "Planned unit finishes include quartz or granite countertops, stainless steel appliances, in-unit washers and dryers, and nine-foot ceilings; the amenity package includes a fitness center, rooftop deck with grilling stations, a spa room with an outdoor jacuzzi, and clubhouse and lounge spaces.",
+            "summary": "The article is a knowledgeable, well-structured report on a real estate equity close, with a strong opening and a specific closing implication. Minor weaknesses include press-release-style listing and occasional density, but the voice is professional and confident.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 456.9,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "997bcb1f5faa477f",
+        "title": "India hits $0.068/kWh tariff in 4-hour peak renewable power tender",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reports the disclosed tariff and allocation figures, correctly calculates the INR 0.74/kWh spread versus the RE-RTC tariff, and explicitly labels that spread as a rough, non-identical comparison rather than a margin. It avoids unsupported return or cost claims, distinguishes reported facts from calculated metrics, and clearly identifies material unknowns such as technology mix, contract tenor, performance security, and offtaker/payment terms.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Repetitive hedging: variations of 'the source does not identify/disclose' appear multiple times and could be condensed.",
+              "Slight ambiguity in the sentence about NTPC REL and ACME Solar being 'only one paisa above the winner'—the referent for who received the largest allocation is unclear.",
+              "The final sentence is somewhat dense and could be split for clarity."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and data-led; it hooks with an exact tariff, product type, and dollar equivalent rather than a generic framing.",
+            "worst_sentence": "For NTPC REL and ACME Solar, the INR 6.00/kWh level is only one paisa above the winner, but that still determined who received the largest allocation.",
+            "summary": "A strong, analyst-style note that leads with a concrete benchmark, explains the structural significance of the tender, and closes on the key financing question. Minor repetitive source caveats and one ambiguous sentence keep it from being excellent.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reports the source figures and clearly distinguishes reported tariffs from costs or margins. It states material unknowns and does not fabricate project-level returns or financing details.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Mild redundancy: allocation and tariff details are repeated in the middle and again in the allocation sentence.",
+              "The phrase 'may signal' is borderline analytical hedging; a more direct construction would be stronger.",
+              "The penultimate sentence is a vague forward-looking marker, though the final sentence partly recovers with a concrete test."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and effective: it opens with the exact tariff, tender, and USD equivalent, not a generic market observation.",
+            "worst_sentence": "The next marker is whether these tariffs convert into signed power supply agreements and financed projects.",
+            "summary": "A sharp, professional note with strong use of numbers and structure. It is mostly tight, but minor redundancy and one vague forward-looking sentence prevent a top score.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 574.2,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8cf78654e038951d",
+        "title": "Texas welcomed the AI boom. Now Abbott says data centers \"dug their own grave",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article stays within the dossier, attributes the reported Abbott quote and Shapiro/Amazon details to Axios Cities, and clearly separates reported facts from inference. It does not invent financial figures or metrics, explains the political significance of the $20 billion figure, and explicitly identifies what the source does not disclose.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "The middle leans on repetitive source-caveat constructions: 'The source does not disclose...', 'No specific developers...', 'The report does not provide...'",
+              "Some phrasing is abstract and awkward, such as 'political liability turned marker' and 'repricing the political cost of hosting them.'",
+              "The conclusion uses a forward-looking 'unresolved question' frame rather than landing on a sharper editorial judgment.",
+              "The heavy reliance on the Axios Cities report makes the piece feel like a sourced brief rather than independent analysis."
+            ],
+            "passed": true,
+            "score_1_10": 7,
+            "opening_quality": "Specific and attention-grabbing, anchored in a named governor and a sharp quote, though it immediately leans on a secondhand report description.",
+            "worst_sentence": "The $20 billion figure is best read as a political liability turned marker, not as a transactional detail.",
+            "summary": "Competent analysis of governors shifting posture toward data centers, with a strong specific opening. The writing is logical and professional, but the middle is weighed down by repetitive source caveats and abstract phrasing, and the close falls into a familiar unresolved-question template.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reflects the dossier, uses the $20 billion Amazon figure as an attributed reported fact, and interprets it as a political signal rather than inventing financial metrics. It clearly identifies material unknowns—such as unspecified restrictions and uncalculated capital impact—and its thesis about shifting political and community-approval risk is appropriately bounded by the available evidence.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Relies on analyst jargon and abstraction: 'approval input,' 'transactional benchmark,' 'material fact,' 'political signal.'",
+              "Spends too much space flagging missing details, which weakens the analysis instead of adding specifics.",
+              "Sentence starts become repetitive, with many declarative sentences opening with 'The' or 'That.'",
+              "Some phrases are vague or hedged, such as 'The remark matters because it marks a reversal.'"
+            ],
+            "passed": true,
+            "score_1_10": 7,
+            "opening_quality": "Strong: concrete quote and a reversal hook, not a generic lede.",
+            "worst_sentence": "The remark matters because it marks a reversal.",
+            "summary": "A concise and analytical piece with a strong hook and a clear, non-forward-looking conclusion. It is weakened by mild analyst-speak, repetitive sentence openings, and repeated emphasis on what the source does not report.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 433.5,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b597b60929cf6326",
+        "title": "Circle Realty Secures 38K SF of New Leases at 14 Penn Plaza",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [
+          "financial_review: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=26891) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "status": "unavailable",
+            "issues": [
+              "Financial review unavailable: RuntimeError"
+            ],
+            "passed": false,
+            "score_1_10": 0,
+            "summary": "Financial review failed closed"
+          },
+          "editorial_review": {
+            "issues": [
+              "The article refers to 'the report' without establishing what report or source it is drawing from.",
+              "The phrase 'The smaller leases follow the same pattern' is slightly vague because the pattern shifts from disclosed asking rent to undisclosed actual rents.",
+              "There is mild repetition around '$67 asking rent' constructions."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong, specific hook: a concrete asking rent and lease volume at a named building, with a promise that the tenant mix explains the pricing.",
+            "worst_sentence": "The smaller leases follow the same pattern.",
+            "summary": "The piece is sharp, analytical, and professionally voiced. It avoids AI clichés and vague forward-looking endings, but it needs clearer source attribution and could tighten a couple of repetitive phrases.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [
+              "The article occasionally phrases the $67 per square foot asking rent as if it were the executed market-clearing rent: 'at the quoted asking rent' and 'at that number, the owner found enough takers.' The source supports only that $67 was the building asking rent, not the actual rents or concessions in the signed leases. The article later acknowledges net effective rents are unknown, so this is a precision issue rather than a factual error."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "summary": "The brief accurately reports the dossier facts, attributes them to Commercial Observer, and correctly calculates the lease components. It distinguishes reported facts from interpretation and clearly flags missing data on vacancy, concessions, and financing. The only weakness is a slight tendency to treat the asking rent as the executed rent despite the source not disclosing actual lease economics.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "The name 'Commercial Observer' appears three times, creating slight repetition in attribution.",
+              "One analytical sentence is dense and could be split for clarity.",
+              "The conclusion leans on a forward-looking 'next test' rather than a fully grounded final implication."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and factual, anchoring immediately in deal size, address, and asking rent without generic throat-clearing.",
+            "worst_sentence": "The practical effect is that the landlord sat on both sides of the pricing conversation for the two largest deals, making the $67 figure the owner's number—and the market's response was signed leases across 37,600 square feet.",
+            "summary": "A concise, professional real estate analysis that uses reported deal specifics to interrogate pricing evidence. The writing is clear and analytical, with only minor repetition and one slightly dense sentence.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 935.3,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 5,
+    "published": 4,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/inland-closes-28m-qoz-equity-for-st-paul-office-conversion_social.png",
+      "insights/inland-closes-28m-qoz-equity-for-st-paul-office-conversion.html",
+      "insights/india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh_social.png",
+      "insights/india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh.html",
+      "insights/abbott-turns-on-texas-data-centers-after-courting-them_social.png",
+      "insights/abbott-turns-on-texas-data-centers-after-courting-them.html",
+      "insights/at-67-a-foot-14-penn-plaza-books-38k-sf_social.png",
+      "insights/at-67-a-foot-14-penn-plaza-books-38k-sf.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/inland-closes-28m-qoz-equity-for-st-paul-office-conversion_related.json",
+      "insights/india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh_related.json",
+      "insights/abbott-turns-on-texas-data-centers-after-courting-them_related.json",
+      "insights/at-67-a-foot-14-penn-plaza-books-38k-sf_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "d77e1faf2351907b",
+        "title": "Inland Closes $28M QOZ Equity for St. Paul Office Conversion",
+        "slug": "inland-closes-28m-qoz-equity-for-st-paul-office-conversion",
+        "url": "/insights/inland-closes-28m-qoz-equity-for-st-paul-office-conversion.html",
+        "category": "Capital Markets",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "997bcb1f5faa477f",
+        "title": "India's 4-hour peak renewable tender clears at INR 5.99/kWh",
+        "slug": "india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh",
+        "url": "/insights/india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8cf78654e038951d",
+        "title": "Abbott Turns on Texas Data Centers After Courting Them",
+        "slug": "abbott-turns-on-texas-data-centers-after-courting-them",
+        "url": "/insights/abbott-turns-on-texas-data-centers-after-courting-them.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "b597b60929cf6326",
+        "title": "At $67 a Foot, 14 Penn Plaza Books 38K SF",
+        "slug": "at-67-a-foot-14-penn-plaza-books-38k-sf",
+        "url": "/insights/at-67-a-foot-14-penn-plaza-books-38k-sf.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "307acfa3b6376dbc",
+        "slug": "",
+        "title": "12-Story Multifamily Residence Coming Soon to 2 South Main Street in Port Chester, Westchester County",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "d77e1faf2351907b",
+        "slug": "inland-closes-28m-qoz-equity-for-st-paul-office-conversion",
+        "title": "Inland completes equity raise for QOZ project in downtown St. Paul",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/inland-closes-28m-qoz-equity-for-st-paul-office-conversion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "997bcb1f5faa477f",
+        "slug": "india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh",
+        "title": "India hits $0.068/kWh tariff in 4-hour peak renewable power tender",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8cf78654e038951d",
+        "slug": "abbott-turns-on-texas-data-centers-after-courting-them",
+        "title": "Texas welcomed the AI boom. Now Abbott says data centers \"dug their own grave",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/abbott-turns-on-texas-data-centers-after-courting-them.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b597b60929cf6326",
+        "slug": "at-67-a-foot-14-penn-plaza-books-38k-sf",
+        "title": "Circle Realty Secures 38K SF of New Leases at 14 Penn Plaza",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/at-67-a-foot-14-penn-plaza-books-38k-sf.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 40,
+    "successful_calls": 28,
+    "failed_provider_attempts": 12,
+    "fallback_calls": 0,
+    "switches": 6,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 19.06,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.04,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.12,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.4,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 5.66,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 3.49,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.05,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 1261.52,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.34,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.04,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1298.77,
+  "status": "success",
+  "candidate_count": 324,
+  "event_count": 314,
+  "articles": [
+    {
+      "event_id": "d77e1faf2351907b",
+      "title": "Inland Closes $28M QOZ Equity for St. Paul Office Conversion",
+      "slug": "inland-closes-28m-qoz-equity-for-st-paul-office-conversion",
+      "url": "/insights/inland-closes-28m-qoz-equity-for-st-paul-office-conversion.html",
+      "category": "Capital Markets",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "997bcb1f5faa477f",
+      "title": "India's 4-hour peak renewable tender clears at INR 5.99/kWh",
+      "slug": "india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh",
+      "url": "/insights/india-s-4-hour-peak-renewable-tender-clears-at-inr-5-99-kwh.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8cf78654e038951d",
+      "title": "Abbott Turns on Texas Data Centers After Courting Them",
+      "slug": "abbott-turns-on-texas-data-centers-after-courting-them",
+      "url": "/insights/abbott-turns-on-texas-data-centers-after-courting-them.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "b597b60929cf6326",
+      "title": "At $67 a Foot, 14 Penn Plaza Books 38K SF",
+      "slug": "at-67-a-foot-14-penn-plaza-books-38k-sf",
+      "url": "/insights/at-67-a-foot-14-penn-plaza-books-38k-sf.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 4
+}

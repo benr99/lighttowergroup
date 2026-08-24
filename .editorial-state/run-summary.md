@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **success**
-- Candidates: **457**
-- Distinct events: **426**
-- Articles: **3**
+- Candidates: **324**
+- Distinct events: **314**
+- Articles: **4**
 - Daily target: **3**
 - Daily target met: **yes**
 - Research candidates: **0**
@@ -12,6 +12,7 @@
 
 ## Published candidates
 
-- **brief** — A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured (1 sources; v3_daily_slate selection)
-- **brief** — AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet (1 sources; v3_daily_slate selection)
-- **analysis** — Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets (1 sources; v3_daily_slate selection)
+- **brief** — Inland Closes $28M QOZ Equity for St. Paul Office Conversion (1 sources; v3_daily_slate selection)
+- **brief** — India's 4-hour peak renewable tender clears at INR 5.99/kWh (1 sources; v3_daily_slate selection)
+- **brief** — Abbott Turns on Texas Data Centers After Courting Them (1 sources; v3_daily_slate selection)
+- **brief** — At $67 a Foot, 14 Penn Plaza Books 38K SF (1 sources; v3_daily_slate selection)
