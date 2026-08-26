@@ -1,0 +1,490 @@
+{
+  "run_at": "2026-08-26T11:38:37.219576+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 810,
+  "documents_from_feeds": 707,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 747,
+  "documents_consolidated": 63,
+  "eligible": 86,
+  "enriched": 84,
+  "evidence_upgraded": 39,
+  "selected": 17,
+  "publication_candidates": 5,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 44,
+      "eligible": 6,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 382,
+      "eligible": 54,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 85,
+      "eligible": 8,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 131,
+      "eligible": 9,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "9 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 27,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 73,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 10,
+    "tier_c": 7
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 6 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 4 of 8 eligible candidates cleared the floor, against a target of 10",
+    "energy: 9 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "local_government: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 66.4,
+    "mean": 21.2,
+    "stdev": 9.65,
+    "range_used": 66.4
+  },
+  "retrieval": {
+    "requested": 86,
+    "fetched": 82,
+    "from_cache": 0,
+    "blocked": 2,
+    "failed": 2,
+    "skipped_budget": 0,
+    "bytes_downloaded": 16527445,
+    "elapsed_ms": 38858,
+    "by_status": {
+      "full_text": 39,
+      "partial_text": 43,
+      "failed": 2,
+      "blocked": 2
+    }
+  },
+  "novelty": {
+    "new": 685,
+    "material_update": 1,
+    "minor_follow_up": 59,
+    "duplicate": 2
+  },
+  "memory": {
+    "events_remembered": 2172,
+    "published": 409,
+    "seen_but_not_run": 1763,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-26",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.35,
+    "spent_today_usd": 0.35,
+    "remaining_usd": 24.65,
+    "exhausted": false,
+    "total_calls": 5,
+    "refused_calls": 0,
+    "elapsed_seconds": 1043.1,
+    "by_stage": {
+      "generation": {
+        "calls": 5,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.35,
+        "seconds": 2053.3,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "6306465c027a1a15",
+        "usd": 0.07
+      },
+      {
+        "id": "24d4fa8293e25d28",
+        "usd": 0.07
+      },
+      {
+        "id": "0243e2917af0733f",
+        "usd": 0.07
+      },
+      {
+        "id": "e16df58dfe17fab9",
+        "usd": 0.07
+      },
+      {
+        "id": "dd1d8b0563417df9",
+        "usd": 0.07
+      }
+    ]
+  },
+  "generation": {
+    "requested": 5,
+    "written": 0,
+    "needs_review": 0,
+    "held": 5,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 958.3,
+    "usd": 0.35,
+    "by_depth": {
+      "tier_b": 5
+    },
+    "results": [
+      {
+        "object_id": "6306465c027a1a15",
+        "title": "Valley National Bank to acquire Chicago-area lender for $247M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34128) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=34128) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 328.0,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "24d4fa8293e25d28",
+        "title": "Aker Joint Venture Acquires Brookfield’s Stake in Two Multifamily Towers in Jersey City",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=33736) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ValueError: empty completion (finish_reason=length, reasoning_chars=33736) | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 329.4,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "0243e2917af0733f",
+        "title": "AI Cloud Firm Nebius Raises $5.75B In Debt To Fuel Data Center Expansion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Nebius's $12B Convertible Debt Stack Dwarfs Its $529.8M Revenue\",\n  \"subtitle\": \"The Nvidia-backed AI cloud firm added $5.75B in debt, intensifying dilution and leverage concerns as it b | Invalid provider JSON object: Expecting ',' delimiter: line 15 column 197 (char 5726)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Nebius's $12B Convertible Debt Stack Dwarfs Its $529.8M Revenue\",\n  \"subtitle\": \"The Nvidia-backed AI cloud firm added $5.75B in debt, intensifying dilution and leverage concerns as it b | Invalid provider JSON object: Expecting ',' delimiter: line 15 column 197 (char 5726)"
+          }
+        },
+        "seconds": 451.5,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "e16df58dfe17fab9",
+        "title": "Emerald AI Raises $150M to Make Data Centers Grid Flexible",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Emerald AI’s $150M Round Treats Data Centers as Grid Assets\",\n  \"subtitle\": \"Software that makes AI load dispatchable is now a power-infrastructure play.\",\n  \"slug\": \"emerald-ai-grid-fle | Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 5045)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Emerald AI’s $150M Round Treats Data Centers as Grid Assets\",\n  \"subtitle\": \"Software that makes AI load dispatchable is now a power-infrastructure play.\",\n  \"slug\": \"emerald-ai-grid-fle | Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 5045)"
+          }
+        },
+        "seconds": 314.2,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "dd1d8b0563417df9",
+        "title": "Landmark Properties Announces Initial Closing of Landmark Realty Partners II LP with Approximately $140M of Capital Commitments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 44 column 6 (char 5226) | Invalid provider JSON object: Expecting ',' delimiter: line 39 column 6 (char 5188)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 44 column 6 (char 5226) | Invalid provider JSON object: Expecting ',' delimiter: line 39 column 6 (char 5188)"
+          }
+        },
+        "seconds": 630.2,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 5,
+    "published": 0,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [],
+    "articles": [],
+    "results": [
+      {
+        "object_id": "6306465c027a1a15",
+        "slug": "",
+        "title": "Valley National Bank to acquire Chicago-area lender for $247M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "24d4fa8293e25d28",
+        "slug": "",
+        "title": "Aker Joint Venture Acquires Brookfield’s Stake in Two Multifamily Towers in Jersey City",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "0243e2917af0733f",
+        "slug": "",
+        "title": "AI Cloud Firm Nebius Raises $5.75B In Debt To Fuel Data Center Expansion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "e16df58dfe17fab9",
+        "slug": "",
+        "title": "Emerald AI Raises $150M to Make Data Centers Grid Flexible",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "dd1d8b0563417df9",
+        "slug": "",
+        "title": "Landmark Properties Announces Initial Closing of Landmark Realty Partners II LP with Approximately $140M of Capital Commitments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 19,
+    "successful_calls": 7,
+    "failed_provider_attempts": 12,
+    "fallback_calls": 0,
+    "switches": 6,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.19,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 9.65,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.11,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.42,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.76,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 15.97,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 38.98,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.11,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 959.86,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.07,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence",
+    "published 0 of the daily target 3"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1043.15,
+  "status": "success",
+  "candidate_count": 810,
+  "event_count": 747,
+  "articles": [],
+  "held": [],
+  "article_count": 0
+}
