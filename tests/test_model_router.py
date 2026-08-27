@@ -71,6 +71,28 @@ class ProviderChain(unittest.TestCase):
 
 
 class PerCallFailover(unittest.TestCase):
+    def test_truncated_visible_content_is_rejected_and_logged(self) -> None:
+        truncated = {
+            "choices": [{
+                "message": {"content": '{"partial": true}', "reasoning_content": "r" * 20},
+                "finish_reason": "length",
+            }],
+            "usage": {"prompt_tokens": 10, "completion_tokens": 500},
+        }
+        preferred = {
+            "provider": "deepseek", "model": "deepseek-v4-pro", "api_key": "deep-key",
+            "url": "https://api.deepseek.com/v1/chat/completions",
+        }
+        with (
+            patch.object(model_router, "get_api_keys", return_value={"deepseek": "deep-key", "openai": None}),
+            patch.object(editorial_scoring.requests, "post", return_value=_Response(200, truncated)),
+            patch.object(editorial_scoring.time, "sleep"),
+            patch.object(model_router, "log_provider_event") as log,
+        ):
+            with self.assertRaisesRegex(RuntimeError, "provider_truncated"):
+                editorial_scoring.call_deepseek("prompt", "deep-key", max_tokens=500, provider=preferred)
+        self.assertTrue(any("provider_call" in call.args for call in log.call_args_list))
+
     def test_failed_primary_call_retries_then_uses_openai(self) -> None:
         success = {
             "choices": [{"message": {"content": '{"ok": true}'}, "finish_reason": "stop"}],

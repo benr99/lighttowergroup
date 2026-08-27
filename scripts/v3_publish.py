@@ -214,6 +214,12 @@ def publish(
             sector=draft.sector, depth=draft.depth,
         )
         if obj is None or not draft.article:
+            if str(draft.status).endswith("_failed") or draft.status in {"failed", "revision_failed"}:
+                result.status = "failed"
+                result.reason = f"generation failed: {draft.status}"
+                report.failed += 1
+                report.results.append(result.to_dict())
+                continue
             result.status = "skipped"
             result.reason = "no article to publish"
             report.results.append(result.to_dict())
@@ -342,7 +348,12 @@ def finalize_publication(
     now = datetime.now(timezone.utc)
     state_dir = state_dir or SITE_ROOT / ".editorial-state"
     state_dir.mkdir(parents=True, exist_ok=True)
-    edition_status = "ready" if report.published else "no_publishable_story"
+    if report.failed and not report.published:
+        edition_status = "provider_failure"
+    elif report.failed:
+        edition_status = "partial_failure"
+    else:
+        edition_status = "ready" if report.published else "no_publishable_story"
     edition_articles = [
         {
             **article,
@@ -382,8 +393,9 @@ def finalize_publication(
         # completed subset can continue to main without one held article
         # blocking the day's entire edition.
         "review_required": False,
-        "auto_publish_allowed": report.failed == 0,
-        "reasons": [],
+        "auto_publish_allowed": report.failed == 0 and bool(report.published),
+        "reasons": (["one or more selected stories failed during generation or publication"]
+                    if report.failed else []),
         "held_for_review": held,
         "article_count": report.published,
         "failed_count": report.failed,
@@ -397,7 +409,7 @@ def finalize_publication(
 
     run_payload = {
         **run_report.to_dict(),
-        "status": "success" if report.failed == 0 else "partial_failure",
+        "status": edition_status,
         "candidate_count": getattr(run_report, "documents_ingested", 0),
         "event_count": getattr(run_report, "objects_after_clustering", 0),
         "articles": report.articles,

@@ -185,7 +185,7 @@ def build_research_dossier(
 
 def dossier_prompt_payload(dossier: dict[str, Any], *, max_chars: int = 24000) -> str:
     """Render a compact, human-readable dossier for a model prompt."""
-    blocks = [
+    header_blocks = [
         f"EVENT: {dossier.get('title', '')}",
         (
             "EVIDENCE: "
@@ -194,23 +194,51 @@ def dossier_prompt_payload(dossier: dict[str, Any], *, max_chars: int = 24000) -
             f"{dossier.get('primary_source_count', 0)} primary"
         ),
     ]
+    source_blocks = []
     for index, source in enumerate(dossier.get("sources", []), 1):
-        blocks.extend([
+        source_blocks.append("\n".join([
             f"\nSOURCE {index}: {source.get('name')} | {source.get('url')}",
             f"Authority: {source.get('authority')} | Published: {source.get('published')}",
             f"Summary: {source.get('summary')}",
             f"Extract: {source.get('full_text_excerpt', '')}",
-        ])
+        ]))
     if dossier.get("prior_light_tower_context"):
-        blocks.append("\nPRIOR LIGHT TOWER CONTEXT:")
-        blocks.extend(
+        context_block = "\nPRIOR LIGHT TOWER CONTEXT:\n" + "\n".join(
             f"- {item.get('title')} ({item.get('date')}): {item.get('url')}"
             for item in dossier["prior_light_tower_context"]
         )
+    else:
+        context_block = ""
     if dossier.get("reporting_gaps"):
-        blocks.append("\nREPORTING GAPS:")
-        blocks.extend(f"- {gap}" for gap in dossier["reporting_gaps"])
-    return "\n".join(blocks)[:max_chars]
+        gaps_block = "\nREPORTING GAPS:\n" + "\n".join(
+            f"- {gap}" for gap in dossier["reporting_gaps"]
+        )
+    else:
+        gaps_block = ""
+
+    # Keep sources atomic. A character slice can destroy the final URL or
+    # source boundary and make the model reason over corrupted evidence.
+    rendered = list(header_blocks)
+    used = sum(len(block) + 1 for block in rendered)
+    omitted = 0
+    for block in source_blocks:
+        if used + len(block) + 1 > max_chars:
+            omitted += 1
+            continue
+        rendered.append(block)
+        used += len(block) + 1
+    for block in (context_block, gaps_block):
+        if not block:
+            continue
+        if used + len(block) + 1 > max_chars:
+            continue
+        rendered.append(block)
+        used += len(block) + 1
+    if omitted:
+        note = f"\nEVIDENCE NOTE: {omitted} complete source block(s) omitted for prompt budget."
+        if used + len(note) <= max_chars:
+            rendered.append(note)
+    return "\n".join(rendered)
 
 
 def dossier_audit_payload(dossier: dict[str, Any]) -> dict[str, Any]:

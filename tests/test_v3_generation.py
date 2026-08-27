@@ -274,8 +274,8 @@ class FailureIsolation(unittest.TestCase):
             _, report = write_all([_obj("Held story")], budget=_budget(), verbose=False)
         finally:
             _restore(original)
-        self.assertEqual(report.held, 1)
-        self.assertEqual(report.failed, 0)
+        self.assertEqual(report.held, 0)
+        self.assertEqual(report.failed, 1)
         self.assertEqual(report.written, 0)
 
     def test_nothing_to_write_is_handled(self) -> None:
@@ -313,7 +313,7 @@ class StatusVocabularyMatchesThePipeline(unittest.TestCase):
         self.assertEqual(report.written, 0)
         self.assertTrue(results[0].needs_review)
 
-    def test_a_status_with_no_article_is_genuinely_held(self) -> None:
+    def test_a_provider_failure_with_no_article_is_not_a_hold(self) -> None:
         fake = _FakePipeline(status="draft_failed")
         original = _install(fake)
         try:
@@ -321,7 +321,8 @@ class StatusVocabularyMatchesThePipeline(unittest.TestCase):
         finally:
             _restore(original)
         self.assertEqual(report.written, 0)
-        self.assertEqual(report.held, 1)
+        self.assertEqual(report.held, 0)
+        self.assertEqual(report.failed, 1)
 
 
 class DoesNotPublish(unittest.TestCase):

@@ -35,9 +35,11 @@ TIER_A_FLOOR = 70.0
 TIER_B_FLOOR = 50.0
 
 SECTOR_TARGET = 10
-GLOBAL_TARGET = 10
+GLOBAL_TARGET = 30
 DEFAULT_DAILY_TARGET = 3
-MAX_DAILY_ARTICLES = 5
+# Safety is enforced by the spend and time budgets, not by an undocumented
+# five-article ceiling. The workflow may still choose a smaller limit.
+MAX_DAILY_ARTICLES = 30
 
 #: Soft caps, applied only when an alternative of adequate quality exists.
 MAX_PER_SOURCE = 3

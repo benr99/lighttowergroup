@@ -355,9 +355,18 @@ def call_deepseek(
                 choice = (data.get("choices") or [{}])[0]
                 message = choice.get("message") or {}
                 content = str(message.get("content") or "").strip()
+                finish_reason = str(choice.get("finish_reason") or "unknown")
+                reasoning_length = len(str(message.get("reasoning_content") or ""))
+                # Reasoning providers can return a non-empty visible fragment
+                # when the shared completion budget ended. That fragment is not
+                # a valid article contract and must never be logged as success.
+                if finish_reason == "length":
+                    raise ValueError(
+                        "provider_truncated "
+                        f"(finish_reason=length, reasoning_chars={reasoning_length}, "
+                        f"visible_chars={len(content)})"
+                    )
                 if not content:
-                    reasoning_length = len(str(message.get("reasoning_content") or ""))
-                    finish_reason = str(choice.get("finish_reason") or "unknown")
                     raise ValueError(
                         "empty completion "
                         f"(finish_reason={finish_reason}, reasoning_chars={reasoning_length})"
@@ -373,6 +382,9 @@ def call_deepseek(
                     seconds=round(time.monotonic() - started, 2),
                     input_tokens=int(usage.get("prompt_tokens") or 0),
                     output_tokens=int(usage.get("completion_tokens") or 0),
+                    finish_reason=finish_reason,
+                    reasoning_chars=reasoning_length,
+                    visible_chars=len(content),
                 )
                 try:
                     from cost_tracker import track_llm_cost

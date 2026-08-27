@@ -29,6 +29,7 @@ on:
           - "1"
           - "3"
           - "5"
+          - "10"
       pipeline:
         description: "Production engine; v2 remains available as the manual rollback path"
         required: true
@@ -173,7 +174,7 @@ jobs:
           node --test tests/netlify-functions.test.js
 
       - name: Write the edition report
-        if: steps.policy.outputs.skip != 'true'
+        if: always() && steps.policy.outputs.skip != 'true'
         shell: bash
         run: |
           if [[ -f .editorial-state/run-summary.md ]]; then
@@ -183,6 +184,26 @@ jobs:
             echo "The ${{ steps.policy.outputs.mode }} run completed without changing public files." >> "$GITHUB_STEP_SUMMARY"
             echo "See the build log and retained editorial artifact for the full output." >> "$GITHUB_STEP_SUMMARY"
           fi
+
+      - name: Fail visibly on zero-output publication
+        if: always() && steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
+        shell: bash
+        run: |
+          if [[ ! -f .editorial-state/publication-decision.json ]]; then
+            echo "No publication decision was produced; treating the run as a pipeline failure." >&2
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          decision = json.loads(Path('.editorial-state/publication-decision.json').read_text())
+          status = decision.get('edition_status')
+          count = int(decision.get('article_count') or 0)
+          failed = int(decision.get('failed_count') or 0)
+          print(f"publication health: status={status} articles={count} failed={failed}")
+          if failed or count == 0 or status != 'ready':
+              raise SystemExit('publication health gate failed; inspect the run artifact')
+          PY
 
       - name: Preserve editorial evidence and diagnostics
         if: always() && steps.policy.outputs.skip != 'true'
