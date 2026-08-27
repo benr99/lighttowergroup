@@ -139,19 +139,21 @@ class RankingAndExplanation(unittest.TestCase):
         self.assertTrue(report.publication_target_met)
         self.assertIsNotNone(report.publication_runner_up)
 
-    def test_default_contract_is_three_with_a_hard_maximum_of_five(self) -> None:
-        objects = [obj(f"Deal {i}", 90.0 - i) for i in range(12)]
+    def test_default_contract_is_three_with_a_configurable_safe_maximum(self) -> None:
+        objects = [obj(f"CRE deal {i}", 90.0 - i, sector="commercial_real_estate") for i in range(6)]
+        objects += [obj(f"PE deal {i}", 80.0 - i, sector="private_equity") for i in range(6)]
         report = build_slates(objects)
         self.assertEqual(report.publication_target, DEFAULT_DAILY_TARGET)
         self.assertEqual(report.article_limit, MAX_DAILY_ARTICLES)
-        self.assertEqual(len(report.publication_slate), MAX_DAILY_ARTICLES)
+        self.assertEqual(len(report.publication_slate), 12)
 
-    def test_article_limit_cannot_exceed_the_system_maximum(self) -> None:
-        objects = [obj(f"Deal {i}", 90.0 - i) for i in range(12)]
+    def test_article_limit_is_bounded_by_the_system_maximum(self) -> None:
+        objects = [obj(f"CRE deal {i}", 90.0 - i, sector="commercial_real_estate") for i in range(6)]
+        objects += [obj(f"PE deal {i}", 80.0 - i, sector="private_equity") for i in range(6)]
         report = build_slates(objects, publication_target=9, article_limit=99)
-        self.assertEqual(report.publication_target, MAX_DAILY_ARTICLES)
+        self.assertEqual(report.publication_target, 9)
         self.assertEqual(report.article_limit, MAX_DAILY_ARTICLES)
-        self.assertEqual(len(report.publication_slate), MAX_DAILY_ARTICLES)
+        self.assertEqual(len(report.publication_slate), 12)
 
 
 class DepthMatchesEvidence(unittest.TestCase):

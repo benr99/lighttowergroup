@@ -50,22 +50,33 @@ class EditorialPipeline:
         fails closed.
         """
         parse_errors: list[str] = []
+        retry_max_tokens = min(16000, max(max_tokens + 2000, int(max_tokens * 1.5)))
         for attempt in range(2):
             request_prompt = prompt
+            request_max_tokens = max_tokens
             if attempt:
                 request_prompt += (
                     "\n\nJSON CONTRACT RETRY: Return one complete JSON object only. "
-                    "Do not use markdown fences, commentary, or trailing text."
+                    "Do not use markdown fences, commentary, or trailing text. "
+                    "Be concise: preserve required fields but shorten prose and "
+                    "omit optional detail before the response can be truncated."
                 )
-            raw = call_deepseek(
-                request_prompt,
-                self.api_key,
-                max_tokens=max_tokens,
-                temperature=temperature,
-                json_mode=True,
-                system=system,
-                provider=self.provider or None,
-            )
+                if any("provider_truncated" in error or "finish_reason=length" in error
+                       for error in parse_errors):
+                    request_max_tokens = retry_max_tokens
+            try:
+                raw = call_deepseek(
+                    request_prompt,
+                    self.api_key,
+                    max_tokens=request_max_tokens,
+                    temperature=temperature,
+                    json_mode=True,
+                    system=system,
+                    provider=self.provider or None,
+                )
+            except (RuntimeError, ValueError) as exc:
+                parse_errors.append(str(exc)[:240])
+                continue
             try:
                 return _extract_json(raw, required_fields=required_fields)
             except ValueError as exc:
@@ -242,10 +253,19 @@ The ledgers are internal audit evidence and must be complete. Never discuss them
 in body_html. Use only URLs present in the dossier. Return JSON only.
 """
 
+        # The completion ceiling must cover both the visible JSON and the
+        # reasoning budget. Keep the calculation tied to the article contract,
+        # with a finite safety cap for unattended runs.
+        try:
+            max_word_target = int(str(requested_words).split("-")[-1])
+        except (TypeError, ValueError):
+            max_word_target = 800
+        draft_budget = min(14000, max(5000, int(max_word_target * 2.0 + 3000)))
+
         return {
             "system_prompt": system_prompt,
             "user_prompt": user_prompt,
-            "max_tokens": 8000,
+            "max_tokens": draft_budget,
             "temperature": 0.2,
             "article_format": str(article_format or "analysis"),
             "requested_words": requested_words,

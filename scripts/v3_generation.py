@@ -351,7 +351,7 @@ def write_all(
             report.needs_review += 1
         elif item.status == "skipped":
             report.skipped_budget += 1
-        elif item.status == "failed":
+        elif item.status in {"failed", "draft_failed", "revision_failed"} or item.status.endswith("_failed"):
             report.failed += 1
         else:
             report.held += 1

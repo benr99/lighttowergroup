@@ -12,6 +12,7 @@ if str(SCRIPTS) not in sys.path:
 
 from canonical_item import CanonicalItem
 from editorial_pipeline import EditorialPipeline, _extract_json
+from research_dossier import dossier_prompt_payload
 from v2_editorial import (
     canonical_item_to_editorial_event,
     generate_v2_article,
@@ -305,6 +306,41 @@ class InsightsV2ProductionTests(unittest.TestCase):
             )
         self.assertTrue(result["passed"])
         self.assertEqual(mocked.call_count, 2)
+
+    def test_truncation_retry_changes_the_completion_budget(self):
+        pipeline = EditorialPipeline(api_key="key")
+        responses = [ValueError("provider_truncated (finish_reason=length)"),
+                     '{"issues": [], "passed": true, "score_1_10": 9, "summary": "clear"}']
+        with patch("editorial_pipeline.call_deepseek", side_effect=responses) as mocked:
+            result = pipeline._request_json(
+                "Review this", max_tokens=4000, temperature=0.1,
+                required_fields=["issues", "passed", "score_1_10", "summary"],
+            )
+        self.assertTrue(result["passed"])
+        self.assertEqual(mocked.call_args_list[0].kwargs["max_tokens"], 4000)
+        self.assertGreater(mocked.call_args_list[1].kwargs["max_tokens"], 4000)
+
+    def test_dossier_prompt_drops_whole_sources_and_reports_omissions(self):
+        dossier = {
+            "title": "A bounded event",
+            "independent_source_count": 40,
+            "primary_source_count": 0,
+            "sources": [
+                {
+                    "name": f"Source {index}",
+                    "url": f"https://source-{index}.example/article-{index}",
+                    "authority": "secondary",
+                    "published": "today",
+                    "summary": "A summary with enough words to remain readable.",
+                    "full_text_excerpt": "Evidence sentence. " * 80,
+                }
+                for index in range(40)
+            ],
+        }
+        rendered = dossier_prompt_payload(dossier, max_chars=5000)
+        self.assertLessEqual(len(rendered), 5000)
+        self.assertIn("EVIDENCE NOTE:", rendered)
+        self.assertNotIn("Source 39", rendered)
 
     def test_financial_reviewer_receives_the_same_late_dossier_evidence_as_writer(self):
         item = make_item()

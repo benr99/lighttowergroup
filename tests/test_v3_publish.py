@@ -133,6 +133,7 @@ class PublishesFinishedWork(unittest.TestCase):
         with _Sandbox():
             report = publish([draft], {obj.object_id: obj})
             self.assertEqual(report.published, 0)
+            self.assertEqual(report.failed, 1)
 
 
 class SafeToRunTwice(unittest.TestCase):
