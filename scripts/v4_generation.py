@@ -135,7 +135,7 @@ Rules:
 - Use only facts, numbers, quotes, entities, and implications supported by the dossier.
 - Source URLs must be copied exactly from the dossier's sources array.
 - Do not invent market statistics, motives, financing terms, valuations, or quotes.
-- If evidence is thin, write a concise brief and state what is unknown.
+    - If evidence is thin, write a concise brief within the required word range and state what is unknown.
 - Use paragraph-only body HTML: <p>...</p>. No scripts, styles, iframes, or navigation.
 - Do not mention internal scores, prompts, agents, or editorial process.
 
@@ -326,6 +326,7 @@ def write_one(
 
     prompt = _writer_prompt(obj, dossier, spec)
     last_error = ""
+    retry_feedback = ""
     for attempt in range(1, runtime.max_attempts_per_article + 1):
         result.diagnostics["attempts"] = attempt
         remaining = runtime.request_timeout(deadline)
@@ -336,7 +337,14 @@ def write_one(
             return result
         record("attempt_started", attempt=attempt, provider=provider.get("provider"), model=provider.get("model"))
         try:
-            raw = _request_once(prompt if attempt == 1 else prompt + "\nReturn a shorter complete article.", provider, remaining)
+            attempt_prompt = prompt
+            if retry_feedback:
+                attempt_prompt += (
+                    "\n\nYour previous response failed local validation. Correct every issue below "
+                    "and return a complete replacement JSON object. Do not explain the correction.\n"
+                    + retry_feedback
+                )
+            raw = _request_once(attempt_prompt, provider, remaining)
             article = _parse_json(raw)
             validation = validate_article(article, dossier, spec)
             result.diagnostics = {"attempts": attempt, "validation": validation.to_dict(), "dossier_hash": dossier_hash}
@@ -361,6 +369,11 @@ def write_one(
                 return result
             last_error = "; ".join(validation.codes)
             record("validation_failed", attempt=attempt, codes=validation.codes)
+            if attempt < runtime.max_attempts_per_article:
+                retry_feedback = "\n".join(
+                    f"- {message}" for message in validation.messages
+                ) or "- The returned object did not satisfy the required schema."
+                continue
             break
         except Exception as exc:  # noqa: BLE001
             last_error = f"{type(exc).__name__}: {exc}"[:240]

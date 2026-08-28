@@ -115,8 +115,22 @@ class V4GenerationTests(unittest.TestCase):
             result = v4_generation.write_one(_obj("Bad source"), provider=PROVIDER,
                                              deadline=v4_generation.time.monotonic() + 30)
         self.assertEqual(result.status, "failed")
-        self.assertEqual(post.call_count, 1)
+        self.assertEqual(post.call_count, 2)
         self.assertIn("source_not_in_dossier", result.diagnostics["validation"]["codes"])
+
+    def test_validation_failure_gets_one_corrective_retry(self):
+        invalid = _article()
+        invalid["body_html"] = "<p>Too short.</p>"
+        first = _Response({"choices": [{"message": {"content": json.dumps(invalid)},
+                                             "finish_reason": "stop"}]})
+        second = _Response({"choices": [{"message": {"content": json.dumps(_article())},
+                                              "finish_reason": "stop"}]})
+        with patch.object(v4_generation.requests, "post", side_effect=[first, second]) as post:
+            result = v4_generation.write_one(_obj("Retry story"), provider=PROVIDER,
+                                             deadline=v4_generation.time.monotonic() + 30)
+        self.assertEqual(result.status, "completed")
+        self.assertEqual(post.call_count, 2)
+        self.assertEqual(result.diagnostics["attempts"], 2)
 
     def test_three_article_run_has_finite_attempts_and_preserves_successes(self):
         response = _Response({"choices": [{"message": {"content": json.dumps(_article())},
