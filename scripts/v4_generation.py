@@ -8,6 +8,7 @@ checks are local and the returned drafts retain the v3 publisher contract.
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import time
 from dataclasses import asdict, dataclass, field
@@ -25,6 +26,32 @@ DEFAULT_ARTICLE_BUDGET_S = 4 * 60
 DEFAULT_ATTEMPT_TIMEOUT_S = 90
 MAX_ATTEMPTS_PER_ARTICLE = 2
 MAX_TOTAL_ATTEMPTS = 6
+
+
+@dataclass(frozen=True)
+class RuntimeBudget:
+    """One explicit monotonic runtime contract for an edition."""
+
+    started: float
+    deadline: float
+    article_budget_s: float = DEFAULT_ARTICLE_BUDGET_S
+    attempt_timeout_s: float = DEFAULT_ATTEMPT_TIMEOUT_S
+    max_attempts_per_article: int = MAX_ATTEMPTS_PER_ARTICLE
+    max_total_attempts: int = MAX_TOTAL_ATTEMPTS
+
+    @classmethod
+    def start(cls, total_seconds: float, *, article_budget_s: float = DEFAULT_ARTICLE_BUDGET_S) -> "RuntimeBudget":
+        started = time.monotonic()
+        return cls(started=started, deadline=started + max(0.1, total_seconds), article_budget_s=article_budget_s)
+
+    def remaining(self) -> float:
+        return max(0.0, self.deadline - time.monotonic())
+
+    def article_deadline(self) -> float:
+        return min(self.deadline, time.monotonic() + self.article_budget_s)
+
+    def request_timeout(self, article_deadline: float) -> float:
+        return max(0.0, min(self.attempt_timeout_s, article_deadline - time.monotonic()))
 
 
 @dataclass
@@ -186,6 +213,13 @@ def _retryable_error(exc: Exception) -> bool:
     return isinstance(exc, (json.JSONDecodeError, ValueError))
 
 
+def _cache_path(state_dir: Path | None, object_id: str) -> Path | None:
+    if not state_dir:
+        return None
+    safe_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", object_id)[:120]
+    return Path(state_dir) / "v4-drafts" / f"{safe_id}.json"
+
+
 def _request_once(prompt: str, provider: dict[str, Any], timeout_s: float) -> str:
     """Make exactly one HTTP request; no hidden provider chain or retry."""
     from model_router import log_provider_event
@@ -236,6 +270,7 @@ def write_one(
     *,
     provider: dict[str, Any],
     deadline: float,
+    runtime: RuntimeBudget | None = None,
     state_dir: Path | None = None,
     run_id: str = "",
 ) -> DraftResult:
@@ -243,11 +278,13 @@ def write_one(
     spec = DEPTH_SPEC.get(depth, DEPTH_SPEC["tier_c"])
     result = DraftResult(object_id=obj.object_id, title=obj.title, sector=obj.primary_sector, depth=depth)
     started = time.monotonic()
+    runtime = runtime or RuntimeBudget(started=started, deadline=deadline)
     dossier = _safe_dossier(obj)
-    dossier_hash = __import__("hashlib").sha256(
+    dossier_hash = hashlib.sha256(
         json.dumps(dossier, sort_keys=True, ensure_ascii=False).encode("utf-8")
     ).hexdigest()
     state_path = Path(state_dir) / "v4-article-state.jsonl" if state_dir else None
+    cached_path = _cache_path(state_dir, obj.object_id)
 
     def record(status: str, **extra: Any) -> None:
         if not state_path:
@@ -265,11 +302,28 @@ def write_one(
         record(result.status, reason=result.skipped_reason)
         return result
 
+    if cached_path and cached_path.exists():
+        try:
+            cached = json.loads(cached_path.read_text(encoding="utf-8"))
+            if cached.get("dossier_hash") == dossier_hash and cached.get("depth") == depth:
+                article = cached.get("article")
+                validation = validate_article(article, dossier, spec) if isinstance(article, dict) else None
+                if validation and validation.valid:
+                    result.article = article
+                    result.status = "completed"
+                    result.stages_run = ["cache_reuse", "local_validation"]
+                    result.diagnostics = {"attempts": 0, "cache_reused": True,
+                                          "validation": validation.to_dict(), "dossier_hash": dossier_hash}
+                    record("cache_reused", output_artifact=str(cached_path))
+                    return result
+        except (OSError, json.JSONDecodeError):
+            pass
+
     prompt = _writer_prompt(obj, dossier, spec)
     last_error = ""
-    for attempt in range(1, MAX_ATTEMPTS_PER_ARTICLE + 1):
+    for attempt in range(1, runtime.max_attempts_per_article + 1):
         result.diagnostics["attempts"] = attempt
-        remaining = min(deadline - time.monotonic(), DEFAULT_ATTEMPT_TIMEOUT_S)
+        remaining = runtime.request_timeout(deadline)
         if remaining <= 0:
             result.status = "skipped"
             result.skipped_reason = "article deadline exceeded"
@@ -288,7 +342,16 @@ def write_one(
                 result.article = article
                 result.status = "completed"
                 result.stages_run = ["bounded_writer", "local_validation"]
-                record("completed", attempt=attempt, validation=validation.to_dict())
+                if cached_path:
+                    cached_path.parent.mkdir(parents=True, exist_ok=True)
+                    cached_path.write_text(json.dumps({
+                        "object_id": obj.object_id,
+                        "depth": depth,
+                        "dossier_hash": dossier_hash,
+                        "article": article,
+                    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                record("completed", attempt=attempt, validation=validation.to_dict(),
+                       output_artifact=str(cached_path) if cached_path else "")
                 result.seconds = round(time.monotonic() - started, 1)
                 return result
             last_error = "; ".join(validation.codes)
@@ -297,7 +360,7 @@ def write_one(
         except Exception as exc:  # noqa: BLE001
             last_error = f"{type(exc).__name__}: {exc}"[:240]
             record("attempt_failed", attempt=attempt, error=last_error)
-            if attempt >= MAX_ATTEMPTS_PER_ARTICLE or not _retryable_error(exc):
+            if attempt >= runtime.max_attempts_per_article or not _retryable_error(exc):
                 break
     result.status = "failed"
     result.errors = [last_error or "generation failed"]
@@ -326,16 +389,25 @@ def write_all(
                                       errors=["no writing provider configured"]).to_dict() for o in objects]
         return results, report
 
-    deadline = started + max(0.1, deadline_s)
+    runtime = RuntimeBudget.start(deadline_s, article_budget_s=article_budget_s)
+    deadline = runtime.deadline
     for index, obj in enumerate(objects, start=1):
-        remaining = deadline - time.monotonic()
-        if remaining <= 0 or remaining < min(article_budget_s, DEFAULT_ATTEMPT_TIMEOUT_S):
+        remaining = runtime.remaining()
+        if remaining <= 0 or remaining < min(runtime.article_budget_s, runtime.attempt_timeout_s):
             result = DraftResult(object_id=obj.object_id, title=obj.title, sector=obj.primary_sector,
                                  depth=obj.recommended_depth, status="skipped",
                                  skipped_reason="edition generation window closed")
         else:
+            article_deadline = runtime.article_deadline()
             result = write_one(obj, provider=provider,
-                               deadline=min(deadline, time.monotonic() + article_budget_s),
+                               deadline=article_deadline,
+                               runtime=RuntimeBudget(
+                                   started=time.monotonic(), deadline=article_deadline,
+                                   article_budget_s=runtime.article_budget_s,
+                                   attempt_timeout_s=runtime.attempt_timeout_s,
+                                   max_attempts_per_article=runtime.max_attempts_per_article,
+                                   max_total_attempts=runtime.max_total_attempts,
+                               ),
                                state_dir=state_dir, run_id=run_id)
         results.append(result)
         if verbose:

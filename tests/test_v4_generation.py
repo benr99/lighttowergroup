@@ -142,6 +142,22 @@ class V4GenerationTests(unittest.TestCase):
         self.assertEqual(report.skipped, 2)
         self.assertEqual(post.call_count, 0)
 
+    def test_completed_article_is_reused_from_matching_dossier_cache(self):
+        state = Path(tempfile.mkdtemp())
+        response = _Response({"choices": [{"message": {"content": json.dumps(_article())},
+                                             "finish_reason": "stop"}]})
+        with patch.object(v4_generation.requests, "post", return_value=response) as post:
+            first = v4_generation.write_one(_obj("Reusable story"), provider=PROVIDER,
+                                            deadline=v4_generation.time.monotonic() + 30,
+                                            state_dir=state, run_id="first")
+            second = v4_generation.write_one(_obj("Reusable story"), provider=PROVIDER,
+                                             deadline=v4_generation.time.monotonic() + 30,
+                                             state_dir=state, run_id="second")
+        self.assertTrue(first.ok)
+        self.assertTrue(second.ok)
+        self.assertTrue(second.diagnostics["cache_reused"])
+        self.assertEqual(post.call_count, 1)
+
 
 if __name__ == "__main__":
     unittest.main()
