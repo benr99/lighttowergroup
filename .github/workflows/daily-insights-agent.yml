@@ -21,19 +21,20 @@ on:
           - preview
           - publish
       article_count:
-        description: "Maximum articles to generate (scheduled runs retain the five-candidate ceiling)"
+        description: "Maximum articles to generate; v4 scheduled runs target 10 per sector"
         required: true
-        default: "3"
+        default: "70"
         type: choice
         options:
           - "1"
           - "3"
           - "5"
           - "10"
+          - "70"
       pipeline:
         description: "Production engine; v3 and v2 remain available as rollback paths"
         required: true
-        default: "v3"
+        default: "v4"
         type: choice
         options:
           - v4
@@ -134,7 +135,7 @@ jobs:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           RUN_MODE: ${{ steps.policy.outputs.mode }}
           ARTICLE_COUNT: ${{ inputs.article_count || '5' }}
-          PIPELINE: ${{ github.event_name == 'workflow_dispatch' && inputs.pipeline || 'v3' }}
+          PIPELINE: ${{ github.event_name == 'workflow_dispatch' && inputs.pipeline || 'v4' }}
         working-directory: scripts
         shell: bash
         run: |
@@ -143,8 +144,8 @@ jobs:
               python insights_v3.py \
                 --pipeline v4 \
                 --mode "$RUN_MODE" \
-                --daily-target 3 \
-                --article-limit "$ARTICLE_COUNT" \
+                --daily-target 70 \
+                --article-limit 70 \
                 --quality-floor 40
               ;;
             v3)

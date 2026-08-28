@@ -630,7 +630,8 @@ def main() -> int:
     parser.add_argument("--sector", action="append", dest="sectors")
     parser.add_argument("--workers", type=int, default=6)
     parser.add_argument("--daily-target", type=int, default=3)
-    parser.add_argument("--article-limit", type=int, default=5)
+    parser.add_argument("--article-limit", type=int, default=5,
+                        help="maximum publication slate; v4 workflow uses 70 (10 per sector)")
     parser.add_argument("--quality-floor", type=float, default=40.0)
     parser.add_argument("--include-review", action="store_true",
                         help="manual only: include drafts flagged for editorial review")

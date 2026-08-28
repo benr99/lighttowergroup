@@ -153,7 +153,16 @@ class RankingAndExplanation(unittest.TestCase):
         report = build_slates(objects, publication_target=9, article_limit=99)
         self.assertEqual(report.publication_target, 9)
         self.assertEqual(report.article_limit, MAX_DAILY_ARTICLES)
-        self.assertEqual(len(report.publication_slate), 12)
+
+    def test_the_system_can_publish_ten_per_sector(self) -> None:
+        objects = []
+        for sector in ("commercial_real_estate", "private_equity", "data_centers",
+                       "energy", "banking_credit", "fed_macro", "local_government"):
+            objects.extend(obj(f"{sector} deal {i}", 90.0 - i, sector=sector)
+                           for i in range(10))
+        report = build_slates(objects, publication_target=70, article_limit=70)
+        self.assertEqual(len(report.publication_slate), 70)
+        self.assertTrue(all(len(slate.selected) == 10 for slate in report.sectors.values()))
 
 
 class DepthMatchesEvidence(unittest.TestCase):

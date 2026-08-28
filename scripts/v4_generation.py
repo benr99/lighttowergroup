@@ -10,7 +10,9 @@ from __future__ import annotations
 import json
 import hashlib
 import re
+import threading
 import time
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Sequence
@@ -21,11 +23,13 @@ import requests
 from intelligence_object import IntelligenceObject
 from v3_generation import DEPTH_SPEC, DraftResult, object_to_dossier
 
-DEFAULT_EDITION_BUDGET_S = 12 * 60
+DEFAULT_EDITION_BUDGET_S = 45 * 60
 DEFAULT_ARTICLE_BUDGET_S = 4 * 60
 DEFAULT_ATTEMPT_TIMEOUT_S = 90
 MAX_ATTEMPTS_PER_ARTICLE = 2
 MAX_TOTAL_ATTEMPTS = 6
+DEFAULT_WORKERS = 6
+_STATE_LOCK = threading.Lock()
 
 
 @dataclass(frozen=True)
@@ -293,8 +297,9 @@ def write_one(
         payload = {"run_id": run_id, "object_id": obj.object_id, "title": obj.title,
                    "depth": depth, "dossier_hash": dossier_hash, "status": status,
                    "elapsed_seconds": round(time.monotonic() - started, 2), **extra}
-        with state_path.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
+        with _STATE_LOCK:
+            with state_path.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
     if depth == "none":
         result.status = "skipped"
@@ -376,6 +381,7 @@ def write_all(
     budget: Any = None,
     deadline_s: float = DEFAULT_EDITION_BUDGET_S,
     article_budget_s: float = DEFAULT_ARTICLE_BUDGET_S,
+    workers: int = DEFAULT_WORKERS,
     verbose: bool = True,
     state_dir: Path | None = None,
     run_id: str = "",
@@ -391,27 +397,81 @@ def write_all(
 
     runtime = RuntimeBudget.start(deadline_s, article_budget_s=article_budget_s)
     deadline = runtime.deadline
-    for index, obj in enumerate(objects, start=1):
-        remaining = runtime.remaining()
-        if remaining <= 0 or remaining < min(runtime.article_budget_s, runtime.attempt_timeout_s):
-            result = DraftResult(object_id=obj.object_id, title=obj.title, sector=obj.primary_sector,
-                                 depth=obj.recommended_depth, status="skipped",
-                                 skipped_reason="edition generation window closed")
-        else:
-            article_deadline = runtime.article_deadline()
-            result = write_one(obj, provider=provider,
-                               deadline=article_deadline,
-                               runtime=RuntimeBudget(
-                                   started=time.monotonic(), deadline=article_deadline,
-                                   article_budget_s=runtime.article_budget_s,
-                                   attempt_timeout_s=runtime.attempt_timeout_s,
-                                   max_attempts_per_article=runtime.max_attempts_per_article,
-                                   max_total_attempts=runtime.max_total_attempts,
-                               ),
-                               state_dir=state_dir, run_id=run_id)
-        results.append(result)
-        if verbose:
-            print(f"    [v4 {index}/{len(objects)}] {result.status}: {result.title[:58]} ({result.seconds:.1f}s)", flush=True)
+    indexed = list(enumerate(objects))
+    next_index = 0
+    futures: dict[Any, tuple[int, IntelligenceObject]] = {}
+    pool = ThreadPoolExecutor(max_workers=max(1, min(int(workers), DEFAULT_WORKERS)))
+
+    def submit_one(index: int, obj: IntelligenceObject) -> None:
+        article_deadline = runtime.article_deadline()
+        article_runtime = RuntimeBudget(
+            started=time.monotonic(), deadline=article_deadline,
+            article_budget_s=runtime.article_budget_s,
+            attempt_timeout_s=runtime.attempt_timeout_s,
+            max_attempts_per_article=runtime.max_attempts_per_article,
+            max_total_attempts=runtime.max_total_attempts,
+        )
+        future = pool.submit(write_one, obj, provider=provider,
+                             deadline=article_deadline, runtime=article_runtime,
+                             state_dir=state_dir, run_id=run_id)
+        futures[future] = (index, obj)
+
+    try:
+        while next_index < len(indexed) and len(futures) < max(1, min(int(workers), DEFAULT_WORKERS)):
+            if runtime.remaining() < min(runtime.article_budget_s, runtime.attempt_timeout_s):
+                break
+            index, obj = indexed[next_index]
+            submit_one(index, obj)
+            next_index += 1
+
+        while futures:
+            if runtime.remaining() <= 0:
+                for future in futures:
+                    future.cancel()
+                break
+            done, _ = wait(futures, timeout=min(runtime.remaining(), 1.0),
+                           return_when=FIRST_COMPLETED)
+            if not done:
+                continue
+            for future in done:
+                index, obj = futures.pop(future)
+                try:
+                    result = future.result()
+                except Exception as exc:  # noqa: BLE001
+                    result = DraftResult(object_id=obj.object_id, title=obj.title,
+                                         sector=obj.primary_sector, depth=obj.recommended_depth,
+                                         status="failed", errors=[f"{type(exc).__name__}: {exc}"[:240]])
+                results.append((index, result))
+                if verbose:
+                    print(f"    [v4 {index + 1}/{len(objects)}] {result.status}: {result.title[:58]} ({result.seconds:.1f}s)", flush=True)
+                if next_index < len(indexed) and runtime.remaining() >= min(runtime.article_budget_s, runtime.attempt_timeout_s):
+                    new_index, new_obj = indexed[next_index]
+                    submit_one(new_index, new_obj)
+                    next_index += 1
+                if report.attempts + sum(int(r.diagnostics.get("attempts", 0)) for _, r in results) >= max(MAX_TOTAL_ATTEMPTS, len(objects) * 2):
+                    next_index = len(indexed)
+                    break
+    finally:
+        pool.shutdown(wait=False, cancel_futures=True)
+
+    # Active requests have finite HTTP timeouts; mark work not returned by the
+    # deadline as skipped rather than pretending it failed or completed.
+    returned = {index for index, _ in results}
+    for future, (index, obj) in list(futures.items()):
+        if future.done() and not future.cancelled():
+            try:
+                results.append((index, future.result()))
+                returned.add(index)
+            except Exception:
+                pass
+    for index, obj in indexed:
+        if index not in returned:
+            results.append((index, DraftResult(object_id=obj.object_id, title=obj.title,
+                                               sector=obj.primary_sector, depth=obj.recommended_depth,
+                                               status="skipped", skipped_reason="edition generation window closed")))
+    results.sort(key=lambda pair: pair[0])
+    results = [result for _, result in results]
+    for result in results:
         if result.status == "completed":
             report.written += 1
         elif result.status == "skipped":
@@ -422,8 +482,6 @@ def write_all(
         report.attempts += attempts
         name = str(provider.get("provider") or "unknown")
         report.provider_attempts[name] = report.provider_attempts.get(name, 0) + attempts
-        if report.attempts >= MAX_TOTAL_ATTEMPTS:
-            break
     report.elapsed_seconds = round(time.monotonic() - started, 2)
     report.results = [r.to_dict() for r in results]
     return results, report

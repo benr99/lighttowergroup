@@ -222,10 +222,13 @@ class ShadowIsolation(unittest.TestCase):
                       "a v3 failure must never reach the edition")
         self.assertIn("production continues", block)
 
-    def test_the_workflow_runs_v3_with_an_explicit_v2_rollback_path(self) -> None:
+    def test_the_workflow_runs_v4_with_v3_and_v2_rollback_paths(self) -> None:
         workflow = (ROOT / ".github" / "workflows" / "daily-insights-agent.yml").read_text(encoding="utf-8")
         self.assertIn("python insights_v3.py", workflow)
-        self.assertIn("inputs.pipeline || 'v3'", workflow)
+        self.assertIn("inputs.pipeline || 'v4'", workflow)
+        self.assertIn("--daily-target 70", workflow)
+        self.assertIn("--article-limit 70", workflow)
+        self.assertIn("v3)", workflow)
         self.assertIn("v2)", workflow)
         self.assertIn("--pipeline-v2", workflow,
                       "v2 must remain available as the operator rollback path")
