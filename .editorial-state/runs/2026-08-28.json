@@ -1,317 +1,595 @@
 {
-  "run_at": "2026-08-28T15:55:50.472554+00:00",
-  "pipeline_version": "v3.0",
+  "run_at": "2026-08-28T21:21:03.642279+00:00",
+  "pipeline_version": "v4.0",
   "mode": "publish",
-  "documents_ingested": 773,
-  "documents_from_feeds": 670,
+  "documents_ingested": 795,
+  "documents_from_feeds": 692,
   "documents_from_listings": 103,
-  "objects_after_clustering": 725,
-  "documents_consolidated": 48,
-  "eligible": 94,
-  "enriched": 93,
-  "evidence_upgraded": 45,
-  "selected": 17,
-  "publication_candidates": 3,
-  "daily_target": 3,
-  "article_limit": 3,
+  "objects_after_clustering": 753,
+  "documents_consolidated": 42,
+  "eligible": 113,
+  "enriched": 250,
+  "evidence_upgraded": 169,
+  "selected": 20,
+  "publication_candidates": 20,
+  "daily_target": 70,
+  "article_limit": 70,
   "daily_target_met": false,
   "sectors": {
     "banking_credit": {
-      "considered": 59,
-      "eligible": 15,
+      "considered": 62,
+      "eligible": 17,
       "selected": 2,
       "target": 10,
-      "shortfall_reason": "only 2 of 15 eligible candidates cleared the floor, against a target of 10"
+      "shortfall_reason": "only 2 of 17 eligible candidates cleared the floor, against a target of 10"
     },
     "commercial_real_estate": {
-      "considered": 367,
-      "eligible": 43,
+      "considered": 399,
+      "eligible": 55,
       "selected": 10,
       "target": 10,
       "shortfall_reason": ""
     },
     "data_centers": {
-      "considered": 65,
-      "eligible": 7,
-      "selected": 2,
-      "target": 10,
-      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
-    },
-    "energy": {
-      "considered": 118,
+      "considered": 67,
       "eligible": 9,
       "selected": 1,
       "target": 10,
       "shortfall_reason": "only 1 of 9 eligible candidates cleared the floor, against a target of 10"
     },
-    "fed_macro": {
-      "considered": 38,
-      "eligible": 9,
-      "selected": 2,
+    "energy": {
+      "considered": 114,
+      "eligible": 12,
+      "selected": 0,
       "target": 10,
-      "shortfall_reason": "only 2 of 9 eligible candidates cleared the floor, against a target of 10"
+      "shortfall_reason": "12 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 35,
+      "eligible": 10,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 10 eligible candidates cleared the floor, against a target of 10"
     },
     "local_government": {
-      "considered": 5,
-      "eligible": 4,
+      "considered": 4,
+      "eligible": 3,
       "selected": 0,
       "target": 10,
-      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+      "shortfall_reason": "3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
     },
     "private_equity": {
-      "considered": 73,
+      "considered": 72,
       "eligible": 7,
-      "selected": 0,
+      "selected": 1,
       "target": 10,
-      "shortfall_reason": "7 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+      "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
     }
   },
   "depth_counts": {
-    "tier_b": 8,
-    "tier_c": 9
+    "tier_c": 8,
+    "tier_b": 12
   },
   "shortfalls": [
-    "banking_credit: only 2 of 15 eligible candidates cleared the floor, against a target of 10",
-    "data_centers: only 2 of 7 eligible candidates cleared the floor, against a target of 10",
-    "energy: only 1 of 9 eligible candidates cleared the floor, against a target of 10",
-    "fed_macro: only 2 of 9 eligible candidates cleared the floor, against a target of 10",
-    "local_government: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
-    "private_equity: 7 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    "banking_credit: only 2 of 17 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 9 eligible candidates cleared the floor, against a target of 10",
+    "energy: 12 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: only 6 of 10 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 1 of 7 eligible candidates cleared the floor, against a target of 10"
   ],
-  "degenerate_measures": [
-    "evidence"
-  ],
+  "degenerate_measures": [],
   "score_distribution": {
     "min": 0.0,
-    "max": 66.3,
-    "mean": 21.8,
-    "stdev": 10.38,
-    "range_used": 66.3
+    "max": 69.5,
+    "mean": 24.1,
+    "stdev": 13.27,
+    "range_used": 69.5,
+    "median": 20.0,
+    "scale_max": 100
   },
   "retrieval": {
-    "requested": 94,
-    "fetched": 87,
+    "requested": 253,
+    "fetched": 238,
     "from_cache": 0,
-    "blocked": 6,
-    "failed": 1,
+    "blocked": 9,
+    "failed": 6,
     "skipped_budget": 0,
-    "bytes_downloaded": 17702248,
-    "elapsed_ms": 30679,
+    "bytes_downloaded": 57146392,
+    "elapsed_ms": 51760,
     "by_status": {
-      "full_text": 46,
-      "partial_text": 41,
-      "blocked": 6,
-      "failed": 1
+      "full_text": 168,
+      "partial_text": 70,
+      "failed": 6,
+      "blocked": 9
     }
   },
   "novelty": {
-    "new": 640,
-    "minor_follow_up": 84,
-    "duplicate": 1
+    "new": 658,
+    "minor_follow_up": 80,
+    "duplicate": 14,
+    "already_published": 1
   },
   "memory": {
-    "events_remembered": 3212,
-    "published": 410,
-    "seen_but_not_run": 2802,
+    "events_remembered": 3410,
+    "published": 430,
+    "seen_but_not_run": 2980,
     "lookback_days": 45
   },
   "spend": {
     "date": "2026-08-28",
     "daily_limit_usd": 25.0,
-    "spent_before_this_run_usd": 0.0,
-    "spent_this_run_usd": 0.21,
+    "spent_before_this_run_usd": 0.21,
+    "spent_this_run_usd": 0,
     "spent_today_usd": 0.21,
     "remaining_usd": 24.79,
     "exhausted": false,
-    "total_calls": 3,
+    "total_calls": 0,
     "refused_calls": 0,
-    "elapsed_seconds": 313.7,
-    "by_stage": {
-      "generation": {
-        "calls": 3,
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "usd": 0.21,
-        "seconds": 595.1,
-        "refused": 0
-      }
-    },
-    "most_expensive_articles": [
-      {
-        "id": "27441190861b1ca3",
-        "usd": 0.07
-      },
-      {
-        "id": "2223f7110ae9ad3c",
-        "usd": 0.07
-      },
-      {
-        "id": "f60117e8d97b7176",
-        "usd": 0.07
-      }
-    ]
+    "elapsed_seconds": 185.1,
+    "by_stage": {},
+    "most_expensive_articles": []
   },
   "generation": {
-    "requested": 3,
-    "written": 1,
-    "needs_review": 2,
-    "held": 0,
-    "skipped_budget": 0,
+    "pipeline": "v4",
+    "requested": 20,
+    "written": 20,
+    "needs_review": 0,
     "failed": 0,
-    "elapsed_seconds": 209.8,
-    "usd": 0.21,
-    "by_depth": {
-      "tier_b": 3
+    "skipped": 0,
+    "attempts": 20,
+    "elapsed_seconds": 51.69,
+    "provider_attempts": {
+      "deepseek": 20
     },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
     "results": [
       {
-        "object_id": "27441190861b1ca3",
-        "title": "Chase Home Lending Mortgage issues $378.7 million RMBS",
-        "sector": "banking_credit",
+        "object_id": "4cee42c4e5de40ac",
+        "title": "Vivmark Merger Triggers $742M in Bay Area Apartment Acquisitions",
+        "sector": "commercial_real_estate",
         "depth": "tier_b",
         "status": "completed",
         "stages_run": [
-          "analytical_brief",
-          "assemble_prompt",
-          "draft",
-          "financial_review",
-          "editorial_review",
-          "fact_verification",
-          "final_revision",
-          "financial_review",
-          "editorial_review",
-          "fact_verification",
-          "final_revision",
-          "financial_review",
-          "editorial_review",
-          "fact_verification"
+          "bounded_writer",
+          "local_validation"
         ],
         "errors": [],
         "diagnostics": {
-          "analytical_brief": {
-            "status": "completed"
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.89,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 584,
+            "paragraph_count": 5
           },
-          "assemble_prompt": {
-            "status": "completed"
-          },
-          "draft": {
-            "status": "completed"
-          },
-          "financial_review": {
-            "issues": [
-              "The article states 'The preliminary AAA (sf) certificates carry 7.25% credit enhancement from subordinated certificates.' This is supported by the dossier, which attributes the figure to Morningstar DBRS's preliminary ratings. However, the article does not explicitly attribute this figure to Morningstar DBRS in that sentence, though the rating agency is mentioned earlier in the paragraph. This is a minor attribution gap.",
-              "The article claims 'The collateral quality suggests yes for the AAA tranche.' This is an analytical conclusion that is reasonably supported by the dossier's description of high-quality collateral and the 7.25% credit enhancement. It is not an unsupported factual claim.",
-              "The article states 'They are not being paid for pristine collateral; they are being paid to absorb the tail risk that the R&W framework does not cover.' This is an interpretive claim about investor compensation that goes beyond what the dossier explicitly states. The dossier does not provide pricing or spread information, so the claim about what investors are 'being paid' for is an inference. However, it is framed as analysis rather than reported fact, and the calibration rules allow for evidence-bounded argument. This is not a fatal defect but should be noted as an analytical inference.",
-              "The article does not invent any financial figures. All numbers cited (deal size, loan count, credit enhancement percentages, servicing fee, loan age, QM percentages) are directly supported by the dossier.",
-              "The article distinguishes reported facts from analytical interpretation reasonably well. Facts are attributed to Morningstar DBRS or the transaction structure, while the final paragraphs are clearly analytical."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "summary": "The article accurately reports all financial figures from the dossier and provides meaningful analytical depth by framing the central tension between high-quality collateral and a weakening R&W framework. It explains what the credit enhancement stack means for risk distribution across tranches and identifies the key investor question. Minor issues include a slight attribution gap on the AAA credit enhancement figure and an interpretive claim about subordinate tranche compensation that extends beyond the dossier's explicit content, but neither constitutes a material factual or analytical defect.",
-            "status": "completed"
-          },
-          "editorial_review": {
-            "issues": [
-              "The opening is specific but slightly buried; the two-year clock is a strong hook, but the sentence could be tighter.",
-              "Some sentences are dense and list-like, especially in the collateral description, which slows momentum.",
-              "The phrase 'The tension sits between' is slightly abstract and could be more direct.",
-              "The conclusion is strong but the final sentence about pricing is a bit speculative and could be more grounded.",
-              "Minor repetitive structure: several sentences begin with 'The' or 'No' in the collateral paragraph.",
-              "No significant AI language detected, but 'The next signal to watch' is a mild forward-looking cliché."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "opening_quality": "Specific and effective; the two-year R&W sunset is a concrete, non-generic hook that immediately frames the deal's central tension.",
-            "worst_sentence": "The tension sits between the collateral and the legal framework.",
-            "summary": "A sharp, professional analysis that effectively contrasts pristine collateral with a weakening legal framework. The writing is clear and knowledgeable, with only minor density and abstraction issues. The conclusion lands on the right implication for investors and the market.",
-            "status": "completed"
-          },
-          "fact_verification": {
-            "issues": [],
-            "passed": true,
-            "score_1_10": 10
-          },
-          "final_revision": {
-            "status": "revised"
-          },
-          "post_revision_financial_review": {
-            "issues": [
-              "The article states 'The preliminary AA (low) (sf), A (low) (sf), BBB (low) (sf), BB (sf) and B (sf) credit ratings' but the source lists the B rating as '(P) B (sf)', indicating a provisional rating. The article omits the provisional designation, which is a meaningful distinction for investors.",
-              "The article claims 'The collateral itself is about as clean as residential mortgage credit gets' but does not attribute this characterization to Morningstar DBRS or any source. The dossier supports high-quality attributes but does not contain this superlative assessment.",
-              "The article asserts 'They are not being paid for pristine collateral; they are being paid to absorb the tail risk that the R&W framework does not cover.' This is an analytical interpretation presented as fact without attribution or supporting evidence from the dossier about pricing or compensation levels.",
-              "The article states 'The two-year sunset provision means that protection erodes precisely as early-payment default risk gives way to longer-duration credit deterioration.' This causal claim about the timing of risk transition is not supported by the source material and represents editorial speculation."
-            ],
-            "passed": false,
-            "score_1_10": 6,
-            "summary": "The article accurately reports most key figures from the dossier, including deal size, loan count, credit enhancement levels, and the R&W sunset provision. It provides meaningful analytical depth by framing the tension between collateral quality and legal framework. However, it fails on several specific points: it omits the provisional '(P)' designation on the B rating, presents an unattributed superlative about collateral quality, and makes unsupported claims about subordinate tranche compensation and the timing of risk erosion. These defects undermine the precision required for financial editorial accuracy.",
-            "status": "completed"
-          },
-          "post_revision_editorial_review": {
-            "issues": [
-              "The opening is specific but slightly clunky; the phrase 'The most revealing number... is not the $378.7 million deal size or the 651 first-lien mortgages backing it. It is the two-year clock' is strong, but the following sentence is dense and could be tightened.",
-              "Some sentences are overly long and pack in too many data points, reducing readability, e.g., the sentence listing credit enhancement percentages.",
-              "The article occasionally uses formulaic phrasing like 'The next signal to watch' and 'the question is whether,' which weakens the otherwise analytical tone.",
-              "Minor redundancy: 'entirely fixed-rate, prime, agency-eligible mortgages that Fannie Mae and Freddie Mac can purchase' could be simplified.",
-              "The conclusion is forward-looking but slightly vague; it could more directly state the market implication for investors."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "opening_quality": "Specific and analytical, using the two-year R&W sunset provision as a hook rather than generic deal statistics.",
-            "worst_sentence": "The preliminary AA (low) (sf), A (low) (sf), BBB (low) (sf), BB (sf) and B (sf) credit ratings correspond to credit enhancements of 4.20%, 2.25%, 1.15%, 0.65% and 0.35%, respectively.",
-            "summary": "A well-structured, professional analysis of a mortgage securitization that effectively contrasts strong collateral quality with a weaker legal framework. The writing is clear and knowledgeable, though some sentences are dense and a few phrases feel formulaic.",
-            "status": "completed"
-          },
-          "post_revision_fact_verification": {
-            "issues": [],
-            "passed": true,
-            "score_1_10": 10
-          },
-          "second_revision": {
-            "status": "revised"
-          },
-          "second_revision_financial_review": {
-            "issues": [
-              {
-                "issue": "The article states 'The provisional (P) B (sf) rating corresponds to 0.35%' credit enhancement, but the source dossier does not specify whether the B rating is provisional. The source lists it as '(P) B (sf)' in the ratings list, so this is supported, but the article's phrasing could be clearer that the provisional designation applies to the B rating specifically.",
-                "severity": "minor"
-              },
-              {
-                "issue": "The article claims 'They are not being paid for pristine collateral; they are being paid to absorb the tail risk that the R&W framework does not cover.' This is an analytical interpretation that goes beyond the source material. The dossier does not provide pricing, spreads, or yield information for any tranche, so the claim about what subordinate investors are 'being paid for' cannot be verified from the evidence.",
-                "severity": "moderate"
-              },
-              {
-                "issue": "The article states 'If investors demand wider spreads on subordinate tranches, the cost of that legal structure will show up in the pricing of the next deal.' This is speculative forward-looking analysis that requires market pricing data not present in the dossier. While framed as conditional, it implies knowledge of current spread levels and investor behavior that the sources do not provide.",
-                "severity": "minor"
-              }
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "summary": "The article accurately reports all key figures from the dossier—deal size, loan count, credit enhancement levels, servicing fee, QM designations, and the two-year R&W sunset provision—with proper attribution to Morningstar DBRS. It effectively explains what the credit enhancement stack means for risk distribution across tranches and identifies the central tension between high-quality collateral and a weakening legal framework. The analytical interpretation about subordinate investors being compensated for tail risk is reasonable but extends slightly beyond the evidence, which contains no pricing or spread data. The article appropriately distinguishes reported facts from analytical commentary and frames forward-looking statements as conditional. No material factual errors were found.",
-            "status": "completed"
-          },
-          "second_revision_editorial_review": {
-            "issues": [
-              "The opening is strong but slightly over-engineered; the 'most revealing number' framing is effective, yet the sentence could be tightened.",
-              "Some sentences are overly long and dense, particularly in the credit enhancement paragraph, which risks losing the reader.",
-              "The phrase 'The tension sits between the collateral and the legal framework' is slightly abstract and could be more concrete.",
-              "The conclusion is solid but leans slightly toward a forward-looking market observation rather than a definitive takeaway.",
-              "Minor repetition in structure: several paragraphs begin with a declarative statement followed by a list of attributes, which can feel formulaic."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "opening_quality": "Specific and engaging; it anchors the article in a concrete, non-obvious detail rather than a generic summary.",
-            "worst_sentence": "The tension sits between the collateral and the legal framework.",
-            "summary": "A well-written, professional analysis that effectively balances technical detail with readability. The article has a clear voice and strong structure, though a few dense sentences and a slightly abstract transition prevent it from being exceptional.",
-            "status": "completed"
-          },
-          "second_revision_fact_verification": {
-            "issues": [],
-            "passed": true,
-            "score_1_10": 10
-          }
+          "dossier_hash": "7bd3f218bd4da9eedf3236a50109124cb4aea98c9275f45c5b7986fd3d3cfa5d"
         },
-        "seconds": 181.7,
-        "usd": 0.07,
+        "seconds": 18.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6bcda2fe91c3dffe",
+        "title": "Cortland Offloads 812 West Palm Beach Apartment Units for $208M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 28.82,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 573,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "bd92bed9fa15d2ea662f08c9b797a0a618f378122d8730c752dcd356bc24d9a9"
+        },
+        "seconds": 28.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "41e81311b8721d1f",
+        "title": "Cortland Sells West Palm Rental at Discount for $208M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 551,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0f3abc64764bb80e56d0dfe91829e396781a7f6f4be9686831cf90f71dd7ff25"
+        },
+        "seconds": 18.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3b8da65e69d24ae6",
+        "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 539,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fb2803d55955e0177052f49286c7351ab788df2c315094c054cab4582ac0967e"
+        },
+        "seconds": 18.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c203fe282dea5459",
+        "title": "At Jackson Hole, the Fed Is Speaking to a Market That Never Sleeps",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.83,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 745,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "91fb79b06d31d92cb7e25c31d8b796087f4db9c34b6eaa12fa8ef799c477549a"
+        },
+        "seconds": 17.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "461e06514522aafd",
+        "title": "Fed’s Warsh vows to continue inflation fight",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 594,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "ceb0a84dec18bb736d7fb43f6b553b726f500de0cf6c98c44455055414085f60"
+        },
+        "seconds": 18.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2049f4e71903eb17",
+        "title": "Fed OIG report outlines Trump administration efforts to scale back CFPB",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 526,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0348fae41627d517479e2fe469a16a0328d8157f623c8986413a71e050410013"
+        },
+        "seconds": 16.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d5ba6440b6f8294c",
+        "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.18,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 577,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "06599877a718b7d581fadea42fb7a6b4b3cd0aa3168c0436533119a10ebc419c"
+        },
+        "seconds": 17.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6556a26a8388f837",
+        "title": "Warsh furthers his push toward a ‘quieter Fed’",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 595,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "da8cf4ec82a0c33c926dcb4c7a8bf1db6816a759bb2abe722ed9e148e88ee5e9"
+        },
+        "seconds": 16.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a1286916a71087ae",
+        "title": "CBRE Arranges $11M Refinancing for Minnesota Office Property",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.07,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 482,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c3346f0620847bb8758c8b51cfa2bf5ee7afa212930fe151c4fa21b2241043c4"
+        },
+        "seconds": 16.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b82767fc69179fe1",
+        "title": "Healey Awards $15M To Help Advance 5 Residential Conversion Projects",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.61,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 518,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f03d0d85a8e2862b6407df6c96f942eb3e9cfcd1274426a675348527a4b47d47"
+        },
+        "seconds": 13.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4807c2a5d3b3bf6e",
+        "title": "Laramar Group Pays $166M For 43-Story South Loop Apartment Building",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 22.72,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 745,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "afc3aefc37e862dd1071e238fd3e47d6b323ef96b398a6d87431b104dad0fc10"
+        },
+        "seconds": 22.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "eb1d59500884d78b",
+        "title": "Aggregate Buys $58M Northern Virginia Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.91,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 313,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1e884c49f889b4ce6337b13192c80adff84141fc778afff40b2b9ba25da7fa7b"
+        },
+        "seconds": 7.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "37ee422cbbc08ca2",
+        "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.65,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 336,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4b3c17608869d23707e01afa053fff390d19e28aac8f4c8e909d583e33744412"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
         "skipped_reason": "",
         "ok": true,
         "needs_review": false
@@ -320,363 +598,709 @@
         "object_id": "2223f7110ae9ad3c",
         "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
         "sector": "data_centers",
-        "depth": "tier_b",
-        "status": "review_required",
+        "depth": "tier_c",
+        "status": "completed",
         "stages_run": [
-          "analytical_brief",
-          "assemble_prompt",
-          "draft",
-          "financial_review",
-          "editorial_review",
-          "fact_verification",
-          "final_revision",
-          "financial_review",
-          "editorial_review",
-          "fact_verification",
-          "final_revision",
-          "financial_review",
-          "editorial_review",
-          "fact_verification"
+          "bounded_writer",
+          "local_validation"
         ],
         "errors": [],
         "diagnostics": {
-          "analytical_brief": {
-            "status": "completed"
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.79,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 335,
+            "paragraph_count": 4
           },
-          "assemble_prompt": {
-            "status": "completed"
-          },
-          "draft": {
-            "status": "completed"
-          },
-          "financial_review": {
-            "issues": [
-              "The article states the implied total equity value is approximately $4.57 billion, calculated from $2.24 billion for 49% equity. This is a calculated metric, and the article correctly labels it as an implication and notes the source does not support a premium/discount analysis. This is acceptable.",
-              "The article claims 'The capital is buying access to power that is already flowing.' This is an analytical interpretation of the 318MW figure, not a reported fact. It is presented as analysis, which is appropriate for the editorial format, but it should be noted that the source does not explicitly state power procurement is the primary constraint or that the capital is specifically buying 'access to power' rather than general data center assets.",
-              "The article states 'In a market where power procurement timelines now dictate project viability more than construction schedules' as a market condition. This is an unsupported claim about the broader market. The source dossier contains no information about market conditions, power procurement timelines, or construction schedules. This is an analytical assertion that goes beyond the evidence boundary.",
-              "The article says 'The unresolved question is whether SK Horizon can convert its existing 318MW and submarine cable assets into the kind of hyperscale AI data center platform that justifies the 15GW ambition.' This is a reasonable analytical framing, but the 15GW figure is attributed to SKT's stated target, which is correct per the source.",
-              "The article does not invent specific financial figures like loan pricing, returns, or valuations beyond the calculated equity value, which is properly labeled as an implication. It appropriately identifies that lease terms, tenant mix, and power contract structures are not in the public record."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "summary": "The article provides a strong analytical interpretation of the SK Horizon spin-off, correctly identifying the 318MW of operating capacity as the key scarce asset and distinguishing reported facts from calculated metrics. It appropriately flags the undisclosed valuation multiple and the absence of lease terms, tenant mix, and power contract structures. The only notable defect is the unsupported market condition claim about power procurement timelines dictating project viability, which goes beyond the single source. However, this is presented as analytical framing rather than reported fact, and the article otherwise maintains clear attribution and identifies material unknowns. The incentive analysis is clear: SKT retains control while bringing in outside capital, KKR and the consortium gain exposure to operating infrastructure, and the governance restructuring separates capital-intensive infrastructure from the operating telecom business.",
-            "status": "completed"
-          },
-          "editorial_review": {
-            "issues": [
-              "The opening is strong but slightly over-engineered; the '318 megawatts' hook is specific, but the phrasing 'The number that matters... is not... It is...' is a recognizable editorial device that borders on formulaic.",
-              "Some sentences are dense with figures and entity names, which can slow readability, especially in the second paragraph.",
-              "The phrase 'vertically integrated infrastructure story' is vague and leans on corporate jargon.",
-              "The conclusion raises a good unresolved question but ends on a slightly abstract note ('the power is the constraint') rather than a concrete implication.",
-              "Minor repetition of structural pattern: several paragraphs begin with a declarative sentence that states a fact, then unpack it, which is effective but becomes predictable."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "opening_quality": "Specific and effective; it anchors the piece in a concrete number and reframes the deal around power capacity rather than capital, which is a sharp editorial angle.",
-            "worst_sentence": "Bundling them with the data center assets gives SK Horizon a vertically integrated infrastructure story.",
-            "summary": "A well-structured, knowledgeable analysis of SK Telecom's data center restructuring that uses specific figures and a clear governance breakdown. The writing is professional and mostly free of AI clichés, though a few dense passages and one vague phrase keep it from being exceptional.",
-            "status": "completed"
-          },
-          "fact_verification": {
-            "issues": [
-              "Potentially unsupported claim: 'is expected to'"
-            ],
-            "passed": false,
-            "score_1_10": 6
-          },
-          "final_revision": {
-            "status": "revised"
-          },
-          "post_revision_financial_review": {
-            "issues": [
-              "The article states the implied total equity value is approximately $4.57 billion, calculated from $2.24 billion for 49%. This is a calculated metric, and the article correctly labels it as an implication and notes the source does not support premium/discount analysis. This is acceptable.",
-              "The article says 'The capital is buying access to power that is already flowing.' This is an interpretive framing, not a reported fact. However, it is presented as analysis and is a reasonable inference from the 318MW of operating capacity, so it does not constitute an unsupported factual claim.",
-              "The article attributes the 15GW by 2035 target to SKT via the source, which is correct. It does not overstate this as a guaranteed outcome.",
-              "No financial figures are incorrect or unsupported. The $2.24 billion, 3.08 trillion won, stake percentages, 318MW, $510 million for SK Hyper, and 15GW target all match the source dossier.",
-              "The article appropriately distinguishes reported facts (from Light Reading) from calculated metrics (implied equity value) and analytical inferences (power as the constraint).",
-              "The article does not invent loan pricing, returns, valuations, or market comparables. It explicitly states that lease terms, tenant mix, and power contract structures are not in the public record.",
-              "The incentive analysis is clear: KKR and the consortium gain exposure to contracted cash flows and growth optionality; SKT retains control and offloads capital-intensive assets; SK Broadband focuses on operating telecom. The 'why now' is framed as completing governance restructuring for AI data center expansion."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "summary": "The article is analytically sound and factually accurate against the single-source dossier. It correctly identifies the central constraint (power/capacity) rather than capital, distinguishes reported facts from calculated metrics, and explicitly flags what the source does not disclose (valuation multiples, lease terms, tenant mix). The implied equity value calculation is properly labeled as an inference. No unsupported financial claims are made. The article meets the evidence standard for a bounded, single-source intelligence brief.",
-            "status": "completed"
-          },
-          "post_revision_editorial_review": {
-            "issues": [
-              "The article occasionally repeats structural patterns, such as starting multiple sentences with 'The' or 'SKT,' which creates a slightly monotonous rhythm.",
-              "Some sentences are dense with figures and proper nouns, which can slow readability for a general audience.",
-              "The phrase 'The capital is in place. The governance is restructured.' is punchy but slightly telegraphic, bordering on a template-like cadence.",
-              "The conclusion is strong but could be sharpened by tying the power constraint more explicitly to a specific risk or decision point."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "opening_quality": "Strong and specific. It hooks with a contrarian framing—dismissing the headline capital figure in favor of 318 megawatts—and immediately grounds the reader in a concrete, non-obvious detail.",
-            "worst_sentence": "SKT signed agreements with KKR and a consortium of IMM Investment and Stonebridge Capital for a combined investment of 3.08 trillion Korean won, or approximately $2.24 billion.",
-            "summary": "A well-structured, professional analysis that avoids most AI clichés and formulaic transitions. It opens with a specific, counterintuitive hook, flows logically from deal terms to assets to governance to unresolved questions, and ends with a meaningful implication about power constraints. Minor issues with repetitive sentence openings and occasional density, but overall a knowledgeable, confident voice.",
-            "status": "completed"
-          },
-          "post_revision_fact_verification": {
-            "issues": [
-              "Potentially unsupported claim: 'is expected to'"
-            ],
-            "passed": false,
-            "score_1_10": 6
-          },
-          "second_revision": {
-            "status": "revised"
-          },
-          "second_revision_financial_review": {
-            "issues": [
-              "The article states the implied total equity value is approximately $4.57 billion, which is a calculated metric derived from the $2.24 billion for 49%. This is correctly labeled as an implication, but the article could more explicitly flag that this calculation assumes the $2.24 billion purchases exactly 49% of common equity with no other securities, preferences, or adjustments.",
-              "The article says the 318MW is 'the total IT capacity of the eight operating facilities and two under-construction AI data centers.' The source says these facilities 'will provide a total IT capacity of 318MW,' which is consistent, but the article's phrasing that the capital is 'buying access to power that is already flowing' slightly overstates the case for the two under-construction facilities, whose power is not yet flowing.",
-              "The article asserts 'The power is the constraint that will determine whether the next phase of expansion happens on schedule.' This is an analytical claim not directly supported by the source, which does not identify power as the binding constraint. It is presented as a conclusion rather than as an inference, though it is framed as an 'unresolved question' earlier in the paragraph."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "summary": "The article accurately reports the disclosed figures from the source—$2.24 billion, 318MW, ownership splits, locations, and the 15GW target—and appropriately distinguishes reported facts from calculated metrics like the implied $4.57 billion equity value. It makes a useful, evidence-bounded argument that the scarce resource is power, while explicitly noting that lease terms, tenant mix, and power contracts are not in the public record. Minor issues include slight overstatement of 'power already flowing' for under-construction facilities and presenting the power-constraint conclusion with slightly more certainty than the source supports, but these do not constitute material factual or analytical defects.",
-            "status": "completed"
-          },
-          "second_revision_editorial_review": {
-            "issues": [
-              "The article occasionally repeats structural phrasing, such as 'The capital is... The governance is... The power is...' in the final paragraph, which feels slightly formulaic.",
-              "Some sentences are dense with numbers and proper nouns, which can slow readability, though this is partly inherent to the subject.",
-              "The phrase 'The capital is buying access to power that is already flowing' is strong but could be slightly clearer about whether 'power' is literal electrical capacity or metaphorical leverage.",
-              "The article could benefit from a brief explanation of why 318MW is a meaningful benchmark in the Korean data center market, rather than assuming the reader knows the context."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "opening_quality": "Strong and specific. It immediately contrasts the headline capital figure with the more operationally significant 318MW capacity, giving the reader a concrete and non-obvious angle.",
-            "worst_sentence": "The capital is in place. The governance is restructured. The power is the constraint that will determine whether the next phase of expansion happens on schedule.",
-            "summary": "A well-structured, professional analysis that avoids AI clichés and maintains a knowledgeable, direct voice. The article opens with a specific and insightful hook, flows logically from deal terms to asset details to strategic implications, and ends with a substantive unresolved question rather than a vague forward look. Minor issues include slight repetitiveness in the final paragraph and dense numerical passages, but overall the writing is clear, confident, and editorially sound.",
-            "status": "completed"
-          },
-          "second_revision_fact_verification": {
-            "issues": [
-              "Potentially unsupported claim: 'is expected to'"
-            ],
-            "passed": false,
-            "score_1_10": 6
-          }
+          "dossier_hash": "7a0239471c964de9f7a153a663ab3f029efb8adafd8f33d2f048d6c137bc13ca"
         },
-        "seconds": 203.6,
-        "usd": 0.07,
+        "seconds": 10.8,
+        "usd": 0.0,
         "skipped_reason": "",
-        "ok": false,
-        "needs_review": true
+        "ok": true,
+        "needs_review": false
       },
       {
-        "object_id": "f60117e8d97b7176",
-        "title": "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon",
+        "object_id": "d3e84fd73071f8a0",
+        "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
         "sector": "commercial_real_estate",
-        "depth": "tier_b",
-        "status": "review_required",
+        "depth": "tier_c",
+        "status": "completed",
         "stages_run": [
-          "analytical_brief",
-          "assemble_prompt",
-          "draft",
-          "financial_review",
-          "editorial_review",
-          "fact_verification",
-          "final_revision",
-          "financial_review",
-          "editorial_review",
-          "fact_verification",
-          "final_revision",
-          "financial_review",
-          "editorial_review",
-          "fact_verification"
+          "bounded_writer",
+          "local_validation"
         ],
         "errors": [],
         "diagnostics": {
-          "analytical_brief": {
-            "status": "completed"
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 239,
+            "paragraph_count": 4
           },
-          "assemble_prompt": {
-            "status": "completed"
-          },
-          "draft": {
-            "status": "completed"
-          },
-          "financial_review": {
-            "issues": [
-              "The article states the merger was valued at $71 billion, which matches the source dossier. However, the article does not flag that this figure is the merger's total enterprise value or transaction value as reported, not a cash price, which is a minor analytical gap but not a factual error.",
-              "The article claims 'The transfer does not disclose cap rates, debt, or occupancy' and 'We do not know whether these values reflect third-party appraisals, internal marks, or a negotiated allocation.' This is accurate and appropriately caveated, but the article then asserts 'A REIT with 180,000 units does not assign $742 million in values casually.' This is an inference presented as near-certainty without direct support from the source. It is a reasonable analytical inference but should be framed as such.",
-              "The article states 'The two Mountain View properties — Avalon Towers and Eaves Creekside — together account for $257.7 million of the $741.8 million total, or about 35 percent, despite representing only 29 percent of the units.' The math checks out ($140.4M + $117.3M = $257.7M; 238 + 300 = 538 units; 538/1843 = 29.2%; $257.7M/$741.8M = 34.7%). This is correct.",
-              "The article says 'The per-unit math is the real story' and calculates per-unit values. These calculations are correct based on the source figures. However, the article does not explicitly state that these per-unit values are derived calculations, not figures reported in the source. This is a minor transparency issue.",
-              "The article attributes the transfer report to 'The Mercury News cited by Commercial Observer,' which is accurate per the source. The attribution is properly maintained.",
-              "The article's central analytical claim — that the assigned values represent a meaningful public statement of Vivmark's internal valuation and basis-setting — is a reasonable interpretation of the evidence. It does not invent specific returns, cap rates, or market comparables. It appropriately identifies what is unknown."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "summary": "The article is analytically sound and evidence-bounded. It correctly reports all figures from the single source, performs accurate per-unit and percentage calculations, and clearly distinguishes between reported facts and analytical interpretation. The central argument — that internal transfer values serve as a public signal of basis and valuation — is well-supported by the evidence and appropriately caveated. Minor issues include presenting an inference about REIT valuation rigor as near-certainty and not explicitly labeling per-unit figures as derived calculations, but these do not constitute factual errors or unsupported conclusions. The article appropriately identifies material unknowns (cap rates, debt, occupancy, methodology) without inventing data.",
-            "status": "completed"
-          },
-          "editorial_review": {
-            "issues": [
-              "Some sentences are overly long and could be broken up for readability.",
-              "The phrase 'The paperwork is mundane. The numbers are not.' is punchy but slightly clichéd.",
-              "The article relies on a single source (The Mercury News via Commercial Observer) without independent verification.",
-              "The conclusion is strong but could be more direct about the stakes for investors.",
-              "Minor redundancy: 'internal marks' and 'internal negotiation' are repeated without adding new meaning."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "opening_quality": "Strong and specific. It opens with a concrete, unexpected first act—an internal transfer—rather than a generic merger summary, immediately signaling that the details matter.",
-            "worst_sentence": "The transfer itself is a corporate formality.",
-            "summary": "A sharp, well-structured analysis of Vivmark Residential's first public asset valuation. The article effectively turns a dry corporate filing into a meaningful signal about management's view of coastal multifamily values. It avoids AI clichés, maintains a professional voice, and ends with a clear implication for future market comparisons. Minor issues with sentence length and slight repetition prevent a higher score.",
-            "status": "completed"
-          },
-          "fact_verification": {
-            "issues": [
-              "Article contains dossier-unverified claims (5 amounts, 0 companies, 0 addresses): amounts: $423,000 near 'in the transfer, carries an assigned value of approximately $423,000 per unit. Avalon Towers on the Peninsula in Mountai', $590,000 near 'owers on the Peninsula in Mountain View comes in at roughly $590,000 per unit. Eaves Union City, the smallest valuation,', $284,000 near 'r unit. Eaves Union City, the smallest valuation, sits near $284,000 per unit. These are not market transactions. They a'"
-            ],
-            "passed": false,
-            "score_1_10": 6
-          },
-          "final_revision": {
-            "status": "revised"
-          },
-          "post_revision_financial_review": {
-            "issues": [
-              "The article states the merger was valued at $71 billion, which matches the source, but it does not clarify that this figure represents the combined entity's value or transaction value as reported; this is acceptable but could be more precise.",
-              "The article derives per-unit values from the reported figures, which is a calculated metric. It correctly labels these as derived and does not present them as reported facts, but it should more explicitly state that these are simple arithmetic divisions of reported totals by reported unit counts.",
-              "The article claims the two Mountain View properties account for 35% of the total value despite representing only 29% of units. This is arithmetically correct based on the source figures ($257.7M / $741.8M = 34.7%; 538 / 1,843 = 29.2%), but the article does not show the calculation, which would strengthen transparency.",
-              "The article states Vivmark has 180,000 units, which matches the source, but it does not attribute this figure to the source in that specific sentence, though the source is cited earlier.",
-              "The article's analytical framing about basis allocation and future write-downs is reasonable inference, but it is presented as the central interpretive lens without any source support. This is acceptable as analysis, but the article should more clearly flag that this is the author's interpretation, not a reported fact.",
-              "The article says 'The transfer does not disclose cap rates, debt, or occupancy,' which is accurate, but it then speculates about the rigor behind the allocation without evidence. This is appropriately hedged with 'It is reasonable to infer,' but the inference is not grounded in any source material."
-            ],
-            "passed": true,
-            "score_1_10": 7,
-            "summary": "The article accurately reports the facts from the single source and adds useful analytical depth by deriving per-unit values and discussing the implications of internal basis allocation. It appropriately distinguishes reported facts from calculated metrics and clearly identifies unknowns. Minor issues include a lack of explicit calculation transparency for the percentage claims and some analytical inferences that could be more clearly flagged as author interpretation rather than sourced fact. No material factual errors or unsupported claims requiring source data were found.",
-            "status": "completed"
-          },
-          "post_revision_editorial_review": {
-            "issues": [
-              "The article relies heavily on a single source (The Mercury News via Commercial Observer) and does not include independent verification or additional reporting, which limits depth.",
-              "The phrase 'the real story' is slightly editorializing and could be replaced with more neutral language.",
-              "The conclusion introduces a hypothetical future transaction without concrete evidence, which weakens the closing impact.",
-              "Some sentences are overly long and could be broken up for clarity, e.g., the sentence beginning 'Days after AvalonBay Communities...'",
-              "The article does not provide context on Vivmark's overall portfolio size or how this transfer fits into the broader merger allocation, leaving the reader without a full picture."
-            ],
-            "passed": false,
-            "score_1_10": 7,
-            "opening_quality": "The opening is specific and concrete, using a $741.8 million internal transfer as the hook rather than a generic merger announcement. It immediately signals that the mundane paperwork has larger implications.",
-            "worst_sentence": "The market should treat it as a statement of value, not just a change of address.",
-            "summary": "The article is well-structured and professionally written, with a clear focus on the significance of internal asset valuations following a major REIT merger. It avoids most AI clichés and maintains a knowledgeable tone. However, it relies on a single secondary source, lacks independent verification, and the conclusion is somewhat speculative. The writing quality is strong but not exceptional due to limited sourcing and a slightly weak ending.",
-            "status": "completed"
-          },
-          "post_revision_fact_verification": {
-            "issues": [
-              "Article contains dossier-unverified claims (5 amounts, 0 companies, 0 addresses): amounts: $423,000 near 'in the transfer, carries an assigned value of approximately $423,000 per unit. Avalon Towers on the Peninsula in Mountai', $590,000 near 'owers on the Peninsula in Mountain View comes in at roughly $590,000 per unit. Eaves Union City, the smallest valuation,', $284,000 near 'r unit. Eaves Union City, the smallest valuation, sits near $284,000 per unit. These are not market transactions. They a'"
-            ],
-            "passed": false,
-            "score_1_10": 6
-          },
-          "second_revision": {
-            "status": "revised"
-          },
-          "second_revision_financial_review": {
-            "issues": [
-              "The article states the merger was valued at $71 billion, which matches the source, but does not clarify whether this figure represents enterprise value, equity value, or transaction value. This is a minor precision gap, not a factual error.",
-              "The article attributes the transfer disclosure to The Mercury News via Commercial Observer, but the source dossier only contains the Commercial Observer article. The article correctly attributes this chain, so this is not a defect.",
-              "The article's analytical framing about basis allocation, future write-downs, and impairment tests is explicitly labeled as inference, not sourced reporting. This is acceptable under the calibration rules.",
-              "The article does not address the central analytical question from the brief—whether this represents a durable asset at a temporary discount or overpaying for scarce supply—but the source contains no transaction data, cap rates, or market comparables to support such an analysis. The article appropriately identifies this limitation."
-            ],
-            "passed": true,
-            "score_1_10": 8,
-            "summary": "The article accurately reports the facts from the single source, clearly distinguishes reported figures from calculated per-unit metrics, and explicitly labels analytical inferences as interpretation rather than sourced reporting. It identifies material unknowns—cap rates, debt, occupancy, appraisal methodology—without inventing data. The per-unit calculations are arithmetically correct and the geographic concentration analysis (Mountain View premium) is a reasonable, evidence-bounded observation. The article could have more directly engaged the central analytical question about durable value versus overpayment, but the source lacks the necessary data to support such a conclusion, and the article appropriately states this constraint.",
-            "status": "completed"
-          },
-          "second_revision_editorial_review": {
-            "issues": [
-              "The article relies heavily on arithmetic derivations and explicitly labels its own analysis as inference, which weakens authority and makes the piece feel defensive.",
-              "The structure is somewhat repetitive: it cycles between reporting the transfer, calculating per-unit values, and disclaiming what is not known, which interrupts narrative momentum.",
-              "Some sentences are overly cautious and meta-textual, such as 'The following is this article's interpretation, not a reported fact,' which breaks the reader's immersion.",
-              "The conclusion is strong but slightly undercut by the repeated hedging earlier in the piece; the final line would land harder if the disclaimers were consolidated earlier.",
-              "The article occasionally over-explains simple arithmetic, which can feel condescending to a professional audience."
-            ],
-            "passed": false,
-            "score_1_10": 7,
-            "opening_quality": "Strong and specific. It opens with a concrete, unexpected first act—an internal transfer of seven properties valued at $741.8 million—rather than a generic merger summary.",
-            "worst_sentence": "The following is this article's interpretation, not a reported fact: a REIT with 180,000 units does not assign $742 million in values casually.",
-            "summary": "The article is well-researched and offers a sharp analytical angle on an otherwise mundane corporate transfer. It succeeds in turning property record data into a meaningful story about valuation and basis. However, excessive hedging and repetitive disclaimers weaken the voice and interrupt the flow. The writing is competent and professional but would benefit from more confidence in its own analysis and tighter integration of caveats.",
-            "status": "completed"
-          },
-          "second_revision_fact_verification": {
-            "issues": [
-              "Article contains dossier-unverified claims (7 amounts, 0 companies, 0 addresses): amounts: $423,000 near 'in the transfer, carries an assigned value of approximately $423,000 per unit ($147.3 million divided by 348 units). Ava', $590,000 near 'owers on the Peninsula in Mountain View comes in at roughly $590,000 per unit ($140.4 million divided by 238 units). Eav', $284,000 near 'units). Eaves Union City, the smallest valuation, sits near $284,000 per unit ($59.1 million divided by 208 units). Thes'"
-            ],
-            "passed": false,
-            "score_1_10": 6
-          }
+          "dossier_hash": "a966715f59629746b2062049228e2a33f506cb44ed883bfdeaac338bda7e9d9c"
         },
-        "seconds": 209.8,
-        "usd": 0.07,
+        "seconds": 7.7,
+        "usd": 0.0,
         "skipped_reason": "",
-        "ok": false,
-        "needs_review": true
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9c65f361be2e3be1",
+        "title": "Ex-US Bank exec's discrimination suit can continue: Judge",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 343,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "02caffe0dc3a1090deaaa6fc7c1f0970e878a13959f01325361f968ab9d0bbe1"
+        },
+        "seconds": 9.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e355a11bc8cccbde",
+        "title": "Former Tennessee congressman hired by Truist",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.92,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 270,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "fca93cb80ea211ffae5ae69695695460bea2a88fe0ca0b4c9ccc9e66957bc67a"
+        },
+        "seconds": 9.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fa4dd2d80956609d",
+        "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.47,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 336,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d50bf90689be8ac88926bdb61d1fe3643f9ea3f1063baed610d209651e849ca0"
+        },
+        "seconds": 8.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b6f8c3e8f28fbe67",
+        "title": "Friend-focused photo-sharing app Retro snags $21M",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.84,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 347,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "318e2448d7e753724d6f0bbeef7e968640e14b89a119e02af48d250482b51df3"
+        },
+        "seconds": 8.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
       }
     ]
   },
   "publication": {
-    "requested": 3,
-    "published": 1,
+    "requested": 20,
+    "published": 20,
     "skipped_existing": 0,
-    "skipped_review": 2,
+    "skipped_review": 0,
     "failed": 0,
     "files_written": [
-      "insights/chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset_social.png",
-      "insights/chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset.html",
+      "insights/vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions_social.png",
+      "insights/vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions.html",
+      "insights/cortland-offloads-812-west-palm-beach-apartment-units-for-208m_social.png",
+      "insights/cortland-offloads-812-west-palm-beach-apartment-units-for-208m.html",
+      "insights/cortland-sells-west-palm-rental-at-discount-for-208m_social.png",
+      "insights/cortland-sells-west-palm-rental-at-discount-for-208m.html",
+      "insights/dwight-supplies-70m-refi-on-newark-multifamily-tower_social.png",
+      "insights/dwight-supplies-70m-refi-on-newark-multifamily-tower.html",
+      "insights/at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps_social.png",
+      "insights/at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps.html",
+      "insights/fed-s-warsh-vows-to-continue-inflation-fight_social.png",
+      "insights/fed-s-warsh-vows-to-continue-inflation-fight.html",
+      "insights/fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb_social.png",
+      "insights/fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb.html",
+      "insights/in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio_social.png",
+      "insights/in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio.html",
+      "insights/warsh-furthers-his-push-toward-a-quieter-fed_social.png",
+      "insights/warsh-furthers-his-push-toward-a-quieter-fed.html",
+      "insights/cbre-arranges-11m-refinancing-for-minnesota-office-property_social.png",
+      "insights/cbre-arranges-11m-refinancing-for-minnesota-office-property.html",
+      "insights/healey-awards-15m-to-help-advance-5-residential-conversion-projects_social.png",
+      "insights/healey-awards-15m-to-help-advance-5-residential-conversion-projects.html",
+      "insights/laramar-group-pays-166m-for-43-story-south-loop-apartment-building_social.png",
+      "insights/laramar-group-pays-166m-for-43-story-south-loop-apartment-building.html",
+      "insights/aggregate-buys-58m-northern-virginia-portfolio_social.png",
+      "insights/aggregate-buys-58m-northern-virginia-portfolio.html",
+      "insights/36m-renovation-of-historic-eastern-parkway-library-breaks-ground_social.png",
+      "insights/36m-renovation-of-historic-eastern-parkway-library-breaks-ground.html",
+      "insights/sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal_social.png",
+      "insights/sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal.html",
+      "insights/cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga_social.png",
+      "insights/cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga.html",
+      "insights/ex-us-bank-exec-s-discrimination-suit-can-continue-judge_social.png",
+      "insights/ex-us-bank-exec-s-discrimination-suit-can-continue-judge.html",
+      "insights/former-tennessee-congressman-hired-by-truist_social.png",
+      "insights/former-tennessee-congressman-hired-by-truist.html",
+      "insights/kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision_social.png",
+      "insights/kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision.html",
+      "insights/friend-focused-photo-sharing-app-retro-snags-21m_social.png",
+      "insights/friend-focused-photo-sharing-app-retro-snags-21m.html",
       "insights.json",
       "feed.xml",
       "sitemap.xml",
-      "insights/chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset_related.json"
+      "insights/vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions_related.json",
+      "insights/cortland-offloads-812-west-palm-beach-apartment-units-for-208m_related.json",
+      "insights/cortland-sells-west-palm-rental-at-discount-for-208m_related.json",
+      "insights/dwight-supplies-70m-refi-on-newark-multifamily-tower_related.json",
+      "insights/at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps_related.json",
+      "insights/fed-s-warsh-vows-to-continue-inflation-fight_related.json",
+      "insights/fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb_related.json",
+      "insights/in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio_related.json",
+      "insights/warsh-furthers-his-push-toward-a-quieter-fed_related.json",
+      "insights/cbre-arranges-11m-refinancing-for-minnesota-office-property_related.json",
+      "insights/healey-awards-15m-to-help-advance-5-residential-conversion-projects_related.json",
+      "insights/laramar-group-pays-166m-for-43-story-south-loop-apartment-building_related.json",
+      "insights/aggregate-buys-58m-northern-virginia-portfolio_related.json",
+      "insights/36m-renovation-of-historic-eastern-parkway-library-breaks-ground_related.json",
+      "insights/sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal_related.json",
+      "insights/cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga_related.json",
+      "insights/ex-us-bank-exec-s-discrimination-suit-can-continue-judge_related.json",
+      "insights/former-tennessee-congressman-hired-by-truist_related.json",
+      "insights/kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision_related.json",
+      "insights/friend-focused-photo-sharing-app-retro-snags-21m_related.json"
     ],
     "articles": [
       {
-        "event_id": "27441190861b1ca3",
-        "title": "Chase RMBS Deal Pairs Prime Collateral With a Two-Year R&W Sunset",
-        "slug": "chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset",
-        "url": "/insights/chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset.html",
-        "category": "Capital Markets",
+        "event_id": "4cee42c4e5de40ac",
+        "title": "Vivmark Merger Triggers $742M in Bay Area Apartment Acquisitions",
+        "slug": "vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions",
+        "url": "/insights/vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions.html",
+        "category": "Deal Intelligence",
         "format": "analysis",
-        "source_count": 2,
-        "must_read_score": 59,
+        "source_count": 1,
+        "must_read_score": 57,
         "selection_tier": "v3_daily_slate",
-        "evidence_level": "corroborated"
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6bcda2fe91c3dffe",
+        "title": "Cortland Offloads 812 West Palm Beach Apartment Units for $208M",
+        "slug": "cortland-offloads-812-west-palm-beach-apartment-units-for-208m",
+        "url": "/insights/cortland-offloads-812-west-palm-beach-apartment-units-for-208m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "41e81311b8721d1f",
+        "title": "Cortland Sells West Palm Rental at Discount for $208M",
+        "slug": "cortland-sells-west-palm-rental-at-discount-for-208m",
+        "url": "/insights/cortland-sells-west-palm-rental-at-discount-for-208m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3b8da65e69d24ae6",
+        "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+        "slug": "dwight-supplies-70m-refi-on-newark-multifamily-tower",
+        "url": "/insights/dwight-supplies-70m-refi-on-newark-multifamily-tower.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c203fe282dea5459",
+        "title": "At Jackson Hole, the Fed Is Speaking to a Market That Never Sleeps",
+        "slug": "at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps",
+        "url": "/insights/at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "461e06514522aafd",
+        "title": "Fed’s Warsh vows to continue inflation fight",
+        "slug": "fed-s-warsh-vows-to-continue-inflation-fight",
+        "url": "/insights/fed-s-warsh-vows-to-continue-inflation-fight.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2049f4e71903eb17",
+        "title": "Fed OIG report outlines Trump administration efforts to scale back CFPB",
+        "slug": "fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb",
+        "url": "/insights/fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d5ba6440b6f8294c",
+        "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+        "slug": "in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio",
+        "url": "/insights/in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6556a26a8388f837",
+        "title": "Warsh furthers his push toward a ‘quieter Fed’",
+        "slug": "warsh-furthers-his-push-toward-a-quieter-fed",
+        "url": "/insights/warsh-furthers-his-push-toward-a-quieter-fed.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a1286916a71087ae",
+        "title": "CBRE Arranges $11M Refinancing for Minnesota Office Property",
+        "slug": "cbre-arranges-11m-refinancing-for-minnesota-office-property",
+        "url": "/insights/cbre-arranges-11m-refinancing-for-minnesota-office-property.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b82767fc69179fe1",
+        "title": "Healey Awards $15M To Help Advance 5 Residential Conversion Projects",
+        "slug": "healey-awards-15m-to-help-advance-5-residential-conversion-projects",
+        "url": "/insights/healey-awards-15m-to-help-advance-5-residential-conversion-projects.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4807c2a5d3b3bf6e",
+        "title": "Laramar Group Pays $166M For 43-Story South Loop Apartment Building",
+        "slug": "laramar-group-pays-166m-for-43-story-south-loop-apartment-building",
+        "url": "/insights/laramar-group-pays-166m-for-43-story-south-loop-apartment-building.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "eb1d59500884d78b",
+        "title": "Aggregate Buys $58M Northern Virginia Portfolio",
+        "slug": "aggregate-buys-58m-northern-virginia-portfolio",
+        "url": "/insights/aggregate-buys-58m-northern-virginia-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "37ee422cbbc08ca2",
+        "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+        "slug": "36m-renovation-of-historic-eastern-parkway-library-breaks-ground",
+        "url": "/insights/36m-renovation-of-historic-eastern-parkway-library-breaks-ground.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2223f7110ae9ad3c",
+        "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+        "slug": "sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal",
+        "url": "/insights/sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d3e84fd73071f8a0",
+        "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
+        "slug": "cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga",
+        "url": "/insights/cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "9c65f361be2e3be1",
+        "title": "Ex-US Bank exec's discrimination suit can continue: Judge",
+        "slug": "ex-us-bank-exec-s-discrimination-suit-can-continue-judge",
+        "url": "/insights/ex-us-bank-exec-s-discrimination-suit-can-continue-judge.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e355a11bc8cccbde",
+        "title": "Former Tennessee congressman hired by Truist",
+        "slug": "former-tennessee-congressman-hired-by-truist",
+        "url": "/insights/former-tennessee-congressman-hired-by-truist.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "fa4dd2d80956609d",
+        "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+        "slug": "kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision",
+        "url": "/insights/kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b6f8c3e8f28fbe67",
+        "title": "Friend-focused photo-sharing app Retro snags $21M",
+        "slug": "friend-focused-photo-sharing-app-retro-snags-21m",
+        "url": "/insights/friend-focused-photo-sharing-app-retro-snags-21m.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
       }
     ],
     "results": [
       {
-        "object_id": "27441190861b1ca3",
-        "slug": "chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset",
-        "title": "Chase Home Lending Mortgage issues $378.7 million RMBS",
-        "sector": "banking_credit",
+        "object_id": "4cee42c4e5de40ac",
+        "slug": "vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions",
+        "title": "Vivmark Merger Triggers $742M in Bay Area Apartment Acquisitions",
+        "sector": "commercial_real_estate",
         "depth": "tier_b",
         "status": "published",
-        "path": "insights/chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset.html",
+        "path": "insights/vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6bcda2fe91c3dffe",
+        "slug": "cortland-offloads-812-west-palm-beach-apartment-units-for-208m",
+        "title": "Cortland Offloads 812 West Palm Beach Apartment Units for $208M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cortland-offloads-812-west-palm-beach-apartment-units-for-208m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "41e81311b8721d1f",
+        "slug": "cortland-sells-west-palm-rental-at-discount-for-208m",
+        "title": "Cortland Sells West Palm Rental at Discount for $208M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cortland-sells-west-palm-rental-at-discount-for-208m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3b8da65e69d24ae6",
+        "slug": "dwight-supplies-70m-refi-on-newark-multifamily-tower",
+        "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dwight-supplies-70m-refi-on-newark-multifamily-tower.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c203fe282dea5459",
+        "slug": "at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps",
+        "title": "At Jackson Hole, the Fed Is Speaking to a Market That Never Sleeps",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps.html",
+        "reason": ""
+      },
+      {
+        "object_id": "461e06514522aafd",
+        "slug": "fed-s-warsh-vows-to-continue-inflation-fight",
+        "title": "Fed’s Warsh vows to continue inflation fight",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-s-warsh-vows-to-continue-inflation-fight.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2049f4e71903eb17",
+        "slug": "fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb",
+        "title": "Fed OIG report outlines Trump administration efforts to scale back CFPB",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d5ba6440b6f8294c",
+        "slug": "in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio",
+        "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6556a26a8388f837",
+        "slug": "warsh-furthers-his-push-toward-a-quieter-fed",
+        "title": "Warsh furthers his push toward a ‘quieter Fed’",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/warsh-furthers-his-push-toward-a-quieter-fed.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a1286916a71087ae",
+        "slug": "cbre-arranges-11m-refinancing-for-minnesota-office-property",
+        "title": "CBRE Arranges $11M Refinancing for Minnesota Office Property",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cbre-arranges-11m-refinancing-for-minnesota-office-property.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b82767fc69179fe1",
+        "slug": "healey-awards-15m-to-help-advance-5-residential-conversion-projects",
+        "title": "Healey Awards $15M To Help Advance 5 Residential Conversion Projects",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/healey-awards-15m-to-help-advance-5-residential-conversion-projects.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4807c2a5d3b3bf6e",
+        "slug": "laramar-group-pays-166m-for-43-story-south-loop-apartment-building",
+        "title": "Laramar Group Pays $166M For 43-Story South Loop Apartment Building",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/laramar-group-pays-166m-for-43-story-south-loop-apartment-building.html",
+        "reason": ""
+      },
+      {
+        "object_id": "eb1d59500884d78b",
+        "slug": "aggregate-buys-58m-northern-virginia-portfolio",
+        "title": "Aggregate Buys $58M Northern Virginia Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/aggregate-buys-58m-northern-virginia-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "37ee422cbbc08ca2",
+        "slug": "36m-renovation-of-historic-eastern-parkway-library-breaks-ground",
+        "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/36m-renovation-of-historic-eastern-parkway-library-breaks-ground.html",
         "reason": ""
       },
       {
         "object_id": "2223f7110ae9ad3c",
-        "slug": "",
+        "slug": "sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal",
         "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
         "sector": "data_centers",
-        "depth": "tier_b",
-        "status": "skipped",
-        "path": "",
-        "reason": "flagged for review"
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal.html",
+        "reason": ""
       },
       {
-        "object_id": "f60117e8d97b7176",
-        "slug": "",
-        "title": "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon",
+        "object_id": "d3e84fd73071f8a0",
+        "slug": "cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga",
+        "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
         "sector": "commercial_real_estate",
-        "depth": "tier_b",
-        "status": "skipped",
-        "path": "",
-        "reason": "flagged for review"
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9c65f361be2e3be1",
+        "slug": "ex-us-bank-exec-s-discrimination-suit-can-continue-judge",
+        "title": "Ex-US Bank exec's discrimination suit can continue: Judge",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ex-us-bank-exec-s-discrimination-suit-can-continue-judge.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e355a11bc8cccbde",
+        "slug": "former-tennessee-congressman-hired-by-truist",
+        "title": "Former Tennessee congressman hired by Truist",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/former-tennessee-congressman-hired-by-truist.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fa4dd2d80956609d",
+        "slug": "kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision",
+        "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b6f8c3e8f28fbe67",
+        "slug": "friend-focused-photo-sharing-app-retro-snags-21m",
+        "title": "Friend-focused photo-sharing app Retro snags $21M",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/friend-focused-photo-sharing-app-retro-snags-21m.html",
+        "reason": ""
       }
     ]
   },
@@ -685,25 +1309,24 @@
     "model": "deepseek-v4-pro",
     "fallback": false,
     "purpose": "writing",
-    "calls": 33,
-    "successful_calls": 27,
-    "failed_provider_attempts": 6,
+    "calls": 20,
+    "successful_calls": 20,
+    "failed_provider_attempts": 0,
     "fallback_calls": 0,
-    "switches": 3,
+    "switches": 0,
     "providers_used": [
-      "deepseek",
-      "openai"
+      "deepseek"
     ]
   },
   "timings": [
     {
       "stage": "ingest feeds",
-      "seconds": 24.18,
+      "seconds": 24.29,
       "note": ""
     },
     {
       "stage": "read index pages",
-      "seconds": 6.01,
+      "seconds": 5.53,
       "note": ""
     },
     {
@@ -713,27 +1336,27 @@
     },
     {
       "stage": "cluster into events",
-      "seconds": 0.53,
+      "seconds": 0.55,
       "note": ""
     },
     {
       "stage": "type and gate",
-      "seconds": 1.1,
+      "seconds": 1.16,
       "note": ""
     },
     {
       "stage": "check against what we covered",
-      "seconds": 39.19,
+      "seconds": 45.9,
       "note": ""
     },
     {
       "stage": "read the articles",
-      "seconds": 30.88,
+      "seconds": 52.96,
       "note": ""
     },
     {
       "stage": "score importance",
-      "seconds": 0.16,
+      "seconds": 0.17,
       "note": ""
     },
     {
@@ -743,46 +1366,270 @@
     },
     {
       "stage": "write the slate",
-      "seconds": 211.07,
+      "seconds": 52.88,
       "note": ""
     },
     {
       "stage": "publish",
-      "seconds": 0.23,
+      "seconds": 1.39,
       "note": ""
     },
     {
       "stage": "record what we saw",
-      "seconds": 0.13,
+      "seconds": 0.14,
       "note": ""
     }
   ],
   "warnings": [
-    "scoring measures with no discriminating power: evidence",
-    "published 1 of the daily target 3"
+    "published 20 of the daily target 70"
   ],
   "errors": [],
-  "elapsed_seconds": 313.66,
+  "elapsed_seconds": 185.13,
   "status": "ready",
-  "candidate_count": 773,
-  "event_count": 725,
+  "candidate_count": 795,
+  "event_count": 753,
   "articles": [
     {
-      "event_id": "27441190861b1ca3",
-      "title": "Chase RMBS Deal Pairs Prime Collateral With a Two-Year R&W Sunset",
-      "slug": "chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset",
-      "url": "/insights/chase-rmbs-deal-pairs-prime-collateral-with-a-two-year-r-w-sunset.html",
-      "category": "Capital Markets",
+      "event_id": "4cee42c4e5de40ac",
+      "title": "Vivmark Merger Triggers $742M in Bay Area Apartment Acquisitions",
+      "slug": "vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions",
+      "url": "/insights/vivmark-merger-triggers-742m-in-bay-area-apartment-acquisitions.html",
+      "category": "Deal Intelligence",
       "format": "analysis",
-      "source_count": 2,
-      "must_read_score": 59,
+      "source_count": 1,
+      "must_read_score": 57,
       "selection_tier": "v3_daily_slate",
-      "evidence_level": "corroborated"
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6bcda2fe91c3dffe",
+      "title": "Cortland Offloads 812 West Palm Beach Apartment Units for $208M",
+      "slug": "cortland-offloads-812-west-palm-beach-apartment-units-for-208m",
+      "url": "/insights/cortland-offloads-812-west-palm-beach-apartment-units-for-208m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "41e81311b8721d1f",
+      "title": "Cortland Sells West Palm Rental at Discount for $208M",
+      "slug": "cortland-sells-west-palm-rental-at-discount-for-208m",
+      "url": "/insights/cortland-sells-west-palm-rental-at-discount-for-208m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3b8da65e69d24ae6",
+      "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+      "slug": "dwight-supplies-70m-refi-on-newark-multifamily-tower",
+      "url": "/insights/dwight-supplies-70m-refi-on-newark-multifamily-tower.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c203fe282dea5459",
+      "title": "At Jackson Hole, the Fed Is Speaking to a Market That Never Sleeps",
+      "slug": "at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps",
+      "url": "/insights/at-jackson-hole-the-fed-is-speaking-to-a-market-that-never-sleeps.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "461e06514522aafd",
+      "title": "Fed’s Warsh vows to continue inflation fight",
+      "slug": "fed-s-warsh-vows-to-continue-inflation-fight",
+      "url": "/insights/fed-s-warsh-vows-to-continue-inflation-fight.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2049f4e71903eb17",
+      "title": "Fed OIG report outlines Trump administration efforts to scale back CFPB",
+      "slug": "fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb",
+      "url": "/insights/fed-oig-report-outlines-trump-administration-efforts-to-scale-back-cfpb.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d5ba6440b6f8294c",
+      "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+      "slug": "in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio",
+      "url": "/insights/in-jackson-hole-warsh-says-fed-policy-isn-t-restrictive-pledges-to-tame-inflatio.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6556a26a8388f837",
+      "title": "Warsh furthers his push toward a ‘quieter Fed’",
+      "slug": "warsh-furthers-his-push-toward-a-quieter-fed",
+      "url": "/insights/warsh-furthers-his-push-toward-a-quieter-fed.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a1286916a71087ae",
+      "title": "CBRE Arranges $11M Refinancing for Minnesota Office Property",
+      "slug": "cbre-arranges-11m-refinancing-for-minnesota-office-property",
+      "url": "/insights/cbre-arranges-11m-refinancing-for-minnesota-office-property.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b82767fc69179fe1",
+      "title": "Healey Awards $15M To Help Advance 5 Residential Conversion Projects",
+      "slug": "healey-awards-15m-to-help-advance-5-residential-conversion-projects",
+      "url": "/insights/healey-awards-15m-to-help-advance-5-residential-conversion-projects.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4807c2a5d3b3bf6e",
+      "title": "Laramar Group Pays $166M For 43-Story South Loop Apartment Building",
+      "slug": "laramar-group-pays-166m-for-43-story-south-loop-apartment-building",
+      "url": "/insights/laramar-group-pays-166m-for-43-story-south-loop-apartment-building.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "eb1d59500884d78b",
+      "title": "Aggregate Buys $58M Northern Virginia Portfolio",
+      "slug": "aggregate-buys-58m-northern-virginia-portfolio",
+      "url": "/insights/aggregate-buys-58m-northern-virginia-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "37ee422cbbc08ca2",
+      "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+      "slug": "36m-renovation-of-historic-eastern-parkway-library-breaks-ground",
+      "url": "/insights/36m-renovation-of-historic-eastern-parkway-library-breaks-ground.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2223f7110ae9ad3c",
+      "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+      "slug": "sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal",
+      "url": "/insights/sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d3e84fd73071f8a0",
+      "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
+      "slug": "cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga",
+      "url": "/insights/cp-capital-acquires-200-unit-class-a-multifamily-community-in-athens-ga.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "9c65f361be2e3be1",
+      "title": "Ex-US Bank exec's discrimination suit can continue: Judge",
+      "slug": "ex-us-bank-exec-s-discrimination-suit-can-continue-judge",
+      "url": "/insights/ex-us-bank-exec-s-discrimination-suit-can-continue-judge.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e355a11bc8cccbde",
+      "title": "Former Tennessee congressman hired by Truist",
+      "slug": "former-tennessee-congressman-hired-by-truist",
+      "url": "/insights/former-tennessee-congressman-hired-by-truist.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "fa4dd2d80956609d",
+      "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+      "slug": "kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision",
+      "url": "/insights/kevin-warsh-notes-inflation-concerns-but-offers-no-clues-as-to-next-fed-decision.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b6f8c3e8f28fbe67",
+      "title": "Friend-focused photo-sharing app Retro snags $21M",
+      "slug": "friend-focused-photo-sharing-app-retro-snags-21m",
+      "url": "/insights/friend-focused-photo-sharing-app-retro-snags-21m.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
     }
   ],
-  "held": [
-    "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
-    "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon"
-  ],
-  "article_count": 1
+  "held": [],
+  "article_count": 20
 }
