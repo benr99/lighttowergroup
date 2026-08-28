@@ -23,6 +23,9 @@ from importance import (  # noqa: E402
     explain,
     score_all,
     score_object,
+    MEASURE_CONTRACTS,
+    RETIRED_MEASURES,
+    SCORE_VERSION,
 )
 from intelligence_object import (  # noqa: E402
     ContentType,
@@ -107,6 +110,17 @@ class NoDeadMeasures(unittest.TestCase):
             with self.subTest(measure=name):
                 self.assertGreater(stats["stdev"], 0.0, f"{name} never varies")
                 self.assertGreater(stats["unique_values"], 1)
+
+    def test_score_contract_reports_active_weights_and_retired_measures(self) -> None:
+        report = distribution_report(_varied_population())
+        self.assertEqual(report["score_version"], SCORE_VERSION)
+        self.assertEqual(set(report["active_measures"]), set(MEASURE_CONTRACTS))
+        self.assertEqual(set(report["retired_measures"]), set(RETIRED_MEASURES))
+        self.assertAlmostEqual(report["weight_sum"], 1.0, places=5)
+        self.assertNotIn("surprise", report["measures"])
+        for name in report["active_measures"]:
+            self.assertEqual(report["measures"][name]["status"], "active")
+            self.assertGreater(report["measures"][name]["weight"], 0)
 
     def test_the_scale_uses_a_meaningful_range(self) -> None:
         """The old scorer spanned 33.7 points and could never reach tier one."""

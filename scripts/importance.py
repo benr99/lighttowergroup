@@ -50,6 +50,36 @@ from intelligence_object import (
 )
 
 CONFIG_DIR = Path(__file__).resolve().parents[1] / "config"
+SCORE_VERSION = "importance-v3"
+
+# The config file predates the current IntelligenceObject vocabulary. Keep the
+# translation in one place so sector profiles cannot silently become no-ops.
+_PROFILE_ALIASES = {
+    "magnitude": "financial_magnitude",
+    "parties": "party_significance",
+    "precedent": "policy_impact",
+    "evidence": "source_quality",
+    "story_richness": "editorial_potential",
+    "right_to_win": "strategic_relevance",
+}
+
+MEASURE_CONTRACTS = {
+    "magnitude": {"status": "active", "range": [1, 10], "base_weight": 1.5},
+    "market_impact": {"status": "active", "range": [1, 10], "base_weight": 1.3},
+    "parties": {"status": "active", "range": [1, 10], "base_weight": 1.1},
+    "precedent": {"status": "active", "range": [1, 10], "base_weight": 1.2},
+    "novelty": {"status": "active", "range": [1, 10], "base_weight": 1.2},
+    "story_richness": {"status": "active", "range": [1, 10], "base_weight": 1.2},
+    "evidence": {"status": "active", "range": [0, 10], "base_weight": 1.4},
+    "right_to_win": {"status": "active", "range": [1, 10], "base_weight": 1.1},
+}
+
+RETIRED_MEASURES = {
+    "surprise": {
+        "status": "retired",
+        "reason": "consensus expectations are not present in feed/dossier data",
+    },
+}
 
 BANDS = (
     (90, "defining", "Reshapes how the market is understood"),
@@ -425,7 +455,10 @@ def score_object(obj: IntelligenceObject) -> IntelligenceObject:
     profile = _profiles().get(obj.primary_sector, {})
     for component in components:
         # Sector profiles may nudge a measure's weight; absent config keeps 1.0.
-        component.weight = round(component.weight * float(profile.get(component.name, 1.0)), 3)
+        profile_key = _PROFILE_ALIASES.get(component.name, component.name)
+        component.weight = round(component.weight * float(
+            profile.get(component.name, profile.get(profile_key, 1.0))
+        ), 3)
 
     weight_total = sum(c.weight for c in components) or 1.0
     raw = sum(c.weighted for c in components) / weight_total  # 0-10
@@ -469,7 +502,16 @@ def distribution_report(objects: Sequence[IntelligenceObject]) -> dict[str, Any]
     A measure whose values barely move is not scoring, it is adding a constant.
     This is the instrument that would have caught the previous three.
     """
-    report: dict[str, Any] = {"count": len(objects), "measures": {}, "degenerate": []}
+    report: dict[str, Any] = {
+        "score_version": SCORE_VERSION,
+        "count": len(objects),
+        "measures": {},
+        "active_measures": list(MEASURE_CONTRACTS),
+        "retired_measures": RETIRED_MEASURES,
+        "weights": {},
+        "normalized_weights": {},
+        "degenerate": [],
+    }
     if not objects:
         return report
 
@@ -483,12 +525,17 @@ def distribution_report(objects: Sequence[IntelligenceObject]) -> dict[str, Any]
         modal_share = max(values.count(v) for v in set(values)) / len(values)
         stdev = statistics.pstdev(values) if len(values) > 1 else 0.0
         entry = {
+            "status": MEASURE_CONTRACTS.get(name, {}).get("status", "unknown"),
             "min": min(values), "max": max(values),
             "mean": round(statistics.mean(values), 2),
             "stdev": round(stdev, 3),
             "unique_values": unique,
             "modal_share": round(modal_share, 3),
         }
+        component = next((c for c in objects[0].importance_components if c.name == name), None)
+        if component is not None:
+            entry["weight"] = component.weight
+            report["weights"][name] = component.weight
         if unique == 1:
             entry["verdict"] = "CONSTANT"
             report["degenerate"].append(name)
@@ -499,11 +546,20 @@ def distribution_report(objects: Sequence[IntelligenceObject]) -> dict[str, Any]
             entry["verdict"] = "ok"
         report["measures"][name] = entry
 
+    total_weight = sum(report["weights"].values()) or 1.0
+    report["normalized_weights"] = {
+        name: round(weight / total_weight, 6)
+        for name, weight in report["weights"].items()
+    }
+    report["weight_sum"] = round(sum(report["normalized_weights"].values()), 6)
+
     finals = [o.final_score for o in objects]
     report["final_score"] = {
         "min": min(finals), "max": max(finals),
         "mean": round(statistics.mean(finals), 1),
         "stdev": round(statistics.pstdev(finals), 2) if len(finals) > 1 else 0.0,
         "range_used": round(max(finals) - min(finals), 1),
+        "median": round(statistics.median(finals), 1),
+        "scale_max": 100,
     }
     return report
