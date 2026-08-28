@@ -8,14 +8,16 @@ pass, which is the only way the design actually delivers anything:
     cluster     documents reporting one event become one intelligence object
     typing      what each thing IS -- news, explainer, interview, filing
     eligibility per-event-family rules, not one keyword gate
-    enrich      read the actual articles, so evidence stops being a summary
+    enrich      read the actual articles, so evidence stops being a summary;
+                recover borderline rejects and re-run the gate on the body
     score       0-100, every measure varying, every score explaining itself
     select      broad scouting slates plus a capped global publication slate
 
-Order matters and is not arbitrary. Enrichment runs *after* eligibility so the
-expensive reading is spent only on candidates that could plausibly be published;
-it runs *before* scoring because evidence strength is itself a scored measure and
-depth is capped by it.
+Order matters and is not arbitrary. A bounded discovery read runs after the
+initial cheap gate: clearly invalid content is excluded, while borderline
+objects are read and re-evaluated against the retrieved article. Enrichment
+runs before final scoring because evidence strength is itself a scored measure
+and depth is capped by it.
 
 Shadow by default. Preview writes drafts but never public files. Publish mode is
 explicit and uses the tested v3 publisher; production remains on v2 until the
@@ -31,6 +33,8 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Sequence
+
+from intelligence_object import ContentType, IntelligenceObject
 
 SITE_ROOT = Path(__file__).resolve().parents[1]
 STATE_DIR = SITE_ROOT / ".editorial-state"
@@ -48,6 +52,16 @@ PIPELINE_VERSION = "v3.0"
 DEFAULT_ENRICH_LIMIT = 250
 DEFAULT_ENRICH_BUDGET_S = 420
 DEFAULT_LISTING_LIMIT = 12
+
+
+def _is_readable_discovery_candidate(obj: IntelligenceObject) -> bool:
+    """Return whether a borderline object merits one bounded article read.
+
+    The cheap gate has already classified permanent junk. Those objects must
+    not consume retrieval budget. Everything else can be a legitimate event
+    whose RSS summary was too thin for a final eligibility decision.
+    """
+    return obj.content_type not in ContentType.NEVER_ELIGIBLE
 
 
 @dataclass
@@ -288,9 +302,13 @@ def run(
             report.errors.append(f"memory failed: {type(exc).__name__}: {exc}"[:200])
 
     # ── enrich ─────────────────────────────────────────────────────────────
-    # Only eligible candidates are worth reading, and only the strongest of
-    # those if the budget is tight. Ranking by source tier is a cheap proxy
-    # before any score exists.
+    # The initial eligibility pass is intentionally cheap, but it cannot be the
+    # final authority: many borderline objects fail only because their RSS
+    # summary omits the beat anchor, transaction amount, or action verb that is
+    # present in the article body. Read approved objects plus a bounded set of
+    # recoverable rejects, then re-run the gate using retrieved text. Permanent
+    # exclusions (marketing, explainers, personnel notices, etc.) never enter
+    # this discovery read.
     with stage("read the articles"):
         try:
             from retrieval import Retriever, enrich_objects
@@ -298,8 +316,19 @@ def run(
             from intelligence_object import NoveltyState
 
             stale = {NoveltyState.ALREADY_PUBLISHED, NoveltyState.DUPLICATE}
-            candidates = [o for o in objects if o.eligible and o.novelty_state not in stale]
-            candidates.sort(key=lambda o: min((s.source_tier for s in o.sources), default=9))
+            candidates = [
+                o for o in objects
+                if o.novelty_state not in stale and _is_readable_discovery_candidate(o)
+            ]
+            # Keep the approved pool first, then use source tier as the cheap
+            # tie-breaker for borderline rejects. The count and wall-clock
+            # budget keep this from becoming an unbounded crawl.
+            candidates.sort(key=lambda o: (
+                0 if o.eligible else 1,
+                min((s.source_tier for s in o.sources), default=9),
+                -o.final_score,
+                o.title,
+            ))
             shortlist = candidates[:enrich_limit]
             before = {o.object_id: o.evidence_level for o in shortlist}
             if shortlist:
@@ -313,6 +342,17 @@ def run(
                 report.evidence_upgraded = sum(
                     1 for o in shortlist if o.evidence_level != before[o.object_id]
                 )
+                for obj in shortlist:
+                    if obj.eligible:
+                        continue
+                    body = "\n".join(
+                        ref.retrieved_text[:12_000]
+                        for ref in obj.sources
+                        if ref.retrieved_text
+                    )
+                    if body:
+                        eligibility.apply(obj, text=f"{obj.title}\n{obj.what_happened}\n{body}")
+                report.eligible = sum(1 for o in objects if o.eligible)
         except Exception as exc:  # noqa: BLE001
             report.errors.append(f"enrichment failed: {type(exc).__name__}: {exc}"[:200])
 

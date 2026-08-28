@@ -253,7 +253,7 @@ class BoundedWork(unittest.TestCase):
         self.assertLessEqual(calls["n"], 3)
         self.assertLessEqual(report.enriched, 3)
 
-    def test_only_eligible_candidates_are_read(self) -> None:
+    def test_discovery_reads_borderline_candidates_but_not_permanent_junk(self) -> None:
         seen = {"objects": []}
 
         def _fake_enrich(objects, **kwargs):  # noqa: ARG001
@@ -269,8 +269,14 @@ class BoundedWork(unittest.TestCase):
         finally:
             retrieval.enrich_objects = original
         self.assertTrue(seen["objects"])
-        self.assertTrue(all(o.eligible for o in seen["objects"]),
-                        "expensive reading must not be spent on ineligible items")
+        self.assertTrue(seen["objects"])
+        from intelligence_object import ContentType
+        self.assertTrue(all(
+            o.content_type not in ContentType.NEVER_ELIGIBLE
+            for o in seen["objects"]
+        ), "discovery must not read permanent non-editorial content")
+        self.assertTrue(any(not o.eligible for o in seen["objects"]),
+                        "discovery should include recoverable borderline rejects")
 
 
 if __name__ == "__main__":
