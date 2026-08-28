@@ -321,6 +321,13 @@ def call_deepseek(
             "max_tokens": max_tokens,
             "temperature": temperature,
         }
+        # DeepSeek V4 enables hidden thinking by default. For long structured
+        # article responses, that hidden reasoning can consume the completion
+        # budget before the JSON contract is emitted. The writing prompt has
+        # already separated analysis from prose, so request a visible-only
+        # completion for long JSON responses.
+        if name == "deepseek" and json_mode and max_tokens > JSON_MODE_MAX_TOKENS:
+            payload["thinking"] = {"type": "disabled"}
         if json_mode:
             # Long reasoning requests frequently exhaust JSON mode before the
             # visible answer. For those, request plain text and parse it later.

@@ -71,6 +71,25 @@ class ProviderChain(unittest.TestCase):
 
 
 class PerCallFailover(unittest.TestCase):
+    def test_long_deepseek_json_request_disables_hidden_thinking(self) -> None:
+        success = {
+            "choices": [{"message": {"content": '{"ok": true}'}, "finish_reason": "stop"}],
+            "usage": {"prompt_tokens": 10, "completion_tokens": 4, "total_tokens": 14},
+        }
+        preferred = {
+            "provider": "deepseek", "model": "deepseek-v4-pro", "api_key": "deep-key",
+            "url": "https://api.deepseek.com/v1/chat/completions",
+        }
+        with (
+            patch.object(model_router, "get_api_keys", return_value={"deepseek": "deep-key", "openai": None}),
+            patch.object(editorial_scoring.requests, "post", return_value=_Response(200, success)) as post,
+        ):
+            editorial_scoring.call_deepseek(
+                "Return JSON", "deep-key", max_tokens=5000, json_mode=True, provider=preferred
+            )
+        payload = post.call_args.kwargs["json"]
+        self.assertEqual(payload["thinking"], {"type": "disabled"})
+
     def test_truncated_visible_content_is_rejected_and_logged(self) -> None:
         truncated = {
             "choices": [{
