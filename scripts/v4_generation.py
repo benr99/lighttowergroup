@@ -31,6 +31,8 @@ MAX_TOTAL_ATTEMPTS = 6
 DEFAULT_WORKERS = 6
 _STATE_LOCK = threading.Lock()
 
+MIN_PARAGRAPHS = {"tier_a": 6, "tier_b": 4, "tier_c": 3}
+
 
 @dataclass(frozen=True)
 class RuntimeBudget:
@@ -63,6 +65,8 @@ class ValidationResult:
     valid: bool
     codes: list[str] = field(default_factory=list)
     messages: list[str] = field(default_factory=list)
+    word_count: int = 0
+    paragraph_count: int = 0
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -79,6 +83,9 @@ class GenerationReport:
     attempts: int = 0
     elapsed_seconds: float = 0.0
     provider_attempts: dict[str, int] = field(default_factory=dict)
+    provider_failures: int = 0
+    parse_failures: int = 0
+    validation_failures: int = 0
     results: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
@@ -120,13 +127,35 @@ def _safe_dossier(obj: IntelligenceObject, max_chars: int = 18000) -> dict[str, 
 
 def _writer_prompt(obj: IntelligenceObject, dossier: dict[str, Any], spec: dict[str, Any]) -> str:
     dossier_json = json.dumps(dossier, ensure_ascii=False, separators=(",", ":"))
+    depth = next((name for name, value in DEPTH_SPEC.items() if value is spec), "tier_c")
+    min_paragraphs = MIN_PARAGRAPHS.get(depth, 3)
+    target_words = (spec["min_words"] + spec["max_words"]) // 2
+    if depth == "tier_b":
+        structure = (
+            "Use 4-6 paragraphs: (1) what happened and why it matters, "
+            "(2) material facts and mechanics, (3) evidence and source context, "
+            "(4) sector or market implications, and optionally (5-6) limitations and what to watch."
+        )
+    elif depth == "tier_a":
+        structure = (
+            "Use 6-9 paragraphs: establish the event, explain the mechanics, develop the evidence, "
+            "analyze implications, address competing interpretations, and close with what to watch."
+        )
+    else:
+        structure = (
+            "Use 3-4 paragraphs: (1) event summary, (2) important facts and parties, "
+            "(3) supported implication, and (4) uncertainty or what remains unknown."
+        )
     return f"""Write one evidence-bounded Light Tower Insights article.
 
 Return JSON only. Do not return markdown fences or commentary.
 
 STORY: {obj.title}
 FORMAT: {spec['format']}
-WORD RANGE: {spec['min_words']}-{spec['max_words']}
+MANDATORY BODY WORD RANGE: {spec['min_words']}-{spec['max_words']}
+TARGET BODY WORD COUNT: approximately {target_words}; never below the minimum
+MANDATORY MINIMUM PARAGRAPHS: {min_paragraphs}
+WRITING STRUCTURE: {structure}
 
 FACTUAL DOSSIER (the complete factual boundary):
 {dossier_json}
@@ -135,7 +164,11 @@ Rules:
 - Use only facts, numbers, quotes, entities, and implications supported by the dossier.
 - Source URLs must be copied exactly from the dossier's sources array.
 - Do not invent market statistics, motives, financing terms, valuations, or quotes.
-    - If evidence is thin, write a concise brief within the required word range and state what is unknown.
+- The body word range is a hard requirement. Count the words in body_html before returning JSON.
+- Do not stop early because the dossier is short. Reach the minimum using supported context,
+  mechanics, implications, source comparison, limitations, and explicit unknowns.
+- If evidence is thin, remain factual and cautious, but still satisfy the required range and paragraph count.
+- Every paragraph must add supported information; never use repetition or invented filler to reach the minimum.
 - Use paragraph-only body HTML: <p>...</p>. No scripts, styles, iframes, or navigation.
 - Do not mention internal scores, prompts, agents, or editorial process.
 
@@ -163,13 +196,33 @@ def validate_article(article: dict[str, Any], dossier: dict[str, Any], spec: dic
             codes.append("missing_field")
             messages.append(f"missing required field: {field_name}")
     body = str(article.get("body_html") or "")
+    tags = [tag.lower() for tag in re.findall(r"</?([A-Za-z][\w-]*)\b", body)]
+    if any(tag != "p" for tag in tags):
+        codes.append("invalid_html")
+        messages.append("body_html may contain only paragraph tags")
+    paragraphs = [
+        re.sub(r"<[^>]+>", " ", value).strip()
+        for value in re.findall(r"<p\b[^>]*>(.*?)</p>", body, re.IGNORECASE | re.DOTALL)
+    ]
+    paragraphs = [re.sub(r"\s+", " ", value) for value in paragraphs if value]
     words = len(re.findall(r"\b[\w’'-]+\b", re.sub(r"<[^>]+>", " ", body)))
     if body and not re.search(r"<p\b[^>]*>.*?</p>", body, re.IGNORECASE | re.DOTALL):
         codes.append("invalid_html")
         messages.append("body_html has no paragraph content")
-    if words and not (spec["min_words"] <= words <= spec["max_words"]):
+    if not (spec["min_words"] <= words <= spec["max_words"]):
         codes.append("word_count_out_of_range")
         messages.append(f"word count {words} is outside {spec['min_words']}-{spec['max_words']}")
+    depth = next((name for name, value in DEPTH_SPEC.items() if value is spec), "tier_c")
+    minimum_paragraphs = MIN_PARAGRAPHS.get(depth, 3)
+    if paragraphs and len(paragraphs) < minimum_paragraphs:
+        codes.append("paragraph_count_out_of_range")
+        messages.append(
+            f"paragraph count {len(paragraphs)} is below minimum {minimum_paragraphs} for {depth}"
+        )
+    normalized = [re.sub(r"\s+", " ", paragraph).lower() for paragraph in paragraphs]
+    if len(normalized) >= 4 and len(set(normalized)) / len(normalized) < 0.9:
+        codes.append("repeated_paragraphs")
+        messages.append("body_html contains repeated paragraph content")
     if re.search(r"<\s*(script|style|iframe|object|form)\b", body, re.IGNORECASE):
         codes.append("unsafe_html")
         messages.append("body_html contains a forbidden HTML element")
@@ -205,7 +258,13 @@ def validate_article(article: dict[str, Any], dossier: dict[str, Any], spec: dic
     if title and ("placeholder" in title.lower() or "todo" in title.lower()):
         codes.append("placeholder_content")
         messages.append("title contains placeholder content")
-    return ValidationResult(valid=not codes, codes=sorted(set(codes)), messages=messages)
+    return ValidationResult(
+        valid=not codes,
+        codes=sorted(set(codes)),
+        messages=messages,
+        word_count=words,
+        paragraph_count=len(paragraphs),
+    )
 
 
 def _retryable_error(exc: Exception) -> bool:
@@ -318,13 +377,16 @@ def write_one(
                     result.status = "completed"
                     result.stages_run = ["cache_reuse", "local_validation"]
                     result.diagnostics = {"attempts": 0, "cache_reused": True,
-                                          "validation": validation.to_dict(), "dossier_hash": dossier_hash}
+                                          "error_kind": "none", "validation": validation.to_dict(),
+                                          "dossier_hash": dossier_hash}
                     record("cache_reused", output_artifact=str(cached_path))
                     return result
         except (OSError, json.JSONDecodeError):
             pass
 
     prompt = _writer_prompt(obj, dossier, spec)
+    provider_name = str(provider.get("provider") or "unknown")
+    provider_model = str(provider.get("model") or "")
     last_error = ""
     retry_feedback = ""
     for attempt in range(1, runtime.max_attempts_per_article + 1):
@@ -336,6 +398,7 @@ def write_one(
             record(result.status, attempt=attempt, reason=result.skipped_reason)
             return result
         record("attempt_started", attempt=attempt, provider=provider.get("provider"), model=provider.get("model"))
+        request_started = time.monotonic()
         try:
             attempt_prompt = prompt
             if retry_feedback:
@@ -345,9 +408,13 @@ def write_one(
                     + retry_feedback
                 )
             raw = _request_once(attempt_prompt, provider, remaining)
+            request_seconds = round(time.monotonic() - request_started, 2)
             article = _parse_json(raw)
             validation = validate_article(article, dossier, spec)
-            result.diagnostics = {"attempts": attempt, "validation": validation.to_dict(), "dossier_hash": dossier_hash}
+            result.diagnostics = {"attempts": attempt, "error_kind": "validation",
+                                  "provider": provider_name, "model": provider_model,
+                                  "request_seconds": request_seconds,
+                                  "validation": validation.to_dict(), "dossier_hash": dossier_hash}
             if validation.valid:
                 article.setdefault("event_id", obj.object_id)
                 article.setdefault("research_evidence_level", obj.evidence_level)
@@ -368,7 +435,9 @@ def write_one(
                 result.seconds = round(time.monotonic() - started, 1)
                 return result
             last_error = "; ".join(validation.codes)
-            record("validation_failed", attempt=attempt, codes=validation.codes)
+            record("validation_failed", attempt=attempt, codes=validation.codes,
+                   word_count=validation.word_count,
+                   paragraph_count=validation.paragraph_count)
             if attempt < runtime.max_attempts_per_article:
                 retry_feedback = "\n".join(
                     f"- {message}" for message in validation.messages
@@ -377,7 +446,12 @@ def write_one(
             break
         except Exception as exc:  # noqa: BLE001
             last_error = f"{type(exc).__name__}: {exc}"[:240]
-            record("attempt_failed", attempt=attempt, error=last_error)
+            error_kind = "parse" if isinstance(exc, json.JSONDecodeError) or str(exc) == "invalid_json_object" else "provider"
+            result.diagnostics = {"attempts": attempt, "error_kind": error_kind,
+                                  "provider": provider_name, "model": provider_model,
+                                  "request_seconds": round(time.monotonic() - request_started, 2),
+                                  "error": last_error, "dossier_hash": dossier_hash}
+            record("attempt_failed", attempt=attempt, error_kind=error_kind, error=last_error)
             if attempt >= runtime.max_attempts_per_article or not _retryable_error(exc):
                 break
     result.status = "failed"
@@ -404,8 +478,12 @@ def write_all(
     results: list[DraftResult] = []
     if not provider or not provider.get("api_key"):
         report.failed = len(objects)
-        report.results = [DraftResult(object_id=o.object_id, title=o.title, status="failed",
-                                      errors=["no writing provider configured"]).to_dict() for o in objects]
+        report.provider_failures = len(objects)
+        report.results = [DraftResult(
+            object_id=o.object_id, title=o.title, status="failed",
+            errors=["no writing provider configured"],
+            diagnostics={"attempts": 0, "error_kind": "provider"},
+        ).to_dict() for o in objects]
         return results, report
 
     runtime = RuntimeBudget.start(deadline_s, article_budget_s=article_budget_s)
@@ -491,6 +569,13 @@ def write_all(
             report.skipped += 1
         else:
             report.failed += 1
+            error_kind = result.diagnostics.get("error_kind")
+            if error_kind == "validation":
+                report.validation_failures += 1
+            elif error_kind == "parse":
+                report.parse_failures += 1
+            else:
+                report.provider_failures += 1
         attempts = int(result.diagnostics.get("attempts", 0))
         report.attempts += attempts
         name = str(provider.get("provider") or "unknown")

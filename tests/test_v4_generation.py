@@ -39,10 +39,14 @@ def _obj(name: str) -> IntelligenceObject:
 
 def _article() -> dict:
     words = " ".join(f"evidence{i}" for i in range(450))
+    paragraphs = [
+        " ".join(words.split()[start:start + 90])
+        for start in range(0, 450, 90)
+    ]
     return {
         "title": "A documented transaction closes",
         "excerpt": "A concise evidence-based summary.",
-        "body_html": f"<p>{words}</p>",
+        "body_html": "".join(f"<p>{paragraph}</p>" for paragraph in paragraphs),
         "format": "analysis",
         "sources": [{"name": "Source", "url": "https://source.example/story"}],
         "evidence_level": "single_source_full_text",
@@ -78,6 +82,8 @@ class V4GenerationTests(unittest.TestCase):
         self.assertEqual(result.status, "completed")
         self.assertEqual(post.call_count, 1)
         self.assertEqual(result.stages_run, ["bounded_writer", "local_validation"])
+        self.assertEqual(result.diagnostics["provider"], "deepseek")
+        self.assertIn("request_seconds", result.diagnostics)
 
     def test_v4_does_not_call_the_old_multi_stage_pipeline(self):
         response = _Response({"choices": [{"message": {"content": json.dumps(_article())},
@@ -106,7 +112,7 @@ class V4GenerationTests(unittest.TestCase):
         self.assertEqual(post.call_count, 2)
         self.assertEqual(result.diagnostics["attempts"], 2)
 
-    def test_source_outside_dossier_fails_locally_without_retry(self):
+    def test_source_outside_dossier_fails_after_bounded_retry(self):
         article = _article()
         article["sources"][0]["url"] = "https://invented.example/nope"
         response = _Response({"choices": [{"message": {"content": json.dumps(article)},
@@ -131,6 +137,40 @@ class V4GenerationTests(unittest.TestCase):
         self.assertEqual(result.status, "completed")
         self.assertEqual(post.call_count, 2)
         self.assertEqual(result.diagnostics["attempts"], 2)
+
+    def test_persistent_short_response_fails_with_measured_diagnostics(self):
+        invalid = _article()
+        invalid["body_html"] = "<p>Too short.</p>"
+        response = _Response({"choices": [{"message": {"content": json.dumps(invalid)},
+                                             "finish_reason": "stop"}]})
+        with patch.object(v4_generation.requests, "post", return_value=response) as post:
+            result = v4_generation.write_one(_obj("Still short"), provider=PROVIDER,
+                                             deadline=v4_generation.time.monotonic() + 30)
+        self.assertEqual(result.status, "failed")
+        self.assertEqual(post.call_count, 2)
+        self.assertEqual(result.diagnostics["error_kind"], "validation")
+        self.assertEqual(result.diagnostics["validation"]["word_count"], 2)
+        self.assertIn("paragraph_count_out_of_range", result.diagnostics["validation"]["codes"])
+
+    def test_validation_rejects_repeated_paragraphs(self):
+        repeated = " ".join(f"fact{i}" for i in range(100))
+        article = _article()
+        article["body_html"] = "".join(f"<p>{repeated}</p>" for _ in range(4))
+        validation = v4_generation.validate_article(
+            article, v4_generation.object_to_dossier(_obj("Repeated")),
+            v4_generation.DEPTH_SPEC["tier_b"],
+        )
+        self.assertIn("repeated_paragraphs", validation.codes)
+        self.assertEqual(validation.paragraph_count, 4)
+
+    def test_validation_rejects_non_paragraph_html(self):
+        article = _article()
+        article["body_html"] = article["body_html"].replace("<p>", "<div>", 1).replace("</p>", "</div>", 1)
+        validation = v4_generation.validate_article(
+            article, v4_generation.object_to_dossier(_obj("Unsafe structure")),
+            v4_generation.DEPTH_SPEC["tier_b"],
+        )
+        self.assertIn("invalid_html", validation.codes)
 
     def test_three_article_run_has_finite_attempts_and_preserves_successes(self):
         response = _Response({"choices": [{"message": {"content": json.dumps(_article())},
