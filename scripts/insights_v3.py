@@ -123,6 +123,7 @@ def _listing_sources(limit: int) -> list[dict[str, Any]]:
 
 def run(
     *,
+    pipeline: str = "v3",
     mode: str = "shadow",
     sectors: Sequence[str] | None = None,
     enrich_limit: int = DEFAULT_ENRICH_LIMIT,
@@ -156,6 +157,8 @@ def run(
     import eligibility
     from model_router import configure_state_dir
 
+    if pipeline not in {"v3", "v4"}:
+        raise ValueError(f"unsupported pipeline: {pipeline}")
     if mode not in {"shadow", "preview", "publish"}:
         raise ValueError(f"unsupported v3 mode: {mode}")
     if mode == "shadow" and (generate or publish_articles):
@@ -180,7 +183,7 @@ def run(
 
     started = time.perf_counter()
     report = RunReport(
-        run_at=_now(), mode=mode,
+        run_at=_now(), pipeline_version=("v4.0" if pipeline == "v4" else PIPELINE_VERSION), mode=mode,
         daily_target=daily_target, article_limit=article_limit,
     )
     budget = budget or Budget(
@@ -357,7 +360,10 @@ def run(
         with stage("write the slate"):
             try:
                 from model_router import select_provider
-                from v3_generation import summarise, write_all
+                if pipeline == "v4":
+                    from v4_generation import summarise, write_all
+                else:
+                    from v3_generation import summarise, write_all
 
                 # Per-sector slates are scouting diagnostics. Only the bounded
                 # global publication slate may consume model calls or reach the
@@ -376,11 +382,22 @@ def run(
                     report.errors.append(f"no writing provider: {type(exc).__name__}")
 
                 if api_key:
-                    drafts, gen_report = write_all(
-                        chosen, api_key=api_key, provider=provider, budget=budget,
-                        workers=generation_workers, deadline_s=generation_deadline_s,
-                        verbose=verbose,
-                    )
+                    generation_kwargs = {
+                        "provider": provider,
+                        "budget": budget,
+                        "deadline_s": (720 if pipeline == "v4" else generation_deadline_s),
+                        "verbose": verbose,
+                        "state_dir": state_dir,
+                        "run_id": report.run_at,
+                    }
+                    if pipeline == "v4":
+                        generation_kwargs["article_budget_s"] = 240
+                    else:
+                        generation_kwargs.update({
+                            "api_key": api_key,
+                            "workers": generation_workers,
+                        })
+                    drafts, gen_report = write_all(chosen, **generation_kwargs)
                     report.generation = gen_report.to_dict()
                     if gen_report.failed:
                         message = (
@@ -503,7 +520,7 @@ def _write_artifacts(
             json.dumps(
                 {
                     "run_at": report.run_at,
-                    "pipeline_version": PIPELINE_VERSION,
+                    "pipeline_version": report.pipeline_version,
                     "count": len(objects),
                     "candidates": [o.to_dict() for o in objects],
                 },
@@ -518,7 +535,7 @@ def _write_artifacts(
                 json.dumps(
                     {
                         "run_at": report.run_at,
-                        "pipeline_version": PIPELINE_VERSION,
+                        "pipeline_version": report.pipeline_version,
                         "count": len(drafts),
                         "drafts": [
                             {**draft.to_dict(), "article": draft.article}
@@ -602,7 +619,9 @@ def format_summary(report: RunReport) -> str:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run the v3 editorial pipeline")
+    parser = argparse.ArgumentParser(description="Run the editorial pipeline")
+    parser.add_argument("--pipeline", default="v3", choices=["v3", "v4"],
+                        help="generation engine; v4 is the bounded single-writer path")
     parser.add_argument("--mode", default="shadow", choices=["shadow", "preview", "publish"],
                         help="shadow scores, preview writes drafts, publish updates the site")
     parser.add_argument("--enrich-limit", type=int, default=DEFAULT_ENRICH_LIMIT)
@@ -620,6 +639,7 @@ def main() -> int:
     args = parser.parse_args()
 
     report, _ = run(
+        pipeline=args.pipeline,
         mode=args.mode,
         sectors=args.sectors,
         enrich_limit=args.enrich_limit,

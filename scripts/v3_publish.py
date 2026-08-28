@@ -348,9 +348,13 @@ def finalize_publication(
     now = datetime.now(timezone.utc)
     state_dir = state_dir or SITE_ROOT / ".editorial-state"
     state_dir.mkdir(parents=True, exist_ok=True)
-    if report.failed and not report.published:
+    generation = getattr(run_report, "generation", {}) or {}
+    generation_failed = int(generation.get("failed") or 0)
+    generation_skipped = int(generation.get("skipped") or generation.get("skipped_budget") or 0)
+    total_failed = report.failed + generation_failed
+    if generation_failed and not report.published:
         edition_status = "provider_failure"
-    elif report.failed:
+    elif total_failed or generation_skipped:
         edition_status = "partial_failure"
     else:
         edition_status = "ready" if report.published else "no_publishable_story"
@@ -387,18 +391,20 @@ def finalize_publication(
     ]
     decision = {
         "schema_version": 2,
-        "pipeline_version": "v3.0",
+        "pipeline_version": getattr(run_report, "pipeline_version", "v3.0"),
         "edition_status": edition_status,
         # Review-required drafts were withheld before this point. The safe
         # completed subset can continue to main without one held article
         # blocking the day's entire edition.
         "review_required": False,
-        "auto_publish_allowed": report.failed == 0 and bool(report.published),
+        "auto_publish_allowed": total_failed == 0 and generation_skipped == 0 and bool(report.published),
         "reasons": (["one or more selected stories failed during generation or publication"]
-                    if report.failed else []),
+                    if total_failed else []) +
+                   (["one or more selected stories were skipped before publication"]
+                    if generation_skipped else []),
         "held_for_review": held,
         "article_count": report.published,
-        "failed_count": report.failed,
+        "failed_count": total_failed,
         "generated_at": now.replace(microsecond=0).isoformat(),
     }
     PUBLICATION_DECISION_PATH.parent.mkdir(parents=True, exist_ok=True)

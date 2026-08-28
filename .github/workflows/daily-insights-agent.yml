@@ -31,11 +31,12 @@ on:
           - "5"
           - "10"
       pipeline:
-        description: "Production engine; v2 remains available as the manual rollback path"
+        description: "Production engine; v3 and v2 remain available as rollback paths"
         required: true
         default: "v3"
         type: choice
         options:
+          - v4
           - v3
           - v2
 
@@ -138,6 +139,14 @@ jobs:
         shell: bash
         run: |
           case "$PIPELINE" in
+            v4)
+              python insights_v3.py \
+                --pipeline v4 \
+                --mode "$RUN_MODE" \
+                --daily-target 3 \
+                --article-limit "$ARTICLE_COUNT" \
+                --quality-floor 40
+              ;;
             v3)
               python insights_v3.py \
                 --mode "$RUN_MODE" \
