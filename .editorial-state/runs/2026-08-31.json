@@ -1,0 +1,1637 @@
+{
+  "run_at": "2026-08-31T17:58:43.919494+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 509,
+  "documents_from_feeds": 406,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 475,
+  "documents_consolidated": 34,
+  "eligible": 74,
+  "enriched": 250,
+  "evidence_upgraded": 147,
+  "selected": 20,
+  "publication_candidates": 20,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 29,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 296,
+      "eligible": 50,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 31,
+      "eligible": 1,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 1 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 62,
+      "eligible": 13,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 13 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 22,
+      "eligible": 4,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 2,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 33,
+      "eligible": 3,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 3 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 7,
+    "tier_c": 13
+  },
+  "shortfalls": [
+    "banking_credit: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 1 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 3 of 13 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 2 of 4 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 3 of 3 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 67.8,
+    "mean": 24.9,
+    "stdev": 13.52,
+    "range_used": 67.8,
+    "median": 23.5,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 255,
+    "fetched": 238,
+    "from_cache": 0,
+    "blocked": 9,
+    "failed": 8,
+    "skipped_budget": 0,
+    "bytes_downloaded": 54739654,
+    "elapsed_ms": 53902,
+    "by_status": {
+      "full_text": 148,
+      "partial_text": 90,
+      "failed": 8,
+      "blocked": 9
+    }
+  },
+  "novelty": {
+    "new": 388,
+    "minor_follow_up": 86,
+    "already_published": 1
+  },
+  "memory": {
+    "events_remembered": 3887,
+    "published": 451,
+    "seen_but_not_run": 3436,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-31",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 171.7,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 20,
+    "written": 20,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 22,
+    "elapsed_seconds": 49.88,
+    "provider_attempts": {
+      "deepseek": 22
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "8d5b0628e5a565a7",
+        "title": "SVB ex-parent not entitled to $1.7B from FDIC",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.94,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 421,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "5307bb34c943b061943db81444e8e09309b0946ef5aaeed6745ddb166a4089c5"
+        },
+        "seconds": 10.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "11a82d4538988b28",
+        "title": "Biotech Startup Investment Held Steady Even As AI Funding Surged",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.46,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 590,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "71b73d15663fa195fcca3166ada0e699b570a865beab35276bc0fded21bf5175"
+        },
+        "seconds": 14.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6efd05c357475b18",
+        "title": "Ryan Breslow is raising up to $27M in pay-to-play bridge funding to save Bolt",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 19.39,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 691,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d9327cd293d553e58ebd761db8917c95e74e926065e29e7a9ca919ac5a882796"
+        },
+        "seconds": 19.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "80121d15e056d040",
+        "title": "Tyko Capital Lends $322M on Integra Investment’s West Palm Beach Marina Project",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.92,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 577,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a333978dd74406f8885eca821f877ff5de435f10b238f5836e130b33ba5638b9"
+        },
+        "seconds": 14.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e5159b2e37e93155",
+        "title": "Peachtree Refis AJ Capital’s Graduate by Hilton Nashville Hotel With $63M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.03,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 558,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3816ac21fb0a3bc7ed0b3d439a9b737ae291e2173eb9e713480f55522f87d8da"
+        },
+        "seconds": 18.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "be91c4501ac3cd52",
+        "title": "Priority Capital Advisory Arranges $13.65M Bridge Loan to Refinance Newly Developed 33-Unit Student Housing Multifamily in Los Angeles",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.53,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 629,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "1f9d8c7a20238d8d3f8a55ead19c7f1df8218b636d7f7c72b0a6a42bbe8171bf"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "849a2c752eb2f703",
+        "title": "Kennedy Wilson, Shimizu Developing $139M Atlanta-Area Rental Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.09,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 520,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3ca06e51d7e6af882d329e2d04d183b4a66d6917cc1805a0bf7f9814fb3424e1"
+        },
+        "seconds": 15.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cb8f350c8867788d",
+        "title": "Sherman Associates closes $136.5 million multifamily development in Rochester",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.53,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 378,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ad328bd78e367b7a842f8caee4392eabbc811d437ef7edf6e8f0ad763f7c743e"
+        },
+        "seconds": 8.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b3fd1597a6783809",
+        "title": "Gas topped $4 daily in August for the first time. New U.S. strikes on Iran are sending oil prices even higher again",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.5,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 331,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "01275e823715cca164bfbb981b30720ea93e9a45b1a527d37f23093cf17b3c3e"
+        },
+        "seconds": 7.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "626ae6e0aca7fea8",
+        "title": "FEDS Paper: United States of U-Star",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.65,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 274,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c25a75d0d145d7c1fc8419174b8249609f6a74df7ebcb7baf81cdf72b78fe1ea"
+        },
+        "seconds": 7.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a86014ae51413f24",
+        "title": "Securing the bulk-power system | Factor This Brief",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.79,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 356,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "caf10e3d868386b77748e94a76abb9ade98fbba056c4f429115aae19d470b5d2"
+        },
+        "seconds": 19.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "22cb2e569c0154c2",
+        "title": "Drew Capital Secures $70M in Financing for 216-Unit Residential Multifamily High-Rise Tower Cosmo 440 in Newark New Jersey",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 340,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b428b69a3f45146c4ea6583dbaa5418ed5306bd69b8575c6dc10231684937494"
+        },
+        "seconds": 8.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1bb48125ba612221",
+        "title": "Treasury Market Selloff Sends 10-Year Yield to 19-Month High",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 276,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c3bc5df170bfce367a68d64de1a975332d58985909672e8562f82862321ead3e"
+        },
+        "seconds": 9.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8b3d855fa3a27044",
+        "title": "Cushman & Wakefield Brokers $7.275M Sale of Fully Leased Rochester Minnesota Apartment Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.48,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 344,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9fb1f8b9dc2747c35a34960c0b0a23ec80648a1cde9a6e915d4acd21cd56d94b"
+        },
+        "seconds": 10.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ddcdaa284fb82b12",
+        "title": "Gantry Secures $24.4M Construction Takeout Loan for Colorado Multifamily Apartment Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.91,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 314,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9dfe6e7e7b3621286db6a497b6538b8ad70b3ab51c7aee0ea4b648b74d9f07e3"
+        },
+        "seconds": 8.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "039845320f479091",
+        "title": "Gatsby Florida Lands $119M Loan to Build Spec Palm Beach Gardens Office",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 371,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "3f2366fb57481a49eab5e0a2ebb07e1c864e25160ff3d6707d23bd886fe3833f"
+        },
+        "seconds": 10.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4213dd2c3df53aa9",
+        "title": "Lilly to Buy Merida for $2.88 Billion in Autoimmune Push",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.34,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 270,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9ef6226c0609056c4896f6eb5a1e27e759157ddd7242b91d7770beb10cd0c773"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2ca26d217eb50c58",
+        "title": "Copenhagen Infrastructure Partners acquires 104MW grid-forming BESS project from Windlab in Australia",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.22,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 336,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "203a732c7f88770ef2bab4730c5bf0a96de9a82eb040b66773cc7d1f8824e131"
+        },
+        "seconds": 18.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f7e18ca28c35957f",
+        "title": "Ready Capital Lands $141MM C-PACE Loan for Portland’s Block 216 Ritz-Carlton Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.56,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 302,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "135db8fb28bdd613ff9439f0aad913177a57fcaae70f61d1ed99f5405393dff3"
+        },
+        "seconds": 10.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "462eaae52f4ff969",
+        "title": "SK Telecom launches AI data center company with backing from KKR and IMM consortium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.94,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 290,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "552e675b961983558527e28126bc864c6f4c638f38c627ca41486429c2929a3c"
+        },
+        "seconds": 8.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 20,
+    "published": 20,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/svb-ex-parent-not-entitled-to-1-7b-from-fdic_social.png",
+      "insights/svb-ex-parent-not-entitled-to-1-7b-from-fdic.html",
+      "insights/biotech-startup-investment-held-steady-even-as-ai-funding-surged_social.png",
+      "insights/biotech-startup-investment-held-steady-even-as-ai-funding-surged.html",
+      "insights/ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt_social.png",
+      "insights/ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt.html",
+      "insights/tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project_social.png",
+      "insights/tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project.html",
+      "insights/peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan_social.png",
+      "insights/peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan.html",
+      "insights/priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop_social.png",
+      "insights/priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop.html",
+      "insights/kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community_social.png",
+      "insights/kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community.html",
+      "insights/sherman-associates-closes-136-5-million-multifamily-development-in-rochester_social.png",
+      "insights/sherman-associates-closes-136-5-million-multifamily-development-in-rochester.html",
+      "insights/gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send_social.png",
+      "insights/gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send.html",
+      "insights/feds-paper-united-states-of-u-star_social.png",
+      "insights/feds-paper-united-states-of-u-star.html",
+      "insights/securing-the-bulk-power-system-factor-this-brief_social.png",
+      "insights/securing-the-bulk-power-system-factor-this-brief.html",
+      "insights/drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high_social.png",
+      "insights/drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high.html",
+      "insights/treasury-market-selloff-sends-10-year-yield-to-19-month-high_social.png",
+      "insights/treasury-market-selloff-sends-10-year-yield-to-19-month-high.html",
+      "insights/cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm_social.png",
+      "insights/cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm.html",
+      "insights/gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen_social.png",
+      "insights/gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen.html",
+      "insights/gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office_social.png",
+      "insights/gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office.html",
+      "insights/lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push_social.png",
+      "insights/lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push.html",
+      "insights/copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from_social.png",
+      "insights/copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from.html",
+      "insights/ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe_social.png",
+      "insights/ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe.html",
+      "insights/sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort_social.png",
+      "insights/sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/svb-ex-parent-not-entitled-to-1-7b-from-fdic_related.json",
+      "insights/biotech-startup-investment-held-steady-even-as-ai-funding-surged_related.json",
+      "insights/ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt_related.json",
+      "insights/tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project_related.json",
+      "insights/peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan_related.json",
+      "insights/priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop_related.json",
+      "insights/kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community_related.json",
+      "insights/sherman-associates-closes-136-5-million-multifamily-development-in-rochester_related.json",
+      "insights/gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send_related.json",
+      "insights/feds-paper-united-states-of-u-star_related.json",
+      "insights/securing-the-bulk-power-system-factor-this-brief_related.json",
+      "insights/drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high_related.json",
+      "insights/treasury-market-selloff-sends-10-year-yield-to-19-month-high_related.json",
+      "insights/cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm_related.json",
+      "insights/gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen_related.json",
+      "insights/gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office_related.json",
+      "insights/lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push_related.json",
+      "insights/copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from_related.json",
+      "insights/ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe_related.json",
+      "insights/sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "8d5b0628e5a565a7",
+        "title": "SVB ex-parent not entitled to $1.7B from FDIC",
+        "slug": "svb-ex-parent-not-entitled-to-1-7b-from-fdic",
+        "url": "/insights/svb-ex-parent-not-entitled-to-1-7b-from-fdic.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 65,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "11a82d4538988b28",
+        "title": "Biotech Startup Investment Held Steady Even As AI Funding Surged",
+        "slug": "biotech-startup-investment-held-steady-even-as-ai-funding-surged",
+        "url": "/insights/biotech-startup-investment-held-steady-even-as-ai-funding-surged.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6efd05c357475b18",
+        "title": "Ryan Breslow is raising up to $27M in pay-to-play bridge funding to save Bolt",
+        "slug": "ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt",
+        "url": "/insights/ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "80121d15e056d040",
+        "title": "Tyko Capital Lends $322M on Integra Investment’s West Palm Beach Marina Project",
+        "slug": "tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project",
+        "url": "/insights/tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e5159b2e37e93155",
+        "title": "Peachtree Refis AJ Capital’s Graduate by Hilton Nashville Hotel With $63M Loan",
+        "slug": "peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan",
+        "url": "/insights/peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "be91c4501ac3cd52",
+        "title": "Priority Capital Advisory Arranges $13.65M Bridge Loan to Refinance Newly Developed 33-Unit Student Housing Multifamily in Los Angeles",
+        "slug": "priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop",
+        "url": "/insights/priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "849a2c752eb2f703",
+        "title": "Kennedy Wilson, Shimizu Developing $139M Atlanta-Area Rental Community",
+        "slug": "kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community",
+        "url": "/insights/kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cb8f350c8867788d",
+        "title": "Sherman Associates closes $136.5 million multifamily development in Rochester",
+        "slug": "sherman-associates-closes-136-5-million-multifamily-development-in-rochester",
+        "url": "/insights/sherman-associates-closes-136-5-million-multifamily-development-in-rochester.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b3fd1597a6783809",
+        "title": "Gas topped $4 daily in August for the first time. New U.S. strikes on Iran are sending oil prices even higher again",
+        "slug": "gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send",
+        "url": "/insights/gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "626ae6e0aca7fea8",
+        "title": "FEDS Paper: United States of U-Star",
+        "slug": "feds-paper-united-states-of-u-star",
+        "url": "/insights/feds-paper-united-states-of-u-star.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a86014ae51413f24",
+        "title": "Securing the bulk-power system | Factor This Brief",
+        "slug": "securing-the-bulk-power-system-factor-this-brief",
+        "url": "/insights/securing-the-bulk-power-system-factor-this-brief.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "22cb2e569c0154c2",
+        "title": "Drew Capital Secures $70M in Financing for 216-Unit Residential Multifamily High-Rise Tower Cosmo 440 in Newark New Jersey",
+        "slug": "drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high",
+        "url": "/insights/drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1bb48125ba612221",
+        "title": "Treasury Market Selloff Sends 10-Year Yield to 19-Month High",
+        "slug": "treasury-market-selloff-sends-10-year-yield-to-19-month-high",
+        "url": "/insights/treasury-market-selloff-sends-10-year-yield-to-19-month-high.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "8b3d855fa3a27044",
+        "title": "Cushman & Wakefield Brokers $7.275M Sale of Fully Leased Rochester Minnesota Apartment Community",
+        "slug": "cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm",
+        "url": "/insights/cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ddcdaa284fb82b12",
+        "title": "Gantry Secures $24.4M Construction Takeout Loan for Colorado Multifamily Apartment Community",
+        "slug": "gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen",
+        "url": "/insights/gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "039845320f479091",
+        "title": "Gatsby Florida Lands $119M Loan to Build Spec Palm Beach Gardens Office",
+        "slug": "gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office",
+        "url": "/insights/gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4213dd2c3df53aa9",
+        "title": "Lilly to Buy Merida for $2.88 Billion in Autoimmune Push",
+        "slug": "lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push",
+        "url": "/insights/lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "2ca26d217eb50c58",
+        "title": "Copenhagen Infrastructure Partners acquires 104MW grid-forming BESS project from Windlab in Australia",
+        "slug": "copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from",
+        "url": "/insights/copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f7e18ca28c35957f",
+        "title": "Ready Capital Lands $141MM C-PACE Loan for Portland’s Block 216 Ritz-Carlton Tower",
+        "slug": "ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe",
+        "url": "/insights/ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "462eaae52f4ff969",
+        "title": "SK Telecom launches AI data center company with backing from KKR and IMM consortium",
+        "slug": "sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort",
+        "url": "/insights/sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "8d5b0628e5a565a7",
+        "slug": "svb-ex-parent-not-entitled-to-1-7b-from-fdic",
+        "title": "SVB ex-parent not entitled to $1.7B from FDIC",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/svb-ex-parent-not-entitled-to-1-7b-from-fdic.html",
+        "reason": ""
+      },
+      {
+        "object_id": "11a82d4538988b28",
+        "slug": "biotech-startup-investment-held-steady-even-as-ai-funding-surged",
+        "title": "Biotech Startup Investment Held Steady Even As AI Funding Surged",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/biotech-startup-investment-held-steady-even-as-ai-funding-surged.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6efd05c357475b18",
+        "slug": "ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt",
+        "title": "Ryan Breslow is raising up to $27M in pay-to-play bridge funding to save Bolt",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt.html",
+        "reason": ""
+      },
+      {
+        "object_id": "80121d15e056d040",
+        "slug": "tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project",
+        "title": "Tyko Capital Lends $322M on Integra Investment’s West Palm Beach Marina Project",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e5159b2e37e93155",
+        "slug": "peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan",
+        "title": "Peachtree Refis AJ Capital’s Graduate by Hilton Nashville Hotel With $63M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "be91c4501ac3cd52",
+        "slug": "priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop",
+        "title": "Priority Capital Advisory Arranges $13.65M Bridge Loan to Refinance Newly Developed 33-Unit Student Housing Multifamily in Los Angeles",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop.html",
+        "reason": ""
+      },
+      {
+        "object_id": "849a2c752eb2f703",
+        "slug": "kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community",
+        "title": "Kennedy Wilson, Shimizu Developing $139M Atlanta-Area Rental Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cb8f350c8867788d",
+        "slug": "sherman-associates-closes-136-5-million-multifamily-development-in-rochester",
+        "title": "Sherman Associates closes $136.5 million multifamily development in Rochester",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/sherman-associates-closes-136-5-million-multifamily-development-in-rochester.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b3fd1597a6783809",
+        "slug": "gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send",
+        "title": "Gas topped $4 daily in August for the first time. New U.S. strikes on Iran are sending oil prices even higher again",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send.html",
+        "reason": ""
+      },
+      {
+        "object_id": "626ae6e0aca7fea8",
+        "slug": "feds-paper-united-states-of-u-star",
+        "title": "FEDS Paper: United States of U-Star",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/feds-paper-united-states-of-u-star.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a86014ae51413f24",
+        "slug": "securing-the-bulk-power-system-factor-this-brief",
+        "title": "Securing the bulk-power system | Factor This Brief",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/securing-the-bulk-power-system-factor-this-brief.html",
+        "reason": ""
+      },
+      {
+        "object_id": "22cb2e569c0154c2",
+        "slug": "drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high",
+        "title": "Drew Capital Secures $70M in Financing for 216-Unit Residential Multifamily High-Rise Tower Cosmo 440 in Newark New Jersey",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1bb48125ba612221",
+        "slug": "treasury-market-selloff-sends-10-year-yield-to-19-month-high",
+        "title": "Treasury Market Selloff Sends 10-Year Yield to 19-Month High",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/treasury-market-selloff-sends-10-year-yield-to-19-month-high.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8b3d855fa3a27044",
+        "slug": "cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm",
+        "title": "Cushman & Wakefield Brokers $7.275M Sale of Fully Leased Rochester Minnesota Apartment Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ddcdaa284fb82b12",
+        "slug": "gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen",
+        "title": "Gantry Secures $24.4M Construction Takeout Loan for Colorado Multifamily Apartment Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen.html",
+        "reason": ""
+      },
+      {
+        "object_id": "039845320f479091",
+        "slug": "gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office",
+        "title": "Gatsby Florida Lands $119M Loan to Build Spec Palm Beach Gardens Office",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4213dd2c3df53aa9",
+        "slug": "lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push",
+        "title": "Lilly to Buy Merida for $2.88 Billion in Autoimmune Push",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2ca26d217eb50c58",
+        "slug": "copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from",
+        "title": "Copenhagen Infrastructure Partners acquires 104MW grid-forming BESS project from Windlab in Australia",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f7e18ca28c35957f",
+        "slug": "ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe",
+        "title": "Ready Capital Lands $141MM C-PACE Loan for Portland’s Block 216 Ritz-Carlton Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe.html",
+        "reason": ""
+      },
+      {
+        "object_id": "462eaae52f4ff969",
+        "slug": "sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort",
+        "title": "SK Telecom launches AI data center company with backing from KKR and IMM consortium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 22,
+    "successful_calls": 22,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 22.12,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.16,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.25,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.72,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 33.23,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 55.16,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.11,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 51.25,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.48,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.14,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 20 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 171.74,
+  "status": "ready",
+  "candidate_count": 509,
+  "event_count": 475,
+  "articles": [
+    {
+      "event_id": "8d5b0628e5a565a7",
+      "title": "SVB ex-parent not entitled to $1.7B from FDIC",
+      "slug": "svb-ex-parent-not-entitled-to-1-7b-from-fdic",
+      "url": "/insights/svb-ex-parent-not-entitled-to-1-7b-from-fdic.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 65,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "11a82d4538988b28",
+      "title": "Biotech Startup Investment Held Steady Even As AI Funding Surged",
+      "slug": "biotech-startup-investment-held-steady-even-as-ai-funding-surged",
+      "url": "/insights/biotech-startup-investment-held-steady-even-as-ai-funding-surged.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6efd05c357475b18",
+      "title": "Ryan Breslow is raising up to $27M in pay-to-play bridge funding to save Bolt",
+      "slug": "ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt",
+      "url": "/insights/ryan-breslow-is-raising-up-to-27m-in-pay-to-play-bridge-funding-to-save-bolt.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "80121d15e056d040",
+      "title": "Tyko Capital Lends $322M on Integra Investment’s West Palm Beach Marina Project",
+      "slug": "tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project",
+      "url": "/insights/tyko-capital-lends-322m-on-integra-investment-s-west-palm-beach-marina-project.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e5159b2e37e93155",
+      "title": "Peachtree Refis AJ Capital’s Graduate by Hilton Nashville Hotel With $63M Loan",
+      "slug": "peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan",
+      "url": "/insights/peachtree-refis-aj-capital-s-graduate-by-hilton-nashville-hotel-with-63m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "be91c4501ac3cd52",
+      "title": "Priority Capital Advisory Arranges $13.65M Bridge Loan to Refinance Newly Developed 33-Unit Student Housing Multifamily in Los Angeles",
+      "slug": "priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop",
+      "url": "/insights/priority-capital-advisory-arranges-13-65m-bridge-loan-to-refinance-newly-develop.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "849a2c752eb2f703",
+      "title": "Kennedy Wilson, Shimizu Developing $139M Atlanta-Area Rental Community",
+      "slug": "kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community",
+      "url": "/insights/kennedy-wilson-shimizu-developing-139m-atlanta-area-rental-community.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cb8f350c8867788d",
+      "title": "Sherman Associates closes $136.5 million multifamily development in Rochester",
+      "slug": "sherman-associates-closes-136-5-million-multifamily-development-in-rochester",
+      "url": "/insights/sherman-associates-closes-136-5-million-multifamily-development-in-rochester.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b3fd1597a6783809",
+      "title": "Gas topped $4 daily in August for the first time. New U.S. strikes on Iran are sending oil prices even higher again",
+      "slug": "gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send",
+      "url": "/insights/gas-topped-4-daily-in-august-for-the-first-time-new-u-s-strikes-on-iran-are-send.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "626ae6e0aca7fea8",
+      "title": "FEDS Paper: United States of U-Star",
+      "slug": "feds-paper-united-states-of-u-star",
+      "url": "/insights/feds-paper-united-states-of-u-star.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a86014ae51413f24",
+      "title": "Securing the bulk-power system | Factor This Brief",
+      "slug": "securing-the-bulk-power-system-factor-this-brief",
+      "url": "/insights/securing-the-bulk-power-system-factor-this-brief.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "22cb2e569c0154c2",
+      "title": "Drew Capital Secures $70M in Financing for 216-Unit Residential Multifamily High-Rise Tower Cosmo 440 in Newark New Jersey",
+      "slug": "drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high",
+      "url": "/insights/drew-capital-secures-70m-in-financing-for-216-unit-residential-multifamily-high.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1bb48125ba612221",
+      "title": "Treasury Market Selloff Sends 10-Year Yield to 19-Month High",
+      "slug": "treasury-market-selloff-sends-10-year-yield-to-19-month-high",
+      "url": "/insights/treasury-market-selloff-sends-10-year-yield-to-19-month-high.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "8b3d855fa3a27044",
+      "title": "Cushman & Wakefield Brokers $7.275M Sale of Fully Leased Rochester Minnesota Apartment Community",
+      "slug": "cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm",
+      "url": "/insights/cushman-wakefield-brokers-7-275m-sale-of-fully-leased-rochester-minnesota-apartm.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ddcdaa284fb82b12",
+      "title": "Gantry Secures $24.4M Construction Takeout Loan for Colorado Multifamily Apartment Community",
+      "slug": "gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen",
+      "url": "/insights/gantry-secures-24-4m-construction-takeout-loan-for-colorado-multifamily-apartmen.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "039845320f479091",
+      "title": "Gatsby Florida Lands $119M Loan to Build Spec Palm Beach Gardens Office",
+      "slug": "gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office",
+      "url": "/insights/gatsby-florida-lands-119m-loan-to-build-spec-palm-beach-gardens-office.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4213dd2c3df53aa9",
+      "title": "Lilly to Buy Merida for $2.88 Billion in Autoimmune Push",
+      "slug": "lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push",
+      "url": "/insights/lilly-to-buy-merida-for-2-88-billion-in-autoimmune-push.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "2ca26d217eb50c58",
+      "title": "Copenhagen Infrastructure Partners acquires 104MW grid-forming BESS project from Windlab in Australia",
+      "slug": "copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from",
+      "url": "/insights/copenhagen-infrastructure-partners-acquires-104mw-grid-forming-bess-project-from.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f7e18ca28c35957f",
+      "title": "Ready Capital Lands $141MM C-PACE Loan for Portland’s Block 216 Ritz-Carlton Tower",
+      "slug": "ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe",
+      "url": "/insights/ready-capital-lands-141mm-c-pace-loan-for-portland-s-block-216-ritz-carlton-towe.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "462eaae52f4ff969",
+      "title": "SK Telecom launches AI data center company with backing from KKR and IMM consortium",
+      "slug": "sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort",
+      "url": "/insights/sk-telecom-launches-ai-data-center-company-with-backing-from-kkr-and-imm-consort.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    }
+  ],
+  "held": [],
+  "article_count": 20
+}
