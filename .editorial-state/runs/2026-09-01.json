@@ -1,0 +1,1570 @@
+{
+  "run_at": "2026-09-01T15:26:59.553031+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 832,
+  "documents_from_feeds": 729,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 781,
+  "documents_consolidated": 51,
+  "eligible": 107,
+  "enriched": 250,
+  "evidence_upgraded": 140,
+  "selected": 19,
+  "publication_candidates": 19,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 60,
+      "eligible": 7,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 406,
+      "eligible": 59,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 73,
+      "eligible": 5,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 123,
+      "eligible": 22,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 22 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 36,
+      "eligible": 6,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 78,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 4,
+    "tier_b": 15
+  },
+  "shortfalls": [
+    "banking_credit: only 1 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 4 of 5 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 1 of 22 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 2 of 6 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 1 of 4 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 67.8,
+    "mean": 22.8,
+    "stdev": 12.08,
+    "range_used": 67.8,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 257,
+    "fetched": 246,
+    "from_cache": 0,
+    "blocked": 5,
+    "failed": 6,
+    "skipped_budget": 0,
+    "bytes_downloaded": 51997584,
+    "elapsed_ms": 63857,
+    "by_status": {
+      "full_text": 141,
+      "partial_text": 105,
+      "failed": 6,
+      "blocked": 5
+    }
+  },
+  "novelty": {
+    "new": 684,
+    "already_published": 10,
+    "minor_follow_up": 84,
+    "material_update": 1,
+    "duplicate": 2
+  },
+  "memory": {
+    "events_remembered": 4400,
+    "published": 470,
+    "seen_but_not_run": 3930,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-01",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 225.3,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 19,
+    "written": 19,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 22,
+    "elapsed_seconds": 59.35,
+    "provider_attempts": {
+      "deepseek": 22
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "b206e5a7d93f97d1",
+        "title": "Trepp’s Stephen Buschbom and Andy Boettcher On a Very Busy 2026 for CMBS",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 766,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e5b450f3b0e00422ac3563ecbecfd1140b2f4b9afb6b49a240025d8013d5c31b"
+        },
+        "seconds": 13.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fc904faf8b65f563",
+        "title": "Figure completes Kiavi deal, adds investor loans to blockchain platform",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 512,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7a1abd15fad3080b141cb2d627360f44efe954e72162bd27b2d408979652f83e"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4f4f5b97d094ddba",
+        "title": "Keppel, Singtel land major DC deals in Japan, Singapore",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.37,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 740,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "903df5d43611b8f509a79a8b94be59d32f2c3055f9bdf52aec383bc5e17e73d5"
+        },
+        "seconds": 15.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b5b3c08195d6fe52",
+        "title": "Anthropic signs $35bn cloud agreement with Lambda - report",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.93,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 615,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fe80ccb140abb3596a6ba95e058fed6d720b122d4eea4c737791641f815d7b8c"
+        },
+        "seconds": 14.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "aab67629de95d433",
+        "title": "Nvidia tips $3.5B into MediaTek in latest tech partnership",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.24,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 471,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b20dfec139dc0a71508d740d3b97b1247004647564d462702d41bcdcaf645858"
+        },
+        "seconds": 11.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e0eff297967648cb",
+        "title": "Terra Lands $245M Financing for Newly Completed Upland Park Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 609,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "1766b1407e45315bc153609b09bb2c2e4fdd591e8fe335dddb661010537577b5"
+        },
+        "seconds": 16.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c4668576a14dab2a",
+        "title": "SCALE Lending Provides $245M Loan for First Phase of Upland Park Apartments in Miami",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 519,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "581df1b03f57212124c3d889ea4f001f667964092c73e400f33392eefe640d11"
+        },
+        "seconds": 13.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cc5585f762509a55",
+        "title": "Terra Nabs $245M Bridge Loan for 47-acre Project in Miami-Dade: Update",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.66,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 517,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3fcdd1c47da8485a97147e5335f8af59fbaddaf7c0c2261c093e2fb25d439594"
+        },
+        "seconds": 11.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b8e914ae3bf7c54c",
+        "title": "Forbearances, Modifications Carry Weight in Latest Data",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 641,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "cb76038ddf729b2ca71e506f11e8731c570f08a1860211478072c8744bb41277"
+        },
+        "seconds": 25.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8c39287bf3aaae1f",
+        "title": "Cortland Sells West Palm Apartments For $208M: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.35,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 586,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "566444e7a72e3a9ccbb6d1cf7cac9118f7af0242ecddf4a25a03862bee79381a"
+        },
+        "seconds": 16.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e9d33d7b45ebc639",
+        "title": "Businesses Are Using AI to Transform Work, Not Cut Jobs",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.29,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 647,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e7a42c375c0e058c0a6788600513a8b2a6c11a6aca7b2963c5dab9358b2a12f7"
+        },
+        "seconds": 14.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d9c4ab29f1b02d1a",
+        "title": "Gatsby Florida Inks $118.6M Construction Loan for Palm Beach Gardens Offices, Retail",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.07,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 464,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "2de341b2b9988e2c516c0166c9c79cebc778448bfd4acd6ddca3c895a3700cb0"
+        },
+        "seconds": 13.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2ea32df4d470ec74",
+        "title": "Walmart to build $1.3B fulfillment center in Georgia",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.59,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 591,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "89fed4e9001cccffb31f4b1410def7ee148a5a13becc3934cc361419a18f0a20"
+        },
+        "seconds": 13.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ab743946db27f875",
+        "title": "Barr, Unlocking Opportunities for Workers and Entrepreneurs with a Criminal Record",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.84,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 572,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "749f6f46c88b5cf73ac14920085fca16e77add01e7e12c65bb7db508f3c1bbf6"
+        },
+        "seconds": 15.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3f107b38dc40a7cd",
+        "title": "Real Estate Firm Debuts With $126M Purchase Of Historic D.C. Building",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 574,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "cdd6cd8d56a3e46f575c882611c448e63e26ea9d51977db3f2eea444e7a0df0c"
+        },
+        "seconds": 13.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "762403b8152b6248",
+        "title": "BitGo buys institutional trading division from NYDIG",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.99,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 264,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "5acab39d28795e1360c46286bd53de9ff7cd480eb6cc86b9efc895428b6f0906"
+        },
+        "seconds": 6.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cad36c0a869bb112",
+        "title": "ONE Nuclear Secures Site Control for 2.88 GW Louisiana Data Center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.47,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 292,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "39a441a6f9bb347c9a50fc6a5057a81800b2a055a82bb4b7af6efd378d258bdc"
+        },
+        "seconds": 11.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "06ebfe49092b18c3",
+        "title": "Odyssey Energy Raises $74 Million to Supercharge Small-Scale Solar",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.8,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 371,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "eea4008d7f3d73ada47f36bea8c99752580126ca3cc4962b9eeaf6732dbe4225"
+        },
+        "seconds": 8.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e49126901ebd0cf7",
+        "title": "NY Elections, Census and Redistricting Update 08/31/26",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 360,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "63279b2e87abf464871817cc24e1025ea6a46781f8795e20380affab46b07e10"
+        },
+        "seconds": 21.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 19,
+    "published": 19,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs_social.png",
+      "insights/trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs.html",
+      "insights/figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform_social.png",
+      "insights/figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform.html",
+      "insights/keppel-singtel-land-major-dc-deals-in-japan-singapore_social.png",
+      "insights/keppel-singtel-land-major-dc-deals-in-japan-singapore.html",
+      "insights/anthropic-signs-35bn-cloud-agreement-with-lambda-report_social.png",
+      "insights/anthropic-signs-35bn-cloud-agreement-with-lambda-report.html",
+      "insights/nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership_social.png",
+      "insights/nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership.html",
+      "insights/terra-lands-245m-financing-for-newly-completed-upland-park-development_social.png",
+      "insights/terra-lands-245m-financing-for-newly-completed-upland-park-development.html",
+      "insights/scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan_social.png",
+      "insights/scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan.html",
+      "insights/terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update_social.png",
+      "insights/terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update.html",
+      "insights/forbearances-modifications-carry-weight-in-latest-data_social.png",
+      "insights/forbearances-modifications-carry-weight-in-latest-data.html",
+      "insights/cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet_social.png",
+      "insights/cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet.html",
+      "insights/businesses-are-using-ai-to-transform-work-not-cut-jobs_social.png",
+      "insights/businesses-are-using-ai-to-transform-work-not-cut-jobs.html",
+      "insights/gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta_social.png",
+      "insights/gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta.html",
+      "insights/walmart-to-build-1-3b-fulfillment-center-in-georgia_social.png",
+      "insights/walmart-to-build-1-3b-fulfillment-center-in-georgia.html",
+      "insights/barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor_social.png",
+      "insights/barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor.html",
+      "insights/real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building_social.png",
+      "insights/real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building.html",
+      "insights/bitgo-buys-institutional-trading-division-from-nydig_social.png",
+      "insights/bitgo-buys-institutional-trading-division-from-nydig.html",
+      "insights/one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center_social.png",
+      "insights/one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center.html",
+      "insights/odyssey-energy-raises-74-million-to-supercharge-small-scale-solar_social.png",
+      "insights/odyssey-energy-raises-74-million-to-supercharge-small-scale-solar.html",
+      "insights/ny-elections-census-and-redistricting-update-08-31-26_social.png",
+      "insights/ny-elections-census-and-redistricting-update-08-31-26.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs_related.json",
+      "insights/figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform_related.json",
+      "insights/keppel-singtel-land-major-dc-deals-in-japan-singapore_related.json",
+      "insights/anthropic-signs-35bn-cloud-agreement-with-lambda-report_related.json",
+      "insights/nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership_related.json",
+      "insights/terra-lands-245m-financing-for-newly-completed-upland-park-development_related.json",
+      "insights/scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan_related.json",
+      "insights/terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update_related.json",
+      "insights/forbearances-modifications-carry-weight-in-latest-data_related.json",
+      "insights/cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet_related.json",
+      "insights/businesses-are-using-ai-to-transform-work-not-cut-jobs_related.json",
+      "insights/gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta_related.json",
+      "insights/walmart-to-build-1-3b-fulfillment-center-in-georgia_related.json",
+      "insights/barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor_related.json",
+      "insights/real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building_related.json",
+      "insights/bitgo-buys-institutional-trading-division-from-nydig_related.json",
+      "insights/one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center_related.json",
+      "insights/odyssey-energy-raises-74-million-to-supercharge-small-scale-solar_related.json",
+      "insights/ny-elections-census-and-redistricting-update-08-31-26_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "b206e5a7d93f97d1",
+        "title": "Trepp’s Stephen Buschbom and Andy Boettcher On a Very Busy 2026 for CMBS",
+        "slug": "trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs",
+        "url": "/insights/trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 68,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fc904faf8b65f563",
+        "title": "Figure completes Kiavi deal, adds investor loans to blockchain platform",
+        "slug": "figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform",
+        "url": "/insights/figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 65,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4f4f5b97d094ddba",
+        "title": "Keppel, Singtel land major DC deals in Japan, Singapore",
+        "slug": "keppel-singtel-land-major-dc-deals-in-japan-singapore",
+        "url": "/insights/keppel-singtel-land-major-dc-deals-in-japan-singapore.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 63,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b5b3c08195d6fe52",
+        "title": "Anthropic signs $35bn cloud agreement with Lambda - report",
+        "slug": "anthropic-signs-35bn-cloud-agreement-with-lambda-report",
+        "url": "/insights/anthropic-signs-35bn-cloud-agreement-with-lambda-report.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "aab67629de95d433",
+        "title": "Nvidia tips $3.5B into MediaTek in latest tech partnership",
+        "slug": "nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership",
+        "url": "/insights/nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e0eff297967648cb",
+        "title": "Terra Lands $245M Financing for Newly Completed Upland Park Development",
+        "slug": "terra-lands-245m-financing-for-newly-completed-upland-park-development",
+        "url": "/insights/terra-lands-245m-financing-for-newly-completed-upland-park-development.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c4668576a14dab2a",
+        "title": "SCALE Lending Refinances First Phase of $1B Upland Park With $245M Bridge Loan",
+        "slug": "scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan",
+        "url": "/insights/scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cc5585f762509a55",
+        "title": "Terra Nabs $245M Bridge Loan for 47-acre Project in Miami-Dade: Update",
+        "slug": "terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update",
+        "url": "/insights/terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b8e914ae3bf7c54c",
+        "title": "Forbearances, Modifications Carry Weight in Latest Data",
+        "slug": "forbearances-modifications-carry-weight-in-latest-data",
+        "url": "/insights/forbearances-modifications-carry-weight-in-latest-data.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8c39287bf3aaae1f",
+        "title": "Cortland Sells West Palm Apartments For $208M: The South Florida Deal Sheet",
+        "slug": "cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet",
+        "url": "/insights/cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e9d33d7b45ebc639",
+        "title": "Businesses Are Using AI to Transform Work, Not Cut Jobs",
+        "slug": "businesses-are-using-ai-to-transform-work-not-cut-jobs",
+        "url": "/insights/businesses-are-using-ai-to-transform-work-not-cut-jobs.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d9c4ab29f1b02d1a",
+        "title": "Gatsby Florida Inks $118.6M Construction Loan for Palm Beach Gardens Offices, Retail",
+        "slug": "gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta",
+        "url": "/insights/gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2ea32df4d470ec74",
+        "title": "Walmart to build $1.3B fulfillment center in Georgia",
+        "slug": "walmart-to-build-1-3b-fulfillment-center-in-georgia",
+        "url": "/insights/walmart-to-build-1-3b-fulfillment-center-in-georgia.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ab743946db27f875",
+        "title": "Barr, Unlocking Opportunities for Workers and Entrepreneurs with a Criminal Record",
+        "slug": "barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor",
+        "url": "/insights/barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3f107b38dc40a7cd",
+        "title": "Real Estate Firm Debuts With $126M Purchase Of Historic D.C. Building",
+        "slug": "real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building",
+        "url": "/insights/real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "762403b8152b6248",
+        "title": "BitGo buys institutional trading division from NYDIG",
+        "slug": "bitgo-buys-institutional-trading-division-from-nydig",
+        "url": "/insights/bitgo-buys-institutional-trading-division-from-nydig.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cad36c0a869bb112",
+        "title": "ONE Nuclear Secures Site Control for 2.88 GW Louisiana Data Center",
+        "slug": "one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center",
+        "url": "/insights/one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "06ebfe49092b18c3",
+        "title": "Odyssey Energy Raises $74 Million to Supercharge Small-Scale Solar",
+        "slug": "odyssey-energy-raises-74-million-to-supercharge-small-scale-solar",
+        "url": "/insights/odyssey-energy-raises-74-million-to-supercharge-small-scale-solar.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e49126901ebd0cf7",
+        "title": "NY Elections, Census and Redistricting Update 08/31/26",
+        "slug": "ny-elections-census-and-redistricting-update-08-31-26",
+        "url": "/insights/ny-elections-census-and-redistricting-update-08-31-26.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "b206e5a7d93f97d1",
+        "slug": "trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs",
+        "title": "Trepp’s Stephen Buschbom and Andy Boettcher On a Very Busy 2026 for CMBS",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fc904faf8b65f563",
+        "slug": "figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform",
+        "title": "Figure completes Kiavi deal, adds investor loans to blockchain platform",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4f4f5b97d094ddba",
+        "slug": "keppel-singtel-land-major-dc-deals-in-japan-singapore",
+        "title": "Keppel, Singtel land major DC deals in Japan, Singapore",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/keppel-singtel-land-major-dc-deals-in-japan-singapore.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b5b3c08195d6fe52",
+        "slug": "anthropic-signs-35bn-cloud-agreement-with-lambda-report",
+        "title": "Anthropic signs $35bn cloud agreement with Lambda - report",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/anthropic-signs-35bn-cloud-agreement-with-lambda-report.html",
+        "reason": ""
+      },
+      {
+        "object_id": "aab67629de95d433",
+        "slug": "nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership",
+        "title": "Nvidia tips $3.5B into MediaTek in latest tech partnership",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e0eff297967648cb",
+        "slug": "terra-lands-245m-financing-for-newly-completed-upland-park-development",
+        "title": "Terra Lands $245M Financing for Newly Completed Upland Park Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/terra-lands-245m-financing-for-newly-completed-upland-park-development.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c4668576a14dab2a",
+        "slug": "scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan",
+        "title": "SCALE Lending Provides $245M Loan for First Phase of Upland Park Apartments in Miami",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cc5585f762509a55",
+        "slug": "terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update",
+        "title": "Terra Nabs $245M Bridge Loan for 47-acre Project in Miami-Dade: Update",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b8e914ae3bf7c54c",
+        "slug": "forbearances-modifications-carry-weight-in-latest-data",
+        "title": "Forbearances, Modifications Carry Weight in Latest Data",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/forbearances-modifications-carry-weight-in-latest-data.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8c39287bf3aaae1f",
+        "slug": "cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet",
+        "title": "Cortland Sells West Palm Apartments For $208M: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e9d33d7b45ebc639",
+        "slug": "businesses-are-using-ai-to-transform-work-not-cut-jobs",
+        "title": "Businesses Are Using AI to Transform Work, Not Cut Jobs",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/businesses-are-using-ai-to-transform-work-not-cut-jobs.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d9c4ab29f1b02d1a",
+        "slug": "gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta",
+        "title": "Gatsby Florida Inks $118.6M Construction Loan for Palm Beach Gardens Offices, Retail",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2ea32df4d470ec74",
+        "slug": "walmart-to-build-1-3b-fulfillment-center-in-georgia",
+        "title": "Walmart to build $1.3B fulfillment center in Georgia",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walmart-to-build-1-3b-fulfillment-center-in-georgia.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ab743946db27f875",
+        "slug": "barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor",
+        "title": "Barr, Unlocking Opportunities for Workers and Entrepreneurs with a Criminal Record",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3f107b38dc40a7cd",
+        "slug": "real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building",
+        "title": "Real Estate Firm Debuts With $126M Purchase Of Historic D.C. Building",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building.html",
+        "reason": ""
+      },
+      {
+        "object_id": "762403b8152b6248",
+        "slug": "bitgo-buys-institutional-trading-division-from-nydig",
+        "title": "BitGo buys institutional trading division from NYDIG",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/bitgo-buys-institutional-trading-division-from-nydig.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cad36c0a869bb112",
+        "slug": "one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center",
+        "title": "ONE Nuclear Secures Site Control for 2.88 GW Louisiana Data Center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "06ebfe49092b18c3",
+        "slug": "odyssey-energy-raises-74-million-to-supercharge-small-scale-solar",
+        "title": "Odyssey Energy Raises $74 Million to Supercharge Small-Scale Solar",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/odyssey-energy-raises-74-million-to-supercharge-small-scale-solar.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e49126901ebd0cf7",
+        "slug": "ny-elections-census-and-redistricting-update-08-31-26",
+        "title": "NY Elections, Census and Redistricting Update 08/31/26",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ny-elections-census-and-redistricting-update-08-31-26.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 22,
+    "successful_calls": 22,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 27.63,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.35,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.63,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.27,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 60.77,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 65.1,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.18,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 60.56,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.49,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.18,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 19 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 225.33,
+  "status": "ready",
+  "candidate_count": 832,
+  "event_count": 781,
+  "articles": [
+    {
+      "event_id": "b206e5a7d93f97d1",
+      "title": "Trepp’s Stephen Buschbom and Andy Boettcher On a Very Busy 2026 for CMBS",
+      "slug": "trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs",
+      "url": "/insights/trepp-s-stephen-buschbom-and-andy-boettcher-on-a-very-busy-2026-for-cmbs.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 68,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fc904faf8b65f563",
+      "title": "Figure completes Kiavi deal, adds investor loans to blockchain platform",
+      "slug": "figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform",
+      "url": "/insights/figure-completes-kiavi-deal-adds-investor-loans-to-blockchain-platform.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 65,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4f4f5b97d094ddba",
+      "title": "Keppel, Singtel land major DC deals in Japan, Singapore",
+      "slug": "keppel-singtel-land-major-dc-deals-in-japan-singapore",
+      "url": "/insights/keppel-singtel-land-major-dc-deals-in-japan-singapore.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 63,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b5b3c08195d6fe52",
+      "title": "Anthropic signs $35bn cloud agreement with Lambda - report",
+      "slug": "anthropic-signs-35bn-cloud-agreement-with-lambda-report",
+      "url": "/insights/anthropic-signs-35bn-cloud-agreement-with-lambda-report.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "aab67629de95d433",
+      "title": "Nvidia tips $3.5B into MediaTek in latest tech partnership",
+      "slug": "nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership",
+      "url": "/insights/nvidia-tips-3-5b-into-mediatek-in-latest-tech-partnership.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e0eff297967648cb",
+      "title": "Terra Lands $245M Financing for Newly Completed Upland Park Development",
+      "slug": "terra-lands-245m-financing-for-newly-completed-upland-park-development",
+      "url": "/insights/terra-lands-245m-financing-for-newly-completed-upland-park-development.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c4668576a14dab2a",
+      "title": "SCALE Lending Refinances First Phase of $1B Upland Park With $245M Bridge Loan",
+      "slug": "scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan",
+      "url": "/insights/scale-lending-refinances-first-phase-of-1b-upland-park-with-245m-bridge-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cc5585f762509a55",
+      "title": "Terra Nabs $245M Bridge Loan for 47-acre Project in Miami-Dade: Update",
+      "slug": "terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update",
+      "url": "/insights/terra-nabs-245m-bridge-loan-for-47-acre-project-in-miami-dade-update.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b8e914ae3bf7c54c",
+      "title": "Forbearances, Modifications Carry Weight in Latest Data",
+      "slug": "forbearances-modifications-carry-weight-in-latest-data",
+      "url": "/insights/forbearances-modifications-carry-weight-in-latest-data.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8c39287bf3aaae1f",
+      "title": "Cortland Sells West Palm Apartments For $208M: The South Florida Deal Sheet",
+      "slug": "cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet",
+      "url": "/insights/cortland-sells-west-palm-apartments-for-208m-the-south-florida-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e9d33d7b45ebc639",
+      "title": "Businesses Are Using AI to Transform Work, Not Cut Jobs",
+      "slug": "businesses-are-using-ai-to-transform-work-not-cut-jobs",
+      "url": "/insights/businesses-are-using-ai-to-transform-work-not-cut-jobs.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d9c4ab29f1b02d1a",
+      "title": "Gatsby Florida Inks $118.6M Construction Loan for Palm Beach Gardens Offices, Retail",
+      "slug": "gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta",
+      "url": "/insights/gatsby-florida-inks-118-6m-construction-loan-for-palm-beach-gardens-offices-reta.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2ea32df4d470ec74",
+      "title": "Walmart to build $1.3B fulfillment center in Georgia",
+      "slug": "walmart-to-build-1-3b-fulfillment-center-in-georgia",
+      "url": "/insights/walmart-to-build-1-3b-fulfillment-center-in-georgia.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ab743946db27f875",
+      "title": "Barr, Unlocking Opportunities for Workers and Entrepreneurs with a Criminal Record",
+      "slug": "barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor",
+      "url": "/insights/barr-unlocking-opportunities-for-workers-and-entrepreneurs-with-a-criminal-recor.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3f107b38dc40a7cd",
+      "title": "Real Estate Firm Debuts With $126M Purchase Of Historic D.C. Building",
+      "slug": "real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building",
+      "url": "/insights/real-estate-firm-debuts-with-126m-purchase-of-historic-d-c-building.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "762403b8152b6248",
+      "title": "BitGo buys institutional trading division from NYDIG",
+      "slug": "bitgo-buys-institutional-trading-division-from-nydig",
+      "url": "/insights/bitgo-buys-institutional-trading-division-from-nydig.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cad36c0a869bb112",
+      "title": "ONE Nuclear Secures Site Control for 2.88 GW Louisiana Data Center",
+      "slug": "one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center",
+      "url": "/insights/one-nuclear-secures-site-control-for-2-88-gw-louisiana-data-center.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "06ebfe49092b18c3",
+      "title": "Odyssey Energy Raises $74 Million to Supercharge Small-Scale Solar",
+      "slug": "odyssey-energy-raises-74-million-to-supercharge-small-scale-solar",
+      "url": "/insights/odyssey-energy-raises-74-million-to-supercharge-small-scale-solar.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e49126901ebd0cf7",
+      "title": "NY Elections, Census and Redistricting Update 08/31/26",
+      "slug": "ny-elections-census-and-redistricting-update-08-31-26",
+      "url": "/insights/ny-elections-census-and-redistricting-update-08-31-26.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 19
+}
