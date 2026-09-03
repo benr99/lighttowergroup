@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **832**
-- Distinct events: **781**
-- Articles: **19**
+- Candidates: **825**
+- Distinct events: **778**
+- Articles: **29**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,22 +12,32 @@
 
 ## Published candidates
 
-- **analysis** — Trepp’s Stephen Buschbom and Andy Boettcher On a Very Busy 2026 for CMBS (1 sources; v3_daily_slate selection)
-- **analysis** — Figure completes Kiavi deal, adds investor loans to blockchain platform (1 sources; v3_daily_slate selection)
-- **analysis** — Keppel, Singtel land major DC deals in Japan, Singapore (1 sources; v3_daily_slate selection)
-- **analysis** — Anthropic signs $35bn cloud agreement with Lambda - report (1 sources; v3_daily_slate selection)
-- **analysis** — Nvidia tips $3.5B into MediaTek in latest tech partnership (1 sources; v3_daily_slate selection)
-- **analysis** — Terra Lands $245M Financing for Newly Completed Upland Park Development (1 sources; v3_daily_slate selection)
-- **analysis** — SCALE Lending Refinances First Phase of $1B Upland Park With $245M Bridge Loan (1 sources; v3_daily_slate selection)
-- **analysis** — Terra Nabs $245M Bridge Loan for 47-acre Project in Miami-Dade: Update (1 sources; v3_daily_slate selection)
-- **analysis** — Forbearances, Modifications Carry Weight in Latest Data (1 sources; v3_daily_slate selection)
-- **analysis** — Cortland Sells West Palm Apartments For $208M: The South Florida Deal Sheet (1 sources; v3_daily_slate selection)
-- **analysis** — Businesses Are Using AI to Transform Work, Not Cut Jobs (1 sources; v3_daily_slate selection)
-- **analysis** — Gatsby Florida Inks $118.6M Construction Loan for Palm Beach Gardens Offices, Retail (1 sources; v3_daily_slate selection)
-- **analysis** — Walmart to build $1.3B fulfillment center in Georgia (1 sources; v3_daily_slate selection)
-- **analysis** — Barr, Unlocking Opportunities for Workers and Entrepreneurs with a Criminal Record (1 sources; v3_daily_slate selection)
-- **analysis** — Real Estate Firm Debuts With $126M Purchase Of Historic D.C. Building (1 sources; v3_daily_slate selection)
-- **brief** — BitGo buys institutional trading division from NYDIG (1 sources; v3_daily_slate selection)
-- **brief** — ONE Nuclear Secures Site Control for 2.88 GW Louisiana Data Center (1 sources; v3_daily_slate selection)
-- **brief** — Odyssey Energy Raises $74 Million to Supercharge Small-Scale Solar (1 sources; v3_daily_slate selection)
-- **brief** — NY Elections, Census and Redistricting Update 08/31/26 (1 sources; v3_daily_slate selection)
+- **analysis** — U.S. Trade Deficit Widens Sharply in July as Imports Surge and Exports Slip (2 sources; v3_daily_slate selection)
+- **analysis** — September 2026 CMBS Hard Maturities Reveal Higher Refinance Risk Despite Smaller Cohort (1 sources; v3_daily_slate selection)
+- **analysis** — Datacloud USA: $500bn Nvidia pact spotlights 20-year data centre financing gap (1 sources; v3_daily_slate selection)
+- **analysis** — Tishman Speyer refinances two-tower The Franklin office building in Chicago’s West Loop (1 sources; v3_daily_slate selection)
+- **analysis** — Robert Milne of Prospect Ridge: 5 Questions (1 sources; v3_daily_slate selection)
+- **analysis** — Crow Holdings Raising Nearly $3.3B Fund, Its Largest Ever (1 sources; v3_daily_slate selection)
+- **analysis** — Newmark Arranges $215.8M Bridge Refinancing for Five-Property Florida Multifamily Portfolio (1 sources; v3_daily_slate selection)
+- **analysis** — HPE’s AI Infrastructure Business Accelerates as Networking Orders Surge (1 sources; v3_daily_slate selection)
+- **analysis** — Suspicious Activity Reporting: Joint Statement on SAR Confidentiality Considerations Regarding Communications with Customers (1 sources; v3_daily_slate selection)
+- **analysis** — Angel Oak Mortgage raises $228.2 million from mostly non-QM assets (1 sources; v3_daily_slate selection)
+- **analysis** — Tishman Speyer’s TS Plus Acquires Rise a 376-Apartment Community in Anaheim (1 sources; v3_daily_slate selection)
+- **analysis** — Affinius Capital Lends $310M for Jersey City Multifamily Tower Build (1 sources; v3_daily_slate selection)
+- **analysis** — Why Gold Didn't Actually Overtake Treasury Securities as the World's "Favorite" Reserve Asset (1 sources; v3_daily_slate selection)
+- **analysis** — TabaPay eyes OCC charter with Denver bank deal (1 sources; v3_daily_slate selection)
+- **analysis** — FNBO to acquire Colorado bank in $204M deal (1 sources; v3_daily_slate selection)
+- **analysis** — Construction Loan Secured For 748-Unit Skyscraper at 201 Hudson Street In Jersey City, New Jersey (1 sources; v3_daily_slate selection)
+- **analysis** — Chobani to spend $1.2B to buy and invest in Pennsylvania plant (1 sources; v3_daily_slate selection)
+- **analysis** — Berkadia Arranges $44M Refinancing for The Harlow in Wesley Chapel, Florida (1 sources; v3_daily_slate selection)
+- **analysis** — Are Central Banks Moving Out of Dollar Assets? (1 sources; v3_daily_slate selection)
+- **analysis** — Bottom 90% of New Yorkers’ Incomes Stagnate As Very Richest See 58% Gain Since COVID (1 sources; v3_daily_slate selection)
+- **analysis** — Which states are most exposed to tariff increases? A new measure based on the consumption channel (1 sources; v3_daily_slate selection)
+- **analysis** — iPronics Raises $125M to Scale Silicon-Photonics OCS (1 sources; v3_daily_slate selection)
+- **brief** — TabaPay is seeking to buy a community bank for its charter (1 sources; v3_daily_slate selection)
+- **brief** — Charter CFO’s move to Blackstone-Google AI venture signals where finance talent is flowing (1 sources; v3_daily_slate selection)
+- **brief** — As feds retreat, California boosts fair-lending enforcement (2 sources; v3_daily_slate selection)
+- **brief** — Weekly average load in ERCOT continues near record high (1 sources; v3_daily_slate selection)
+- **brief** — Amazon signs first Asia Pacific standalone battery storage tolling deal for 50MW BESS in Australia (1 sources; v3_daily_slate selection)
+- **brief** — Cerebras Commits to 165 MW AI Data Center Campus in Finland (1 sources; v3_daily_slate selection)
+- **brief** — Engie starts up 251MW BESS projects in Chile, Grenergy sells fourth phase of Atacama solar-plus-storage complex (1 sources; v3_daily_slate selection)
