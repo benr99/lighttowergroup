@@ -1,0 +1,2604 @@
+{
+  "run_at": "2026-09-04T14:54:30.671289+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 786,
+  "documents_from_feeds": 683,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 736,
+  "documents_consolidated": 50,
+  "eligible": 122,
+  "enriched": 250,
+  "evidence_upgraded": 132,
+  "selected": 34,
+  "publication_candidates": 34,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 52,
+      "eligible": 8,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 352,
+      "eligible": 60,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 73,
+      "eligible": 11,
+      "selected": 7,
+      "target": 10,
+      "shortfall_reason": "only 7 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 133,
+      "eligible": 15,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 15 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 44,
+      "eligible": 16,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 16 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 6,
+      "eligible": 5,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 76,
+      "eligible": 7,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 19,
+    "tier_c": 15
+  },
+  "shortfalls": [
+    "banking_credit: only 4 of 8 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 7 of 11 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 5 of 15 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 5 of 16 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 2 of 5 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 67.6,
+    "mean": 23.3,
+    "stdev": 12.48,
+    "range_used": 67.6,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 256,
+    "fetched": 239,
+    "from_cache": 0,
+    "blocked": 11,
+    "failed": 6,
+    "skipped_budget": 0,
+    "bytes_downloaded": 41900107,
+    "elapsed_ms": 64623,
+    "by_status": {
+      "full_text": 133,
+      "partial_text": 106,
+      "blocked": 11,
+      "failed": 6
+    }
+  },
+  "novelty": {
+    "new": 656,
+    "already_published": 9,
+    "material_update": 1,
+    "minor_follow_up": 70
+  },
+  "memory": {
+    "events_remembered": 5602,
+    "published": 533,
+    "seen_but_not_run": 5069,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-04",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 252.2,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 34,
+    "written": 34,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 39,
+    "elapsed_seconds": 80.83,
+    "provider_attempts": {
+      "deepseek": 39
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "2eac7a196d8a3804",
+        "title": "FinCEN identifies nearly $13B in suspected crypto investment scams",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.54,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 559,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fbe5f3474560354a04b864b55ff54df00df6f04c3a5f98471a27f2c13d38f720"
+        },
+        "seconds": 14.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ef81f9c2c8eb2c6f",
+        "title": "Flex to purchase inverter brand EPC Power for $4.4 billion",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.86,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 490,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0bfd5a63d20914be02e7e97346042df0c584995018b0b341689d75c6772cced3"
+        },
+        "seconds": 13.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f493ac92985faf57",
+        "title": "Asset Manager and German Pension Fund Clash Over $2 Billion US Property Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.87,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 551,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a377e47b8a65d6b697770d002bf1c63c285062c891b2a6c5876b4bcc5263e3cf"
+        },
+        "seconds": 14.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a90e99b2f319b02d",
+        "title": "American Healthcare REIT On A $1.5B Senior Housing Buying Spree",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.81,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 591,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f84fd2864791d67e35196e19eb87cf7a6a49d2308b637acecff0a2cc90394f90"
+        },
+        "seconds": 13.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a2bbc3e1b404d629",
+        "title": "Crusoe signs $13bn deal with Jane Street - report",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.47,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 539,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "19fdc102d134c704572c647aaea3bb34e0a59900b085b0cdd0520fee4d58dbb6"
+        },
+        "seconds": 13.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4afb9808f5503420",
+        "title": "Newmark Facilitates $215.8M in Refinancing for Waypoint Residential Multifamily Portfolio in Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.84,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 640,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "7de6d64ca268b598db06f13eda386329fc6aa4e529a4ec267c7a7dc5260f5719"
+        },
+        "seconds": 15.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6fe2accf1bf5009e",
+        "title": "Kansas’ Equity Bank to expand in Iowa with $123.8M deal",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 578,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a91935728c1375f17e81b2f8e312881afa54e4b17309a0dab20b9dd51e2113d8"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c278230af7bb5238",
+        "title": "Goldman Sachs Alternatives, Cleanhill Partners sell PCS manufacturer EPC Power for US$4.4 billion",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.79,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 676,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e82512d5e254f68152cb7f1087224760824baab324aacc2bf7382c6c9561bad4"
+        },
+        "seconds": 16.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "91683f5854f66a9e",
+        "title": "Flex Makes $4.4B Bet on 800V AI Data Center Power with EPC Power Acquisition",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.55,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 666,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d2f7d77413869e7823f9682b0e98053e7ee72a620cf1d7c94df7c021122faa26"
+        },
+        "seconds": 13.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6a729804da079b34",
+        "title": "Joint Venture Lands $44M Refi for Tampa-Area Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 553,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b52a8f848b1d142561c3747d7061ee2f4359c98df86357fc6b32fbaf5f35bb95"
+        },
+        "seconds": 17.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a92c92c1a2cf986e",
+        "title": "Flex Pays $4.4B for EPC Power as AI Data Centers Push 800V Architecture",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.94,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 692,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "a410a44aeb348d9ff0806ac6a3c54f34395583b37ca38a4425eb960538ab9898"
+        },
+        "seconds": 12.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "feec72a6036ab9a5",
+        "title": "Burlington Moving HQ To Philly, Buys Office Building For $240M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.56,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 540,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "4a2e237d10de650610e83259572a2478a8e00a71a0878370ba1f5a77f9946f79"
+        },
+        "seconds": 13.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3cdbb8b3a8816c4b",
+        "title": "Walker & Dunlop Arranges $390M Construction Financing for Jersey City Multifamily Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.05,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 651,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "98f673eb372e9e605c59e8c1908cd16628685b303a142d6a5bbac396c98474fd"
+        },
+        "seconds": 18.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d2bf8fc309181c46",
+        "title": "Services sector expands faster than forecast: ISM survey",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.97,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 680,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "60ba5d1f6e395f69fa6d03376d2f8b33abf8fbd687728397477a083f1bd251f5"
+        },
+        "seconds": 16.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c41d5cc153e20444",
+        "title": "Uptick in Hiring Marred by Slow Wage Growth, Inflation in the U.S.: Feds",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.32,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 773,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7e0858497aa5a22c9b9905c0dbe60aa92bc32288b1ff3161bc452656dd1b4d6e"
+        },
+        "seconds": 18.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "df996f9d88608dc8",
+        "title": "Netskope Q2 Revenue Jumps 29% as AI Security Pipeline Builds",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.12,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 531,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "98aac3245b502cedcb8eccad808009eb64da3723dfed09e3ed1343b2ac4ff79c"
+        },
+        "seconds": 12.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "104d5db3991964da",
+        "title": "Downtown D.C. Office Conversion Secures $176M Loan, New Majority Partner",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.52,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 567,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a1deea2ef1d2f71b6f8152eb3e9d19a1dd090cfadd87e71bb3225caff33ba613"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "26745405de81a5f3",
+        "title": "Amtrak breaks ground on $1B NYC maintenance facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.18,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 504,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "43cd1e911cc01960f131388eed364d804bba090551ab0ec5598d56c4d6377598"
+        },
+        "seconds": 14.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "04d272cec6d5aee2",
+        "title": "Merchants Capital Secures $138M+for 296-Unit Multifamily Mixed-Use Development in White Plains New York",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.93,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 605,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8bc0d9c940bdcacd12ce9c324b22312e0de76d2696bd18187e86e624bc705dc6"
+        },
+        "seconds": 15.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "29508d5915a6b561",
+        "title": "Waller leans toward hold as September rate decision nears",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.89,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 280,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "7d1c52b20e0b8bcf03851a9f57ecb05118e047c6037a129616beb9a997f6267e"
+        },
+        "seconds": 15.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9cc4fbb67ef33977",
+        "title": "Rockpoint Buys Oceanfront Fort Lauderdale Hotel for $47M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.94,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 285,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4534317e3f7963b628550874b35ae1ccbe1178caa9a9afd1e4b0d1df260b908c"
+        },
+        "seconds": 7.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c267c8a9aebfbc1b",
+        "title": "U.S. Economy Posts Strong Rebound in August, Adds 162,000 New Jobs",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.68,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 314,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "150735162d742408e8875ce09d81734ff1537b6778d9094c303c8b87b53a7ab3"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6ae18d4c15e9453d",
+        "title": "Vertiv to Acquire UtilityInnovation Group for $1.45B",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.08,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 331,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "13f8072b967ef9fccec0bffb9b8c919af4527fdb8184b67d3b29f1a0698ea496"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0e23911cda43c33d",
+        "title": "Elevated crack spreads and crude oil prices contribute to higher prices at the pump",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.61,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 350,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "7c3f21a419f1d7851f6c3fca998f3b9dd66249414fa8a612d5fc4de85dc4905c"
+        },
+        "seconds": 17.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "854db87e8b1f0a9b",
+        "title": "Speaker Julie Menin and Council Members Honor 25th Anniversary of 9/11 with Funding Announcement and Wreath-Laying Ceremony",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 353,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4581811460ff2c624ef7ee38611f48212195a7e2e11215be2ef19012a9e19cc4"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9a9a5988daf46f1b",
+        "title": "Firmus to invest $300m in SubCo's upcoming Australia-US subsea cable",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.81,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 334,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e4de0cabde04ff195c384cb407ccfa80d218a5282a12287a8ae08f58fe29be7f"
+        },
+        "seconds": 8.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0cb48fe6647d3a84",
+        "title": "Bitdeer buys 200 acres in Milam County, Texas, to expand AI and HPC data center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.84,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 310,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ad8a3a1cf066a8f99572abf14f712e1c1d7a423de457cb3f9a99e4ffed2f35bd"
+        },
+        "seconds": 7.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c753241e6c4e328b",
+        "title": "LA City Council Votes to Fast-Track Some Projects Related to 2028 Games",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.68,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 362,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "edfc76007b91b788db719701219d8c0e6ffea5b4259503acff2845cbcba96028"
+        },
+        "seconds": 15.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ccce72f11d2fe38c",
+        "title": "Revolut wins US charter with limits on four products",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 374,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d290b39d0627208acded2d7f8948abcd866f5f3e51d143a39226c67b82585382"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2f267071ea91a751",
+        "title": "Deal Roundup: Carlyle, Dynasty Equity Sixth Street close minority investments in $9.6bn Khosla family buyout of Seattle Seahawks",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.77,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 292,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "0a12030b4357235edd8df9393ac601d9f0bff2c55cbe1d3107a255ab86570beb"
+        },
+        "seconds": 10.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5c9d70dc3953aa01",
+        "title": "Energy Vault secures full land ownership for 1GWh Stoney Creek BESS in Australia",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 321,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "8fec4af4b510d548f90216cca311cbaa41c996f0e478dbc7f03670b469a44b01"
+        },
+        "seconds": 17.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b5f9c30388eb3d60",
+        "title": "Equinor to Deploy Cable Monitoring Tech at 9-Year-Old Offshore Wind Farm",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.31,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 354,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "a218719ec571edbff2bc3b4a20db72f619d24a10d9d32c880a3d0d6c3399685b"
+        },
+        "seconds": 8.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "469ac7254a681d4d",
+        "title": "ISM: Service sector expanded in August",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 360,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "450993b490f5d1145529156764a8937bf26ffebc8ea022641fce617b76361c5a"
+        },
+        "seconds": 9.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "146fb31ff78e682c",
+        "title": "Data center proposal approved by local council in suburb of Frankfurt, Germany",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.98,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 317,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d83b08b7d6f5b518e95c49e6fb96a46844ff2b5474a964d5f388a89e544adc73"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 34,
+    "published": 34,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams_social.png",
+      "insights/fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams.html",
+      "insights/flex-to-purchase-inverter-brand-epc-power-for-4-4-billion_social.png",
+      "insights/flex-to-purchase-inverter-brand-epc-power-for-4-4-billion.html",
+      "insights/asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio_social.png",
+      "insights/asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio.html",
+      "insights/american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree_social.png",
+      "insights/american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree.html",
+      "insights/crusoe-signs-13bn-deal-with-jane-street-report_social.png",
+      "insights/crusoe-signs-13bn-deal-with-jane-street-report.html",
+      "insights/newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p_social.png",
+      "insights/newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p.html",
+      "insights/kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal_social.png",
+      "insights/kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal.html",
+      "insights/goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us_social.png",
+      "insights/goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us.html",
+      "insights/flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition_social.png",
+      "insights/flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition.html",
+      "insights/joint-venture-lands-44m-refi-for-tampa-area-apartments_social.png",
+      "insights/joint-venture-lands-44m-refi-for-tampa-area-apartments.html",
+      "insights/flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture_social.png",
+      "insights/flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture.html",
+      "insights/burlington-moving-hq-to-philly-buys-office-building-for-240m_social.png",
+      "insights/burlington-moving-hq-to-philly-buys-office-building-for-240m.html",
+      "insights/walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d_social.png",
+      "insights/walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d.html",
+      "insights/services-sector-expands-faster-than-forecast-ism-survey_social.png",
+      "insights/services-sector-expands-faster-than-forecast-ism-survey.html",
+      "insights/uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds_social.png",
+      "insights/uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds.html",
+      "insights/netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds_social.png",
+      "insights/netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds.html",
+      "insights/downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner_social.png",
+      "insights/downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner.html",
+      "insights/amtrak-breaks-ground-on-1b-nyc-maintenance-facility_social.png",
+      "insights/amtrak-breaks-ground-on-1b-nyc-maintenance-facility.html",
+      "insights/merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain_social.png",
+      "insights/merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain.html",
+      "insights/waller-leans-toward-hold-as-september-rate-decision-nears_social.png",
+      "insights/waller-leans-toward-hold-as-september-rate-decision-nears.html",
+      "insights/rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m_social.png",
+      "insights/rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m.html",
+      "insights/u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs_social.png",
+      "insights/u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs.html",
+      "insights/vertiv-to-acquire-utilityinnovation-group-for-1-45b_social.png",
+      "insights/vertiv-to-acquire-utilityinnovation-group-for-1-45b.html",
+      "insights/elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p_social.png",
+      "insights/elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p.html",
+      "insights/speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund_social.png",
+      "insights/speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund.html",
+      "insights/firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable_social.png",
+      "insights/firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable.html",
+      "insights/bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center_social.png",
+      "insights/bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center.html",
+      "insights/la-city-council-votes-to-fast-track-some-projects-related-to-2028-games_social.png",
+      "insights/la-city-council-votes-to-fast-track-some-projects-related-to-2028-games.html",
+      "insights/revolut-wins-us-charter-with-limits-on-four-products_social.png",
+      "insights/revolut-wins-us-charter-with-limits-on-four-products.html",
+      "insights/carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout_social.png",
+      "insights/carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout.html",
+      "insights/energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia_social.png",
+      "insights/energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia.html",
+      "insights/equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm_social.png",
+      "insights/equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm.html",
+      "insights/ism-service-sector-expanded-in-august_social.png",
+      "insights/ism-service-sector-expanded-in-august.html",
+      "insights/data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany_social.png",
+      "insights/data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams_related.json",
+      "insights/flex-to-purchase-inverter-brand-epc-power-for-4-4-billion_related.json",
+      "insights/asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio_related.json",
+      "insights/american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree_related.json",
+      "insights/crusoe-signs-13bn-deal-with-jane-street-report_related.json",
+      "insights/newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p_related.json",
+      "insights/kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal_related.json",
+      "insights/goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us_related.json",
+      "insights/flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition_related.json",
+      "insights/joint-venture-lands-44m-refi-for-tampa-area-apartments_related.json",
+      "insights/flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture_related.json",
+      "insights/burlington-moving-hq-to-philly-buys-office-building-for-240m_related.json",
+      "insights/walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d_related.json",
+      "insights/services-sector-expands-faster-than-forecast-ism-survey_related.json",
+      "insights/uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds_related.json",
+      "insights/netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds_related.json",
+      "insights/downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner_related.json",
+      "insights/amtrak-breaks-ground-on-1b-nyc-maintenance-facility_related.json",
+      "insights/merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain_related.json",
+      "insights/waller-leans-toward-hold-as-september-rate-decision-nears_related.json",
+      "insights/rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m_related.json",
+      "insights/u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs_related.json",
+      "insights/vertiv-to-acquire-utilityinnovation-group-for-1-45b_related.json",
+      "insights/elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p_related.json",
+      "insights/speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund_related.json",
+      "insights/firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable_related.json",
+      "insights/bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center_related.json",
+      "insights/la-city-council-votes-to-fast-track-some-projects-related-to-2028-games_related.json",
+      "insights/revolut-wins-us-charter-with-limits-on-four-products_related.json",
+      "insights/carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout_related.json",
+      "insights/energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia_related.json",
+      "insights/equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm_related.json",
+      "insights/ism-service-sector-expanded-in-august_related.json",
+      "insights/data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "2eac7a196d8a3804",
+        "title": "FinCEN identifies nearly $13B in suspected crypto investment scams",
+        "slug": "fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams",
+        "url": "/insights/fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 68,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ef81f9c2c8eb2c6f",
+        "title": "Flex to purchase inverter brand EPC Power for $4.4 billion",
+        "slug": "flex-to-purchase-inverter-brand-epc-power-for-4-4-billion",
+        "url": "/insights/flex-to-purchase-inverter-brand-epc-power-for-4-4-billion.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f493ac92985faf57",
+        "title": "Asset Manager and German Pension Fund Clash Over $2 Billion US Property Portfolio",
+        "slug": "asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio",
+        "url": "/insights/asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a90e99b2f319b02d",
+        "title": "American Healthcare REIT On A $1.5B Senior Housing Buying Spree",
+        "slug": "american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree",
+        "url": "/insights/american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a2bbc3e1b404d629",
+        "title": "Crusoe signs $13bn deal with Jane Street - report",
+        "slug": "crusoe-signs-13bn-deal-with-jane-street-report",
+        "url": "/insights/crusoe-signs-13bn-deal-with-jane-street-report.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4afb9808f5503420",
+        "title": "Newmark Facilitates $215.8M in Refinancing for Waypoint Residential Multifamily Portfolio in Florida",
+        "slug": "newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p",
+        "url": "/insights/newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6fe2accf1bf5009e",
+        "title": "Kansas’ Equity Bank to expand in Iowa with $123.8M deal",
+        "slug": "kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal",
+        "url": "/insights/kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c278230af7bb5238",
+        "title": "Goldman Sachs Alternatives and Cleanhill Partners Sell EPC Power to Flex for US$4.4 Billion",
+        "slug": "goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us",
+        "url": "/insights/goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "91683f5854f66a9e",
+        "title": "Flex Makes $4.4B Bet on 800V AI Data Center Power with EPC Power Acquisition",
+        "slug": "flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition",
+        "url": "/insights/flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6a729804da079b34",
+        "title": "Joint Venture Lands $44M Refi for Tampa-Area Apartments",
+        "slug": "joint-venture-lands-44m-refi-for-tampa-area-apartments",
+        "url": "/insights/joint-venture-lands-44m-refi-for-tampa-area-apartments.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a92c92c1a2cf986e",
+        "title": "Flex Pays $4.4B for EPC Power as AI Data Centers Push 800V Architecture",
+        "slug": "flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture",
+        "url": "/insights/flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "feec72a6036ab9a5",
+        "title": "Burlington Moving HQ To Philly, Buys Office Building For $240M",
+        "slug": "burlington-moving-hq-to-philly-buys-office-building-for-240m",
+        "url": "/insights/burlington-moving-hq-to-philly-buys-office-building-for-240m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3cdbb8b3a8816c4b",
+        "title": "Walker & Dunlop Arranges $390M Construction Financing for Jersey City Multifamily Development",
+        "slug": "walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d",
+        "url": "/insights/walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d2bf8fc309181c46",
+        "title": "Services sector expands faster than forecast: ISM survey",
+        "slug": "services-sector-expands-faster-than-forecast-ism-survey",
+        "url": "/insights/services-sector-expands-faster-than-forecast-ism-survey.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c41d5cc153e20444",
+        "title": "Uptick in Hiring Marred by Slow Wage Growth, Inflation in the U.S.: Feds",
+        "slug": "uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds",
+        "url": "/insights/uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "df996f9d88608dc8",
+        "title": "Netskope Q2 Revenue Jumps 29% as AI Security Pipeline Builds",
+        "slug": "netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds",
+        "url": "/insights/netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "104d5db3991964da",
+        "title": "Downtown D.C. Office Conversion Secures $176M Loan, New Majority Partner",
+        "slug": "downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner",
+        "url": "/insights/downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "26745405de81a5f3",
+        "title": "Amtrak breaks ground on $1B NYC maintenance facility",
+        "slug": "amtrak-breaks-ground-on-1b-nyc-maintenance-facility",
+        "url": "/insights/amtrak-breaks-ground-on-1b-nyc-maintenance-facility.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "04d272cec6d5aee2",
+        "title": "Merchants Capital Secures $138M+ for 296-Unit Mixed-Use Development in White Plains, New York",
+        "slug": "merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain",
+        "url": "/insights/merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "29508d5915a6b561",
+        "title": "Waller leans toward hold as September rate decision nears",
+        "slug": "waller-leans-toward-hold-as-september-rate-decision-nears",
+        "url": "/insights/waller-leans-toward-hold-as-september-rate-decision-nears.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9cc4fbb67ef33977",
+        "title": "Rockpoint Buys Oceanfront Fort Lauderdale Hotel for $47M",
+        "slug": "rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m",
+        "url": "/insights/rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c267c8a9aebfbc1b",
+        "title": "U.S. Economy Posts Strong Rebound in August, Adds 162,000 New Jobs",
+        "slug": "u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs",
+        "url": "/insights/u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6ae18d4c15e9453d",
+        "title": "Vertiv to Acquire UtilityInnovation Group for $1.45B",
+        "slug": "vertiv-to-acquire-utilityinnovation-group-for-1-45b",
+        "url": "/insights/vertiv-to-acquire-utilityinnovation-group-for-1-45b.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0e23911cda43c33d",
+        "title": "Elevated crack spreads and crude oil prices contribute to higher prices at the pump",
+        "slug": "elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p",
+        "url": "/insights/elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "854db87e8b1f0a9b",
+        "title": "Speaker Julie Menin and Council Members Honor 25th Anniversary of 9/11 with Funding Announcement and Wreath-Laying Ceremony",
+        "slug": "speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund",
+        "url": "/insights/speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9a9a5988daf46f1b",
+        "title": "Firmus to invest $300m in SubCo's upcoming Australia-US subsea cable",
+        "slug": "firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable",
+        "url": "/insights/firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0cb48fe6647d3a84",
+        "title": "Bitdeer buys 200 acres in Milam County, Texas, to expand AI and HPC data center",
+        "slug": "bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center",
+        "url": "/insights/bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c753241e6c4e328b",
+        "title": "LA City Council Votes to Fast-Track Some Projects Related to 2028 Games",
+        "slug": "la-city-council-votes-to-fast-track-some-projects-related-to-2028-games",
+        "url": "/insights/la-city-council-votes-to-fast-track-some-projects-related-to-2028-games.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ccce72f11d2fe38c",
+        "title": "Revolut wins US charter with limits on four products",
+        "slug": "revolut-wins-us-charter-with-limits-on-four-products",
+        "url": "/insights/revolut-wins-us-charter-with-limits-on-four-products.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2f267071ea91a751",
+        "title": "Carlyle, Dynasty Equity close minority investments in $9.6bn Khosla family buyout of Seattle Seahawks",
+        "slug": "carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout",
+        "url": "/insights/carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "5c9d70dc3953aa01",
+        "title": "Energy Vault secures full land ownership for 1GWh Stoney Creek BESS in Australia",
+        "slug": "energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia",
+        "url": "/insights/energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b5f9c30388eb3d60",
+        "title": "Equinor to Deploy Cable Monitoring Tech at 9-Year-Old Offshore Wind Farm",
+        "slug": "equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm",
+        "url": "/insights/equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "469ac7254a681d4d",
+        "title": "ISM: Service sector expanded in August",
+        "slug": "ism-service-sector-expanded-in-august",
+        "url": "/insights/ism-service-sector-expanded-in-august.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "146fb31ff78e682c",
+        "title": "Data center proposal approved by local council in suburb of Frankfurt, Germany",
+        "slug": "data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany",
+        "url": "/insights/data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "2eac7a196d8a3804",
+        "slug": "fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams",
+        "title": "FinCEN identifies nearly $13B in suspected crypto investment scams",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ef81f9c2c8eb2c6f",
+        "slug": "flex-to-purchase-inverter-brand-epc-power-for-4-4-billion",
+        "title": "Flex to purchase inverter brand EPC Power for $4.4 billion",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/flex-to-purchase-inverter-brand-epc-power-for-4-4-billion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f493ac92985faf57",
+        "slug": "asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio",
+        "title": "Asset Manager and German Pension Fund Clash Over $2 Billion US Property Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a90e99b2f319b02d",
+        "slug": "american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree",
+        "title": "American Healthcare REIT On A $1.5B Senior Housing Buying Spree",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a2bbc3e1b404d629",
+        "slug": "crusoe-signs-13bn-deal-with-jane-street-report",
+        "title": "Crusoe signs $13bn deal with Jane Street - report",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/crusoe-signs-13bn-deal-with-jane-street-report.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4afb9808f5503420",
+        "slug": "newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p",
+        "title": "Newmark Facilitates $215.8M in Refinancing for Waypoint Residential Multifamily Portfolio in Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6fe2accf1bf5009e",
+        "slug": "kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal",
+        "title": "Kansas’ Equity Bank to expand in Iowa with $123.8M deal",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c278230af7bb5238",
+        "slug": "goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us",
+        "title": "Goldman Sachs Alternatives, Cleanhill Partners sell PCS manufacturer EPC Power for US$4.4 billion",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us.html",
+        "reason": ""
+      },
+      {
+        "object_id": "91683f5854f66a9e",
+        "slug": "flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition",
+        "title": "Flex Makes $4.4B Bet on 800V AI Data Center Power with EPC Power Acquisition",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6a729804da079b34",
+        "slug": "joint-venture-lands-44m-refi-for-tampa-area-apartments",
+        "title": "Joint Venture Lands $44M Refi for Tampa-Area Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/joint-venture-lands-44m-refi-for-tampa-area-apartments.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a92c92c1a2cf986e",
+        "slug": "flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture",
+        "title": "Flex Pays $4.4B for EPC Power as AI Data Centers Push 800V Architecture",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture.html",
+        "reason": ""
+      },
+      {
+        "object_id": "feec72a6036ab9a5",
+        "slug": "burlington-moving-hq-to-philly-buys-office-building-for-240m",
+        "title": "Burlington Moving HQ To Philly, Buys Office Building For $240M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/burlington-moving-hq-to-philly-buys-office-building-for-240m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3cdbb8b3a8816c4b",
+        "slug": "walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d",
+        "title": "Walker & Dunlop Arranges $390M Construction Financing for Jersey City Multifamily Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d2bf8fc309181c46",
+        "slug": "services-sector-expands-faster-than-forecast-ism-survey",
+        "title": "Services sector expands faster than forecast: ISM survey",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/services-sector-expands-faster-than-forecast-ism-survey.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c41d5cc153e20444",
+        "slug": "uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds",
+        "title": "Uptick in Hiring Marred by Slow Wage Growth, Inflation in the U.S.: Feds",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds.html",
+        "reason": ""
+      },
+      {
+        "object_id": "df996f9d88608dc8",
+        "slug": "netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds",
+        "title": "Netskope Q2 Revenue Jumps 29% as AI Security Pipeline Builds",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds.html",
+        "reason": ""
+      },
+      {
+        "object_id": "104d5db3991964da",
+        "slug": "downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner",
+        "title": "Downtown D.C. Office Conversion Secures $176M Loan, New Majority Partner",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner.html",
+        "reason": ""
+      },
+      {
+        "object_id": "26745405de81a5f3",
+        "slug": "amtrak-breaks-ground-on-1b-nyc-maintenance-facility",
+        "title": "Amtrak breaks ground on $1B NYC maintenance facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/amtrak-breaks-ground-on-1b-nyc-maintenance-facility.html",
+        "reason": ""
+      },
+      {
+        "object_id": "04d272cec6d5aee2",
+        "slug": "merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain",
+        "title": "Merchants Capital Secures $138M+for 296-Unit Multifamily Mixed-Use Development in White Plains New York",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain.html",
+        "reason": ""
+      },
+      {
+        "object_id": "29508d5915a6b561",
+        "slug": "waller-leans-toward-hold-as-september-rate-decision-nears",
+        "title": "Waller leans toward hold as September rate decision nears",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/waller-leans-toward-hold-as-september-rate-decision-nears.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9cc4fbb67ef33977",
+        "slug": "rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m",
+        "title": "Rockpoint Buys Oceanfront Fort Lauderdale Hotel for $47M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c267c8a9aebfbc1b",
+        "slug": "u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs",
+        "title": "U.S. Economy Posts Strong Rebound in August, Adds 162,000 New Jobs",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6ae18d4c15e9453d",
+        "slug": "vertiv-to-acquire-utilityinnovation-group-for-1-45b",
+        "title": "Vertiv to Acquire UtilityInnovation Group for $1.45B",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/vertiv-to-acquire-utilityinnovation-group-for-1-45b.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0e23911cda43c33d",
+        "slug": "elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p",
+        "title": "Elevated crack spreads and crude oil prices contribute to higher prices at the pump",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p.html",
+        "reason": ""
+      },
+      {
+        "object_id": "854db87e8b1f0a9b",
+        "slug": "speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund",
+        "title": "Speaker Julie Menin and Council Members Honor 25th Anniversary of 9/11 with Funding Announcement and Wreath-Laying Ceremony",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9a9a5988daf46f1b",
+        "slug": "firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable",
+        "title": "Firmus to invest $300m in SubCo's upcoming Australia-US subsea cable",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0cb48fe6647d3a84",
+        "slug": "bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center",
+        "title": "Bitdeer buys 200 acres in Milam County, Texas, to expand AI and HPC data center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c753241e6c4e328b",
+        "slug": "la-city-council-votes-to-fast-track-some-projects-related-to-2028-games",
+        "title": "LA City Council Votes to Fast-Track Some Projects Related to 2028 Games",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/la-city-council-votes-to-fast-track-some-projects-related-to-2028-games.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ccce72f11d2fe38c",
+        "slug": "revolut-wins-us-charter-with-limits-on-four-products",
+        "title": "Revolut wins US charter with limits on four products",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/revolut-wins-us-charter-with-limits-on-four-products.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2f267071ea91a751",
+        "slug": "carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout",
+        "title": "Deal Roundup: Carlyle, Dynasty Equity Sixth Street close minority investments in $9.6bn Khosla family buyout of Seattle Seahawks",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5c9d70dc3953aa01",
+        "slug": "energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia",
+        "title": "Energy Vault secures full land ownership for 1GWh Stoney Creek BESS in Australia",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b5f9c30388eb3d60",
+        "slug": "equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm",
+        "title": "Equinor to Deploy Cable Monitoring Tech at 9-Year-Old Offshore Wind Farm",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm.html",
+        "reason": ""
+      },
+      {
+        "object_id": "469ac7254a681d4d",
+        "slug": "ism-service-sector-expanded-in-august",
+        "title": "ISM: Service sector expanded in August",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ism-service-sector-expanded-in-august.html",
+        "reason": ""
+      },
+      {
+        "object_id": "146fb31ff78e682c",
+        "slug": "data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany",
+        "title": "Data center proposal approved by local council in suburb of Frankfurt, Germany",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 39,
+    "successful_calls": 39,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.14,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.93,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.16,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.57,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.12,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 74.42,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 65.68,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 82.22,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.52,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.23,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 34 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 252.16,
+  "status": "ready",
+  "candidate_count": 786,
+  "event_count": 736,
+  "articles": [
+    {
+      "event_id": "2eac7a196d8a3804",
+      "title": "FinCEN identifies nearly $13B in suspected crypto investment scams",
+      "slug": "fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams",
+      "url": "/insights/fincen-identifies-nearly-13b-in-suspected-crypto-investment-scams.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 68,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ef81f9c2c8eb2c6f",
+      "title": "Flex to purchase inverter brand EPC Power for $4.4 billion",
+      "slug": "flex-to-purchase-inverter-brand-epc-power-for-4-4-billion",
+      "url": "/insights/flex-to-purchase-inverter-brand-epc-power-for-4-4-billion.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f493ac92985faf57",
+      "title": "Asset Manager and German Pension Fund Clash Over $2 Billion US Property Portfolio",
+      "slug": "asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio",
+      "url": "/insights/asset-manager-and-german-pension-fund-clash-over-2-billion-us-property-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a90e99b2f319b02d",
+      "title": "American Healthcare REIT On A $1.5B Senior Housing Buying Spree",
+      "slug": "american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree",
+      "url": "/insights/american-healthcare-reit-on-a-1-5b-senior-housing-buying-spree.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a2bbc3e1b404d629",
+      "title": "Crusoe signs $13bn deal with Jane Street - report",
+      "slug": "crusoe-signs-13bn-deal-with-jane-street-report",
+      "url": "/insights/crusoe-signs-13bn-deal-with-jane-street-report.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4afb9808f5503420",
+      "title": "Newmark Facilitates $215.8M in Refinancing for Waypoint Residential Multifamily Portfolio in Florida",
+      "slug": "newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p",
+      "url": "/insights/newmark-facilitates-215-8m-in-refinancing-for-waypoint-residential-multifamily-p.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6fe2accf1bf5009e",
+      "title": "Kansas’ Equity Bank to expand in Iowa with $123.8M deal",
+      "slug": "kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal",
+      "url": "/insights/kansas-equity-bank-to-expand-in-iowa-with-123-8m-deal.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c278230af7bb5238",
+      "title": "Goldman Sachs Alternatives and Cleanhill Partners Sell EPC Power to Flex for US$4.4 Billion",
+      "slug": "goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us",
+      "url": "/insights/goldman-sachs-alternatives-and-cleanhill-partners-sell-epc-power-to-flex-for-us.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "91683f5854f66a9e",
+      "title": "Flex Makes $4.4B Bet on 800V AI Data Center Power with EPC Power Acquisition",
+      "slug": "flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition",
+      "url": "/insights/flex-makes-4-4b-bet-on-800v-ai-data-center-power-with-epc-power-acquisition.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6a729804da079b34",
+      "title": "Joint Venture Lands $44M Refi for Tampa-Area Apartments",
+      "slug": "joint-venture-lands-44m-refi-for-tampa-area-apartments",
+      "url": "/insights/joint-venture-lands-44m-refi-for-tampa-area-apartments.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a92c92c1a2cf986e",
+      "title": "Flex Pays $4.4B for EPC Power as AI Data Centers Push 800V Architecture",
+      "slug": "flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture",
+      "url": "/insights/flex-pays-4-4b-for-epc-power-as-ai-data-centers-push-800v-architecture.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "feec72a6036ab9a5",
+      "title": "Burlington Moving HQ To Philly, Buys Office Building For $240M",
+      "slug": "burlington-moving-hq-to-philly-buys-office-building-for-240m",
+      "url": "/insights/burlington-moving-hq-to-philly-buys-office-building-for-240m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3cdbb8b3a8816c4b",
+      "title": "Walker & Dunlop Arranges $390M Construction Financing for Jersey City Multifamily Development",
+      "slug": "walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d",
+      "url": "/insights/walker-dunlop-arranges-390m-construction-financing-for-jersey-city-multifamily-d.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d2bf8fc309181c46",
+      "title": "Services sector expands faster than forecast: ISM survey",
+      "slug": "services-sector-expands-faster-than-forecast-ism-survey",
+      "url": "/insights/services-sector-expands-faster-than-forecast-ism-survey.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c41d5cc153e20444",
+      "title": "Uptick in Hiring Marred by Slow Wage Growth, Inflation in the U.S.: Feds",
+      "slug": "uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds",
+      "url": "/insights/uptick-in-hiring-marred-by-slow-wage-growth-inflation-in-the-u-s-feds.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "df996f9d88608dc8",
+      "title": "Netskope Q2 Revenue Jumps 29% as AI Security Pipeline Builds",
+      "slug": "netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds",
+      "url": "/insights/netskope-q2-revenue-jumps-29-as-ai-security-pipeline-builds.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "104d5db3991964da",
+      "title": "Downtown D.C. Office Conversion Secures $176M Loan, New Majority Partner",
+      "slug": "downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner",
+      "url": "/insights/downtown-d-c-office-conversion-secures-176m-loan-new-majority-partner.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "26745405de81a5f3",
+      "title": "Amtrak breaks ground on $1B NYC maintenance facility",
+      "slug": "amtrak-breaks-ground-on-1b-nyc-maintenance-facility",
+      "url": "/insights/amtrak-breaks-ground-on-1b-nyc-maintenance-facility.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "04d272cec6d5aee2",
+      "title": "Merchants Capital Secures $138M+ for 296-Unit Mixed-Use Development in White Plains, New York",
+      "slug": "merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain",
+      "url": "/insights/merchants-capital-secures-138m-for-296-unit-mixed-use-development-in-white-plain.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "29508d5915a6b561",
+      "title": "Waller leans toward hold as September rate decision nears",
+      "slug": "waller-leans-toward-hold-as-september-rate-decision-nears",
+      "url": "/insights/waller-leans-toward-hold-as-september-rate-decision-nears.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9cc4fbb67ef33977",
+      "title": "Rockpoint Buys Oceanfront Fort Lauderdale Hotel for $47M",
+      "slug": "rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m",
+      "url": "/insights/rockpoint-buys-oceanfront-fort-lauderdale-hotel-for-47m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c267c8a9aebfbc1b",
+      "title": "U.S. Economy Posts Strong Rebound in August, Adds 162,000 New Jobs",
+      "slug": "u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs",
+      "url": "/insights/u-s-economy-posts-strong-rebound-in-august-adds-162-000-new-jobs.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6ae18d4c15e9453d",
+      "title": "Vertiv to Acquire UtilityInnovation Group for $1.45B",
+      "slug": "vertiv-to-acquire-utilityinnovation-group-for-1-45b",
+      "url": "/insights/vertiv-to-acquire-utilityinnovation-group-for-1-45b.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0e23911cda43c33d",
+      "title": "Elevated crack spreads and crude oil prices contribute to higher prices at the pump",
+      "slug": "elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p",
+      "url": "/insights/elevated-crack-spreads-and-crude-oil-prices-contribute-to-higher-prices-at-the-p.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "854db87e8b1f0a9b",
+      "title": "Speaker Julie Menin and Council Members Honor 25th Anniversary of 9/11 with Funding Announcement and Wreath-Laying Ceremony",
+      "slug": "speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund",
+      "url": "/insights/speaker-julie-menin-and-council-members-honor-25th-anniversary-of-9-11-with-fund.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9a9a5988daf46f1b",
+      "title": "Firmus to invest $300m in SubCo's upcoming Australia-US subsea cable",
+      "slug": "firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable",
+      "url": "/insights/firmus-to-invest-300m-in-subco-s-upcoming-australia-us-subsea-cable.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0cb48fe6647d3a84",
+      "title": "Bitdeer buys 200 acres in Milam County, Texas, to expand AI and HPC data center",
+      "slug": "bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center",
+      "url": "/insights/bitdeer-buys-200-acres-in-milam-county-texas-to-expand-ai-and-hpc-data-center.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c753241e6c4e328b",
+      "title": "LA City Council Votes to Fast-Track Some Projects Related to 2028 Games",
+      "slug": "la-city-council-votes-to-fast-track-some-projects-related-to-2028-games",
+      "url": "/insights/la-city-council-votes-to-fast-track-some-projects-related-to-2028-games.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ccce72f11d2fe38c",
+      "title": "Revolut wins US charter with limits on four products",
+      "slug": "revolut-wins-us-charter-with-limits-on-four-products",
+      "url": "/insights/revolut-wins-us-charter-with-limits-on-four-products.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2f267071ea91a751",
+      "title": "Carlyle, Dynasty Equity close minority investments in $9.6bn Khosla family buyout of Seattle Seahawks",
+      "slug": "carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout",
+      "url": "/insights/carlyle-dynasty-equity-close-minority-investments-in-9-6bn-khosla-family-buyout.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "5c9d70dc3953aa01",
+      "title": "Energy Vault secures full land ownership for 1GWh Stoney Creek BESS in Australia",
+      "slug": "energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia",
+      "url": "/insights/energy-vault-secures-full-land-ownership-for-1gwh-stoney-creek-bess-in-australia.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b5f9c30388eb3d60",
+      "title": "Equinor to Deploy Cable Monitoring Tech at 9-Year-Old Offshore Wind Farm",
+      "slug": "equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm",
+      "url": "/insights/equinor-to-deploy-cable-monitoring-tech-at-9-year-old-offshore-wind-farm.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "469ac7254a681d4d",
+      "title": "ISM: Service sector expanded in August",
+      "slug": "ism-service-sector-expanded-in-august",
+      "url": "/insights/ism-service-sector-expanded-in-august.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "146fb31ff78e682c",
+      "title": "Data center proposal approved by local council in suburb of Frankfurt, Germany",
+      "slug": "data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany",
+      "url": "/insights/data-center-proposal-approved-by-local-council-in-suburb-of-frankfurt-germany.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 34
+}

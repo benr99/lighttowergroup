@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **825**
-- Distinct events: **778**
-- Articles: **29**
+- Candidates: **786**
+- Distinct events: **736**
+- Articles: **34**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,32 +12,37 @@
 
 ## Published candidates
 
-- **analysis** — U.S. Trade Deficit Widens Sharply in July as Imports Surge and Exports Slip (2 sources; v3_daily_slate selection)
-- **analysis** — September 2026 CMBS Hard Maturities Reveal Higher Refinance Risk Despite Smaller Cohort (1 sources; v3_daily_slate selection)
-- **analysis** — Datacloud USA: $500bn Nvidia pact spotlights 20-year data centre financing gap (1 sources; v3_daily_slate selection)
-- **analysis** — Tishman Speyer refinances two-tower The Franklin office building in Chicago’s West Loop (1 sources; v3_daily_slate selection)
-- **analysis** — Robert Milne of Prospect Ridge: 5 Questions (1 sources; v3_daily_slate selection)
-- **analysis** — Crow Holdings Raising Nearly $3.3B Fund, Its Largest Ever (1 sources; v3_daily_slate selection)
-- **analysis** — Newmark Arranges $215.8M Bridge Refinancing for Five-Property Florida Multifamily Portfolio (1 sources; v3_daily_slate selection)
-- **analysis** — HPE’s AI Infrastructure Business Accelerates as Networking Orders Surge (1 sources; v3_daily_slate selection)
-- **analysis** — Suspicious Activity Reporting: Joint Statement on SAR Confidentiality Considerations Regarding Communications with Customers (1 sources; v3_daily_slate selection)
-- **analysis** — Angel Oak Mortgage raises $228.2 million from mostly non-QM assets (1 sources; v3_daily_slate selection)
-- **analysis** — Tishman Speyer’s TS Plus Acquires Rise a 376-Apartment Community in Anaheim (1 sources; v3_daily_slate selection)
-- **analysis** — Affinius Capital Lends $310M for Jersey City Multifamily Tower Build (1 sources; v3_daily_slate selection)
-- **analysis** — Why Gold Didn't Actually Overtake Treasury Securities as the World's "Favorite" Reserve Asset (1 sources; v3_daily_slate selection)
-- **analysis** — TabaPay eyes OCC charter with Denver bank deal (1 sources; v3_daily_slate selection)
-- **analysis** — FNBO to acquire Colorado bank in $204M deal (1 sources; v3_daily_slate selection)
-- **analysis** — Construction Loan Secured For 748-Unit Skyscraper at 201 Hudson Street In Jersey City, New Jersey (1 sources; v3_daily_slate selection)
-- **analysis** — Chobani to spend $1.2B to buy and invest in Pennsylvania plant (1 sources; v3_daily_slate selection)
-- **analysis** — Berkadia Arranges $44M Refinancing for The Harlow in Wesley Chapel, Florida (1 sources; v3_daily_slate selection)
-- **analysis** — Are Central Banks Moving Out of Dollar Assets? (1 sources; v3_daily_slate selection)
-- **analysis** — Bottom 90% of New Yorkers’ Incomes Stagnate As Very Richest See 58% Gain Since COVID (1 sources; v3_daily_slate selection)
-- **analysis** — Which states are most exposed to tariff increases? A new measure based on the consumption channel (1 sources; v3_daily_slate selection)
-- **analysis** — iPronics Raises $125M to Scale Silicon-Photonics OCS (1 sources; v3_daily_slate selection)
-- **brief** — TabaPay is seeking to buy a community bank for its charter (1 sources; v3_daily_slate selection)
-- **brief** — Charter CFO’s move to Blackstone-Google AI venture signals where finance talent is flowing (1 sources; v3_daily_slate selection)
-- **brief** — As feds retreat, California boosts fair-lending enforcement (2 sources; v3_daily_slate selection)
-- **brief** — Weekly average load in ERCOT continues near record high (1 sources; v3_daily_slate selection)
-- **brief** — Amazon signs first Asia Pacific standalone battery storage tolling deal for 50MW BESS in Australia (1 sources; v3_daily_slate selection)
-- **brief** — Cerebras Commits to 165 MW AI Data Center Campus in Finland (1 sources; v3_daily_slate selection)
-- **brief** — Engie starts up 251MW BESS projects in Chile, Grenergy sells fourth phase of Atacama solar-plus-storage complex (1 sources; v3_daily_slate selection)
+- **analysis** — FinCEN identifies nearly $13B in suspected crypto investment scams (1 sources; v3_daily_slate selection)
+- **analysis** — Flex to purchase inverter brand EPC Power for $4.4 billion (1 sources; v3_daily_slate selection)
+- **analysis** — Asset Manager and German Pension Fund Clash Over $2 Billion US Property Portfolio (1 sources; v3_daily_slate selection)
+- **analysis** — American Healthcare REIT On A $1.5B Senior Housing Buying Spree (1 sources; v3_daily_slate selection)
+- **analysis** — Crusoe signs $13bn deal with Jane Street - report (1 sources; v3_daily_slate selection)
+- **analysis** — Newmark Facilitates $215.8M in Refinancing for Waypoint Residential Multifamily Portfolio in Florida (1 sources; v3_daily_slate selection)
+- **analysis** — Kansas’ Equity Bank to expand in Iowa with $123.8M deal (1 sources; v3_daily_slate selection)
+- **analysis** — Goldman Sachs Alternatives and Cleanhill Partners Sell EPC Power to Flex for US$4.4 Billion (1 sources; v3_daily_slate selection)
+- **analysis** — Flex Makes $4.4B Bet on 800V AI Data Center Power with EPC Power Acquisition (1 sources; v3_daily_slate selection)
+- **analysis** — Joint Venture Lands $44M Refi for Tampa-Area Apartments (1 sources; v3_daily_slate selection)
+- **analysis** — Flex Pays $4.4B for EPC Power as AI Data Centers Push 800V Architecture (1 sources; v3_daily_slate selection)
+- **analysis** — Burlington Moving HQ To Philly, Buys Office Building For $240M (1 sources; v3_daily_slate selection)
+- **analysis** — Walker & Dunlop Arranges $390M Construction Financing for Jersey City Multifamily Development (1 sources; v3_daily_slate selection)
+- **analysis** — Services sector expands faster than forecast: ISM survey (1 sources; v3_daily_slate selection)
+- **analysis** — Uptick in Hiring Marred by Slow Wage Growth, Inflation in the U.S.: Feds (1 sources; v3_daily_slate selection)
+- **analysis** — Netskope Q2 Revenue Jumps 29% as AI Security Pipeline Builds (1 sources; v3_daily_slate selection)
+- **analysis** — Downtown D.C. Office Conversion Secures $176M Loan, New Majority Partner (1 sources; v3_daily_slate selection)
+- **analysis** — Amtrak breaks ground on $1B NYC maintenance facility (1 sources; v3_daily_slate selection)
+- **analysis** — Merchants Capital Secures $138M+ for 296-Unit Mixed-Use Development in White Plains, New York (1 sources; v3_daily_slate selection)
+- **brief** — Waller leans toward hold as September rate decision nears (1 sources; v3_daily_slate selection)
+- **brief** — Rockpoint Buys Oceanfront Fort Lauderdale Hotel for $47M (1 sources; v3_daily_slate selection)
+- **brief** — U.S. Economy Posts Strong Rebound in August, Adds 162,000 New Jobs (1 sources; v3_daily_slate selection)
+- **brief** — Vertiv to Acquire UtilityInnovation Group for $1.45B (1 sources; v3_daily_slate selection)
+- **brief** — Elevated crack spreads and crude oil prices contribute to higher prices at the pump (1 sources; v3_daily_slate selection)
+- **brief** — Speaker Julie Menin and Council Members Honor 25th Anniversary of 9/11 with Funding Announcement and Wreath-Laying Ceremony (1 sources; v3_daily_slate selection)
+- **brief** — Firmus to invest $300m in SubCo's upcoming Australia-US subsea cable (1 sources; v3_daily_slate selection)
+- **brief** — Bitdeer buys 200 acres in Milam County, Texas, to expand AI and HPC data center (1 sources; v3_daily_slate selection)
+- **brief** — LA City Council Votes to Fast-Track Some Projects Related to 2028 Games (1 sources; v3_daily_slate selection)
+- **brief** — Revolut wins US charter with limits on four products (1 sources; v3_daily_slate selection)
+- **brief** — Carlyle, Dynasty Equity close minority investments in $9.6bn Khosla family buyout of Seattle Seahawks (1 sources; v3_daily_slate selection)
+- **brief** — Energy Vault secures full land ownership for 1GWh Stoney Creek BESS in Australia (1 sources; v3_daily_slate selection)
+- **brief** — Equinor to Deploy Cable Monitoring Tech at 9-Year-Old Offshore Wind Farm (1 sources; v3_daily_slate selection)
+- **brief** — ISM: Service sector expanded in August (1 sources; v3_daily_slate selection)
+- **brief** — Data center proposal approved by local council in suburb of Frankfurt, Germany (1 sources; v3_daily_slate selection)
