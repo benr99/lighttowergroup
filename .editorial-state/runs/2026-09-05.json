@@ -1,0 +1,1775 @@
+{
+  "run_at": "2026-09-05T13:50:08.914890+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 639,
+  "documents_from_feeds": 536,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 589,
+  "documents_consolidated": 50,
+  "eligible": 100,
+  "enriched": 250,
+  "evidence_upgraded": 141,
+  "selected": 22,
+  "publication_candidates": 22,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 44,
+      "eligible": 7,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 333,
+      "eligible": 57,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 48,
+      "eligible": 10,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 10 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 90,
+      "eligible": 8,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "8 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 24,
+      "eligible": 12,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 12 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 2,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 47,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 5,
+    "tier_b": 17
+  },
+  "shortfalls": [
+    "banking_credit: only 3 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 5 of 10 eligible candidates cleared the floor, against a target of 10",
+    "energy: 8 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: only 4 of 12 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 66.4,
+    "mean": 23.8,
+    "stdev": 12.91,
+    "range_used": 66.4,
+    "median": 20.0,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 255,
+    "fetched": 241,
+    "from_cache": 0,
+    "blocked": 7,
+    "failed": 7,
+    "skipped_budget": 0,
+    "bytes_downloaded": 51093616,
+    "elapsed_ms": 61641,
+    "by_status": {
+      "full_text": 142,
+      "partial_text": 99,
+      "failed": 7,
+      "blocked": 7
+    }
+  },
+  "novelty": {
+    "new": 510,
+    "already_published": 10,
+    "minor_follow_up": 69
+  },
+  "memory": {
+    "events_remembered": 5896,
+    "published": 555,
+    "seen_but_not_run": 5341,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-05",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 204.1,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 22,
+    "written": 22,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 24,
+    "elapsed_seconds": 66.4,
+    "provider_attempts": {
+      "deepseek": 24
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "a6286a9d4938122f",
+        "title": "HUD Wants To Make It Easier To Bring Private Capital Into Public Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.36,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 689,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fe59b4b613eca7753b435fca897a1c80480140dad9ef4a0e48542477f376b34c"
+        },
+        "seconds": 14.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6ac6e6d7acf73737",
+        "title": "Global Holdings Lands $382M Refi for Midtown Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 529,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "02baad6a3c3447424cb01c25d4903dd42f3ef383635e2b4086f70df2b8d4acdd"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "848c34c8004f0014",
+        "title": "Private REIT Closes $650M Refinancing Of 549-Property Daycare Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.86,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 599,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f53c3c72976bc8e602ef68f70096b97d1c85c8d9e4e91c04bcf6e94fc16ee5d8"
+        },
+        "seconds": 13.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fe69e89471fb7220",
+        "title": "Blackstone Plans $7 Billion IPO of Spanish Resort Owner Hotel Investment Partners: Report",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 20.02,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 693,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "6723f7edecfb58309ef7d506603ea277ec9209bf873586e36f8c7dd88a426bd0"
+        },
+        "seconds": 20.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cc3a30f9ed4e8eb7",
+        "title": "Related Secures $65M Refi for Office Property in L.A.’s South Bay",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.55,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 555,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "dc3b2538e561292982d91d7923bcf1a06fa76ca7290bd3cf657fc94ecd2836ec"
+        },
+        "seconds": 16.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b520507fc238dd67",
+        "title": "Trump threatens trade halt if Fed does not cut rates",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.31,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 721,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "78fc789b85521912fd93cc6489b9483ce704ee22446fa4b17c4e2a362e38adc1"
+        },
+        "seconds": 16.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ea40346727f18cd8",
+        "title": "Vance calls on Fed to cut rates to ease home affordability",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 635,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "028e53fc953f7c925672dcd0c91662a72f19f430a974b25e7a820822712d7081"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dce04d47fb0dcd3c",
+        "title": "Gaia Lands Another Extension for Williamsburg Apartments’ $48M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.8,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 455,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "17d0ffbdcdeb5b3b4ccd79243fe76cfc56c29cda5063b77044c42530e1e49317"
+        },
+        "seconds": 13.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2e27911ec0b5f31f",
+        "title": "Flex Acquires Data Center Power Manufacturer EPC Power In $4.4B Deal",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.91,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 608,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "dee639797670a2fc26114222273004ac9c21ab76f0b8763a35d233c5fca9d2cb"
+        },
+        "seconds": 15.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1b9d51597a59d579",
+        "title": "The Week’s 10 Biggest Funding Rounds: Crusoe And Fluidstack Lead Multibillion-Dollar AI Infrastructure Haul",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.27,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 710,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3c6759fde79f65835e4b42dc521ff88dd931e2e8731d45aac7ad8fa4803ee9ae"
+        },
+        "seconds": 18.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "634cb62c945e29a7",
+        "title": "Flex acquires data center power conversion manufacturer EPC Power in $4.4bn deal",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.3,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 517,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "72fcd925aa1e7a583dd912ca9f802c64d609cd010af743d1290a77496f77c16c"
+        },
+        "seconds": 14.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f7988d8266ff1754",
+        "title": "Strong August jobs report redoubles focus on Federal Reserve’s inflation mandate",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 630,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "80fa04c2b8ec1eff07a26843c57e0bb376dd84c8d1efe6ec4d7b9fa1653a0f72"
+        },
+        "seconds": 14.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "277c1369c01d08fb",
+        "title": "Strong U.S. Jobs Report Sets the Stage for Possible Rate Hike",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.62,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 621,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9956420c7a7ac2f4d62a590953dea79a9cfaaadd44eb28b9eb18dcc44c14cfeb"
+        },
+        "seconds": 15.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a8318822a4a3f339",
+        "title": "Ares Buys Two Fully Leased Miami Warehouses for $109M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.59,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 500,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "06bb5135a7b2324fd91bc2b39ae57d1e8048260053170efa6589dab58936fe3d"
+        },
+        "seconds": 14.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e1cb06b584652199",
+        "title": "Sudberry Properties Inks $81.6M Refi on Growing Chula Vista Business Park",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.48,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 471,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c09f6479c4f72c465fcf351b4890c9b547830400bf3e074136b341280032e535"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d3166752114c24e4",
+        "title": "MBK Sells Anaheim Apartments To TA Realty For $147M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.71,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 515,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fb281e40e8d70aea8431d5422db716800fb685f53ed594d416934129afb89e93"
+        },
+        "seconds": 13.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "24e85493e0200df2",
+        "title": "Nscale signs $3.5bn compute agreement with robotics company Figure",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.8,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 552,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0c381303de52ea7cd58c67a6ec0725946ea7274b7a8ffee57203ea2cd7589e5d"
+        },
+        "seconds": 15.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2de76c6271c8d3ef",
+        "title": "Gimlet Raises $300M to Build a Multi-Silicon Cloud for AI Inference",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 353,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "39d888562ba6f335b417a5c7b694373afb09b6bcdedfcd894ab42f95727b9ffa"
+        },
+        "seconds": 7.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "56eda8a90e1e0208",
+        "title": "MoneyLion alums take OpenReserve ‘out of stealth’",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.27,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 367,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9596c7d361757759158ea49e9fd4a95b3dcd7a37c5009225f5740675280f81f8"
+        },
+        "seconds": 19.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "00d2293694213fce",
+        "title": "Revolut nabs conditional OCC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.78,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 375,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ecd963981ab075527b825b3584382772315650ee6733a510d214bc96b41bf507"
+        },
+        "seconds": 8.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4cbf0a05b2a55e18",
+        "title": "Northern New Jersey Shopping Center Changes Hands",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.12,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 261,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ccf2f18dcec60b288e58c65f1c9961804555be7041790340999837f42e516669"
+        },
+        "seconds": 7.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b46aeb3f65717077",
+        "title": "Pulte: 'cartel-like' bureaus should cut costs, eyes bi-merge",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.01,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 348,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ab958fd2a176f90979187e04ec2c30063edbfa9639f7e31b59fb44547534643c"
+        },
+        "seconds": 21.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 22,
+    "published": 22,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing_social.png",
+      "insights/hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing.html",
+      "insights/global-holdings-lands-382m-refi-for-midtown-tower_social.png",
+      "insights/global-holdings-lands-382m-refi-for-midtown-tower.html",
+      "insights/private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio_social.png",
+      "insights/private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio.html",
+      "insights/blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners_social.png",
+      "insights/blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners.html",
+      "insights/related-secures-65m-refi-for-office-property-in-l-a-s-south-bay_social.png",
+      "insights/related-secures-65m-refi-for-office-property-in-l-a-s-south-bay.html",
+      "insights/trump-threatens-trade-halt-if-fed-does-not-cut-rates_social.png",
+      "insights/trump-threatens-trade-halt-if-fed-does-not-cut-rates.html",
+      "insights/vance-calls-on-fed-to-cut-rates-to-ease-home-affordability_social.png",
+      "insights/vance-calls-on-fed-to-cut-rates-to-ease-home-affordability.html",
+      "insights/gaia-lands-another-extension-for-williamsburg-apartments-48m-loan_social.png",
+      "insights/gaia-lands-another-extension-for-williamsburg-apartments-48m-loan.html",
+      "insights/flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal_social.png",
+      "insights/flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal.html",
+      "insights/the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol_social.png",
+      "insights/the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol.html",
+      "insights/flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition_social.png",
+      "insights/flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition.html",
+      "insights/strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate_social.png",
+      "insights/strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate.html",
+      "insights/strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike_social.png",
+      "insights/strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike.html",
+      "insights/ares-buys-two-fully-leased-miami-warehouses-for-109m_social.png",
+      "insights/ares-buys-two-fully-leased-miami-warehouses-for-109m.html",
+      "insights/sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park_social.png",
+      "insights/sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park.html",
+      "insights/mbk-sells-anaheim-apartments-to-ta-realty-for-147m_social.png",
+      "insights/mbk-sells-anaheim-apartments-to-ta-realty-for-147m.html",
+      "insights/nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure_social.png",
+      "insights/nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure.html",
+      "insights/gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference_social.png",
+      "insights/gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference.html",
+      "insights/moneylion-alums-take-openreserve-out-of-stealth_social.png",
+      "insights/moneylion-alums-take-openreserve-out-of-stealth.html",
+      "insights/revolut-nabs-conditional-occ-charter_social.png",
+      "insights/revolut-nabs-conditional-occ-charter.html",
+      "insights/northern-new-jersey-shopping-center-changes-hands_social.png",
+      "insights/northern-new-jersey-shopping-center-changes-hands.html",
+      "insights/pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge_social.png",
+      "insights/pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing_related.json",
+      "insights/global-holdings-lands-382m-refi-for-midtown-tower_related.json",
+      "insights/private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio_related.json",
+      "insights/blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners_related.json",
+      "insights/related-secures-65m-refi-for-office-property-in-l-a-s-south-bay_related.json",
+      "insights/trump-threatens-trade-halt-if-fed-does-not-cut-rates_related.json",
+      "insights/vance-calls-on-fed-to-cut-rates-to-ease-home-affordability_related.json",
+      "insights/gaia-lands-another-extension-for-williamsburg-apartments-48m-loan_related.json",
+      "insights/flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal_related.json",
+      "insights/the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol_related.json",
+      "insights/flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition_related.json",
+      "insights/strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate_related.json",
+      "insights/strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike_related.json",
+      "insights/ares-buys-two-fully-leased-miami-warehouses-for-109m_related.json",
+      "insights/sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park_related.json",
+      "insights/mbk-sells-anaheim-apartments-to-ta-realty-for-147m_related.json",
+      "insights/nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure_related.json",
+      "insights/gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference_related.json",
+      "insights/moneylion-alums-take-openreserve-out-of-stealth_related.json",
+      "insights/revolut-nabs-conditional-occ-charter_related.json",
+      "insights/northern-new-jersey-shopping-center-changes-hands_related.json",
+      "insights/pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "a6286a9d4938122f",
+        "title": "HUD Wants To Make It Easier To Bring Private Capital Into Public Housing",
+        "slug": "hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing",
+        "url": "/insights/hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 66,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6ac6e6d7acf73737",
+        "title": "Global Holdings Lands $382M Refi for Midtown Tower",
+        "slug": "global-holdings-lands-382m-refi-for-midtown-tower",
+        "url": "/insights/global-holdings-lands-382m-refi-for-midtown-tower.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "848c34c8004f0014",
+        "title": "Private REIT Closes $650M Refinancing Of 549-Property Daycare Portfolio",
+        "slug": "private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio",
+        "url": "/insights/private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fe69e89471fb7220",
+        "title": "Blackstone Plans $7 Billion IPO of Spanish Resort Owner Hotel Investment Partners: Report",
+        "slug": "blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners",
+        "url": "/insights/blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cc3a30f9ed4e8eb7",
+        "title": "Related Secures $65M Refi for Office Property in L.A.’s South Bay",
+        "slug": "related-secures-65m-refi-for-office-property-in-l-a-s-south-bay",
+        "url": "/insights/related-secures-65m-refi-for-office-property-in-l-a-s-south-bay.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b520507fc238dd67",
+        "title": "Trump Threatens Trade Halt If Fed Does Not Cut Rates",
+        "slug": "trump-threatens-trade-halt-if-fed-does-not-cut-rates",
+        "url": "/insights/trump-threatens-trade-halt-if-fed-does-not-cut-rates.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ea40346727f18cd8",
+        "title": "Vance calls on Fed to cut rates to ease home affordability",
+        "slug": "vance-calls-on-fed-to-cut-rates-to-ease-home-affordability",
+        "url": "/insights/vance-calls-on-fed-to-cut-rates-to-ease-home-affordability.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dce04d47fb0dcd3c",
+        "title": "Gaia Lands Another Extension for Williamsburg Apartments’ $48M Loan",
+        "slug": "gaia-lands-another-extension-for-williamsburg-apartments-48m-loan",
+        "url": "/insights/gaia-lands-another-extension-for-williamsburg-apartments-48m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2e27911ec0b5f31f",
+        "title": "Flex Acquires Data Center Power Manufacturer EPC Power In $4.4B Deal",
+        "slug": "flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal",
+        "url": "/insights/flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1b9d51597a59d579",
+        "title": "The Week’s 10 Biggest Funding Rounds: Crusoe And Fluidstack Lead Multibillion-Dollar AI Infrastructure Haul",
+        "slug": "the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol",
+        "url": "/insights/the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "634cb62c945e29a7",
+        "title": "Flex Targets AI Power Density With $4.4bn EPC Power Acquisition",
+        "slug": "flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition",
+        "url": "/insights/flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f7988d8266ff1754",
+        "title": "Strong August jobs report redoubles focus on Federal Reserve’s inflation mandate",
+        "slug": "strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate",
+        "url": "/insights/strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "277c1369c01d08fb",
+        "title": "Strong U.S. Jobs Report Sets the Stage for Possible Rate Hike",
+        "slug": "strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike",
+        "url": "/insights/strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a8318822a4a3f339",
+        "title": "Ares Buys Two Fully Leased Miami Warehouses for $109M",
+        "slug": "ares-buys-two-fully-leased-miami-warehouses-for-109m",
+        "url": "/insights/ares-buys-two-fully-leased-miami-warehouses-for-109m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e1cb06b584652199",
+        "title": "Sudberry Properties Inks $81.6M Refi on Growing Chula Vista Business Park",
+        "slug": "sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park",
+        "url": "/insights/sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d3166752114c24e4",
+        "title": "MBK Sells Anaheim Apartments To TA Realty For $147M",
+        "slug": "mbk-sells-anaheim-apartments-to-ta-realty-for-147m",
+        "url": "/insights/mbk-sells-anaheim-apartments-to-ta-realty-for-147m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "24e85493e0200df2",
+        "title": "Nscale signs $3.5bn compute agreement with robotics company Figure",
+        "slug": "nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure",
+        "url": "/insights/nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2de76c6271c8d3ef",
+        "title": "Gimlet Raises $300M to Build a Multi-Silicon Cloud for AI Inference",
+        "slug": "gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference",
+        "url": "/insights/gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "56eda8a90e1e0208",
+        "title": "MoneyLion alums take OpenReserve ‘out of stealth’",
+        "slug": "moneylion-alums-take-openreserve-out-of-stealth",
+        "url": "/insights/moneylion-alums-take-openreserve-out-of-stealth.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "00d2293694213fce",
+        "title": "Revolut nabs conditional OCC charter",
+        "slug": "revolut-nabs-conditional-occ-charter",
+        "url": "/insights/revolut-nabs-conditional-occ-charter.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4cbf0a05b2a55e18",
+        "title": "Northern New Jersey Shopping Center Changes Hands",
+        "slug": "northern-new-jersey-shopping-center-changes-hands",
+        "url": "/insights/northern-new-jersey-shopping-center-changes-hands.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b46aeb3f65717077",
+        "title": "Pulte: 'cartel-like' bureaus should cut costs, eyes bi-merge",
+        "slug": "pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge",
+        "url": "/insights/pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 2,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "a6286a9d4938122f",
+        "slug": "hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing",
+        "title": "HUD Wants To Make It Easier To Bring Private Capital Into Public Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6ac6e6d7acf73737",
+        "slug": "global-holdings-lands-382m-refi-for-midtown-tower",
+        "title": "Global Holdings Lands $382M Refi for Midtown Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/global-holdings-lands-382m-refi-for-midtown-tower.html",
+        "reason": ""
+      },
+      {
+        "object_id": "848c34c8004f0014",
+        "slug": "private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio",
+        "title": "Private REIT Closes $650M Refinancing Of 549-Property Daycare Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fe69e89471fb7220",
+        "slug": "blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners",
+        "title": "Blackstone Plans $7 Billion IPO of Spanish Resort Owner Hotel Investment Partners: Report",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cc3a30f9ed4e8eb7",
+        "slug": "related-secures-65m-refi-for-office-property-in-l-a-s-south-bay",
+        "title": "Related Secures $65M Refi for Office Property in L.A.’s South Bay",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/related-secures-65m-refi-for-office-property-in-l-a-s-south-bay.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b520507fc238dd67",
+        "slug": "trump-threatens-trade-halt-if-fed-does-not-cut-rates",
+        "title": "Trump threatens trade halt if Fed does not cut rates",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/trump-threatens-trade-halt-if-fed-does-not-cut-rates.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ea40346727f18cd8",
+        "slug": "vance-calls-on-fed-to-cut-rates-to-ease-home-affordability",
+        "title": "Vance calls on Fed to cut rates to ease home affordability",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/vance-calls-on-fed-to-cut-rates-to-ease-home-affordability.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dce04d47fb0dcd3c",
+        "slug": "gaia-lands-another-extension-for-williamsburg-apartments-48m-loan",
+        "title": "Gaia Lands Another Extension for Williamsburg Apartments’ $48M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/gaia-lands-another-extension-for-williamsburg-apartments-48m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2e27911ec0b5f31f",
+        "slug": "flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal",
+        "title": "Flex Acquires Data Center Power Manufacturer EPC Power In $4.4B Deal",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1b9d51597a59d579",
+        "slug": "the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol",
+        "title": "The Week’s 10 Biggest Funding Rounds: Crusoe And Fluidstack Lead Multibillion-Dollar AI Infrastructure Haul",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol.html",
+        "reason": ""
+      },
+      {
+        "object_id": "634cb62c945e29a7",
+        "slug": "flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition",
+        "title": "Flex acquires data center power conversion manufacturer EPC Power in $4.4bn deal",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f7988d8266ff1754",
+        "slug": "strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate",
+        "title": "Strong August jobs report redoubles focus on Federal Reserve’s inflation mandate",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate.html",
+        "reason": ""
+      },
+      {
+        "object_id": "277c1369c01d08fb",
+        "slug": "strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike",
+        "title": "Strong U.S. Jobs Report Sets the Stage for Possible Rate Hike",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a8318822a4a3f339",
+        "slug": "ares-buys-two-fully-leased-miami-warehouses-for-109m",
+        "title": "Ares Buys Two Fully Leased Miami Warehouses for $109M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ares-buys-two-fully-leased-miami-warehouses-for-109m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e1cb06b584652199",
+        "slug": "sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park",
+        "title": "Sudberry Properties Inks $81.6M Refi on Growing Chula Vista Business Park",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d3166752114c24e4",
+        "slug": "mbk-sells-anaheim-apartments-to-ta-realty-for-147m",
+        "title": "MBK Sells Anaheim Apartments To TA Realty For $147M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/mbk-sells-anaheim-apartments-to-ta-realty-for-147m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "24e85493e0200df2",
+        "slug": "nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure",
+        "title": "Nscale signs $3.5bn compute agreement with robotics company Figure",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2de76c6271c8d3ef",
+        "slug": "gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference",
+        "title": "Gimlet Raises $300M to Build a Multi-Silicon Cloud for AI Inference",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference.html",
+        "reason": ""
+      },
+      {
+        "object_id": "56eda8a90e1e0208",
+        "slug": "moneylion-alums-take-openreserve-out-of-stealth",
+        "title": "MoneyLion alums take OpenReserve ‘out of stealth’",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/moneylion-alums-take-openreserve-out-of-stealth.html",
+        "reason": ""
+      },
+      {
+        "object_id": "00d2293694213fce",
+        "slug": "revolut-nabs-conditional-occ-charter",
+        "title": "Revolut nabs conditional OCC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/revolut-nabs-conditional-occ-charter.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4cbf0a05b2a55e18",
+        "slug": "northern-new-jersey-shopping-center-changes-hands",
+        "title": "Northern New Jersey Shopping Center Changes Hands",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/northern-new-jersey-shopping-center-changes-hands.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b46aeb3f65717077",
+        "slug": "pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge",
+        "title": "Pulte: 'cartel-like' bureaus should cut costs, eyes bi-merge",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 24,
+    "successful_calls": 24,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 16.7,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 6.72,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.29,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.7,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 48.28,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 62.48,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 67.31,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.28,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.18,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 22 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 204.14,
+  "status": "ready",
+  "candidate_count": 639,
+  "event_count": 589,
+  "articles": [
+    {
+      "event_id": "a6286a9d4938122f",
+      "title": "HUD Wants To Make It Easier To Bring Private Capital Into Public Housing",
+      "slug": "hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing",
+      "url": "/insights/hud-wants-to-make-it-easier-to-bring-private-capital-into-public-housing.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 66,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6ac6e6d7acf73737",
+      "title": "Global Holdings Lands $382M Refi for Midtown Tower",
+      "slug": "global-holdings-lands-382m-refi-for-midtown-tower",
+      "url": "/insights/global-holdings-lands-382m-refi-for-midtown-tower.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "848c34c8004f0014",
+      "title": "Private REIT Closes $650M Refinancing Of 549-Property Daycare Portfolio",
+      "slug": "private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio",
+      "url": "/insights/private-reit-closes-650m-refinancing-of-549-property-daycare-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fe69e89471fb7220",
+      "title": "Blackstone Plans $7 Billion IPO of Spanish Resort Owner Hotel Investment Partners: Report",
+      "slug": "blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners",
+      "url": "/insights/blackstone-plans-7-billion-ipo-of-spanish-resort-owner-hotel-investment-partners.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cc3a30f9ed4e8eb7",
+      "title": "Related Secures $65M Refi for Office Property in L.A.’s South Bay",
+      "slug": "related-secures-65m-refi-for-office-property-in-l-a-s-south-bay",
+      "url": "/insights/related-secures-65m-refi-for-office-property-in-l-a-s-south-bay.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b520507fc238dd67",
+      "title": "Trump Threatens Trade Halt If Fed Does Not Cut Rates",
+      "slug": "trump-threatens-trade-halt-if-fed-does-not-cut-rates",
+      "url": "/insights/trump-threatens-trade-halt-if-fed-does-not-cut-rates.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ea40346727f18cd8",
+      "title": "Vance calls on Fed to cut rates to ease home affordability",
+      "slug": "vance-calls-on-fed-to-cut-rates-to-ease-home-affordability",
+      "url": "/insights/vance-calls-on-fed-to-cut-rates-to-ease-home-affordability.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dce04d47fb0dcd3c",
+      "title": "Gaia Lands Another Extension for Williamsburg Apartments’ $48M Loan",
+      "slug": "gaia-lands-another-extension-for-williamsburg-apartments-48m-loan",
+      "url": "/insights/gaia-lands-another-extension-for-williamsburg-apartments-48m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2e27911ec0b5f31f",
+      "title": "Flex Acquires Data Center Power Manufacturer EPC Power In $4.4B Deal",
+      "slug": "flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal",
+      "url": "/insights/flex-acquires-data-center-power-manufacturer-epc-power-in-4-4b-deal.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1b9d51597a59d579",
+      "title": "The Week’s 10 Biggest Funding Rounds: Crusoe And Fluidstack Lead Multibillion-Dollar AI Infrastructure Haul",
+      "slug": "the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol",
+      "url": "/insights/the-week-s-10-biggest-funding-rounds-crusoe-and-fluidstack-lead-multibillion-dol.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "634cb62c945e29a7",
+      "title": "Flex Targets AI Power Density With $4.4bn EPC Power Acquisition",
+      "slug": "flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition",
+      "url": "/insights/flex-targets-ai-power-density-with-4-4bn-epc-power-acquisition.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f7988d8266ff1754",
+      "title": "Strong August jobs report redoubles focus on Federal Reserve’s inflation mandate",
+      "slug": "strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate",
+      "url": "/insights/strong-august-jobs-report-redoubles-focus-on-federal-reserve-s-inflation-mandate.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "277c1369c01d08fb",
+      "title": "Strong U.S. Jobs Report Sets the Stage for Possible Rate Hike",
+      "slug": "strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike",
+      "url": "/insights/strong-u-s-jobs-report-sets-the-stage-for-possible-rate-hike.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a8318822a4a3f339",
+      "title": "Ares Buys Two Fully Leased Miami Warehouses for $109M",
+      "slug": "ares-buys-two-fully-leased-miami-warehouses-for-109m",
+      "url": "/insights/ares-buys-two-fully-leased-miami-warehouses-for-109m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e1cb06b584652199",
+      "title": "Sudberry Properties Inks $81.6M Refi on Growing Chula Vista Business Park",
+      "slug": "sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park",
+      "url": "/insights/sudberry-properties-inks-81-6m-refi-on-growing-chula-vista-business-park.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d3166752114c24e4",
+      "title": "MBK Sells Anaheim Apartments To TA Realty For $147M",
+      "slug": "mbk-sells-anaheim-apartments-to-ta-realty-for-147m",
+      "url": "/insights/mbk-sells-anaheim-apartments-to-ta-realty-for-147m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "24e85493e0200df2",
+      "title": "Nscale signs $3.5bn compute agreement with robotics company Figure",
+      "slug": "nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure",
+      "url": "/insights/nscale-signs-3-5bn-compute-agreement-with-robotics-company-figure.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2de76c6271c8d3ef",
+      "title": "Gimlet Raises $300M to Build a Multi-Silicon Cloud for AI Inference",
+      "slug": "gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference",
+      "url": "/insights/gimlet-raises-300m-to-build-a-multi-silicon-cloud-for-ai-inference.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "56eda8a90e1e0208",
+      "title": "MoneyLion alums take OpenReserve ‘out of stealth’",
+      "slug": "moneylion-alums-take-openreserve-out-of-stealth",
+      "url": "/insights/moneylion-alums-take-openreserve-out-of-stealth.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "00d2293694213fce",
+      "title": "Revolut nabs conditional OCC charter",
+      "slug": "revolut-nabs-conditional-occ-charter",
+      "url": "/insights/revolut-nabs-conditional-occ-charter.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4cbf0a05b2a55e18",
+      "title": "Northern New Jersey Shopping Center Changes Hands",
+      "slug": "northern-new-jersey-shopping-center-changes-hands",
+      "url": "/insights/northern-new-jersey-shopping-center-changes-hands.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b46aeb3f65717077",
+      "title": "Pulte: 'cartel-like' bureaus should cut costs, eyes bi-merge",
+      "slug": "pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge",
+      "url": "/insights/pulte-cartel-like-bureaus-should-cut-costs-eyes-bi-merge.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 2,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    }
+  ],
+  "held": [],
+  "article_count": 22
+}
