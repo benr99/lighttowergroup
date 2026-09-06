@@ -1,0 +1,534 @@
+{
+  "run_at": "2026-09-06T14:07:01.456589+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 248,
+  "documents_from_feeds": 145,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 238,
+  "documents_consolidated": 10,
+  "eligible": 16,
+  "enriched": 214,
+  "evidence_upgraded": 117,
+  "selected": 4,
+  "publication_candidates": 4,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 12,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "commercial_real_estate": {
+      "considered": 163,
+      "eligible": 6,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 16,
+      "eligible": 3,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "energy": {
+      "considered": 25,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 4,
+      "eligible": 2,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 1,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 17,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "17 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 4
+  },
+  "shortfalls": [
+    "banking_credit: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "commercial_real_estate: only 2 of 6 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: 3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "energy: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: only 2 of 2 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: 17 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+  ],
+  "degenerate_measures": [
+    "magnitude",
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 65.3,
+    "mean": 24.8,
+    "stdev": 12.71,
+    "range_used": 65.3,
+    "median": 24.1,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 216,
+    "fetched": 177,
+    "from_cache": 0,
+    "blocked": 36,
+    "failed": 3,
+    "skipped_budget": 0,
+    "bytes_downloaded": 46285742,
+    "elapsed_ms": 90745,
+    "by_status": {
+      "partial_text": 59,
+      "full_text": 118,
+      "blocked": 36,
+      "failed": 3
+    }
+  },
+  "novelty": {
+    "new": 169,
+    "already_published": 2,
+    "minor_follow_up": 67
+  },
+  "memory": {
+    "events_remembered": 5990,
+    "published": 559,
+    "seen_but_not_run": 5431,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-06",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 160.4,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 4,
+    "written": 4,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 4,
+    "elapsed_seconds": 11.99,
+    "provider_attempts": {
+      "deepseek": 4
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "8629bbfcb1073f25",
+        "title": "Week Ahead: Yen In Play, ECB Hikes, And U.S. CPI To Impact FOMC",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.99,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 326,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "738bc73df97d189b208806f34fd24e3cd773620b3dbb40cf5b5c6ae397ed394d"
+        },
+        "seconds": 12.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f6cc127048eaf705",
+        "title": "Three Rent-Stabilized Buildings Transfer To New Ownership In Crown Heights, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.71,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 353,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b84663440e801c2c4f901cf96bd4e6f99bb2eb91e5451a0766e7f1bd10b548b6"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "26dda4e2b4097d65",
+        "title": "Private Mediterranean island boasting its own Napoleonic fort on sale for $7.5M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.53,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 302,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "0baef85cdc2aafb47c8d894dfef1eb792ccffecb919645c441a97352b5bca730"
+        },
+        "seconds": 8.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "83006cbe849d329f",
+        "title": "A Hot CPI Report May Force A September Rate Hike",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 290,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4c81b5580acd3ff0a3f78a369e7e770e8c4be9c52fed7e09fd92c67c75bec344"
+        },
+        "seconds": 9.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 4,
+    "published": 4,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc_social.png",
+      "insights/week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc.html",
+      "insights/three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook_social.png",
+      "insights/three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook.html",
+      "insights/private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m_social.png",
+      "insights/private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m.html",
+      "insights/a-hot-cpi-report-may-force-a-september-rate-hike_social.png",
+      "insights/a-hot-cpi-report-may-force-a-september-rate-hike.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc_related.json",
+      "insights/three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook_related.json",
+      "insights/private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m_related.json",
+      "insights/a-hot-cpi-report-may-force-a-september-rate-hike_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "8629bbfcb1073f25",
+        "title": "Week Ahead: Yen In Play, ECB Hikes, And U.S. CPI To Impact FOMC",
+        "slug": "week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc",
+        "url": "/insights/week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f6cc127048eaf705",
+        "title": "Three Rent-Stabilized Buildings Transfer To New Ownership In Crown Heights, Brooklyn",
+        "slug": "three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook",
+        "url": "/insights/three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "26dda4e2b4097d65",
+        "title": "Private Mediterranean island boasting its own Napoleonic fort on sale for $7.5M",
+        "slug": "private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m",
+        "url": "/insights/private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "83006cbe849d329f",
+        "title": "A Hot CPI Report May Force A September Rate Hike",
+        "slug": "a-hot-cpi-report-may-force-a-september-rate-hike",
+        "url": "/insights/a-hot-cpi-report-may-force-a-september-rate-hike.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "8629bbfcb1073f25",
+        "slug": "week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc",
+        "title": "Week Ahead: Yen In Play, ECB Hikes, And U.S. CPI To Impact FOMC",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f6cc127048eaf705",
+        "slug": "three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook",
+        "title": "Three Rent-Stabilized Buildings Transfer To New Ownership In Crown Heights, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook.html",
+        "reason": ""
+      },
+      {
+        "object_id": "26dda4e2b4097d65",
+        "slug": "private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m",
+        "title": "Private Mediterranean island boasting its own Napoleonic fort on sale for $7.5M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "83006cbe849d329f",
+        "slug": "a-hot-cpi-report-may-force-a-september-rate-hike",
+        "title": "A Hot CPI Report May Force A September Rate Hike",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/a-hot-cpi-report-may-force-a-september-rate-hike.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 4,
+    "successful_calls": 4,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.22,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 9.45,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.03,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.06,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.29,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 27.85,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 91.61,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 13.18,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.53,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.18,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: magnitude, precedent",
+    "published 4 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 160.45,
+  "status": "ready",
+  "candidate_count": 248,
+  "event_count": 238,
+  "articles": [
+    {
+      "event_id": "8629bbfcb1073f25",
+      "title": "Week Ahead: Yen In Play, ECB Hikes, And U.S. CPI To Impact FOMC",
+      "slug": "week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc",
+      "url": "/insights/week-ahead-yen-in-play-ecb-hikes-and-u-s-cpi-to-impact-fomc.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f6cc127048eaf705",
+      "title": "Three Rent-Stabilized Buildings Transfer To New Ownership In Crown Heights, Brooklyn",
+      "slug": "three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook",
+      "url": "/insights/three-rent-stabilized-buildings-transfer-to-new-ownership-in-crown-heights-brook.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "26dda4e2b4097d65",
+      "title": "Private Mediterranean island boasting its own Napoleonic fort on sale for $7.5M",
+      "slug": "private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m",
+      "url": "/insights/private-mediterranean-island-boasting-its-own-napoleonic-fort-on-sale-for-7-5m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "83006cbe849d329f",
+      "title": "A Hot CPI Report May Force A September Rate Hike",
+      "slug": "a-hot-cpi-report-may-force-a-september-rate-hike",
+      "url": "/insights/a-hot-cpi-report-may-force-a-september-rate-hike.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 4
+}
