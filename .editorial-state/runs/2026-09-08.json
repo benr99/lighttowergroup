@@ -1,0 +1,1363 @@
+{
+  "run_at": "2026-09-08T15:02:56.001203+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 569,
+  "documents_from_feeds": 466,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 537,
+  "documents_consolidated": 32,
+  "eligible": 66,
+  "enriched": 250,
+  "evidence_upgraded": 153,
+  "selected": 16,
+  "publication_candidates": 16,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 29,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 300,
+      "eligible": 38,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 56,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 88,
+      "eligible": 16,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 16 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 4,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "local_government": {
+      "considered": 1,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 59,
+      "eligible": 6,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 6 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 8,
+    "tier_c": 8
+  },
+  "shortfalls": [
+    "banking_credit: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 4 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 3 of 16 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: 4 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "local_government: 1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: only 1 of 6 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 74.1,
+    "mean": 23.3,
+    "stdev": 13.7,
+    "range_used": 74.1,
+    "median": 19.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 251,
+    "fetched": 235,
+    "from_cache": 0,
+    "blocked": 4,
+    "failed": 12,
+    "skipped_budget": 0,
+    "bytes_downloaded": 53455947,
+    "elapsed_ms": 68930,
+    "by_status": {
+      "full_text": 153,
+      "failed": 12,
+      "partial_text": 82,
+      "blocked": 4
+    }
+  },
+  "novelty": {
+    "new": 443,
+    "already_published": 6,
+    "material_update": 2,
+    "minor_follow_up": 85,
+    "duplicate": 1
+  },
+  "memory": {
+    "events_remembered": 6517,
+    "published": 582,
+    "seen_but_not_run": 5935,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-08",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 219.6,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 16,
+    "written": 16,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 17,
+    "elapsed_seconds": 46.91,
+    "provider_attempts": {
+      "deepseek": 17
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "82e18e5864bfaaa4",
+        "title": "EverBank, WaFd to merge in $3.9B deal",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 441,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "cf65dbe2610c7043056f3da683f702160f4edd6bc31b0184c40e854c523319b6"
+        },
+        "seconds": 13.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f104260069747dbc",
+        "title": "A Wave of New York Office Tower Listings Tests the Market’s Recovery",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.24,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 654,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7df21a5138af92c2337d8a47a1c53b7a1a21f62240a625c1316fb9f0fb99618c"
+        },
+        "seconds": 17.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c9679b96e6cdd968",
+        "title": "Ian Schrager, Ed Scheetz Land $117M Refi for Public Hotel West Hollywood",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.54,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 566,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "676d1c4590d064a82c29c525bcbc70a3605d2a0d22a44583483d3973e9876b0d"
+        },
+        "seconds": 16.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8ea01884c9e0bc5a",
+        "title": "DOE Closes $1.9-Billion Loan to Restart Duane Arnold Nuclear Plant",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.0,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 618,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ce491447281817c1a8d7c2c7a0f584f8be98d39a7fea2a15689644f344d61734"
+        },
+        "seconds": 16.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2750290c949e31ab",
+        "title": "Investor Inks $75.1M Construction Loan for Miami Hotel Redevelopment",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 565,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "770c6e0eb87a51b37ca75a6baea339ca22cc0a7a7588e35a774fa0df3baa4318"
+        },
+        "seconds": 18.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "239df508fd8e1e68",
+        "title": "Mann Group Buys Luxury Apartments at 130 Hope Street in Williamsburg",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.44,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 496,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f239501b2f5f73b8029c243d4633d25a17d976a08178f854aba7fb3e6dfdc845"
+        },
+        "seconds": 16.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f8a99d7064f6d7b6",
+        "title": "Walker & Dunlop Arranges $142M in Financing for Virginia MF Construction Projects",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 20.58,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 674,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3dd96efc7fc07d93d0e26eb442f3c0dcc26c3bebe039139f4ea48116342ea71a"
+        },
+        "seconds": 20.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a7bc7ca2365242ae",
+        "title": "JLL Capital Markets provides $76 million in financing for 291-unit multifamily development in West St. Paul",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.56,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 588,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "52845858dc35770a41a3ee487ea1d50d1c59b7d536b051b5a8c0c4d3c868c8e8"
+        },
+        "seconds": 18.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f938cf39c0b06a26",
+        "title": "Eastwind Building 264-Unit Melbourne Apartment Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.11,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 293,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "6c54a58e85be4dd6d91fd7533f99f18e3f52b6ded54e84d29072c1c93904d3bc"
+        },
+        "seconds": 9.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "af2057a6d9f379a0",
+        "title": "Global Holdings secures $382m refinancing for 120 Park Avenue",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.59,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 282,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "47f0c6ac10c65c4d5bfadf0bc0f1fd8939f66baf55b9246fbca7423c85a36212"
+        },
+        "seconds": 8.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d880f32d4f2f4433",
+        "title": "Solarworld, Rays Power plan 2.4 GW solar cell factory in India",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.62,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 342,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b8a6ac4a91f274c4e4a40ec3370ad362a9e1979d997845650a4f1c071549f38d"
+        },
+        "seconds": 9.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "657cc4bbdc18502e",
+        "title": "Nuclear startup Bluecore Energy raises $50M seed round, just two months after launch",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.88,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 359,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "f4138b87dd993b4054242a36c9a3926072dd58e4d957038f45cc213a07369fe7"
+        },
+        "seconds": 8.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6fba778d23e52142",
+        "title": "Pan-European battery storage and renewable energy platform Aukera closes €460 million credit facility",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.8,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 353,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d2464f8c58f95d54f9132d15178d9fbb36d9dca4e281bca05cd0e6c5a7dffce7"
+        },
+        "seconds": 9.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "84a327f7cc9e9bc0",
+        "title": "San Francisco Visitor Spending Set for Record $9.94B in 2026 as Moscone Booking Pace Outruns 2019",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.49,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 270,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "40f797a5d294939bda635a7cf68cf744e89f73336c0ebfea01acb3c34546e787"
+        },
+        "seconds": 9.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e40eac5b4ab17d1f",
+        "title": "Eric Wu’s newest company, out of stealth since May, is going after construction’s labor crunch",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.65,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 354,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d5b6ce465bd3a14ce2eff3e1381612fc0ef44f184b06422131e0456be9741828"
+        },
+        "seconds": 20.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ad18d8540877d530",
+        "title": "Waterfall Asset Management, Delaware Life Provide $64.7M Refinancing for Office Property in Torrance, California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.05,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 284,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "8ed883ca6ec22cd995c7c43e7be8813823c5869a0e7f9c03a2ca280eb690f444"
+        },
+        "seconds": 9.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 16,
+    "published": 16,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/everbank-wafd-to-merge-in-3-9b-deal_social.png",
+      "insights/everbank-wafd-to-merge-in-3-9b-deal.html",
+      "insights/a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery_social.png",
+      "insights/a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery.html",
+      "insights/ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood_social.png",
+      "insights/ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood.html",
+      "insights/doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant_social.png",
+      "insights/doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant.html",
+      "insights/investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment_social.png",
+      "insights/investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment.html",
+      "insights/mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg_social.png",
+      "insights/mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg.html",
+      "insights/walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects_social.png",
+      "insights/walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects.html",
+      "insights/jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop_social.png",
+      "insights/jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop.html",
+      "insights/eastwind-building-264-unit-melbourne-apartment-community_social.png",
+      "insights/eastwind-building-264-unit-melbourne-apartment-community.html",
+      "insights/global-holdings-secures-382m-refinancing-for-120-park-avenue_social.png",
+      "insights/global-holdings-secures-382m-refinancing-for-120-park-avenue.html",
+      "insights/solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india_social.png",
+      "insights/solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india.html",
+      "insights/nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun_social.png",
+      "insights/nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun.html",
+      "insights/aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re_social.png",
+      "insights/aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re.html",
+      "insights/san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p_social.png",
+      "insights/san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p.html",
+      "insights/eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s_social.png",
+      "insights/eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s.html",
+      "insights/waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr_social.png",
+      "insights/waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/everbank-wafd-to-merge-in-3-9b-deal_related.json",
+      "insights/a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery_related.json",
+      "insights/ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood_related.json",
+      "insights/doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant_related.json",
+      "insights/investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment_related.json",
+      "insights/mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg_related.json",
+      "insights/walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects_related.json",
+      "insights/jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop_related.json",
+      "insights/eastwind-building-264-unit-melbourne-apartment-community_related.json",
+      "insights/global-holdings-secures-382m-refinancing-for-120-park-avenue_related.json",
+      "insights/solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india_related.json",
+      "insights/nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun_related.json",
+      "insights/aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re_related.json",
+      "insights/san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p_related.json",
+      "insights/eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s_related.json",
+      "insights/waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "82e18e5864bfaaa4",
+        "title": "EverBank, WaFd to merge in $3.9B deal",
+        "slug": "everbank-wafd-to-merge-in-3-9b-deal",
+        "url": "/insights/everbank-wafd-to-merge-in-3-9b-deal.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 63,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f104260069747dbc",
+        "title": "A Wave of New York Office Tower Listings Tests the Market’s Recovery",
+        "slug": "a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery",
+        "url": "/insights/a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c9679b96e6cdd968",
+        "title": "Ian Schrager, Ed Scheetz Land $117M Refi for Public Hotel West Hollywood",
+        "slug": "ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood",
+        "url": "/insights/ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8ea01884c9e0bc5a",
+        "title": "DOE Closes $1.9-Billion Loan to Restart Duane Arnold Nuclear Plant",
+        "slug": "doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant",
+        "url": "/insights/doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2750290c949e31ab",
+        "title": "Investor Inks $75.1M Construction Loan for Miami Hotel Redevelopment",
+        "slug": "investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment",
+        "url": "/insights/investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "239df508fd8e1e68",
+        "title": "Mann Group Buys Luxury Apartments at 130 Hope Street in Williamsburg",
+        "slug": "mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg",
+        "url": "/insights/mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f8a99d7064f6d7b6",
+        "title": "Walker & Dunlop Arranges $142M in Financing for Virginia MF Construction Projects",
+        "slug": "walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects",
+        "url": "/insights/walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a7bc7ca2365242ae",
+        "title": "JLL Capital Markets arranges $76.25 million for Thompson Oaks multifamily development in West St. Paul",
+        "slug": "jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop",
+        "url": "/insights/jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f938cf39c0b06a26",
+        "title": "Eastwind Building 264-Unit Melbourne Apartment Community",
+        "slug": "eastwind-building-264-unit-melbourne-apartment-community",
+        "url": "/insights/eastwind-building-264-unit-melbourne-apartment-community.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "af2057a6d9f379a0",
+        "title": "Global Holdings secures $382m refinancing for 120 Park Avenue",
+        "slug": "global-holdings-secures-382m-refinancing-for-120-park-avenue",
+        "url": "/insights/global-holdings-secures-382m-refinancing-for-120-park-avenue.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "d880f32d4f2f4433",
+        "title": "Solarworld, Rays Power plan 2.4 GW solar cell factory in India",
+        "slug": "solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india",
+        "url": "/insights/solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "657cc4bbdc18502e",
+        "title": "Nuclear startup Bluecore Energy raises $50M seed round, just two months after launch",
+        "slug": "nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun",
+        "url": "/insights/nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6fba778d23e52142",
+        "title": "Aukera closes €460 million structured credit facility for European storage and renewables pipeline",
+        "slug": "aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re",
+        "url": "/insights/aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "84a327f7cc9e9bc0",
+        "title": "San Francisco Visitor Spending Set for Record $9.94B in 2026 as Moscone Booking Pace Outruns 2019",
+        "slug": "san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p",
+        "url": "/insights/san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "e40eac5b4ab17d1f",
+        "title": "Eric Wu’s newest company, out of stealth since May, is going after construction’s labor crunch",
+        "slug": "eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s",
+        "url": "/insights/eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ad18d8540877d530",
+        "title": "Waterfall Asset Management, Delaware Life Provide $64.7M Refinancing for Office Property in Torrance, California",
+        "slug": "waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr",
+        "url": "/insights/waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "82e18e5864bfaaa4",
+        "slug": "everbank-wafd-to-merge-in-3-9b-deal",
+        "title": "EverBank, WaFd to merge in $3.9B deal",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/everbank-wafd-to-merge-in-3-9b-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f104260069747dbc",
+        "slug": "a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery",
+        "title": "A Wave of New York Office Tower Listings Tests the Market’s Recovery",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c9679b96e6cdd968",
+        "slug": "ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood",
+        "title": "Ian Schrager, Ed Scheetz Land $117M Refi for Public Hotel West Hollywood",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8ea01884c9e0bc5a",
+        "slug": "doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant",
+        "title": "DOE Closes $1.9-Billion Loan to Restart Duane Arnold Nuclear Plant",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2750290c949e31ab",
+        "slug": "investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment",
+        "title": "Investor Inks $75.1M Construction Loan for Miami Hotel Redevelopment",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment.html",
+        "reason": ""
+      },
+      {
+        "object_id": "239df508fd8e1e68",
+        "slug": "mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg",
+        "title": "Mann Group Buys Luxury Apartments at 130 Hope Street in Williamsburg",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f8a99d7064f6d7b6",
+        "slug": "walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects",
+        "title": "Walker & Dunlop Arranges $142M in Financing for Virginia MF Construction Projects",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a7bc7ca2365242ae",
+        "slug": "jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop",
+        "title": "JLL Capital Markets provides $76 million in financing for 291-unit multifamily development in West St. Paul",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f938cf39c0b06a26",
+        "slug": "eastwind-building-264-unit-melbourne-apartment-community",
+        "title": "Eastwind Building 264-Unit Melbourne Apartment Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/eastwind-building-264-unit-melbourne-apartment-community.html",
+        "reason": ""
+      },
+      {
+        "object_id": "af2057a6d9f379a0",
+        "slug": "global-holdings-secures-382m-refinancing-for-120-park-avenue",
+        "title": "Global Holdings secures $382m refinancing for 120 Park Avenue",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/global-holdings-secures-382m-refinancing-for-120-park-avenue.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d880f32d4f2f4433",
+        "slug": "solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india",
+        "title": "Solarworld, Rays Power plan 2.4 GW solar cell factory in India",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india.html",
+        "reason": ""
+      },
+      {
+        "object_id": "657cc4bbdc18502e",
+        "slug": "nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun",
+        "title": "Nuclear startup Bluecore Energy raises $50M seed round, just two months after launch",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6fba778d23e52142",
+        "slug": "aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re",
+        "title": "Pan-European battery storage and renewable energy platform Aukera closes €460 million credit facility",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re.html",
+        "reason": ""
+      },
+      {
+        "object_id": "84a327f7cc9e9bc0",
+        "slug": "san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p",
+        "title": "San Francisco Visitor Spending Set for Record $9.94B in 2026 as Moscone Booking Pace Outruns 2019",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e40eac5b4ab17d1f",
+        "slug": "eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s",
+        "title": "Eric Wu’s newest company, out of stealth since May, is going after construction’s labor crunch",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ad18d8540877d530",
+        "slug": "waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr",
+        "title": "Waterfall Asset Management, Delaware Life Provide $64.7M Refinancing for Office Property in Torrance, California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 17,
+    "successful_calls": 17,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.93,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 12.09,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.11,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.31,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.81,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 67.93,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 70.6,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.14,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 48.03,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.41,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.25,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 16 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 219.61,
+  "status": "ready",
+  "candidate_count": 569,
+  "event_count": 537,
+  "articles": [
+    {
+      "event_id": "82e18e5864bfaaa4",
+      "title": "EverBank, WaFd to merge in $3.9B deal",
+      "slug": "everbank-wafd-to-merge-in-3-9b-deal",
+      "url": "/insights/everbank-wafd-to-merge-in-3-9b-deal.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 63,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f104260069747dbc",
+      "title": "A Wave of New York Office Tower Listings Tests the Market’s Recovery",
+      "slug": "a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery",
+      "url": "/insights/a-wave-of-new-york-office-tower-listings-tests-the-market-s-recovery.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c9679b96e6cdd968",
+      "title": "Ian Schrager, Ed Scheetz Land $117M Refi for Public Hotel West Hollywood",
+      "slug": "ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood",
+      "url": "/insights/ian-schrager-ed-scheetz-land-117m-refi-for-public-hotel-west-hollywood.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8ea01884c9e0bc5a",
+      "title": "DOE Closes $1.9-Billion Loan to Restart Duane Arnold Nuclear Plant",
+      "slug": "doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant",
+      "url": "/insights/doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2750290c949e31ab",
+      "title": "Investor Inks $75.1M Construction Loan for Miami Hotel Redevelopment",
+      "slug": "investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment",
+      "url": "/insights/investor-inks-75-1m-construction-loan-for-miami-hotel-redevelopment.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "239df508fd8e1e68",
+      "title": "Mann Group Buys Luxury Apartments at 130 Hope Street in Williamsburg",
+      "slug": "mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg",
+      "url": "/insights/mann-group-buys-luxury-apartments-at-130-hope-street-in-williamsburg.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f8a99d7064f6d7b6",
+      "title": "Walker & Dunlop Arranges $142M in Financing for Virginia MF Construction Projects",
+      "slug": "walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects",
+      "url": "/insights/walker-dunlop-arranges-142m-in-financing-for-virginia-mf-construction-projects.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a7bc7ca2365242ae",
+      "title": "JLL Capital Markets arranges $76.25 million for Thompson Oaks multifamily development in West St. Paul",
+      "slug": "jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop",
+      "url": "/insights/jll-capital-markets-arranges-76-25-million-for-thompson-oaks-multifamily-develop.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f938cf39c0b06a26",
+      "title": "Eastwind Building 264-Unit Melbourne Apartment Community",
+      "slug": "eastwind-building-264-unit-melbourne-apartment-community",
+      "url": "/insights/eastwind-building-264-unit-melbourne-apartment-community.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "af2057a6d9f379a0",
+      "title": "Global Holdings secures $382m refinancing for 120 Park Avenue",
+      "slug": "global-holdings-secures-382m-refinancing-for-120-park-avenue",
+      "url": "/insights/global-holdings-secures-382m-refinancing-for-120-park-avenue.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "d880f32d4f2f4433",
+      "title": "Solarworld, Rays Power plan 2.4 GW solar cell factory in India",
+      "slug": "solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india",
+      "url": "/insights/solarworld-rays-power-plan-2-4-gw-solar-cell-factory-in-india.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "657cc4bbdc18502e",
+      "title": "Nuclear startup Bluecore Energy raises $50M seed round, just two months after launch",
+      "slug": "nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun",
+      "url": "/insights/nuclear-startup-bluecore-energy-raises-50m-seed-round-just-two-months-after-laun.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6fba778d23e52142",
+      "title": "Aukera closes €460 million structured credit facility for European storage and renewables pipeline",
+      "slug": "aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re",
+      "url": "/insights/aukera-closes-460-million-structured-credit-facility-for-european-storage-and-re.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "84a327f7cc9e9bc0",
+      "title": "San Francisco Visitor Spending Set for Record $9.94B in 2026 as Moscone Booking Pace Outruns 2019",
+      "slug": "san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p",
+      "url": "/insights/san-francisco-visitor-spending-set-for-record-9-94b-in-2026-as-moscone-booking-p.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "e40eac5b4ab17d1f",
+      "title": "Eric Wu’s newest company, out of stealth since May, is going after construction’s labor crunch",
+      "slug": "eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s",
+      "url": "/insights/eric-wu-s-newest-company-out-of-stealth-since-may-is-going-after-construction-s.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ad18d8540877d530",
+      "title": "Waterfall Asset Management, Delaware Life Provide $64.7M Refinancing for Office Property in Torrance, California",
+      "slug": "waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr",
+      "url": "/insights/waterfall-asset-management-delaware-life-provide-64-7m-refinancing-for-office-pr.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    }
+  ],
+  "held": [],
+  "article_count": 16
+}

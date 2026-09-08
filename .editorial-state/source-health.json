@@ -1,43 +1,42 @@
 {
   "6sqft": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1035,
+    "last_elapsed_ms": 1040,
     "last_empty_at": "2026-09-07T16:23:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-05T13:50:09+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "ABA Banking Journal": {
-    "consecutive_empty_runs": 1,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 418,
+    "last_elapsed_ms": 397,
+    "last_empty_at": "2026-09-07T16:24:06+00:00",
+    "last_empty_detail": "feedparser returned no entries",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:03:04+00:00",
+    "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
+    "status": "healthy"
+  },
+  "AFIRE": {
+    "consecutive_empty_runs": 0,
+    "consecutive_failures": 0,
+    "last_elapsed_ms": 2812,
     "last_empty_at": "2026-09-07T16:24:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-06T14:07:08+00:00",
+    "last_success_at": "2026-09-08T15:03:03+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
-  },
-  "AFIRE": {
-    "consecutive_empty_runs": 29,
-    "consecutive_failures": 0,
-    "last_elapsed_ms": 2811,
-    "last_empty_at": "2026-09-07T16:24:06+00:00",
-    "last_empty_detail": "feedparser returned no entries",
-    "last_error": "HTTPSConnectionPool(host='www.afire.org', port=443): Max retries exceeded with url: /feed/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.afire.org', port=443): Failed to establish a new con",
-    "last_story_count": 2,
-    "last_success_at": "2026-08-04T13:07:03+00:00",
-    "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "needs_review"
+    "status": "healthy"
   },
   "ATTOM Data": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 343,
-    "last_empty_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 748,
+    "last_empty_at": "2026-09-08T15:02:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:10+00:00",
@@ -45,10 +44,10 @@
     "status": "empty"
   },
   "Affordable Housing Finance": {
-    "consecutive_empty_runs": 35,
+    "consecutive_empty_runs": 36,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 162,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 251,
+    "last_empty_at": "2026-09-08T15:02:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.housingfinance.com', port=443): Max retries exceeded with url: /rss.xml (Caused by NewConnectionError(\"HTTPSConnection(host='www.housingfinance.com', port=443): Failed to",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -57,41 +56,41 @@
   "Agri Investor": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1492,
+    "last_elapsed_ms": 3280,
     "last_empty_at": "2026-09-06T14:07:13+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:11+00:00",
+    "last_story_count": 3,
+    "last_success_at": "2026-09-08T15:03:11+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Alt Assets": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2970,
+    "last_elapsed_ms": 6864,
     "last_empty_at": "2026-09-06T14:07:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 7,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_story_count": 9,
+    "last_success_at": "2026-09-08T15:03:11+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "American Banker": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 278,
+    "last_elapsed_ms": 201,
     "last_empty_at": "2026-09-06T14:07:03+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:00+00:00",
+    "last_story_count": 6,
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "American Public Power": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 344,
-    "last_empty_at": "2026-09-07T16:24:07+00:00",
+    "last_elapsed_ms": 311,
+    "last_empty_at": "2026-09-08T15:03:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 4,
     "last_success_at": "2026-09-04T14:54:39+00:00",
@@ -99,10 +98,10 @@
     "status": "empty"
   },
   "Appraisal Institute": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 490,
-    "last_empty_at": "2026-09-07T16:24:13+00:00",
+    "last_elapsed_ms": 594,
+    "last_empty_at": "2026-09-08T15:03:11+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.appraisalinstitute.org', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.appraisalinstitute.org', port=443): Failed t",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -119,9 +118,9 @@
   "Axios Cities": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 801,
-    "last_story_count": 9,
-    "last_success_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 906,
+    "last_story_count": 12,
+    "last_success_at": "2026-09-08T15:02:59+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -134,10 +133,10 @@
     "status": "empty"
   },
   "BEA News Releases": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 377,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 668,
+    "last_empty_at": "2026-09-08T15:03:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:40+00:00",
@@ -145,10 +144,10 @@
     "status": "empty"
   },
   "BLS News Releases": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 218,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 209,
+    "last_empty_at": "2026-09-08T15:03:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.bls.gov', port=443): Max retries exceeded with url: /feed/bls_latest.rss (Caused by NewConnectionError(\"HTTPSConnection(host='www.bls.gov', port=443): Failed to establish",
     "last_story_count": 1,
@@ -173,21 +172,21 @@
     "status": "empty"
   },
   "Banking Dive": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 281,
+    "last_elapsed_ms": 190,
     "last_empty_at": "2026-09-07T16:24:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-05T13:50:15+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-09-08T15:03:04+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Baxtel": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 701,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 904,
+    "last_empty_at": "2026-09-08T15:03:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='baxtel.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='baxtel.com', port=443): Failed to establish a new connection: [W",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -196,19 +195,19 @@
   "Bisnow (all markets)": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 139,
+    "last_elapsed_ms": 104,
     "last_empty_at": "2026-09-06T14:07:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_story_count": 4,
+    "last_success_at": "2026-09-08T15:02:56+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Bisnow Atlanta": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 257,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 309,
+    "last_empty_at": "2026-09-08T15:02:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:09+00:00",
@@ -216,10 +215,10 @@
     "status": "empty"
   },
   "Bisnow Boston": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 184,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 428,
+    "last_empty_at": "2026-09-08T15:02:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:09+00:00",
@@ -227,15 +226,15 @@
     "status": "empty"
   },
   "Bisnow Chicago": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 222,
+    "last_elapsed_ms": 367,
     "last_empty_at": "2026-09-07T16:23:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-04T14:54:31+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Bisnow DC": {
     "consecutive_empty_runs": 0,
@@ -262,21 +261,21 @@
     "status": "empty"
   },
   "Bisnow Denver": {
-    "consecutive_empty_runs": 0,
+    "consecutive_empty_runs": 1,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 196,
-    "last_empty_at": "2026-09-06T14:07:02+00:00",
+    "last_elapsed_ms": 441,
+    "last_empty_at": "2026-09-08T15:02:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-07T16:23:59+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "healthy"
+    "status": "empty"
   },
   "Bisnow Los Angeles": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 265,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 259,
+    "last_empty_at": "2026-09-08T15:02:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-09-05T13:50:09+00:00",
@@ -294,19 +293,19 @@
   "Bisnow National": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 285,
+    "last_elapsed_ms": 310,
     "last_empty_at": "2026-09-06T14:07:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:02:56+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Bisnow New York": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 312,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 362,
+    "last_empty_at": "2026-09-08T15:02:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-09-04T14:54:31+00:00",
@@ -314,10 +313,10 @@
     "status": "empty"
   },
   "Bisnow Philadelphia": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 268,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 358,
+    "last_empty_at": "2026-09-08T15:02:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:09+00:00",
@@ -335,10 +334,10 @@
     "status": "empty"
   },
   "Bisnow Washington DC": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 235,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 344,
+    "last_empty_at": "2026-09-08T15:02:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:09+00:00",
@@ -356,18 +355,18 @@
   "Bloomberg Businessweek": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 509,
+    "last_elapsed_ms": 558,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:00+00:00",
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Bloomberg Real Estate": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 500,
+    "last_elapsed_ms": 706,
     "last_story_count": 20,
-    "last_success_at": "2026-09-07T16:24:00+00:00",
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -380,10 +379,10 @@
     "status": "empty"
   },
   "Boston Real Estate Times": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 187,
-    "last_empty_at": "2026-09-07T16:24:10+00:00",
+    "last_elapsed_ms": 229,
+    "last_empty_at": "2026-09-08T15:03:08+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:42+00:00",
@@ -391,10 +390,10 @@
     "status": "empty"
   },
   "Building Design + Construction": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1366,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 888,
+    "last_empty_at": "2026-09-08T15:03:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.bdcnetwork.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.bdcnetwork.com', port=443): Failed to establish a ne",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -409,21 +408,21 @@
     "status": "empty"
   },
   "Buyouts Insider": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2249,
+    "last_elapsed_ms": 1932,
     "last_empty_at": "2026-09-07T16:24:03+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-04T14:54:35+00:00",
+    "last_success_at": "2026-09-08T15:03:01+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "CBO": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 207,
-    "last_empty_at": "2026-09-07T16:24:07+00:00",
+    "last_elapsed_ms": 194,
+    "last_empty_at": "2026-09-08T15:03:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 4,
     "last_success_at": "2026-09-05T13:50:16+00:00",
@@ -439,31 +438,31 @@
     "status": "empty"
   },
   "CBRE Insights": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 543,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 768,
+    "last_empty_at": "2026-09-08T15:03:11+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.cbre.com', port=443): Max retries exceeded with url: /insights (Caused by NewConnectionError(\"HTTPSConnection(host='www.cbre.com', port=443): Failed to establish a new co",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "needs_review"
   },
   "CFO Dive": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 282,
+    "last_elapsed_ms": 142,
     "last_empty_at": "2026-09-07T16:24:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 4,
-    "last_success_at": "2026-09-05T13:50:16+00:00",
+    "last_story_count": 3,
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "CFPB Newsroom": {
-    "consecutive_empty_runs": 30,
+    "consecutive_empty_runs": 31,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 229,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 317,
+    "last_empty_at": "2026-09-08T15:03:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.consumerfinance.gov', port=443): Max retries exceeded with url: /about-us/newsroom/feed/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.consumerfinance.gov', po",
     "last_story_count": 0,
@@ -472,15 +471,15 @@
     "status": "needs_review"
   },
   "CNBC Real Estate": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 344,
+    "last_elapsed_ms": 285,
     "last_empty_at": "2026-09-07T16:24:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-03T14:57:31+00:00",
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "CP Executive": {
     "consecutive_empty_runs": 5,
@@ -507,37 +506,37 @@
     "status": "empty"
   },
   "Canary Media": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 369,
+    "last_elapsed_ms": 300,
     "last_empty_at": "2026-09-07T16:24:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-05T13:50:14+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-09-08T15:03:03+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Capacity Media": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 333,
+    "last_elapsed_ms": 190,
     "last_empty_at": "2026-09-06T14:07:12+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 5,
-    "last_success_at": "2026-09-07T16:24:10+00:00",
+    "last_story_count": 9,
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Census Economic Indicators": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 146,
+    "last_elapsed_ms": 400,
     "last_empty_at": "2026-09-07T16:24:08+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-04T14:54:40+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:03:06+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Chicago Tribune Business": {
     "consecutive_empty_runs": 5,
@@ -556,10 +555,10 @@
     "status": "empty"
   },
   "CityLand NYC": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 5,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 347,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 456,
+    "last_empty_at": "2026-09-08T15:02:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-03T14:57:31+00:00",
@@ -569,9 +568,9 @@
   "CleanTechnica": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 229,
-    "last_story_count": 7,
-    "last_success_at": "2026-09-07T16:24:06+00:00",
+    "last_elapsed_ms": 277,
+    "last_story_count": 10,
+    "last_success_at": "2026-09-08T15:03:04+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -594,56 +593,56 @@
   "Commercial Observer": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 645,
+    "last_elapsed_ms": 475,
     "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 4,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_story_count": 15,
+    "last_success_at": "2026-09-08T15:02:56+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Connect CRE": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 344,
+    "last_elapsed_ms": 125,
     "last_empty_at": "2026-09-07T16:23:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 10,
-    "last_success_at": "2026-09-05T13:50:09+00:00",
+    "last_story_count": 6,
+    "last_success_at": "2026-09-08T15:02:56+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Construction Dive": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 313,
+    "last_elapsed_ms": 119,
     "last_empty_at": "2026-09-07T16:23:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 7,
-    "last_success_at": "2026-09-05T13:50:09+00:00",
+    "last_story_count": 5,
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Construction Equipment Guide": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 338,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 919,
+    "last_empty_at": "2026-09-08T15:03:11+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.constructionequipmentguide.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.constructionequipmentguide.com', por",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "needs_review"
   },
   "Converge Digest": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 817,
+    "last_elapsed_ms": 1153,
     "last_empty_at": "2026-09-07T16:24:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 4,
-    "last_success_at": "2026-09-05T13:50:19+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-09-08T15:03:09+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Crain's NY Business": {
     "consecutive_empty_runs": 5,
@@ -654,10 +653,10 @@
     "status": "empty"
   },
   "Crunchbase News": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 183,
-    "last_empty_at": "2026-09-07T16:24:04+00:00",
+    "last_elapsed_ms": 130,
+    "last_empty_at": "2026-09-08T15:03:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-09-05T13:50:13+00:00",
@@ -665,10 +664,10 @@
     "status": "empty"
   },
   "Curbed": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 287,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 608,
+    "last_empty_at": "2026-09-08T15:03:11+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.curbed.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.curbed.com', port=443): Failed to establish a new connec",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -677,19 +676,19 @@
   "Curbed NY": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 391,
+    "last_elapsed_ms": 245,
     "last_empty_at": "2026-08-30T15:18:39+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:00+00:00",
+    "last_story_count": 4,
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Cushman Research Beat": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 5,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 210,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 831,
+    "last_empty_at": "2026-09-08T15:03:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-03T14:57:43+00:00",
@@ -705,10 +704,10 @@
     "status": "empty"
   },
   "Dallas Morning News Business": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 249,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 245,
+    "last_empty_at": "2026-09-08T15:03:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.dallasnews.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.dallasnews.com', port=443): Failed to establish a ne",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -717,9 +716,9 @@
   "Data Center Dynamics": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 670,
+    "last_elapsed_ms": 1571,
     "last_story_count": 20,
-    "last_success_at": "2026-09-07T16:24:05+00:00",
+    "last_success_at": "2026-09-08T15:03:03+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -732,21 +731,21 @@
     "status": "empty"
   },
   "Data Center Knowledge": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 915,
+    "last_elapsed_ms": 2226,
     "last_empty_at": "2026-09-07T16:24:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-05T13:50:14+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-09-08T15:03:04+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Data Center POST": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 5,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1569,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 1734,
+    "last_empty_at": "2026-09-08T15:03:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 5,
     "last_success_at": "2026-09-03T14:57:39+00:00",
@@ -770,10 +769,10 @@
     "status": "healthy"
   },
   "EIA Today in Energy": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 9252,
-    "last_empty_at": "2026-09-07T16:24:15+00:00",
+    "last_elapsed_ms": 10246,
+    "last_empty_at": "2026-09-08T15:03:13+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:23+00:00",
@@ -783,29 +782,29 @@
   "Energy Storage News": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 532,
+    "last_elapsed_ms": 418,
     "last_empty_at": "2026-09-06T14:07:08+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 6,
-    "last_success_at": "2026-09-07T16:24:05+00:00",
+    "last_story_count": 12,
+    "last_success_at": "2026-09-08T15:03:03+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Engineering News-Record": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 448,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 426,
+    "last_empty_at": "2026-09-08T15:03:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.enr.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.enr.com', port=443): Failed to establish a new connection: ",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "needs_review"
   },
   "FDIC Press Releases": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2219,
-    "last_empty_at": "2026-09-07T16:24:03+00:00",
+    "last_elapsed_ms": 2803,
+    "last_empty_at": "2026-09-08T15:03:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:13+00:00",
@@ -821,15 +820,15 @@
     "status": "empty"
   },
   "Family Capital": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 495,
+    "last_elapsed_ms": 631,
     "last_empty_at": "2026-09-07T16:24:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-05T13:50:14+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:03:02+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Fannie Mae Perspectives": {
     "consecutive_empty_runs": 5,
@@ -850,37 +849,37 @@
   "Federal Register \u2014 DOE": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 319,
+    "last_elapsed_ms": 443,
     "last_story_count": 5,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 FDIC": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 267,
+    "last_elapsed_ms": 486,
     "last_empty_at": "2026-08-31T17:58:54+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 FERC": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 294,
+    "last_elapsed_ms": 485,
     "last_story_count": 5,
-    "last_success_at": "2026-09-07T16:24:08+00:00",
+    "last_success_at": "2026-09-08T15:03:06+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 FHFA": {
-    "consecutive_empty_runs": 8,
+    "consecutive_empty_runs": 9,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 179,
-    "last_empty_at": "2026-09-07T16:24:09+00:00",
+    "last_elapsed_ms": 375,
+    "last_empty_at": "2026-09-08T15:03:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-08-28T21:21:12+00:00",
@@ -888,10 +887,10 @@
     "status": "needs_review"
   },
   "Federal Register \u2014 Federal Reserve": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 189,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 502,
+    "last_empty_at": "2026-09-08T15:03:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:18+00:00",
@@ -899,10 +898,10 @@
     "status": "empty"
   },
   "Federal Register \u2014 HUD": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 185,
-    "last_empty_at": "2026-09-07T16:24:09+00:00",
+    "last_elapsed_ms": 362,
+    "last_empty_at": "2026-09-08T15:03:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:18+00:00",
@@ -912,29 +911,29 @@
   "Federal Register \u2014 OCC": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 312,
+    "last_elapsed_ms": 401,
     "last_empty_at": "2026-09-04T14:54:41+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 SEC": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 410,
+    "last_elapsed_ms": 543,
     "last_story_count": 11,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Federal Register \u2014 Treasury": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 300,
+    "last_elapsed_ms": 586,
     "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -955,10 +954,10 @@
     "status": "empty"
   },
   "Federal Reserve Enforcement": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 250,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 308,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:11+00:00",
@@ -966,10 +965,10 @@
     "status": "empty"
   },
   "Federal Reserve FEDS Notes": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 179,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 235,
+    "last_empty_at": "2026-09-08T15:03:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:16+00:00",
@@ -977,10 +976,10 @@
     "status": "empty"
   },
   "Federal Reserve H.8 Bank Data": {
-    "consecutive_empty_runs": 32,
+    "consecutive_empty_runs": 33,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 223,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 460,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.federalreserve.gov', port=443): Max retries exceeded with url: /feeds/h8.xml (Caused by NewConnectionError(\"HTTPSConnection(host='www.federalreserve.gov', port=443): Fail",
     "last_story_count": 72,
@@ -989,10 +988,10 @@
     "status": "needs_review"
   },
   "Federal Reserve Monetary Policy": {
-    "consecutive_empty_runs": 11,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 178,
-    "last_empty_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 262,
+    "last_empty_at": "2026-09-08T15:02:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-26T11:38:39+00:00",
@@ -1000,20 +999,20 @@
     "status": "needs_review"
   },
   "Federal Reserve Press (Banking Structure)": {
-    "consecutive_empty_runs": 30,
+    "consecutive_empty_runs": 31,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 172,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 201,
+    "last_empty_at": "2026-09-08T15:03:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.federalreserve.gov', port=443): Max retries exceeded with url: /feeds/press_bcreg.xml (Caused by NewConnectionError(\"HTTPSConnection(host='www.federalreserve.gov', port=4",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "needs_review"
   },
   "Federal Reserve Press Releases": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 147,
-    "last_empty_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 339,
+    "last_empty_at": "2026-09-08T15:02:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:10+00:00",
@@ -1021,10 +1020,10 @@
     "status": "empty"
   },
   "Federal Reserve Speeches": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 156,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 275,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:33+00:00",
@@ -1032,10 +1031,10 @@
     "status": "empty"
   },
   "Federal Reserve Testimony": {
-    "consecutive_empty_runs": 32,
+    "consecutive_empty_runs": 33,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 219,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 346,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.federalreserve.gov', port=443): Max retries exceeded with url: /feeds/testimony.xml (Caused by NewConnectionError(\"HTTPSConnection(host='www.federalreserve.gov', port=443",
     "last_story_count": 15,
@@ -1044,10 +1043,10 @@
     "status": "needs_review"
   },
   "Federal Reserve Working Papers": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 154,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 274,
+    "last_empty_at": "2026-09-08T15:03:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:17+00:00",
@@ -1057,9 +1056,9 @@
   "Fortune (general)": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 216,
-    "last_story_count": 9,
-    "last_success_at": "2026-09-07T16:24:02+00:00",
+    "last_elapsed_ms": 148,
+    "last_story_count": 8,
+    "last_success_at": "2026-09-08T15:03:00+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1088,10 +1087,10 @@
     "status": "empty"
   },
   "GAO WatchBlog": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 434,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 862,
+    "last_empty_at": "2026-09-08T15:03:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:39+00:00",
@@ -1109,9 +1108,9 @@
   "Gothamist": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 322,
-    "last_story_count": 8,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 360,
+    "last_story_count": 10,
+    "last_success_at": "2026-09-08T15:02:56+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1124,15 +1123,15 @@
     "status": "empty"
   },
   "Green Street Advisors": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 584,
+    "last_elapsed_ms": 698,
     "last_empty_at": "2026-09-07T16:24:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-05T13:50:11+00:00",
+    "last_story_count": 3,
+    "last_success_at": "2026-09-08T15:02:59+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Greentech Media": {
     "consecutive_empty_runs": 2,
@@ -1143,10 +1142,10 @@
     "status": "empty"
   },
   "HUD (general)": {
-    "consecutive_empty_runs": 11,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 626,
-    "last_empty_at": "2026-09-07T16:24:02+00:00",
+    "last_elapsed_ms": 1026,
+    "last_empty_at": "2026-09-08T15:03:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-08-26T11:38:40+00:00",
@@ -1170,24 +1169,24 @@
     "status": "empty"
   },
   "Heatmap News": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 329,
+    "last_elapsed_ms": 418,
     "last_empty_at": "2026-09-07T16:24:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 4,
-    "last_success_at": "2026-09-05T13:50:19+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "HousingWire": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 187,
+    "last_elapsed_ms": 198,
     "last_empty_at": "2026-08-09T11:39:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 6,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_story_count": 8,
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1202,19 +1201,19 @@
   "Hydrogen Fuel News": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 376,
+    "last_elapsed_ms": 409,
     "last_empty_at": "2026-08-31T17:58:52+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 7,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_story_count": 4,
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "ICSC": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 626,
-    "last_empty_at": "2026-09-07T16:24:13+00:00",
+    "last_elapsed_ms": 1060,
+    "last_empty_at": "2026-09-08T15:03:12+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.icsc.com', port=443): Max retries exceeded with url: /news-and-views (Caused by NewConnectionError(\"HTTPSConnection(host='www.icsc.com', port=443): Failed to establish a ",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -1231,11 +1230,11 @@
   "IPE Real Assets": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 611,
+    "last_elapsed_ms": 719,
     "last_empty_at": "2026-09-06T14:07:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:04+00:00",
+    "last_success_at": "2026-09-08T15:03:02+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1256,10 +1255,10 @@
     "status": "empty"
   },
   "Inside Mortgage Finance": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 217,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 459,
+    "last_empty_at": "2026-09-08T15:03:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.insidemortgagefinance.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.insidemortgagefinance.com', port=443): Fa",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -1274,15 +1273,15 @@
     "status": "empty"
   },
   "Institutional Real Estate": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
     "last_elapsed_ms": 279,
     "last_empty_at": "2026-09-07T16:24:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
-    "last_success_at": "2026-09-05T13:50:10+00:00",
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "JLL Data Centers": {
     "consecutive_empty_runs": 2,
@@ -1293,10 +1292,10 @@
     "status": "empty"
   },
   "JLL Trends": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 432,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 507,
+    "last_empty_at": "2026-09-08T15:03:11+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.jll.com', port=443): Max retries exceeded with url: /en-us/insights (Caused by NewConnectionError(\"HTTPSConnection(host='www.jll.com', port=443): Failed to establish a ne",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -1311,24 +1310,24 @@
     "status": "empty"
   },
   "Latitude Media": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 212,
+    "last_elapsed_ms": 315,
     "last_empty_at": "2026-09-07T16:24:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-05T13:50:19+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Light Reading": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1050,
+    "last_elapsed_ms": 685,
     "last_empty_at": "2026-09-06T14:07:12+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-07T16:24:10+00:00",
+    "last_story_count": 12,
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1341,10 +1340,10 @@
     "status": "empty"
   },
   "Lument": {
-    "consecutive_empty_runs": 5,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 444,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 545,
+    "last_empty_at": "2026-09-08T15:03:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-01T15:27:10+00:00",
@@ -1368,10 +1367,10 @@
     "status": "empty"
   },
   "Marcus & Millichap Research": {
-    "consecutive_empty_runs": 27,
+    "consecutive_empty_runs": 28,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 605,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 970,
+    "last_empty_at": "2026-09-08T15:03:12+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.marcusmillichap.com', port=443): Read timed out. (read timeout=15)",
     "last_failure_at": "2026-09-01T15:27:27+00:00",
@@ -1406,10 +1405,10 @@
     "status": "degraded"
   },
   "Miami Today": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 5,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1480,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 1548,
+    "last_empty_at": "2026-09-08T15:03:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
     "last_success_at": "2026-09-03T14:57:43+00:00",
@@ -1443,29 +1442,29 @@
   "Mortgage Professional America": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 552,
+    "last_elapsed_ms": 686,
     "last_empty_at": "2026-09-06T14:07:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:00+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Multi-Housing News": {
-    "consecutive_empty_runs": 35,
+    "consecutive_empty_runs": 36,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 288,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 226,
+    "last_empty_at": "2026-09-08T15:02:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.multihousingnews.com', port=443): Max retries exceeded with url: /feed/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.multihousingnews.com', port=443): Failed ",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "needs_review"
   },
   "Multifamily Executive": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 5,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 230,
-    "last_empty_at": "2026-09-07T16:24:09+00:00",
+    "last_elapsed_ms": 232,
+    "last_empty_at": "2026-09-08T15:03:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-03T14:57:41+00:00",
@@ -1481,10 +1480,10 @@
     "status": "empty"
   },
   "NAIOP": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 275,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 486,
+    "last_empty_at": "2026-09-08T15:03:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:43+00:00",
@@ -1510,10 +1509,10 @@
     "status": "empty"
   },
   "NLC": {
-    "consecutive_empty_runs": 5,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 233,
-    "last_empty_at": "2026-09-07T16:24:08+00:00",
+    "last_elapsed_ms": 117,
+    "last_empty_at": "2026-09-08T15:03:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-01T15:27:06+00:00",
@@ -1529,10 +1528,10 @@
     "status": "empty"
   },
   "NREI": {
-    "consecutive_empty_runs": 35,
+    "consecutive_empty_runs": 36,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 238,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 241,
+    "last_empty_at": "2026-09-08T15:02:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.nreionline.com', port=443): Max retries exceeded with url: /rss/all (Caused by NewConnectionError(\"HTTPSConnection(host='www.nreionline.com', port=443): Failed to establi",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -1555,10 +1554,10 @@
     "status": "empty"
   },
   "NY Fed Liberty Street Economics": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1054,
-    "last_empty_at": "2026-09-07T16:24:09+00:00",
+    "last_elapsed_ms": 1705,
+    "last_empty_at": "2026-09-08T15:03:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:41+00:00",
@@ -1566,15 +1565,15 @@
     "status": "empty"
   },
   "NY Post Real Estate": {
-    "consecutive_empty_runs": 1,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 182,
+    "last_elapsed_ms": 961,
     "last_empty_at": "2026-09-07T16:24:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-06T14:07:03+00:00",
+    "last_story_count": 10,
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "NY State Governor Press": {
     "consecutive_empty_runs": 2,
@@ -1587,17 +1586,17 @@
   "NY Times Real Estate": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 129,
-    "last_story_count": 4,
-    "last_success_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 185,
+    "last_story_count": 6,
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "NYC City Council": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 341,
-    "last_empty_at": "2026-09-07T16:24:06+00:00",
+    "last_elapsed_ms": 504,
+    "last_empty_at": "2026-09-08T15:03:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:38+00:00",
@@ -1607,9 +1606,9 @@
   "NYC Council Legistar": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 367,
+    "last_elapsed_ms": 519,
     "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1640,9 +1639,9 @@
   "NYT DealBook": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 104,
-    "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:04+00:00",
+    "last_elapsed_ms": 62,
+    "last_story_count": 4,
+    "last_success_at": "2026-09-08T15:03:01+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1673,46 +1672,46 @@
   "National Mortgage News": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 193,
+    "last_elapsed_ms": 318,
     "last_empty_at": "2026-09-06T14:07:12+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_story_count": 6,
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "National Multifamily Housing Council": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 403,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 492,
+    "last_empty_at": "2026-09-08T15:03:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.nmhc.org', port=443): Max retries exceeded with url: /news (Caused by NewConnectionError(\"HTTPSConnection(host='www.nmhc.org', port=443): Failed to establish a new connec",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "needs_review"
   },
   "Natural Gas Intelligence": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 518,
+    "last_elapsed_ms": 650,
     "last_empty_at": "2026-09-07T16:24:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 9,
-    "last_success_at": "2026-09-05T13:50:15+00:00",
+    "last_story_count": 3,
+    "last_success_at": "2026-09-08T15:03:04+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "New Private Markets": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1738,
+    "last_elapsed_ms": 3277,
     "last_empty_at": "2026-09-07T16:24:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_failure_at": "2026-08-10T14:05:35+00:00",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-05T13:50:14+00:00",
+    "last_story_count": 6,
+    "last_success_at": "2026-09-08T15:03:03+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "New York Fed": {
     "consecutive_empty_runs": 2,
@@ -1725,17 +1724,17 @@
   "New York YIMBY": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 438,
+    "last_elapsed_ms": 329,
     "last_story_count": 5,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_success_at": "2026-09-08T15:02:56+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Newmark Research": {
-    "consecutive_empty_runs": 35,
+    "consecutive_empty_runs": 36,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 164,
-    "last_empty_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 297,
+    "last_empty_at": "2026-09-08T15:02:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.nmrk.com', port=443): Max retries exceeded with url: /rss/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.nmrk.com', port=443): Failed to establish a new connec",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -1746,7 +1745,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:06+00:00",
+    "last_success_at": "2026-09-08T15:03:04+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Banking/Credit Discovery": {
@@ -1754,7 +1753,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Data Centers Discovery": {
@@ -1762,7 +1761,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Energy Discovery": {
@@ -1770,7 +1769,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Fed/Macro Discovery": {
@@ -1778,7 +1777,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Local Government Discovery": {
@@ -1786,7 +1785,7 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "status": "healthy"
   },
   "NewsAPI \u2014 Private Equity Discovery": {
@@ -1794,14 +1793,14 @@
     "consecutive_failures": 0,
     "last_elapsed_ms": 0,
     "last_story_count": 0,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "status": "healthy"
   },
   "OCC Bulletins": {
-    "consecutive_empty_runs": 4,
+    "consecutive_empty_runs": 5,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 293,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 540,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-03T14:57:33+00:00",
@@ -1809,10 +1808,10 @@
     "status": "empty"
   },
   "OCC News Releases": {
-    "consecutive_empty_runs": 5,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 315,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 573,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-09-01T15:27:01+00:00",
@@ -1822,9 +1821,9 @@
   "Observer (general)": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 491,
-    "last_story_count": 7,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 1605,
+    "last_story_count": 11,
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -1841,30 +1840,30 @@
   "Offshore Wind": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 398,
+    "last_elapsed_ms": 533,
     "last_empty_at": "2026-09-06T14:07:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_story_count": 4,
+    "last_success_at": "2026-09-08T15:03:05+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "PE Hub": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2959,
+    "last_elapsed_ms": 2181,
     "last_empty_at": "2026-09-06T14:07:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:04+00:00",
+    "last_story_count": 10,
+    "last_success_at": "2026-09-08T15:03:01+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "PERE": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1112,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 1651,
+    "last_empty_at": "2026-09-08T15:03:11+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.perenews.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.perenews.com', port=443): Failed to establish a new co",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -1881,19 +1880,19 @@
   "PV Magazine": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 484,
+    "last_elapsed_ms": 488,
     "last_empty_at": "2026-08-09T11:40:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 10,
-    "last_success_at": "2026-09-07T16:24:05+00:00",
+    "last_success_at": "2026-09-08T15:03:03+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Payments Dive": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 221,
-    "last_empty_at": "2026-09-07T16:24:07+00:00",
+    "last_elapsed_ms": 133,
+    "last_empty_at": "2026-09-08T15:03:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-09-05T13:50:16+00:00",
@@ -1933,10 +1932,10 @@
     "status": "empty"
   },
   "Power Engineering": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 245,
-    "last_empty_at": "2026-09-07T16:24:10+00:00",
+    "last_elapsed_ms": 164,
+    "last_empty_at": "2026-09-08T15:03:08+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:18+00:00",
@@ -1946,19 +1945,19 @@
   "Power Magazine": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 136,
+    "last_elapsed_ms": 113,
     "last_empty_at": "2026-09-06T14:07:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:05+00:00",
+    "last_story_count": 3,
+    "last_success_at": "2026-09-08T15:03:02+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Private Debt Investor": {
-    "consecutive_empty_runs": 13,
+    "consecutive_empty_runs": 14,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 869,
-    "last_empty_at": "2026-09-07T16:24:03+00:00",
+    "last_elapsed_ms": 852,
+    "last_empty_at": "2026-09-08T15:03:01+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 0,
     "last_success_at": "2026-08-24T11:37:46+00:00",
@@ -1968,19 +1967,19 @@
   "Private Equity International": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2742,
+    "last_elapsed_ms": 1431,
     "last_empty_at": "2026-09-06T14:07:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-07T16:24:04+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:03:01+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Private Funds CFO": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1819,
-    "last_empty_at": "2026-09-07T16:24:06+00:00",
+    "last_elapsed_ms": 2868,
+    "last_empty_at": "2026-09-08T15:03:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_failure_at": "2026-08-10T14:05:35+00:00",
     "last_story_count": 1,
@@ -1991,30 +1990,30 @@
   "Propmodo": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 321,
+    "last_elapsed_ms": 220,
     "last_empty_at": "2026-09-06T14:07:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_story_count": 3,
+    "last_success_at": "2026-09-08T15:02:56+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "RE Business Online": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 536,
+    "last_elapsed_ms": 829,
     "last_empty_at": "2026-09-07T16:24:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 20,
-    "last_success_at": "2026-09-05T13:50:10+00:00",
+    "last_story_count": 17,
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "REIT.com": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 348,
-    "last_empty_at": "2026-09-07T16:24:06+00:00",
+    "last_elapsed_ms": 225,
+    "last_empty_at": "2026-09-08T15:03:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:38+00:00",
@@ -2022,25 +2021,25 @@
     "status": "empty"
   },
   "REJournals": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 207,
+    "last_elapsed_ms": 369,
     "last_empty_at": "2026-09-07T16:24:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 8,
-    "last_success_at": "2026-09-05T13:50:18+00:00",
+    "last_story_count": 10,
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "RTO Insider": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 805,
+    "last_elapsed_ms": 1234,
     "last_empty_at": "2026-09-06T14:07:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_failure_at": "2026-08-31T17:59:06+00:00",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:06+00:00",
+    "last_story_count": 8,
+    "last_success_at": "2026-09-08T15:03:04+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -2053,21 +2052,21 @@
     "status": "empty"
   },
   "Real Estate Business Online": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 172,
+    "last_elapsed_ms": 359,
     "last_empty_at": "2026-09-07T16:24:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 20,
-    "last_success_at": "2026-09-05T13:50:18+00:00",
+    "last_story_count": 17,
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Real Estate Weekly": {
-    "consecutive_empty_runs": 26,
+    "consecutive_empty_runs": 27,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 591,
-    "last_empty_at": "2026-09-07T16:23:59+00:00",
+    "last_elapsed_ms": 571,
+    "last_empty_at": "2026-09-08T15:02:56+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='rew-online.com', port=443): Max retries exceeded with url: /feed/ (Caused by NewConnectionError(\"HTTPSConnection(host='rew-online.com', port=443): Failed to establish a new c",
     "last_story_count": 1,
@@ -2076,10 +2075,10 @@
     "status": "needs_review"
   },
   "RealPage": {
-    "consecutive_empty_runs": 5,
+    "consecutive_empty_runs": 6,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1454,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 1852,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-09-01T15:27:02+00:00",
@@ -2089,11 +2088,11 @@
   "Renewable Energy World": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 154,
+    "last_elapsed_ms": 163,
     "last_empty_at": "2026-09-06T14:07:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:05+00:00",
+    "last_success_at": "2026-09-08T15:03:02+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -2138,10 +2137,10 @@
     "status": "empty"
   },
   "SEC Litigation Releases": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 136,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 211,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.sec.gov', port=443): Max retries exceeded with url: /enforcement-litigation/litigation-releases/rss (Caused by NewConnectionError(\"HTTPSConnection(host='www.sec.gov', por",
     "last_story_count": 1,
@@ -2150,10 +2149,10 @@
     "status": "needs_review"
   },
   "SEC Press Releases": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 193,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 176,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-09-04T14:54:34+00:00",
@@ -2161,10 +2160,10 @@
     "status": "empty"
   },
   "SEC Speeches and Statements": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 115,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 318,
+    "last_empty_at": "2026-09-08T15:02:59+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 3,
     "last_success_at": "2026-09-04T14:54:34+00:00",
@@ -2190,10 +2189,10 @@
     "status": "empty"
   },
   "Scotsman Guide": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 288,
-    "last_empty_at": "2026-09-07T16:24:10+00:00",
+    "last_elapsed_ms": 164,
+    "last_empty_at": "2026-09-08T15:03:07+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 6,
     "last_success_at": "2026-09-05T13:50:18+00:00",
@@ -2201,10 +2200,10 @@
     "status": "empty"
   },
   "Seattle DJC": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 500,
-    "last_empty_at": "2026-09-07T16:24:12+00:00",
+    "last_elapsed_ms": 405,
+    "last_empty_at": "2026-09-08T15:03:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.djc.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.djc.com', port=443): Failed to establish a new connection: ",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -2219,10 +2218,10 @@
     "status": "empty"
   },
   "Secondaries Investor": {
-    "consecutive_empty_runs": 11,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 743,
-    "last_empty_at": "2026-09-07T16:24:02+00:00",
+    "last_elapsed_ms": 890,
+    "last_empty_at": "2026-09-08T15:03:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 4,
     "last_success_at": "2026-08-26T11:38:41+00:00",
@@ -2232,39 +2231,39 @@
   "Seeking Alpha REITs": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 156,
+    "last_elapsed_ms": 200,
     "last_story_count": 30,
-    "last_success_at": "2026-09-07T16:24:10+00:00",
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Shopping Center Business": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 841,
+    "last_elapsed_ms": 1175,
     "last_empty_at": "2026-09-07T16:24:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 4,
-    "last_success_at": "2026-09-05T13:50:10+00:00",
+    "last_story_count": 2,
+    "last_success_at": "2026-09-08T15:02:58+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Skift": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 181,
+    "last_elapsed_ms": 184,
     "last_empty_at": "2026-09-06T14:07:12+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_story_count": 8,
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Smart Electric Power Alliance": {
-    "consecutive_empty_runs": 11,
+    "consecutive_empty_runs": 12,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 275,
-    "last_empty_at": "2026-09-07T16:24:07+00:00",
+    "last_elapsed_ms": 327,
+    "last_empty_at": "2026-09-08T15:03:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
     "last_success_at": "2026-08-26T11:38:45+00:00",
@@ -2272,22 +2271,22 @@
     "status": "needs_review"
   },
   "Solar Power World": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 247,
+    "last_elapsed_ms": 362,
     "last_empty_at": "2026-09-07T16:24:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 2,
-    "last_success_at": "2026-09-05T13:50:16+00:00",
+    "last_story_count": 1,
+    "last_success_at": "2026-09-08T15:03:04+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "TechCrunch": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 84,
-    "last_story_count": 5,
-    "last_success_at": "2026-09-07T16:24:04+00:00",
+    "last_elapsed_ms": 218,
+    "last_story_count": 9,
+    "last_success_at": "2026-09-08T15:03:01+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -2302,19 +2301,19 @@
   "The City NYC": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 631,
+    "last_elapsed_ms": 1145,
     "last_empty_at": "2026-09-06T14:07:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:23:59+00:00",
+    "last_success_at": "2026-09-08T15:02:57+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "The DI Wire": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 115,
-    "last_empty_at": "2026-09-07T16:24:06+00:00",
+    "last_elapsed_ms": 153,
+    "last_empty_at": "2026-09-08T15:03:04+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='thediwire.com', port=443): Max retries exceeded with url: /feed/ (Caused by NewConnectionError(\"HTTPSConnection(host='thediwire.com', port=443): Failed to establish a new con",
     "last_story_count": 6,
@@ -2363,32 +2362,32 @@
     "status": "empty"
   },
   "The Registry Puget Sound": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 311,
+    "last_elapsed_ms": 296,
     "last_empty_at": "2026-09-07T16:24:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 10,
-    "last_success_at": "2026-09-05T13:50:19+00:00",
+    "last_story_count": 7,
+    "last_success_at": "2026-09-08T15:03:08+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "The Registry SF": {
-    "consecutive_empty_runs": 1,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 164,
+    "last_elapsed_ms": 303,
     "last_empty_at": "2026-09-07T16:24:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 1,
-    "last_success_at": "2026-09-06T14:07:11+00:00",
+    "last_story_count": 7,
+    "last_success_at": "2026-09-08T15:03:07+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Top1000Funds": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 524,
-    "last_empty_at": "2026-09-07T16:24:04+00:00",
+    "last_elapsed_ms": 514,
+    "last_empty_at": "2026-09-08T15:03:02+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:15+00:00",
@@ -2404,10 +2403,10 @@
     "status": "empty"
   },
   "Trepp Blog": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 374,
-    "last_empty_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 370,
+    "last_empty_at": "2026-09-08T15:02:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:10+00:00",
@@ -2415,20 +2414,20 @@
     "status": "empty"
   },
   "US Treasury (general)": {
-    "consecutive_empty_runs": 30,
+    "consecutive_empty_runs": 31,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 445,
-    "last_empty_at": "2026-09-07T16:24:01+00:00",
+    "last_elapsed_ms": 624,
+    "last_empty_at": "2026-09-08T15:03:00+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='home.treasury.gov', port=443): Max retries exceeded with url: /rss.xml (Caused by NewConnectionError(\"HTTPSConnection(host='home.treasury.gov', port=443): Failed to establish",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "needs_review"
   },
   "Units Magazine (NAA)": {
-    "consecutive_empty_runs": 29,
+    "consecutive_empty_runs": 30,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 414,
-    "last_empty_at": "2026-09-07T16:24:09+00:00",
+    "last_elapsed_ms": 505,
+    "last_empty_at": "2026-09-08T15:03:08+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='naahq.org', port=443): Max retries exceeded with url: /rss.xml (Caused by NewConnectionError(\"HTTPSConnection(host='naahq.org', port=443): Failed to establish a new connectio",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -2443,10 +2442,10 @@
     "status": "empty"
   },
   "Urban Land Institute": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 3,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 421,
-    "last_empty_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 590,
+    "last_empty_at": "2026-09-08T15:02:57+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-05T13:50:10+00:00",
@@ -2454,15 +2453,15 @@
     "status": "empty"
   },
   "Utility Dive": {
-    "consecutive_empty_runs": 2,
+    "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 130,
+    "last_elapsed_ms": 203,
     "last_empty_at": "2026-09-07T16:24:05+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 2,
-    "last_success_at": "2026-09-05T13:50:14+00:00",
+    "last_success_at": "2026-09-08T15:03:02+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
-    "status": "empty"
+    "status": "healthy"
   },
   "Utility Week": {
     "consecutive_empty_runs": 2,
@@ -2483,11 +2482,11 @@
   "Venture Capital Journal": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 2257,
+    "last_elapsed_ms": 2640,
     "last_empty_at": "2026-09-06T14:07:06+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
-    "last_success_at": "2026-09-07T16:24:04+00:00",
+    "last_success_at": "2026-09-08T15:03:02+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -2500,10 +2499,10 @@
     "status": "healthy"
   },
   "Walker & Dunlop": {
-    "consecutive_empty_runs": 28,
+    "consecutive_empty_runs": 29,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 702,
-    "last_empty_at": "2026-09-07T16:24:13+00:00",
+    "last_elapsed_ms": 724,
+    "last_empty_at": "2026-09-08T15:03:11+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_error": "HTTPSConnectionPool(host='www.walkerdunlop.com', port=443): Max retries exceeded with url: /insights/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.walkerdunlop.com', port=443): Failed to e",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
@@ -2522,20 +2521,20 @@
   "Washington Post Business": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 9233,
-    "last_story_count": 2,
-    "last_success_at": "2026-09-07T16:24:09+00:00",
+    "last_elapsed_ms": 8346,
+    "last_story_count": 3,
+    "last_success_at": "2026-09-08T15:03:06+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Windpower Monthly": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 196,
+    "last_elapsed_ms": 157,
     "last_empty_at": "2026-09-06T14:07:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 3,
-    "last_success_at": "2026-09-07T16:24:05+00:00",
+    "last_story_count": 5,
+    "last_success_at": "2026-09-08T15:03:03+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
@@ -2550,19 +2549,19 @@
   "World Nuclear News": {
     "consecutive_empty_runs": 0,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1027,
+    "last_elapsed_ms": 1457,
     "last_empty_at": "2026-09-06T14:07:10+00:00",
     "last_empty_detail": "feedparser returned no entries",
-    "last_story_count": 5,
-    "last_success_at": "2026-09-07T16:24:07+00:00",
+    "last_story_count": 11,
+    "last_success_at": "2026-09-08T15:03:06+00:00",
     "last_transient_outage_at": "2026-08-10T13:23:31+00:00",
     "status": "healthy"
   },
   "Yardi Blog": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 396,
-    "last_empty_at": "2026-09-07T16:24:00+00:00",
+    "last_elapsed_ms": 202,
+    "last_empty_at": "2026-09-08T15:02:58+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_story_count": 1,
     "last_success_at": "2026-09-04T14:54:32+00:00",
@@ -2578,10 +2577,10 @@
     "status": "empty"
   },
   "Yield PRO": {
-    "consecutive_empty_runs": 3,
+    "consecutive_empty_runs": 4,
     "consecutive_failures": 0,
-    "last_elapsed_ms": 1862,
-    "last_empty_at": "2026-09-07T16:24:11+00:00",
+    "last_elapsed_ms": 1910,
+    "last_empty_at": "2026-09-08T15:03:09+00:00",
     "last_empty_detail": "feedparser returned no entries",
     "last_failure_at": "2026-08-28T21:21:27+00:00",
     "last_story_count": 10,
