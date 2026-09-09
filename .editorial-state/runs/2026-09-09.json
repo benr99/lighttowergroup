@@ -1,0 +1,1914 @@
+{
+  "run_at": "2026-09-09T15:04:58.198576+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 828,
+  "documents_from_feeds": 725,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 782,
+  "documents_consolidated": 46,
+  "eligible": 104,
+  "enriched": 250,
+  "evidence_upgraded": 147,
+  "selected": 24,
+  "publication_candidates": 24,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 54,
+      "eligible": 7,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 412,
+      "eligible": 59,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 87,
+      "eligible": 5,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 126,
+      "eligible": 18,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 18 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 23,
+      "eligible": 5,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 75,
+      "eligible": 6,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 6 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 15,
+    "tier_c": 9
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 3 of 5 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 4 of 18 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 2 of 5 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 3 of 6 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 74.1,
+    "mean": 22.5,
+    "stdev": 12.55,
+    "range_used": 74.1,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 254,
+    "fetched": 241,
+    "from_cache": 0,
+    "blocked": 7,
+    "failed": 6,
+    "skipped_budget": 0,
+    "bytes_downloaded": 53728473,
+    "elapsed_ms": 62487,
+    "by_status": {
+      "full_text": 148,
+      "partial_text": 93,
+      "blocked": 7,
+      "failed": 6
+    }
+  },
+  "novelty": {
+    "new": 673,
+    "already_published": 6,
+    "minor_follow_up": 102,
+    "material_update": 1
+  },
+  "memory": {
+    "events_remembered": 7047,
+    "published": 606,
+    "seen_but_not_run": 6441,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-09",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 255.8,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 24,
+    "written": 24,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 25,
+    "elapsed_seconds": 64.02,
+    "provider_attempts": {
+      "deepseek": 25
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "8fdd0100fcec1d4b",
+        "title": "Independence Realty Trust, Centerspace to Merge for $8.1B Apartment REIT",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.96,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 494,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fcdbb02d27d38b7a4625c68d102425b02c37b720a1043fb342039dc3ee3341f8"
+        },
+        "seconds": 16.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c8ee9430efbc8c3d",
+        "title": "Data Center Supply Chain Bottlenecks Slow AI Infrastructure Rollout",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.43,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 543,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "5b61550e1e6aab3b9c947ad427c3a17473d50e38cb2db17346abf3584b02be89"
+        },
+        "seconds": 15.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1110d004b11a3f1b",
+        "title": "New York Life Provides $54M Refi for California Self-Storage Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.67,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 554,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "26db4720b3dd3bf5dcd405039eb575c6e0a0c8bec915bbd76268f0d7903c571a"
+        },
+        "seconds": 18.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9453381ab21bc2e9",
+        "title": "American Healthcare REIT Acquires Eight Senior Housing Communities for $696M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.89,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 594,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "71954ae7fe4db12afb2d921b9d03cf4c89614fdabb9bb2e58f5df556defc6bb5"
+        },
+        "seconds": 15.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "abb35c7c43d1bec7",
+        "title": "Mistral AI Raises $3.5B At $24B Valuation In Another Record European AI Round",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.87,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 551,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9e5e6d9d927d26ce36a43afd165a4a3def0d628cdf8ccf9456f07d7c5795784e"
+        },
+        "seconds": 13.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "144f99ae5cda94af",
+        "title": "Pebb Secures $223M Refi on Delray Beach Mixed-Use Venture",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.87,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 552,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e5be0244e746797241a4e7dd3df9d970dd098d849ac1c5e7e4d410486a50bbda"
+        },
+        "seconds": 18.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fe878660380f2e0e",
+        "title": "Bank Secrecy Act/Anti-Money Laundering: Frequently Asked Questions Regarding Treatment of Verifiable Digital Credentials Under the Customer Identification Program Rule",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.14,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 584,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ffd1a08aeba1bdce22291df1239065ebe44702a3fdc4dd1c541bd524f635a4ff"
+        },
+        "seconds": 18.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f9e493519eb117df",
+        "title": "Chime to buy Stride Bank for $590M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.79,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 605,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d2e921e6519a77c69a56cd8cb75f06f22b6498f826088b27510459c6e5e1c14f"
+        },
+        "seconds": 16.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f10786eebb77529a",
+        "title": "Cantor Fitzgerald Provides $141M CMBS Loan for Raleigh Office Complex",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.83,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 494,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "6508021f71201de991389821a358a2b08cc743cf9102a44aa121316e4df20b96"
+        },
+        "seconds": 14.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e9ecdc79ce507085",
+        "title": "NextEra secures $1.9bn loan from US DOE to support restart of the Duane Arnold nuclear power plant in Linn County, Iowa",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.8,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 585,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9ae2514808ca5eb4edb501fa10725fdf640f51e8362b1dff096388109b25a782"
+        },
+        "seconds": 15.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bb1321558f96685d",
+        "title": "Draper and Kramer’s Commercial Finance Group Closes $93.5M Refinance for Multifamily Property in Chicago’s Fulton Market",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.5,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 573,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "549642e720db3012f377e9a723894827a3f67109d8ff3aeafef24d9d4a861732"
+        },
+        "seconds": 17.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6fcf89e8c1c1b42d",
+        "title": "Dwight Refis LA-Area Apartments With $62M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.99,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 447,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8600fdab871a4233c12b4812457fc2d7b6385f43a8bf0948e00f56a1bb635543"
+        },
+        "seconds": 14.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "787f2f3d852bd1b8",
+        "title": "Celero Raises $275M After Validating 2nm Coherent DSP for Optical Interconnects",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.07,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 678,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "424875c6ca44ce327f1f4a6197889ae4329fe99d3ca9096dfc58cb9d55c188c9"
+        },
+        "seconds": 14.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b97a4fc752521447",
+        "title": "NextEra secures $1.9B DOE loan for Duane Arnold nuclear restart",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 678,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "00e944bfc765c267f2e3bb797d3f5972ce83059fd4acb3523e11d47493724d47"
+        },
+        "seconds": 18.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "422471b1d6b6af97",
+        "title": "Hscale secures $1bn contract with hyperscaler for Spanish data centers",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.74,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 647,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "32548c17acc54185247a22f54d90c5919d4c6641673efea9070d8ce40b2d23a2"
+        },
+        "seconds": 18.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "54c7fce617726893",
+        "title": "Shuttered nuclear plant in Iowa gets $1.9B federal loan to restart",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.0,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 366,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "58cf5770426e06c22750f88d75d4522c53e1b89d32c3b54a21cb47939c079f37"
+        },
+        "seconds": 9.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "81530129b1d756c3",
+        "title": "Development Group Inks $58M Construction Loan for Coconut Grove Condos",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 249,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4826d84e32880db25fe7f6d6296208f54524a145604ee4ccc774455b9c710847"
+        },
+        "seconds": 9.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "05f85d925f10a202",
+        "title": "Berkeley Partners Buys 2 Industrial Buildings For $36M: The Boston Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.46,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 251,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "fa8a03c994c2d77fbcc671c24ae362f1df0b82bb618aac39ce54fa699cae686c"
+        },
+        "seconds": 8.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "afb8722a94af53bb",
+        "title": "Gantry Secures $48.3M for Minnesota Class A Multifamily Construction Takeout Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.57,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 379,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "459eecff9bfe99a4e67ee25feaf880cc7ed4a9fce9c36aad8dd95fddb6eaea7b"
+        },
+        "seconds": 11.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7ca70b50eb7dfeca",
+        "title": "New on-chain bank receives conditional OCC approval",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.62,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 369,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b272f7931bdc21feda3e636611971566b5c0caee84050303dfb41fb04e621836"
+        },
+        "seconds": 10.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "17cb9ba8d6180d4c",
+        "title": "Trump pushes Fed for lower rates, but consumers may be better off with a hike, experts say",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.94,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 317,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "f9f4fd66ed82d7d4c52813da916fb364e2bbcc949d458216c2fac6cb1f7aa160"
+        },
+        "seconds": 19.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e9f51765dc4d72c3",
+        "title": "Philippines: Ayala Corp’s renewable energy platform lends PHP9 billion to subsidiaries for solar, BESS projects",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.56,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 304,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "64a3c4b1ac6790e191a77abc61939b50b5a6a56e76ded91b44d3fe583b6cdfa4"
+        },
+        "seconds": 8.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7bc4bdfd85982e55",
+        "title": "ICG raises record €12bn for Europe IX, 90 new LPs pile into structured capital strategy",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.19,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 296,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "68e6f05272ca1fb3c1adf0468e59e9e47d314fc2092b6a2f9b1a912bebcbcdfc"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b9fc4f21fbc70dbd",
+        "title": "Exclusive: Latitude, founded by Stripe and Uber alums, raises $35 million to turn stablecoins into local payments",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.03,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 284,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b6ddbe299bbba45ac80635c6d6e6f1bee43b7f449c4c151f3580cb2e9ad11c7c"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 24,
+    "published": 24,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit_social.png",
+      "insights/independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit.html",
+      "insights/data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout_social.png",
+      "insights/data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout.html",
+      "insights/new-york-life-provides-54m-refi-for-california-self-storage-portfolio_social.png",
+      "insights/new-york-life-provides-54m-refi-for-california-self-storage-portfolio.html",
+      "insights/american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m_social.png",
+      "insights/american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m.html",
+      "insights/mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round_social.png",
+      "insights/mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round.html",
+      "insights/pebb-secures-223m-refi-on-delray-beach-mixed-use-venture_social.png",
+      "insights/pebb-secures-223m-refi-on-delray-beach-mixed-use-venture.html",
+      "insights/bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea_social.png",
+      "insights/bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea.html",
+      "insights/chime-to-buy-stride-bank-for-590m_social.png",
+      "insights/chime-to-buy-stride-bank-for-590m.html",
+      "insights/cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex_social.png",
+      "insights/cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex.html",
+      "insights/nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma_social.png",
+      "insights/nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma.html",
+      "insights/draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m_social.png",
+      "insights/draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m.html",
+      "insights/dwight-refis-la-area-apartments-with-62m-loan_social.png",
+      "insights/dwight-refis-la-area-apartments-with-62m-loan.html",
+      "insights/celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects_social.png",
+      "insights/celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects.html",
+      "insights/nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart_social.png",
+      "insights/nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart.html",
+      "insights/hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers_social.png",
+      "insights/hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers.html",
+      "insights/shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart_social.png",
+      "insights/shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart.html",
+      "insights/development-group-inks-58m-construction-loan-for-coconut-grove-condos_social.png",
+      "insights/development-group-inks-58m-construction-loan-for-coconut-grove-condos.html",
+      "insights/berkeley-partners-buys-2-industrial-buildings-for-36m_social.png",
+      "insights/berkeley-partners-buys-2-industrial-buildings-for-36m.html",
+      "insights/gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan_social.png",
+      "insights/gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan.html",
+      "insights/new-on-chain-bank-receives-conditional-occ-approval_social.png",
+      "insights/new-on-chain-bank-receives-conditional-occ-approval.html",
+      "insights/trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp_social.png",
+      "insights/trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp.html",
+      "insights/philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi_social.png",
+      "insights/philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi.html",
+      "insights/icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str_social.png",
+      "insights/icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str.html",
+      "insights/exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st_social.png",
+      "insights/exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit_related.json",
+      "insights/data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout_related.json",
+      "insights/new-york-life-provides-54m-refi-for-california-self-storage-portfolio_related.json",
+      "insights/american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m_related.json",
+      "insights/mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round_related.json",
+      "insights/pebb-secures-223m-refi-on-delray-beach-mixed-use-venture_related.json",
+      "insights/bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea_related.json",
+      "insights/chime-to-buy-stride-bank-for-590m_related.json",
+      "insights/cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex_related.json",
+      "insights/nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma_related.json",
+      "insights/draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m_related.json",
+      "insights/dwight-refis-la-area-apartments-with-62m-loan_related.json",
+      "insights/celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects_related.json",
+      "insights/nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart_related.json",
+      "insights/hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers_related.json",
+      "insights/shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart_related.json",
+      "insights/development-group-inks-58m-construction-loan-for-coconut-grove-condos_related.json",
+      "insights/berkeley-partners-buys-2-industrial-buildings-for-36m_related.json",
+      "insights/gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan_related.json",
+      "insights/new-on-chain-bank-receives-conditional-occ-approval_related.json",
+      "insights/trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp_related.json",
+      "insights/philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi_related.json",
+      "insights/icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str_related.json",
+      "insights/exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "8fdd0100fcec1d4b",
+        "title": "Independence Realty Trust, Centerspace to Merge for $8.1B Apartment REIT",
+        "slug": "independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit",
+        "url": "/insights/independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c8ee9430efbc8c3d",
+        "title": "Data Center Supply Chain Bottlenecks Slow AI Infrastructure Rollout",
+        "slug": "data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout",
+        "url": "/insights/data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 63,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1110d004b11a3f1b",
+        "title": "New York Life Provides $54M Refi for California Self-Storage Portfolio",
+        "slug": "new-york-life-provides-54m-refi-for-california-self-storage-portfolio",
+        "url": "/insights/new-york-life-provides-54m-refi-for-california-self-storage-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9453381ab21bc2e9",
+        "title": "American Healthcare REIT Acquires Eight Senior Housing Communities for $696M",
+        "slug": "american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m",
+        "url": "/insights/american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "abb35c7c43d1bec7",
+        "title": "Mistral AI Raises $3.5B At $24B Valuation In Another Record European AI Round",
+        "slug": "mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round",
+        "url": "/insights/mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "144f99ae5cda94af",
+        "title": "Pebb Secures $223M Refi on Delray Beach Mixed-Use Venture",
+        "slug": "pebb-secures-223m-refi-on-delray-beach-mixed-use-venture",
+        "url": "/insights/pebb-secures-223m-refi-on-delray-beach-mixed-use-venture.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fe878660380f2e0e",
+        "title": "Bank Secrecy Act/Anti-Money Laundering: Frequently Asked Questions Regarding Treatment of Verifiable Digital Credentials Under the Customer Identification Program Rule",
+        "slug": "bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea",
+        "url": "/insights/bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f9e493519eb117df",
+        "title": "Chime to buy Stride Bank for $590M",
+        "slug": "chime-to-buy-stride-bank-for-590m",
+        "url": "/insights/chime-to-buy-stride-bank-for-590m.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "f10786eebb77529a",
+        "title": "Cantor Fitzgerald Provides $141M CMBS Loan for Raleigh Office Complex",
+        "slug": "cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex",
+        "url": "/insights/cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e9ecdc79ce507085",
+        "title": "NextEra's $1.9bn DOE Loan Puts Duane Arnold Restart on the Nuclear Renaissance Map",
+        "slug": "nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma",
+        "url": "/insights/nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bb1321558f96685d",
+        "title": "Draper and Kramer Closes $93.5M Refinance for The Elizabeth in Chicago's Fulton Market",
+        "slug": "draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m",
+        "url": "/insights/draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6fcf89e8c1c1b42d",
+        "title": "Dwight Refis LA-Area Apartments With $62M Loan",
+        "slug": "dwight-refis-la-area-apartments-with-62m-loan",
+        "url": "/insights/dwight-refis-la-area-apartments-with-62m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "787f2f3d852bd1b8",
+        "title": "Celero Raises $275M After Validating 2nm Coherent DSP for Optical Interconnects",
+        "slug": "celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects",
+        "url": "/insights/celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b97a4fc752521447",
+        "title": "NextEra secures $1.9B DOE loan for Duane Arnold nuclear restart",
+        "slug": "nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart",
+        "url": "/insights/nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "422471b1d6b6af97",
+        "title": "Hscale secures $1bn contract with hyperscaler for Spanish data centers",
+        "slug": "hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers",
+        "url": "/insights/hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "54c7fce617726893",
+        "title": "Shuttered nuclear plant in Iowa gets $1.9B federal loan to restart",
+        "slug": "shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart",
+        "url": "/insights/shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "81530129b1d756c3",
+        "title": "Development Group Inks $58M Construction Loan for Coconut Grove Condos",
+        "slug": "development-group-inks-58m-construction-loan-for-coconut-grove-condos",
+        "url": "/insights/development-group-inks-58m-construction-loan-for-coconut-grove-condos.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "05f85d925f10a202",
+        "title": "Berkeley Partners Buys 2 Industrial Buildings For $36M",
+        "slug": "berkeley-partners-buys-2-industrial-buildings-for-36m",
+        "url": "/insights/berkeley-partners-buys-2-industrial-buildings-for-36m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "afb8722a94af53bb",
+        "title": "Gantry Secures $48.3M for Minnesota Class A Multifamily Construction Takeout Loan",
+        "slug": "gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan",
+        "url": "/insights/gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7ca70b50eb7dfeca",
+        "title": "New on-chain bank receives conditional OCC approval",
+        "slug": "new-on-chain-bank-receives-conditional-occ-approval",
+        "url": "/insights/new-on-chain-bank-receives-conditional-occ-approval.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "17cb9ba8d6180d4c",
+        "title": "Trump pushes Fed for lower rates, but consumers may be better off with a hike, experts say",
+        "slug": "trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp",
+        "url": "/insights/trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e9f51765dc4d72c3",
+        "title": "Philippines: Ayala Corp’s renewable energy platform lends PHP9 billion to subsidiaries for solar, BESS projects",
+        "slug": "philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi",
+        "url": "/insights/philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7bc4bdfd85982e55",
+        "title": "ICG raises record €12bn for Europe IX, 90 new LPs pile into structured capital strategy",
+        "slug": "icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str",
+        "url": "/insights/icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "b9fc4f21fbc70dbd",
+        "title": "Exclusive: Latitude, founded by Stripe and Uber alums, raises $35 million to turn stablecoins into local payments",
+        "slug": "exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st",
+        "url": "/insights/exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "8fdd0100fcec1d4b",
+        "slug": "independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit",
+        "title": "Independence Realty Trust, Centerspace to Merge for $8.1B Apartment REIT",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c8ee9430efbc8c3d",
+        "slug": "data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout",
+        "title": "Data Center Supply Chain Bottlenecks Slow AI Infrastructure Rollout",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1110d004b11a3f1b",
+        "slug": "new-york-life-provides-54m-refi-for-california-self-storage-portfolio",
+        "title": "New York Life Provides $54M Refi for California Self-Storage Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/new-york-life-provides-54m-refi-for-california-self-storage-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9453381ab21bc2e9",
+        "slug": "american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m",
+        "title": "American Healthcare REIT Acquires Eight Senior Housing Communities for $696M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "abb35c7c43d1bec7",
+        "slug": "mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round",
+        "title": "Mistral AI Raises $3.5B At $24B Valuation In Another Record European AI Round",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round.html",
+        "reason": ""
+      },
+      {
+        "object_id": "144f99ae5cda94af",
+        "slug": "pebb-secures-223m-refi-on-delray-beach-mixed-use-venture",
+        "title": "Pebb Secures $223M Refi on Delray Beach Mixed-Use Venture",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/pebb-secures-223m-refi-on-delray-beach-mixed-use-venture.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fe878660380f2e0e",
+        "slug": "bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea",
+        "title": "Bank Secrecy Act/Anti-Money Laundering: Frequently Asked Questions Regarding Treatment of Verifiable Digital Credentials Under the Customer Identification Program Rule",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f9e493519eb117df",
+        "slug": "chime-to-buy-stride-bank-for-590m",
+        "title": "Chime to buy Stride Bank for $590M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/chime-to-buy-stride-bank-for-590m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f10786eebb77529a",
+        "slug": "cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex",
+        "title": "Cantor Fitzgerald Provides $141M CMBS Loan for Raleigh Office Complex",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e9ecdc79ce507085",
+        "slug": "nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma",
+        "title": "NextEra secures $1.9bn loan from US DOE to support restart of the Duane Arnold nuclear power plant in Linn County, Iowa",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bb1321558f96685d",
+        "slug": "draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m",
+        "title": "Draper and Kramer’s Commercial Finance Group Closes $93.5M Refinance for Multifamily Property in Chicago’s Fulton Market",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6fcf89e8c1c1b42d",
+        "slug": "dwight-refis-la-area-apartments-with-62m-loan",
+        "title": "Dwight Refis LA-Area Apartments With $62M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dwight-refis-la-area-apartments-with-62m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "787f2f3d852bd1b8",
+        "slug": "celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects",
+        "title": "Celero Raises $275M After Validating 2nm Coherent DSP for Optical Interconnects",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b97a4fc752521447",
+        "slug": "nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart",
+        "title": "NextEra secures $1.9B DOE loan for Duane Arnold nuclear restart",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart.html",
+        "reason": ""
+      },
+      {
+        "object_id": "422471b1d6b6af97",
+        "slug": "hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers",
+        "title": "Hscale secures $1bn contract with hyperscaler for Spanish data centers",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers.html",
+        "reason": ""
+      },
+      {
+        "object_id": "54c7fce617726893",
+        "slug": "shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart",
+        "title": "Shuttered nuclear plant in Iowa gets $1.9B federal loan to restart",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart.html",
+        "reason": ""
+      },
+      {
+        "object_id": "81530129b1d756c3",
+        "slug": "development-group-inks-58m-construction-loan-for-coconut-grove-condos",
+        "title": "Development Group Inks $58M Construction Loan for Coconut Grove Condos",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/development-group-inks-58m-construction-loan-for-coconut-grove-condos.html",
+        "reason": ""
+      },
+      {
+        "object_id": "05f85d925f10a202",
+        "slug": "berkeley-partners-buys-2-industrial-buildings-for-36m",
+        "title": "Berkeley Partners Buys 2 Industrial Buildings For $36M: The Boston Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/berkeley-partners-buys-2-industrial-buildings-for-36m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "afb8722a94af53bb",
+        "slug": "gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan",
+        "title": "Gantry Secures $48.3M for Minnesota Class A Multifamily Construction Takeout Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7ca70b50eb7dfeca",
+        "slug": "new-on-chain-bank-receives-conditional-occ-approval",
+        "title": "New on-chain bank receives conditional OCC approval",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/new-on-chain-bank-receives-conditional-occ-approval.html",
+        "reason": ""
+      },
+      {
+        "object_id": "17cb9ba8d6180d4c",
+        "slug": "trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp",
+        "title": "Trump pushes Fed for lower rates, but consumers may be better off with a hike, experts say",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e9f51765dc4d72c3",
+        "slug": "philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi",
+        "title": "Philippines: Ayala Corp’s renewable energy platform lends PHP9 billion to subsidiaries for solar, BESS projects",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7bc4bdfd85982e55",
+        "slug": "icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str",
+        "title": "ICG raises record €12bn for Europe IX, 90 new LPs pile into structured capital strategy",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b9fc4f21fbc70dbd",
+        "slug": "exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st",
+        "title": "Exclusive: Latitude, founded by Stripe and Uber alums, raises $35 million to turn stablecoins into local payments",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 25,
+    "successful_calls": 25,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.01,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.73,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.19,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.63,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.25,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 96.46,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 63.6,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.21,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 65.56,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.87,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.25,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 24 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 255.76,
+  "status": "ready",
+  "candidate_count": 828,
+  "event_count": 782,
+  "articles": [
+    {
+      "event_id": "8fdd0100fcec1d4b",
+      "title": "Independence Realty Trust, Centerspace to Merge for $8.1B Apartment REIT",
+      "slug": "independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit",
+      "url": "/insights/independence-realty-trust-centerspace-to-merge-for-8-1b-apartment-reit.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c8ee9430efbc8c3d",
+      "title": "Data Center Supply Chain Bottlenecks Slow AI Infrastructure Rollout",
+      "slug": "data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout",
+      "url": "/insights/data-center-supply-chain-bottlenecks-slow-ai-infrastructure-rollout.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 63,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1110d004b11a3f1b",
+      "title": "New York Life Provides $54M Refi for California Self-Storage Portfolio",
+      "slug": "new-york-life-provides-54m-refi-for-california-self-storage-portfolio",
+      "url": "/insights/new-york-life-provides-54m-refi-for-california-self-storage-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9453381ab21bc2e9",
+      "title": "American Healthcare REIT Acquires Eight Senior Housing Communities for $696M",
+      "slug": "american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m",
+      "url": "/insights/american-healthcare-reit-acquires-eight-senior-housing-communities-for-696m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "abb35c7c43d1bec7",
+      "title": "Mistral AI Raises $3.5B At $24B Valuation In Another Record European AI Round",
+      "slug": "mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round",
+      "url": "/insights/mistral-ai-raises-3-5b-at-24b-valuation-in-another-record-european-ai-round.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "144f99ae5cda94af",
+      "title": "Pebb Secures $223M Refi on Delray Beach Mixed-Use Venture",
+      "slug": "pebb-secures-223m-refi-on-delray-beach-mixed-use-venture",
+      "url": "/insights/pebb-secures-223m-refi-on-delray-beach-mixed-use-venture.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fe878660380f2e0e",
+      "title": "Bank Secrecy Act/Anti-Money Laundering: Frequently Asked Questions Regarding Treatment of Verifiable Digital Credentials Under the Customer Identification Program Rule",
+      "slug": "bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea",
+      "url": "/insights/bank-secrecy-act-anti-money-laundering-frequently-asked-questions-regarding-trea.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f9e493519eb117df",
+      "title": "Chime to buy Stride Bank for $590M",
+      "slug": "chime-to-buy-stride-bank-for-590m",
+      "url": "/insights/chime-to-buy-stride-bank-for-590m.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "f10786eebb77529a",
+      "title": "Cantor Fitzgerald Provides $141M CMBS Loan for Raleigh Office Complex",
+      "slug": "cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex",
+      "url": "/insights/cantor-fitzgerald-provides-141m-cmbs-loan-for-raleigh-office-complex.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e9ecdc79ce507085",
+      "title": "NextEra's $1.9bn DOE Loan Puts Duane Arnold Restart on the Nuclear Renaissance Map",
+      "slug": "nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma",
+      "url": "/insights/nextera-s-1-9bn-doe-loan-puts-duane-arnold-restart-on-the-nuclear-renaissance-ma.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bb1321558f96685d",
+      "title": "Draper and Kramer Closes $93.5M Refinance for The Elizabeth in Chicago's Fulton Market",
+      "slug": "draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m",
+      "url": "/insights/draper-and-kramer-closes-93-5m-refinance-for-the-elizabeth-in-chicago-s-fulton-m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6fcf89e8c1c1b42d",
+      "title": "Dwight Refis LA-Area Apartments With $62M Loan",
+      "slug": "dwight-refis-la-area-apartments-with-62m-loan",
+      "url": "/insights/dwight-refis-la-area-apartments-with-62m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "787f2f3d852bd1b8",
+      "title": "Celero Raises $275M After Validating 2nm Coherent DSP for Optical Interconnects",
+      "slug": "celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects",
+      "url": "/insights/celero-raises-275m-after-validating-2nm-coherent-dsp-for-optical-interconnects.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b97a4fc752521447",
+      "title": "NextEra secures $1.9B DOE loan for Duane Arnold nuclear restart",
+      "slug": "nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart",
+      "url": "/insights/nextera-secures-1-9b-doe-loan-for-duane-arnold-nuclear-restart.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "422471b1d6b6af97",
+      "title": "Hscale secures $1bn contract with hyperscaler for Spanish data centers",
+      "slug": "hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers",
+      "url": "/insights/hscale-secures-1bn-contract-with-hyperscaler-for-spanish-data-centers.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "54c7fce617726893",
+      "title": "Shuttered nuclear plant in Iowa gets $1.9B federal loan to restart",
+      "slug": "shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart",
+      "url": "/insights/shuttered-nuclear-plant-in-iowa-gets-1-9b-federal-loan-to-restart.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "81530129b1d756c3",
+      "title": "Development Group Inks $58M Construction Loan for Coconut Grove Condos",
+      "slug": "development-group-inks-58m-construction-loan-for-coconut-grove-condos",
+      "url": "/insights/development-group-inks-58m-construction-loan-for-coconut-grove-condos.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "05f85d925f10a202",
+      "title": "Berkeley Partners Buys 2 Industrial Buildings For $36M",
+      "slug": "berkeley-partners-buys-2-industrial-buildings-for-36m",
+      "url": "/insights/berkeley-partners-buys-2-industrial-buildings-for-36m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "afb8722a94af53bb",
+      "title": "Gantry Secures $48.3M for Minnesota Class A Multifamily Construction Takeout Loan",
+      "slug": "gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan",
+      "url": "/insights/gantry-secures-48-3m-for-minnesota-class-a-multifamily-construction-takeout-loan.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7ca70b50eb7dfeca",
+      "title": "New on-chain bank receives conditional OCC approval",
+      "slug": "new-on-chain-bank-receives-conditional-occ-approval",
+      "url": "/insights/new-on-chain-bank-receives-conditional-occ-approval.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "17cb9ba8d6180d4c",
+      "title": "Trump pushes Fed for lower rates, but consumers may be better off with a hike, experts say",
+      "slug": "trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp",
+      "url": "/insights/trump-pushes-fed-for-lower-rates-but-consumers-may-be-better-off-with-a-hike-exp.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e9f51765dc4d72c3",
+      "title": "Philippines: Ayala Corp’s renewable energy platform lends PHP9 billion to subsidiaries for solar, BESS projects",
+      "slug": "philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi",
+      "url": "/insights/philippines-ayala-corp-s-renewable-energy-platform-lends-php9-billion-to-subsidi.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7bc4bdfd85982e55",
+      "title": "ICG raises record €12bn for Europe IX, 90 new LPs pile into structured capital strategy",
+      "slug": "icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str",
+      "url": "/insights/icg-raises-record-12bn-for-europe-ix-90-new-lps-pile-into-structured-capital-str.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "b9fc4f21fbc70dbd",
+      "title": "Exclusive: Latitude, founded by Stripe and Uber alums, raises $35 million to turn stablecoins into local payments",
+      "slug": "exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st",
+      "url": "/insights/exclusive-latitude-founded-by-stripe-and-uber-alums-raises-35-million-to-turn-st.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 24
+}
