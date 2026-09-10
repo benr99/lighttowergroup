@@ -1,0 +1,1707 @@
+{
+  "run_at": "2026-09-10T14:57:14.926536+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 844,
+  "documents_from_feeds": 741,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 792,
+  "documents_consolidated": 52,
+  "eligible": 103,
+  "enriched": 250,
+  "evidence_upgraded": 155,
+  "selected": 21,
+  "publication_candidates": 21,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 49,
+      "eligible": 9,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 418,
+      "eligible": 59,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 81,
+      "eligible": 5,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "5 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "energy": {
+      "considered": 137,
+      "eligible": 15,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 15 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 22,
+      "eligible": 6,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "6 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "local_government": {
+      "considered": 4,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 81,
+      "eligible": 7,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 14,
+    "tier_c": 7
+  },
+  "shortfalls": [
+    "banking_credit: only 6 of 9 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: 5 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "energy: only 2 of 15 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: 6 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "local_government: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 67.8,
+    "mean": 23.2,
+    "stdev": 12.56,
+    "range_used": 67.8,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 256,
+    "fetched": 240,
+    "from_cache": 0,
+    "blocked": 10,
+    "failed": 6,
+    "skipped_budget": 0,
+    "bytes_downloaded": 51520540,
+    "elapsed_ms": 91958,
+    "by_status": {
+      "full_text": 156,
+      "partial_text": 84,
+      "blocked": 10,
+      "failed": 6
+    }
+  },
+  "novelty": {
+    "new": 705,
+    "already_published": 3,
+    "minor_follow_up": 83,
+    "material_update": 1
+  },
+  "memory": {
+    "events_remembered": 7600,
+    "published": 626,
+    "seen_but_not_run": 6974,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-10",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 292.0,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 21,
+    "written": 21,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 22,
+    "elapsed_seconds": 49.89,
+    "provider_attempts": {
+      "deepseek": 22
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "9265494b2e93a00d",
+        "title": "CBRE Investment Management Acquires $1.6B Net-Lease Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.68,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 480,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "84acb6587d18cd918e0187f9c73774d424ef369ddca8c24a5b4f3fe944173bfa"
+        },
+        "seconds": 12.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b955834a98b4a4d3",
+        "title": "Philadelphia REIT Assembles 44,000-Unit Platform With Midwest Addition",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 442,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "2dc70aac717de305c803ca013362249deb22e56defcacfc8e2d706684714514a"
+        },
+        "seconds": 11.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b4bd1df47d2de0f7",
+        "title": "Independence Realty Trust To Buy Centerspace, Creating $8.1B REIT",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.23,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 594,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c9700509794c42c75a0ff83ffd30fd976002430304f5d807cd8c6ae4689ea14b"
+        },
+        "seconds": 13.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "caafcea99490a52d",
+        "title": "Pebb Capital Obtains $223M Loan for Refinancing of Sundy Village in Delray Beach, Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.61,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 503,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7071dabca57a10ec1f4b3936225ddd7e28fa7c7fce8969a6a85d3d14260b039d"
+        },
+        "seconds": 14.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5e6a15aada517525",
+        "title": "FDIC won't have to return $1.71 billion to SVB creditors",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.53,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 573,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "74051130ca75a34b87f12260b957ffda82ceea17a04c1ecbc859bf73a3486251"
+        },
+        "seconds": 14.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3e3c1d098d4ce22d",
+        "title": "CBRE IM Buys Net Lease REIT For $1.6B, Plans More Investment",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 491,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "05fa2ff372e85db2852a9328bed7e598b6bc60e9b126b077ab3abe4574b4951e"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "459eef4d2ae81389",
+        "title": "Lender Requests Receiver For X Denver Apartment Building Near Coors Field",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.47,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 636,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3adc5a3e9c90c6c6ad03734c442bab8cbcad20493ff32ccfb9697aacbd2a6ade"
+        },
+        "seconds": 16.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dd8ac7ff26f6cb5f",
+        "title": "SL Green Sells 110 Greene Street to Natora Group for $226M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.73,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 540,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "5da50a3e8c69bd5f813a86d61b054ba751cd9be3e4e2a2c632909486eb850dd6"
+        },
+        "seconds": 12.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "703b7ffcf7202d71",
+        "title": "SL Green Selling SoHo Building For $226M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.41,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 544,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3c74d615647aab31e2f065766cb16c6a64984ee5083fa2d4004b36ceff5a6de2"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bb5d1fe5cf9d17d9",
+        "title": "Dwight Refis L.A.-Area Apartments With $62M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.84,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 484,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "75fa53741e0ab436de773ed6a996c6431b89c07659f728e22a81c5f2af26bf3e"
+        },
+        "seconds": 11.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "06a70f9d96cf9966",
+        "title": "Berkadia Arranges $38.55M Refinancing for Tennis Towers Apartments in West Palm Beach Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.57,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 509,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f287847e09fd0ebe73e55fc55eedbdf8a87530ec205b303f129c47b64c03cd7c"
+        },
+        "seconds": 11.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d615f6e6f560af14",
+        "title": "Block seeks OCC bank charter",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.76,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 569,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7d153f8833afc64489ff3bd819ba187c6133f92f138dc51e8ff730f3bfc55c17"
+        },
+        "seconds": 12.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5a96e5a09adcbcd7",
+        "title": "Duane Arnold’s nuclear restart in eastern Iowa gets $1.9B boost from DOE",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.19,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 558,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "cd48d8b624e65e142353aeddc3317c8c8c5511835785c2a77db71b9dfc1e0863"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2dd3ffd28d45294c",
+        "title": "Virginia banks to combine in $253M deal",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.29,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 649,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "742b73320fa68ea0678d140d234e404d4ff23cb0e4055b1b462a99327741dff3"
+        },
+        "seconds": 12.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "db957dd18a247042",
+        "title": "Hill: FDIC on track to issue stablecoin rulemaking by year’s end",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 294,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "98680b059f9cfeb18865dcbf351ed079bd27d92e11c05d0dcfbc63c223a22b15"
+        },
+        "seconds": 7.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ba49fd089360fffc",
+        "title": "Block seeks national trust charter to offer crypto custody",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.45,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 328,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "facb16a57e3c55c0e21a0a28f8b4f94367951ef8a0990986df86cd66ec5266e4"
+        },
+        "seconds": 6.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1b9b7b53c9ddadb0",
+        "title": "Mercury gets FDIC nod",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.98,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 340,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "af0edbfb3c637db400852bd3a487436147bd0ddc14a31b9e5754bfbfc2927a2b"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7c38056179c02fb0",
+        "title": "Mark Stebbins Community Center Opens on Manchester’s West Side With $20.7M Raised for Children and Families",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.77,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 325,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "250df9c51e55c075e8612c38b7e7c00531f969c19ee5fb61b733433fec0f63b7"
+        },
+        "seconds": 7.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a8f178f1a0efc497",
+        "title": "Louisiana Teachers slates $100m for infrastructure funds managed by Blackstone and I Squared",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.11,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 263,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "5fa2482c2d50e7915b325a6c974ac9db65fd4e19807c413830ffcd22e796257e"
+        },
+        "seconds": 7.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "09155ab5cd6f5222",
+        "title": "Housing Report: New York City Has Approved 6,732 New Residential Units This Year Through August",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.06,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 360,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "333a0d6c0ad5f2a1f38f22d2d9c26a56aeb39f5da97ae5597f12dacc84390171"
+        },
+        "seconds": 17.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c4655f0e428148af",
+        "title": "Merchant BESS switched on at operational solar site in Romania",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.32,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 345,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ce2c122c4a94913f8433de9e518905d64dec33aaea2bbaf04c1a3edc363ec871"
+        },
+        "seconds": 7.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 21,
+    "published": 21,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/cbre-investment-management-acquires-1-6b-net-lease-portfolio_social.png",
+      "insights/cbre-investment-management-acquires-1-6b-net-lease-portfolio.html",
+      "insights/philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition_social.png",
+      "insights/philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition.html",
+      "insights/independence-realty-trust-to-buy-centerspace-creating-8-1b-reit_social.png",
+      "insights/independence-realty-trust-to-buy-centerspace-creating-8-1b-reit.html",
+      "insights/pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach_social.png",
+      "insights/pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach.html",
+      "insights/fdic-won-t-have-to-return-1-71-billion-to-svb-creditors_social.png",
+      "insights/fdic-won-t-have-to-return-1-71-billion-to-svb-creditors.html",
+      "insights/cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment_social.png",
+      "insights/cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment.html",
+      "insights/lender-requests-receiver-for-x-denver-apartment-building-near-coors-field_social.png",
+      "insights/lender-requests-receiver-for-x-denver-apartment-building-near-coors-field.html",
+      "insights/sl-green-sells-110-greene-street-to-natora-group-for-226m_social.png",
+      "insights/sl-green-sells-110-greene-street-to-natora-group-for-226m.html",
+      "insights/sl-green-selling-soho-building-for-226m_social.png",
+      "insights/sl-green-selling-soho-building-for-226m.html",
+      "insights/dwight-refis-l-a-area-apartments-with-62m-loan_social.png",
+      "insights/dwight-refis-l-a-area-apartments-with-62m-loan.html",
+      "insights/berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b_social.png",
+      "insights/berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b.html",
+      "insights/block-seeks-occ-bank-charter_social.png",
+      "insights/block-seeks-occ-bank-charter.html",
+      "insights/duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe_social.png",
+      "insights/duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe.html",
+      "insights/virginia-banks-to-combine-in-253m-deal_social.png",
+      "insights/virginia-banks-to-combine-in-253m-deal.html",
+      "insights/hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end_social.png",
+      "insights/hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end.html",
+      "insights/block-seeks-national-trust-charter-to-offer-crypto-custody_social.png",
+      "insights/block-seeks-national-trust-charter-to-offer-crypto-custody.html",
+      "insights/mercury-gets-fdic-nod_social.png",
+      "insights/mercury-gets-fdic-nod.html",
+      "insights/mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised_social.png",
+      "insights/mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised.html",
+      "insights/louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an_social.png",
+      "insights/louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an.html",
+      "insights/housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year_social.png",
+      "insights/housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year.html",
+      "insights/merchant-bess-switched-on-at-operational-solar-site-in-romania_social.png",
+      "insights/merchant-bess-switched-on-at-operational-solar-site-in-romania.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/cbre-investment-management-acquires-1-6b-net-lease-portfolio_related.json",
+      "insights/philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition_related.json",
+      "insights/independence-realty-trust-to-buy-centerspace-creating-8-1b-reit_related.json",
+      "insights/pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach_related.json",
+      "insights/fdic-won-t-have-to-return-1-71-billion-to-svb-creditors_related.json",
+      "insights/cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment_related.json",
+      "insights/lender-requests-receiver-for-x-denver-apartment-building-near-coors-field_related.json",
+      "insights/sl-green-sells-110-greene-street-to-natora-group-for-226m_related.json",
+      "insights/sl-green-selling-soho-building-for-226m_related.json",
+      "insights/dwight-refis-l-a-area-apartments-with-62m-loan_related.json",
+      "insights/berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b_related.json",
+      "insights/block-seeks-occ-bank-charter_related.json",
+      "insights/duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe_related.json",
+      "insights/virginia-banks-to-combine-in-253m-deal_related.json",
+      "insights/hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end_related.json",
+      "insights/block-seeks-national-trust-charter-to-offer-crypto-custody_related.json",
+      "insights/mercury-gets-fdic-nod_related.json",
+      "insights/mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised_related.json",
+      "insights/louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an_related.json",
+      "insights/housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year_related.json",
+      "insights/merchant-bess-switched-on-at-operational-solar-site-in-romania_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "9265494b2e93a00d",
+        "title": "CBRE Investment Management Acquires $1.6B Net-Lease Portfolio",
+        "slug": "cbre-investment-management-acquires-1-6b-net-lease-portfolio",
+        "url": "/insights/cbre-investment-management-acquires-1-6b-net-lease-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 68,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b955834a98b4a4d3",
+        "title": "Philadelphia REIT Assembles 44,000-Unit Platform With Midwest Addition",
+        "slug": "philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition",
+        "url": "/insights/philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b4bd1df47d2de0f7",
+        "title": "Independence Realty Trust To Buy Centerspace, Creating $8.1B REIT",
+        "slug": "independence-realty-trust-to-buy-centerspace-creating-8-1b-reit",
+        "url": "/insights/independence-realty-trust-to-buy-centerspace-creating-8-1b-reit.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "caafcea99490a52d",
+        "title": "Pebb Capital Obtains $223M Loan for Refinancing of Sundy Village in Delray Beach, Florida",
+        "slug": "pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach",
+        "url": "/insights/pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "5e6a15aada517525",
+        "title": "FDIC won't have to return $1.71 billion to SVB creditors",
+        "slug": "fdic-won-t-have-to-return-1-71-billion-to-svb-creditors",
+        "url": "/insights/fdic-won-t-have-to-return-1-71-billion-to-svb-creditors.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3e3c1d098d4ce22d",
+        "title": "CBRE IM Buys Net Lease REIT For $1.6B, Plans More Investment",
+        "slug": "cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment",
+        "url": "/insights/cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "459eef4d2ae81389",
+        "title": "Lender Requests Receiver For X Denver Apartment Building Near Coors Field",
+        "slug": "lender-requests-receiver-for-x-denver-apartment-building-near-coors-field",
+        "url": "/insights/lender-requests-receiver-for-x-denver-apartment-building-near-coors-field.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dd8ac7ff26f6cb5f",
+        "title": "SL Green Sells 110 Greene Street to Natora Group for $226M",
+        "slug": "sl-green-sells-110-greene-street-to-natora-group-for-226m",
+        "url": "/insights/sl-green-sells-110-greene-street-to-natora-group-for-226m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "703b7ffcf7202d71",
+        "title": "SL Green Selling SoHo Building For $226M",
+        "slug": "sl-green-selling-soho-building-for-226m",
+        "url": "/insights/sl-green-selling-soho-building-for-226m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bb5d1fe5cf9d17d9",
+        "title": "Dwight Refis L.A.-Area Apartments With $62M Loan",
+        "slug": "dwight-refis-l-a-area-apartments-with-62m-loan",
+        "url": "/insights/dwight-refis-l-a-area-apartments-with-62m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "06a70f9d96cf9966",
+        "title": "Berkadia Arranges $38.55M Refinancing for Tennis Towers Apartments in West Palm Beach",
+        "slug": "berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b",
+        "url": "/insights/berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d615f6e6f560af14",
+        "title": "Block seeks OCC bank charter",
+        "slug": "block-seeks-occ-bank-charter",
+        "url": "/insights/block-seeks-occ-bank-charter.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "5a96e5a09adcbcd7",
+        "title": "Duane Arnold’s nuclear restart in eastern Iowa gets $1.9B boost from DOE",
+        "slug": "duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe",
+        "url": "/insights/duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2dd3ffd28d45294c",
+        "title": "Virginia banks to combine in $253M deal",
+        "slug": "virginia-banks-to-combine-in-253m-deal",
+        "url": "/insights/virginia-banks-to-combine-in-253m-deal.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "db957dd18a247042",
+        "title": "Hill: FDIC on track to issue stablecoin rulemaking by year’s end",
+        "slug": "hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end",
+        "url": "/insights/hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ba49fd089360fffc",
+        "title": "Block seeks national trust charter to offer crypto custody",
+        "slug": "block-seeks-national-trust-charter-to-offer-crypto-custody",
+        "url": "/insights/block-seeks-national-trust-charter-to-offer-crypto-custody.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1b9b7b53c9ddadb0",
+        "title": "Mercury gets FDIC nod",
+        "slug": "mercury-gets-fdic-nod",
+        "url": "/insights/mercury-gets-fdic-nod.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7c38056179c02fb0",
+        "title": "Mark Stebbins Community Center Opens on Manchester’s West Side With $20.7M Raised for Children and Families",
+        "slug": "mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised",
+        "url": "/insights/mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a8f178f1a0efc497",
+        "title": "Louisiana Teachers slates $100m for infrastructure funds managed by Blackstone and I Squared",
+        "slug": "louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an",
+        "url": "/insights/louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "09155ab5cd6f5222",
+        "title": "Housing Report: New York City Has Approved 6,732 New Residential Units This Year Through August",
+        "slug": "housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year",
+        "url": "/insights/housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c4655f0e428148af",
+        "title": "Merchant BESS switched on at operational solar site in Romania",
+        "slug": "merchant-bess-switched-on-at-operational-solar-site-in-romania",
+        "url": "/insights/merchant-bess-switched-on-at-operational-solar-site-in-romania.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "9265494b2e93a00d",
+        "slug": "cbre-investment-management-acquires-1-6b-net-lease-portfolio",
+        "title": "CBRE Investment Management Acquires $1.6B Net-Lease Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cbre-investment-management-acquires-1-6b-net-lease-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b955834a98b4a4d3",
+        "slug": "philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition",
+        "title": "Philadelphia REIT Assembles 44,000-Unit Platform With Midwest Addition",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b4bd1df47d2de0f7",
+        "slug": "independence-realty-trust-to-buy-centerspace-creating-8-1b-reit",
+        "title": "Independence Realty Trust To Buy Centerspace, Creating $8.1B REIT",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/independence-realty-trust-to-buy-centerspace-creating-8-1b-reit.html",
+        "reason": ""
+      },
+      {
+        "object_id": "caafcea99490a52d",
+        "slug": "pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach",
+        "title": "Pebb Capital Obtains $223M Loan for Refinancing of Sundy Village in Delray Beach, Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5e6a15aada517525",
+        "slug": "fdic-won-t-have-to-return-1-71-billion-to-svb-creditors",
+        "title": "FDIC won't have to return $1.71 billion to SVB creditors",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fdic-won-t-have-to-return-1-71-billion-to-svb-creditors.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3e3c1d098d4ce22d",
+        "slug": "cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment",
+        "title": "CBRE IM Buys Net Lease REIT For $1.6B, Plans More Investment",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment.html",
+        "reason": ""
+      },
+      {
+        "object_id": "459eef4d2ae81389",
+        "slug": "lender-requests-receiver-for-x-denver-apartment-building-near-coors-field",
+        "title": "Lender Requests Receiver For X Denver Apartment Building Near Coors Field",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/lender-requests-receiver-for-x-denver-apartment-building-near-coors-field.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dd8ac7ff26f6cb5f",
+        "slug": "sl-green-sells-110-greene-street-to-natora-group-for-226m",
+        "title": "SL Green Sells 110 Greene Street to Natora Group for $226M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/sl-green-sells-110-greene-street-to-natora-group-for-226m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "703b7ffcf7202d71",
+        "slug": "sl-green-selling-soho-building-for-226m",
+        "title": "SL Green Selling SoHo Building For $226M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/sl-green-selling-soho-building-for-226m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bb5d1fe5cf9d17d9",
+        "slug": "dwight-refis-l-a-area-apartments-with-62m-loan",
+        "title": "Dwight Refis L.A.-Area Apartments With $62M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dwight-refis-l-a-area-apartments-with-62m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "06a70f9d96cf9966",
+        "slug": "berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b",
+        "title": "Berkadia Arranges $38.55M Refinancing for Tennis Towers Apartments in West Palm Beach Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d615f6e6f560af14",
+        "slug": "block-seeks-occ-bank-charter",
+        "title": "Block seeks OCC bank charter",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/block-seeks-occ-bank-charter.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5a96e5a09adcbcd7",
+        "slug": "duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe",
+        "title": "Duane Arnold’s nuclear restart in eastern Iowa gets $1.9B boost from DOE",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2dd3ffd28d45294c",
+        "slug": "virginia-banks-to-combine-in-253m-deal",
+        "title": "Virginia banks to combine in $253M deal",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/virginia-banks-to-combine-in-253m-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "db957dd18a247042",
+        "slug": "hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end",
+        "title": "Hill: FDIC on track to issue stablecoin rulemaking by year’s end",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ba49fd089360fffc",
+        "slug": "block-seeks-national-trust-charter-to-offer-crypto-custody",
+        "title": "Block seeks national trust charter to offer crypto custody",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/block-seeks-national-trust-charter-to-offer-crypto-custody.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1b9b7b53c9ddadb0",
+        "slug": "mercury-gets-fdic-nod",
+        "title": "Mercury gets FDIC nod",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/mercury-gets-fdic-nod.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7c38056179c02fb0",
+        "slug": "mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised",
+        "title": "Mark Stebbins Community Center Opens on Manchester’s West Side With $20.7M Raised for Children and Families",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a8f178f1a0efc497",
+        "slug": "louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an",
+        "title": "Louisiana Teachers slates $100m for infrastructure funds managed by Blackstone and I Squared",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an.html",
+        "reason": ""
+      },
+      {
+        "object_id": "09155ab5cd6f5222",
+        "slug": "housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year",
+        "title": "Housing Report: New York City Has Approved 6,732 New Residential Units This Year Through August",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c4655f0e428148af",
+        "slug": "merchant-bess-switched-on-at-operational-solar-site-in-romania",
+        "title": "Merchant BESS switched on at operational solar site in Romania",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/merchant-bess-switched-on-at-operational-solar-site-in-romania.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 22,
+    "successful_calls": 22,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 15.62,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 12.4,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.18,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.67,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.36,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 115.41,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 93.1,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.19,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 50.88,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.88,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.28,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 21 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 291.95,
+  "status": "ready",
+  "candidate_count": 844,
+  "event_count": 792,
+  "articles": [
+    {
+      "event_id": "9265494b2e93a00d",
+      "title": "CBRE Investment Management Acquires $1.6B Net-Lease Portfolio",
+      "slug": "cbre-investment-management-acquires-1-6b-net-lease-portfolio",
+      "url": "/insights/cbre-investment-management-acquires-1-6b-net-lease-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 68,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b955834a98b4a4d3",
+      "title": "Philadelphia REIT Assembles 44,000-Unit Platform With Midwest Addition",
+      "slug": "philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition",
+      "url": "/insights/philadelphia-reit-assembles-44-000-unit-platform-with-midwest-addition.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b4bd1df47d2de0f7",
+      "title": "Independence Realty Trust To Buy Centerspace, Creating $8.1B REIT",
+      "slug": "independence-realty-trust-to-buy-centerspace-creating-8-1b-reit",
+      "url": "/insights/independence-realty-trust-to-buy-centerspace-creating-8-1b-reit.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "caafcea99490a52d",
+      "title": "Pebb Capital Obtains $223M Loan for Refinancing of Sundy Village in Delray Beach, Florida",
+      "slug": "pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach",
+      "url": "/insights/pebb-capital-obtains-223m-loan-for-refinancing-of-sundy-village-in-delray-beach.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "5e6a15aada517525",
+      "title": "FDIC won't have to return $1.71 billion to SVB creditors",
+      "slug": "fdic-won-t-have-to-return-1-71-billion-to-svb-creditors",
+      "url": "/insights/fdic-won-t-have-to-return-1-71-billion-to-svb-creditors.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3e3c1d098d4ce22d",
+      "title": "CBRE IM Buys Net Lease REIT For $1.6B, Plans More Investment",
+      "slug": "cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment",
+      "url": "/insights/cbre-im-buys-net-lease-reit-for-1-6b-plans-more-investment.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "459eef4d2ae81389",
+      "title": "Lender Requests Receiver For X Denver Apartment Building Near Coors Field",
+      "slug": "lender-requests-receiver-for-x-denver-apartment-building-near-coors-field",
+      "url": "/insights/lender-requests-receiver-for-x-denver-apartment-building-near-coors-field.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dd8ac7ff26f6cb5f",
+      "title": "SL Green Sells 110 Greene Street to Natora Group for $226M",
+      "slug": "sl-green-sells-110-greene-street-to-natora-group-for-226m",
+      "url": "/insights/sl-green-sells-110-greene-street-to-natora-group-for-226m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "703b7ffcf7202d71",
+      "title": "SL Green Selling SoHo Building For $226M",
+      "slug": "sl-green-selling-soho-building-for-226m",
+      "url": "/insights/sl-green-selling-soho-building-for-226m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bb5d1fe5cf9d17d9",
+      "title": "Dwight Refis L.A.-Area Apartments With $62M Loan",
+      "slug": "dwight-refis-l-a-area-apartments-with-62m-loan",
+      "url": "/insights/dwight-refis-l-a-area-apartments-with-62m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "06a70f9d96cf9966",
+      "title": "Berkadia Arranges $38.55M Refinancing for Tennis Towers Apartments in West Palm Beach",
+      "slug": "berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b",
+      "url": "/insights/berkadia-arranges-38-55m-refinancing-for-tennis-towers-apartments-in-west-palm-b.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d615f6e6f560af14",
+      "title": "Block seeks OCC bank charter",
+      "slug": "block-seeks-occ-bank-charter",
+      "url": "/insights/block-seeks-occ-bank-charter.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "5a96e5a09adcbcd7",
+      "title": "Duane Arnold’s nuclear restart in eastern Iowa gets $1.9B boost from DOE",
+      "slug": "duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe",
+      "url": "/insights/duane-arnold-s-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2dd3ffd28d45294c",
+      "title": "Virginia banks to combine in $253M deal",
+      "slug": "virginia-banks-to-combine-in-253m-deal",
+      "url": "/insights/virginia-banks-to-combine-in-253m-deal.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "db957dd18a247042",
+      "title": "Hill: FDIC on track to issue stablecoin rulemaking by year’s end",
+      "slug": "hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end",
+      "url": "/insights/hill-fdic-on-track-to-issue-stablecoin-rulemaking-by-year-s-end.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ba49fd089360fffc",
+      "title": "Block seeks national trust charter to offer crypto custody",
+      "slug": "block-seeks-national-trust-charter-to-offer-crypto-custody",
+      "url": "/insights/block-seeks-national-trust-charter-to-offer-crypto-custody.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1b9b7b53c9ddadb0",
+      "title": "Mercury gets FDIC nod",
+      "slug": "mercury-gets-fdic-nod",
+      "url": "/insights/mercury-gets-fdic-nod.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7c38056179c02fb0",
+      "title": "Mark Stebbins Community Center Opens on Manchester’s West Side With $20.7M Raised for Children and Families",
+      "slug": "mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised",
+      "url": "/insights/mark-stebbins-community-center-opens-on-manchester-s-west-side-with-20-7m-raised.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a8f178f1a0efc497",
+      "title": "Louisiana Teachers slates $100m for infrastructure funds managed by Blackstone and I Squared",
+      "slug": "louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an",
+      "url": "/insights/louisiana-teachers-slates-100m-for-infrastructure-funds-managed-by-blackstone-an.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "09155ab5cd6f5222",
+      "title": "Housing Report: New York City Has Approved 6,732 New Residential Units This Year Through August",
+      "slug": "housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year",
+      "url": "/insights/housing-report-new-york-city-has-approved-6-732-new-residential-units-this-year.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c4655f0e428148af",
+      "title": "Merchant BESS switched on at operational solar site in Romania",
+      "slug": "merchant-bess-switched-on-at-operational-solar-site-in-romania",
+      "url": "/insights/merchant-bess-switched-on-at-operational-solar-site-in-romania.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 21
+}
