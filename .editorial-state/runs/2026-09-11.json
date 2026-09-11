@@ -1,0 +1,2413 @@
+{
+  "run_at": "2026-09-11T14:57:43.005765+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 856,
+  "documents_from_feeds": 753,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 811,
+  "documents_consolidated": 45,
+  "eligible": 103,
+  "enriched": 250,
+  "evidence_upgraded": 147,
+  "selected": 32,
+  "publication_candidates": 32,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 60,
+      "eligible": 7,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 405,
+      "eligible": 52,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 69,
+      "eligible": 3,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 3 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 142,
+      "eligible": 18,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 18 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 44,
+      "eligible": 13,
+      "selected": 9,
+      "target": 10,
+      "shortfall_reason": "only 9 of 13 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 6,
+      "eligible": 3,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 3 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 85,
+      "eligible": 7,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 13,
+    "tier_c": 19
+  },
+  "shortfalls": [
+    "banking_credit: only 5 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 3 of 3 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 18 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 9 of 13 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 1 of 3 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 62.0,
+    "mean": 23.5,
+    "stdev": 12.02,
+    "range_used": 62.0,
+    "median": 18.9,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 255,
+    "fetched": 242,
+    "from_cache": 0,
+    "blocked": 7,
+    "failed": 6,
+    "skipped_budget": 0,
+    "bytes_downloaded": 52771265,
+    "elapsed_ms": 61183,
+    "by_status": {
+      "full_text": 150,
+      "partial_text": 92,
+      "failed": 6,
+      "blocked": 7
+    }
+  },
+  "novelty": {
+    "new": 730,
+    "material_update": 5,
+    "already_published": 4,
+    "minor_follow_up": 72
+  },
+  "memory": {
+    "events_remembered": 8143,
+    "published": 656,
+    "seen_but_not_run": 7487,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-11",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 292.0,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 32,
+    "written": 32,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 32,
+    "elapsed_seconds": 72.7,
+    "provider_attempts": {
+      "deepseek": 32
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "5e8a8997fb2376b5",
+        "title": "OCC Advances Community Bank Comeback, Reduces Exam Burden for Smallest Institutions",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.58,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 539,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7d8272265209a51f6647f31eeef7edcb234875d597575060616f038993e47ab5"
+        },
+        "seconds": 17.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2be98dfdcd96231e",
+        "title": "Positron Raises $875M to Scale Memory-First Inference Silicon",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.24,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 571,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e87908b16b005348b810d25e2740b9c57db8b0324c9c880b418a51b4808176d0"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e713ff12f8159f40",
+        "title": "DISA launches tender for $21.6bn JWCC contracts",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.26,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 541,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7157eaa2596673f192d1bac870d21b80a3fa6a71e0210cfd5bb41c2237c57af8"
+        },
+        "seconds": 17.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1733df61da9c73d0",
+        "title": "Expanded Examination Cycle Eligibility: Interim Final Rule",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.43,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 650,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "75146e44fa2ffea1fe0d510bec66d139087e90eff1c101375417458acd6d3c11"
+        },
+        "seconds": 18.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "449b5f08907e1095",
+        "title": "Modest CPI reading gives Fed no clear direction on rates",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 657,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a8fcadef073057709e2437bfb862873ebd3906e1b71105594147fad6d920012b"
+        },
+        "seconds": 18.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7f4cea3ebb02b3f9",
+        "title": "Agencies Seek Comment on Proposed Third-Party Risk Management Guidance and Issue Statement on Community Bank Engagement with Core Service Providers",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.01,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 554,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a77549b899ab6faa1984798e3755c45998761ba386894091ee43499f2734db5a"
+        },
+        "seconds": 18.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1f539ea0f5307291",
+        "title": "Third-Party Risk Management: Proposed Guidance and Request for Comment",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.92,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 531,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9a93a0b39fdf43ef379ba3667fb2fa354cb5df27053a1edb8b134fc8c1c7cf8c"
+        },
+        "seconds": 17.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fa7f23ce09964c58",
+        "title": "ClarkDietrich to Relocate Headquarters to $350M Montgomery Quarter Near Cincinnati",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.74,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 439,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a7b34139f2b3a8aa11e45f73c942fecbe542022be0714fcf92b7340ba531fe1d"
+        },
+        "seconds": 14.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f73d9cf85db672cd",
+        "title": "Morgan Stanley Pays $91M for Tampa Florida Multifamily Senior Communities",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.92,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 657,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b27819361a5fde682d1607771a9c3ab17a8c2d2510921c11f57fa1108ccacc66"
+        },
+        "seconds": 18.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c750b86d2a63b8df",
+        "title": "Australia's NextDC raises AU$1.1bn in convertible notes",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 467,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8a8c478bc3f8b0a886824378c2caa2efd21e126d29d849ff59d4d35966fa8b91"
+        },
+        "seconds": 12.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "16aa8aee3c4c696c",
+        "title": "Federal Court Nullifies New Jersey Approval for $1B Gas Pipeline to New York City",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.47,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 702,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "78d3394cce6a714826451f42b71dd57639140efc089e4526db6db75ed0c79384"
+        },
+        "seconds": 17.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "597fb361d2f318f0",
+        "title": "Foundation 8 Receives $44.5M Loan for Office Component of Mixed-Use Tower in Downtown Phoenix",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 18.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 549,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "bebd9c557eb4c1495bbc4d9dd8dbcc0b6a86e35420f10b620a960d8c9839a4bd"
+        },
+        "seconds": 18.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "aa883eda8e840cd5",
+        "title": "A four-time Fortune 500 CFO makes a huge career bet—on joining Polymarket",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.35,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 593,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "373c291d2af979eff1185a8d1f2e43d7aa81d787b1f2fd687a279afd639f8264"
+        },
+        "seconds": 15.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "059c682492287d54",
+        "title": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.36,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 279,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d80a781447b2716f7124a4e95a6187b8a44b15112bab88b40c673c53d5905bc2"
+        },
+        "seconds": 9.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "300001853e8ead83",
+        "title": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.55,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 348,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "a0a88022f5d8cb7fec12059559365aac382c369e4aeabcf7c90c3f08b839af58"
+        },
+        "seconds": 10.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d285b8002f615e5c",
+        "title": "Hot inflation reading sets stage for possible Fed rate hike next week",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.12,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 342,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "5af8455cbdf2a55ca090e2346353fc2f6c80fb6ad462429b7e9c1b25ded128ca"
+        },
+        "seconds": 8.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "83b5b4a9e1b6a57c",
+        "title": "Consumer Prices Rise 0.4% in August as Gasoline Costs Accelerate",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.18,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 352,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "573c598e93d95daf09864084fbea30ab3a25829be59116abce25ca02e30b7cc1"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3f5fb32c03300df9",
+        "title": "Affinius Capital, Axonic Capital Lend $48M for Suburban Boston Apartments Build",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.27,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 321,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1a3d6176887640e41b18f791c7370c970cfa0ddaa6190c275c96d0ec53633e66"
+        },
+        "seconds": 16.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6686c179dbb7053e",
+        "title": "Jay Roberts of Prosper Group: 5 Questions",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 297,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "96f701f5e342197defb6e1557b85d58177e44362a6682855f41b085f70193a71"
+        },
+        "seconds": 12.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5fbea2255a1ca157",
+        "title": "RFR Buys Prada-Anchored Retail Condo at 841 Madison Avenue for $57M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.52,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 363,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "6609ba6a48abfb3a112c16777c64bf8a699ba0807b6fee97f7b1e102ec6f86b0"
+        },
+        "seconds": 9.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e0abab254415a086",
+        "title": "Circle buys Tazapay for $400M",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.02,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 244,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "99563ad7b31a6f6b040f3f836f9cfe495236cdb9bbdf9a94dd8501b0634f055b"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e4b21bc0ea5fb792",
+        "title": "FinCEN releases financial trend analysis on health care fraud",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.3,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 302,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "86d7e73b6dae1c31db0b53e8ce394a05b22721948c90d7bd3bf94f1ad177f8c3"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b2f4cec1f5f5b51c",
+        "title": "Affinius Capital, Axonic Capital Provide $45.8M Construction Loan for 130-Unit Lexington Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.55,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 341,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b5d9a640b7e9d2ec4bee2628c92ab57647f54bea8080cb89df6ebb057c8641f6"
+        },
+        "seconds": 8.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "12622c18f0adfc41",
+        "title": "OCC Delivers on Community Bank Comeback, Reduces Burden for Third-Party Risk Management",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 361,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "7dec189760f5ff11b432bd5ae9d0ee2c535c6aeee0af532cb3944ad6f63289c0"
+        },
+        "seconds": 10.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "86949201fc286996",
+        "title": "Chinese PV Industry Brief: Tongwei clears antitrust hurdle for acquisition of polysilicon competitor Qinghai Lihao",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.61,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 294,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "8eee250b59f44223883adcf41dafd11d733b664cc5bce3e80fd1333ba371b47b"
+        },
+        "seconds": 9.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5a769a630f27e110",
+        "title": "MMCC Arranges Financing for Orange Multifamily Acquisition",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.5,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 240,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1fd47a6fbbfed688f189ce53b29a3f889406efb4769383ec7f70680320af8ce4"
+        },
+        "seconds": 7.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ff7d50a241c5f917",
+        "title": "Agencies Reduce Regulatory Burden for Community Banks, Increase Eligibility for 18-Month Exam Cycle",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.39,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 294,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e1559c941f13d252a68ceda4660a347d538449bac73ac981f7542158cbbf70e7"
+        },
+        "seconds": 9.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "68e507a145ed71dc",
+        "title": "Marcus & Millichap Brokers Sale of Free-Market Mixed-Use Property in Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.68,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 295,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e6cc0f293463ad6194f2e3331cad67027aeb685db5086e77f7a2908e7289968b"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9e5a04359aa5a30a",
+        "title": "Prologis Acquires 69 Acres For 1M SF Chicago-Area Industrial Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.28,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 288,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "694e8a502cab6ceead8f106905c91a736b57d62b7646f80a6f1c5e25c82f6a2e"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1081d7a37a211425",
+        "title": "August CPI shows sticky core inflation ahead of Fed meeting",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.79,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 330,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "2fbbb05bc4654d7a04e02cbbd70e12f60671004224f09b8178e29627be97a42f"
+        },
+        "seconds": 8.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2508cb3822e963f5",
+        "title": "SFERS sets $500m real assets pacing plan, commits $75m to Blackstone Energy Transition Partners V",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.35,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 259,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "36f1280dcd8729945edea1024ca00a13be3581138ebfb7e5be39217b151c62ec"
+        },
+        "seconds": 8.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6439f6ded1692d2a",
+        "title": "Speaker Menin and Council Members Pass New Legislation Commemorating the 25th Anniversary of 9/11 and Teaching its History",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.18,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 330,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c0392f3512083b51a72c786d5c8ba520b44ab7045eba8f84239f74673a8cbfa3"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 32,
+    "published": 30,
+    "skipped_existing": 2,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio_social.png",
+      "insights/occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio.html",
+      "insights/positron-raises-875m-to-scale-memory-first-inference-silicon_social.png",
+      "insights/positron-raises-875m-to-scale-memory-first-inference-silicon.html",
+      "insights/disa-launches-tender-for-21-6bn-jwcc-contracts_social.png",
+      "insights/disa-launches-tender-for-21-6bn-jwcc-contracts.html",
+      "insights/expanded-examination-cycle-eligibility-interim-final-rule_social.png",
+      "insights/expanded-examination-cycle-eligibility-interim-final-rule.html",
+      "insights/modest-cpi-reading-gives-fed-no-clear-direction-on-rates_social.png",
+      "insights/modest-cpi-reading-gives-fed-no-clear-direction-on-rates.html",
+      "insights/agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue_social.png",
+      "insights/agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue.html",
+      "insights/third-party-risk-management-proposed-guidance-and-request-for-comment_social.png",
+      "insights/third-party-risk-management-proposed-guidance-and-request-for-comment.html",
+      "insights/clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat_social.png",
+      "insights/clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat.html",
+      "insights/morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities_social.png",
+      "insights/morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities.html",
+      "insights/nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio_social.png",
+      "insights/nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio.html",
+      "insights/federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city_social.png",
+      "insights/federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city.html",
+      "insights/foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down_social.png",
+      "insights/foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down.html",
+      "insights/a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket_social.png",
+      "insights/a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket.html",
+      "insights/agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1_social.png",
+      "insights/agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1.html",
+      "insights/hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week_social.png",
+      "insights/hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week.html",
+      "insights/consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate_social.png",
+      "insights/consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate.html",
+      "insights/affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build_social.png",
+      "insights/affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build.html",
+      "insights/jay-roberts-of-prosper-group-5-questions_social.png",
+      "insights/jay-roberts-of-prosper-group-5-questions.html",
+      "insights/rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m_social.png",
+      "insights/rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m.html",
+      "insights/circle-to-buy-tazapay-for-400-million-in-stock_social.png",
+      "insights/circle-to-buy-tazapay-for-400-million-in-stock.html",
+      "insights/fincen-releases-financial-trend-analysis-on-health-care-fraud_social.png",
+      "insights/fincen-releases-financial-trend-analysis-on-health-care-fraud.html",
+      "insights/affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex_social.png",
+      "insights/affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex.html",
+      "insights/occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana_social.png",
+      "insights/occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana.html",
+      "insights/chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol_social.png",
+      "insights/chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol.html",
+      "insights/mmcc-arranges-financing-for-orange-multifamily-acquisition_social.png",
+      "insights/mmcc-arranges-financing-for-orange-multifamily-acquisition.html",
+      "insights/marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn_social.png",
+      "insights/marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn.html",
+      "insights/prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development_social.png",
+      "insights/prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development.html",
+      "insights/august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting_social.png",
+      "insights/august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting.html",
+      "insights/sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit_social.png",
+      "insights/sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit.html",
+      "insights/nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni_social.png",
+      "insights/nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio_related.json",
+      "insights/positron-raises-875m-to-scale-memory-first-inference-silicon_related.json",
+      "insights/disa-launches-tender-for-21-6bn-jwcc-contracts_related.json",
+      "insights/expanded-examination-cycle-eligibility-interim-final-rule_related.json",
+      "insights/modest-cpi-reading-gives-fed-no-clear-direction-on-rates_related.json",
+      "insights/agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue_related.json",
+      "insights/third-party-risk-management-proposed-guidance-and-request-for-comment_related.json",
+      "insights/clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat_related.json",
+      "insights/morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities_related.json",
+      "insights/nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio_related.json",
+      "insights/federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city_related.json",
+      "insights/foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down_related.json",
+      "insights/a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket_related.json",
+      "insights/agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1_related.json",
+      "insights/hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week_related.json",
+      "insights/consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate_related.json",
+      "insights/affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build_related.json",
+      "insights/jay-roberts-of-prosper-group-5-questions_related.json",
+      "insights/rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m_related.json",
+      "insights/circle-to-buy-tazapay-for-400-million-in-stock_related.json",
+      "insights/fincen-releases-financial-trend-analysis-on-health-care-fraud_related.json",
+      "insights/affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex_related.json",
+      "insights/occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana_related.json",
+      "insights/chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol_related.json",
+      "insights/mmcc-arranges-financing-for-orange-multifamily-acquisition_related.json",
+      "insights/marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn_related.json",
+      "insights/prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development_related.json",
+      "insights/august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting_related.json",
+      "insights/sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit_related.json",
+      "insights/nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "5e8a8997fb2376b5",
+        "title": "OCC Advances Community Bank Comeback, Reduces Exam Burden for Smallest Institutions",
+        "slug": "occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio",
+        "url": "/insights/occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2be98dfdcd96231e",
+        "title": "Positron Raises $875M to Scale Memory-First Inference Silicon",
+        "slug": "positron-raises-875m-to-scale-memory-first-inference-silicon",
+        "url": "/insights/positron-raises-875m-to-scale-memory-first-inference-silicon.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e713ff12f8159f40",
+        "title": "DISA launches tender for $21.6bn JWCC contracts",
+        "slug": "disa-launches-tender-for-21-6bn-jwcc-contracts",
+        "url": "/insights/disa-launches-tender-for-21-6bn-jwcc-contracts.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1733df61da9c73d0",
+        "title": "Expanded Examination Cycle Eligibility: Interim Final Rule",
+        "slug": "expanded-examination-cycle-eligibility-interim-final-rule",
+        "url": "/insights/expanded-examination-cycle-eligibility-interim-final-rule.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "449b5f08907e1095",
+        "title": "Modest CPI reading gives Fed no clear direction on rates",
+        "slug": "modest-cpi-reading-gives-fed-no-clear-direction-on-rates",
+        "url": "/insights/modest-cpi-reading-gives-fed-no-clear-direction-on-rates.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "7f4cea3ebb02b3f9",
+        "title": "Agencies Seek Comment on Proposed Third-Party Risk Management Guidance and Issue Statement on Community Bank Engagement with Core Service Providers",
+        "slug": "agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue",
+        "url": "/insights/agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1f539ea0f5307291",
+        "title": "Third-Party Risk Management: Proposed Guidance and Request for Comment",
+        "slug": "third-party-risk-management-proposed-guidance-and-request-for-comment",
+        "url": "/insights/third-party-risk-management-proposed-guidance-and-request-for-comment.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fa7f23ce09964c58",
+        "title": "ClarkDietrich to Relocate Headquarters to $350M Montgomery Quarter Near Cincinnati",
+        "slug": "clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat",
+        "url": "/insights/clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f73d9cf85db672cd",
+        "title": "Morgan Stanley Pays $91M for Tampa Florida Multifamily Senior Communities",
+        "slug": "morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities",
+        "url": "/insights/morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c750b86d2a63b8df",
+        "title": "NextDC's AU$1.1bn convertible note raise signals aggressive data center expansion",
+        "slug": "nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio",
+        "url": "/insights/nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "16aa8aee3c4c696c",
+        "title": "Federal Court Nullifies New Jersey Approval for $1B Gas Pipeline to New York City",
+        "slug": "federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city",
+        "url": "/insights/federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "597fb361d2f318f0",
+        "title": "Foundation 8 Receives $44.5M Loan for Office Component of Mixed-Use Tower in Downtown Phoenix",
+        "slug": "foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down",
+        "url": "/insights/foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "aa883eda8e840cd5",
+        "title": "A four-time Fortune 500 CFO makes a huge career bet—on joining Polymarket",
+        "slug": "a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket",
+        "url": "/insights/a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "059c682492287d54",
+        "title": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
+        "slug": "agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1",
+        "url": "/insights/agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d285b8002f615e5c",
+        "title": "Hot inflation reading sets stage for possible Fed rate hike next week",
+        "slug": "hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week",
+        "url": "/insights/hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "83b5b4a9e1b6a57c",
+        "title": "Consumer Prices Rise 0.4% in August as Gasoline Costs Accelerate",
+        "slug": "consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate",
+        "url": "/insights/consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3f5fb32c03300df9",
+        "title": "Affinius Capital, Axonic Capital Lend $48M for Suburban Boston Apartments Build",
+        "slug": "affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build",
+        "url": "/insights/affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6686c179dbb7053e",
+        "title": "Jay Roberts of Prosper Group: 5 Questions",
+        "slug": "jay-roberts-of-prosper-group-5-questions",
+        "url": "/insights/jay-roberts-of-prosper-group-5-questions.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5fbea2255a1ca157",
+        "title": "RFR Buys Prada-Anchored Retail Condo at 841 Madison Avenue for $57M",
+        "slug": "rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m",
+        "url": "/insights/rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e0abab254415a086",
+        "title": "Circle to buy Tazapay for $400 million in stock",
+        "slug": "circle-to-buy-tazapay-for-400-million-in-stock",
+        "url": "/insights/circle-to-buy-tazapay-for-400-million-in-stock.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e4b21bc0ea5fb792",
+        "title": "FinCEN releases financial trend analysis on health care fraud",
+        "slug": "fincen-releases-financial-trend-analysis-on-health-care-fraud",
+        "url": "/insights/fincen-releases-financial-trend-analysis-on-health-care-fraud.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "b2f4cec1f5f5b51c",
+        "title": "Affinius Capital, Axonic Capital Provide $45.8M Construction Loan for 130-Unit Lexington Development",
+        "slug": "affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex",
+        "url": "/insights/affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "12622c18f0adfc41",
+        "title": "OCC Delivers on Community Bank Comeback, Reduces Burden for Third-Party Risk Management",
+        "slug": "occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana",
+        "url": "/insights/occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "86949201fc286996",
+        "title": "Chinese PV Industry Brief: Tongwei clears antitrust hurdle for acquisition of polysilicon competitor Qinghai Lihao",
+        "slug": "chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol",
+        "url": "/insights/chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5a769a630f27e110",
+        "title": "MMCC Arranges Financing for Orange Multifamily Acquisition",
+        "slug": "mmcc-arranges-financing-for-orange-multifamily-acquisition",
+        "url": "/insights/mmcc-arranges-financing-for-orange-multifamily-acquisition.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "68e507a145ed71dc",
+        "title": "Marcus & Millichap Brokers Sale of Free-Market Mixed-Use Property in Brooklyn",
+        "slug": "marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn",
+        "url": "/insights/marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9e5a04359aa5a30a",
+        "title": "Prologis Acquires 69 Acres For 1M SF Chicago-Area Industrial Development",
+        "slug": "prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development",
+        "url": "/insights/prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1081d7a37a211425",
+        "title": "August CPI shows sticky core inflation ahead of Fed meeting",
+        "slug": "august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting",
+        "url": "/insights/august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2508cb3822e963f5",
+        "title": "SFERS sets $500m real assets pacing plan, commits $75m to Blackstone Energy Transition Partners V",
+        "slug": "sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit",
+        "url": "/insights/sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "6439f6ded1692d2a",
+        "title": "NYC Council Passes 9/11 Remembrance and Education Legislation Ahead of 25th Anniversary",
+        "slug": "nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni",
+        "url": "/insights/nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "5e8a8997fb2376b5",
+        "slug": "occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio",
+        "title": "OCC Advances Community Bank Comeback, Reduces Exam Burden for Smallest Institutions",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2be98dfdcd96231e",
+        "slug": "positron-raises-875m-to-scale-memory-first-inference-silicon",
+        "title": "Positron Raises $875M to Scale Memory-First Inference Silicon",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/positron-raises-875m-to-scale-memory-first-inference-silicon.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e713ff12f8159f40",
+        "slug": "disa-launches-tender-for-21-6bn-jwcc-contracts",
+        "title": "DISA launches tender for $21.6bn JWCC contracts",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/disa-launches-tender-for-21-6bn-jwcc-contracts.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1733df61da9c73d0",
+        "slug": "expanded-examination-cycle-eligibility-interim-final-rule",
+        "title": "Expanded Examination Cycle Eligibility: Interim Final Rule",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/expanded-examination-cycle-eligibility-interim-final-rule.html",
+        "reason": ""
+      },
+      {
+        "object_id": "449b5f08907e1095",
+        "slug": "modest-cpi-reading-gives-fed-no-clear-direction-on-rates",
+        "title": "Modest CPI reading gives Fed no clear direction on rates",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/modest-cpi-reading-gives-fed-no-clear-direction-on-rates.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7f4cea3ebb02b3f9",
+        "slug": "agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue",
+        "title": "Agencies Seek Comment on Proposed Third-Party Risk Management Guidance and Issue Statement on Community Bank Engagement with Core Service Providers",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1f539ea0f5307291",
+        "slug": "third-party-risk-management-proposed-guidance-and-request-for-comment",
+        "title": "Third-Party Risk Management: Proposed Guidance and Request for Comment",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/third-party-risk-management-proposed-guidance-and-request-for-comment.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fa7f23ce09964c58",
+        "slug": "clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat",
+        "title": "ClarkDietrich to Relocate Headquarters to $350M Montgomery Quarter Near Cincinnati",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f73d9cf85db672cd",
+        "slug": "morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities",
+        "title": "Morgan Stanley Pays $91M for Tampa Florida Multifamily Senior Communities",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c750b86d2a63b8df",
+        "slug": "nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio",
+        "title": "Australia's NextDC raises AU$1.1bn in convertible notes",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "16aa8aee3c4c696c",
+        "slug": "federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city",
+        "title": "Federal Court Nullifies New Jersey Approval for $1B Gas Pipeline to New York City",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city.html",
+        "reason": ""
+      },
+      {
+        "object_id": "597fb361d2f318f0",
+        "slug": "foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down",
+        "title": "Foundation 8 Receives $44.5M Loan for Office Component of Mixed-Use Tower in Downtown Phoenix",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down.html",
+        "reason": ""
+      },
+      {
+        "object_id": "aa883eda8e840cd5",
+        "slug": "a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket",
+        "title": "A four-time Fortune 500 CFO makes a huge career bet—on joining Polymarket",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket.html",
+        "reason": ""
+      },
+      {
+        "object_id": "059c682492287d54",
+        "slug": "agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1",
+        "title": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1.html",
+        "reason": ""
+      },
+      {
+        "object_id": "300001853e8ead83",
+        "slug": "agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue",
+        "title": "Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "already on the site"
+      },
+      {
+        "object_id": "d285b8002f615e5c",
+        "slug": "hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week",
+        "title": "Hot inflation reading sets stage for possible Fed rate hike next week",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week.html",
+        "reason": ""
+      },
+      {
+        "object_id": "83b5b4a9e1b6a57c",
+        "slug": "consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate",
+        "title": "Consumer Prices Rise 0.4% in August as Gasoline Costs Accelerate",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3f5fb32c03300df9",
+        "slug": "affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build",
+        "title": "Affinius Capital, Axonic Capital Lend $48M for Suburban Boston Apartments Build",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6686c179dbb7053e",
+        "slug": "jay-roberts-of-prosper-group-5-questions",
+        "title": "Jay Roberts of Prosper Group: 5 Questions",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/jay-roberts-of-prosper-group-5-questions.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5fbea2255a1ca157",
+        "slug": "rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m",
+        "title": "RFR Buys Prada-Anchored Retail Condo at 841 Madison Avenue for $57M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e0abab254415a086",
+        "slug": "circle-to-buy-tazapay-for-400-million-in-stock",
+        "title": "Circle buys Tazapay for $400M",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/circle-to-buy-tazapay-for-400-million-in-stock.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e4b21bc0ea5fb792",
+        "slug": "fincen-releases-financial-trend-analysis-on-health-care-fraud",
+        "title": "FinCEN releases financial trend analysis on health care fraud",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fincen-releases-financial-trend-analysis-on-health-care-fraud.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b2f4cec1f5f5b51c",
+        "slug": "affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex",
+        "title": "Affinius Capital, Axonic Capital Provide $45.8M Construction Loan for 130-Unit Lexington Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex.html",
+        "reason": ""
+      },
+      {
+        "object_id": "12622c18f0adfc41",
+        "slug": "occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana",
+        "title": "OCC Delivers on Community Bank Comeback, Reduces Burden for Third-Party Risk Management",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana.html",
+        "reason": ""
+      },
+      {
+        "object_id": "86949201fc286996",
+        "slug": "chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol",
+        "title": "Chinese PV Industry Brief: Tongwei clears antitrust hurdle for acquisition of polysilicon competitor Qinghai Lihao",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5a769a630f27e110",
+        "slug": "mmcc-arranges-financing-for-orange-multifamily-acquisition",
+        "title": "MMCC Arranges Financing for Orange Multifamily Acquisition",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/mmcc-arranges-financing-for-orange-multifamily-acquisition.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ff7d50a241c5f917",
+        "slug": "agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1",
+        "title": "Agencies Reduce Regulatory Burden for Community Banks, Increase Eligibility for 18-Month Exam Cycle",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "already on the site"
+      },
+      {
+        "object_id": "68e507a145ed71dc",
+        "slug": "marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn",
+        "title": "Marcus & Millichap Brokers Sale of Free-Market Mixed-Use Property in Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9e5a04359aa5a30a",
+        "slug": "prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development",
+        "title": "Prologis Acquires 69 Acres For 1M SF Chicago-Area Industrial Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1081d7a37a211425",
+        "slug": "august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting",
+        "title": "August CPI shows sticky core inflation ahead of Fed meeting",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2508cb3822e963f5",
+        "slug": "sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit",
+        "title": "SFERS sets $500m real assets pacing plan, commits $75m to Blackstone Energy Transition Partners V",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6439f6ded1692d2a",
+        "slug": "nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni",
+        "title": "Speaker Menin and Council Members Pass New Legislation Commemorating the 25th Anniversary of 9/11 and Teaching its History",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 32,
+    "successful_calls": 32,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.13,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.73,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.68,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.32,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 124.53,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 62.32,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.19,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 74.01,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.59,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.29,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty",
+    "published 30 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 291.96,
+  "status": "ready",
+  "candidate_count": 856,
+  "event_count": 811,
+  "articles": [
+    {
+      "event_id": "5e8a8997fb2376b5",
+      "title": "OCC Advances Community Bank Comeback, Reduces Exam Burden for Smallest Institutions",
+      "slug": "occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio",
+      "url": "/insights/occ-advances-community-bank-comeback-reduces-exam-burden-for-smallest-institutio.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2be98dfdcd96231e",
+      "title": "Positron Raises $875M to Scale Memory-First Inference Silicon",
+      "slug": "positron-raises-875m-to-scale-memory-first-inference-silicon",
+      "url": "/insights/positron-raises-875m-to-scale-memory-first-inference-silicon.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e713ff12f8159f40",
+      "title": "DISA launches tender for $21.6bn JWCC contracts",
+      "slug": "disa-launches-tender-for-21-6bn-jwcc-contracts",
+      "url": "/insights/disa-launches-tender-for-21-6bn-jwcc-contracts.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1733df61da9c73d0",
+      "title": "Expanded Examination Cycle Eligibility: Interim Final Rule",
+      "slug": "expanded-examination-cycle-eligibility-interim-final-rule",
+      "url": "/insights/expanded-examination-cycle-eligibility-interim-final-rule.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "449b5f08907e1095",
+      "title": "Modest CPI reading gives Fed no clear direction on rates",
+      "slug": "modest-cpi-reading-gives-fed-no-clear-direction-on-rates",
+      "url": "/insights/modest-cpi-reading-gives-fed-no-clear-direction-on-rates.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "7f4cea3ebb02b3f9",
+      "title": "Agencies Seek Comment on Proposed Third-Party Risk Management Guidance and Issue Statement on Community Bank Engagement with Core Service Providers",
+      "slug": "agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue",
+      "url": "/insights/agencies-seek-comment-on-proposed-third-party-risk-management-guidance-and-issue.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1f539ea0f5307291",
+      "title": "Third-Party Risk Management: Proposed Guidance and Request for Comment",
+      "slug": "third-party-risk-management-proposed-guidance-and-request-for-comment",
+      "url": "/insights/third-party-risk-management-proposed-guidance-and-request-for-comment.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fa7f23ce09964c58",
+      "title": "ClarkDietrich to Relocate Headquarters to $350M Montgomery Quarter Near Cincinnati",
+      "slug": "clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat",
+      "url": "/insights/clarkdietrich-to-relocate-headquarters-to-350m-montgomery-quarter-near-cincinnat.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f73d9cf85db672cd",
+      "title": "Morgan Stanley Pays $91M for Tampa Florida Multifamily Senior Communities",
+      "slug": "morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities",
+      "url": "/insights/morgan-stanley-pays-91m-for-tampa-florida-multifamily-senior-communities.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c750b86d2a63b8df",
+      "title": "NextDC's AU$1.1bn convertible note raise signals aggressive data center expansion",
+      "slug": "nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio",
+      "url": "/insights/nextdc-s-au-1-1bn-convertible-note-raise-signals-aggressive-data-center-expansio.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "16aa8aee3c4c696c",
+      "title": "Federal Court Nullifies New Jersey Approval for $1B Gas Pipeline to New York City",
+      "slug": "federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city",
+      "url": "/insights/federal-court-nullifies-new-jersey-approval-for-1b-gas-pipeline-to-new-york-city.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "597fb361d2f318f0",
+      "title": "Foundation 8 Receives $44.5M Loan for Office Component of Mixed-Use Tower in Downtown Phoenix",
+      "slug": "foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down",
+      "url": "/insights/foundation-8-receives-44-5m-loan-for-office-component-of-mixed-use-tower-in-down.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "aa883eda8e840cd5",
+      "title": "A four-time Fortune 500 CFO makes a huge career bet—on joining Polymarket",
+      "slug": "a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket",
+      "url": "/insights/a-four-time-fortune-500-cfo-makes-a-huge-career-bet-on-joining-polymarket.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "059c682492287d54",
+      "title": "Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle",
+      "slug": "agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1",
+      "url": "/insights/agencies-reduce-regulatory-burden-for-community-banks-increase-eligibility-for-1.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d285b8002f615e5c",
+      "title": "Hot inflation reading sets stage for possible Fed rate hike next week",
+      "slug": "hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week",
+      "url": "/insights/hot-inflation-reading-sets-stage-for-possible-fed-rate-hike-next-week.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "83b5b4a9e1b6a57c",
+      "title": "Consumer Prices Rise 0.4% in August as Gasoline Costs Accelerate",
+      "slug": "consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate",
+      "url": "/insights/consumer-prices-rise-0-4-in-august-as-gasoline-costs-accelerate.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3f5fb32c03300df9",
+      "title": "Affinius Capital, Axonic Capital Lend $48M for Suburban Boston Apartments Build",
+      "slug": "affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build",
+      "url": "/insights/affinius-capital-axonic-capital-lend-48m-for-suburban-boston-apartments-build.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6686c179dbb7053e",
+      "title": "Jay Roberts of Prosper Group: 5 Questions",
+      "slug": "jay-roberts-of-prosper-group-5-questions",
+      "url": "/insights/jay-roberts-of-prosper-group-5-questions.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5fbea2255a1ca157",
+      "title": "RFR Buys Prada-Anchored Retail Condo at 841 Madison Avenue for $57M",
+      "slug": "rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m",
+      "url": "/insights/rfr-buys-prada-anchored-retail-condo-at-841-madison-avenue-for-57m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e0abab254415a086",
+      "title": "Circle to buy Tazapay for $400 million in stock",
+      "slug": "circle-to-buy-tazapay-for-400-million-in-stock",
+      "url": "/insights/circle-to-buy-tazapay-for-400-million-in-stock.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e4b21bc0ea5fb792",
+      "title": "FinCEN releases financial trend analysis on health care fraud",
+      "slug": "fincen-releases-financial-trend-analysis-on-health-care-fraud",
+      "url": "/insights/fincen-releases-financial-trend-analysis-on-health-care-fraud.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "b2f4cec1f5f5b51c",
+      "title": "Affinius Capital, Axonic Capital Provide $45.8M Construction Loan for 130-Unit Lexington Development",
+      "slug": "affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex",
+      "url": "/insights/affinius-capital-axonic-capital-provide-45-8m-construction-loan-for-130-unit-lex.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "12622c18f0adfc41",
+      "title": "OCC Delivers on Community Bank Comeback, Reduces Burden for Third-Party Risk Management",
+      "slug": "occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana",
+      "url": "/insights/occ-delivers-on-community-bank-comeback-reduces-burden-for-third-party-risk-mana.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "86949201fc286996",
+      "title": "Chinese PV Industry Brief: Tongwei clears antitrust hurdle for acquisition of polysilicon competitor Qinghai Lihao",
+      "slug": "chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol",
+      "url": "/insights/chinese-pv-industry-brief-tongwei-clears-antitrust-hurdle-for-acquisition-of-pol.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5a769a630f27e110",
+      "title": "MMCC Arranges Financing for Orange Multifamily Acquisition",
+      "slug": "mmcc-arranges-financing-for-orange-multifamily-acquisition",
+      "url": "/insights/mmcc-arranges-financing-for-orange-multifamily-acquisition.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "68e507a145ed71dc",
+      "title": "Marcus & Millichap Brokers Sale of Free-Market Mixed-Use Property in Brooklyn",
+      "slug": "marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn",
+      "url": "/insights/marcus-millichap-brokers-sale-of-free-market-mixed-use-property-in-brooklyn.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9e5a04359aa5a30a",
+      "title": "Prologis Acquires 69 Acres For 1M SF Chicago-Area Industrial Development",
+      "slug": "prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development",
+      "url": "/insights/prologis-acquires-69-acres-for-1m-sf-chicago-area-industrial-development.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1081d7a37a211425",
+      "title": "August CPI shows sticky core inflation ahead of Fed meeting",
+      "slug": "august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting",
+      "url": "/insights/august-cpi-shows-sticky-core-inflation-ahead-of-fed-meeting.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2508cb3822e963f5",
+      "title": "SFERS sets $500m real assets pacing plan, commits $75m to Blackstone Energy Transition Partners V",
+      "slug": "sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit",
+      "url": "/insights/sfers-sets-500m-real-assets-pacing-plan-commits-75m-to-blackstone-energy-transit.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "6439f6ded1692d2a",
+      "title": "NYC Council Passes 9/11 Remembrance and Education Legislation Ahead of 25th Anniversary",
+      "slug": "nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni",
+      "url": "/insights/nyc-council-passes-9-11-remembrance-and-education-legislation-ahead-of-25th-anni.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 30
+}

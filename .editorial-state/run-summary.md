@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **844**
-- Distinct events: **792**
-- Articles: **21**
+- Candidates: **856**
+- Distinct events: **811**
+- Articles: **30**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,24 +12,33 @@
 
 ## Published candidates
 
-- **analysis** — CBRE Investment Management Acquires $1.6B Net-Lease Portfolio (1 sources; v3_daily_slate selection)
-- **analysis** — Philadelphia REIT Assembles 44,000-Unit Platform With Midwest Addition (1 sources; v3_daily_slate selection)
-- **analysis** — Independence Realty Trust To Buy Centerspace, Creating $8.1B REIT (1 sources; v3_daily_slate selection)
-- **analysis** — Pebb Capital Obtains $223M Loan for Refinancing of Sundy Village in Delray Beach, Florida (2 sources; v3_daily_slate selection)
-- **analysis** — FDIC won't have to return $1.71 billion to SVB creditors (1 sources; v3_daily_slate selection)
-- **analysis** — CBRE IM Buys Net Lease REIT For $1.6B, Plans More Investment (1 sources; v3_daily_slate selection)
-- **analysis** — Lender Requests Receiver For X Denver Apartment Building Near Coors Field (1 sources; v3_daily_slate selection)
-- **analysis** — SL Green Sells 110 Greene Street to Natora Group for $226M (1 sources; v3_daily_slate selection)
-- **analysis** — SL Green Selling SoHo Building For $226M (1 sources; v3_daily_slate selection)
-- **analysis** — Dwight Refis L.A.-Area Apartments With $62M Loan (1 sources; v3_daily_slate selection)
-- **analysis** — Berkadia Arranges $38.55M Refinancing for Tennis Towers Apartments in West Palm Beach (1 sources; v3_daily_slate selection)
-- **analysis** — Block seeks OCC bank charter (2 sources; v3_daily_slate selection)
-- **analysis** — Duane Arnold’s nuclear restart in eastern Iowa gets $1.9B boost from DOE (1 sources; v3_daily_slate selection)
-- **analysis** — Virginia banks to combine in $253M deal (1 sources; v3_daily_slate selection)
-- **brief** — Hill: FDIC on track to issue stablecoin rulemaking by year’s end (1 sources; v3_daily_slate selection)
-- **brief** — Block seeks national trust charter to offer crypto custody (1 sources; v3_daily_slate selection)
-- **brief** — Mercury gets FDIC nod (1 sources; v3_daily_slate selection)
-- **brief** — Mark Stebbins Community Center Opens on Manchester’s West Side With $20.7M Raised for Children and Families (1 sources; v3_daily_slate selection)
-- **brief** — Louisiana Teachers slates $100m for infrastructure funds managed by Blackstone and I Squared (1 sources; v3_daily_slate selection)
-- **brief** — Housing Report: New York City Has Approved 6,732 New Residential Units This Year Through August (1 sources; v3_daily_slate selection)
-- **brief** — Merchant BESS switched on at operational solar site in Romania (1 sources; v3_daily_slate selection)
+- **analysis** — OCC Advances Community Bank Comeback, Reduces Exam Burden for Smallest Institutions (1 sources; v3_daily_slate selection)
+- **analysis** — Positron Raises $875M to Scale Memory-First Inference Silicon (1 sources; v3_daily_slate selection)
+- **analysis** — DISA launches tender for $21.6bn JWCC contracts (1 sources; v3_daily_slate selection)
+- **analysis** — Expanded Examination Cycle Eligibility: Interim Final Rule (1 sources; v3_daily_slate selection)
+- **analysis** — Modest CPI reading gives Fed no clear direction on rates (2 sources; v3_daily_slate selection)
+- **analysis** — Agencies Seek Comment on Proposed Third-Party Risk Management Guidance and Issue Statement on Community Bank Engagement with Core Service Providers (1 sources; v3_daily_slate selection)
+- **analysis** — Third-Party Risk Management: Proposed Guidance and Request for Comment (1 sources; v3_daily_slate selection)
+- **analysis** — ClarkDietrich to Relocate Headquarters to $350M Montgomery Quarter Near Cincinnati (1 sources; v3_daily_slate selection)
+- **analysis** — Morgan Stanley Pays $91M for Tampa Florida Multifamily Senior Communities (1 sources; v3_daily_slate selection)
+- **analysis** — NextDC's AU$1.1bn convertible note raise signals aggressive data center expansion (1 sources; v3_daily_slate selection)
+- **analysis** — Federal Court Nullifies New Jersey Approval for $1B Gas Pipeline to New York City (1 sources; v3_daily_slate selection)
+- **analysis** — Foundation 8 Receives $44.5M Loan for Office Component of Mixed-Use Tower in Downtown Phoenix (1 sources; v3_daily_slate selection)
+- **analysis** — A four-time Fortune 500 CFO makes a huge career bet—on joining Polymarket (1 sources; v3_daily_slate selection)
+- **brief** — Agencies reduce regulatory burden for community banks, increase eligibility for 18-month exam cycle (1 sources; v3_daily_slate selection)
+- **brief** — Hot inflation reading sets stage for possible Fed rate hike next week (1 sources; v3_daily_slate selection)
+- **brief** — Consumer Prices Rise 0.4% in August as Gasoline Costs Accelerate (1 sources; v3_daily_slate selection)
+- **brief** — Affinius Capital, Axonic Capital Lend $48M for Suburban Boston Apartments Build (1 sources; v3_daily_slate selection)
+- **brief** — Jay Roberts of Prosper Group: 5 Questions (1 sources; v3_daily_slate selection)
+- **brief** — RFR Buys Prada-Anchored Retail Condo at 841 Madison Avenue for $57M (1 sources; v3_daily_slate selection)
+- **brief** — Circle to buy Tazapay for $400 million in stock (1 sources; v3_daily_slate selection)
+- **brief** — FinCEN releases financial trend analysis on health care fraud (1 sources; v3_daily_slate selection)
+- **brief** — Affinius Capital, Axonic Capital Provide $45.8M Construction Loan for 130-Unit Lexington Development (1 sources; v3_daily_slate selection)
+- **brief** — OCC Delivers on Community Bank Comeback, Reduces Burden for Third-Party Risk Management (1 sources; v3_daily_slate selection)
+- **brief** — Chinese PV Industry Brief: Tongwei clears antitrust hurdle for acquisition of polysilicon competitor Qinghai Lihao (1 sources; v3_daily_slate selection)
+- **brief** — MMCC Arranges Financing for Orange Multifamily Acquisition (1 sources; v3_daily_slate selection)
+- **brief** — Marcus & Millichap Brokers Sale of Free-Market Mixed-Use Property in Brooklyn (1 sources; v3_daily_slate selection)
+- **brief** — Prologis Acquires 69 Acres For 1M SF Chicago-Area Industrial Development (1 sources; v3_daily_slate selection)
+- **brief** — August CPI shows sticky core inflation ahead of Fed meeting (1 sources; v3_daily_slate selection)
+- **brief** — SFERS sets $500m real assets pacing plan, commits $75m to Blackstone Energy Transition Partners V (1 sources; v3_daily_slate selection)
+- **brief** — NYC Council Passes 9/11 Remembrance and Education Legislation Ahead of 25th Anniversary (1 sources; v3_daily_slate selection)
