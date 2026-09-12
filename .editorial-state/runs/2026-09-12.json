@@ -1,0 +1,1293 @@
+{
+  "run_at": "2026-09-12T14:01:15.279424+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 705,
+  "documents_from_feeds": 602,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 652,
+  "documents_consolidated": 53,
+  "eligible": 79,
+  "enriched": 250,
+  "evidence_upgraded": 133,
+  "selected": 15,
+  "publication_candidates": 15,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 64,
+      "eligible": 3,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "commercial_real_estate": {
+      "considered": 350,
+      "eligible": 48,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 50,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "energy": {
+      "considered": 103,
+      "eligible": 11,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 30,
+      "eligible": 8,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 7,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 48,
+      "eligible": 3,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 11,
+    "tier_c": 4
+  },
+  "shortfalls": [
+    "banking_credit: 3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "data_centers: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "energy: only 1 of 11 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 3 of 8 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: 3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 64.5,
+    "mean": 22.6,
+    "stdev": 12.42,
+    "range_used": 64.5,
+    "median": 19.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 256,
+    "fetched": 246,
+    "from_cache": 0,
+    "blocked": 5,
+    "failed": 5,
+    "skipped_budget": 0,
+    "bytes_downloaded": 48348840,
+    "elapsed_ms": 74906,
+    "by_status": {
+      "full_text": 134,
+      "partial_text": 112,
+      "blocked": 5,
+      "failed": 5
+    }
+  },
+  "novelty": {
+    "new": 551,
+    "already_published": 12,
+    "material_update": 1,
+    "minor_follow_up": 88
+  },
+  "memory": {
+    "events_remembered": 8473,
+    "published": 671,
+    "seen_but_not_run": 7802,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-12",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 246.5,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 15,
+    "written": 15,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 15,
+    "elapsed_seconds": 35.06,
+    "provider_attempts": {
+      "deepseek": 15
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "dc82addaf3af0baf",
+        "title": "Tishman Speyer Seeks $100 Million Abatement for Hudson Yards Office",
+        "sector": "local_government",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 583,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "39c7dd761630cb79bf699a33e49896b88e29810387927607cf8f7372e563e3cb"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d5c48ed445607dc4",
+        "title": "Hudson Pacific Extends Maturity on $1.1B Hollywood Media Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.49,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 439,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fd0dddf540ef3f1ea9a41984e87cd02b33dec15f895c1545bcd934c50db92b25"
+        },
+        "seconds": 10.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0c71cc3a017b4b76",
+        "title": "HPP, Blackstone Nab Extension On $1.1B Loan Tied To 2.2M SF Hollywood Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.14,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 546,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ab424c971bbe62518a453eb152d50f9440613b474ed9ea0bf6e6612b7d629877"
+        },
+        "seconds": 12.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1d47662863640a74",
+        "title": "Core CPI exceeds forecasts, increasing odds of higher borrowing costs",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 619,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "30872073235d4beb8ac94a4b9316bca0afb8d72586e32ad1c25392642e73a221"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4521b0e8018091fc",
+        "title": "Joint Readout of Principals’ Meeting of U.S. and UK Authorities Regarding Central Counterparty Resolution",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.77,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 523,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "cc211904f9908f12d09bd9bc6eca744393c5735e80bbb523f5aad8320ec80662"
+        },
+        "seconds": 12.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bfd54b484f823f0b",
+        "title": "Longpoint Buys Miami-Dade Warehouse Portfolio for $195M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.52,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 577,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f280384c3f1bf9005100c161ef2b7558f9e004bb95bae77fd52dbca89646f05a"
+        },
+        "seconds": 12.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "61e3ac5fc7d7b9dc",
+        "title": "Chapman Market Owners Get $29M Refinance: The Los Angeles Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.58,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 529,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d76b0d51f7eeafd2cab009c2bd0fa6c8bbbfbd497ea869aac2ff2ed027dd1474"
+        },
+        "seconds": 17.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b915f6706d8e34e0",
+        "title": "Gantry Secures $51M of CMBS Financing for Kansas City Value-Add Multifamily",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.94,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 546,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "adecc3947de4c043ff3b90f064fa5fae2fe1b427353df022eab11452d447b4d5"
+        },
+        "seconds": 14.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c9c8967a7d536a32",
+        "title": "Slate Property Group Secures $63M Refinancing for Chelsea Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 567,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "463514eba78a02b8f4e1dd212112adb014ad621f0838396b5d7ae213c6696e75"
+        },
+        "seconds": 14.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c0e52782e6fd5163",
+        "title": "Traders Bet On A Rate Hike From The Fed After Inflation Report Climbs Higher",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.23,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 661,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "05823bb7f321c1ec926d44dfbc886c65db052841d0ef0f1ab5cc4a9e37b6615a"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f965ac47053ff87c",
+        "title": "$75M Financing Secured for 398-Unit Multifamily Apartment Building in Harrison New Jersey",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.0,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 580,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "17f3cfffa47e2a9c5d1c25daa96a3c85d68cd9ed33daf462f3305f80f8ddc475"
+        },
+        "seconds": 15.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "439879d22d5d20b2",
+        "title": "Azimuth Sells Bronx Educational Facility to Equality Charter School for $55M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 239,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4c520e393305c915e478fe11e97d378dd6b9cda2b735b20db4a17a535b1391cc"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fb3f02b6c2c9cc6f",
+        "title": "Multifamily Developer LCOR Buys Taconic’s UES Life Sciences Site for $73M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.24,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 332,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4e44d24499015c32849f0255ab052272e3ce68b7e9504bdbe4f9fe487e77ad1f"
+        },
+        "seconds": 7.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1fc3f29fb39d2148",
+        "title": "Cushman & Wakefield Brokers Sale of Fully Leased Rochester Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 285,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "39140f8e3eba09a0bf6aaaf7eca0bd3b663b199d3c2167f0d58a41adafc54f67"
+        },
+        "seconds": 7.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "247ea5581b8d81a7",
+        "title": "All the Data Center News That’s Fit to Print",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.45,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 316,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "24865d12289ab022c519d8103f16cc3400a38b927f0b368234aab7075eeae42d"
+        },
+        "seconds": 8.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 15,
+    "published": 15,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office_social.png",
+      "insights/tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office.html",
+      "insights/hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan_social.png",
+      "insights/hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan.html",
+      "insights/hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio_social.png",
+      "insights/hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio.html",
+      "insights/core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs_social.png",
+      "insights/core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs.html",
+      "insights/u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution_social.png",
+      "insights/u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution.html",
+      "insights/longpoint-buys-miami-dade-warehouse-portfolio-for-195m_social.png",
+      "insights/longpoint-buys-miami-dade-warehouse-portfolio-for-195m.html",
+      "insights/chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet_social.png",
+      "insights/chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet.html",
+      "insights/gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily_social.png",
+      "insights/gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily.html",
+      "insights/slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio_social.png",
+      "insights/slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio.html",
+      "insights/traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher_social.png",
+      "insights/traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher.html",
+      "insights/jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori_social.png",
+      "insights/jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori.html",
+      "insights/azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m_social.png",
+      "insights/azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m.html",
+      "insights/multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m_social.png",
+      "insights/multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m.html",
+      "insights/cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments_social.png",
+      "insights/cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments.html",
+      "insights/all-the-data-center-news-that-s-fit-to-print_social.png",
+      "insights/all-the-data-center-news-that-s-fit-to-print.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office_related.json",
+      "insights/hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan_related.json",
+      "insights/hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio_related.json",
+      "insights/core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs_related.json",
+      "insights/u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution_related.json",
+      "insights/longpoint-buys-miami-dade-warehouse-portfolio-for-195m_related.json",
+      "insights/chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet_related.json",
+      "insights/gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily_related.json",
+      "insights/slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio_related.json",
+      "insights/traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher_related.json",
+      "insights/jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori_related.json",
+      "insights/azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m_related.json",
+      "insights/multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m_related.json",
+      "insights/cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments_related.json",
+      "insights/all-the-data-center-news-that-s-fit-to-print_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "dc82addaf3af0baf",
+        "title": "Tishman Speyer Seeks $100 Million Abatement for Hudson Yards Office",
+        "slug": "tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office",
+        "url": "/insights/tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office.html",
+        "category": "Policy & Regulation",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d5c48ed445607dc4",
+        "title": "Hudson Pacific Extends Maturity on $1.1B Hollywood Media Loan",
+        "slug": "hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan",
+        "url": "/insights/hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0c71cc3a017b4b76",
+        "title": "HPP, Blackstone Nab Extension On $1.1B Loan Tied To 2.2M SF Hollywood Portfolio",
+        "slug": "hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio",
+        "url": "/insights/hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1d47662863640a74",
+        "title": "Core CPI exceeds forecasts, increasing odds of higher borrowing costs",
+        "slug": "core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs",
+        "url": "/insights/core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4521b0e8018091fc",
+        "title": "U.S. and UK Regulators Hold Tabletop Exercise on Central Counterparty Resolution",
+        "slug": "u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution",
+        "url": "/insights/u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bfd54b484f823f0b",
+        "title": "Longpoint Buys Miami-Dade Warehouse Portfolio for $195M",
+        "slug": "longpoint-buys-miami-dade-warehouse-portfolio-for-195m",
+        "url": "/insights/longpoint-buys-miami-dade-warehouse-portfolio-for-195m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "61e3ac5fc7d7b9dc",
+        "title": "Chapman Market Owners Get $29M Refinance: The Los Angeles Deal Sheet",
+        "slug": "chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet",
+        "url": "/insights/chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b915f6706d8e34e0",
+        "title": "Gantry Secures $51M of CMBS Financing for Kansas City Value-Add Multifamily",
+        "slug": "gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily",
+        "url": "/insights/gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c9c8967a7d536a32",
+        "title": "Slate Property Group Secures $63M Refinancing for Chelsea Multifamily Portfolio",
+        "slug": "slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio",
+        "url": "/insights/slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c0e52782e6fd5163",
+        "title": "Traders Bet On A Rate Hike From The Fed After Inflation Report Climbs Higher",
+        "slug": "traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher",
+        "url": "/insights/traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f965ac47053ff87c",
+        "title": "JLL Arranges $75M Life-Company Loan for 398-Unit Vermella Harrison in Transit-Oriented Harrison, NJ",
+        "slug": "jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori",
+        "url": "/insights/jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "439879d22d5d20b2",
+        "title": "Azimuth Sells Bronx Educational Facility to Equality Charter School for $55M",
+        "slug": "azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m",
+        "url": "/insights/azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fb3f02b6c2c9cc6f",
+        "title": "Multifamily Developer LCOR Buys Taconic’s UES Life Sciences Site for $73M",
+        "slug": "multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m",
+        "url": "/insights/multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1fc3f29fb39d2148",
+        "title": "Cushman & Wakefield Brokers Sale of Fully Leased Rochester Apartments",
+        "slug": "cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments",
+        "url": "/insights/cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "247ea5581b8d81a7",
+        "title": "All the Data Center News That’s Fit to Print",
+        "slug": "all-the-data-center-news-that-s-fit-to-print",
+        "url": "/insights/all-the-data-center-news-that-s-fit-to-print.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "dc82addaf3af0baf",
+        "slug": "tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office",
+        "title": "Tishman Speyer Seeks $100 Million Abatement for Hudson Yards Office",
+        "sector": "local_government",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d5c48ed445607dc4",
+        "slug": "hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan",
+        "title": "Hudson Pacific Extends Maturity on $1.1B Hollywood Media Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0c71cc3a017b4b76",
+        "slug": "hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio",
+        "title": "HPP, Blackstone Nab Extension On $1.1B Loan Tied To 2.2M SF Hollywood Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1d47662863640a74",
+        "slug": "core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs",
+        "title": "Core CPI exceeds forecasts, increasing odds of higher borrowing costs",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4521b0e8018091fc",
+        "slug": "u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution",
+        "title": "Joint Readout of Principals’ Meeting of U.S. and UK Authorities Regarding Central Counterparty Resolution",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bfd54b484f823f0b",
+        "slug": "longpoint-buys-miami-dade-warehouse-portfolio-for-195m",
+        "title": "Longpoint Buys Miami-Dade Warehouse Portfolio for $195M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/longpoint-buys-miami-dade-warehouse-portfolio-for-195m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "61e3ac5fc7d7b9dc",
+        "slug": "chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet",
+        "title": "Chapman Market Owners Get $29M Refinance: The Los Angeles Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b915f6706d8e34e0",
+        "slug": "gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily",
+        "title": "Gantry Secures $51M of CMBS Financing for Kansas City Value-Add Multifamily",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c9c8967a7d536a32",
+        "slug": "slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio",
+        "title": "Slate Property Group Secures $63M Refinancing for Chelsea Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c0e52782e6fd5163",
+        "slug": "traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher",
+        "title": "Traders Bet On A Rate Hike From The Fed After Inflation Report Climbs Higher",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f965ac47053ff87c",
+        "slug": "jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori",
+        "title": "$75M Financing Secured for 398-Unit Multifamily Apartment Building in Harrison New Jersey",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori.html",
+        "reason": ""
+      },
+      {
+        "object_id": "439879d22d5d20b2",
+        "slug": "azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m",
+        "title": "Azimuth Sells Bronx Educational Facility to Equality Charter School for $55M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fb3f02b6c2c9cc6f",
+        "slug": "multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m",
+        "title": "Multifamily Developer LCOR Buys Taconic’s UES Life Sciences Site for $73M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1fc3f29fb39d2148",
+        "slug": "cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments",
+        "title": "Cushman & Wakefield Brokers Sale of Fully Leased Rochester Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments.html",
+        "reason": ""
+      },
+      {
+        "object_id": "247ea5581b8d81a7",
+        "slug": "all-the-data-center-news-that-s-fit-to-print",
+        "title": "All the Data Center News That’s Fit to Print",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/all-the-data-center-news-that-s-fit-to-print.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 15,
+    "successful_calls": 15,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 16.21,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 5.88,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.14,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.47,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.03,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 106.73,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 76.07,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.16,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 38.13,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.42,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.31,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 15 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 246.55,
+  "status": "ready",
+  "candidate_count": 705,
+  "event_count": 652,
+  "articles": [
+    {
+      "event_id": "dc82addaf3af0baf",
+      "title": "Tishman Speyer Seeks $100 Million Abatement for Hudson Yards Office",
+      "slug": "tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office",
+      "url": "/insights/tishman-speyer-seeks-100-million-abatement-for-hudson-yards-office.html",
+      "category": "Policy & Regulation",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d5c48ed445607dc4",
+      "title": "Hudson Pacific Extends Maturity on $1.1B Hollywood Media Loan",
+      "slug": "hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan",
+      "url": "/insights/hudson-pacific-extends-maturity-on-1-1b-hollywood-media-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0c71cc3a017b4b76",
+      "title": "HPP, Blackstone Nab Extension On $1.1B Loan Tied To 2.2M SF Hollywood Portfolio",
+      "slug": "hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio",
+      "url": "/insights/hpp-blackstone-nab-extension-on-1-1b-loan-tied-to-2-2m-sf-hollywood-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1d47662863640a74",
+      "title": "Core CPI exceeds forecasts, increasing odds of higher borrowing costs",
+      "slug": "core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs",
+      "url": "/insights/core-cpi-exceeds-forecasts-increasing-odds-of-higher-borrowing-costs.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4521b0e8018091fc",
+      "title": "U.S. and UK Regulators Hold Tabletop Exercise on Central Counterparty Resolution",
+      "slug": "u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution",
+      "url": "/insights/u-s-and-uk-regulators-hold-tabletop-exercise-on-central-counterparty-resolution.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bfd54b484f823f0b",
+      "title": "Longpoint Buys Miami-Dade Warehouse Portfolio for $195M",
+      "slug": "longpoint-buys-miami-dade-warehouse-portfolio-for-195m",
+      "url": "/insights/longpoint-buys-miami-dade-warehouse-portfolio-for-195m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "61e3ac5fc7d7b9dc",
+      "title": "Chapman Market Owners Get $29M Refinance: The Los Angeles Deal Sheet",
+      "slug": "chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet",
+      "url": "/insights/chapman-market-owners-get-29m-refinance-the-los-angeles-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b915f6706d8e34e0",
+      "title": "Gantry Secures $51M of CMBS Financing for Kansas City Value-Add Multifamily",
+      "slug": "gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily",
+      "url": "/insights/gantry-secures-51m-of-cmbs-financing-for-kansas-city-value-add-multifamily.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c9c8967a7d536a32",
+      "title": "Slate Property Group Secures $63M Refinancing for Chelsea Multifamily Portfolio",
+      "slug": "slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio",
+      "url": "/insights/slate-property-group-secures-63m-refinancing-for-chelsea-multifamily-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c0e52782e6fd5163",
+      "title": "Traders Bet On A Rate Hike From The Fed After Inflation Report Climbs Higher",
+      "slug": "traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher",
+      "url": "/insights/traders-bet-on-a-rate-hike-from-the-fed-after-inflation-report-climbs-higher.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f965ac47053ff87c",
+      "title": "JLL Arranges $75M Life-Company Loan for 398-Unit Vermella Harrison in Transit-Oriented Harrison, NJ",
+      "slug": "jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori",
+      "url": "/insights/jll-arranges-75m-life-company-loan-for-398-unit-vermella-harrison-in-transit-ori.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "439879d22d5d20b2",
+      "title": "Azimuth Sells Bronx Educational Facility to Equality Charter School for $55M",
+      "slug": "azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m",
+      "url": "/insights/azimuth-sells-bronx-educational-facility-to-equality-charter-school-for-55m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fb3f02b6c2c9cc6f",
+      "title": "Multifamily Developer LCOR Buys Taconic’s UES Life Sciences Site for $73M",
+      "slug": "multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m",
+      "url": "/insights/multifamily-developer-lcor-buys-taconic-s-ues-life-sciences-site-for-73m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1fc3f29fb39d2148",
+      "title": "Cushman & Wakefield Brokers Sale of Fully Leased Rochester Apartments",
+      "slug": "cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments",
+      "url": "/insights/cushman-wakefield-brokers-sale-of-fully-leased-rochester-apartments.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "247ea5581b8d81a7",
+      "title": "All the Data Center News That’s Fit to Print",
+      "slug": "all-the-data-center-news-that-s-fit-to-print",
+      "url": "/insights/all-the-data-center-news-that-s-fit-to-print.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 15
+}
