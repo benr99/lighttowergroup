@@ -1,0 +1,465 @@
+{
+  "run_at": "2026-09-13T14:54:15.451826+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 313,
+  "documents_from_feeds": 210,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 293,
+  "documents_consolidated": 20,
+  "eligible": 16,
+  "enriched": 250,
+  "evidence_upgraded": 128,
+  "selected": 3,
+  "publication_candidates": 3,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 27,
+      "eligible": 2,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "commercial_real_estate": {
+      "considered": 183,
+      "eligible": 9,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 20,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "20 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "energy": {
+      "considered": 39,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 6,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "6 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "local_government": {
+      "considered": 1,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 17,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "17 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 1,
+    "tier_c": 2
+  },
+  "shortfalls": [
+    "banking_credit: 2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "commercial_real_estate: only 2 of 9 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: 20 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "energy: only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: 6 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "local_government: 1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: 17 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 68.0,
+    "mean": 24.2,
+    "stdev": 12.65,
+    "range_used": 68.0,
+    "median": 23.1,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 254,
+    "fetched": 213,
+    "from_cache": 0,
+    "blocked": 39,
+    "failed": 2,
+    "skipped_budget": 0,
+    "bytes_downloaded": 48289341,
+    "elapsed_ms": 112515,
+    "by_status": {
+      "full_text": 129,
+      "partial_text": 84,
+      "blocked": 39,
+      "failed": 2
+    }
+  },
+  "novelty": {
+    "new": 207,
+    "minor_follow_up": 85,
+    "already_published": 1
+  },
+  "memory": {
+    "events_remembered": 8592,
+    "published": 674,
+    "seen_but_not_run": 7918,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-13",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 189.7,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 3,
+    "written": 3,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 3,
+    "elapsed_seconds": 12.89,
+    "provider_attempts": {
+      "deepseek": 3
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "6640dfeeacc33515",
+        "title": "Marcus & Millichap Capital Corporation Arranges $53M Build-to-Rent Refinance in Northwest Arkansas",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.88,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 553,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "5a1cbd92abfc14670eb2f60ff7cf3ed59966cb8b6209e0dc87ffd869c98ea701"
+        },
+        "seconds": 12.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d0f0540284e12558",
+        "title": "US District Court Strips Away Insane JH Campbell Fake Emergency Order",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 355,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4adb25e8510e2d0a19362655e4dc30eff49e8592cc6186ed18f8fd5599fb1c7b"
+        },
+        "seconds": 7.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d1008bf6b2a7d184",
+        "title": "AI-Powered Preconstruction Analysis Platform Wyre Raises $5M in Funding",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 366,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4dc0c9b5613fbde15a6fc84db269150164982f8e3d82ee3f86a6e0f0d05a58b4"
+        },
+        "seconds": 7.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 3,
+    "published": 3,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan_social.png",
+      "insights/marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan.html",
+      "insights/us-district-court-strips-away-insane-jh-campbell-fake-emergency-order_social.png",
+      "insights/us-district-court-strips-away-insane-jh-campbell-fake-emergency-order.html",
+      "insights/ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding_social.png",
+      "insights/ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan_related.json",
+      "insights/us-district-court-strips-away-insane-jh-campbell-fake-emergency-order_related.json",
+      "insights/ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "6640dfeeacc33515",
+        "title": "Marcus & Millichap Capital Arranges $53M Build-to-Rent Refinance in Northwest Arkansas",
+        "slug": "marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan",
+        "url": "/insights/marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d0f0540284e12558",
+        "title": "US District Court Strips Away Insane JH Campbell Fake Emergency Order",
+        "slug": "us-district-court-strips-away-insane-jh-campbell-fake-emergency-order",
+        "url": "/insights/us-district-court-strips-away-insane-jh-campbell-fake-emergency-order.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d1008bf6b2a7d184",
+        "title": "AI-Powered Preconstruction Analysis Platform Wyre Raises $5M in Funding",
+        "slug": "ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding",
+        "url": "/insights/ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "6640dfeeacc33515",
+        "slug": "marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan",
+        "title": "Marcus & Millichap Capital Corporation Arranges $53M Build-to-Rent Refinance in Northwest Arkansas",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d0f0540284e12558",
+        "slug": "us-district-court-strips-away-insane-jh-campbell-fake-emergency-order",
+        "title": "US District Court Strips Away Insane JH Campbell Fake Emergency Order",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/us-district-court-strips-away-insane-jh-campbell-fake-emergency-order.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d1008bf6b2a7d184",
+        "slug": "ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding",
+        "title": "AI-Powered Preconstruction Analysis Platform Wyre Raises $5M in Funding",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 3,
+    "successful_calls": 3,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.3,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.4,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.03,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.07,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.28,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 36.76,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 113.32,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 13.86,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.42,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.21,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 3 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 189.69,
+  "status": "ready",
+  "candidate_count": 313,
+  "event_count": 293,
+  "articles": [
+    {
+      "event_id": "6640dfeeacc33515",
+      "title": "Marcus & Millichap Capital Arranges $53M Build-to-Rent Refinance in Northwest Arkansas",
+      "slug": "marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan",
+      "url": "/insights/marcus-millichap-capital-arranges-53m-build-to-rent-refinance-in-northwest-arkan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d0f0540284e12558",
+      "title": "US District Court Strips Away Insane JH Campbell Fake Emergency Order",
+      "slug": "us-district-court-strips-away-insane-jh-campbell-fake-emergency-order",
+      "url": "/insights/us-district-court-strips-away-insane-jh-campbell-fake-emergency-order.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d1008bf6b2a7d184",
+      "title": "AI-Powered Preconstruction Analysis Platform Wyre Raises $5M in Funding",
+      "slug": "ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding",
+      "url": "/insights/ai-powered-preconstruction-analysis-platform-wyre-raises-5m-in-funding.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 3
+}
