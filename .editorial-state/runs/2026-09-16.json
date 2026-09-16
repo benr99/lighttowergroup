@@ -1,0 +1,2189 @@
+{
+  "run_at": "2026-09-16T15:24:04.352447+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 844,
+  "documents_from_feeds": 741,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 785,
+  "documents_consolidated": 59,
+  "eligible": 106,
+  "enriched": 250,
+  "evidence_upgraded": 152,
+  "selected": 28,
+  "publication_candidates": 28,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 63,
+      "eligible": 5,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 382,
+      "eligible": 56,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 83,
+      "eligible": 8,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 154,
+      "eligible": 25,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 25 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 24,
+      "eligible": 3,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 3 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 74,
+      "eligible": 7,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 14,
+    "tier_c": 14
+  },
+  "shortfalls": [
+    "banking_credit: only 3 of 5 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 5 of 8 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 5 of 25 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 3 of 3 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 68.9,
+    "mean": 23.0,
+    "stdev": 12.34,
+    "range_used": 68.9,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 256,
+    "fetched": 241,
+    "from_cache": 0,
+    "blocked": 5,
+    "failed": 10,
+    "skipped_budget": 0,
+    "bytes_downloaded": 48196543,
+    "elapsed_ms": 63093,
+    "by_status": {
+      "full_text": 152,
+      "partial_text": 89,
+      "failed": 10,
+      "blocked": 5
+    }
+  },
+  "novelty": {
+    "new": 702,
+    "material_update": 1,
+    "minor_follow_up": 82
+  },
+  "memory": {
+    "events_remembered": 9272,
+    "published": 702,
+    "seen_but_not_run": 8570,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-16",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 291.5,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 28,
+    "written": 28,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 32,
+    "elapsed_seconds": 59.57,
+    "provider_attempts": {
+      "deepseek": 32
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "f01e0d41b231d6df",
+        "title": "$12.73 Billion of Industrial CMBS Loans Have an Anchor Lease Expiring Before Maturity",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.98,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 797,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "d2037d8d7d26df92048614b413afe611bfc6381556b21954d7d506a60d1219fe"
+        },
+        "seconds": 13.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d379f29eba4eb9be",
+        "title": "CMBS Loan Backed by Hyatt Regency in Jersey City Sent to Special Servicing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.46,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 559,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ea8ba2fe557fc2e53c7642048457f56deec7bcfea9c6955160c78b8c133d5859"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8264d9c95f151222",
+        "title": "Brookfield Adds Australian Supply-Chain Firm to U.S. Housing Play",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.89,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 463,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "39f27c4c25cbf39c03e5987687a75de6dd572617dcc14123a6d2f4bbcf2f5990"
+        },
+        "seconds": 12.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e7b0c5b2f3444ab5",
+        "title": "$420M CMBS Loan Backed by 51 West 52nd Exits Special Servicing, Secures Extension",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 588,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e0c4bdd85acf554d4382610d54d0cbc0078442bd3044184da1cf92646142244c"
+        },
+        "seconds": 15.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "176d46fdd3f94f6f",
+        "title": "Stockdale Capital Partners Aims for $300M in Loans by 2028 Via New Credit Platform",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 513,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e088815f9672a8e2ddcfb64a211e80234fef8880fd275de0e788f5d4fd6cb060"
+        },
+        "seconds": 14.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e6ff18b9a3084198",
+        "title": "Hines And Rialto Close Office Credit Fund At $1.1B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 597,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7ed687dad371f2b18c4b9d24b074df4976ccc09fca7bbf12aa1944ca8d85b332"
+        },
+        "seconds": 14.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6f9539fd6b7d3803",
+        "title": "Why Anthropic went straight to a developer for its first Australian data centre",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.08,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 726,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "fac8ac9373ba0ab45e92b128bb8ae708c4e2888729a5e6eb6b3fb96c3d394c46"
+        },
+        "seconds": 11.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1cbd086d59203e63",
+        "title": "10-Year Treasury Yield at 5% Puts Risk Assets on Notice",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 757,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "93e3b9faa575f4a3f433bbdddf8ceb8182c8f143140b8746df2eff007cd56eb2"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1389901b060782bb",
+        "title": "Truist to exit near-prime auto lending, sell $5.5B in loans",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.13,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 582,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "efcbba3ef58fb1da17d5a33e026c55259a180b6070b3ef84486fb4c0a9dacd47"
+        },
+        "seconds": 12.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cffdad1adfe9f030",
+        "title": "Vantage Secures $2B Credit for North American Data Centers",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.5,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 513,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a5153d0f4c8940f3e316327159ba7155c7953e303d5dd2ea8a5ea0875d269962"
+        },
+        "seconds": 12.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b5bdae04fefafd53",
+        "title": "Serverfarm expands North American data center development fund to $3.89 billion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.99,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 416,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3d0f5074c70577b566aaeadf4b4979bf9ad4bdddca53e68f5d47643c019ae623"
+        },
+        "seconds": 11.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "52688b45ba8fae1d",
+        "title": "Inland Secures $112M for Chicagoland Senior Housing Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.34,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 487,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a3346164910417bb010ff5427cab2182c9cf4e77622e266f7166a88628e2ea72"
+        },
+        "seconds": 13.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fbe86bef3507d280",
+        "title": "Berkadia Arranges $92M Construction Loan for DC Multifamily Property Near George Washington University",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.34,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 629,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "04f911d51f6478c746248853788c4d68a003235e1399496cd783ddbaa360269b"
+        },
+        "seconds": 16.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ca918d1494c4d2a7",
+        "title": "Collector Dick Hedreen Has Sold Artworks Before, But This Time the Proceeds Will Build a Museum",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.56,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 599,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f47b123cd53418525fa25d38354bd9fda62920494c878125c027f968e1e3d199"
+        },
+        "seconds": 15.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a8cc14005e839b97",
+        "title": "Beyond A Routine Wobble': 10-Year Treasury Clears 5% Ahead Of Key Fed Meeting",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 326,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "f4732a19138606c7886a00d914d7a604cd0ae483a042c8812c707121ebd1380e"
+        },
+        "seconds": 18.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ce74d6f54d059572",
+        "title": "Northmarq Arranges Refi for Historic Koreatown Retail Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.36,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 270,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "2cdb4b7d9f450e161ce6600204867c49846a755c9e68217ddb8c3c99f5a5ce6c"
+        },
+        "seconds": 7.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ffbb1851798a7f15",
+        "title": "Goodman raises $455m for its Hong Kong data center partnership",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.88,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 309,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9bd6230afb80084056593511bc79b6112e80118f803df15dd1c64283d61ae2db"
+        },
+        "seconds": 7.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b010f2cad8438703",
+        "title": "Econergy Expands European Base, Acquires French Wind Energy Platform",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.78,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 326,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e81f036c57bd3d2041197907a411b7775dd0cbe75816bca01e9554bbd1a59791"
+        },
+        "seconds": 17.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c2e4a09e987cba7c",
+        "title": "Enova scraps Grasshopper deal",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.14,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 309,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "789b6c827a9046e13a0b7f8413a1ca4c94fc706ca09fff69691b805af93358ec"
+        },
+        "seconds": 8.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6120aa56185eb323",
+        "title": "Delos Data Raises $100M+ to Attack Agentic AI Data Bottleneck",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.44,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 334,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "0ccad71f521b07a12b7b3a2082f48875573aeb755b9983096ec1c9897be79846"
+        },
+        "seconds": 15.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0329418c78d4fa5f",
+        "title": "Fed Expected to Hike Rates for First Time Since 2023",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.22,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 322,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e9ec69b3a98caf84173a740d27fd437dba5d96eec82c9d4e7b86bf83e53667ef"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8bbc762007bf5e55",
+        "title": "Australia’s NSW invests in microgrid scoping following Far West transmission outage",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 372,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "bd6e12bd05c81c14de94b3cd0ff05adfc0a339d26c63248af2dcddda2a5511be"
+        },
+        "seconds": 15.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "506e60b26b478784",
+        "title": "Generate Capital Closes $117-Million in Financing for Community Solar",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.23,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 287,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "3bc60849624e72fc24e2efba8b76091c9274a2b83ebc9920b615d2833ee5f842"
+        },
+        "seconds": 7.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6181a439e46dd7ba",
+        "title": "Planted Raises $31.8 Million to Accelerate Autonomous Solar Deployment",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 371,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "f32ec2e4d8f88c7e61d59691da3e932cc87a61cb1363b115edeee7c3a9b518d5"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8b0820b82f182f1a",
+        "title": "Builder lending units can turn to FHA to help finance homes",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.23,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 334,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "cac46c7b2fb207a2477a21c3266a7e87e8e466991e231b86b20ace439844d8ed"
+        },
+        "seconds": 8.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9067c70a4763e46c",
+        "title": "Goldman Sachs closes $9.6bn flagship buyout fund",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.08,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 239,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "12c4707efeb47967d4b8c5ddd74f8826772103dc22e2574066375e0a0bc1ebc7"
+        },
+        "seconds": 8.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ee3315608bcbfe70",
+        "title": "Compliance High on NYC Emission Rules So Far, With Much Tougher Goals to Come",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.02,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 379,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d3d638d709bf81753c6f5f32770601b667d7caa4e1e2d65a869da398394ccb97"
+        },
+        "seconds": 9.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "260470c57b777a8d",
+        "title": "Actis subsidiary Nozomi Energy closes financing on Japanese capacity market-winning BESS",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.3,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 325,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b1d2ca4142b7e190c6194c0c61c84d71a2a82f3b1a6f62c0633d82a171f5f583"
+        },
+        "seconds": 7.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 28,
+    "published": 28,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu_social.png",
+      "insights/12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu.html",
+      "insights/cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing_social.png",
+      "insights/cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing.html",
+      "insights/brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play_social.png",
+      "insights/brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play.html",
+      "insights/420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension_social.png",
+      "insights/420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension.html",
+      "insights/stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor_social.png",
+      "insights/stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor.html",
+      "insights/hines-and-rialto-close-office-credit-fund-at-1-1b_social.png",
+      "insights/hines-and-rialto-close-office-credit-fund-at-1-1b.html",
+      "insights/why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre_social.png",
+      "insights/why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre.html",
+      "insights/10-year-treasury-yield-at-5-puts-risk-assets-on-notice_social.png",
+      "insights/10-year-treasury-yield-at-5-puts-risk-assets-on-notice.html",
+      "insights/truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans_social.png",
+      "insights/truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans.html",
+      "insights/vantage-secures-2b-credit-for-north-american-data-centers_social.png",
+      "insights/vantage-secures-2b-credit-for-north-american-data-centers.html",
+      "insights/serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion_social.png",
+      "insights/serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion.html",
+      "insights/inland-secures-112m-for-chicagoland-senior-housing-portfolio_social.png",
+      "insights/inland-secures-112m-for-chicagoland-senior-housing-portfolio.html",
+      "insights/berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george_social.png",
+      "insights/berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george.html",
+      "insights/collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will_social.png",
+      "insights/collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will.html",
+      "insights/beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting_social.png",
+      "insights/beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting.html",
+      "insights/northmarq-arranges-refi-for-historic-koreatown-retail-center_social.png",
+      "insights/northmarq-arranges-refi-for-historic-koreatown-retail-center.html",
+      "insights/goodman-raises-455m-for-its-hong-kong-data-center-partnership_social.png",
+      "insights/goodman-raises-455m-for-its-hong-kong-data-center-partnership.html",
+      "insights/econergy-expands-european-base-acquires-french-wind-energy-platform_social.png",
+      "insights/econergy-expands-european-base-acquires-french-wind-energy-platform.html",
+      "insights/enova-scraps-grasshopper-deal_social.png",
+      "insights/enova-scraps-grasshopper-deal.html",
+      "insights/delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck_social.png",
+      "insights/delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck.html",
+      "insights/fed-expected-to-hike-rates-for-first-time-since-2023_social.png",
+      "insights/fed-expected-to-hike-rates-for-first-time-since-2023.html",
+      "insights/australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out_social.png",
+      "insights/australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out.html",
+      "insights/generate-capital-closes-117-million-in-financing-for-community-solar_social.png",
+      "insights/generate-capital-closes-117-million-in-financing-for-community-solar.html",
+      "insights/planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment_social.png",
+      "insights/planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment.html",
+      "insights/builder-lending-units-can-turn-to-fha-to-help-finance-homes_social.png",
+      "insights/builder-lending-units-can-turn-to-fha-to-help-finance-homes.html",
+      "insights/goldman-sachs-closes-9-6bn-flagship-buyout-fund_social.png",
+      "insights/goldman-sachs-closes-9-6bn-flagship-buyout-fund.html",
+      "insights/compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come_social.png",
+      "insights/compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come.html",
+      "insights/actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn_social.png",
+      "insights/actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu_related.json",
+      "insights/cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing_related.json",
+      "insights/brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play_related.json",
+      "insights/420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension_related.json",
+      "insights/stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor_related.json",
+      "insights/hines-and-rialto-close-office-credit-fund-at-1-1b_related.json",
+      "insights/why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre_related.json",
+      "insights/10-year-treasury-yield-at-5-puts-risk-assets-on-notice_related.json",
+      "insights/truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans_related.json",
+      "insights/vantage-secures-2b-credit-for-north-american-data-centers_related.json",
+      "insights/serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion_related.json",
+      "insights/inland-secures-112m-for-chicagoland-senior-housing-portfolio_related.json",
+      "insights/berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george_related.json",
+      "insights/collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will_related.json",
+      "insights/beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting_related.json",
+      "insights/northmarq-arranges-refi-for-historic-koreatown-retail-center_related.json",
+      "insights/goodman-raises-455m-for-its-hong-kong-data-center-partnership_related.json",
+      "insights/econergy-expands-european-base-acquires-french-wind-energy-platform_related.json",
+      "insights/enova-scraps-grasshopper-deal_related.json",
+      "insights/delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck_related.json",
+      "insights/fed-expected-to-hike-rates-for-first-time-since-2023_related.json",
+      "insights/australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out_related.json",
+      "insights/generate-capital-closes-117-million-in-financing-for-community-solar_related.json",
+      "insights/planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment_related.json",
+      "insights/builder-lending-units-can-turn-to-fha-to-help-finance-homes_related.json",
+      "insights/goldman-sachs-closes-9-6bn-flagship-buyout-fund_related.json",
+      "insights/compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come_related.json",
+      "insights/actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "f01e0d41b231d6df",
+        "title": "$12.73 Billion of Industrial CMBS Loans Have an Anchor Lease Expiring Before Maturity",
+        "slug": "12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu",
+        "url": "/insights/12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 69,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d379f29eba4eb9be",
+        "title": "CMBS Loan Backed by Hyatt Regency in Jersey City Sent to Special Servicing",
+        "slug": "cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing",
+        "url": "/insights/cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 66,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8264d9c95f151222",
+        "title": "Brookfield Adds Australian Supply-Chain Firm to U.S. Housing Play",
+        "slug": "brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play",
+        "url": "/insights/brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 65,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e7b0c5b2f3444ab5",
+        "title": "$420M CMBS Loan Backed by 51 West 52nd Exits Special Servicing, Secures Extension",
+        "slug": "420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension",
+        "url": "/insights/420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "176d46fdd3f94f6f",
+        "title": "Stockdale Capital Partners Aims for $300M in Loans by 2028 Via New Credit Platform",
+        "slug": "stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor",
+        "url": "/insights/stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e6ff18b9a3084198",
+        "title": "Hines And Rialto Close Office Credit Fund At $1.1B",
+        "slug": "hines-and-rialto-close-office-credit-fund-at-1-1b",
+        "url": "/insights/hines-and-rialto-close-office-credit-fund-at-1-1b.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6f9539fd6b7d3803",
+        "title": "Why Anthropic went straight to a developer for its first Australian data centre",
+        "slug": "why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre",
+        "url": "/insights/why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1cbd086d59203e63",
+        "title": "10-Year Treasury Yield at 5% Puts Risk Assets on Notice",
+        "slug": "10-year-treasury-yield-at-5-puts-risk-assets-on-notice",
+        "url": "/insights/10-year-treasury-yield-at-5-puts-risk-assets-on-notice.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1389901b060782bb",
+        "title": "Truist to exit near-prime auto lending, sell $5.5B in loans",
+        "slug": "truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans",
+        "url": "/insights/truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cffdad1adfe9f030",
+        "title": "Vantage Secures $2B Credit for North American Data Centers",
+        "slug": "vantage-secures-2b-credit-for-north-american-data-centers",
+        "url": "/insights/vantage-secures-2b-credit-for-north-american-data-centers.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b5bdae04fefafd53",
+        "title": "Serverfarm expands North American data center development fund to $3.89 billion",
+        "slug": "serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion",
+        "url": "/insights/serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "52688b45ba8fae1d",
+        "title": "Inland Secures $112M for Chicagoland Senior Housing Portfolio",
+        "slug": "inland-secures-112m-for-chicagoland-senior-housing-portfolio",
+        "url": "/insights/inland-secures-112m-for-chicagoland-senior-housing-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fbe86bef3507d280",
+        "title": "Berkadia Arranges $92M Construction Loan for DC Multifamily Property Near George Washington University",
+        "slug": "berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george",
+        "url": "/insights/berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ca918d1494c4d2a7",
+        "title": "Collector Dick Hedreen Has Sold Artworks Before, But This Time the Proceeds Will Build a Museum",
+        "slug": "collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will",
+        "url": "/insights/collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a8cc14005e839b97",
+        "title": "Beyond A Routine Wobble': 10-Year Treasury Clears 5% Ahead Of Key Fed Meeting",
+        "slug": "beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting",
+        "url": "/insights/beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ce74d6f54d059572",
+        "title": "Northmarq Arranges Refi for Historic Koreatown Retail Center",
+        "slug": "northmarq-arranges-refi-for-historic-koreatown-retail-center",
+        "url": "/insights/northmarq-arranges-refi-for-historic-koreatown-retail-center.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ffbb1851798a7f15",
+        "title": "Goodman raises $455m for its Hong Kong data center partnership",
+        "slug": "goodman-raises-455m-for-its-hong-kong-data-center-partnership",
+        "url": "/insights/goodman-raises-455m-for-its-hong-kong-data-center-partnership.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b010f2cad8438703",
+        "title": "Econergy Expands European Base, Acquires French Wind Energy Platform",
+        "slug": "econergy-expands-european-base-acquires-french-wind-energy-platform",
+        "url": "/insights/econergy-expands-european-base-acquires-french-wind-energy-platform.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c2e4a09e987cba7c",
+        "title": "Enova scraps Grasshopper deal",
+        "slug": "enova-scraps-grasshopper-deal",
+        "url": "/insights/enova-scraps-grasshopper-deal.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6120aa56185eb323",
+        "title": "Delos Data Raises $100M+ to Attack Agentic AI Data Bottleneck",
+        "slug": "delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck",
+        "url": "/insights/delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0329418c78d4fa5f",
+        "title": "Fed Expected to Hike Rates for First Time Since 2023",
+        "slug": "fed-expected-to-hike-rates-for-first-time-since-2023",
+        "url": "/insights/fed-expected-to-hike-rates-for-first-time-since-2023.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "8bbc762007bf5e55",
+        "title": "Australia’s NSW invests in microgrid scoping following Far West transmission outage",
+        "slug": "australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out",
+        "url": "/insights/australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "506e60b26b478784",
+        "title": "Generate Capital Closes $117-Million in Financing for Community Solar",
+        "slug": "generate-capital-closes-117-million-in-financing-for-community-solar",
+        "url": "/insights/generate-capital-closes-117-million-in-financing-for-community-solar.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6181a439e46dd7ba",
+        "title": "Planted Raises $31.8 Million to Accelerate Autonomous Solar Deployment",
+        "slug": "planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment",
+        "url": "/insights/planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8b0820b82f182f1a",
+        "title": "Builder lending units can turn to FHA to help finance homes",
+        "slug": "builder-lending-units-can-turn-to-fha-to-help-finance-homes",
+        "url": "/insights/builder-lending-units-can-turn-to-fha-to-help-finance-homes.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9067c70a4763e46c",
+        "title": "Goldman Sachs closes $9.6bn flagship buyout fund",
+        "slug": "goldman-sachs-closes-9-6bn-flagship-buyout-fund",
+        "url": "/insights/goldman-sachs-closes-9-6bn-flagship-buyout-fund.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "ee3315608bcbfe70",
+        "title": "Compliance High on NYC Emission Rules So Far, With Much Tougher Goals to Come",
+        "slug": "compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come",
+        "url": "/insights/compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "260470c57b777a8d",
+        "title": "Actis subsidiary Nozomi Energy closes financing on Japanese capacity market-winning BESS",
+        "slug": "actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn",
+        "url": "/insights/actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "f01e0d41b231d6df",
+        "slug": "12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu",
+        "title": "$12.73 Billion of Industrial CMBS Loans Have an Anchor Lease Expiring Before Maturity",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d379f29eba4eb9be",
+        "slug": "cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing",
+        "title": "CMBS Loan Backed by Hyatt Regency in Jersey City Sent to Special Servicing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8264d9c95f151222",
+        "slug": "brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play",
+        "title": "Brookfield Adds Australian Supply-Chain Firm to U.S. Housing Play",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e7b0c5b2f3444ab5",
+        "slug": "420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension",
+        "title": "$420M CMBS Loan Backed by 51 West 52nd Exits Special Servicing, Secures Extension",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension.html",
+        "reason": ""
+      },
+      {
+        "object_id": "176d46fdd3f94f6f",
+        "slug": "stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor",
+        "title": "Stockdale Capital Partners Aims for $300M in Loans by 2028 Via New Credit Platform",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e6ff18b9a3084198",
+        "slug": "hines-and-rialto-close-office-credit-fund-at-1-1b",
+        "title": "Hines And Rialto Close Office Credit Fund At $1.1B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hines-and-rialto-close-office-credit-fund-at-1-1b.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6f9539fd6b7d3803",
+        "slug": "why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre",
+        "title": "Why Anthropic went straight to a developer for its first Australian data centre",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1cbd086d59203e63",
+        "slug": "10-year-treasury-yield-at-5-puts-risk-assets-on-notice",
+        "title": "10-Year Treasury Yield at 5% Puts Risk Assets on Notice",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/10-year-treasury-yield-at-5-puts-risk-assets-on-notice.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1389901b060782bb",
+        "slug": "truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans",
+        "title": "Truist to exit near-prime auto lending, sell $5.5B in loans",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cffdad1adfe9f030",
+        "slug": "vantage-secures-2b-credit-for-north-american-data-centers",
+        "title": "Vantage Secures $2B Credit for North American Data Centers",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/vantage-secures-2b-credit-for-north-american-data-centers.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b5bdae04fefafd53",
+        "slug": "serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion",
+        "title": "Serverfarm expands North American data center development fund to $3.89 billion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "52688b45ba8fae1d",
+        "slug": "inland-secures-112m-for-chicagoland-senior-housing-portfolio",
+        "title": "Inland Secures $112M for Chicagoland Senior Housing Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/inland-secures-112m-for-chicagoland-senior-housing-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fbe86bef3507d280",
+        "slug": "berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george",
+        "title": "Berkadia Arranges $92M Construction Loan for DC Multifamily Property Near George Washington University",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ca918d1494c4d2a7",
+        "slug": "collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will",
+        "title": "Collector Dick Hedreen Has Sold Artworks Before, But This Time the Proceeds Will Build a Museum",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a8cc14005e839b97",
+        "slug": "beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting",
+        "title": "Beyond A Routine Wobble': 10-Year Treasury Clears 5% Ahead Of Key Fed Meeting",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ce74d6f54d059572",
+        "slug": "northmarq-arranges-refi-for-historic-koreatown-retail-center",
+        "title": "Northmarq Arranges Refi for Historic Koreatown Retail Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/northmarq-arranges-refi-for-historic-koreatown-retail-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ffbb1851798a7f15",
+        "slug": "goodman-raises-455m-for-its-hong-kong-data-center-partnership",
+        "title": "Goodman raises $455m for its Hong Kong data center partnership",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/goodman-raises-455m-for-its-hong-kong-data-center-partnership.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b010f2cad8438703",
+        "slug": "econergy-expands-european-base-acquires-french-wind-energy-platform",
+        "title": "Econergy Expands European Base, Acquires French Wind Energy Platform",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/econergy-expands-european-base-acquires-french-wind-energy-platform.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c2e4a09e987cba7c",
+        "slug": "enova-scraps-grasshopper-deal",
+        "title": "Enova scraps Grasshopper deal",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/enova-scraps-grasshopper-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6120aa56185eb323",
+        "slug": "delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck",
+        "title": "Delos Data Raises $100M+ to Attack Agentic AI Data Bottleneck",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0329418c78d4fa5f",
+        "slug": "fed-expected-to-hike-rates-for-first-time-since-2023",
+        "title": "Fed Expected to Hike Rates for First Time Since 2023",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fed-expected-to-hike-rates-for-first-time-since-2023.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8bbc762007bf5e55",
+        "slug": "australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out",
+        "title": "Australia’s NSW invests in microgrid scoping following Far West transmission outage",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out.html",
+        "reason": ""
+      },
+      {
+        "object_id": "506e60b26b478784",
+        "slug": "generate-capital-closes-117-million-in-financing-for-community-solar",
+        "title": "Generate Capital Closes $117-Million in Financing for Community Solar",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/generate-capital-closes-117-million-in-financing-for-community-solar.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6181a439e46dd7ba",
+        "slug": "planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment",
+        "title": "Planted Raises $31.8 Million to Accelerate Autonomous Solar Deployment",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8b0820b82f182f1a",
+        "slug": "builder-lending-units-can-turn-to-fha-to-help-finance-homes",
+        "title": "Builder lending units can turn to FHA to help finance homes",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/builder-lending-units-can-turn-to-fha-to-help-finance-homes.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9067c70a4763e46c",
+        "slug": "goldman-sachs-closes-9-6bn-flagship-buyout-fund",
+        "title": "Goldman Sachs closes $9.6bn flagship buyout fund",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/goldman-sachs-closes-9-6bn-flagship-buyout-fund.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ee3315608bcbfe70",
+        "slug": "compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come",
+        "title": "Compliance High on NYC Emission Rules So Far, With Much Tougher Goals to Come",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come.html",
+        "reason": ""
+      },
+      {
+        "object_id": "260470c57b777a8d",
+        "slug": "actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn",
+        "title": "Actis subsidiary Nozomi Energy closes financing on Japanese capacity market-winning BESS",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 32,
+    "successful_calls": 32,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.54,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.6,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.67,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.26,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 136.25,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 64.21,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.18,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 60.84,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.45,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.36,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 28 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 291.55,
+  "status": "ready",
+  "candidate_count": 844,
+  "event_count": 785,
+  "articles": [
+    {
+      "event_id": "f01e0d41b231d6df",
+      "title": "$12.73 Billion of Industrial CMBS Loans Have an Anchor Lease Expiring Before Maturity",
+      "slug": "12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu",
+      "url": "/insights/12-73-billion-of-industrial-cmbs-loans-have-an-anchor-lease-expiring-before-matu.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 69,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d379f29eba4eb9be",
+      "title": "CMBS Loan Backed by Hyatt Regency in Jersey City Sent to Special Servicing",
+      "slug": "cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing",
+      "url": "/insights/cmbs-loan-backed-by-hyatt-regency-in-jersey-city-sent-to-special-servicing.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 66,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8264d9c95f151222",
+      "title": "Brookfield Adds Australian Supply-Chain Firm to U.S. Housing Play",
+      "slug": "brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play",
+      "url": "/insights/brookfield-adds-australian-supply-chain-firm-to-u-s-housing-play.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 65,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e7b0c5b2f3444ab5",
+      "title": "$420M CMBS Loan Backed by 51 West 52nd Exits Special Servicing, Secures Extension",
+      "slug": "420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension",
+      "url": "/insights/420m-cmbs-loan-backed-by-51-west-52nd-exits-special-servicing-secures-extension.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "176d46fdd3f94f6f",
+      "title": "Stockdale Capital Partners Aims for $300M in Loans by 2028 Via New Credit Platform",
+      "slug": "stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor",
+      "url": "/insights/stockdale-capital-partners-aims-for-300m-in-loans-by-2028-via-new-credit-platfor.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e6ff18b9a3084198",
+      "title": "Hines And Rialto Close Office Credit Fund At $1.1B",
+      "slug": "hines-and-rialto-close-office-credit-fund-at-1-1b",
+      "url": "/insights/hines-and-rialto-close-office-credit-fund-at-1-1b.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6f9539fd6b7d3803",
+      "title": "Why Anthropic went straight to a developer for its first Australian data centre",
+      "slug": "why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre",
+      "url": "/insights/why-anthropic-went-straight-to-a-developer-for-its-first-australian-data-centre.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1cbd086d59203e63",
+      "title": "10-Year Treasury Yield at 5% Puts Risk Assets on Notice",
+      "slug": "10-year-treasury-yield-at-5-puts-risk-assets-on-notice",
+      "url": "/insights/10-year-treasury-yield-at-5-puts-risk-assets-on-notice.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1389901b060782bb",
+      "title": "Truist to exit near-prime auto lending, sell $5.5B in loans",
+      "slug": "truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans",
+      "url": "/insights/truist-to-exit-near-prime-auto-lending-sell-5-5b-in-loans.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cffdad1adfe9f030",
+      "title": "Vantage Secures $2B Credit for North American Data Centers",
+      "slug": "vantage-secures-2b-credit-for-north-american-data-centers",
+      "url": "/insights/vantage-secures-2b-credit-for-north-american-data-centers.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b5bdae04fefafd53",
+      "title": "Serverfarm expands North American data center development fund to $3.89 billion",
+      "slug": "serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion",
+      "url": "/insights/serverfarm-expands-north-american-data-center-development-fund-to-3-89-billion.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "52688b45ba8fae1d",
+      "title": "Inland Secures $112M for Chicagoland Senior Housing Portfolio",
+      "slug": "inland-secures-112m-for-chicagoland-senior-housing-portfolio",
+      "url": "/insights/inland-secures-112m-for-chicagoland-senior-housing-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fbe86bef3507d280",
+      "title": "Berkadia Arranges $92M Construction Loan for DC Multifamily Property Near George Washington University",
+      "slug": "berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george",
+      "url": "/insights/berkadia-arranges-92m-construction-loan-for-dc-multifamily-property-near-george.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ca918d1494c4d2a7",
+      "title": "Collector Dick Hedreen Has Sold Artworks Before, But This Time the Proceeds Will Build a Museum",
+      "slug": "collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will",
+      "url": "/insights/collector-dick-hedreen-has-sold-artworks-before-but-this-time-the-proceeds-will.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a8cc14005e839b97",
+      "title": "Beyond A Routine Wobble': 10-Year Treasury Clears 5% Ahead Of Key Fed Meeting",
+      "slug": "beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting",
+      "url": "/insights/beyond-a-routine-wobble-10-year-treasury-clears-5-ahead-of-key-fed-meeting.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ce74d6f54d059572",
+      "title": "Northmarq Arranges Refi for Historic Koreatown Retail Center",
+      "slug": "northmarq-arranges-refi-for-historic-koreatown-retail-center",
+      "url": "/insights/northmarq-arranges-refi-for-historic-koreatown-retail-center.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ffbb1851798a7f15",
+      "title": "Goodman raises $455m for its Hong Kong data center partnership",
+      "slug": "goodman-raises-455m-for-its-hong-kong-data-center-partnership",
+      "url": "/insights/goodman-raises-455m-for-its-hong-kong-data-center-partnership.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b010f2cad8438703",
+      "title": "Econergy Expands European Base, Acquires French Wind Energy Platform",
+      "slug": "econergy-expands-european-base-acquires-french-wind-energy-platform",
+      "url": "/insights/econergy-expands-european-base-acquires-french-wind-energy-platform.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c2e4a09e987cba7c",
+      "title": "Enova scraps Grasshopper deal",
+      "slug": "enova-scraps-grasshopper-deal",
+      "url": "/insights/enova-scraps-grasshopper-deal.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6120aa56185eb323",
+      "title": "Delos Data Raises $100M+ to Attack Agentic AI Data Bottleneck",
+      "slug": "delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck",
+      "url": "/insights/delos-data-raises-100m-to-attack-agentic-ai-data-bottleneck.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0329418c78d4fa5f",
+      "title": "Fed Expected to Hike Rates for First Time Since 2023",
+      "slug": "fed-expected-to-hike-rates-for-first-time-since-2023",
+      "url": "/insights/fed-expected-to-hike-rates-for-first-time-since-2023.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "8bbc762007bf5e55",
+      "title": "Australia’s NSW invests in microgrid scoping following Far West transmission outage",
+      "slug": "australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out",
+      "url": "/insights/australia-s-nsw-invests-in-microgrid-scoping-following-far-west-transmission-out.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "506e60b26b478784",
+      "title": "Generate Capital Closes $117-Million in Financing for Community Solar",
+      "slug": "generate-capital-closes-117-million-in-financing-for-community-solar",
+      "url": "/insights/generate-capital-closes-117-million-in-financing-for-community-solar.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6181a439e46dd7ba",
+      "title": "Planted Raises $31.8 Million to Accelerate Autonomous Solar Deployment",
+      "slug": "planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment",
+      "url": "/insights/planted-raises-31-8-million-to-accelerate-autonomous-solar-deployment.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8b0820b82f182f1a",
+      "title": "Builder lending units can turn to FHA to help finance homes",
+      "slug": "builder-lending-units-can-turn-to-fha-to-help-finance-homes",
+      "url": "/insights/builder-lending-units-can-turn-to-fha-to-help-finance-homes.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9067c70a4763e46c",
+      "title": "Goldman Sachs closes $9.6bn flagship buyout fund",
+      "slug": "goldman-sachs-closes-9-6bn-flagship-buyout-fund",
+      "url": "/insights/goldman-sachs-closes-9-6bn-flagship-buyout-fund.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "ee3315608bcbfe70",
+      "title": "Compliance High on NYC Emission Rules So Far, With Much Tougher Goals to Come",
+      "slug": "compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come",
+      "url": "/insights/compliance-high-on-nyc-emission-rules-so-far-with-much-tougher-goals-to-come.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "260470c57b777a8d",
+      "title": "Actis subsidiary Nozomi Energy closes financing on Japanese capacity market-winning BESS",
+      "slug": "actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn",
+      "url": "/insights/actis-subsidiary-nozomi-energy-closes-financing-on-japanese-capacity-market-winn.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 28
+}
