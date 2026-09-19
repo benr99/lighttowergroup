@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **873**
-- Distinct events: **819**
-- Articles: **32**
+- Candidates: **654**
+- Distinct events: **607**
+- Articles: **29**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,35 +12,32 @@
 
 ## Published candidates
 
-- **analysis** — Blackstone Eyes Multifamily Portfolio Collection Spanning Seven States in the Sun Belt (1 sources; v3_daily_slate selection)
-- **analysis** — Industrial CMBS Takes a Larger Share of 2026 Issuance as SASB Deals Lead (1 sources; v3_daily_slate selection)
-- **analysis** — Mesa City Council Greenlights $3B Mixed-Use Project (1 sources; v3_daily_slate selection)
-- **analysis** — Healthpeak Secures Approval For $4.5B Alewife Project (1 sources; v3_daily_slate selection)
-- **analysis** — The Fed Hikes: What It Means for CRE (1 sources; v3_daily_slate selection)
-- **analysis** — Jersey Shore Landmark Targets Mixed-Use Future With $85M Pier Sale (1 sources; v3_daily_slate selection)
-- **analysis** — Spain launches capacity market as grid investment rises above €17 billion (1 sources; v3_daily_slate selection)
-- **analysis** — First Rate Hike Since 2023 Lands Atop 5% Treasury Yield, Ratcheting Up Capital Pressure (1 sources; v3_daily_slate selection)
-- **analysis** — Shorenstein to Buy Fully Leased SoHo Office Property From Tishman Speyer (1 sources; v3_daily_slate selection)
-- **analysis** — Federal Reserve hikes interest rates, finally putting its foot down on inflation (1 sources; v3_daily_slate selection)
-- **analysis** — PGIM Sells Orange County Multifamily Asset for $154M (1 sources; v3_daily_slate selection)
-- **analysis** — Prologis Buys JFK Airport Warehouse From Wildflower for $49M (1 sources; v3_daily_slate selection)
-- **analysis** — Victoria’s SEC takes stake in 1.86GWh battery storage system in Australia alongside Aware Super and Birdwood (1 sources; v3_daily_slate selection)
-- **analysis** — Affinius Capital Provides $130M Construction Loan for Chicago Multifamily Tower (1 sources; v3_daily_slate selection)
-- **analysis** — Developer Launches Investor Offering for 465-Unit Boynton Beach Rental Community (1 sources; v3_daily_slate selection)
-- **analysis** — Naranja Grand Phase I & II Deliver 320 Income-Restricted Apartments in South Miami-Dade (1 sources; v3_daily_slate selection)
-- **brief** — The Fed’s First Rate Hike Since 2023 Is a Problem for Renewables (1 sources; v3_daily_slate selection)
-- **brief** — Brazil’s Nubank launches in the US (1 sources; v3_daily_slate selection)
-- **brief** — SEC Chairman Atkins Outlines Preparations for 24-Hour Equities Trading (1 sources; v3_daily_slate selection)
-- **brief** — AI Is Climate Tech’s Newest Hype Layer — The Commercial Problems Are Older (1 sources; v3_daily_slate selection)
-- **brief** — Delos Data Expands Nonstop AI Architecture (1 sources; v3_daily_slate selection)
-- **brief** — Mortgage lenders need to keep innovating after Fed hike (2 sources; v3_daily_slate selection)
-- **brief** — Stocks, Bonds Rise After Fed-Day Drop as Oil Falls: Markets Wrap (1 sources; v3_daily_slate selection)
-- **brief** — Fed Boosts Interest Rates to Counter Iran War Fallout, Energy Price Shocks (1 sources; v3_daily_slate selection)
-- **brief** — Here’s what a Fed rate hike means for your mortgage, car loan and credit cards (1 sources; v3_daily_slate selection)
-- **brief** — Trump demands lower interest rates after Fed decision (1 sources; v3_daily_slate selection)
-- **brief** — AI chip startup Rebellions partners with ai& for Japanese AI infrastructure deployment (1 sources; v3_daily_slate selection)
-- **brief** — Exclusive: Power Equipment Startup CorePower Magnetics Raises $10.5 Million (1 sources; v3_daily_slate selection)
-- **brief** — Apex Clean Energy Signs PPA with Meta for Solar Power from Texas Project (1 sources; v3_daily_slate selection)
-- **brief** — Bangladesh launches $123 million rooftop solar fund (1 sources; v3_daily_slate selection)
-- **brief** — House committee advances ABA-backed bills on state lending rate caps, CFPB reform (1 sources; v3_daily_slate selection)
-- **brief** — New York City Council Calls for Court to Dismiss Mamdani Administration’s Paraprofessional Lawsuit (1 sources; v3_daily_slate selection)
+- **analysis** — IFDP Paper: Estimating Yield Impacts of Treasury Demand and Supply Changes (1 sources; v3_daily_slate selection)
+- **analysis** — Corebridge Financial Refis Meatpacking Office Property With $293M Loan (1 sources; v3_daily_slate selection)
+- **analysis** — Manus seeks $4B valuation in new $500M fundraise as it resumes independent ops (1 sources; v3_daily_slate selection)
+- **analysis** — Revolution Wind installs its final turbine despite two federal stop-work orders (1 sources; v3_daily_slate selection)
+- **analysis** — Tesla’s $10.1 billion Texas solar gigafactory clears key tax hurdle (1 sources; v3_daily_slate selection)
+- **analysis** — The New York Fed DSGE Model Forecast—September 2026 (1 sources; v3_daily_slate selection)
+- **analysis** — Edgewood Capital Provides $28M Refi for Fort Lauderdale Condo Project (1 sources; v3_daily_slate selection)
+- **analysis** — Crusoe Secures $3.9B For AI Data Center Expansion (1 sources; v3_daily_slate selection)
+- **analysis** — Iconic Jersey Shore Property Hits The Market For $85M As Redevelopment Play (1 sources; v3_daily_slate selection)
+- **analysis** — Developer Pays $7M For Planned Old Town Conversion: The D.C. Deal Sheet (1 sources; v3_daily_slate selection)
+- **analysis** — FedEx's Consolidation Plan Puts $3B Of CMBS Debt In Crosshairs (1 sources; v3_daily_slate selection)
+- **analysis** — Jupiter Power closes US$1.4 billion financing for 10 US BESS projects totalling 3.8GWh (1 sources; v3_daily_slate selection)
+- **analysis** — Decron Properties Buys 163-Unit Property in L.A.’s Miracle Mile for $114M (1 sources; v3_daily_slate selection)
+- **analysis** — Downtown Brooklyn Development Site Fetches $84M (1 sources; v3_daily_slate selection)
+- **analysis** — Cambridge Realty Capital Places $15M HUD Refinancing on Four Arlington Memory Care Facilities (1 sources; v3_daily_slate selection)
+- **analysis** — Bowman, Initial Findings from Independent Review of Silicon Valley Bank (1 sources; v3_daily_slate selection)
+- **analysis** — Bowman, The Final Chapter on Modernizing Bank Regulatory Stress Testing (1 sources; v3_daily_slate selection)
+- **analysis** — Galvanize Real Estate Makes California Debut with Milpitas Industrial Portfolio (1 sources; v3_daily_slate selection)
+- **analysis** — Decron Buys Miracle Mile Apartments For $114M: The Los Angeles Deal Sheet (1 sources; v3_daily_slate selection)
+- **brief** — Lennar defends even-flow, land banking strategy as risks build (1 sources; v3_daily_slate selection)
+- **brief** — FEDS Paper: Optimal Pooling in Taylor Rule Estimation with Multiple-Horizon Forecast Panels (1 sources; v3_daily_slate selection)
+- **brief** — FDIC’s Hill pushes faster merger review process (1 sources; v3_daily_slate selection)
+- **brief** — Bowman calls for supervisory reform after preliminary SVB report (1 sources; v3_daily_slate selection)
+- **brief** — Bowman: Independent review finds regulatory tailoring had no role in SVB failure (1 sources; v3_daily_slate selection)
+- **brief** — Bitdeer AI to lease 65MW data center in Johor, Malaysia (1 sources; v3_daily_slate selection)
+- **brief** — Federal Reserve Board issues enforcement actions with former employees of Northstar Bank, American Express Travel Related Services, and Regions Bank (1 sources; v3_daily_slate selection)
+- **brief** — Oracle signs 1.7GW of wind energy supply agreements to support operations in Texas (1 sources; v3_daily_slate selection)
+- **brief** — Sierra Club Applauds Governor Abigail Spanberger’s Data Center Executive Order and Policy Framework Release (1 sources; v3_daily_slate selection)
+- **brief** — California’s ‘Planted’ secures $31.8M to scale autonomous solar power for data centers (1 sources; v3_daily_slate selection)

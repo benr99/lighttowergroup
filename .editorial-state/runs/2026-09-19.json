@@ -1,0 +1,2258 @@
+{
+  "run_at": "2026-09-19T14:19:26.483404+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 654,
+  "documents_from_feeds": 551,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 607,
+  "documents_consolidated": 47,
+  "eligible": 99,
+  "enriched": 250,
+  "evidence_upgraded": 154,
+  "selected": 29,
+  "publication_candidates": 29,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 45,
+      "eligible": 4,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 350,
+      "eligible": 57,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 54,
+      "eligible": 12,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 12 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 87,
+      "eligible": 11,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 15,
+      "eligible": 10,
+      "selected": 7,
+      "target": 10,
+      "shortfall_reason": "only 7 of 10 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 2,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 54,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 10,
+    "tier_b": 19
+  },
+  "shortfalls": [
+    "banking_credit: only 3 of 4 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 4 of 12 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 4 of 11 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 7 of 10 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 70.4,
+    "mean": 24.3,
+    "stdev": 13.23,
+    "range_used": 70.4,
+    "median": 20.0,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 255,
+    "fetched": 242,
+    "from_cache": 0,
+    "blocked": 4,
+    "failed": 9,
+    "skipped_budget": 0,
+    "bytes_downloaded": 50105811,
+    "elapsed_ms": 67602,
+    "by_status": {
+      "full_text": 154,
+      "partial_text": 88,
+      "failed": 9,
+      "blocked": 4
+    }
+  },
+  "novelty": {
+    "new": 529,
+    "minor_follow_up": 77,
+    "already_published": 1
+  },
+  "memory": {
+    "events_remembered": 10339,
+    "published": 763,
+    "seen_but_not_run": 9576,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-19",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 288.9,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 29,
+    "written": 29,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 33,
+    "elapsed_seconds": 69.71,
+    "provider_attempts": {
+      "deepseek": 33
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "e4279970cde85917",
+        "title": "IFDP Paper: Estimating Yield Impacts of Treasury Demand and Supply Changes",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.75,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 535,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "722daffd6c6f75d5643a05d1b4ef5cae41ae3813c332feced7c177f779de3323"
+        },
+        "seconds": 13.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5359032e80a44350",
+        "title": "Corebridge Financial Refis Meatpacking Office Property With $293M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.66,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 563,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9ca6e1db35d861e8394bbbc2aa54320421d184e3aa3f268008a582e7a639eebc"
+        },
+        "seconds": 13.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "43dfbd6d4632d1f3",
+        "title": "Manus seeks $4B valuation in new $500M fundraise as it resumes independent ops",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.18,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 600,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "08148aed384f0e40191642b9bb973de65870a241b663b5bd77788ddc8adef193"
+        },
+        "seconds": 14.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2d60d8b2d2f0c978",
+        "title": "Major US offshore wind farm installs its last turbine",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.99,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 611,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "46c0743ec53a5944bcf767a4e5e550d8dd345d6790baa93cc9392435785c96a4"
+        },
+        "seconds": 13.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b7a4dfee460c2223",
+        "title": "Tesla’s $10.1 billion Texas solar gigafactory clears key tax hurdle",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.68,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 546,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "16c714addd01fac3ebf2f098109015310a926c7e34dee0c6f6846f802f1b493d"
+        },
+        "seconds": 10.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ef60daa0348bc528",
+        "title": "The New York Fed DSGE Model Forecast—September 2026",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.27,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 685,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fe39151e54adfbdf14fb69e265cc329b1051d42345f79f2c054356a6dcb19548"
+        },
+        "seconds": 16.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "85258f854d4f5dfe",
+        "title": "Edgewood Capital Provides $28M Refi for Fort Lauderdale Condo Project",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.62,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 555,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "4f2c8b3331e37c061ba0e3ab6cf248ef716ddfb9e729628b1473cb94ff0e2a43"
+        },
+        "seconds": 15.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "80fd28889fa7e81b",
+        "title": "Crusoe Secures $3.9B For AI Data Center Expansion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.16,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 444,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9b46badc069a2af7620f6fd3cab6cde51bfe377881ba184d057687d1ad03cccd"
+        },
+        "seconds": 11.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "379a7a34c1633994",
+        "title": "Iconic Jersey Shore Property Hits The Market For $85M As Redevelopment Play",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.61,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 601,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c10cd8c836cab543dcf22c5e8a2c9d41c52d9da9599465ae82ee6e1895707745"
+        },
+        "seconds": 14.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6171e26175136786",
+        "title": "Developer Pays $7M For Planned Old Town Conversion: The D.C. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.89,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 749,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "33617bd3d05294c6b0f8fe360e82d75cd7c4c75e7f85ef13f5499621026e6ff3"
+        },
+        "seconds": 16.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "591bca0710e763cd",
+        "title": "FedEx's Consolidation Plan Puts $3B Of CMBS Debt In Crosshairs",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.75,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 525,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e1d2664a31473b268abcf94ca4647852f4621ab943f1eaf5d2a86b110eb21afb"
+        },
+        "seconds": 11.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f20c0a3f6a594340",
+        "title": "Jupiter Power closes US$1.4 billion financing for 10 US BESS projects totalling 3.8GWh",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.2,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 618,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "de98fcb1336af0016983e3aefe43918e98d252a748ac93c8e0b2250a205c51ef"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "665b4bd73c2a09df",
+        "title": "Decron Properties Buys 163-Unit Property in L.A.’s Miracle Mile for $114M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.34,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 530,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "cc9068a5b69d98ff2448c04f5018ee89b143f559862c7344df6440d199d24402"
+        },
+        "seconds": 13.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "01aa89b6defc91dc",
+        "title": "Downtown Brooklyn Development Site Fetches $84M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 456,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "815aab7e5f35f559f6094d1524c1181d29d6c4e01d6d4ec43c326d16ba67194f"
+        },
+        "seconds": 12.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6a9adf3147b48c55",
+        "title": "Cambridge Provides $15M HUD Loan on Four Multifamily Memory Care Facilities in Arlington Texa",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.43,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 490,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8b229f075931a88801cbb9b04dfd9cfb50117358aceb51e01601972ed6558eb4"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f2d50679617e727e",
+        "title": "Bowman, Initial Findings from Independent Review of Silicon Valley Bank",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.32,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 537,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "be81c50f38aab4a06fcaf8bc313b3afa8401bddd92a4a5d3a3eb3e5e84f793eb"
+        },
+        "seconds": 10.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cf2d571c2373b90f",
+        "title": "Bowman, The Final Chapter on Modernizing Bank Regulatory Stress Testing",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.65,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 579,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ef36f34b5853ab051d31f657e5bc929d6ad3fa7ad138e9f68893e47a263baad8"
+        },
+        "seconds": 13.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0fd21e8c4fd2881b",
+        "title": "Galvanize Real Estate Makes California Debut with Milpitas Industrial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.39,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 443,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "035d8a963c959adf85fb4c7ed48ed5d9277f6b30f3c7b6b355ceff435738215e"
+        },
+        "seconds": 11.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2cd5de12e943c933",
+        "title": "Decron Buys Miracle Mile Apartments For $114M: The Los Angeles Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.75,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 495,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c0dbb8b8d5f2097b1693928348a8fa636d22b1d6e1765313a87f5e59227d5599"
+        },
+        "seconds": 13.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8cbd2a3b2fda7e88",
+        "title": "Lennar defends even-flow, land banking strategy as risks build",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.67,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 318,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c81eebf778368f92e5f7236e4c3e1296890578f05086ad2bb774250ef79a163d"
+        },
+        "seconds": 17.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cfa22e52f0105c4c",
+        "title": "FEDS Paper: Optimal Pooling in Taylor Rule Estimation with Multiple-Horizon Forecast Panels",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 222,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d6a08a5a7f07aae711c9d84a44156c1e073df2e6375c1c02fbd81619e761e1aa"
+        },
+        "seconds": 6.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3de940595bb5aa8e",
+        "title": "FDIC’s Hill pushes faster merger review process",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.08,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 348,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "f9d369bdb72d328dc239fd2533013cbd0cb6287567b0f07789364344bc4bb83b"
+        },
+        "seconds": 14.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "516f3d8be1d8a9af",
+        "title": "Bowman calls for supervisory reform after preliminary SVB report",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 342,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e072fa6dd83c0fc2d874eefb35e2701a7f2c0781f17f96b6b777e8b81d60ee7a"
+        },
+        "seconds": 7.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d4f96b18039dd23f",
+        "title": "Bowman: Independent review finds regulatory tailoring had no role in SVB failure",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.01,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 324,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9392bc28744499faa492e36674851130482289b7b987fa2146c2fd18b7767d3a"
+        },
+        "seconds": 14.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "25f127eccf52441d",
+        "title": "Bitdeer AI to lease 65MW data center in Johor, Malaysia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.48,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 304,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "27740d4a0a64b44ac24e86adf6d62430536f18581ad42bf43acdcb9ff862b3a8"
+        },
+        "seconds": 7.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8403db35d1c86e26",
+        "title": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.31,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 334,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "4f7e22aba5209f1a0c3d7979dab2da7df38717595081e85e2af4101004746ffd"
+        },
+        "seconds": 8.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ed043b60c4852439",
+        "title": "Oracle signs 1.7GW of wind energy supply agreements to support operations in Texas",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.32,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 267,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "6cd6ac63f4add3b9131dd014d7ab51bc3794550d3499bc2e366297d851eb3d10"
+        },
+        "seconds": 6.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b30f47aac7ccecd2",
+        "title": "Sierra Club Applauds Governor Abigail Spanberger’s Data Center Executive Order and Policy Framework Release",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.65,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 351,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1055bdb9e1bd3be39a090ed8a54eb3e1724d147c645933fd07ff5117f2f8febb"
+        },
+        "seconds": 16.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "647504a1c1ecf0ec",
+        "title": "California’s ‘Planted’ secures $31.8M to scale autonomous solar power for data centers",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.93,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 380,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "cb6724762c34fd38f206fc4b6b4cab9610f2f9d3e73614e3c8410a24cdfc96b9"
+        },
+        "seconds": 7.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 29,
+    "published": 29,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes_social.png",
+      "insights/ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes.html",
+      "insights/corebridge-financial-refis-meatpacking-office-property-with-293m-loan_social.png",
+      "insights/corebridge-financial-refis-meatpacking-office-property-with-293m-loan.html",
+      "insights/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops_social.png",
+      "insights/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops.html",
+      "insights/revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders_social.png",
+      "insights/revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders.html",
+      "insights/tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle_social.png",
+      "insights/tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle.html",
+      "insights/the-new-york-fed-dsge-model-forecast-september-2026_social.png",
+      "insights/the-new-york-fed-dsge-model-forecast-september-2026.html",
+      "insights/edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project_social.png",
+      "insights/edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project.html",
+      "insights/crusoe-secures-3-9b-for-ai-data-center-expansion_social.png",
+      "insights/crusoe-secures-3-9b-for-ai-data-center-expansion.html",
+      "insights/iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play_social.png",
+      "insights/iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play.html",
+      "insights/developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet_social.png",
+      "insights/developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet.html",
+      "insights/fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs_social.png",
+      "insights/fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs.html",
+      "insights/jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling_social.png",
+      "insights/jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling.html",
+      "insights/decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m_social.png",
+      "insights/decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m.html",
+      "insights/downtown-brooklyn-development-site-fetches-84m_social.png",
+      "insights/downtown-brooklyn-development-site-fetches-84m.html",
+      "insights/cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car_social.png",
+      "insights/cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car.html",
+      "insights/bowman-initial-findings-from-independent-review-of-silicon-valley-bank_social.png",
+      "insights/bowman-initial-findings-from-independent-review-of-silicon-valley-bank.html",
+      "insights/bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing_social.png",
+      "insights/bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing.html",
+      "insights/galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio_social.png",
+      "insights/galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio.html",
+      "insights/decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet_social.png",
+      "insights/decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet.html",
+      "insights/lennar-defends-even-flow-land-banking-strategy-as-risks-build_social.png",
+      "insights/lennar-defends-even-flow-land-banking-strategy-as-risks-build.html",
+      "insights/feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec_social.png",
+      "insights/feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec.html",
+      "insights/fdic-s-hill-pushes-faster-merger-review-process_social.png",
+      "insights/fdic-s-hill-pushes-faster-merger-review-process.html",
+      "insights/bowman-calls-for-supervisory-reform-after-preliminary-svb-report_social.png",
+      "insights/bowman-calls-for-supervisory-reform-after-preliminary-svb-report.html",
+      "insights/bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure_social.png",
+      "insights/bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure.html",
+      "insights/bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia_social.png",
+      "insights/bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia.html",
+      "insights/federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths_social.png",
+      "insights/federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths.html",
+      "insights/oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex_social.png",
+      "insights/oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex.html",
+      "insights/sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a_social.png",
+      "insights/sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a.html",
+      "insights/california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent_social.png",
+      "insights/california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes_related.json",
+      "insights/corebridge-financial-refis-meatpacking-office-property-with-293m-loan_related.json",
+      "insights/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops_related.json",
+      "insights/revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders_related.json",
+      "insights/tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle_related.json",
+      "insights/the-new-york-fed-dsge-model-forecast-september-2026_related.json",
+      "insights/edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project_related.json",
+      "insights/crusoe-secures-3-9b-for-ai-data-center-expansion_related.json",
+      "insights/iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play_related.json",
+      "insights/developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet_related.json",
+      "insights/fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs_related.json",
+      "insights/jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling_related.json",
+      "insights/decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m_related.json",
+      "insights/downtown-brooklyn-development-site-fetches-84m_related.json",
+      "insights/cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car_related.json",
+      "insights/bowman-initial-findings-from-independent-review-of-silicon-valley-bank_related.json",
+      "insights/bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing_related.json",
+      "insights/galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio_related.json",
+      "insights/decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet_related.json",
+      "insights/lennar-defends-even-flow-land-banking-strategy-as-risks-build_related.json",
+      "insights/feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec_related.json",
+      "insights/fdic-s-hill-pushes-faster-merger-review-process_related.json",
+      "insights/bowman-calls-for-supervisory-reform-after-preliminary-svb-report_related.json",
+      "insights/bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure_related.json",
+      "insights/bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia_related.json",
+      "insights/federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths_related.json",
+      "insights/oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex_related.json",
+      "insights/sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a_related.json",
+      "insights/california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "e4279970cde85917",
+        "title": "IFDP Paper: Estimating Yield Impacts of Treasury Demand and Supply Changes",
+        "slug": "ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes",
+        "url": "/insights/ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 70,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5359032e80a44350",
+        "title": "Corebridge Financial Refis Meatpacking Office Property With $293M Loan",
+        "slug": "corebridge-financial-refis-meatpacking-office-property-with-293m-loan",
+        "url": "/insights/corebridge-financial-refis-meatpacking-office-property-with-293m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "43dfbd6d4632d1f3",
+        "title": "Manus seeks $4B valuation in new $500M fundraise as it resumes independent ops",
+        "slug": "manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops",
+        "url": "/insights/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2d60d8b2d2f0c978",
+        "title": "Revolution Wind installs its final turbine despite two federal stop-work orders",
+        "slug": "revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders",
+        "url": "/insights/revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b7a4dfee460c2223",
+        "title": "Tesla’s $10.1 billion Texas solar gigafactory clears key tax hurdle",
+        "slug": "tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle",
+        "url": "/insights/tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ef60daa0348bc528",
+        "title": "The New York Fed DSGE Model Forecast—September 2026",
+        "slug": "the-new-york-fed-dsge-model-forecast-september-2026",
+        "url": "/insights/the-new-york-fed-dsge-model-forecast-september-2026.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "85258f854d4f5dfe",
+        "title": "Edgewood Capital Provides $28M Refi for Fort Lauderdale Condo Project",
+        "slug": "edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project",
+        "url": "/insights/edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "80fd28889fa7e81b",
+        "title": "Crusoe Secures $3.9B For AI Data Center Expansion",
+        "slug": "crusoe-secures-3-9b-for-ai-data-center-expansion",
+        "url": "/insights/crusoe-secures-3-9b-for-ai-data-center-expansion.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "379a7a34c1633994",
+        "title": "Iconic Jersey Shore Property Hits The Market For $85M As Redevelopment Play",
+        "slug": "iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play",
+        "url": "/insights/iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6171e26175136786",
+        "title": "Developer Pays $7M For Planned Old Town Conversion: The D.C. Deal Sheet",
+        "slug": "developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet",
+        "url": "/insights/developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "591bca0710e763cd",
+        "title": "FedEx's Consolidation Plan Puts $3B Of CMBS Debt In Crosshairs",
+        "slug": "fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs",
+        "url": "/insights/fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f20c0a3f6a594340",
+        "title": "Jupiter Power closes US$1.4 billion financing for 10 US BESS projects totalling 3.8GWh",
+        "slug": "jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling",
+        "url": "/insights/jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "665b4bd73c2a09df",
+        "title": "Decron Properties Buys 163-Unit Property in L.A.’s Miracle Mile for $114M",
+        "slug": "decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m",
+        "url": "/insights/decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "01aa89b6defc91dc",
+        "title": "Downtown Brooklyn Development Site Fetches $84M",
+        "slug": "downtown-brooklyn-development-site-fetches-84m",
+        "url": "/insights/downtown-brooklyn-development-site-fetches-84m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6a9adf3147b48c55",
+        "title": "Cambridge Realty Capital Places $15M HUD Refinancing on Four Arlington Memory Care Facilities",
+        "slug": "cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car",
+        "url": "/insights/cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f2d50679617e727e",
+        "title": "Bowman, Initial Findings from Independent Review of Silicon Valley Bank",
+        "slug": "bowman-initial-findings-from-independent-review-of-silicon-valley-bank",
+        "url": "/insights/bowman-initial-findings-from-independent-review-of-silicon-valley-bank.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cf2d571c2373b90f",
+        "title": "Bowman, The Final Chapter on Modernizing Bank Regulatory Stress Testing",
+        "slug": "bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing",
+        "url": "/insights/bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0fd21e8c4fd2881b",
+        "title": "Galvanize Real Estate Makes California Debut with Milpitas Industrial Portfolio",
+        "slug": "galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio",
+        "url": "/insights/galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2cd5de12e943c933",
+        "title": "Decron Buys Miracle Mile Apartments For $114M: The Los Angeles Deal Sheet",
+        "slug": "decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet",
+        "url": "/insights/decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8cbd2a3b2fda7e88",
+        "title": "Lennar defends even-flow, land banking strategy as risks build",
+        "slug": "lennar-defends-even-flow-land-banking-strategy-as-risks-build",
+        "url": "/insights/lennar-defends-even-flow-land-banking-strategy-as-risks-build.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cfa22e52f0105c4c",
+        "title": "FEDS Paper: Optimal Pooling in Taylor Rule Estimation with Multiple-Horizon Forecast Panels",
+        "slug": "feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec",
+        "url": "/insights/feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3de940595bb5aa8e",
+        "title": "FDIC’s Hill pushes faster merger review process",
+        "slug": "fdic-s-hill-pushes-faster-merger-review-process",
+        "url": "/insights/fdic-s-hill-pushes-faster-merger-review-process.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "516f3d8be1d8a9af",
+        "title": "Bowman calls for supervisory reform after preliminary SVB report",
+        "slug": "bowman-calls-for-supervisory-reform-after-preliminary-svb-report",
+        "url": "/insights/bowman-calls-for-supervisory-reform-after-preliminary-svb-report.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d4f96b18039dd23f",
+        "title": "Bowman: Independent review finds regulatory tailoring had no role in SVB failure",
+        "slug": "bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure",
+        "url": "/insights/bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "25f127eccf52441d",
+        "title": "Bitdeer AI to lease 65MW data center in Johor, Malaysia",
+        "slug": "bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia",
+        "url": "/insights/bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8403db35d1c86e26",
+        "title": "Federal Reserve Board issues enforcement actions with former employees of Northstar Bank, American Express Travel Related Services, and Regions Bank",
+        "slug": "federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths",
+        "url": "/insights/federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "ed043b60c4852439",
+        "title": "Oracle signs 1.7GW of wind energy supply agreements to support operations in Texas",
+        "slug": "oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex",
+        "url": "/insights/oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b30f47aac7ccecd2",
+        "title": "Sierra Club Applauds Governor Abigail Spanberger’s Data Center Executive Order and Policy Framework Release",
+        "slug": "sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a",
+        "url": "/insights/sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "647504a1c1ecf0ec",
+        "title": "California’s ‘Planted’ secures $31.8M to scale autonomous solar power for data centers",
+        "slug": "california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent",
+        "url": "/insights/california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "e4279970cde85917",
+        "slug": "ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes",
+        "title": "IFDP Paper: Estimating Yield Impacts of Treasury Demand and Supply Changes",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5359032e80a44350",
+        "slug": "corebridge-financial-refis-meatpacking-office-property-with-293m-loan",
+        "title": "Corebridge Financial Refis Meatpacking Office Property With $293M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/corebridge-financial-refis-meatpacking-office-property-with-293m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "43dfbd6d4632d1f3",
+        "slug": "manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops",
+        "title": "Manus seeks $4B valuation in new $500M fundraise as it resumes independent ops",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2d60d8b2d2f0c978",
+        "slug": "revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders",
+        "title": "Major US offshore wind farm installs its last turbine",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b7a4dfee460c2223",
+        "slug": "tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle",
+        "title": "Tesla’s $10.1 billion Texas solar gigafactory clears key tax hurdle",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ef60daa0348bc528",
+        "slug": "the-new-york-fed-dsge-model-forecast-september-2026",
+        "title": "The New York Fed DSGE Model Forecast—September 2026",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-new-york-fed-dsge-model-forecast-september-2026.html",
+        "reason": ""
+      },
+      {
+        "object_id": "85258f854d4f5dfe",
+        "slug": "edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project",
+        "title": "Edgewood Capital Provides $28M Refi for Fort Lauderdale Condo Project",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project.html",
+        "reason": ""
+      },
+      {
+        "object_id": "80fd28889fa7e81b",
+        "slug": "crusoe-secures-3-9b-for-ai-data-center-expansion",
+        "title": "Crusoe Secures $3.9B For AI Data Center Expansion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/crusoe-secures-3-9b-for-ai-data-center-expansion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "379a7a34c1633994",
+        "slug": "iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play",
+        "title": "Iconic Jersey Shore Property Hits The Market For $85M As Redevelopment Play",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6171e26175136786",
+        "slug": "developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet",
+        "title": "Developer Pays $7M For Planned Old Town Conversion: The D.C. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "591bca0710e763cd",
+        "slug": "fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs",
+        "title": "FedEx's Consolidation Plan Puts $3B Of CMBS Debt In Crosshairs",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f20c0a3f6a594340",
+        "slug": "jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling",
+        "title": "Jupiter Power closes US$1.4 billion financing for 10 US BESS projects totalling 3.8GWh",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling.html",
+        "reason": ""
+      },
+      {
+        "object_id": "665b4bd73c2a09df",
+        "slug": "decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m",
+        "title": "Decron Properties Buys 163-Unit Property in L.A.’s Miracle Mile for $114M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "01aa89b6defc91dc",
+        "slug": "downtown-brooklyn-development-site-fetches-84m",
+        "title": "Downtown Brooklyn Development Site Fetches $84M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/downtown-brooklyn-development-site-fetches-84m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6a9adf3147b48c55",
+        "slug": "cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car",
+        "title": "Cambridge Provides $15M HUD Loan on Four Multifamily Memory Care Facilities in Arlington Texa",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f2d50679617e727e",
+        "slug": "bowman-initial-findings-from-independent-review-of-silicon-valley-bank",
+        "title": "Bowman, Initial Findings from Independent Review of Silicon Valley Bank",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bowman-initial-findings-from-independent-review-of-silicon-valley-bank.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cf2d571c2373b90f",
+        "slug": "bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing",
+        "title": "Bowman, The Final Chapter on Modernizing Bank Regulatory Stress Testing",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0fd21e8c4fd2881b",
+        "slug": "galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio",
+        "title": "Galvanize Real Estate Makes California Debut with Milpitas Industrial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2cd5de12e943c933",
+        "slug": "decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet",
+        "title": "Decron Buys Miracle Mile Apartments For $114M: The Los Angeles Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8cbd2a3b2fda7e88",
+        "slug": "lennar-defends-even-flow-land-banking-strategy-as-risks-build",
+        "title": "Lennar defends even-flow, land banking strategy as risks build",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/lennar-defends-even-flow-land-banking-strategy-as-risks-build.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cfa22e52f0105c4c",
+        "slug": "feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec",
+        "title": "FEDS Paper: Optimal Pooling in Taylor Rule Estimation with Multiple-Horizon Forecast Panels",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3de940595bb5aa8e",
+        "slug": "fdic-s-hill-pushes-faster-merger-review-process",
+        "title": "FDIC’s Hill pushes faster merger review process",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fdic-s-hill-pushes-faster-merger-review-process.html",
+        "reason": ""
+      },
+      {
+        "object_id": "516f3d8be1d8a9af",
+        "slug": "bowman-calls-for-supervisory-reform-after-preliminary-svb-report",
+        "title": "Bowman calls for supervisory reform after preliminary SVB report",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/bowman-calls-for-supervisory-reform-after-preliminary-svb-report.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d4f96b18039dd23f",
+        "slug": "bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure",
+        "title": "Bowman: Independent review finds regulatory tailoring had no role in SVB failure",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure.html",
+        "reason": ""
+      },
+      {
+        "object_id": "25f127eccf52441d",
+        "slug": "bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia",
+        "title": "Bitdeer AI to lease 65MW data center in Johor, Malaysia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8403db35d1c86e26",
+        "slug": "federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths",
+        "title": "Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ed043b60c4852439",
+        "slug": "oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex",
+        "title": "Oracle signs 1.7GW of wind energy supply agreements to support operations in Texas",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b30f47aac7ccecd2",
+        "slug": "sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a",
+        "title": "Sierra Club Applauds Governor Abigail Spanberger’s Data Center Executive Order and Policy Framework Release",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a.html",
+        "reason": ""
+      },
+      {
+        "object_id": "647504a1c1ecf0ec",
+        "slug": "california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent",
+        "title": "California’s ‘Planted’ secures $31.8M to scale autonomous solar power for data centers",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 33,
+    "successful_calls": 33,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 16.98,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.56,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.13,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.4,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.97,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 119.39,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 68.66,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.16,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 70.72,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.58,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.37,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 29 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 288.91,
+  "status": "ready",
+  "candidate_count": 654,
+  "event_count": 607,
+  "articles": [
+    {
+      "event_id": "e4279970cde85917",
+      "title": "IFDP Paper: Estimating Yield Impacts of Treasury Demand and Supply Changes",
+      "slug": "ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes",
+      "url": "/insights/ifdp-paper-estimating-yield-impacts-of-treasury-demand-and-supply-changes.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 70,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5359032e80a44350",
+      "title": "Corebridge Financial Refis Meatpacking Office Property With $293M Loan",
+      "slug": "corebridge-financial-refis-meatpacking-office-property-with-293m-loan",
+      "url": "/insights/corebridge-financial-refis-meatpacking-office-property-with-293m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "43dfbd6d4632d1f3",
+      "title": "Manus seeks $4B valuation in new $500M fundraise as it resumes independent ops",
+      "slug": "manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops",
+      "url": "/insights/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2d60d8b2d2f0c978",
+      "title": "Revolution Wind installs its final turbine despite two federal stop-work orders",
+      "slug": "revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders",
+      "url": "/insights/revolution-wind-installs-its-final-turbine-despite-two-federal-stop-work-orders.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b7a4dfee460c2223",
+      "title": "Tesla’s $10.1 billion Texas solar gigafactory clears key tax hurdle",
+      "slug": "tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle",
+      "url": "/insights/tesla-s-10-1-billion-texas-solar-gigafactory-clears-key-tax-hurdle.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ef60daa0348bc528",
+      "title": "The New York Fed DSGE Model Forecast—September 2026",
+      "slug": "the-new-york-fed-dsge-model-forecast-september-2026",
+      "url": "/insights/the-new-york-fed-dsge-model-forecast-september-2026.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "85258f854d4f5dfe",
+      "title": "Edgewood Capital Provides $28M Refi for Fort Lauderdale Condo Project",
+      "slug": "edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project",
+      "url": "/insights/edgewood-capital-provides-28m-refi-for-fort-lauderdale-condo-project.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "80fd28889fa7e81b",
+      "title": "Crusoe Secures $3.9B For AI Data Center Expansion",
+      "slug": "crusoe-secures-3-9b-for-ai-data-center-expansion",
+      "url": "/insights/crusoe-secures-3-9b-for-ai-data-center-expansion.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "379a7a34c1633994",
+      "title": "Iconic Jersey Shore Property Hits The Market For $85M As Redevelopment Play",
+      "slug": "iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play",
+      "url": "/insights/iconic-jersey-shore-property-hits-the-market-for-85m-as-redevelopment-play.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6171e26175136786",
+      "title": "Developer Pays $7M For Planned Old Town Conversion: The D.C. Deal Sheet",
+      "slug": "developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet",
+      "url": "/insights/developer-pays-7m-for-planned-old-town-conversion-the-d-c-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "591bca0710e763cd",
+      "title": "FedEx's Consolidation Plan Puts $3B Of CMBS Debt In Crosshairs",
+      "slug": "fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs",
+      "url": "/insights/fedex-s-consolidation-plan-puts-3b-of-cmbs-debt-in-crosshairs.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f20c0a3f6a594340",
+      "title": "Jupiter Power closes US$1.4 billion financing for 10 US BESS projects totalling 3.8GWh",
+      "slug": "jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling",
+      "url": "/insights/jupiter-power-closes-us-1-4-billion-financing-for-10-us-bess-projects-totalling.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "665b4bd73c2a09df",
+      "title": "Decron Properties Buys 163-Unit Property in L.A.’s Miracle Mile for $114M",
+      "slug": "decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m",
+      "url": "/insights/decron-properties-buys-163-unit-property-in-l-a-s-miracle-mile-for-114m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "01aa89b6defc91dc",
+      "title": "Downtown Brooklyn Development Site Fetches $84M",
+      "slug": "downtown-brooklyn-development-site-fetches-84m",
+      "url": "/insights/downtown-brooklyn-development-site-fetches-84m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6a9adf3147b48c55",
+      "title": "Cambridge Realty Capital Places $15M HUD Refinancing on Four Arlington Memory Care Facilities",
+      "slug": "cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car",
+      "url": "/insights/cambridge-realty-capital-places-15m-hud-refinancing-on-four-arlington-memory-car.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f2d50679617e727e",
+      "title": "Bowman, Initial Findings from Independent Review of Silicon Valley Bank",
+      "slug": "bowman-initial-findings-from-independent-review-of-silicon-valley-bank",
+      "url": "/insights/bowman-initial-findings-from-independent-review-of-silicon-valley-bank.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cf2d571c2373b90f",
+      "title": "Bowman, The Final Chapter on Modernizing Bank Regulatory Stress Testing",
+      "slug": "bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing",
+      "url": "/insights/bowman-the-final-chapter-on-modernizing-bank-regulatory-stress-testing.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0fd21e8c4fd2881b",
+      "title": "Galvanize Real Estate Makes California Debut with Milpitas Industrial Portfolio",
+      "slug": "galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio",
+      "url": "/insights/galvanize-real-estate-makes-california-debut-with-milpitas-industrial-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2cd5de12e943c933",
+      "title": "Decron Buys Miracle Mile Apartments For $114M: The Los Angeles Deal Sheet",
+      "slug": "decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet",
+      "url": "/insights/decron-buys-miracle-mile-apartments-for-114m-the-los-angeles-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8cbd2a3b2fda7e88",
+      "title": "Lennar defends even-flow, land banking strategy as risks build",
+      "slug": "lennar-defends-even-flow-land-banking-strategy-as-risks-build",
+      "url": "/insights/lennar-defends-even-flow-land-banking-strategy-as-risks-build.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cfa22e52f0105c4c",
+      "title": "FEDS Paper: Optimal Pooling in Taylor Rule Estimation with Multiple-Horizon Forecast Panels",
+      "slug": "feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec",
+      "url": "/insights/feds-paper-optimal-pooling-in-taylor-rule-estimation-with-multiple-horizon-forec.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3de940595bb5aa8e",
+      "title": "FDIC’s Hill pushes faster merger review process",
+      "slug": "fdic-s-hill-pushes-faster-merger-review-process",
+      "url": "/insights/fdic-s-hill-pushes-faster-merger-review-process.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "516f3d8be1d8a9af",
+      "title": "Bowman calls for supervisory reform after preliminary SVB report",
+      "slug": "bowman-calls-for-supervisory-reform-after-preliminary-svb-report",
+      "url": "/insights/bowman-calls-for-supervisory-reform-after-preliminary-svb-report.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d4f96b18039dd23f",
+      "title": "Bowman: Independent review finds regulatory tailoring had no role in SVB failure",
+      "slug": "bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure",
+      "url": "/insights/bowman-independent-review-finds-regulatory-tailoring-had-no-role-in-svb-failure.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "25f127eccf52441d",
+      "title": "Bitdeer AI to lease 65MW data center in Johor, Malaysia",
+      "slug": "bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia",
+      "url": "/insights/bitdeer-ai-to-lease-65mw-data-center-in-johor-malaysia.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8403db35d1c86e26",
+      "title": "Federal Reserve Board issues enforcement actions with former employees of Northstar Bank, American Express Travel Related Services, and Regions Bank",
+      "slug": "federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths",
+      "url": "/insights/federal-reserve-board-issues-enforcement-actions-with-former-employees-of-norths.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "ed043b60c4852439",
+      "title": "Oracle signs 1.7GW of wind energy supply agreements to support operations in Texas",
+      "slug": "oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex",
+      "url": "/insights/oracle-signs-1-7gw-of-wind-energy-supply-agreements-to-support-operations-in-tex.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b30f47aac7ccecd2",
+      "title": "Sierra Club Applauds Governor Abigail Spanberger’s Data Center Executive Order and Policy Framework Release",
+      "slug": "sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a",
+      "url": "/insights/sierra-club-applauds-governor-abigail-spanberger-s-data-center-executive-order-a.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "647504a1c1ecf0ec",
+      "title": "California’s ‘Planted’ secures $31.8M to scale autonomous solar power for data centers",
+      "slug": "california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent",
+      "url": "/insights/california-s-planted-secures-31-8m-to-scale-autonomous-solar-power-for-data-cent.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 29
+}
