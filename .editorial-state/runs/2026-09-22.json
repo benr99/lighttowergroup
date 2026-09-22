@@ -1,0 +1,1639 @@
+{
+  "run_at": "2026-09-22T15:29:23.976391+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 781,
+  "documents_from_feeds": 678,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 744,
+  "documents_consolidated": 37,
+  "eligible": 88,
+  "enriched": 250,
+  "evidence_upgraded": 160,
+  "selected": 20,
+  "publication_candidates": 20,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 59,
+      "eligible": 7,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 373,
+      "eligible": 50,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 88,
+      "eligible": 8,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 137,
+      "eligible": 15,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 15 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 17,
+      "eligible": 5,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 1,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 69,
+      "eligible": 3,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 3 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 5,
+    "tier_b": 15
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 8 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 15 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 4 of 5 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: only 1 of 3 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 70.8,
+    "mean": 23.1,
+    "stdev": 13.14,
+    "range_used": 70.8,
+    "median": 18.8,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 252,
+    "fetched": 238,
+    "from_cache": 0,
+    "blocked": 4,
+    "failed": 10,
+    "skipped_budget": 0,
+    "bytes_downloaded": 54748594,
+    "elapsed_ms": 51340,
+    "by_status": {
+      "full_text": 160,
+      "partial_text": 78,
+      "failed": 10,
+      "blocked": 4
+    }
+  },
+  "novelty": {
+    "new": 646,
+    "already_published": 14,
+    "minor_follow_up": 82,
+    "duplicate": 1,
+    "material_update": 1
+  },
+  "memory": {
+    "events_remembered": 11270,
+    "published": 808,
+    "seen_but_not_run": 10462,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-22",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 236.7,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 20,
+    "written": 20,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 20,
+    "elapsed_seconds": 36.85,
+    "provider_attempts": {
+      "deepseek": 20
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "55b3e160add7353c",
+        "title": "Securitized Student Housing’s Refinance Test: Maturity Risk Builds in 2029 & 2030",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 675,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "1a46d82fd8394b3e8a1c4105641e6440d3aeecb6bb8f957121fe36ed20624e29"
+        },
+        "seconds": 11.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "609f6222d14eccf4",
+        "title": "BREIT Lines Up $1.7B CMBS Loan For 19M SF Industrial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.19,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 501,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e25333a76d08e762b2253f9ab8625ded7c680ff54a57f70940c41ca3cdb698a5"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5f4599dff6e09e54",
+        "title": "Private Lender Ascent Expands L.A. Headquarters as It Tops $3.7B in Originations",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 596,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "18186287956d9c111a9bc37a59e845b5281967b05ad90c562bf26a2ab47eae18"
+        },
+        "seconds": 13.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3432793996149f21",
+        "title": "Dyer Avenue Deck-Over Progresses for PABT Redevelopment in Midtown West, Manhattan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.36,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 611,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "e3bec79eb24605bed551d26ed0f76e6664663c65a7bd9dea1b81c9fa067868bf"
+        },
+        "seconds": 11.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "33d542ffa547069b",
+        "title": "Walker & Dunlop Arranges $86M Refi for Flushing Affordable Quartet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.6,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 512,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "bfeb2f596d77726e5b43197700806b0ca9c79357ef0e27c196fba1aa9f939a61"
+        },
+        "seconds": 12.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "120ec48e0bf77b0f",
+        "title": "Donald Trump Loses in Court, Solar Energy Funds to be Reinstated",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.53,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 500,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "039b7a341b9a80e764cac8a16648908c4c3f78ec06b2f93c80605391e26cbedf"
+        },
+        "seconds": 11.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2ae212ab1c8bc6d6",
+        "title": "Investor Team Scores $180M Refi for FIU Student Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.77,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 480,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "5e8e84b8a3a905eaa699d5ee9320da9c396fb9593dbd772b4f9bb9b9de6e6bb7"
+        },
+        "seconds": 10.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9121bfc48c84cced",
+        "title": "Treasury Trading at the Close",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.96,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 706,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "04f16fbe83ccd79fceced70728cc2acb89e787218480d5bda72816c25d6fbeaf"
+        },
+        "seconds": 12.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "29275310c6428589",
+        "title": "$113M Secured for Landmark Office-to-Residential Conversion on Chicago’s Mag Mile",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.99,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 596,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "2cf057e1a511664f9f03ac8e3b27c87387b977693dbb757a54a2c1f7f69f67ce"
+        },
+        "seconds": 11.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7f31d9cc4d741b84",
+        "title": "Rivani Lands $114M Refi For Playboy HQ Building: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.26,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 518,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "75841131ded83c15f446158924a5a5e85fb179959f01f2a2906cc1ef010f0eb1"
+        },
+        "seconds": 11.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dc888c8d6f2a0db6",
+        "title": "How Kevin Warsh’s rate hike exposed a 2-speed U.S. economy, with AI and housing at the poles",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.46,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 679,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "24b5b5272fa73f6819787425ce54047ebd1f7181938ab51267eb414da108c3b2"
+        },
+        "seconds": 13.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3a0722e71bdb23d7",
+        "title": "The Fed Moved. The Borrowing Math Changed for Businesses.",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.04,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 616,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "241a61bbd282f086231f77b32e3f222d13f3ac96efbf2d1ddd647db5ba77c0b6"
+        },
+        "seconds": 10.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "767f8df659491a68",
+        "title": "CUNY Buys Historic Bronx Post Office For $201M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.35,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 582,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "716671ce7844429f19589c9fdaffce60db3824669b3322ffd24ed9d45a62ad9c"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a23ac2929e28367f",
+        "title": "Deal Roundup: Carlyle, CVC strike €1bn BauWatch deal, HIG agrees $866m Mistras take-private",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.44,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 575,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "eb002858df42e7e581ad7e284174b60fa07ca35518025fbca21d9c3a9805c8dc"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "076a26811261d08c",
+        "title": "Related Group, Tricap Sell Casa Tua-Leased Retail Condo in Miami’s Wynwood",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.37,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 505,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ca45d0e99d0405a6dd67b88b0c8dd5d072b98e894e631f9d48b10bc1d60f07b0"
+        },
+        "seconds": 12.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b3b177e466ceee2c",
+        "title": "FEDS Paper: Beyond Financial Conditions: Measuring Structural Vulnerabilities in the U.S. Financial System",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.49,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 344,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "69ec197685b7c03f724a7c97e70cbbbf0b645217ac6bae398965146c894060cb"
+        },
+        "seconds": 7.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "324ab6e96bd1d867",
+        "title": "OPG signs $1.7B contract for Pickering nuclear plant refurbishment",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 362,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "2be3f21984a3530ca46cd7c2d264d16efbf84ed47e91c54a4bcf89edb93c896e"
+        },
+        "seconds": 7.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b4270c6c56dd4aa7",
+        "title": "New Era signs 20-year gas PPA with Vistra subsidiary to power 250MW data center in Ector County, Texas",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.81,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 371,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "2005439f678400060925f3635d1d85decfcc4f2a44e4fd9b9f21e2b598c76e1f"
+        },
+        "seconds": 7.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a3611abfce1f8fd1",
+        "title": "Exclusive: Sen. Britt to introduce GOP-led indexing bill",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.18,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 290,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d42d509e6a2ea30a275cdd8ceeccce3d022b482df08160cec29f3d27a1ae5286"
+        },
+        "seconds": 5.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3914eb8044a000e8",
+        "title": "OCC conditionally approves 3 national trust charters",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.04,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 303,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "5846e8510bc95d8d0070eecf2ebe70c283d91eff9a63b78a4f8a6cc9a8771bf5"
+        },
+        "seconds": 6.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 20,
+    "published": 20,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030_social.png",
+      "insights/securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030.html",
+      "insights/breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio_social.png",
+      "insights/breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio.html",
+      "insights/ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori_social.png",
+      "insights/ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori.html",
+      "insights/dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta_social.png",
+      "insights/dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta.html",
+      "insights/walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet_social.png",
+      "insights/walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet.html",
+      "insights/donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated_social.png",
+      "insights/donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated.html",
+      "insights/investor-team-scores-180m-refi-for-fiu-student-housing_social.png",
+      "insights/investor-team-scores-180m-refi-for-fiu-student-housing.html",
+      "insights/treasury-trading-at-the-close_social.png",
+      "insights/treasury-trading-at-the-close.html",
+      "insights/113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile_social.png",
+      "insights/113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile.html",
+      "insights/rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet_social.png",
+      "insights/rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet.html",
+      "insights/how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at_social.png",
+      "insights/how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at.html",
+      "insights/the-fed-moved-the-borrowing-math-changed-for-businesses_social.png",
+      "insights/the-fed-moved-the-borrowing-math-changed-for-businesses.html",
+      "insights/cuny-buys-historic-bronx-post-office-for-201m_social.png",
+      "insights/cuny-buys-historic-bronx-post-office-for-201m.html",
+      "insights/carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri_social.png",
+      "insights/carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri.html",
+      "insights/related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood_social.png",
+      "insights/related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood.html",
+      "insights/feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t_social.png",
+      "insights/feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t.html",
+      "insights/opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment_social.png",
+      "insights/opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment.html",
+      "insights/new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center_social.png",
+      "insights/new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center.html",
+      "insights/exclusive-sen-britt-to-introduce-gop-led-indexing-bill_social.png",
+      "insights/exclusive-sen-britt-to-introduce-gop-led-indexing-bill.html",
+      "insights/occ-conditionally-approves-3-national-trust-charters_social.png",
+      "insights/occ-conditionally-approves-3-national-trust-charters.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030_related.json",
+      "insights/breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio_related.json",
+      "insights/ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori_related.json",
+      "insights/dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta_related.json",
+      "insights/walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet_related.json",
+      "insights/donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated_related.json",
+      "insights/investor-team-scores-180m-refi-for-fiu-student-housing_related.json",
+      "insights/treasury-trading-at-the-close_related.json",
+      "insights/113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile_related.json",
+      "insights/rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet_related.json",
+      "insights/how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at_related.json",
+      "insights/the-fed-moved-the-borrowing-math-changed-for-businesses_related.json",
+      "insights/cuny-buys-historic-bronx-post-office-for-201m_related.json",
+      "insights/carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri_related.json",
+      "insights/related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood_related.json",
+      "insights/feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t_related.json",
+      "insights/opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment_related.json",
+      "insights/new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center_related.json",
+      "insights/exclusive-sen-britt-to-introduce-gop-led-indexing-bill_related.json",
+      "insights/occ-conditionally-approves-3-national-trust-charters_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "55b3e160add7353c",
+        "title": "Securitized Student Housing’s Refinance Test: Maturity Risk Builds in 2029 & 2030",
+        "slug": "securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030",
+        "url": "/insights/securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 71,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "609f6222d14eccf4",
+        "title": "BREIT Lines Up $1.7B CMBS Loan For 19M SF Industrial Portfolio",
+        "slug": "breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio",
+        "url": "/insights/breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 66,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5f4599dff6e09e54",
+        "title": "Ascent Developer Solutions Expands Encino Headquarters After Passing $3.7B in Originations",
+        "slug": "ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori",
+        "url": "/insights/ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3432793996149f21",
+        "title": "Dyer Avenue Deck-Over Progresses for PABT Redevelopment in Midtown West, Manhattan",
+        "slug": "dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta",
+        "url": "/insights/dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "33d542ffa547069b",
+        "title": "Walker & Dunlop Arranges $86M Refi for Flushing Affordable Quartet",
+        "slug": "walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet",
+        "url": "/insights/walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "120ec48e0bf77b0f",
+        "title": "Donald Trump Loses in Court, Solar Energy Funds to Be Reinstated",
+        "slug": "donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated",
+        "url": "/insights/donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2ae212ab1c8bc6d6",
+        "title": "Investor Team Scores $180M Refi for FIU Student Housing",
+        "slug": "investor-team-scores-180m-refi-for-fiu-student-housing",
+        "url": "/insights/investor-team-scores-180m-refi-for-fiu-student-housing.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9121bfc48c84cced",
+        "title": "Treasury Trading at the Close",
+        "slug": "treasury-trading-at-the-close",
+        "url": "/insights/treasury-trading-at-the-close.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "29275310c6428589",
+        "title": "$113M Secured for Landmark Office-to-Residential Conversion on Chicago’s Mag Mile",
+        "slug": "113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile",
+        "url": "/insights/113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7f31d9cc4d741b84",
+        "title": "Rivani Lands $114M Refi For Playboy HQ Building: The South Florida Deal Sheet",
+        "slug": "rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet",
+        "url": "/insights/rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dc888c8d6f2a0db6",
+        "title": "How Kevin Warsh’s rate hike exposed a 2-speed U.S. economy, with AI and housing at the poles",
+        "slug": "how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at",
+        "url": "/insights/how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3a0722e71bdb23d7",
+        "title": "The Fed Moved. The Borrowing Math Changed for Businesses.",
+        "slug": "the-fed-moved-the-borrowing-math-changed-for-businesses",
+        "url": "/insights/the-fed-moved-the-borrowing-math-changed-for-businesses.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "767f8df659491a68",
+        "title": "CUNY Buys Historic Bronx Post Office For $201M",
+        "slug": "cuny-buys-historic-bronx-post-office-for-201m",
+        "url": "/insights/cuny-buys-historic-bronx-post-office-for-201m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a23ac2929e28367f",
+        "title": "Carlyle and CVC DIF strike €1bn BauWatch deal as HIG agrees $866m Mistras take-private",
+        "slug": "carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri",
+        "url": "/insights/carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "076a26811261d08c",
+        "title": "Related Group, Tricap Sell Casa Tua-Leased Retail Condo in Miami’s Wynwood",
+        "slug": "related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood",
+        "url": "/insights/related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b3b177e466ceee2c",
+        "title": "FEDS Paper: Beyond Financial Conditions: Measuring Structural Vulnerabilities in the U.S. Financial System",
+        "slug": "feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t",
+        "url": "/insights/feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "324ab6e96bd1d867",
+        "title": "OPG signs $1.7B contract for Pickering nuclear plant refurbishment",
+        "slug": "opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment",
+        "url": "/insights/opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b4270c6c56dd4aa7",
+        "title": "New Era signs 20-year gas PPA with Vistra subsidiary to power 250MW data center in Ector County, Texas",
+        "slug": "new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center",
+        "url": "/insights/new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a3611abfce1f8fd1",
+        "title": "Exclusive: Sen. Britt to introduce GOP-led indexing bill",
+        "slug": "exclusive-sen-britt-to-introduce-gop-led-indexing-bill",
+        "url": "/insights/exclusive-sen-britt-to-introduce-gop-led-indexing-bill.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3914eb8044a000e8",
+        "title": "OCC conditionally approves 3 national trust charters",
+        "slug": "occ-conditionally-approves-3-national-trust-charters",
+        "url": "/insights/occ-conditionally-approves-3-national-trust-charters.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "55b3e160add7353c",
+        "slug": "securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030",
+        "title": "Securitized Student Housing’s Refinance Test: Maturity Risk Builds in 2029 & 2030",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030.html",
+        "reason": ""
+      },
+      {
+        "object_id": "609f6222d14eccf4",
+        "slug": "breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio",
+        "title": "BREIT Lines Up $1.7B CMBS Loan For 19M SF Industrial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5f4599dff6e09e54",
+        "slug": "ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori",
+        "title": "Private Lender Ascent Expands L.A. Headquarters as It Tops $3.7B in Originations",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3432793996149f21",
+        "slug": "dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta",
+        "title": "Dyer Avenue Deck-Over Progresses for PABT Redevelopment in Midtown West, Manhattan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta.html",
+        "reason": ""
+      },
+      {
+        "object_id": "33d542ffa547069b",
+        "slug": "walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet",
+        "title": "Walker & Dunlop Arranges $86M Refi for Flushing Affordable Quartet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "120ec48e0bf77b0f",
+        "slug": "donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated",
+        "title": "Donald Trump Loses in Court, Solar Energy Funds to be Reinstated",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2ae212ab1c8bc6d6",
+        "slug": "investor-team-scores-180m-refi-for-fiu-student-housing",
+        "title": "Investor Team Scores $180M Refi for FIU Student Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/investor-team-scores-180m-refi-for-fiu-student-housing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9121bfc48c84cced",
+        "slug": "treasury-trading-at-the-close",
+        "title": "Treasury Trading at the Close",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/treasury-trading-at-the-close.html",
+        "reason": ""
+      },
+      {
+        "object_id": "29275310c6428589",
+        "slug": "113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile",
+        "title": "$113M Secured for Landmark Office-to-Residential Conversion on Chicago’s Mag Mile",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7f31d9cc4d741b84",
+        "slug": "rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet",
+        "title": "Rivani Lands $114M Refi For Playboy HQ Building: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dc888c8d6f2a0db6",
+        "slug": "how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at",
+        "title": "How Kevin Warsh’s rate hike exposed a 2-speed U.S. economy, with AI and housing at the poles",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3a0722e71bdb23d7",
+        "slug": "the-fed-moved-the-borrowing-math-changed-for-businesses",
+        "title": "The Fed Moved. The Borrowing Math Changed for Businesses.",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-fed-moved-the-borrowing-math-changed-for-businesses.html",
+        "reason": ""
+      },
+      {
+        "object_id": "767f8df659491a68",
+        "slug": "cuny-buys-historic-bronx-post-office-for-201m",
+        "title": "CUNY Buys Historic Bronx Post Office For $201M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cuny-buys-historic-bronx-post-office-for-201m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a23ac2929e28367f",
+        "slug": "carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri",
+        "title": "Deal Roundup: Carlyle, CVC strike €1bn BauWatch deal, HIG agrees $866m Mistras take-private",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri.html",
+        "reason": ""
+      },
+      {
+        "object_id": "076a26811261d08c",
+        "slug": "related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood",
+        "title": "Related Group, Tricap Sell Casa Tua-Leased Retail Condo in Miami’s Wynwood",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b3b177e466ceee2c",
+        "slug": "feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t",
+        "title": "FEDS Paper: Beyond Financial Conditions: Measuring Structural Vulnerabilities in the U.S. Financial System",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t.html",
+        "reason": ""
+      },
+      {
+        "object_id": "324ab6e96bd1d867",
+        "slug": "opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment",
+        "title": "OPG signs $1.7B contract for Pickering nuclear plant refurbishment",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b4270c6c56dd4aa7",
+        "slug": "new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center",
+        "title": "New Era signs 20-year gas PPA with Vistra subsidiary to power 250MW data center in Ector County, Texas",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a3611abfce1f8fd1",
+        "slug": "exclusive-sen-britt-to-introduce-gop-led-indexing-bill",
+        "title": "Exclusive: Sen. Britt to introduce GOP-led indexing bill",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/exclusive-sen-britt-to-introduce-gop-led-indexing-bill.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3914eb8044a000e8",
+        "slug": "occ-conditionally-approves-3-national-trust-charters",
+        "title": "OCC conditionally approves 3 national trust charters",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/occ-conditionally-approves-3-national-trust-charters.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 20,
+    "successful_calls": 20,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 14.31,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.96,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.12,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.43,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.91,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 119.32,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 52.27,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.15,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 38.36,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.52,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.34,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 20 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 236.71,
+  "status": "ready",
+  "candidate_count": 781,
+  "event_count": 744,
+  "articles": [
+    {
+      "event_id": "55b3e160add7353c",
+      "title": "Securitized Student Housing’s Refinance Test: Maturity Risk Builds in 2029 & 2030",
+      "slug": "securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030",
+      "url": "/insights/securitized-student-housing-s-refinance-test-maturity-risk-builds-in-2029-2030.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 71,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "609f6222d14eccf4",
+      "title": "BREIT Lines Up $1.7B CMBS Loan For 19M SF Industrial Portfolio",
+      "slug": "breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio",
+      "url": "/insights/breit-lines-up-1-7b-cmbs-loan-for-19m-sf-industrial-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 66,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5f4599dff6e09e54",
+      "title": "Ascent Developer Solutions Expands Encino Headquarters After Passing $3.7B in Originations",
+      "slug": "ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori",
+      "url": "/insights/ascent-developer-solutions-expands-encino-headquarters-after-passing-3-7b-in-ori.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3432793996149f21",
+      "title": "Dyer Avenue Deck-Over Progresses for PABT Redevelopment in Midtown West, Manhattan",
+      "slug": "dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta",
+      "url": "/insights/dyer-avenue-deck-over-progresses-for-pabt-redevelopment-in-midtown-west-manhatta.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "33d542ffa547069b",
+      "title": "Walker & Dunlop Arranges $86M Refi for Flushing Affordable Quartet",
+      "slug": "walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet",
+      "url": "/insights/walker-dunlop-arranges-86m-refi-for-flushing-affordable-quartet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "120ec48e0bf77b0f",
+      "title": "Donald Trump Loses in Court, Solar Energy Funds to Be Reinstated",
+      "slug": "donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated",
+      "url": "/insights/donald-trump-loses-in-court-solar-energy-funds-to-be-reinstated.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2ae212ab1c8bc6d6",
+      "title": "Investor Team Scores $180M Refi for FIU Student Housing",
+      "slug": "investor-team-scores-180m-refi-for-fiu-student-housing",
+      "url": "/insights/investor-team-scores-180m-refi-for-fiu-student-housing.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9121bfc48c84cced",
+      "title": "Treasury Trading at the Close",
+      "slug": "treasury-trading-at-the-close",
+      "url": "/insights/treasury-trading-at-the-close.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "29275310c6428589",
+      "title": "$113M Secured for Landmark Office-to-Residential Conversion on Chicago’s Mag Mile",
+      "slug": "113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile",
+      "url": "/insights/113m-secured-for-landmark-office-to-residential-conversion-on-chicago-s-mag-mile.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7f31d9cc4d741b84",
+      "title": "Rivani Lands $114M Refi For Playboy HQ Building: The South Florida Deal Sheet",
+      "slug": "rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet",
+      "url": "/insights/rivani-lands-114m-refi-for-playboy-hq-building-the-south-florida-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dc888c8d6f2a0db6",
+      "title": "How Kevin Warsh’s rate hike exposed a 2-speed U.S. economy, with AI and housing at the poles",
+      "slug": "how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at",
+      "url": "/insights/how-kevin-warsh-s-rate-hike-exposed-a-2-speed-u-s-economy-with-ai-and-housing-at.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3a0722e71bdb23d7",
+      "title": "The Fed Moved. The Borrowing Math Changed for Businesses.",
+      "slug": "the-fed-moved-the-borrowing-math-changed-for-businesses",
+      "url": "/insights/the-fed-moved-the-borrowing-math-changed-for-businesses.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "767f8df659491a68",
+      "title": "CUNY Buys Historic Bronx Post Office For $201M",
+      "slug": "cuny-buys-historic-bronx-post-office-for-201m",
+      "url": "/insights/cuny-buys-historic-bronx-post-office-for-201m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a23ac2929e28367f",
+      "title": "Carlyle and CVC DIF strike €1bn BauWatch deal as HIG agrees $866m Mistras take-private",
+      "slug": "carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri",
+      "url": "/insights/carlyle-and-cvc-dif-strike-1bn-bauwatch-deal-as-hig-agrees-866m-mistras-take-pri.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "076a26811261d08c",
+      "title": "Related Group, Tricap Sell Casa Tua-Leased Retail Condo in Miami’s Wynwood",
+      "slug": "related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood",
+      "url": "/insights/related-group-tricap-sell-casa-tua-leased-retail-condo-in-miami-s-wynwood.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b3b177e466ceee2c",
+      "title": "FEDS Paper: Beyond Financial Conditions: Measuring Structural Vulnerabilities in the U.S. Financial System",
+      "slug": "feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t",
+      "url": "/insights/feds-paper-beyond-financial-conditions-measuring-structural-vulnerabilities-in-t.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "324ab6e96bd1d867",
+      "title": "OPG signs $1.7B contract for Pickering nuclear plant refurbishment",
+      "slug": "opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment",
+      "url": "/insights/opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b4270c6c56dd4aa7",
+      "title": "New Era signs 20-year gas PPA with Vistra subsidiary to power 250MW data center in Ector County, Texas",
+      "slug": "new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center",
+      "url": "/insights/new-era-signs-20-year-gas-ppa-with-vistra-subsidiary-to-power-250mw-data-center.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a3611abfce1f8fd1",
+      "title": "Exclusive: Sen. Britt to introduce GOP-led indexing bill",
+      "slug": "exclusive-sen-britt-to-introduce-gop-led-indexing-bill",
+      "url": "/insights/exclusive-sen-britt-to-introduce-gop-led-indexing-bill.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3914eb8044a000e8",
+      "title": "OCC conditionally approves 3 national trust charters",
+      "slug": "occ-conditionally-approves-3-national-trust-charters",
+      "url": "/insights/occ-conditionally-approves-3-national-trust-charters.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 20
+}

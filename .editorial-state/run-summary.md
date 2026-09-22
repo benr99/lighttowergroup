@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **521**
-- Distinct events: **491**
-- Articles: **22**
+- Candidates: **781**
+- Distinct events: **744**
+- Articles: **20**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,25 +12,23 @@
 
 ## Published candidates
 
-- **analysis** — Multifamily Maturity Wall Forces Owners to Choose Between Losses and Lenders (1 sources; v3_daily_slate selection)
-- **analysis** — New York State’s Opportunity Zones Deadline Is Fast Approaching (1 sources; v3_daily_slate selection)
-- **analysis** — Generac signs $8bn back up generator deal with Amazon (1 sources; v3_daily_slate selection)
-- **analysis** — Short-end treasuries become popular bet on Fed inflation win (1 sources; v3_daily_slate selection)
-- **analysis** — NYCHA Moves to Oust Die-Hards from Manhattan Building Slated for Destruction (1 sources; v3_daily_slate selection)
-- **analysis** — Trump-appointed judge restores $7 billion Solar for All program (1 sources; v3_daily_slate selection)
-- **analysis** — Crusoe bets on modular data centres for AI’s future (1 sources; v3_daily_slate selection)
-- **analysis** — USF Breaks Ground on $500M Mixed-Use Venture (1 sources; v3_daily_slate selection)
-- **analysis** — AREC raises $390 million to finance lot and land deals for builders (1 sources; v3_daily_slate selection)
-- **analysis** — KCG Snags Financing for 260-Unit Mesquite Senior Housing Community (1 sources; v3_daily_slate selection)
-- **analysis** — Oura’s $2.2B IPO is mostly a payday for existing shareholders (1 sources; v3_daily_slate selection)
-- **analysis** — Galvanize Pays $94M For Milpitas Industrial Portfolio (1 sources; v3_daily_slate selection)
-- **brief** — Flagship Pays $51M for 92K-SF Hickory Medical Facility (1 sources; v3_daily_slate selection)
-- **brief** — Marcus & Millichap’s IPA Capital Markets Arranges $43M Construction Financing for Multifamily Property in Greater Miami (1 sources; v3_daily_slate selection)
-- **brief** — OCC Updates Cybersecurity Supervision Work Program Structure and References (1 sources; v3_daily_slate selection)
-- **brief** — Fincen moves to rewrite banks' due diligence requirements (1 sources; v3_daily_slate selection)
-- **brief** — Commercial Real Estate Investment’s Curious Rise Amid Higher Inflation, Rates (1 sources; v3_daily_slate selection)
-- **brief** — Not the worst time for an AI data center to spill 5,500 gallons of backup fuel into a tributary (1 sources; v3_daily_slate selection)
-- **brief** — New York regulators approve 90-mile transmission line (1 sources; v3_daily_slate selection)
-- **brief** — Flow Power breaks ground on 223MWh Bennetts Creek BESS in Victoria, Australia (1 sources; v3_daily_slate selection)
-- **brief** — Scheels To Open 300K SF Store In Littleton: The Denver Deal Sheet (1 sources; v3_daily_slate selection)
-- **brief** — Nabiax breaks ground on 100MW data center in Madrid, Spain (1 sources; v3_daily_slate selection)
+- **analysis** — Securitized Student Housing’s Refinance Test: Maturity Risk Builds in 2029 & 2030 (1 sources; v3_daily_slate selection)
+- **analysis** — BREIT Lines Up $1.7B CMBS Loan For 19M SF Industrial Portfolio (1 sources; v3_daily_slate selection)
+- **analysis** — Ascent Developer Solutions Expands Encino Headquarters After Passing $3.7B in Originations (1 sources; v3_daily_slate selection)
+- **analysis** — Dyer Avenue Deck-Over Progresses for PABT Redevelopment in Midtown West, Manhattan (1 sources; v3_daily_slate selection)
+- **analysis** — Walker & Dunlop Arranges $86M Refi for Flushing Affordable Quartet (1 sources; v3_daily_slate selection)
+- **analysis** — Donald Trump Loses in Court, Solar Energy Funds to Be Reinstated (1 sources; v3_daily_slate selection)
+- **analysis** — Investor Team Scores $180M Refi for FIU Student Housing (1 sources; v3_daily_slate selection)
+- **analysis** — Treasury Trading at the Close (1 sources; v3_daily_slate selection)
+- **analysis** — $113M Secured for Landmark Office-to-Residential Conversion on Chicago’s Mag Mile (1 sources; v3_daily_slate selection)
+- **analysis** — Rivani Lands $114M Refi For Playboy HQ Building: The South Florida Deal Sheet (1 sources; v3_daily_slate selection)
+- **analysis** — How Kevin Warsh’s rate hike exposed a 2-speed U.S. economy, with AI and housing at the poles (1 sources; v3_daily_slate selection)
+- **analysis** — The Fed Moved. The Borrowing Math Changed for Businesses. (1 sources; v3_daily_slate selection)
+- **analysis** — CUNY Buys Historic Bronx Post Office For $201M (1 sources; v3_daily_slate selection)
+- **analysis** — Carlyle and CVC DIF strike €1bn BauWatch deal as HIG agrees $866m Mistras take-private (1 sources; v3_daily_slate selection)
+- **analysis** — Related Group, Tricap Sell Casa Tua-Leased Retail Condo in Miami’s Wynwood (1 sources; v3_daily_slate selection)
+- **brief** — FEDS Paper: Beyond Financial Conditions: Measuring Structural Vulnerabilities in the U.S. Financial System (1 sources; v3_daily_slate selection)
+- **brief** — OPG signs $1.7B contract for Pickering nuclear plant refurbishment (1 sources; v3_daily_slate selection)
+- **brief** — New Era signs 20-year gas PPA with Vistra subsidiary to power 250MW data center in Ector County, Texas (1 sources; v3_daily_slate selection)
+- **brief** — Exclusive: Sen. Britt to introduce GOP-led indexing bill (1 sources; v3_daily_slate selection)
+- **brief** — OCC conditionally approves 3 national trust charters (1 sources; v3_daily_slate selection)
