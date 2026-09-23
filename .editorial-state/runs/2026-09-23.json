@@ -1,0 +1,1982 @@
+{
+  "run_at": "2026-09-23T15:25:26.037808+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 829,
+  "documents_from_feeds": 726,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 780,
+  "documents_consolidated": 49,
+  "eligible": 96,
+  "enriched": 250,
+  "evidence_upgraded": 141,
+  "selected": 25,
+  "publication_candidates": 25,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 57,
+      "eligible": 8,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 368,
+      "eligible": 48,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 93,
+      "eligible": 7,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 146,
+      "eligible": 18,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 18 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 31,
+      "eligible": 9,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 82,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 18,
+    "tier_c": 7
+  },
+  "shortfalls": [
+    "banking_credit: only 3 of 8 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 7 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 5 of 18 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 5 of 9 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 62.5,
+    "mean": 22.4,
+    "stdev": 12.28,
+    "range_used": 62.5,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 255,
+    "fetched": 242,
+    "from_cache": 0,
+    "blocked": 4,
+    "failed": 9,
+    "skipped_budget": 0,
+    "bytes_downloaded": 52915185,
+    "elapsed_ms": 73795,
+    "by_status": {
+      "full_text": 143,
+      "partial_text": 99,
+      "failed": 9,
+      "blocked": 4
+    }
+  },
+  "novelty": {
+    "new": 683,
+    "already_published": 7,
+    "minor_follow_up": 90
+  },
+  "memory": {
+    "events_remembered": 11802,
+    "published": 833,
+    "seen_but_not_run": 10969,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-23",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 332.0,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 25,
+    "written": 25,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 28,
+    "elapsed_seconds": 71.81,
+    "provider_attempts": {
+      "deepseek": 28
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "9e271321d803581c",
+        "title": "Student Housing’s Hidden Credit Risk: Low Defaults Mask $1.25 Billion in Sub-1.0x DSCR Loans",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.97,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 644,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c05c1a9086236cb6c1171e0de015cbe6baf7a82b574de9dd470ff616342cfb57"
+        },
+        "seconds": 16.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bdb04b0403eb81d3",
+        "title": "DHS Awards $7.3B In Contracts To Build Detention Facilities In 5 States",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.32,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 573,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ececce494cdf95ca85ef3ab53b4d7dad5dd8b4b56b201acd9a1a963559aacc96"
+        },
+        "seconds": 15.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f9ea84ad2bdaf156",
+        "title": "Brookfield's GGP Lines Up $800M CMBS Refi Of 2.4M SF Suburban Chicago Mall",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 546,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8a422902ba6cd85e44c6dd8cf840244d5520c6d3d681aeac889a67358e87a6ab"
+        },
+        "seconds": 14.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6139e6bfe1abe561",
+        "title": "What’s a Utility to Do When Everyone Is Mad at Them?",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.43,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 724,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "531b2c9c0417312bd9404fd6ffe11141f28d90ae66a4927fcd50c9d217b61d0a"
+        },
+        "seconds": 15.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9c79f389a4b11c00",
+        "title": "Richard Born Part of Investor Group in BlackRock’s $245M Sale of 600 Third Avenue",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.79,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 590,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ed5e70c6c1e605fa9f95525233ad283c4976603bd08bc0ae8509cdea76d20808"
+        },
+        "seconds": 14.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "82e37c73f5f8a7ea",
+        "title": "Fed's Jefferson: discount window reforms help Treasury market",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.98,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 516,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "66c6571a464ab2b559fba3a9783afe8803f2d7dcfba1d68f1fcb1d479950d2d3"
+        },
+        "seconds": 12.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4f772d1ac4e56db9",
+        "title": "With federal funding windfall, X-energy advances small nuclear reactor",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.06,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 586,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e4b8e80796f3bc81520e8b2a2fc468e2ef126717d0a92a15a3d1807f3ea53876"
+        },
+        "seconds": 12.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f56afaeaadef530e",
+        "title": "Adam America Real Estate and JW Capital Management Secure $180M Refinancing of Student Housing Property in Miami",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.68,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 611,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "798818923b8fcaf21e05a7de71a23af16a9b94f990f843d96c0d2dbd84c85ea0"
+        },
+        "seconds": 17.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b7ea1e28c4159056",
+        "title": "Bank economists: Business spending will drive resilient growth in the face of elevated inflation",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.04,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 528,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "64e598a673a39f13ff9447f7960d66e9c3f4a906302ab17d39ff06736a09f764"
+        },
+        "seconds": 13.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4b41b4d304701794",
+        "title": "Dwight Investment Management Provides $42M Refi for College Station Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.35,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 499,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "6d690a1b2e62cc11831a6b12fff5505fd0b29a5bd046c2ff86faaca6ed028b3d"
+        },
+        "seconds": 16.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ea0e16aef0867073",
+        "title": "Oaktree backs UWM with $1.5B",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.82,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 608,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b2b595c9197d41ed8d842dd7c8147a7a4a51dd60a4c99c89cd79ff0056245669"
+        },
+        "seconds": 14.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7d5de6e6383dc01b",
+        "title": "Ohio Supreme Court Blocks Ballot Measure Targeting $4B AWS Data Center",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.53,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 697,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b75698be5c88cd5c390a72710ee9d0b467c2ec25e28643e430fcbaec95cfabe9"
+        },
+        "seconds": 14.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c939866d8b6adfb1",
+        "title": "Fed’s Jefferson provides update on discount window modernization",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 501,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e0c56c7586cb88d5b91d082e81061573a6b9661f11372acb477214565dd08093"
+        },
+        "seconds": 14.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "eb8b18d95caeb9d1",
+        "title": "L&L Infinite Completes $245 Million Acquisition Of 600 Third Avenue In Midtown East, Manhattan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.91,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 664,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b51f422da830b00d6f949bb9f56e54b89375221cfc35eaa288397efc5fce2397"
+        },
+        "seconds": 17.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b0661c09eea10df0",
+        "title": "Marty Burger-L&L Venture Debuts With $245M Third Avenue Deal: The N.Y. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 20.0,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 645,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "589eac271ff3fd543ce85db1b54ac0aee7a94aa3d1d443e8468687de8504c0d0"
+        },
+        "seconds": 20.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "787c6db51a2bc4ab",
+        "title": "JP Morgan Chase Sells South Florida Rental for $106M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.03,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 459,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3424b16713f0f8cbd9e58cfc1a960ebeeaea393f792cc25f214aabaace98accf"
+        },
+        "seconds": 14.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f41d7be8d652d7cb",
+        "title": "FEDS Note: Revisiting China's Current Account: Evidence from Recent Revisions",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.35,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 615,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b4af1ef908e2b612049e9f98f7281f27db42f4f9e8f5e91aad556f463d3d4d4d"
+        },
+        "seconds": 15.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a8ab8c890f41308e",
+        "title": "J.P. Morgan Fund Sells Wellington Apartments For $105M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 17.89,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 606,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "03aa1bb5086ab21cf2cdd8602aa0446ac0a17b5e532f9147a50491a4b0276115"
+        },
+        "seconds": 17.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "533e80e824de252e",
+        "title": "What Past Fed Hiking Cycles Signal for Yields, Recession Risk",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.57,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 330,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1a41a28401e1d2d45a53f4264d88738aa80525943e58ae0d1f4cd9487ff16510"
+        },
+        "seconds": 18.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b31540676d5ac0a7",
+        "title": "Florida de novo opens its doors",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.57,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 341,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "8cb18b26497713763477fa3e970ab22fe657cc7821c747da37373ec193117414"
+        },
+        "seconds": 9.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e8ea8cf579d9e36e",
+        "title": "Blackstone targets $8.5bn for latest energy transition fund",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.77,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 323,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "edb769e2774e32dc33eaf4514398fb22bb5f91b88a069ac0bd76bb194d1a2db7"
+        },
+        "seconds": 11.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7b3b66fd78381dec",
+        "title": "Google to pay for nuclear uprates at Georgia Power’s Hatch, Vogtle plants",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 334,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "8d289d4c491d9c1defdd3e7a7080990238c4afaf53ca2fcf899bde507d436bb8"
+        },
+        "seconds": 17.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "450e51ca9a9b42ed",
+        "title": "Meta signs 144MW solar PPA with Apex in Texas",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.97,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 329,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b3a56c0f2b14adf151c93ee1a6ba7f6fcd4b3e3b70bb7adf26760723a1a77c17"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8a19ece64d353288",
+        "title": "Judge adds credit unions to Illinois swipe fee injunction",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.31,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 349,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "329ae06534a3415e49edd1377c808d7504fdbee15364fc5c001d06d1440b5b01"
+        },
+        "seconds": 7.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f845f87518722728",
+        "title": "Canadian province announces PV panel recycling fee",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.59,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 380,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "eabada11e7bfe18afaef335164b8aa81b5c68909ceab6dd46f03be554d756e48"
+        },
+        "seconds": 17.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 25,
+    "published": 25,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x_social.png",
+      "insights/student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x.html",
+      "insights/dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states_social.png",
+      "insights/dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states.html",
+      "insights/brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall_social.png",
+      "insights/brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall.html",
+      "insights/what-s-a-utility-to-do-when-everyone-is-mad-at-them_social.png",
+      "insights/what-s-a-utility-to-do-when-everyone-is-mad-at-them.html",
+      "insights/richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue_social.png",
+      "insights/richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue.html",
+      "insights/fed-s-jefferson-discount-window-reforms-help-treasury-market_social.png",
+      "insights/fed-s-jefferson-discount-window-reforms-help-treasury-market.html",
+      "insights/with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor_social.png",
+      "insights/with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor.html",
+      "insights/adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi_social.png",
+      "insights/adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi.html",
+      "insights/bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele_social.png",
+      "insights/bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele.html",
+      "insights/dwight-investment-management-provides-42m-refi-for-college-station-apartments_social.png",
+      "insights/dwight-investment-management-provides-42m-refi-for-college-station-apartments.html",
+      "insights/oaktree-backs-uwm-with-1-5b_social.png",
+      "insights/oaktree-backs-uwm-with-1-5b.html",
+      "insights/ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center_social.png",
+      "insights/ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center.html",
+      "insights/fed-s-jefferson-provides-update-on-discount-window-modernization_social.png",
+      "insights/fed-s-jefferson-provides-update-on-discount-window-modernization.html",
+      "insights/l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea_social.png",
+      "insights/l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea.html",
+      "insights/marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet_social.png",
+      "insights/marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet.html",
+      "insights/jp-morgan-chase-sells-south-florida-rental-for-106m_social.png",
+      "insights/jp-morgan-chase-sells-south-florida-rental-for-106m.html",
+      "insights/revisiting-china-s-current-account-evidence-from-recent-revisions_social.png",
+      "insights/revisiting-china-s-current-account-evidence-from-recent-revisions.html",
+      "insights/j-p-morgan-fund-sells-wellington-apartments-for-105m_social.png",
+      "insights/j-p-morgan-fund-sells-wellington-apartments-for-105m.html",
+      "insights/what-past-fed-hiking-cycles-signal-for-yields-recession-risk_social.png",
+      "insights/what-past-fed-hiking-cycles-signal-for-yields-recession-risk.html",
+      "insights/florida-de-novo-opens-its-doors_social.png",
+      "insights/florida-de-novo-opens-its-doors.html",
+      "insights/blackstone-targets-8-5bn-for-latest-energy-transition-fund_social.png",
+      "insights/blackstone-targets-8-5bn-for-latest-energy-transition-fund.html",
+      "insights/google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants_social.png",
+      "insights/google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants.html",
+      "insights/meta-signs-144mw-solar-ppa-with-apex-in-texas_social.png",
+      "insights/meta-signs-144mw-solar-ppa-with-apex-in-texas.html",
+      "insights/judge-adds-credit-unions-to-illinois-swipe-fee-injunction_social.png",
+      "insights/judge-adds-credit-unions-to-illinois-swipe-fee-injunction.html",
+      "insights/alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling_social.png",
+      "insights/alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x_related.json",
+      "insights/dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states_related.json",
+      "insights/brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall_related.json",
+      "insights/what-s-a-utility-to-do-when-everyone-is-mad-at-them_related.json",
+      "insights/richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue_related.json",
+      "insights/fed-s-jefferson-discount-window-reforms-help-treasury-market_related.json",
+      "insights/with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor_related.json",
+      "insights/adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi_related.json",
+      "insights/bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele_related.json",
+      "insights/dwight-investment-management-provides-42m-refi-for-college-station-apartments_related.json",
+      "insights/oaktree-backs-uwm-with-1-5b_related.json",
+      "insights/ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center_related.json",
+      "insights/fed-s-jefferson-provides-update-on-discount-window-modernization_related.json",
+      "insights/l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea_related.json",
+      "insights/marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet_related.json",
+      "insights/jp-morgan-chase-sells-south-florida-rental-for-106m_related.json",
+      "insights/revisiting-china-s-current-account-evidence-from-recent-revisions_related.json",
+      "insights/j-p-morgan-fund-sells-wellington-apartments-for-105m_related.json",
+      "insights/what-past-fed-hiking-cycles-signal-for-yields-recession-risk_related.json",
+      "insights/florida-de-novo-opens-its-doors_related.json",
+      "insights/blackstone-targets-8-5bn-for-latest-energy-transition-fund_related.json",
+      "insights/google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants_related.json",
+      "insights/meta-signs-144mw-solar-ppa-with-apex-in-texas_related.json",
+      "insights/judge-adds-credit-unions-to-illinois-swipe-fee-injunction_related.json",
+      "insights/alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "9e271321d803581c",
+        "title": "Student Housing’s Hidden Credit Risk: Low Defaults Mask $1.25 Billion in Sub-1.0x DSCR Loans",
+        "slug": "student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x",
+        "url": "/insights/student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bdb04b0403eb81d3",
+        "title": "DHS Awards $7.3B In Contracts To Build Detention Facilities In 5 States",
+        "slug": "dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states",
+        "url": "/insights/dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f9ea84ad2bdaf156",
+        "title": "Brookfield's GGP Lines Up $800M CMBS Refi Of 2.4M SF Suburban Chicago Mall",
+        "slug": "brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall",
+        "url": "/insights/brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6139e6bfe1abe561",
+        "title": "What’s a Utility to Do When Everyone Is Mad at Them?",
+        "slug": "what-s-a-utility-to-do-when-everyone-is-mad-at-them",
+        "url": "/insights/what-s-a-utility-to-do-when-everyone-is-mad-at-them.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9c79f389a4b11c00",
+        "title": "Richard Born Joins Investor Group in BlackRock’s $245M Sale of 600 Third Avenue",
+        "slug": "richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue",
+        "url": "/insights/richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "82e37c73f5f8a7ea",
+        "title": "Fed's Jefferson: discount window reforms help Treasury market",
+        "slug": "fed-s-jefferson-discount-window-reforms-help-treasury-market",
+        "url": "/insights/fed-s-jefferson-discount-window-reforms-help-treasury-market.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4f772d1ac4e56db9",
+        "title": "With federal funding windfall, X-energy advances small nuclear reactor",
+        "slug": "with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor",
+        "url": "/insights/with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f56afaeaadef530e",
+        "title": "Adam America and JW Capital Close $180M Refinancing of FIU-Adjacent Student Housing",
+        "slug": "adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi",
+        "url": "/insights/adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b7ea1e28c4159056",
+        "title": "Bank economists: Business spending will drive resilient growth in the face of elevated inflation",
+        "slug": "bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele",
+        "url": "/insights/bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4b41b4d304701794",
+        "title": "Dwight Investment Management Provides $42M Refi for College Station Apartments",
+        "slug": "dwight-investment-management-provides-42m-refi-for-college-station-apartments",
+        "url": "/insights/dwight-investment-management-provides-42m-refi-for-college-station-apartments.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ea0e16aef0867073",
+        "title": "Oaktree backs UWM with $1.5B",
+        "slug": "oaktree-backs-uwm-with-1-5b",
+        "url": "/insights/oaktree-backs-uwm-with-1-5b.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7d5de6e6383dc01b",
+        "title": "Ohio Supreme Court Blocks Ballot Measure Targeting $4B AWS Data Center",
+        "slug": "ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center",
+        "url": "/insights/ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c939866d8b6adfb1",
+        "title": "Fed’s Jefferson provides update on discount window modernization",
+        "slug": "fed-s-jefferson-provides-update-on-discount-window-modernization",
+        "url": "/insights/fed-s-jefferson-provides-update-on-discount-window-modernization.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "eb8b18d95caeb9d1",
+        "title": "L&L Infinite Completes $245 Million Acquisition Of 600 Third Avenue In Midtown East, Manhattan",
+        "slug": "l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea",
+        "url": "/insights/l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b0661c09eea10df0",
+        "title": "Marty Burger-L&L Venture Debuts With $245M Third Avenue Deal: The N.Y. Deal Sheet",
+        "slug": "marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet",
+        "url": "/insights/marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "787c6db51a2bc4ab",
+        "title": "JP Morgan Chase Sells South Florida Rental for $106M",
+        "slug": "jp-morgan-chase-sells-south-florida-rental-for-106m",
+        "url": "/insights/jp-morgan-chase-sells-south-florida-rental-for-106m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f41d7be8d652d7cb",
+        "title": "Revisiting China's Current Account: Evidence from Recent Revisions",
+        "slug": "revisiting-china-s-current-account-evidence-from-recent-revisions",
+        "url": "/insights/revisiting-china-s-current-account-evidence-from-recent-revisions.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a8ab8c890f41308e",
+        "title": "J.P. Morgan Fund Sells Wellington Apartments For $105M",
+        "slug": "j-p-morgan-fund-sells-wellington-apartments-for-105m",
+        "url": "/insights/j-p-morgan-fund-sells-wellington-apartments-for-105m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "533e80e824de252e",
+        "title": "What Past Fed Hiking Cycles Signal for Yields, Recession Risk",
+        "slug": "what-past-fed-hiking-cycles-signal-for-yields-recession-risk",
+        "url": "/insights/what-past-fed-hiking-cycles-signal-for-yields-recession-risk.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b31540676d5ac0a7",
+        "title": "Florida de novo opens its doors",
+        "slug": "florida-de-novo-opens-its-doors",
+        "url": "/insights/florida-de-novo-opens-its-doors.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e8ea8cf579d9e36e",
+        "title": "Blackstone targets $8.5bn for latest energy transition fund",
+        "slug": "blackstone-targets-8-5bn-for-latest-energy-transition-fund",
+        "url": "/insights/blackstone-targets-8-5bn-for-latest-energy-transition-fund.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 2,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "7b3b66fd78381dec",
+        "title": "Google to pay for nuclear uprates at Georgia Power’s Hatch, Vogtle plants",
+        "slug": "google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants",
+        "url": "/insights/google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "450e51ca9a9b42ed",
+        "title": "Meta signs 144MW solar PPA with Apex in Texas",
+        "slug": "meta-signs-144mw-solar-ppa-with-apex-in-texas",
+        "url": "/insights/meta-signs-144mw-solar-ppa-with-apex-in-texas.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8a19ece64d353288",
+        "title": "Judge adds credit unions to Illinois swipe fee injunction",
+        "slug": "judge-adds-credit-unions-to-illinois-swipe-fee-injunction",
+        "url": "/insights/judge-adds-credit-unions-to-illinois-swipe-fee-injunction.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f845f87518722728",
+        "title": "Alberta to charge CAN 14 per new solar panel for end-of-life recycling",
+        "slug": "alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling",
+        "url": "/insights/alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "9e271321d803581c",
+        "slug": "student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x",
+        "title": "Student Housing’s Hidden Credit Risk: Low Defaults Mask $1.25 Billion in Sub-1.0x DSCR Loans",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bdb04b0403eb81d3",
+        "slug": "dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states",
+        "title": "DHS Awards $7.3B In Contracts To Build Detention Facilities In 5 States",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f9ea84ad2bdaf156",
+        "slug": "brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall",
+        "title": "Brookfield's GGP Lines Up $800M CMBS Refi Of 2.4M SF Suburban Chicago Mall",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6139e6bfe1abe561",
+        "slug": "what-s-a-utility-to-do-when-everyone-is-mad-at-them",
+        "title": "What’s a Utility to Do When Everyone Is Mad at Them?",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/what-s-a-utility-to-do-when-everyone-is-mad-at-them.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9c79f389a4b11c00",
+        "slug": "richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue",
+        "title": "Richard Born Part of Investor Group in BlackRock’s $245M Sale of 600 Third Avenue",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue.html",
+        "reason": ""
+      },
+      {
+        "object_id": "82e37c73f5f8a7ea",
+        "slug": "fed-s-jefferson-discount-window-reforms-help-treasury-market",
+        "title": "Fed's Jefferson: discount window reforms help Treasury market",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-s-jefferson-discount-window-reforms-help-treasury-market.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4f772d1ac4e56db9",
+        "slug": "with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor",
+        "title": "With federal funding windfall, X-energy advances small nuclear reactor",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f56afaeaadef530e",
+        "slug": "adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi",
+        "title": "Adam America Real Estate and JW Capital Management Secure $180M Refinancing of Student Housing Property in Miami",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b7ea1e28c4159056",
+        "slug": "bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele",
+        "title": "Bank economists: Business spending will drive resilient growth in the face of elevated inflation",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4b41b4d304701794",
+        "slug": "dwight-investment-management-provides-42m-refi-for-college-station-apartments",
+        "title": "Dwight Investment Management Provides $42M Refi for College Station Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dwight-investment-management-provides-42m-refi-for-college-station-apartments.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ea0e16aef0867073",
+        "slug": "oaktree-backs-uwm-with-1-5b",
+        "title": "Oaktree backs UWM with $1.5B",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/oaktree-backs-uwm-with-1-5b.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7d5de6e6383dc01b",
+        "slug": "ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center",
+        "title": "Ohio Supreme Court Blocks Ballot Measure Targeting $4B AWS Data Center",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c939866d8b6adfb1",
+        "slug": "fed-s-jefferson-provides-update-on-discount-window-modernization",
+        "title": "Fed’s Jefferson provides update on discount window modernization",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-s-jefferson-provides-update-on-discount-window-modernization.html",
+        "reason": ""
+      },
+      {
+        "object_id": "eb8b18d95caeb9d1",
+        "slug": "l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea",
+        "title": "L&L Infinite Completes $245 Million Acquisition Of 600 Third Avenue In Midtown East, Manhattan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b0661c09eea10df0",
+        "slug": "marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet",
+        "title": "Marty Burger-L&L Venture Debuts With $245M Third Avenue Deal: The N.Y. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "787c6db51a2bc4ab",
+        "slug": "jp-morgan-chase-sells-south-florida-rental-for-106m",
+        "title": "JP Morgan Chase Sells South Florida Rental for $106M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/jp-morgan-chase-sells-south-florida-rental-for-106m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f41d7be8d652d7cb",
+        "slug": "revisiting-china-s-current-account-evidence-from-recent-revisions",
+        "title": "FEDS Note: Revisiting China's Current Account: Evidence from Recent Revisions",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/revisiting-china-s-current-account-evidence-from-recent-revisions.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a8ab8c890f41308e",
+        "slug": "j-p-morgan-fund-sells-wellington-apartments-for-105m",
+        "title": "J.P. Morgan Fund Sells Wellington Apartments For $105M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/j-p-morgan-fund-sells-wellington-apartments-for-105m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "533e80e824de252e",
+        "slug": "what-past-fed-hiking-cycles-signal-for-yields-recession-risk",
+        "title": "What Past Fed Hiking Cycles Signal for Yields, Recession Risk",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/what-past-fed-hiking-cycles-signal-for-yields-recession-risk.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b31540676d5ac0a7",
+        "slug": "florida-de-novo-opens-its-doors",
+        "title": "Florida de novo opens its doors",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/florida-de-novo-opens-its-doors.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e8ea8cf579d9e36e",
+        "slug": "blackstone-targets-8-5bn-for-latest-energy-transition-fund",
+        "title": "Blackstone targets $8.5bn for latest energy transition fund",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/blackstone-targets-8-5bn-for-latest-energy-transition-fund.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7b3b66fd78381dec",
+        "slug": "google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants",
+        "title": "Google to pay for nuclear uprates at Georgia Power’s Hatch, Vogtle plants",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants.html",
+        "reason": ""
+      },
+      {
+        "object_id": "450e51ca9a9b42ed",
+        "slug": "meta-signs-144mw-solar-ppa-with-apex-in-texas",
+        "title": "Meta signs 144MW solar PPA with Apex in Texas",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/meta-signs-144mw-solar-ppa-with-apex-in-texas.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8a19ece64d353288",
+        "slug": "judge-adds-credit-unions-to-illinois-swipe-fee-injunction",
+        "title": "Judge adds credit unions to Illinois swipe fee injunction",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/judge-adds-credit-unions-to-illinois-swipe-fee-injunction.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f845f87518722728",
+        "slug": "alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling",
+        "title": "Canadian province announces PV panel recycling fee",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 28,
+    "successful_calls": 28,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.64,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.46,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.15,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.6,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.04,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 153.56,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 74.72,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.15,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 72.98,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.28,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.36,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 25 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 331.95,
+  "status": "ready",
+  "candidate_count": 829,
+  "event_count": 780,
+  "articles": [
+    {
+      "event_id": "9e271321d803581c",
+      "title": "Student Housing’s Hidden Credit Risk: Low Defaults Mask $1.25 Billion in Sub-1.0x DSCR Loans",
+      "slug": "student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x",
+      "url": "/insights/student-housing-s-hidden-credit-risk-low-defaults-mask-1-25-billion-in-sub-1-0x.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bdb04b0403eb81d3",
+      "title": "DHS Awards $7.3B In Contracts To Build Detention Facilities In 5 States",
+      "slug": "dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states",
+      "url": "/insights/dhs-awards-7-3b-in-contracts-to-build-detention-facilities-in-5-states.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f9ea84ad2bdaf156",
+      "title": "Brookfield's GGP Lines Up $800M CMBS Refi Of 2.4M SF Suburban Chicago Mall",
+      "slug": "brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall",
+      "url": "/insights/brookfield-s-ggp-lines-up-800m-cmbs-refi-of-2-4m-sf-suburban-chicago-mall.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6139e6bfe1abe561",
+      "title": "What’s a Utility to Do When Everyone Is Mad at Them?",
+      "slug": "what-s-a-utility-to-do-when-everyone-is-mad-at-them",
+      "url": "/insights/what-s-a-utility-to-do-when-everyone-is-mad-at-them.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9c79f389a4b11c00",
+      "title": "Richard Born Joins Investor Group in BlackRock’s $245M Sale of 600 Third Avenue",
+      "slug": "richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue",
+      "url": "/insights/richard-born-joins-investor-group-in-blackrock-s-245m-sale-of-600-third-avenue.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "82e37c73f5f8a7ea",
+      "title": "Fed's Jefferson: discount window reforms help Treasury market",
+      "slug": "fed-s-jefferson-discount-window-reforms-help-treasury-market",
+      "url": "/insights/fed-s-jefferson-discount-window-reforms-help-treasury-market.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4f772d1ac4e56db9",
+      "title": "With federal funding windfall, X-energy advances small nuclear reactor",
+      "slug": "with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor",
+      "url": "/insights/with-federal-funding-windfall-x-energy-advances-small-nuclear-reactor.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f56afaeaadef530e",
+      "title": "Adam America and JW Capital Close $180M Refinancing of FIU-Adjacent Student Housing",
+      "slug": "adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi",
+      "url": "/insights/adam-america-and-jw-capital-close-180m-refinancing-of-fiu-adjacent-student-housi.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b7ea1e28c4159056",
+      "title": "Bank economists: Business spending will drive resilient growth in the face of elevated inflation",
+      "slug": "bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele",
+      "url": "/insights/bank-economists-business-spending-will-drive-resilient-growth-in-the-face-of-ele.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4b41b4d304701794",
+      "title": "Dwight Investment Management Provides $42M Refi for College Station Apartments",
+      "slug": "dwight-investment-management-provides-42m-refi-for-college-station-apartments",
+      "url": "/insights/dwight-investment-management-provides-42m-refi-for-college-station-apartments.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ea0e16aef0867073",
+      "title": "Oaktree backs UWM with $1.5B",
+      "slug": "oaktree-backs-uwm-with-1-5b",
+      "url": "/insights/oaktree-backs-uwm-with-1-5b.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7d5de6e6383dc01b",
+      "title": "Ohio Supreme Court Blocks Ballot Measure Targeting $4B AWS Data Center",
+      "slug": "ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center",
+      "url": "/insights/ohio-supreme-court-blocks-ballot-measure-targeting-4b-aws-data-center.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c939866d8b6adfb1",
+      "title": "Fed’s Jefferson provides update on discount window modernization",
+      "slug": "fed-s-jefferson-provides-update-on-discount-window-modernization",
+      "url": "/insights/fed-s-jefferson-provides-update-on-discount-window-modernization.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "eb8b18d95caeb9d1",
+      "title": "L&L Infinite Completes $245 Million Acquisition Of 600 Third Avenue In Midtown East, Manhattan",
+      "slug": "l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea",
+      "url": "/insights/l-l-infinite-completes-245-million-acquisition-of-600-third-avenue-in-midtown-ea.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b0661c09eea10df0",
+      "title": "Marty Burger-L&L Venture Debuts With $245M Third Avenue Deal: The N.Y. Deal Sheet",
+      "slug": "marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet",
+      "url": "/insights/marty-burger-l-l-venture-debuts-with-245m-third-avenue-deal-the-n-y-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "787c6db51a2bc4ab",
+      "title": "JP Morgan Chase Sells South Florida Rental for $106M",
+      "slug": "jp-morgan-chase-sells-south-florida-rental-for-106m",
+      "url": "/insights/jp-morgan-chase-sells-south-florida-rental-for-106m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f41d7be8d652d7cb",
+      "title": "Revisiting China's Current Account: Evidence from Recent Revisions",
+      "slug": "revisiting-china-s-current-account-evidence-from-recent-revisions",
+      "url": "/insights/revisiting-china-s-current-account-evidence-from-recent-revisions.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a8ab8c890f41308e",
+      "title": "J.P. Morgan Fund Sells Wellington Apartments For $105M",
+      "slug": "j-p-morgan-fund-sells-wellington-apartments-for-105m",
+      "url": "/insights/j-p-morgan-fund-sells-wellington-apartments-for-105m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "533e80e824de252e",
+      "title": "What Past Fed Hiking Cycles Signal for Yields, Recession Risk",
+      "slug": "what-past-fed-hiking-cycles-signal-for-yields-recession-risk",
+      "url": "/insights/what-past-fed-hiking-cycles-signal-for-yields-recession-risk.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b31540676d5ac0a7",
+      "title": "Florida de novo opens its doors",
+      "slug": "florida-de-novo-opens-its-doors",
+      "url": "/insights/florida-de-novo-opens-its-doors.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e8ea8cf579d9e36e",
+      "title": "Blackstone targets $8.5bn for latest energy transition fund",
+      "slug": "blackstone-targets-8-5bn-for-latest-energy-transition-fund",
+      "url": "/insights/blackstone-targets-8-5bn-for-latest-energy-transition-fund.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 2,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "7b3b66fd78381dec",
+      "title": "Google to pay for nuclear uprates at Georgia Power’s Hatch, Vogtle plants",
+      "slug": "google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants",
+      "url": "/insights/google-to-pay-for-nuclear-uprates-at-georgia-power-s-hatch-vogtle-plants.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "450e51ca9a9b42ed",
+      "title": "Meta signs 144MW solar PPA with Apex in Texas",
+      "slug": "meta-signs-144mw-solar-ppa-with-apex-in-texas",
+      "url": "/insights/meta-signs-144mw-solar-ppa-with-apex-in-texas.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8a19ece64d353288",
+      "title": "Judge adds credit unions to Illinois swipe fee injunction",
+      "slug": "judge-adds-credit-unions-to-illinois-swipe-fee-injunction",
+      "url": "/insights/judge-adds-credit-unions-to-illinois-swipe-fee-injunction.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f845f87518722728",
+      "title": "Alberta to charge CAN 14 per new solar panel for end-of-life recycling",
+      "slug": "alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling",
+      "url": "/insights/alberta-to-charge-can-14-per-new-solar-panel-for-end-of-life-recycling.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 25
+}

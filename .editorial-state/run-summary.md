@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **781**
-- Distinct events: **744**
-- Articles: **20**
+- Candidates: **829**
+- Distinct events: **780**
+- Articles: **25**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,23 +12,28 @@
 
 ## Published candidates
 
-- **analysis** — Securitized Student Housing’s Refinance Test: Maturity Risk Builds in 2029 & 2030 (1 sources; v3_daily_slate selection)
-- **analysis** — BREIT Lines Up $1.7B CMBS Loan For 19M SF Industrial Portfolio (1 sources; v3_daily_slate selection)
-- **analysis** — Ascent Developer Solutions Expands Encino Headquarters After Passing $3.7B in Originations (1 sources; v3_daily_slate selection)
-- **analysis** — Dyer Avenue Deck-Over Progresses for PABT Redevelopment in Midtown West, Manhattan (1 sources; v3_daily_slate selection)
-- **analysis** — Walker & Dunlop Arranges $86M Refi for Flushing Affordable Quartet (1 sources; v3_daily_slate selection)
-- **analysis** — Donald Trump Loses in Court, Solar Energy Funds to Be Reinstated (1 sources; v3_daily_slate selection)
-- **analysis** — Investor Team Scores $180M Refi for FIU Student Housing (1 sources; v3_daily_slate selection)
-- **analysis** — Treasury Trading at the Close (1 sources; v3_daily_slate selection)
-- **analysis** — $113M Secured for Landmark Office-to-Residential Conversion on Chicago’s Mag Mile (1 sources; v3_daily_slate selection)
-- **analysis** — Rivani Lands $114M Refi For Playboy HQ Building: The South Florida Deal Sheet (1 sources; v3_daily_slate selection)
-- **analysis** — How Kevin Warsh’s rate hike exposed a 2-speed U.S. economy, with AI and housing at the poles (1 sources; v3_daily_slate selection)
-- **analysis** — The Fed Moved. The Borrowing Math Changed for Businesses. (1 sources; v3_daily_slate selection)
-- **analysis** — CUNY Buys Historic Bronx Post Office For $201M (1 sources; v3_daily_slate selection)
-- **analysis** — Carlyle and CVC DIF strike €1bn BauWatch deal as HIG agrees $866m Mistras take-private (1 sources; v3_daily_slate selection)
-- **analysis** — Related Group, Tricap Sell Casa Tua-Leased Retail Condo in Miami’s Wynwood (1 sources; v3_daily_slate selection)
-- **brief** — FEDS Paper: Beyond Financial Conditions: Measuring Structural Vulnerabilities in the U.S. Financial System (1 sources; v3_daily_slate selection)
-- **brief** — OPG signs $1.7B contract for Pickering nuclear plant refurbishment (1 sources; v3_daily_slate selection)
-- **brief** — New Era signs 20-year gas PPA with Vistra subsidiary to power 250MW data center in Ector County, Texas (1 sources; v3_daily_slate selection)
-- **brief** — Exclusive: Sen. Britt to introduce GOP-led indexing bill (1 sources; v3_daily_slate selection)
-- **brief** — OCC conditionally approves 3 national trust charters (1 sources; v3_daily_slate selection)
+- **analysis** — Student Housing’s Hidden Credit Risk: Low Defaults Mask $1.25 Billion in Sub-1.0x DSCR Loans (1 sources; v3_daily_slate selection)
+- **analysis** — DHS Awards $7.3B In Contracts To Build Detention Facilities In 5 States (1 sources; v3_daily_slate selection)
+- **analysis** — Brookfield's GGP Lines Up $800M CMBS Refi Of 2.4M SF Suburban Chicago Mall (1 sources; v3_daily_slate selection)
+- **analysis** — What’s a Utility to Do When Everyone Is Mad at Them? (1 sources; v3_daily_slate selection)
+- **analysis** — Richard Born Joins Investor Group in BlackRock’s $245M Sale of 600 Third Avenue (1 sources; v3_daily_slate selection)
+- **analysis** — Fed's Jefferson: discount window reforms help Treasury market (1 sources; v3_daily_slate selection)
+- **analysis** — With federal funding windfall, X-energy advances small nuclear reactor (1 sources; v3_daily_slate selection)
+- **analysis** — Adam America and JW Capital Close $180M Refinancing of FIU-Adjacent Student Housing (1 sources; v3_daily_slate selection)
+- **analysis** — Bank economists: Business spending will drive resilient growth in the face of elevated inflation (1 sources; v3_daily_slate selection)
+- **analysis** — Dwight Investment Management Provides $42M Refi for College Station Apartments (1 sources; v3_daily_slate selection)
+- **analysis** — Oaktree backs UWM with $1.5B (1 sources; v3_daily_slate selection)
+- **analysis** — Ohio Supreme Court Blocks Ballot Measure Targeting $4B AWS Data Center (1 sources; v3_daily_slate selection)
+- **analysis** — Fed’s Jefferson provides update on discount window modernization (1 sources; v3_daily_slate selection)
+- **analysis** — L&L Infinite Completes $245 Million Acquisition Of 600 Third Avenue In Midtown East, Manhattan (1 sources; v3_daily_slate selection)
+- **analysis** — Marty Burger-L&L Venture Debuts With $245M Third Avenue Deal: The N.Y. Deal Sheet (1 sources; v3_daily_slate selection)
+- **analysis** — JP Morgan Chase Sells South Florida Rental for $106M (1 sources; v3_daily_slate selection)
+- **analysis** — Revisiting China's Current Account: Evidence from Recent Revisions (1 sources; v3_daily_slate selection)
+- **analysis** — J.P. Morgan Fund Sells Wellington Apartments For $105M (1 sources; v3_daily_slate selection)
+- **brief** — What Past Fed Hiking Cycles Signal for Yields, Recession Risk (1 sources; v3_daily_slate selection)
+- **brief** — Florida de novo opens its doors (1 sources; v3_daily_slate selection)
+- **brief** — Blackstone targets $8.5bn for latest energy transition fund (2 sources; v3_daily_slate selection)
+- **brief** — Google to pay for nuclear uprates at Georgia Power’s Hatch, Vogtle plants (1 sources; v3_daily_slate selection)
+- **brief** — Meta signs 144MW solar PPA with Apex in Texas (1 sources; v3_daily_slate selection)
+- **brief** — Judge adds credit unions to Illinois swipe fee injunction (1 sources; v3_daily_slate selection)
+- **brief** — Alberta to charge CAN 14 per new solar panel for end-of-life recycling (1 sources; v3_daily_slate selection)
