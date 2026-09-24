@@ -1,0 +1,1776 @@
+{
+  "run_at": "2026-09-24T15:47:36.327363+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 860,
+  "documents_from_feeds": 757,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 800,
+  "documents_consolidated": 60,
+  "eligible": 103,
+  "enriched": 250,
+  "evidence_upgraded": 147,
+  "selected": 22,
+  "publication_candidates": 22,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 54,
+      "eligible": 5,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 398,
+      "eligible": 58,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 90,
+      "eligible": 6,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 137,
+      "eligible": 22,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 22 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 38,
+      "eligible": 7,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 1,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 82,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 15,
+    "tier_c": 7
+  },
+  "shortfalls": [
+    "banking_credit: only 3 of 5 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 6 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 6 of 22 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 1 of 7 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 76.4,
+    "mean": 22.9,
+    "stdev": 12.47,
+    "range_used": 76.4,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 259,
+    "fetched": 246,
+    "from_cache": 0,
+    "blocked": 7,
+    "failed": 6,
+    "skipped_budget": 0,
+    "bytes_downloaded": 51822671,
+    "elapsed_ms": 74088,
+    "by_status": {
+      "full_text": 150,
+      "partial_text": 96,
+      "failed": 6,
+      "blocked": 7
+    }
+  },
+  "novelty": {
+    "new": 705,
+    "minor_follow_up": 88,
+    "already_published": 6,
+    "material_update": 1
+  },
+  "memory": {
+    "events_remembered": 12356,
+    "published": 855,
+    "seen_but_not_run": 11501,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-24",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 357.8,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 22,
+    "written": 22,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 23,
+    "elapsed_seconds": 61.09,
+    "provider_attempts": {
+      "deepseek": 23
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "8cece3e315b8fb8c",
+        "title": "12 Sponsors Back Half of Securitized Self-Storage Debt, While Refinancing Risk Is Even More Concentrated",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.06,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 533,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9fe74b16d88e3d9bc4864735f7dfeca3ae192991a40f4a5e978ef7beaa59a9d7"
+        },
+        "seconds": 11.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "653630d0ae5fe9b6",
+        "title": "Kroenke's Manhattan Mini Storage Lands $2.1B Refinancing For 54,000 Units",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.43,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 640,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "b46218196117b7d2710525debe43e51513bcd13cafb1354dea424b7d2a605749"
+        },
+        "seconds": 14.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cbb2020a9dbb747f",
+        "title": "Wells Fargo Supplies $456M Refi for Family Dollar’s Distribution Center Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.11,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 545,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e0ef32bde594152b17fa847b0ddebf21366e61582f9b91c57a8b3df70ec47418"
+        },
+        "seconds": 16.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "46892691bde9ff69",
+        "title": "FERC rejects ComEd’s cancellation of PowerHouse Hillwood data center contract",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.75,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 598,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "af30da59c5dd7f2b52e4aab3576203c972b4c618e407d124500a47e696c5a61b"
+        },
+        "seconds": 14.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "71ed2b483abb9f54",
+        "title": "George Comfort & Sons Refinances 200 Madison for $386M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.97,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 507,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9ccdc09b697d77c95b92fdd68c5a01787782d5a8e8238b48a0df6750ff1e406b"
+        },
+        "seconds": 16.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8e6f543f3f177f4b",
+        "title": "New York Life Provides $386M Refi for 200 Madison Avenue",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 634,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "4bcbf73415e060f7025fcfb6af8ddc112db94c3ebc1afcae576992cddbee9d49"
+        },
+        "seconds": 16.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0798cca24d563d73",
+        "title": "Hudson Bay Capital Refis Microsoft-Anchored SoHo Building With $85M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.9,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 521,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "eaafffff289deadf77b5d91306ab34dbf1abe23e2f9eba087d777c8a86513808"
+        },
+        "seconds": 14.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a86402a32c6fcb8b",
+        "title": "Thompson Thrift launches ninth multifamily development limited partnership",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.83,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 582,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "51b88e56fd4a6736ae9e2f7d0fd666f8f9fb9855f8ffdcf25c92ce55588ed2b1"
+        },
+        "seconds": 15.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fab9a20d4999638b",
+        "title": "Darwin Investment Group closes $130 million refinancing for 39-building industrial portfolio in Chicago, Southeast Wisconsin markets",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 13.47,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 455,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "242cdd6c512491744adaaae5402915024dc6ea3e408584ad4a2692ba941d621c"
+        },
+        "seconds": 13.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d56c111dad25dff1",
+        "title": "SEC Charges South Florida Resident and His Company for Alleged Investment Scheme Defrauding Law Enforcement",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.37,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 617,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e69345d737ce715d74f2ee67a542a1866744bbbcfea13116cd2e6bdc19a8f1c8"
+        },
+        "seconds": 15.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "30ee7784476cd58d",
+        "title": "Fed's Williams says more work needed to lower inflation",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 14.32,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 589,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fbce650b87bc4b3a34e36bcdf0ea9d3b15978168f5a1e58d8bffedf0ac1e7fcd"
+        },
+        "seconds": 14.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b547ef38a3ac0963",
+        "title": "The Fusion Industry Needs $10 Billion to Beat China",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.57,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 595,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "48c967968f431feb0cb3de94ed0927382eb36bfda83d8916e4b4a20cb90616c8"
+        },
+        "seconds": 15.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e1400f00ff1d6887",
+        "title": "Clear Blue Breaks Ground on 228-Unit Affordable Housing Community in Dickson, Tennessee",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 16.16,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 474,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "291d3fd04bd39850d971b1a3c51a47a4749eaea1b21acb4e3d227cade7b2d36b"
+        },
+        "seconds": 16.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e96fd42d52d04b23",
+        "title": "NYSERDA approves 1.7 GW of new state renewable energy projects",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.59,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 655,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8acc0a50187abf5cb08500cbeff9e6b5d7571fb11b0962bfa147d67aeb5e8ad7"
+        },
+        "seconds": 15.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "79b7c44bc263804d",
+        "title": "A recent legal victory could free $7B in frozen Solar for All funds",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 15.72,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 620,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d93254ea0b8ea38a62ddaa37196f8b8e3601b957c19eb73a42e6ba20fb01e44d"
+        },
+        "seconds": 15.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8dba8e5e1abd84c0",
+        "title": "JLL arranges $456m for Family Dollar’s national distribution center portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.39,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 255,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e930a8d2b976e18a86bfe4dea6e7af3557bc8d88c6c0dd8489ce5de8b3ac4cd1"
+        },
+        "seconds": 7.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "07067fa168c126c8",
+        "title": "OCC Reports Mortgage Performance for Second Quarter of 2026",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 335,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "963a427e4f98bb124874b3e85f7f627359871186a9d08357f84378e63a4b67e0"
+        },
+        "seconds": 8.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "07045d444a0deac1",
+        "title": "EQT builds GCC investment platform with Abu Dhabi launch",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.9,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 310,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "146868b1237f9f73190da0b3e53f59b65282fb9e18c23a293fcc2c54e202ddb7"
+        },
+        "seconds": 10.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "62a797b1343a1c33",
+        "title": "POWER Digest [October 2026]",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.98,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 275,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "6fa20abf84eebec6a1b498c1e2f85ea3c0127fa7952c97bdcf483297f5fae794"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e59ed595ac6f058f",
+        "title": "Zambia commissions 100 MW solar project",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.09,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 339,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "bfb135b9c4af8a43e5cfaaa5077768d2a949f9e48686bbd1e048b4445e0da0b6"
+        },
+        "seconds": 9.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "80dd3f2243fa8255",
+        "title": "Canada's biggest banks team up on tokenized deposits",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 363,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9c562eb49573758d63b48c10634ad6a35415291b72e84920a2d23443b9d78e5e"
+        },
+        "seconds": 7.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "94e6cfea6328eb15",
+        "title": "Virginia, Maryland Tighten Data Center Rules as Scrutiny Intensifies",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 327,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "8b3e14892c2c1c98dcad8e12254685b9c30f1ffb689b9596861beadddc9e7833"
+        },
+        "seconds": 17.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 22,
+    "published": 22,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is_social.png",
+      "insights/12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is.html",
+      "insights/kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units_social.png",
+      "insights/kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units.html",
+      "insights/wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio_social.png",
+      "insights/wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio.html",
+      "insights/ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract_social.png",
+      "insights/ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract.html",
+      "insights/george-comfort-sons-refinances-200-madison-for-386m_social.png",
+      "insights/george-comfort-sons-refinances-200-madison-for-386m.html",
+      "insights/new-york-life-provides-386m-refi-for-200-madison-avenue_social.png",
+      "insights/new-york-life-provides-386m-refi-for-200-madison-avenue.html",
+      "insights/hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan_social.png",
+      "insights/hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan.html",
+      "insights/thompson-thrift-launches-ninth-multifamily-development-limited-partnership_social.png",
+      "insights/thompson-thrift-launches-ninth-multifamily-development-limited-partnership.html",
+      "insights/darwin-investment-group-closes-130-million-refinancing-for-39-building-industria_social.png",
+      "insights/darwin-investment-group-closes-130-million-refinancing-for-39-building-industria.html",
+      "insights/sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme_social.png",
+      "insights/sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme.html",
+      "insights/fed-s-williams-says-more-work-needed-to-lower-inflation_social.png",
+      "insights/fed-s-williams-says-more-work-needed-to-lower-inflation.html",
+      "insights/the-fusion-industry-needs-10-billion-to-beat-china_social.png",
+      "insights/the-fusion-industry-needs-10-billion-to-beat-china.html",
+      "insights/clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten_social.png",
+      "insights/clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten.html",
+      "insights/nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects_social.png",
+      "insights/nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects.html",
+      "insights/a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds_social.png",
+      "insights/a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds.html",
+      "insights/jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio_social.png",
+      "insights/jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio.html",
+      "insights/occ-reports-mortgage-performance-for-second-quarter-of-2026_social.png",
+      "insights/occ-reports-mortgage-performance-for-second-quarter-of-2026.html",
+      "insights/eqt-builds-gcc-investment-platform-with-abu-dhabi-launch_social.png",
+      "insights/eqt-builds-gcc-investment-platform-with-abu-dhabi-launch.html",
+      "insights/power-digest-october-2026_social.png",
+      "insights/power-digest-october-2026.html",
+      "insights/zambia-commissions-100-mw-solar-project_social.png",
+      "insights/zambia-commissions-100-mw-solar-project.html",
+      "insights/canada-s-biggest-banks-team-up-on-tokenized-deposits_social.png",
+      "insights/canada-s-biggest-banks-team-up-on-tokenized-deposits.html",
+      "insights/virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies_social.png",
+      "insights/virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is_related.json",
+      "insights/kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units_related.json",
+      "insights/wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio_related.json",
+      "insights/ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract_related.json",
+      "insights/george-comfort-sons-refinances-200-madison-for-386m_related.json",
+      "insights/new-york-life-provides-386m-refi-for-200-madison-avenue_related.json",
+      "insights/hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan_related.json",
+      "insights/thompson-thrift-launches-ninth-multifamily-development-limited-partnership_related.json",
+      "insights/darwin-investment-group-closes-130-million-refinancing-for-39-building-industria_related.json",
+      "insights/sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme_related.json",
+      "insights/fed-s-williams-says-more-work-needed-to-lower-inflation_related.json",
+      "insights/the-fusion-industry-needs-10-billion-to-beat-china_related.json",
+      "insights/clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten_related.json",
+      "insights/nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects_related.json",
+      "insights/a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds_related.json",
+      "insights/jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio_related.json",
+      "insights/occ-reports-mortgage-performance-for-second-quarter-of-2026_related.json",
+      "insights/eqt-builds-gcc-investment-platform-with-abu-dhabi-launch_related.json",
+      "insights/power-digest-october-2026_related.json",
+      "insights/zambia-commissions-100-mw-solar-project_related.json",
+      "insights/canada-s-biggest-banks-team-up-on-tokenized-deposits_related.json",
+      "insights/virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "8cece3e315b8fb8c",
+        "title": "12 Sponsors Back Half of Securitized Self-Storage Debt, While Refinancing Risk Is Even More Concentrated",
+        "slug": "12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is",
+        "url": "/insights/12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 76,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "653630d0ae5fe9b6",
+        "title": "Kroenke's Manhattan Mini Storage Lands $2.1B Refinancing For 54,000 Units",
+        "slug": "kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units",
+        "url": "/insights/kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 70,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cbb2020a9dbb747f",
+        "title": "Wells Fargo Supplies $456M Refi for Family Dollar’s Distribution Center Portfolio",
+        "slug": "wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio",
+        "url": "/insights/wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "46892691bde9ff69",
+        "title": "FERC rejects ComEd’s cancellation of PowerHouse Hillwood data center contract",
+        "slug": "ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract",
+        "url": "/insights/ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "71ed2b483abb9f54",
+        "title": "George Comfort & Sons Refinances 200 Madison for $386M",
+        "slug": "george-comfort-sons-refinances-200-madison-for-386m",
+        "url": "/insights/george-comfort-sons-refinances-200-madison-for-386m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8e6f543f3f177f4b",
+        "title": "New York Life Provides $386M Refi for 200 Madison Avenue",
+        "slug": "new-york-life-provides-386m-refi-for-200-madison-avenue",
+        "url": "/insights/new-york-life-provides-386m-refi-for-200-madison-avenue.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0798cca24d563d73",
+        "title": "Hudson Bay Capital Refis Microsoft-Anchored SoHo Building With $85M Loan",
+        "slug": "hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan",
+        "url": "/insights/hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a86402a32c6fcb8b",
+        "title": "Thompson Thrift launches ninth multifamily development limited partnership",
+        "slug": "thompson-thrift-launches-ninth-multifamily-development-limited-partnership",
+        "url": "/insights/thompson-thrift-launches-ninth-multifamily-development-limited-partnership.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "fab9a20d4999638b",
+        "title": "Darwin Investment Group closes $130 million refinancing for 39-building industrial portfolio in Chicago, Southeast Wisconsin markets",
+        "slug": "darwin-investment-group-closes-130-million-refinancing-for-39-building-industria",
+        "url": "/insights/darwin-investment-group-closes-130-million-refinancing-for-39-building-industria.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d56c111dad25dff1",
+        "title": "SEC Charges South Florida Resident and His Company for Alleged Investment Scheme Defrauding Law Enforcement",
+        "slug": "sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme",
+        "url": "/insights/sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "30ee7784476cd58d",
+        "title": "Fed's Williams Says More Work Needed to Lower Inflation",
+        "slug": "fed-s-williams-says-more-work-needed-to-lower-inflation",
+        "url": "/insights/fed-s-williams-says-more-work-needed-to-lower-inflation.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b547ef38a3ac0963",
+        "title": "The Fusion Industry Needs $10 Billion to Beat China",
+        "slug": "the-fusion-industry-needs-10-billion-to-beat-china",
+        "url": "/insights/the-fusion-industry-needs-10-billion-to-beat-china.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e1400f00ff1d6887",
+        "title": "Clear Blue Breaks Ground on 228-Unit Affordable Housing Community in Dickson, Tennessee",
+        "slug": "clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten",
+        "url": "/insights/clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e96fd42d52d04b23",
+        "title": "NYSERDA approves 1.7 GW of new state renewable energy projects",
+        "slug": "nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects",
+        "url": "/insights/nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "79b7c44bc263804d",
+        "title": "A recent legal victory could free $7B in frozen Solar for All funds",
+        "slug": "a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds",
+        "url": "/insights/a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8dba8e5e1abd84c0",
+        "title": "JLL arranges $456m for Family Dollar’s national distribution center portfolio",
+        "slug": "jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio",
+        "url": "/insights/jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "07067fa168c126c8",
+        "title": "OCC Reports Mortgage Performance for Second Quarter of 2026",
+        "slug": "occ-reports-mortgage-performance-for-second-quarter-of-2026",
+        "url": "/insights/occ-reports-mortgage-performance-for-second-quarter-of-2026.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "07045d444a0deac1",
+        "title": "EQT builds GCC investment platform with Abu Dhabi launch",
+        "slug": "eqt-builds-gcc-investment-platform-with-abu-dhabi-launch",
+        "url": "/insights/eqt-builds-gcc-investment-platform-with-abu-dhabi-launch.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "62a797b1343a1c33",
+        "title": "POWER Digest [October 2026]",
+        "slug": "power-digest-october-2026",
+        "url": "/insights/power-digest-october-2026.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e59ed595ac6f058f",
+        "title": "Zambia commissions 100 MW solar project",
+        "slug": "zambia-commissions-100-mw-solar-project",
+        "url": "/insights/zambia-commissions-100-mw-solar-project.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "80dd3f2243fa8255",
+        "title": "Canada's biggest banks team up on tokenized deposits",
+        "slug": "canada-s-biggest-banks-team-up-on-tokenized-deposits",
+        "url": "/insights/canada-s-biggest-banks-team-up-on-tokenized-deposits.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "94e6cfea6328eb15",
+        "title": "Virginia, Maryland Tighten Data Center Rules as Scrutiny Intensifies",
+        "slug": "virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies",
+        "url": "/insights/virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "8cece3e315b8fb8c",
+        "slug": "12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is",
+        "title": "12 Sponsors Back Half of Securitized Self-Storage Debt, While Refinancing Risk Is Even More Concentrated",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is.html",
+        "reason": ""
+      },
+      {
+        "object_id": "653630d0ae5fe9b6",
+        "slug": "kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units",
+        "title": "Kroenke's Manhattan Mini Storage Lands $2.1B Refinancing For 54,000 Units",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cbb2020a9dbb747f",
+        "slug": "wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio",
+        "title": "Wells Fargo Supplies $456M Refi for Family Dollar’s Distribution Center Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "46892691bde9ff69",
+        "slug": "ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract",
+        "title": "FERC rejects ComEd’s cancellation of PowerHouse Hillwood data center contract",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract.html",
+        "reason": ""
+      },
+      {
+        "object_id": "71ed2b483abb9f54",
+        "slug": "george-comfort-sons-refinances-200-madison-for-386m",
+        "title": "George Comfort & Sons Refinances 200 Madison for $386M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/george-comfort-sons-refinances-200-madison-for-386m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8e6f543f3f177f4b",
+        "slug": "new-york-life-provides-386m-refi-for-200-madison-avenue",
+        "title": "New York Life Provides $386M Refi for 200 Madison Avenue",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/new-york-life-provides-386m-refi-for-200-madison-avenue.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0798cca24d563d73",
+        "slug": "hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan",
+        "title": "Hudson Bay Capital Refis Microsoft-Anchored SoHo Building With $85M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a86402a32c6fcb8b",
+        "slug": "thompson-thrift-launches-ninth-multifamily-development-limited-partnership",
+        "title": "Thompson Thrift launches ninth multifamily development limited partnership",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/thompson-thrift-launches-ninth-multifamily-development-limited-partnership.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fab9a20d4999638b",
+        "slug": "darwin-investment-group-closes-130-million-refinancing-for-39-building-industria",
+        "title": "Darwin Investment Group closes $130 million refinancing for 39-building industrial portfolio in Chicago, Southeast Wisconsin markets",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/darwin-investment-group-closes-130-million-refinancing-for-39-building-industria.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d56c111dad25dff1",
+        "slug": "sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme",
+        "title": "SEC Charges South Florida Resident and His Company for Alleged Investment Scheme Defrauding Law Enforcement",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme.html",
+        "reason": ""
+      },
+      {
+        "object_id": "30ee7784476cd58d",
+        "slug": "fed-s-williams-says-more-work-needed-to-lower-inflation",
+        "title": "Fed's Williams says more work needed to lower inflation",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-s-williams-says-more-work-needed-to-lower-inflation.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b547ef38a3ac0963",
+        "slug": "the-fusion-industry-needs-10-billion-to-beat-china",
+        "title": "The Fusion Industry Needs $10 Billion to Beat China",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-fusion-industry-needs-10-billion-to-beat-china.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e1400f00ff1d6887",
+        "slug": "clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten",
+        "title": "Clear Blue Breaks Ground on 228-Unit Affordable Housing Community in Dickson, Tennessee",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e96fd42d52d04b23",
+        "slug": "nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects",
+        "title": "NYSERDA approves 1.7 GW of new state renewable energy projects",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects.html",
+        "reason": ""
+      },
+      {
+        "object_id": "79b7c44bc263804d",
+        "slug": "a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds",
+        "title": "A recent legal victory could free $7B in frozen Solar for All funds",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8dba8e5e1abd84c0",
+        "slug": "jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio",
+        "title": "JLL arranges $456m for Family Dollar’s national distribution center portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "07067fa168c126c8",
+        "slug": "occ-reports-mortgage-performance-for-second-quarter-of-2026",
+        "title": "OCC Reports Mortgage Performance for Second Quarter of 2026",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/occ-reports-mortgage-performance-for-second-quarter-of-2026.html",
+        "reason": ""
+      },
+      {
+        "object_id": "07045d444a0deac1",
+        "slug": "eqt-builds-gcc-investment-platform-with-abu-dhabi-launch",
+        "title": "EQT builds GCC investment platform with Abu Dhabi launch",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/eqt-builds-gcc-investment-platform-with-abu-dhabi-launch.html",
+        "reason": ""
+      },
+      {
+        "object_id": "62a797b1343a1c33",
+        "slug": "power-digest-october-2026",
+        "title": "POWER Digest [October 2026]",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/power-digest-october-2026.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e59ed595ac6f058f",
+        "slug": "zambia-commissions-100-mw-solar-project",
+        "title": "Zambia commissions 100 MW solar project",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/zambia-commissions-100-mw-solar-project.html",
+        "reason": ""
+      },
+      {
+        "object_id": "80dd3f2243fa8255",
+        "slug": "canada-s-biggest-banks-team-up-on-tokenized-deposits",
+        "title": "Canada's biggest banks team up on tokenized deposits",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/canada-s-biggest-banks-team-up-on-tokenized-deposits.html",
+        "reason": ""
+      },
+      {
+        "object_id": "94e6cfea6328eb15",
+        "slug": "virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies",
+        "title": "Virginia, Maryland Tighten Data Center Rules as Scrutiny Intensifies",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 23,
+    "successful_calls": 23,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 21.33,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.81,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.69,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.24,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 185.36,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 75.22,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.2,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 62.21,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.18,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.41,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 22 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 357.84,
+  "status": "ready",
+  "candidate_count": 860,
+  "event_count": 800,
+  "articles": [
+    {
+      "event_id": "8cece3e315b8fb8c",
+      "title": "12 Sponsors Back Half of Securitized Self-Storage Debt, While Refinancing Risk Is Even More Concentrated",
+      "slug": "12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is",
+      "url": "/insights/12-sponsors-back-half-of-securitized-self-storage-debt-while-refinancing-risk-is.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 76,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "653630d0ae5fe9b6",
+      "title": "Kroenke's Manhattan Mini Storage Lands $2.1B Refinancing For 54,000 Units",
+      "slug": "kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units",
+      "url": "/insights/kroenke-s-manhattan-mini-storage-lands-2-1b-refinancing-for-54-000-units.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 70,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cbb2020a9dbb747f",
+      "title": "Wells Fargo Supplies $456M Refi for Family Dollar’s Distribution Center Portfolio",
+      "slug": "wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio",
+      "url": "/insights/wells-fargo-supplies-456m-refi-for-family-dollar-s-distribution-center-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "46892691bde9ff69",
+      "title": "FERC rejects ComEd’s cancellation of PowerHouse Hillwood data center contract",
+      "slug": "ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract",
+      "url": "/insights/ferc-rejects-comed-s-cancellation-of-powerhouse-hillwood-data-center-contract.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "71ed2b483abb9f54",
+      "title": "George Comfort & Sons Refinances 200 Madison for $386M",
+      "slug": "george-comfort-sons-refinances-200-madison-for-386m",
+      "url": "/insights/george-comfort-sons-refinances-200-madison-for-386m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8e6f543f3f177f4b",
+      "title": "New York Life Provides $386M Refi for 200 Madison Avenue",
+      "slug": "new-york-life-provides-386m-refi-for-200-madison-avenue",
+      "url": "/insights/new-york-life-provides-386m-refi-for-200-madison-avenue.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0798cca24d563d73",
+      "title": "Hudson Bay Capital Refis Microsoft-Anchored SoHo Building With $85M Loan",
+      "slug": "hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan",
+      "url": "/insights/hudson-bay-capital-refis-microsoft-anchored-soho-building-with-85m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a86402a32c6fcb8b",
+      "title": "Thompson Thrift launches ninth multifamily development limited partnership",
+      "slug": "thompson-thrift-launches-ninth-multifamily-development-limited-partnership",
+      "url": "/insights/thompson-thrift-launches-ninth-multifamily-development-limited-partnership.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "fab9a20d4999638b",
+      "title": "Darwin Investment Group closes $130 million refinancing for 39-building industrial portfolio in Chicago, Southeast Wisconsin markets",
+      "slug": "darwin-investment-group-closes-130-million-refinancing-for-39-building-industria",
+      "url": "/insights/darwin-investment-group-closes-130-million-refinancing-for-39-building-industria.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d56c111dad25dff1",
+      "title": "SEC Charges South Florida Resident and His Company for Alleged Investment Scheme Defrauding Law Enforcement",
+      "slug": "sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme",
+      "url": "/insights/sec-charges-south-florida-resident-and-his-company-for-alleged-investment-scheme.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "30ee7784476cd58d",
+      "title": "Fed's Williams Says More Work Needed to Lower Inflation",
+      "slug": "fed-s-williams-says-more-work-needed-to-lower-inflation",
+      "url": "/insights/fed-s-williams-says-more-work-needed-to-lower-inflation.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b547ef38a3ac0963",
+      "title": "The Fusion Industry Needs $10 Billion to Beat China",
+      "slug": "the-fusion-industry-needs-10-billion-to-beat-china",
+      "url": "/insights/the-fusion-industry-needs-10-billion-to-beat-china.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e1400f00ff1d6887",
+      "title": "Clear Blue Breaks Ground on 228-Unit Affordable Housing Community in Dickson, Tennessee",
+      "slug": "clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten",
+      "url": "/insights/clear-blue-breaks-ground-on-228-unit-affordable-housing-community-in-dickson-ten.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e96fd42d52d04b23",
+      "title": "NYSERDA approves 1.7 GW of new state renewable energy projects",
+      "slug": "nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects",
+      "url": "/insights/nyserda-approves-1-7-gw-of-new-state-renewable-energy-projects.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "79b7c44bc263804d",
+      "title": "A recent legal victory could free $7B in frozen Solar for All funds",
+      "slug": "a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds",
+      "url": "/insights/a-recent-legal-victory-could-free-7b-in-frozen-solar-for-all-funds.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8dba8e5e1abd84c0",
+      "title": "JLL arranges $456m for Family Dollar’s national distribution center portfolio",
+      "slug": "jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio",
+      "url": "/insights/jll-arranges-456m-for-family-dollar-s-national-distribution-center-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "07067fa168c126c8",
+      "title": "OCC Reports Mortgage Performance for Second Quarter of 2026",
+      "slug": "occ-reports-mortgage-performance-for-second-quarter-of-2026",
+      "url": "/insights/occ-reports-mortgage-performance-for-second-quarter-of-2026.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "07045d444a0deac1",
+      "title": "EQT builds GCC investment platform with Abu Dhabi launch",
+      "slug": "eqt-builds-gcc-investment-platform-with-abu-dhabi-launch",
+      "url": "/insights/eqt-builds-gcc-investment-platform-with-abu-dhabi-launch.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "62a797b1343a1c33",
+      "title": "POWER Digest [October 2026]",
+      "slug": "power-digest-october-2026",
+      "url": "/insights/power-digest-october-2026.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e59ed595ac6f058f",
+      "title": "Zambia commissions 100 MW solar project",
+      "slug": "zambia-commissions-100-mw-solar-project",
+      "url": "/insights/zambia-commissions-100-mw-solar-project.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "80dd3f2243fa8255",
+      "title": "Canada's biggest banks team up on tokenized deposits",
+      "slug": "canada-s-biggest-banks-team-up-on-tokenized-deposits",
+      "url": "/insights/canada-s-biggest-banks-team-up-on-tokenized-deposits.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "94e6cfea6328eb15",
+      "title": "Virginia, Maryland Tighten Data Center Rules as Scrutiny Intensifies",
+      "slug": "virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies",
+      "url": "/insights/virginia-maryland-tighten-data-center-rules-as-scrutiny-intensifies.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 22
+}

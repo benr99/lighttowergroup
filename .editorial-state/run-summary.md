@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **829**
-- Distinct events: **780**
-- Articles: **25**
+- Candidates: **860**
+- Distinct events: **800**
+- Articles: **22**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,28 +12,25 @@
 
 ## Published candidates
 
-- **analysis** — Student Housing’s Hidden Credit Risk: Low Defaults Mask $1.25 Billion in Sub-1.0x DSCR Loans (1 sources; v3_daily_slate selection)
-- **analysis** — DHS Awards $7.3B In Contracts To Build Detention Facilities In 5 States (1 sources; v3_daily_slate selection)
-- **analysis** — Brookfield's GGP Lines Up $800M CMBS Refi Of 2.4M SF Suburban Chicago Mall (1 sources; v3_daily_slate selection)
-- **analysis** — What’s a Utility to Do When Everyone Is Mad at Them? (1 sources; v3_daily_slate selection)
-- **analysis** — Richard Born Joins Investor Group in BlackRock’s $245M Sale of 600 Third Avenue (1 sources; v3_daily_slate selection)
-- **analysis** — Fed's Jefferson: discount window reforms help Treasury market (1 sources; v3_daily_slate selection)
-- **analysis** — With federal funding windfall, X-energy advances small nuclear reactor (1 sources; v3_daily_slate selection)
-- **analysis** — Adam America and JW Capital Close $180M Refinancing of FIU-Adjacent Student Housing (1 sources; v3_daily_slate selection)
-- **analysis** — Bank economists: Business spending will drive resilient growth in the face of elevated inflation (1 sources; v3_daily_slate selection)
-- **analysis** — Dwight Investment Management Provides $42M Refi for College Station Apartments (1 sources; v3_daily_slate selection)
-- **analysis** — Oaktree backs UWM with $1.5B (1 sources; v3_daily_slate selection)
-- **analysis** — Ohio Supreme Court Blocks Ballot Measure Targeting $4B AWS Data Center (1 sources; v3_daily_slate selection)
-- **analysis** — Fed’s Jefferson provides update on discount window modernization (1 sources; v3_daily_slate selection)
-- **analysis** — L&L Infinite Completes $245 Million Acquisition Of 600 Third Avenue In Midtown East, Manhattan (1 sources; v3_daily_slate selection)
-- **analysis** — Marty Burger-L&L Venture Debuts With $245M Third Avenue Deal: The N.Y. Deal Sheet (1 sources; v3_daily_slate selection)
-- **analysis** — JP Morgan Chase Sells South Florida Rental for $106M (1 sources; v3_daily_slate selection)
-- **analysis** — Revisiting China's Current Account: Evidence from Recent Revisions (1 sources; v3_daily_slate selection)
-- **analysis** — J.P. Morgan Fund Sells Wellington Apartments For $105M (1 sources; v3_daily_slate selection)
-- **brief** — What Past Fed Hiking Cycles Signal for Yields, Recession Risk (1 sources; v3_daily_slate selection)
-- **brief** — Florida de novo opens its doors (1 sources; v3_daily_slate selection)
-- **brief** — Blackstone targets $8.5bn for latest energy transition fund (2 sources; v3_daily_slate selection)
-- **brief** — Google to pay for nuclear uprates at Georgia Power’s Hatch, Vogtle plants (1 sources; v3_daily_slate selection)
-- **brief** — Meta signs 144MW solar PPA with Apex in Texas (1 sources; v3_daily_slate selection)
-- **brief** — Judge adds credit unions to Illinois swipe fee injunction (1 sources; v3_daily_slate selection)
-- **brief** — Alberta to charge CAN 14 per new solar panel for end-of-life recycling (1 sources; v3_daily_slate selection)
+- **analysis** — 12 Sponsors Back Half of Securitized Self-Storage Debt, While Refinancing Risk Is Even More Concentrated (1 sources; v3_daily_slate selection)
+- **analysis** — Kroenke's Manhattan Mini Storage Lands $2.1B Refinancing For 54,000 Units (1 sources; v3_daily_slate selection)
+- **analysis** — Wells Fargo Supplies $456M Refi for Family Dollar’s Distribution Center Portfolio (1 sources; v3_daily_slate selection)
+- **analysis** — FERC rejects ComEd’s cancellation of PowerHouse Hillwood data center contract (1 sources; v3_daily_slate selection)
+- **analysis** — George Comfort & Sons Refinances 200 Madison for $386M (1 sources; v3_daily_slate selection)
+- **analysis** — New York Life Provides $386M Refi for 200 Madison Avenue (1 sources; v3_daily_slate selection)
+- **analysis** — Hudson Bay Capital Refis Microsoft-Anchored SoHo Building With $85M Loan (1 sources; v3_daily_slate selection)
+- **analysis** — Thompson Thrift launches ninth multifamily development limited partnership (2 sources; v3_daily_slate selection)
+- **analysis** — Darwin Investment Group closes $130 million refinancing for 39-building industrial portfolio in Chicago, Southeast Wisconsin markets (1 sources; v3_daily_slate selection)
+- **analysis** — SEC Charges South Florida Resident and His Company for Alleged Investment Scheme Defrauding Law Enforcement (1 sources; v3_daily_slate selection)
+- **analysis** — Fed's Williams Says More Work Needed to Lower Inflation (1 sources; v3_daily_slate selection)
+- **analysis** — The Fusion Industry Needs $10 Billion to Beat China (1 sources; v3_daily_slate selection)
+- **analysis** — Clear Blue Breaks Ground on 228-Unit Affordable Housing Community in Dickson, Tennessee (1 sources; v3_daily_slate selection)
+- **analysis** — NYSERDA approves 1.7 GW of new state renewable energy projects (1 sources; v3_daily_slate selection)
+- **analysis** — A recent legal victory could free $7B in frozen Solar for All funds (1 sources; v3_daily_slate selection)
+- **brief** — JLL arranges $456m for Family Dollar’s national distribution center portfolio (1 sources; v3_daily_slate selection)
+- **brief** — OCC Reports Mortgage Performance for Second Quarter of 2026 (1 sources; v3_daily_slate selection)
+- **brief** — EQT builds GCC investment platform with Abu Dhabi launch (1 sources; v3_daily_slate selection)
+- **brief** — POWER Digest [October 2026] (1 sources; v3_daily_slate selection)
+- **brief** — Zambia commissions 100 MW solar project (1 sources; v3_daily_slate selection)
+- **brief** — Canada's biggest banks team up on tokenized deposits (1 sources; v3_daily_slate selection)
+- **brief** — Virginia, Maryland Tighten Data Center Rules as Scrutiny Intensifies (1 sources; v3_daily_slate selection)
