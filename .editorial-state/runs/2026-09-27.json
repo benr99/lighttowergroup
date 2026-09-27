@@ -1,0 +1,464 @@
+{
+  "run_at": "2026-09-27T15:37:00.439327+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 262,
+  "documents_from_feeds": 159,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 258,
+  "documents_consolidated": 4,
+  "eligible": 11,
+  "enriched": 236,
+  "evidence_upgraded": 146,
+  "selected": 3,
+  "publication_candidates": 3,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 8,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "commercial_real_estate": {
+      "considered": 189,
+      "eligible": 8,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 13,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "13 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "energy": {
+      "considered": 24,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 3,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "local_government": {
+      "considered": 1,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 20,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "20 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 3
+  },
+  "shortfalls": [
+    "banking_credit: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "commercial_real_estate: only 3 of 8 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: 13 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "energy: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "local_government: 1 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: 20 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 66.4,
+    "mean": 26.8,
+    "stdev": 14.3,
+    "range_used": 66.4,
+    "median": 25.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 237,
+    "fetched": 200,
+    "from_cache": 0,
+    "blocked": 33,
+    "failed": 4,
+    "skipped_budget": 0,
+    "bytes_downloaded": 55221513,
+    "elapsed_ms": 95655,
+    "by_status": {
+      "partial_text": 54,
+      "blocked": 33,
+      "full_text": 146,
+      "failed": 4
+    }
+  },
+  "novelty": {
+    "new": 186,
+    "minor_follow_up": 71,
+    "material_update": 1
+  },
+  "memory": {
+    "events_remembered": 12528,
+    "published": 858,
+    "seen_but_not_run": 11670,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-27",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 177.9,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 3,
+    "written": 3,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 3,
+    "elapsed_seconds": 7.03,
+    "provider_attempts": {
+      "deepseek": 3
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "52b7f58062b2de9f",
+        "title": "Linda Evangelista Sells Her Chelsea Penthouse Loft for $6.75 million",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.02,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 357,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e5dd727e98a1bc13245b24de80f52fd6add841e8924a82f2d2d094be9269ec23"
+        },
+        "seconds": 7.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ecf4a0989ffe52ed",
+        "title": "Marcus & Millichap Arranges Sale of 24-Unit Multifamily Property The Marq Apartments in Los Angeles California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 285,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "a92a3b432b270580e506c7e2c26b5246a66f88d4ffd317fd8db8c3331e40ddde"
+        },
+        "seconds": 6.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "211b5fce98412139",
+        "title": "Marcus & Millichap Arranges $13.25M Sale of 59-Unit Multifamily Property in El Cajon California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.69,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 315,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c3aba91b59439ff3b7855a0824ef07a3602d05e483e845ed3c08ece6d08e5785"
+        },
+        "seconds": 6.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 3,
+    "published": 3,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million_social.png",
+      "insights/linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million.html",
+      "insights/marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen_social.png",
+      "insights/marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen.html",
+      "insights/marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo_social.png",
+      "insights/marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million_related.json",
+      "insights/marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen_related.json",
+      "insights/marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "52b7f58062b2de9f",
+        "title": "Linda Evangelista Sells Her Chelsea Penthouse Loft for $6.75 million",
+        "slug": "linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million",
+        "url": "/insights/linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ecf4a0989ffe52ed",
+        "title": "Marcus & Millichap Arranges Sale of 24-Unit Multifamily Property The Marq Apartments in Los Angeles California",
+        "slug": "marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen",
+        "url": "/insights/marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "211b5fce98412139",
+        "title": "Marcus & Millichap Arranges $13.25M Sale of 59-Unit Multifamily Property in El Cajon California",
+        "slug": "marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo",
+        "url": "/insights/marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "52b7f58062b2de9f",
+        "slug": "linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million",
+        "title": "Linda Evangelista Sells Her Chelsea Penthouse Loft for $6.75 million",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ecf4a0989ffe52ed",
+        "slug": "marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen",
+        "title": "Marcus & Millichap Arranges Sale of 24-Unit Multifamily Property The Marq Apartments in Los Angeles California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen.html",
+        "reason": ""
+      },
+      {
+        "object_id": "211b5fce98412139",
+        "slug": "marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo",
+        "title": "Marcus & Millichap Arranges $13.25M Sale of 59-Unit Multifamily Property in El Cajon California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 3,
+    "successful_calls": 3,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.06,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 9.11,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.03,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.05,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.27,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 45.32,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 96.52,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 8.5,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.74,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.31,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 3 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 177.94,
+  "status": "ready",
+  "candidate_count": 262,
+  "event_count": 258,
+  "articles": [
+    {
+      "event_id": "52b7f58062b2de9f",
+      "title": "Linda Evangelista Sells Her Chelsea Penthouse Loft for $6.75 million",
+      "slug": "linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million",
+      "url": "/insights/linda-evangelista-sells-her-chelsea-penthouse-loft-for-6-75-million.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ecf4a0989ffe52ed",
+      "title": "Marcus & Millichap Arranges Sale of 24-Unit Multifamily Property The Marq Apartments in Los Angeles California",
+      "slug": "marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen",
+      "url": "/insights/marcus-millichap-arranges-sale-of-24-unit-multifamily-property-the-marq-apartmen.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "211b5fce98412139",
+      "title": "Marcus & Millichap Arranges $13.25M Sale of 59-Unit Multifamily Property in El Cajon California",
+      "slug": "marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo",
+      "url": "/insights/marcus-millichap-arranges-13-25m-sale-of-59-unit-multifamily-property-in-el-cajo.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 3
+}
