@@ -1,0 +1,2189 @@
+{
+  "run_at": "2026-09-28T18:34:15.295928+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 593,
+  "documents_from_feeds": 490,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 568,
+  "documents_consolidated": 25,
+  "eligible": 72,
+  "enriched": 250,
+  "evidence_upgraded": 170,
+  "selected": 28,
+  "publication_candidates": 28,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 34,
+      "eligible": 7,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 325,
+      "eligible": 43,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 52,
+      "eligible": 3,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 3 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 78,
+      "eligible": 7,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 12,
+      "eligible": 5,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 4,
+      "eligible": 2,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 63,
+      "eligible": 5,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 5 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 13,
+    "tier_c": 15
+  },
+  "shortfalls": [
+    "banking_credit: only 5 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 2 of 3 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 7 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 5 of 5 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 2 of 2 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 2 of 5 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 69.3,
+    "mean": 24.4,
+    "stdev": 13.58,
+    "range_used": 69.3,
+    "median": 19.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 251,
+    "fetched": 228,
+    "from_cache": 0,
+    "blocked": 13,
+    "failed": 10,
+    "skipped_budget": 0,
+    "bytes_downloaded": 52192041,
+    "elapsed_ms": 45106,
+    "by_status": {
+      "full_text": 171,
+      "partial_text": 57,
+      "failed": 10,
+      "blocked": 13
+    }
+  },
+  "novelty": {
+    "new": 498,
+    "already_published": 1,
+    "minor_follow_up": 69
+  },
+  "memory": {
+    "events_remembered": 12973,
+    "published": 886,
+    "seen_but_not_run": 12087,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-28",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 219.8,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 28,
+    "written": 28,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 31,
+    "elapsed_seconds": 38.37,
+    "provider_attempts": {
+      "deepseek": 31
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "e81907d85041879d",
+        "title": "Brixmor Property Group, Everview Partners Acquire Slate Grocery REIT for $2.34B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 555,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d353329d38585ac60438345eeafc7838bb20c20d693561d9bd2c50b421a21446"
+        },
+        "seconds": 8.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b39e50360d21e983",
+        "title": "Brixmor, Everview Agree to Acquire Slate Grocery REIT for $2.3 Billion, Including 115 Retail Properties",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 566,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "74dd3beb161cdef43178e4c42f7c7f1f306cd08971bbb527b23af2117bf9f969"
+        },
+        "seconds": 8.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0aa82f2edbb88187",
+        "title": "Viral AI agent Instinct raises $1B Series C at a $10B valuation",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.62,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 560,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "5ed66b46a4b4d23d07ca79b829555288f7b36501f3d1ec925e0408378cb084a4"
+        },
+        "seconds": 8.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dcbdedbdabf12ff7",
+        "title": "Valley National Bank to acquire fintech Bluevine for $340M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.91,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 585,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0ceb7f3a3889fcc693372f538dbcb9248751f9045b566fa766d798f2b609b054"
+        },
+        "seconds": 8.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3140f3b06d029174",
+        "title": "Treasury taps Jefferies strategist David Zervos as counselor",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.17,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 619,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e9428ab0f183ae3332c54ac4e6bfa61cf32f6dad04d6b1dbfa66875c136f47fd"
+        },
+        "seconds": 9.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7faa6d081ea7ef6a",
+        "title": "Mavik Loans $229M in Construction Financing for Tempe Multifamily",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.12,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 575,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ab63cfa3ab7f27f2bc3f423e8746e0b558fae779c0abbe6c45d8dc692c13f87e"
+        },
+        "seconds": 9.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f492bebd815d74f2",
+        "title": "Fed proposes stablecoin rules",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.81,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 441,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "1362cda55975e1f1de66aaa2f6441e8549e88ccaf902dfc21ea1d6514736cc55"
+        },
+        "seconds": 5.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "55b06982fead7a32",
+        "title": "Northmarq Lends $19.1M Through Freddie Mac’s Optigo Platform for a 154-Unit Community in Dover Pennsylvania",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.39,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 527,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "4a7e3490a446506716a3b93667a71388c048a288a8b0555fb01e920b9548e52b"
+        },
+        "seconds": 8.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "546d3b930ecabd0e",
+        "title": "National Healthcare Properties To Sell 40 Outpatient Medical Facilities, Exit Sector",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.58,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 539,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d8406af86fb23ece979699693bc90601ffe2ecdc2f07421d7327e56cf06e0f2a"
+        },
+        "seconds": 6.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dd5aff95649c4d58",
+        "title": "Who’s Borrowing and Lending in Repo Markets?",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 659,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e2a9750120f3cee747c87516945456fe26e094ff8e3b470d28ccd64fc81903c7"
+        },
+        "seconds": 8.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "18c637f8c7f1236d",
+        "title": "Newmark Arranges $98M Sale of Medical Campus in Fairfax",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.03,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 487,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "382892c14b1daefee4dd5dc0541623a0108d0c37193149e92b47bc90d67a84ca"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6d558ac65e208b28",
+        "title": "Cook, An Update on AI and the Economy",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.03,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 671,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0c81e01a668bf102a38e53d8639b86c5d30ab9fbbc71030452a332f55d770b51"
+        },
+        "seconds": 10.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "63f2b6f142aff33a",
+        "title": "FEDS Note: When the Chips Went Down: Motor Vehicle Production and the 2021-2022 Semiconductor Shortages",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 722,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "3cf3d074ccad6fe60fd69700232721313793b0658ee294cfbc8043c2aa543478"
+        },
+        "seconds": 8.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5da0c7821161270b",
+        "title": "Elysee Investments Buys Shopping Center Near Waterford Business District for $28M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.86,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 281,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "06e5289177d592306de61f389b1201f4fccbbdc9d4cd50be650bff0a40c9d010"
+        },
+        "seconds": 4.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e3390d78ef695e78",
+        "title": "AEW Sells Industrial Park For $61M: The Los Angeles Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 290,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "eb6c6c249be35f872590fcf3f488ec61654eba27b55a26e0fb8f0a6b172098a4"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1c5346d9005fbae4",
+        "title": "Davis’ First Credit Platform Transaction Provides $44 Million for Boston Office-to-Residential Conversion",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.82,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 317,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "92627d03a956ec759ce7a6ae866d5282884fea42806af32194c1ee82fde8a354"
+        },
+        "seconds": 4.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2ccaa3565aecc9b8",
+        "title": "FDIC clamps down on ‘significantly undercapitalized’ Old Glory Bank",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 374,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9d766038c06eeff7aee1527b812868b096d986fe95d51097d9248a0495d7ae45"
+        },
+        "seconds": 4.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9ae10929d68a7449",
+        "title": "Mission Lane gets green light for OCC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 327,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b4d2e7c8ca6a42db33841c051fc71830c60016492565350966476fabdea1cd37"
+        },
+        "seconds": 4.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0d1e0907e2f4dc6a",
+        "title": "Plans are looking up for sky-high apartment project by Brooklyn Bridge",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.65,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 364,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "20636bc30fb83c2effd1fe05735efe45bccabdcf52508d10ffcdbf60f1b8e827"
+        },
+        "seconds": 5.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "170d83f238304ce3",
+        "title": "New York City Council and CUNY Announce Launch of New Pilot Program Giving Free, Unlimited OMNY Cards to Students",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.6,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 362,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "74d9b4b909a48cdcf275509d74dbcc33200b00761f5fdd0e97335c3ea16efe8b"
+        },
+        "seconds": 11.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d31527744998bac1",
+        "title": "Another judge rejects Trump's attempt to halt CFPB funding",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.22,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 374,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "742ff8e003e9ef1ec9bd7e7d832ad2708ce13d8f2e186d9ec681df027e0398a8"
+        },
+        "seconds": 5.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7a76065742d4653e",
+        "title": "Statement on Fair Value Measurement and Disclosure Considerations for Private Assets",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.9,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 311,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "657b505d8618fd82485379044b3a6944d59a33b535b83bfedfe68e17ef0f07f5"
+        },
+        "seconds": 11.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "25da1949607f8c8f",
+        "title": "Pat Gelsinger-backed optical startup raises $27.5m to scale VCSELs for AI links",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.88,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 378,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "71e368b992d894fd934f15b9bfdc22a64c1a46bb579a41ce818fbdf0f8ea4aa1"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d9c62a219993cd25",
+        "title": "Submer Group launches Corenix with 500MW liquid-cooling track record behind modular AI data centre push",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.63,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 333,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1f833c1a06d4ea0c62eddaf651c48a96ea1b81a57284c8527c53c9035bb1cbc1"
+        },
+        "seconds": 9.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "712ab02919d3f85d",
+        "title": "Tone-Deaf Trillionaire Launches $200,000 Electric Car Into Sour US Market",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.91,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 366,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ee5e1a75aa2151258fab906bb309950b732c462ecdadb850680d0a39aa2ee8dd"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f34471186895b2e9",
+        "title": "New York City Council Announces Anthropic, OpenAI, Google, and Meta to Publicly Testify Under Oath for First Time Since Recent Incident Reports",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.78,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 320,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "02e52b66f9038b6c0e38626101d2705644b2acde79378f04a7000b2a5cebd1ba"
+        },
+        "seconds": 4.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1ed953d408c83bc8",
+        "title": "Kia PH Brings EV3 to Shake Up Compact Electric Crossover Market",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.19,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 327,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d35eb46b9cd35144ca709efc8966862311401669e7fae3f7491eabdb89521078"
+        },
+        "seconds": 5.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8932adf957560141",
+        "title": "Deal Roundup: Third Point leads $3.36bn Nscale financing; Audax exits GCG to Rexel for $1.4bn",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 331,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9097b6e84326743b063cc0074967b1d68fa4c77c461b053c97f87ac6e14a2778"
+        },
+        "seconds": 6.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 28,
+    "published": 28,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b_social.png",
+      "insights/brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b.html",
+      "insights/brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion_social.png",
+      "insights/brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion.html",
+      "insights/instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f_social.png",
+      "insights/instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f.html",
+      "insights/valley-national-bank-to-acquire-fintech-bluevine-for-340m_social.png",
+      "insights/valley-national-bank-to-acquire-fintech-bluevine-for-340m.html",
+      "insights/treasury-taps-jefferies-strategist-david-zervos-as-counselor_social.png",
+      "insights/treasury-taps-jefferies-strategist-david-zervos-as-counselor.html",
+      "insights/mavik-loans-229m-in-construction-financing-for-tempe-multifamily_social.png",
+      "insights/mavik-loans-229m-in-construction-financing-for-tempe-multifamily.html",
+      "insights/fed-proposes-stablecoin-rules_social.png",
+      "insights/fed-proposes-stablecoin-rules.html",
+      "insights/northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu_social.png",
+      "insights/northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu.html",
+      "insights/national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec_social.png",
+      "insights/national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec.html",
+      "insights/who-s-borrowing-and-lending-in-repo-markets_social.png",
+      "insights/who-s-borrowing-and-lending-in-repo-markets.html",
+      "insights/newmark-arranges-98m-sale-of-medical-campus-in-fairfax_social.png",
+      "insights/newmark-arranges-98m-sale-of-medical-campus-in-fairfax.html",
+      "insights/cook-an-update-on-ai-and-the-economy_social.png",
+      "insights/cook-an-update-on-ai-and-the-economy.html",
+      "insights/when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto_social.png",
+      "insights/when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto.html",
+      "insights/elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m_social.png",
+      "insights/elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m.html",
+      "insights/aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet_social.png",
+      "insights/aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet.html",
+      "insights/davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to_social.png",
+      "insights/davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to.html",
+      "insights/fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank_social.png",
+      "insights/fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank.html",
+      "insights/mission-lane-gets-green-light-for-occ-charter_social.png",
+      "insights/mission-lane-gets-green-light-for-occ-charter.html",
+      "insights/plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge_social.png",
+      "insights/plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge.html",
+      "insights/new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free_social.png",
+      "insights/new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free.html",
+      "insights/another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding_social.png",
+      "insights/another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding.html",
+      "insights/statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as_social.png",
+      "insights/statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as.html",
+      "insights/pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links_social.png",
+      "insights/pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links.html",
+      "insights/submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu_social.png",
+      "insights/submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu.html",
+      "insights/tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market_social.png",
+      "insights/tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market.html",
+      "insights/nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms_social.png",
+      "insights/nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms.html",
+      "insights/kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market_social.png",
+      "insights/kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market.html",
+      "insights/deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel_social.png",
+      "insights/deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b_related.json",
+      "insights/brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion_related.json",
+      "insights/instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f_related.json",
+      "insights/valley-national-bank-to-acquire-fintech-bluevine-for-340m_related.json",
+      "insights/treasury-taps-jefferies-strategist-david-zervos-as-counselor_related.json",
+      "insights/mavik-loans-229m-in-construction-financing-for-tempe-multifamily_related.json",
+      "insights/fed-proposes-stablecoin-rules_related.json",
+      "insights/northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu_related.json",
+      "insights/national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec_related.json",
+      "insights/who-s-borrowing-and-lending-in-repo-markets_related.json",
+      "insights/newmark-arranges-98m-sale-of-medical-campus-in-fairfax_related.json",
+      "insights/cook-an-update-on-ai-and-the-economy_related.json",
+      "insights/when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto_related.json",
+      "insights/elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m_related.json",
+      "insights/aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet_related.json",
+      "insights/davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to_related.json",
+      "insights/fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank_related.json",
+      "insights/mission-lane-gets-green-light-for-occ-charter_related.json",
+      "insights/plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge_related.json",
+      "insights/new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free_related.json",
+      "insights/another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding_related.json",
+      "insights/statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as_related.json",
+      "insights/pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links_related.json",
+      "insights/submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu_related.json",
+      "insights/tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market_related.json",
+      "insights/nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms_related.json",
+      "insights/kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market_related.json",
+      "insights/deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "e81907d85041879d",
+        "title": "Brixmor Property Group, Everview Partners Acquire Slate Grocery REIT for $2.34B",
+        "slug": "brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b",
+        "url": "/insights/brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b39e50360d21e983",
+        "title": "Brixmor and Everview Agree to Acquire Slate Grocery REIT for $2.3 Billion",
+        "slug": "brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion",
+        "url": "/insights/brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0aa82f2edbb88187",
+        "title": "Instinct's $1B Series C at a $10B valuation shows the speed of consumer AI agent fervor",
+        "slug": "instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f",
+        "url": "/insights/instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dcbdedbdabf12ff7",
+        "title": "Valley National Bank to acquire fintech Bluevine for $340M",
+        "slug": "valley-national-bank-to-acquire-fintech-bluevine-for-340m",
+        "url": "/insights/valley-national-bank-to-acquire-fintech-bluevine-for-340m.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3140f3b06d029174",
+        "title": "Treasury taps Jefferies strategist David Zervos as counselor",
+        "slug": "treasury-taps-jefferies-strategist-david-zervos-as-counselor",
+        "url": "/insights/treasury-taps-jefferies-strategist-david-zervos-as-counselor.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7faa6d081ea7ef6a",
+        "title": "Mavik Loans $229M in Construction Financing for Tempe Multifamily",
+        "slug": "mavik-loans-229m-in-construction-financing-for-tempe-multifamily",
+        "url": "/insights/mavik-loans-229m-in-construction-financing-for-tempe-multifamily.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f492bebd815d74f2",
+        "title": "Fed proposes stablecoin rules",
+        "slug": "fed-proposes-stablecoin-rules",
+        "url": "/insights/fed-proposes-stablecoin-rules.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "55b06982fead7a32",
+        "title": "Northmarq Lends $19.1M Through Freddie Mac’s Optigo Platform for a 154-Unit Community in Dover Pennsylvania",
+        "slug": "northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu",
+        "url": "/insights/northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "546d3b930ecabd0e",
+        "title": "National Healthcare Properties To Sell 40 Outpatient Medical Facilities, Exit Sector",
+        "slug": "national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec",
+        "url": "/insights/national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dd5aff95649c4d58",
+        "title": "Who’s Borrowing and Lending in Repo Markets?",
+        "slug": "who-s-borrowing-and-lending-in-repo-markets",
+        "url": "/insights/who-s-borrowing-and-lending-in-repo-markets.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "18c637f8c7f1236d",
+        "title": "Newmark Arranges $98M Sale of Medical Campus in Fairfax",
+        "slug": "newmark-arranges-98m-sale-of-medical-campus-in-fairfax",
+        "url": "/insights/newmark-arranges-98m-sale-of-medical-campus-in-fairfax.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6d558ac65e208b28",
+        "title": "Cook, An Update on AI and the Economy",
+        "slug": "cook-an-update-on-ai-and-the-economy",
+        "url": "/insights/cook-an-update-on-ai-and-the-economy.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "63f2b6f142aff33a",
+        "title": "When the Chips Went Down: Motor Vehicle Production and the 2021-2022 Semiconductor Shortages",
+        "slug": "when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto",
+        "url": "/insights/when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5da0c7821161270b",
+        "title": "Elysee Investments Buys Shopping Center Near Waterford Business District for $28M",
+        "slug": "elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m",
+        "url": "/insights/elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e3390d78ef695e78",
+        "title": "AEW Sells Industrial Park For $61M: The Los Angeles Deal Sheet",
+        "slug": "aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet",
+        "url": "/insights/aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1c5346d9005fbae4",
+        "title": "Davis’ First Credit Platform Transaction Provides $44 Million for Boston Office-to-Residential Conversion",
+        "slug": "davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to",
+        "url": "/insights/davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2ccaa3565aecc9b8",
+        "title": "FDIC clamps down on ‘significantly undercapitalized’ Old Glory Bank",
+        "slug": "fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank",
+        "url": "/insights/fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9ae10929d68a7449",
+        "title": "Mission Lane gets green light for OCC charter",
+        "slug": "mission-lane-gets-green-light-for-occ-charter",
+        "url": "/insights/mission-lane-gets-green-light-for-occ-charter.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0d1e0907e2f4dc6a",
+        "title": "Plans are looking up for sky-high apartment project by Brooklyn Bridge",
+        "slug": "plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge",
+        "url": "/insights/plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "170d83f238304ce3",
+        "title": "New York City Council and CUNY Announce Launch of New Pilot Program Giving Free, Unlimited OMNY Cards to Students",
+        "slug": "new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free",
+        "url": "/insights/new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d31527744998bac1",
+        "title": "Another judge rejects Trump's attempt to halt CFPB funding",
+        "slug": "another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding",
+        "url": "/insights/another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 2,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "7a76065742d4653e",
+        "title": "Statement on Fair Value Measurement and Disclosure Considerations for Private Assets",
+        "slug": "statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as",
+        "url": "/insights/statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "25da1949607f8c8f",
+        "title": "Pat Gelsinger-backed optical startup raises $27.5m to scale VCSELs for AI links",
+        "slug": "pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links",
+        "url": "/insights/pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d9c62a219993cd25",
+        "title": "Submer Group launches Corenix with 500MW liquid-cooling track record behind modular AI data centre push",
+        "slug": "submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu",
+        "url": "/insights/submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "712ab02919d3f85d",
+        "title": "Tone-Deaf Trillionaire Launches $200,000 Electric Car Into Sour US Market",
+        "slug": "tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market",
+        "url": "/insights/tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f34471186895b2e9",
+        "title": "NYC Council Secures First Public Testimony Under Oath From Major AI Firms",
+        "slug": "nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms",
+        "url": "/insights/nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1ed953d408c83bc8",
+        "title": "Kia PH Brings EV3 to Shake Up Compact Electric Crossover Market",
+        "slug": "kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market",
+        "url": "/insights/kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8932adf957560141",
+        "title": "Deal Roundup: Third Point leads $3.36bn Nscale financing; Audax exits GCG to Rexel for $1.4bn",
+        "slug": "deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel",
+        "url": "/insights/deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "e81907d85041879d",
+        "slug": "brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b",
+        "title": "Brixmor Property Group, Everview Partners Acquire Slate Grocery REIT for $2.34B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b39e50360d21e983",
+        "slug": "brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion",
+        "title": "Brixmor, Everview Agree to Acquire Slate Grocery REIT for $2.3 Billion, Including 115 Retail Properties",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0aa82f2edbb88187",
+        "slug": "instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f",
+        "title": "Viral AI agent Instinct raises $1B Series C at a $10B valuation",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dcbdedbdabf12ff7",
+        "slug": "valley-national-bank-to-acquire-fintech-bluevine-for-340m",
+        "title": "Valley National Bank to acquire fintech Bluevine for $340M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/valley-national-bank-to-acquire-fintech-bluevine-for-340m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3140f3b06d029174",
+        "slug": "treasury-taps-jefferies-strategist-david-zervos-as-counselor",
+        "title": "Treasury taps Jefferies strategist David Zervos as counselor",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/treasury-taps-jefferies-strategist-david-zervos-as-counselor.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7faa6d081ea7ef6a",
+        "slug": "mavik-loans-229m-in-construction-financing-for-tempe-multifamily",
+        "title": "Mavik Loans $229M in Construction Financing for Tempe Multifamily",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/mavik-loans-229m-in-construction-financing-for-tempe-multifamily.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f492bebd815d74f2",
+        "slug": "fed-proposes-stablecoin-rules",
+        "title": "Fed proposes stablecoin rules",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-proposes-stablecoin-rules.html",
+        "reason": ""
+      },
+      {
+        "object_id": "55b06982fead7a32",
+        "slug": "northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu",
+        "title": "Northmarq Lends $19.1M Through Freddie Mac’s Optigo Platform for a 154-Unit Community in Dover Pennsylvania",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu.html",
+        "reason": ""
+      },
+      {
+        "object_id": "546d3b930ecabd0e",
+        "slug": "national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec",
+        "title": "National Healthcare Properties To Sell 40 Outpatient Medical Facilities, Exit Sector",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dd5aff95649c4d58",
+        "slug": "who-s-borrowing-and-lending-in-repo-markets",
+        "title": "Who’s Borrowing and Lending in Repo Markets?",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/who-s-borrowing-and-lending-in-repo-markets.html",
+        "reason": ""
+      },
+      {
+        "object_id": "18c637f8c7f1236d",
+        "slug": "newmark-arranges-98m-sale-of-medical-campus-in-fairfax",
+        "title": "Newmark Arranges $98M Sale of Medical Campus in Fairfax",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/newmark-arranges-98m-sale-of-medical-campus-in-fairfax.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6d558ac65e208b28",
+        "slug": "cook-an-update-on-ai-and-the-economy",
+        "title": "Cook, An Update on AI and the Economy",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cook-an-update-on-ai-and-the-economy.html",
+        "reason": ""
+      },
+      {
+        "object_id": "63f2b6f142aff33a",
+        "slug": "when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto",
+        "title": "FEDS Note: When the Chips Went Down: Motor Vehicle Production and the 2021-2022 Semiconductor Shortages",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5da0c7821161270b",
+        "slug": "elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m",
+        "title": "Elysee Investments Buys Shopping Center Near Waterford Business District for $28M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e3390d78ef695e78",
+        "slug": "aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet",
+        "title": "AEW Sells Industrial Park For $61M: The Los Angeles Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1c5346d9005fbae4",
+        "slug": "davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to",
+        "title": "Davis’ First Credit Platform Transaction Provides $44 Million for Boston Office-to-Residential Conversion",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2ccaa3565aecc9b8",
+        "slug": "fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank",
+        "title": "FDIC clamps down on ‘significantly undercapitalized’ Old Glory Bank",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9ae10929d68a7449",
+        "slug": "mission-lane-gets-green-light-for-occ-charter",
+        "title": "Mission Lane gets green light for OCC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/mission-lane-gets-green-light-for-occ-charter.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0d1e0907e2f4dc6a",
+        "slug": "plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge",
+        "title": "Plans are looking up for sky-high apartment project by Brooklyn Bridge",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge.html",
+        "reason": ""
+      },
+      {
+        "object_id": "170d83f238304ce3",
+        "slug": "new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free",
+        "title": "New York City Council and CUNY Announce Launch of New Pilot Program Giving Free, Unlimited OMNY Cards to Students",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d31527744998bac1",
+        "slug": "another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding",
+        "title": "Another judge rejects Trump's attempt to halt CFPB funding",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7a76065742d4653e",
+        "slug": "statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as",
+        "title": "Statement on Fair Value Measurement and Disclosure Considerations for Private Assets",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as.html",
+        "reason": ""
+      },
+      {
+        "object_id": "25da1949607f8c8f",
+        "slug": "pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links",
+        "title": "Pat Gelsinger-backed optical startup raises $27.5m to scale VCSELs for AI links",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d9c62a219993cd25",
+        "slug": "submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu",
+        "title": "Submer Group launches Corenix with 500MW liquid-cooling track record behind modular AI data centre push",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu.html",
+        "reason": ""
+      },
+      {
+        "object_id": "712ab02919d3f85d",
+        "slug": "tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market",
+        "title": "Tone-Deaf Trillionaire Launches $200,000 Electric Car Into Sour US Market",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f34471186895b2e9",
+        "slug": "nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms",
+        "title": "New York City Council Announces Anthropic, OpenAI, Google, and Meta to Publicly Testify Under Oath for First Time Since Recent Incident Reports",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1ed953d408c83bc8",
+        "slug": "kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market",
+        "title": "Kia PH Brings EV3 to Shake Up Compact Electric Crossover Market",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8932adf957560141",
+        "slug": "deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel",
+        "title": "Deal Roundup: Third Point leads $3.36bn Nscale financing; Audax exits GCG to Rexel for $1.4bn",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 31,
+    "successful_calls": 31,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.11,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.04,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.09,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.28,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.67,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 106.1,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 46.03,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.09,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 39.95,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.11,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.31,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 28 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 219.77,
+  "status": "ready",
+  "candidate_count": 593,
+  "event_count": 568,
+  "articles": [
+    {
+      "event_id": "e81907d85041879d",
+      "title": "Brixmor Property Group, Everview Partners Acquire Slate Grocery REIT for $2.34B",
+      "slug": "brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b",
+      "url": "/insights/brixmor-property-group-everview-partners-acquire-slate-grocery-reit-for-2-34b.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b39e50360d21e983",
+      "title": "Brixmor and Everview Agree to Acquire Slate Grocery REIT for $2.3 Billion",
+      "slug": "brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion",
+      "url": "/insights/brixmor-and-everview-agree-to-acquire-slate-grocery-reit-for-2-3-billion.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0aa82f2edbb88187",
+      "title": "Instinct's $1B Series C at a $10B valuation shows the speed of consumer AI agent fervor",
+      "slug": "instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f",
+      "url": "/insights/instinct-s-1b-series-c-at-a-10b-valuation-shows-the-speed-of-consumer-ai-agent-f.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dcbdedbdabf12ff7",
+      "title": "Valley National Bank to acquire fintech Bluevine for $340M",
+      "slug": "valley-national-bank-to-acquire-fintech-bluevine-for-340m",
+      "url": "/insights/valley-national-bank-to-acquire-fintech-bluevine-for-340m.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3140f3b06d029174",
+      "title": "Treasury taps Jefferies strategist David Zervos as counselor",
+      "slug": "treasury-taps-jefferies-strategist-david-zervos-as-counselor",
+      "url": "/insights/treasury-taps-jefferies-strategist-david-zervos-as-counselor.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7faa6d081ea7ef6a",
+      "title": "Mavik Loans $229M in Construction Financing for Tempe Multifamily",
+      "slug": "mavik-loans-229m-in-construction-financing-for-tempe-multifamily",
+      "url": "/insights/mavik-loans-229m-in-construction-financing-for-tempe-multifamily.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f492bebd815d74f2",
+      "title": "Fed proposes stablecoin rules",
+      "slug": "fed-proposes-stablecoin-rules",
+      "url": "/insights/fed-proposes-stablecoin-rules.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "55b06982fead7a32",
+      "title": "Northmarq Lends $19.1M Through Freddie Mac’s Optigo Platform for a 154-Unit Community in Dover Pennsylvania",
+      "slug": "northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu",
+      "url": "/insights/northmarq-lends-19-1m-through-freddie-mac-s-optigo-platform-for-a-154-unit-commu.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "546d3b930ecabd0e",
+      "title": "National Healthcare Properties To Sell 40 Outpatient Medical Facilities, Exit Sector",
+      "slug": "national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec",
+      "url": "/insights/national-healthcare-properties-to-sell-40-outpatient-medical-facilities-exit-sec.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dd5aff95649c4d58",
+      "title": "Who’s Borrowing and Lending in Repo Markets?",
+      "slug": "who-s-borrowing-and-lending-in-repo-markets",
+      "url": "/insights/who-s-borrowing-and-lending-in-repo-markets.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "18c637f8c7f1236d",
+      "title": "Newmark Arranges $98M Sale of Medical Campus in Fairfax",
+      "slug": "newmark-arranges-98m-sale-of-medical-campus-in-fairfax",
+      "url": "/insights/newmark-arranges-98m-sale-of-medical-campus-in-fairfax.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6d558ac65e208b28",
+      "title": "Cook, An Update on AI and the Economy",
+      "slug": "cook-an-update-on-ai-and-the-economy",
+      "url": "/insights/cook-an-update-on-ai-and-the-economy.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "63f2b6f142aff33a",
+      "title": "When the Chips Went Down: Motor Vehicle Production and the 2021-2022 Semiconductor Shortages",
+      "slug": "when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto",
+      "url": "/insights/when-the-chips-went-down-motor-vehicle-production-and-the-2021-2022-semiconducto.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5da0c7821161270b",
+      "title": "Elysee Investments Buys Shopping Center Near Waterford Business District for $28M",
+      "slug": "elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m",
+      "url": "/insights/elysee-investments-buys-shopping-center-near-waterford-business-district-for-28m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e3390d78ef695e78",
+      "title": "AEW Sells Industrial Park For $61M: The Los Angeles Deal Sheet",
+      "slug": "aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet",
+      "url": "/insights/aew-sells-industrial-park-for-61m-the-los-angeles-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1c5346d9005fbae4",
+      "title": "Davis’ First Credit Platform Transaction Provides $44 Million for Boston Office-to-Residential Conversion",
+      "slug": "davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to",
+      "url": "/insights/davis-first-credit-platform-transaction-provides-44-million-for-boston-office-to.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2ccaa3565aecc9b8",
+      "title": "FDIC clamps down on ‘significantly undercapitalized’ Old Glory Bank",
+      "slug": "fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank",
+      "url": "/insights/fdic-clamps-down-on-significantly-undercapitalized-old-glory-bank.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9ae10929d68a7449",
+      "title": "Mission Lane gets green light for OCC charter",
+      "slug": "mission-lane-gets-green-light-for-occ-charter",
+      "url": "/insights/mission-lane-gets-green-light-for-occ-charter.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0d1e0907e2f4dc6a",
+      "title": "Plans are looking up for sky-high apartment project by Brooklyn Bridge",
+      "slug": "plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge",
+      "url": "/insights/plans-are-looking-up-for-sky-high-apartment-project-by-brooklyn-bridge.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "170d83f238304ce3",
+      "title": "New York City Council and CUNY Announce Launch of New Pilot Program Giving Free, Unlimited OMNY Cards to Students",
+      "slug": "new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free",
+      "url": "/insights/new-york-city-council-and-cuny-announce-launch-of-new-pilot-program-giving-free.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d31527744998bac1",
+      "title": "Another judge rejects Trump's attempt to halt CFPB funding",
+      "slug": "another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding",
+      "url": "/insights/another-judge-rejects-trump-s-attempt-to-halt-cfpb-funding.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 2,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "7a76065742d4653e",
+      "title": "Statement on Fair Value Measurement and Disclosure Considerations for Private Assets",
+      "slug": "statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as",
+      "url": "/insights/statement-on-fair-value-measurement-and-disclosure-considerations-for-private-as.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "25da1949607f8c8f",
+      "title": "Pat Gelsinger-backed optical startup raises $27.5m to scale VCSELs for AI links",
+      "slug": "pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links",
+      "url": "/insights/pat-gelsinger-backed-optical-startup-raises-27-5m-to-scale-vcsels-for-ai-links.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d9c62a219993cd25",
+      "title": "Submer Group launches Corenix with 500MW liquid-cooling track record behind modular AI data centre push",
+      "slug": "submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu",
+      "url": "/insights/submer-group-launches-corenix-with-500mw-liquid-cooling-track-record-behind-modu.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "712ab02919d3f85d",
+      "title": "Tone-Deaf Trillionaire Launches $200,000 Electric Car Into Sour US Market",
+      "slug": "tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market",
+      "url": "/insights/tone-deaf-trillionaire-launches-200-000-electric-car-into-sour-us-market.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f34471186895b2e9",
+      "title": "NYC Council Secures First Public Testimony Under Oath From Major AI Firms",
+      "slug": "nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms",
+      "url": "/insights/nyc-council-secures-first-public-testimony-under-oath-from-major-ai-firms.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1ed953d408c83bc8",
+      "title": "Kia PH Brings EV3 to Shake Up Compact Electric Crossover Market",
+      "slug": "kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market",
+      "url": "/insights/kia-ph-brings-ev3-to-shake-up-compact-electric-crossover-market.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8932adf957560141",
+      "title": "Deal Roundup: Third Point leads $3.36bn Nscale financing; Audax exits GCG to Rexel for $1.4bn",
+      "slug": "deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel",
+      "url": "/insights/deal-roundup-third-point-leads-3-36bn-nscale-financing-audax-exits-gcg-to-rexel.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    }
+  ],
+  "held": [],
+  "article_count": 28
+}
