@@ -1,0 +1,1914 @@
+{
+  "run_at": "2026-09-29T16:52:08.052805+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 846,
+  "documents_from_feeds": 743,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 810,
+  "documents_consolidated": 36,
+  "eligible": 117,
+  "enriched": 250,
+  "evidence_upgraded": 152,
+  "selected": 24,
+  "publication_candidates": 24,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 66,
+      "eligible": 8,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 416,
+      "eligible": 68,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 86,
+      "eligible": 6,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 132,
+      "eligible": 13,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 13 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 32,
+      "eligible": 12,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 12 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 3,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 3 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 73,
+      "eligible": 7,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 17,
+    "tier_c": 7
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 8 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 2 of 6 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 1 of 13 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 6 of 12 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 1 of 3 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 72.8,
+    "mean": 22.9,
+    "stdev": 12.58,
+    "range_used": 72.8,
+    "median": 18.6,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 251,
+    "fetched": 232,
+    "from_cache": 0,
+    "blocked": 14,
+    "failed": 5,
+    "skipped_budget": 0,
+    "bytes_downloaded": 52917211,
+    "elapsed_ms": 53569,
+    "by_status": {
+      "full_text": 152,
+      "partial_text": 80,
+      "failed": 5,
+      "blocked": 14
+    }
+  },
+  "novelty": {
+    "new": 709,
+    "already_published": 22,
+    "minor_follow_up": 77,
+    "material_update": 2
+  },
+  "memory": {
+    "events_remembered": 13489,
+    "published": 910,
+    "seen_but_not_run": 12579,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-09-29",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 322.7,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 24,
+    "written": 24,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 27,
+    "elapsed_seconds": 46.4,
+    "provider_attempts": {
+      "deepseek": 27
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "0ed5898ffe4e3e2d",
+        "title": "Limited-Service Hotel Loans Lead CMBS Lodging in Nonperforming Rate and Refinancing Risk",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 559,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "93f5a215555d99986235c26ec7da61990e0fd2fbeaaed4785e815d31afb9430a"
+        },
+        "seconds": 9.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "89cfeb6762232ecf",
+        "title": "Walker & Dunlop Arranges $238M Refinance for Luxury Miami Multifamily Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.62,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 514,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "4d998ab265cc6b24cd9073ddc9b00581d49045e0bb7be2d33e375505076c21fb"
+        },
+        "seconds": 9.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a380e99be9111cdc",
+        "title": "Should You Trust a Politician’s Pivot on Data Centers?",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.62,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 782,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "be3883b5078ef3a441a0fe54ba64614d2e886c6e80a43fa2720336bb2b1c56a1"
+        },
+        "seconds": 12.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "37ef22bf957485d6",
+        "title": "The TVA’s Big Nuclear Project Gets the Green Light",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.5,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 621,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "de1bf18e0a28a334603305cf48576bc1fa1c37a149ee14997640d2b25a5496c7"
+        },
+        "seconds": 9.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "743b3fdf3fa81e38",
+        "title": "AMD to Acquire World Labs for $8.2B to Advance AI Models and Robotics",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.01,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 655,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "2ac9c9d21a98e6eaad00cc9b15646a5bee62f8e5d6c7e937b312f5b1114155d8"
+        },
+        "seconds": 10.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f4bb190d8ffa138a",
+        "title": "KKR, Mirastar Acquire Eight UK Logistics Properties from Ares",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.69,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 534,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "abba8bf295d51fc4b950aff53b893772c088af41e17fec61ec7a2f80f74446d5"
+        },
+        "seconds": 10.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6792934671005f2f",
+        "title": "Related Affiliate Nabs $167M From Greystone to Build Miami Resi Towers",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.02,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 492,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e80c39340159b59162caa746a95b79b8d0e97ab535d9022c82a1ff78e8c44844"
+        },
+        "seconds": 9.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4ea84668b8b9290e",
+        "title": "Rate outlook darkens as AI and oil compound Fed's challenge",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.23,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 585,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "59d2098d01d68955506aaf1f09353998a16ec8756fbe36dba408870b3a8ec79e"
+        },
+        "seconds": 7.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6deabbc9fec58192",
+        "title": "JV Pays $220M for Alpharetta Hotel",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.3,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 480,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "578de0bbfbf84188f6ea09588bb109bcf2db778ad4ab9da5d08ccc6be341de31"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "555806de6832ef4e",
+        "title": "FedNow tiptoes into cross-border",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 657,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "23dc028deda9b7b1a9126651805fe03fcef9cc774c96a18d73ff11ecfcfd8f12"
+        },
+        "seconds": 11.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1f7a6b403cc00f32",
+        "title": "JLL provides $406 million in financing for Dallas’ Trammel Crow Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 556,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "67a8dd9763f212b098e95743e1cebd3972599200a46865855b67492c7c7b2a59"
+        },
+        "seconds": 10.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "60d4f68d052d842c",
+        "title": "Bowman: AI cyber threats need 'proactive risk management",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.15,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 516,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c5700614873c36a108e7c4b3426aae131e654d4172d5c02dfd4cc24c75e04c41"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "806fc4969de98cbc",
+        "title": "Follow the Cash! Microstructure of Repo Markets",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.86,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 601,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9b7efbe13b8afd5bbaf933a1b4921b577a63be80d0f74b8eb1d4cf14b0f72b41"
+        },
+        "seconds": 10.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "40d56d5a71380b06",
+        "title": "Barr, Economic Conditions and Monetary Policy",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.29,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 521,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9c9b046bfa2642a95c1e2b038f73805c6d619f0ccc0f677f33d28c4e8371b70e"
+        },
+        "seconds": 10.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7eaa6e9cc5d2eff4",
+        "title": "Bowman, Opening Remarks",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.79,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 566,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9f765a6da1c5932c07707f233709af44f3230f0d358d874d439619c16dfb3d76"
+        },
+        "seconds": 10.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8a4c6fc50697ca14",
+        "title": "CROSS 2026-NQM11 raises $735.3 million in RMBS",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.12,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 560,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f0500eceee1d0b79fd5d0b70ea82d5d82df6cf9397d9b5f96bc8c9ad4785342d"
+        },
+        "seconds": 10.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f5cecd20a64a238f",
+        "title": "Moishe Mana Drops $89M On Fort Lauderdale Office: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.17,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 543,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3ae462d740717d2b05c879f0928ea5e1a8217b8e61b96fd928272f3b9014af6e"
+        },
+        "seconds": 11.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a685fd414d2938bf",
+        "title": "Alexandria Stretches $5B Credit Line to 2032 as Seattle Lab Sites Pivot to Housing and Tech",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 309,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "62ebd9ebd89f04aca74e121821b5be600ec05fcd932b2ebf1f16472f7eda75a2"
+        },
+        "seconds": 7.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4322bc3098874f25",
+        "title": "Orion Acquires 88K-SF Boone Retail Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 237,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9d38c91d66eb43029294da37ebd10be7aad752105dfd9aac0595eabb64302151"
+        },
+        "seconds": 5.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "91772955dc063c9e",
+        "title": "Venn Acquires Leasing Agent Company Zuma for $50M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.46,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 356,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e657bbef93693526cd85e63122f81070e13ef1796eb33ccda9ff7772f58738a2"
+        },
+        "seconds": 6.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c543f8655ff6237c",
+        "title": "Why Tether's Iran problem is a bank partner problem",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.48,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 309,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "37a3b4ff72024cd80f8578c7776d54a8519126198ea6c2f61ef3a46c57a0d3e8"
+        },
+        "seconds": 12.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b107bc30496734e0",
+        "title": "Reco raises $55M as AI agent security startups crowd the market",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.26,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 288,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "aba6a55dde5fc74aabb27915c5b96fcb6eb8d9ec4863abb9a9916f64447b089f"
+        },
+        "seconds": 5.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e397f06a5b137c60",
+        "title": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.37,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 310,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "5cde16c22204d7ec152de5350fa7350540d4bc7c236637ab861d197e051b12aa"
+        },
+        "seconds": 15.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9fb00fd0d7d2dcd7",
+        "title": "Speaker Julie Menin and 32BJ President Manny Pastreich Team Up to Highlight New Healthcare Accountability Report",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.08,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 284,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "80963abbc9db70b4ac2301dfc7f5f26da2305b0da0e15f0fb383a583427617e1"
+        },
+        "seconds": 12.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 24,
+    "published": 24,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc_social.png",
+      "insights/limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc.html",
+      "insights/walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community_social.png",
+      "insights/walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community.html",
+      "insights/should-you-trust-a-politician-s-pivot-on-data-centers_social.png",
+      "insights/should-you-trust-a-politician-s-pivot-on-data-centers.html",
+      "insights/the-tva-s-big-nuclear-project-gets-the-green-light_social.png",
+      "insights/the-tva-s-big-nuclear-project-gets-the-green-light.html",
+      "insights/amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics_social.png",
+      "insights/amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics.html",
+      "insights/kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a_social.png",
+      "insights/kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a.html",
+      "insights/related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers_social.png",
+      "insights/related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers.html",
+      "insights/rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge_social.png",
+      "insights/rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge.html",
+      "insights/jv-pays-220m-for-alpharetta-hotel_social.png",
+      "insights/jv-pays-220m-for-alpharetta-hotel.html",
+      "insights/fednow-tiptoes-into-cross-border_social.png",
+      "insights/fednow-tiptoes-into-cross-border.html",
+      "insights/jll-provides-406-million-in-financing-for-dallas-trammel-crow-center_social.png",
+      "insights/jll-provides-406-million-in-financing-for-dallas-trammel-crow-center.html",
+      "insights/bowman-ai-cyber-threats-need-proactive-risk-management_social.png",
+      "insights/bowman-ai-cyber-threats-need-proactive-risk-management.html",
+      "insights/follow-the-cash-microstructure-of-repo-markets_social.png",
+      "insights/follow-the-cash-microstructure-of-repo-markets.html",
+      "insights/barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand_social.png",
+      "insights/barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand.html",
+      "insights/bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene_social.png",
+      "insights/bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene.html",
+      "insights/cross-2026-nqm11-raises-735-3-million-in-rmbs_social.png",
+      "insights/cross-2026-nqm11-raises-735-3-million-in-rmbs.html",
+      "insights/moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet_social.png",
+      "insights/moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet.html",
+      "insights/alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin_social.png",
+      "insights/alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin.html",
+      "insights/orion-acquires-88k-sf-boone-retail-center_social.png",
+      "insights/orion-acquires-88k-sf-boone-retail-center.html",
+      "insights/venn-acquires-leasing-agent-company-zuma-for-50m_social.png",
+      "insights/venn-acquires-leasing-agent-company-zuma-for-50m.html",
+      "insights/why-tether-s-iran-problem-is-a-bank-partner-problem_social.png",
+      "insights/why-tether-s-iran-problem-is-a-bank-partner-problem.html",
+      "insights/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market_social.png",
+      "insights/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market.html",
+      "insights/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot_social.png",
+      "insights/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot.html",
+      "insights/speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new_social.png",
+      "insights/speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc_related.json",
+      "insights/walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community_related.json",
+      "insights/should-you-trust-a-politician-s-pivot-on-data-centers_related.json",
+      "insights/the-tva-s-big-nuclear-project-gets-the-green-light_related.json",
+      "insights/amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics_related.json",
+      "insights/kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a_related.json",
+      "insights/related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers_related.json",
+      "insights/rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge_related.json",
+      "insights/jv-pays-220m-for-alpharetta-hotel_related.json",
+      "insights/fednow-tiptoes-into-cross-border_related.json",
+      "insights/jll-provides-406-million-in-financing-for-dallas-trammel-crow-center_related.json",
+      "insights/bowman-ai-cyber-threats-need-proactive-risk-management_related.json",
+      "insights/follow-the-cash-microstructure-of-repo-markets_related.json",
+      "insights/barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand_related.json",
+      "insights/bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene_related.json",
+      "insights/cross-2026-nqm11-raises-735-3-million-in-rmbs_related.json",
+      "insights/moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet_related.json",
+      "insights/alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin_related.json",
+      "insights/orion-acquires-88k-sf-boone-retail-center_related.json",
+      "insights/venn-acquires-leasing-agent-company-zuma-for-50m_related.json",
+      "insights/why-tether-s-iran-problem-is-a-bank-partner-problem_related.json",
+      "insights/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market_related.json",
+      "insights/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot_related.json",
+      "insights/speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "0ed5898ffe4e3e2d",
+        "title": "Limited-Service Hotel Loans Lead CMBS Lodging in Nonperforming Rate and Refinancing Risk",
+        "slug": "limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc",
+        "url": "/insights/limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 73,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "89cfeb6762232ecf",
+        "title": "Walker & Dunlop Arranges $238M Refinance for Luxury Miami Multifamily Community",
+        "slug": "walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community",
+        "url": "/insights/walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a380e99be9111cdc",
+        "title": "Should You Trust a Politician’s Pivot on Data Centers?",
+        "slug": "should-you-trust-a-politician-s-pivot-on-data-centers",
+        "url": "/insights/should-you-trust-a-politician-s-pivot-on-data-centers.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "37ef22bf957485d6",
+        "title": "The TVA’s Big Nuclear Project Gets the Green Light",
+        "slug": "the-tva-s-big-nuclear-project-gets-the-green-light",
+        "url": "/insights/the-tva-s-big-nuclear-project-gets-the-green-light.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "743b3fdf3fa81e38",
+        "title": "AMD to Acquire World Labs for $8.2B to Advance AI Models and Robotics",
+        "slug": "amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics",
+        "url": "/insights/amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f4bb190d8ffa138a",
+        "title": "KKR and Mirastar Expand UK Logistics Footprint with £400 Million Ares Portfolio Acquisition",
+        "slug": "kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a",
+        "url": "/insights/kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6792934671005f2f",
+        "title": "Related Affiliate Nabs $167M From Greystone to Build Miami Resi Towers",
+        "slug": "related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers",
+        "url": "/insights/related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4ea84668b8b9290e",
+        "title": "Rate outlook darkens as AI and oil compound Fed's challenge",
+        "slug": "rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge",
+        "url": "/insights/rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6deabbc9fec58192",
+        "title": "JV Pays $220M for Alpharetta Hotel",
+        "slug": "jv-pays-220m-for-alpharetta-hotel",
+        "url": "/insights/jv-pays-220m-for-alpharetta-hotel.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "555806de6832ef4e",
+        "title": "FedNow tiptoes into cross-border",
+        "slug": "fednow-tiptoes-into-cross-border",
+        "url": "/insights/fednow-tiptoes-into-cross-border.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1f7a6b403cc00f32",
+        "title": "JLL provides $406 million in financing for Dallas’ Trammel Crow Center",
+        "slug": "jll-provides-406-million-in-financing-for-dallas-trammel-crow-center",
+        "url": "/insights/jll-provides-406-million-in-financing-for-dallas-trammel-crow-center.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "60d4f68d052d842c",
+        "title": "Bowman: AI cyber threats need 'proactive risk management",
+        "slug": "bowman-ai-cyber-threats-need-proactive-risk-management",
+        "url": "/insights/bowman-ai-cyber-threats-need-proactive-risk-management.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "806fc4969de98cbc",
+        "title": "Follow the Cash! Microstructure of Repo Markets",
+        "slug": "follow-the-cash-microstructure-of-repo-markets",
+        "url": "/insights/follow-the-cash-microstructure-of-repo-markets.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "40d56d5a71380b06",
+        "title": "Barr Ties Detroit's Uneven Recovery to Inflation Risks and AI-Driven Demand",
+        "slug": "barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand",
+        "url": "/insights/barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7eaa6e9cc5d2eff4",
+        "title": "Bowman Ties Community Bank Cyber Resilience to AI Risks and Strong Hygiene",
+        "slug": "bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene",
+        "url": "/insights/bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8a4c6fc50697ca14",
+        "title": "CROSS 2026-NQM11 raises $735.3 million in RMBS",
+        "slug": "cross-2026-nqm11-raises-735-3-million-in-rmbs",
+        "url": "/insights/cross-2026-nqm11-raises-735-3-million-in-rmbs.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f5cecd20a64a238f",
+        "title": "Moishe Mana Drops $89M On Fort Lauderdale Office: The South Florida Deal Sheet",
+        "slug": "moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet",
+        "url": "/insights/moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a685fd414d2938bf",
+        "title": "Alexandria Stretches $5B Credit Line to 2032 as Seattle Lab Sites Pivot to Housing and Tech",
+        "slug": "alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin",
+        "url": "/insights/alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "4322bc3098874f25",
+        "title": "Orion Acquires 88K-SF Boone Retail Center",
+        "slug": "orion-acquires-88k-sf-boone-retail-center",
+        "url": "/insights/orion-acquires-88k-sf-boone-retail-center.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "91772955dc063c9e",
+        "title": "Venn Acquires Leasing Agent Company Zuma for $50M",
+        "slug": "venn-acquires-leasing-agent-company-zuma-for-50m",
+        "url": "/insights/venn-acquires-leasing-agent-company-zuma-for-50m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c543f8655ff6237c",
+        "title": "Why Tether's Iran problem is a bank partner problem",
+        "slug": "why-tether-s-iran-problem-is-a-bank-partner-problem",
+        "url": "/insights/why-tether-s-iran-problem-is-a-bank-partner-problem.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b107bc30496734e0",
+        "title": "Reco raises $55M as AI agent security startups crowd the market",
+        "slug": "reco-raises-55m-as-ai-agent-security-startups-crowd-the-market",
+        "url": "/insights/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e397f06a5b137c60",
+        "title": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+        "slug": "ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot",
+        "url": "/insights/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9fb00fd0d7d2dcd7",
+        "title": "Speaker Julie Menin and 32BJ President Manny Pastreich Team Up to Highlight New Healthcare Accountability Report",
+        "slug": "speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new",
+        "url": "/insights/speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "0ed5898ffe4e3e2d",
+        "slug": "limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc",
+        "title": "Limited-Service Hotel Loans Lead CMBS Lodging in Nonperforming Rate and Refinancing Risk",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc.html",
+        "reason": ""
+      },
+      {
+        "object_id": "89cfeb6762232ecf",
+        "slug": "walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community",
+        "title": "Walker & Dunlop Arranges $238M Refinance for Luxury Miami Multifamily Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a380e99be9111cdc",
+        "slug": "should-you-trust-a-politician-s-pivot-on-data-centers",
+        "title": "Should You Trust a Politician’s Pivot on Data Centers?",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/should-you-trust-a-politician-s-pivot-on-data-centers.html",
+        "reason": ""
+      },
+      {
+        "object_id": "37ef22bf957485d6",
+        "slug": "the-tva-s-big-nuclear-project-gets-the-green-light",
+        "title": "The TVA’s Big Nuclear Project Gets the Green Light",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-tva-s-big-nuclear-project-gets-the-green-light.html",
+        "reason": ""
+      },
+      {
+        "object_id": "743b3fdf3fa81e38",
+        "slug": "amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics",
+        "title": "AMD to Acquire World Labs for $8.2B to Advance AI Models and Robotics",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f4bb190d8ffa138a",
+        "slug": "kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a",
+        "title": "KKR, Mirastar Acquire Eight UK Logistics Properties from Ares",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6792934671005f2f",
+        "slug": "related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers",
+        "title": "Related Affiliate Nabs $167M From Greystone to Build Miami Resi Towers",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4ea84668b8b9290e",
+        "slug": "rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge",
+        "title": "Rate outlook darkens as AI and oil compound Fed's challenge",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6deabbc9fec58192",
+        "slug": "jv-pays-220m-for-alpharetta-hotel",
+        "title": "JV Pays $220M for Alpharetta Hotel",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/jv-pays-220m-for-alpharetta-hotel.html",
+        "reason": ""
+      },
+      {
+        "object_id": "555806de6832ef4e",
+        "slug": "fednow-tiptoes-into-cross-border",
+        "title": "FedNow tiptoes into cross-border",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fednow-tiptoes-into-cross-border.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1f7a6b403cc00f32",
+        "slug": "jll-provides-406-million-in-financing-for-dallas-trammel-crow-center",
+        "title": "JLL provides $406 million in financing for Dallas’ Trammel Crow Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/jll-provides-406-million-in-financing-for-dallas-trammel-crow-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "60d4f68d052d842c",
+        "slug": "bowman-ai-cyber-threats-need-proactive-risk-management",
+        "title": "Bowman: AI cyber threats need 'proactive risk management",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bowman-ai-cyber-threats-need-proactive-risk-management.html",
+        "reason": ""
+      },
+      {
+        "object_id": "806fc4969de98cbc",
+        "slug": "follow-the-cash-microstructure-of-repo-markets",
+        "title": "Follow the Cash! Microstructure of Repo Markets",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/follow-the-cash-microstructure-of-repo-markets.html",
+        "reason": ""
+      },
+      {
+        "object_id": "40d56d5a71380b06",
+        "slug": "barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand",
+        "title": "Barr, Economic Conditions and Monetary Policy",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7eaa6e9cc5d2eff4",
+        "slug": "bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene",
+        "title": "Bowman, Opening Remarks",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8a4c6fc50697ca14",
+        "slug": "cross-2026-nqm11-raises-735-3-million-in-rmbs",
+        "title": "CROSS 2026-NQM11 raises $735.3 million in RMBS",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cross-2026-nqm11-raises-735-3-million-in-rmbs.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f5cecd20a64a238f",
+        "slug": "moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet",
+        "title": "Moishe Mana Drops $89M On Fort Lauderdale Office: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a685fd414d2938bf",
+        "slug": "alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin",
+        "title": "Alexandria Stretches $5B Credit Line to 2032 as Seattle Lab Sites Pivot to Housing and Tech",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4322bc3098874f25",
+        "slug": "orion-acquires-88k-sf-boone-retail-center",
+        "title": "Orion Acquires 88K-SF Boone Retail Center",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/orion-acquires-88k-sf-boone-retail-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "91772955dc063c9e",
+        "slug": "venn-acquires-leasing-agent-company-zuma-for-50m",
+        "title": "Venn Acquires Leasing Agent Company Zuma for $50M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/venn-acquires-leasing-agent-company-zuma-for-50m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c543f8655ff6237c",
+        "slug": "why-tether-s-iran-problem-is-a-bank-partner-problem",
+        "title": "Why Tether's Iran problem is a bank partner problem",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/why-tether-s-iran-problem-is-a-bank-partner-problem.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b107bc30496734e0",
+        "slug": "reco-raises-55m-as-ai-agent-security-startups-crowd-the-market",
+        "title": "Reco raises $55M as AI agent security startups crowd the market",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e397f06a5b137c60",
+        "slug": "ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot",
+        "title": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9fb00fd0d7d2dcd7",
+        "slug": "speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new",
+        "title": "Speaker Julie Menin and 32BJ President Manny Pastreich Team Up to Highlight New Healthcare Accountability Report",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 27,
+    "successful_calls": 27,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.94,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.17,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.64,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.26,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 190.09,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 54.8,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.21,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 47.68,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.27,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.48,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 24 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 322.72,
+  "status": "ready",
+  "candidate_count": 846,
+  "event_count": 810,
+  "articles": [
+    {
+      "event_id": "0ed5898ffe4e3e2d",
+      "title": "Limited-Service Hotel Loans Lead CMBS Lodging in Nonperforming Rate and Refinancing Risk",
+      "slug": "limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc",
+      "url": "/insights/limited-service-hotel-loans-lead-cmbs-lodging-in-nonperforming-rate-and-refinanc.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 73,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "89cfeb6762232ecf",
+      "title": "Walker & Dunlop Arranges $238M Refinance for Luxury Miami Multifamily Community",
+      "slug": "walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community",
+      "url": "/insights/walker-dunlop-arranges-238m-refinance-for-luxury-miami-multifamily-community.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a380e99be9111cdc",
+      "title": "Should You Trust a Politician’s Pivot on Data Centers?",
+      "slug": "should-you-trust-a-politician-s-pivot-on-data-centers",
+      "url": "/insights/should-you-trust-a-politician-s-pivot-on-data-centers.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "37ef22bf957485d6",
+      "title": "The TVA’s Big Nuclear Project Gets the Green Light",
+      "slug": "the-tva-s-big-nuclear-project-gets-the-green-light",
+      "url": "/insights/the-tva-s-big-nuclear-project-gets-the-green-light.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "743b3fdf3fa81e38",
+      "title": "AMD to Acquire World Labs for $8.2B to Advance AI Models and Robotics",
+      "slug": "amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics",
+      "url": "/insights/amd-to-acquire-world-labs-for-8-2b-to-advance-ai-models-and-robotics.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f4bb190d8ffa138a",
+      "title": "KKR and Mirastar Expand UK Logistics Footprint with £400 Million Ares Portfolio Acquisition",
+      "slug": "kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a",
+      "url": "/insights/kkr-and-mirastar-expand-uk-logistics-footprint-with-400-million-ares-portfolio-a.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6792934671005f2f",
+      "title": "Related Affiliate Nabs $167M From Greystone to Build Miami Resi Towers",
+      "slug": "related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers",
+      "url": "/insights/related-affiliate-nabs-167m-from-greystone-to-build-miami-resi-towers.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4ea84668b8b9290e",
+      "title": "Rate outlook darkens as AI and oil compound Fed's challenge",
+      "slug": "rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge",
+      "url": "/insights/rate-outlook-darkens-as-ai-and-oil-compound-fed-s-challenge.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6deabbc9fec58192",
+      "title": "JV Pays $220M for Alpharetta Hotel",
+      "slug": "jv-pays-220m-for-alpharetta-hotel",
+      "url": "/insights/jv-pays-220m-for-alpharetta-hotel.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "555806de6832ef4e",
+      "title": "FedNow tiptoes into cross-border",
+      "slug": "fednow-tiptoes-into-cross-border",
+      "url": "/insights/fednow-tiptoes-into-cross-border.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1f7a6b403cc00f32",
+      "title": "JLL provides $406 million in financing for Dallas’ Trammel Crow Center",
+      "slug": "jll-provides-406-million-in-financing-for-dallas-trammel-crow-center",
+      "url": "/insights/jll-provides-406-million-in-financing-for-dallas-trammel-crow-center.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "60d4f68d052d842c",
+      "title": "Bowman: AI cyber threats need 'proactive risk management",
+      "slug": "bowman-ai-cyber-threats-need-proactive-risk-management",
+      "url": "/insights/bowman-ai-cyber-threats-need-proactive-risk-management.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "806fc4969de98cbc",
+      "title": "Follow the Cash! Microstructure of Repo Markets",
+      "slug": "follow-the-cash-microstructure-of-repo-markets",
+      "url": "/insights/follow-the-cash-microstructure-of-repo-markets.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "40d56d5a71380b06",
+      "title": "Barr Ties Detroit's Uneven Recovery to Inflation Risks and AI-Driven Demand",
+      "slug": "barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand",
+      "url": "/insights/barr-ties-detroit-s-uneven-recovery-to-inflation-risks-and-ai-driven-demand.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7eaa6e9cc5d2eff4",
+      "title": "Bowman Ties Community Bank Cyber Resilience to AI Risks and Strong Hygiene",
+      "slug": "bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene",
+      "url": "/insights/bowman-ties-community-bank-cyber-resilience-to-ai-risks-and-strong-hygiene.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8a4c6fc50697ca14",
+      "title": "CROSS 2026-NQM11 raises $735.3 million in RMBS",
+      "slug": "cross-2026-nqm11-raises-735-3-million-in-rmbs",
+      "url": "/insights/cross-2026-nqm11-raises-735-3-million-in-rmbs.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f5cecd20a64a238f",
+      "title": "Moishe Mana Drops $89M On Fort Lauderdale Office: The South Florida Deal Sheet",
+      "slug": "moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet",
+      "url": "/insights/moishe-mana-drops-89m-on-fort-lauderdale-office-the-south-florida-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a685fd414d2938bf",
+      "title": "Alexandria Stretches $5B Credit Line to 2032 as Seattle Lab Sites Pivot to Housing and Tech",
+      "slug": "alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin",
+      "url": "/insights/alexandria-stretches-5b-credit-line-to-2032-as-seattle-lab-sites-pivot-to-housin.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "4322bc3098874f25",
+      "title": "Orion Acquires 88K-SF Boone Retail Center",
+      "slug": "orion-acquires-88k-sf-boone-retail-center",
+      "url": "/insights/orion-acquires-88k-sf-boone-retail-center.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "91772955dc063c9e",
+      "title": "Venn Acquires Leasing Agent Company Zuma for $50M",
+      "slug": "venn-acquires-leasing-agent-company-zuma-for-50m",
+      "url": "/insights/venn-acquires-leasing-agent-company-zuma-for-50m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c543f8655ff6237c",
+      "title": "Why Tether's Iran problem is a bank partner problem",
+      "slug": "why-tether-s-iran-problem-is-a-bank-partner-problem",
+      "url": "/insights/why-tether-s-iran-problem-is-a-bank-partner-problem.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b107bc30496734e0",
+      "title": "Reco raises $55M as AI agent security startups crowd the market",
+      "slug": "reco-raises-55m-as-ai-agent-security-startups-crowd-the-market",
+      "url": "/insights/reco-raises-55m-as-ai-agent-security-startups-crowd-the-market.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e397f06a5b137c60",
+      "title": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+      "slug": "ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot",
+      "url": "/insights/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9fb00fd0d7d2dcd7",
+      "title": "Speaker Julie Menin and 32BJ President Manny Pastreich Team Up to Highlight New Healthcare Accountability Report",
+      "slug": "speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new",
+      "url": "/insights/speaker-julie-menin-and-32bj-president-manny-pastreich-team-up-to-highlight-new.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 24
+}
