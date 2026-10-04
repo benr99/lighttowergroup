@@ -1,0 +1,878 @@
+{
+  "run_at": "2026-10-04T15:46:39.181974+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 258,
+  "documents_from_feeds": 155,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 258,
+  "documents_consolidated": 0,
+  "eligible": 19,
+  "enriched": 229,
+  "evidence_upgraded": 141,
+  "selected": 9,
+  "publication_candidates": 9,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 18,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "commercial_real_estate": {
+      "considered": 182,
+      "eligible": 11,
+      "selected": 8,
+      "target": 10,
+      "shortfall_reason": "only 8 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 15,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 16,
+      "eligible": 2,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 5,
+      "eligible": 2,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 19,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "19 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 3,
+    "tier_c": 6
+  },
+  "shortfalls": [
+    "banking_credit: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "commercial_real_estate: only 8 of 11 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "energy: 2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: 2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: 19 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 66.6,
+    "mean": 27.3,
+    "stdev": 13.7,
+    "range_used": 66.6,
+    "median": 24.8,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 229,
+    "fetched": 195,
+    "from_cache": 0,
+    "blocked": 32,
+    "failed": 2,
+    "skipped_budget": 0,
+    "bytes_downloaded": 54269211,
+    "elapsed_ms": 94618,
+    "by_status": {
+      "partial_text": 54,
+      "blocked": 32,
+      "full_text": 141,
+      "failed": 2
+    }
+  },
+  "novelty": {
+    "new": 195,
+    "minor_follow_up": 63
+  },
+  "memory": {
+    "events_remembered": 13672,
+    "published": 919,
+    "seen_but_not_run": 12753,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-04",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 204.3,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 9,
+    "written": 9,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 9,
+    "elapsed_seconds": 11.95,
+    "provider_attempts": {
+      "deepseek": 9
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "f88ffa00a9c0bf76",
+        "title": "Ken Griffin is Investing Roughly $1 billion in Miami’s Wynwood and Delivering an Elite New Carnegie Mellon Campus",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.3,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 602,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "37b68d15f5025a1ca191af28ddb395b4c603abba976be415c0b6eadcb1ca1548"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e30d2363ecebb86d",
+        "title": "WD Capital Nears $1B in Financings and Equity Placements",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 462,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "87307cd7c2a7eaa7760d0d9adb571d94e1a1911cc1326f3e3e48944456d73711"
+        },
+        "seconds": 8.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "778369017e2ba6d8",
+        "title": "ACORE CAPITAL Provides $81M Financing for Philadelphia Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 507,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "03919864ff9a41906a4850dfbd52aed7a114fca13e98e51a9c9f0d9a72e3449a"
+        },
+        "seconds": 8.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8e93a467e59250c2",
+        "title": "Draper and Kramer Arranges Financing for the Acquisition of The Ash Edgewater Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.05,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 302,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "de063afdc56bc3f72c3056cb72f9c639ced67820a48d016aea00606fa73de1f3"
+        },
+        "seconds": 5.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9d593649a7ecf02a",
+        "title": "JLL Arranged the Sale of Multifamily Development Site in Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.02,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 277,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d203d8719bf8a3fa7220646247b3524e2dfd2f52a632dba124606eb5debe0d83"
+        },
+        "seconds": 5.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f25643f7d809888e",
+        "title": "Intro Group Commits $270m to Egypt’s Kemet Data Center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.93,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 305,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d3ab00f57759fb7e7c65a4613351a0f2d4ad06ede8c4e829876827cdf1ed6f34"
+        },
+        "seconds": 4.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "34567d782731c363",
+        "title": "Marcus & Millichap Arranges Sale of Vintage Multifamily Apartment Building",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.56,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 339,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "0960ccd75f379e1a28fa1f15ee3e313287f17d26f9325a9940d54ac88f4fa258"
+        },
+        "seconds": 6.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "088ff2a30b79b5bf",
+        "title": "Permits Filed for Housing Lottery Launches for The Cornice at 224 3rd Avenue in Gowanus, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 378,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "05b073ca94dac84c4c1a5ec76b684630497e1e7a0f87f14905dc076883bc8372"
+        },
+        "seconds": 6.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ea1cc197d285c94d",
+        "title": "Financing Secured for Meridia Brownstones Phase II At 1999 Elizabeth Avenue In Rahway, New Jersey",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.88,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 365,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "a7a13779454a4e0603001b9b4e25d9c8572176cb2070736a999ab62d31391df5"
+        },
+        "seconds": 6.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 9,
+    "published": 9,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an_social.png",
+      "insights/ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an.html",
+      "insights/wd-capital-nears-1b-in-financings-and-equity-placements_social.png",
+      "insights/wd-capital-nears-1b-in-financings-and-equity-placements.html",
+      "insights/acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio_social.png",
+      "insights/acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio.html",
+      "insights/draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap_social.png",
+      "insights/draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap.html",
+      "insights/jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn_social.png",
+      "insights/jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn.html",
+      "insights/intro-group-commits-270m-to-egypt-s-kemet-data-center_social.png",
+      "insights/intro-group-commits-270m-to-egypt-s-kemet-data-center.html",
+      "insights/marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building_social.png",
+      "insights/marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building.html",
+      "insights/permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in_social.png",
+      "insights/permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in.html",
+      "insights/financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r_social.png",
+      "insights/financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an_related.json",
+      "insights/wd-capital-nears-1b-in-financings-and-equity-placements_related.json",
+      "insights/acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio_related.json",
+      "insights/draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap_related.json",
+      "insights/jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn_related.json",
+      "insights/intro-group-commits-270m-to-egypt-s-kemet-data-center_related.json",
+      "insights/marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building_related.json",
+      "insights/permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in_related.json",
+      "insights/financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "f88ffa00a9c0bf76",
+        "title": "Ken Griffin Is Investing Roughly $1 Billion in Miami’s Wynwood and Delivering an Elite New Carnegie Mellon Campus",
+        "slug": "ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an",
+        "url": "/insights/ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e30d2363ecebb86d",
+        "title": "WD Capital Nears $1B in Financings and Equity Placements",
+        "slug": "wd-capital-nears-1b-in-financings-and-equity-placements",
+        "url": "/insights/wd-capital-nears-1b-in-financings-and-equity-placements.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "778369017e2ba6d8",
+        "title": "ACORE Capital Provides $81M Financing for Philadelphia Multifamily Portfolio",
+        "slug": "acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio",
+        "url": "/insights/acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8e93a467e59250c2",
+        "title": "Draper and Kramer Arranges Financing for the Acquisition of The Ash Edgewater Apartments",
+        "slug": "draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap",
+        "url": "/insights/draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9d593649a7ecf02a",
+        "title": "JLL Arranged the Sale of Multifamily Development Site in Brooklyn",
+        "slug": "jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn",
+        "url": "/insights/jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f25643f7d809888e",
+        "title": "Intro Group Commits $270m to Egypt’s Kemet Data Center",
+        "slug": "intro-group-commits-270m-to-egypt-s-kemet-data-center",
+        "url": "/insights/intro-group-commits-270m-to-egypt-s-kemet-data-center.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "34567d782731c363",
+        "title": "Marcus & Millichap Arranges Sale of Vintage Multifamily Apartment Building",
+        "slug": "marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building",
+        "url": "/insights/marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "088ff2a30b79b5bf",
+        "title": "Permits Filed for Housing Lottery Launches for The Cornice at 224 3rd Avenue in Gowanus, Brooklyn",
+        "slug": "permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in",
+        "url": "/insights/permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ea1cc197d285c94d",
+        "title": "Financing Secured for Meridia Brownstones Phase II At 1999 Elizabeth Avenue In Rahway, New Jersey",
+        "slug": "financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r",
+        "url": "/insights/financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "f88ffa00a9c0bf76",
+        "slug": "ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an",
+        "title": "Ken Griffin is Investing Roughly $1 billion in Miami’s Wynwood and Delivering an Elite New Carnegie Mellon Campus",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e30d2363ecebb86d",
+        "slug": "wd-capital-nears-1b-in-financings-and-equity-placements",
+        "title": "WD Capital Nears $1B in Financings and Equity Placements",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/wd-capital-nears-1b-in-financings-and-equity-placements.html",
+        "reason": ""
+      },
+      {
+        "object_id": "778369017e2ba6d8",
+        "slug": "acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio",
+        "title": "ACORE CAPITAL Provides $81M Financing for Philadelphia Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8e93a467e59250c2",
+        "slug": "draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap",
+        "title": "Draper and Kramer Arranges Financing for the Acquisition of The Ash Edgewater Apartments",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9d593649a7ecf02a",
+        "slug": "jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn",
+        "title": "JLL Arranged the Sale of Multifamily Development Site in Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f25643f7d809888e",
+        "slug": "intro-group-commits-270m-to-egypt-s-kemet-data-center",
+        "title": "Intro Group Commits $270m to Egypt’s Kemet Data Center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/intro-group-commits-270m-to-egypt-s-kemet-data-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "34567d782731c363",
+        "slug": "marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building",
+        "title": "Marcus & Millichap Arranges Sale of Vintage Multifamily Apartment Building",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building.html",
+        "reason": ""
+      },
+      {
+        "object_id": "088ff2a30b79b5bf",
+        "slug": "permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in",
+        "title": "Permits Filed for Housing Lottery Launches for The Cornice at 224 3rd Avenue in Gowanus, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ea1cc197d285c94d",
+        "slug": "financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r",
+        "title": "Financing Secured for Meridia Brownstones Phase II At 1999 Elizabeth Avenue In Rahway, New Jersey",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 9,
+    "successful_calls": 9,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.0,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.04,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.04,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.07,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.34,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 69.41,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 95.63,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.05,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 13.04,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.27,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.43,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 9 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 204.32,
+  "status": "ready",
+  "candidate_count": 258,
+  "event_count": 258,
+  "articles": [
+    {
+      "event_id": "f88ffa00a9c0bf76",
+      "title": "Ken Griffin Is Investing Roughly $1 Billion in Miami’s Wynwood and Delivering an Elite New Carnegie Mellon Campus",
+      "slug": "ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an",
+      "url": "/insights/ken-griffin-is-investing-roughly-1-billion-in-miami-s-wynwood-and-delivering-an.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e30d2363ecebb86d",
+      "title": "WD Capital Nears $1B in Financings and Equity Placements",
+      "slug": "wd-capital-nears-1b-in-financings-and-equity-placements",
+      "url": "/insights/wd-capital-nears-1b-in-financings-and-equity-placements.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "778369017e2ba6d8",
+      "title": "ACORE Capital Provides $81M Financing for Philadelphia Multifamily Portfolio",
+      "slug": "acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio",
+      "url": "/insights/acore-capital-provides-81m-financing-for-philadelphia-multifamily-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8e93a467e59250c2",
+      "title": "Draper and Kramer Arranges Financing for the Acquisition of The Ash Edgewater Apartments",
+      "slug": "draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap",
+      "url": "/insights/draper-and-kramer-arranges-financing-for-the-acquisition-of-the-ash-edgewater-ap.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9d593649a7ecf02a",
+      "title": "JLL Arranged the Sale of Multifamily Development Site in Brooklyn",
+      "slug": "jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn",
+      "url": "/insights/jll-arranged-the-sale-of-multifamily-development-site-in-brooklyn.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f25643f7d809888e",
+      "title": "Intro Group Commits $270m to Egypt’s Kemet Data Center",
+      "slug": "intro-group-commits-270m-to-egypt-s-kemet-data-center",
+      "url": "/insights/intro-group-commits-270m-to-egypt-s-kemet-data-center.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "34567d782731c363",
+      "title": "Marcus & Millichap Arranges Sale of Vintage Multifamily Apartment Building",
+      "slug": "marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building",
+      "url": "/insights/marcus-millichap-arranges-sale-of-vintage-multifamily-apartment-building.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "088ff2a30b79b5bf",
+      "title": "Permits Filed for Housing Lottery Launches for The Cornice at 224 3rd Avenue in Gowanus, Brooklyn",
+      "slug": "permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in",
+      "url": "/insights/permits-filed-for-housing-lottery-launches-for-the-cornice-at-224-3rd-avenue-in.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ea1cc197d285c94d",
+      "title": "Financing Secured for Meridia Brownstones Phase II At 1999 Elizabeth Avenue In Rahway, New Jersey",
+      "slug": "financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r",
+      "url": "/insights/financing-secured-for-meridia-brownstones-phase-ii-at-1999-elizabeth-avenue-in-r.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 9
+}
