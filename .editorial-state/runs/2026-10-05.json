@@ -1,0 +1,1432 @@
+{
+  "run_at": "2026-10-05T19:35:24.766245+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 612,
+  "documents_from_feeds": 509,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 588,
+  "documents_consolidated": 24,
+  "eligible": 81,
+  "enriched": 250,
+  "evidence_upgraded": 155,
+  "selected": 17,
+  "publication_candidates": 17,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 40,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 330,
+      "eligible": 48,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 58,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 75,
+      "eligible": 15,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 15 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 14,
+      "eligible": 4,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 3,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 66,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 6,
+    "tier_b": 11
+  },
+  "shortfalls": [
+    "banking_credit: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 15 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 3 of 4 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 65.8,
+    "mean": 24.5,
+    "stdev": 13.39,
+    "range_used": 65.8,
+    "median": 20.0,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 252,
+    "fetched": 222,
+    "from_cache": 0,
+    "blocked": 9,
+    "failed": 21,
+    "skipped_budget": 0,
+    "bytes_downloaded": 52379067,
+    "elapsed_ms": 48974,
+    "by_status": {
+      "full_text": 156,
+      "partial_text": 66,
+      "failed": 21,
+      "blocked": 9
+    }
+  },
+  "novelty": {
+    "new": 516,
+    "already_published": 2,
+    "material_update": 1,
+    "minor_follow_up": 68,
+    "new_stage": 1
+  },
+  "memory": {
+    "events_remembered": 14123,
+    "published": 936,
+    "seen_but_not_run": 13187,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-05",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 225.4,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 17,
+    "written": 17,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 20,
+    "elapsed_seconds": 30.56,
+    "provider_attempts": {
+      "deepseek": 20
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "08d30733100525ce",
+        "title": "Walker & Dunlop Closes $631M Portfolio Refi for IMT Capital",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 497,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8d5d34187fb0d0cb2ab227e989556d2ce0d2d8b9b835b831b609de22f769b82f"
+        },
+        "seconds": 9.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "301841dcd3eae5f3",
+        "title": "Walker & Dunlop Arranges $630.6 Million Refinance for IMT Capital Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.5,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 553,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "fd17ffc05688955852cf609e079123a7862fd4892f1173df793a297d3920dff2"
+        },
+        "seconds": 9.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cd4c4054b2e83d3c",
+        "title": "Chicago Leads CMBS Distress Among 11 Metros in MLB Playoffs",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.7,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 660,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7c4d5135ee134771fbbef75e2a868eb99fe2c53a55368835d7b5ff9e62e3cbb0"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c7660c08cf8104f8",
+        "title": "Multifamily CMBS delinquency rate leads overall rate higher in September",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.07,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 574,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "158aacaf7159781f1de95eb4bfd6b2dbaaa60c8f9287af0a66cc67e876b8ac7b"
+        },
+        "seconds": 9.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bc1518cbaa2a88e2",
+        "title": "U.S. Government Buys SoCal ICE Complex for $950M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.67,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 509,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "3b2211531e053ac301e359838c7c67b5237a32bde213e3d0312d47d1b1d4eca9"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "aed3ba173c4d38ff",
+        "title": "DOJ won’t reopen Powell probe",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.65,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 596,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "4cbdf68a49295590b46ed1c7045d4fe9e25d66b5d836ca01c3f362d243fa4c50"
+        },
+        "seconds": 9.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fc9e7c54122b6592",
+        "title": "Mamdani announces $607M renovation of NYCHA’s Nostrand Houses via public trust",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.72,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 567,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "55ed8b9be7b43955ecacaa1107e0d676eafac8e271f610c82ca24d8747b1fd31"
+        },
+        "seconds": 9.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ed0c6305533d2cda",
+        "title": "Berkadia Arranges $127M Take-Out Financing for Luxury Multifamily Property The Arcadian in Fort Lauderdale",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.6,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 633,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ec730f9f21a157b9562688ff76370f26edb3fddfca409949c19d8487fa57c170"
+        },
+        "seconds": 10.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "85286af74048f982",
+        "title": "Dwight Capital Refis Philly Apartments With $32M HUD Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.0,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 570,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "263ef79ae9a84df41da2a18e9cd0a441622d464d48ca7e76ffe423fbb3f6248e"
+        },
+        "seconds": 11.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e8cae3faf615c050",
+        "title": "Mia Rose Sells Multifamily Apartment Community in Dardenne Prairie Missouri",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.41,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 525,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "2985deaac1fac18ad3b335d584d2504c5da7ab13abcec67b5dc73bae7c8738a8"
+        },
+        "seconds": 8.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "49de8ee4851dc7fe",
+        "title": "ABA supports proposed updates to mutual bank regulations",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.92,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 541,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0af3a2bba1cd11f6bd4da6bd0f97dba3cffe435727f19ca278fa0c0a5eaebe56"
+        },
+        "seconds": 8.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e39f16b5107a7a3f",
+        "title": "Two Harbors countersues UWM over hedging bet, alleged merger breach",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.57,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 327,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e962bf1dff01ec1f5334fef378ccb9dfa303f6edbfed82836e86ce68a114a793"
+        },
+        "seconds": 5.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "24ad0076401806da",
+        "title": "Will a BAAJA blast quench America’s thirst for energy? | Factor This Brief",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 364,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "13d978823a41c29b6743ed1550599b1d0eccce523aa0c3da6e354f91482923b0"
+        },
+        "seconds": 14.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ee1a2d0e08e5951a",
+        "title": "Vistra in Line for $4.2B DOE Loan Package to Uprate Nuclear Plants in Ohio and Pennsylvania",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.99,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 313,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "cd3f5465bb3fe4f5e41739951a0a2e730516b5d8ff75177b99707159e48bef7c"
+        },
+        "seconds": 12.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d80f3d0dcdf953db",
+        "title": "For both de novos and prediction markets, it's how you read the law",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.49,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 355,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "84df5f28e23a010296af532bc3fddf148198235d973e20a6d8a201898f054bbb"
+        },
+        "seconds": 11.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f616edd7f6e01f69",
+        "title": "AI cloud startup Verda raises $189m in Series B funding round",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 301,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "0d3cc66ac4fbb6ef96b0b32bfac87b2cf6c745f2e9d4bb9690817e55e0bf76aa"
+        },
+        "seconds": 5.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8d2faf8d27870243",
+        "title": "Insured, but Still on the Hook: Who Bears the Most Risk in Homeowner’s Insurance?",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.36,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 316,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "aca39bbc1097dad2a8b25fa8f478608fcfce632af35603a570ae4bc24834a768"
+        },
+        "seconds": 5.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 17,
+    "published": 17,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/walker-dunlop-closes-631m-portfolio-refi-for-imt-capital_social.png",
+      "insights/walker-dunlop-closes-631m-portfolio-refi-for-imt-capital.html",
+      "insights/walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf_social.png",
+      "insights/walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf.html",
+      "insights/chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs_social.png",
+      "insights/chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs.html",
+      "insights/multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september_social.png",
+      "insights/multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september.html",
+      "insights/u-s-government-buys-socal-ice-complex-for-950m_social.png",
+      "insights/u-s-government-buys-socal-ice-complex-for-950m.html",
+      "insights/doj-won-t-reopen-powell-probe_social.png",
+      "insights/doj-won-t-reopen-powell-probe.html",
+      "insights/mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust_social.png",
+      "insights/mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust.html",
+      "insights/berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar_social.png",
+      "insights/berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar.html",
+      "insights/dwight-capital-refis-philly-apartments-with-32m-hud-loan_social.png",
+      "insights/dwight-capital-refis-philly-apartments-with-32m-hud-loan.html",
+      "insights/mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri_social.png",
+      "insights/mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri.html",
+      "insights/aba-supports-proposed-updates-to-mutual-bank-regulations_social.png",
+      "insights/aba-supports-proposed-updates-to-mutual-bank-regulations.html",
+      "insights/two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach_social.png",
+      "insights/two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach.html",
+      "insights/will-a-baaja-blast-quench-america-s-thirst-for-energy_social.png",
+      "insights/will-a-baaja-blast-quench-america-s-thirst-for-energy.html",
+      "insights/vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe_social.png",
+      "insights/vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe.html",
+      "insights/for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law_social.png",
+      "insights/for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law.html",
+      "insights/ai-cloud-startup-verda-raises-189m-in-series-b-funding-round_social.png",
+      "insights/ai-cloud-startup-verda-raises-189m-in-series-b-funding-round.html",
+      "insights/insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance_social.png",
+      "insights/insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/walker-dunlop-closes-631m-portfolio-refi-for-imt-capital_related.json",
+      "insights/walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf_related.json",
+      "insights/chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs_related.json",
+      "insights/multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september_related.json",
+      "insights/u-s-government-buys-socal-ice-complex-for-950m_related.json",
+      "insights/doj-won-t-reopen-powell-probe_related.json",
+      "insights/mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust_related.json",
+      "insights/berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar_related.json",
+      "insights/dwight-capital-refis-philly-apartments-with-32m-hud-loan_related.json",
+      "insights/mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri_related.json",
+      "insights/aba-supports-proposed-updates-to-mutual-bank-regulations_related.json",
+      "insights/two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach_related.json",
+      "insights/will-a-baaja-blast-quench-america-s-thirst-for-energy_related.json",
+      "insights/vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe_related.json",
+      "insights/for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law_related.json",
+      "insights/ai-cloud-startup-verda-raises-189m-in-series-b-funding-round_related.json",
+      "insights/insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "08d30733100525ce",
+        "title": "Walker & Dunlop Closes $631M Portfolio Refi for IMT Capital",
+        "slug": "walker-dunlop-closes-631m-portfolio-refi-for-imt-capital",
+        "url": "/insights/walker-dunlop-closes-631m-portfolio-refi-for-imt-capital.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 66,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "301841dcd3eae5f3",
+        "title": "Walker & Dunlop Arranges $630.6 Million Refinance for IMT Capital Multifamily Portfolio",
+        "slug": "walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf",
+        "url": "/insights/walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cd4c4054b2e83d3c",
+        "title": "Chicago Leads CMBS Distress Among 11 Metros in MLB Playoffs",
+        "slug": "chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs",
+        "url": "/insights/chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c7660c08cf8104f8",
+        "title": "Multifamily CMBS Delinquency Rate Leads Overall Rate Higher in September",
+        "slug": "multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september",
+        "url": "/insights/multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bc1518cbaa2a88e2",
+        "title": "U.S. Government Buys SoCal ICE Complex for $950M",
+        "slug": "u-s-government-buys-socal-ice-complex-for-950m",
+        "url": "/insights/u-s-government-buys-socal-ice-complex-for-950m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "aed3ba173c4d38ff",
+        "title": "DOJ won’t reopen Powell probe",
+        "slug": "doj-won-t-reopen-powell-probe",
+        "url": "/insights/doj-won-t-reopen-powell-probe.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fc9e7c54122b6592",
+        "title": "Mamdani announces $607M renovation of NYCHA’s Nostrand Houses via public trust",
+        "slug": "mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust",
+        "url": "/insights/mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ed0c6305533d2cda",
+        "title": "Berkadia Arranges $127M Take-Out Financing for Luxury Multifamily Property The Arcadian in Fort Lauderdale",
+        "slug": "berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar",
+        "url": "/insights/berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "85286af74048f982",
+        "title": "Dwight Capital Refis Philly Apartments With $32M HUD Loan",
+        "slug": "dwight-capital-refis-philly-apartments-with-32m-hud-loan",
+        "url": "/insights/dwight-capital-refis-philly-apartments-with-32m-hud-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e8cae3faf615c050",
+        "title": "Mia Rose Sells Multifamily Apartment Community in Dardenne Prairie Missouri",
+        "slug": "mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri",
+        "url": "/insights/mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "49de8ee4851dc7fe",
+        "title": "ABA supports proposed updates to mutual bank regulations",
+        "slug": "aba-supports-proposed-updates-to-mutual-bank-regulations",
+        "url": "/insights/aba-supports-proposed-updates-to-mutual-bank-regulations.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e39f16b5107a7a3f",
+        "title": "Two Harbors countersues UWM over hedging bet, alleged merger breach",
+        "slug": "two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach",
+        "url": "/insights/two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "24ad0076401806da",
+        "title": "Will a BAAJA blast quench America’s thirst for energy?",
+        "slug": "will-a-baaja-blast-quench-america-s-thirst-for-energy",
+        "url": "/insights/will-a-baaja-blast-quench-america-s-thirst-for-energy.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ee1a2d0e08e5951a",
+        "title": "Vistra in Line for $4.2B DOE Loan Package to Uprate Nuclear Plants in Ohio and Pennsylvania",
+        "slug": "vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe",
+        "url": "/insights/vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d80f3d0dcdf953db",
+        "title": "For both de novos and prediction markets, it's how you read the law",
+        "slug": "for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law",
+        "url": "/insights/for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f616edd7f6e01f69",
+        "title": "AI cloud startup Verda raises $189m in Series B funding round",
+        "slug": "ai-cloud-startup-verda-raises-189m-in-series-b-funding-round",
+        "url": "/insights/ai-cloud-startup-verda-raises-189m-in-series-b-funding-round.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8d2faf8d27870243",
+        "title": "Insured, but Still on the Hook: Who Bears the Most Risk in Homeowner’s Insurance?",
+        "slug": "insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance",
+        "url": "/insights/insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "08d30733100525ce",
+        "slug": "walker-dunlop-closes-631m-portfolio-refi-for-imt-capital",
+        "title": "Walker & Dunlop Closes $631M Portfolio Refi for IMT Capital",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-closes-631m-portfolio-refi-for-imt-capital.html",
+        "reason": ""
+      },
+      {
+        "object_id": "301841dcd3eae5f3",
+        "slug": "walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf",
+        "title": "Walker & Dunlop Arranges $630.6 Million Refinance for IMT Capital Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cd4c4054b2e83d3c",
+        "slug": "chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs",
+        "title": "Chicago Leads CMBS Distress Among 11 Metros in MLB Playoffs",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c7660c08cf8104f8",
+        "slug": "multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september",
+        "title": "Multifamily CMBS delinquency rate leads overall rate higher in September",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bc1518cbaa2a88e2",
+        "slug": "u-s-government-buys-socal-ice-complex-for-950m",
+        "title": "U.S. Government Buys SoCal ICE Complex for $950M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/u-s-government-buys-socal-ice-complex-for-950m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "aed3ba173c4d38ff",
+        "slug": "doj-won-t-reopen-powell-probe",
+        "title": "DOJ won’t reopen Powell probe",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/doj-won-t-reopen-powell-probe.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fc9e7c54122b6592",
+        "slug": "mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust",
+        "title": "Mamdani announces $607M renovation of NYCHA’s Nostrand Houses via public trust",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ed0c6305533d2cda",
+        "slug": "berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar",
+        "title": "Berkadia Arranges $127M Take-Out Financing for Luxury Multifamily Property The Arcadian in Fort Lauderdale",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar.html",
+        "reason": ""
+      },
+      {
+        "object_id": "85286af74048f982",
+        "slug": "dwight-capital-refis-philly-apartments-with-32m-hud-loan",
+        "title": "Dwight Capital Refis Philly Apartments With $32M HUD Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dwight-capital-refis-philly-apartments-with-32m-hud-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e8cae3faf615c050",
+        "slug": "mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri",
+        "title": "Mia Rose Sells Multifamily Apartment Community in Dardenne Prairie Missouri",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri.html",
+        "reason": ""
+      },
+      {
+        "object_id": "49de8ee4851dc7fe",
+        "slug": "aba-supports-proposed-updates-to-mutual-bank-regulations",
+        "title": "ABA supports proposed updates to mutual bank regulations",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/aba-supports-proposed-updates-to-mutual-bank-regulations.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e39f16b5107a7a3f",
+        "slug": "two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach",
+        "title": "Two Harbors countersues UWM over hedging bet, alleged merger breach",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach.html",
+        "reason": ""
+      },
+      {
+        "object_id": "24ad0076401806da",
+        "slug": "will-a-baaja-blast-quench-america-s-thirst-for-energy",
+        "title": "Will a BAAJA blast quench America’s thirst for energy? | Factor This Brief",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/will-a-baaja-blast-quench-america-s-thirst-for-energy.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ee1a2d0e08e5951a",
+        "slug": "vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe",
+        "title": "Vistra in Line for $4.2B DOE Loan Package to Uprate Nuclear Plants in Ohio and Pennsylvania",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d80f3d0dcdf953db",
+        "slug": "for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law",
+        "title": "For both de novos and prediction markets, it's how you read the law",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f616edd7f6e01f69",
+        "slug": "ai-cloud-startup-verda-raises-189m-in-series-b-funding-round",
+        "title": "AI cloud startup Verda raises $189m in Series B funding round",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ai-cloud-startup-verda-raises-189m-in-series-b-funding-round.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8d2faf8d27870243",
+        "slug": "insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance",
+        "title": "Insured, but Still on the Hook: Who Bears the Most Risk in Homeowner’s Insurance?",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 20,
+    "successful_calls": 20,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 18.47,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.53,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.27,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.69,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 114.36,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 49.85,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 32.22,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.42,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.36,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 17 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 225.36,
+  "status": "ready",
+  "candidate_count": 612,
+  "event_count": 588,
+  "articles": [
+    {
+      "event_id": "08d30733100525ce",
+      "title": "Walker & Dunlop Closes $631M Portfolio Refi for IMT Capital",
+      "slug": "walker-dunlop-closes-631m-portfolio-refi-for-imt-capital",
+      "url": "/insights/walker-dunlop-closes-631m-portfolio-refi-for-imt-capital.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 66,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "301841dcd3eae5f3",
+      "title": "Walker & Dunlop Arranges $630.6 Million Refinance for IMT Capital Multifamily Portfolio",
+      "slug": "walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf",
+      "url": "/insights/walker-dunlop-arranges-630-6-million-refinance-for-imt-capital-multifamily-portf.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cd4c4054b2e83d3c",
+      "title": "Chicago Leads CMBS Distress Among 11 Metros in MLB Playoffs",
+      "slug": "chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs",
+      "url": "/insights/chicago-leads-cmbs-distress-among-11-metros-in-mlb-playoffs.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c7660c08cf8104f8",
+      "title": "Multifamily CMBS Delinquency Rate Leads Overall Rate Higher in September",
+      "slug": "multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september",
+      "url": "/insights/multifamily-cmbs-delinquency-rate-leads-overall-rate-higher-in-september.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bc1518cbaa2a88e2",
+      "title": "U.S. Government Buys SoCal ICE Complex for $950M",
+      "slug": "u-s-government-buys-socal-ice-complex-for-950m",
+      "url": "/insights/u-s-government-buys-socal-ice-complex-for-950m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "aed3ba173c4d38ff",
+      "title": "DOJ won’t reopen Powell probe",
+      "slug": "doj-won-t-reopen-powell-probe",
+      "url": "/insights/doj-won-t-reopen-powell-probe.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fc9e7c54122b6592",
+      "title": "Mamdani announces $607M renovation of NYCHA’s Nostrand Houses via public trust",
+      "slug": "mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust",
+      "url": "/insights/mamdani-announces-607m-renovation-of-nycha-s-nostrand-houses-via-public-trust.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ed0c6305533d2cda",
+      "title": "Berkadia Arranges $127M Take-Out Financing for Luxury Multifamily Property The Arcadian in Fort Lauderdale",
+      "slug": "berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar",
+      "url": "/insights/berkadia-arranges-127m-take-out-financing-for-luxury-multifamily-property-the-ar.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "85286af74048f982",
+      "title": "Dwight Capital Refis Philly Apartments With $32M HUD Loan",
+      "slug": "dwight-capital-refis-philly-apartments-with-32m-hud-loan",
+      "url": "/insights/dwight-capital-refis-philly-apartments-with-32m-hud-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e8cae3faf615c050",
+      "title": "Mia Rose Sells Multifamily Apartment Community in Dardenne Prairie Missouri",
+      "slug": "mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri",
+      "url": "/insights/mia-rose-sells-multifamily-apartment-community-in-dardenne-prairie-missouri.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "49de8ee4851dc7fe",
+      "title": "ABA supports proposed updates to mutual bank regulations",
+      "slug": "aba-supports-proposed-updates-to-mutual-bank-regulations",
+      "url": "/insights/aba-supports-proposed-updates-to-mutual-bank-regulations.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e39f16b5107a7a3f",
+      "title": "Two Harbors countersues UWM over hedging bet, alleged merger breach",
+      "slug": "two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach",
+      "url": "/insights/two-harbors-countersues-uwm-over-hedging-bet-alleged-merger-breach.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "24ad0076401806da",
+      "title": "Will a BAAJA blast quench America’s thirst for energy?",
+      "slug": "will-a-baaja-blast-quench-america-s-thirst-for-energy",
+      "url": "/insights/will-a-baaja-blast-quench-america-s-thirst-for-energy.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ee1a2d0e08e5951a",
+      "title": "Vistra in Line for $4.2B DOE Loan Package to Uprate Nuclear Plants in Ohio and Pennsylvania",
+      "slug": "vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe",
+      "url": "/insights/vistra-in-line-for-4-2b-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pe.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d80f3d0dcdf953db",
+      "title": "For both de novos and prediction markets, it's how you read the law",
+      "slug": "for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law",
+      "url": "/insights/for-both-de-novos-and-prediction-markets-it-s-how-you-read-the-law.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f616edd7f6e01f69",
+      "title": "AI cloud startup Verda raises $189m in Series B funding round",
+      "slug": "ai-cloud-startup-verda-raises-189m-in-series-b-funding-round",
+      "url": "/insights/ai-cloud-startup-verda-raises-189m-in-series-b-funding-round.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8d2faf8d27870243",
+      "title": "Insured, but Still on the Hook: Who Bears the Most Risk in Homeowner’s Insurance?",
+      "slug": "insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance",
+      "url": "/insights/insured-but-still-on-the-hook-who-bears-the-most-risk-in-homeowner-s-insurance.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 17
+}
