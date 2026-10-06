@@ -1,0 +1,2052 @@
+{
+  "run_at": "2026-10-06T17:10:34.904875+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 845,
+  "documents_from_feeds": 742,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 802,
+  "documents_consolidated": 43,
+  "eligible": 112,
+  "enriched": 250,
+  "evidence_upgraded": 137,
+  "selected": 26,
+  "publication_candidates": 26,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 62,
+      "eligible": 5,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 415,
+      "eligible": 59,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 84,
+      "eligible": 8,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 122,
+      "eligible": 22,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 22 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 26,
+      "eligible": 5,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 6,
+      "eligible": 5,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 87,
+      "eligible": 8,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 8 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 13,
+    "tier_b": 13
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 5 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 3 of 8 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 3 of 22 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 3 of 5 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 3 of 5 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 2 of 8 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 66.6,
+    "mean": 22.8,
+    "stdev": 12.12,
+    "range_used": 66.6,
+    "median": 19.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 252,
+    "fetched": 213,
+    "from_cache": 0,
+    "blocked": 13,
+    "failed": 26,
+    "skipped_budget": 0,
+    "bytes_downloaded": 49998024,
+    "elapsed_ms": 109431,
+    "by_status": {
+      "full_text": 137,
+      "partial_text": 76,
+      "blocked": 13,
+      "failed": 26
+    }
+  },
+  "novelty": {
+    "new": 714,
+    "already_published": 14,
+    "minor_follow_up": 73,
+    "new_stage": 1
+  },
+  "memory": {
+    "events_remembered": 14601,
+    "published": 962,
+    "seen_but_not_run": 13639,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-06",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 410.5,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 26,
+    "written": 26,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 28,
+    "elapsed_seconds": 42.54,
+    "provider_attempts": {
+      "deepseek": 28
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "06d33f275a8393fd",
+        "title": "Flex Secures $2B Investment for Axiom at $37.5B Enterprise Value",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.0,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 535,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "470fba38168a35a17362feb8b35c09789b013de263cece9ae3b0fc3485d682f5"
+        },
+        "seconds": 8.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7409a880ed5d9c34",
+        "title": "Old Glory Bank raises $8M, chides Fed over blocked deal",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.22,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 661,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8fe4cd8ae8eaab05c47877e44c0718331f8fcd2995c0f6ce2ad7782f0712933f"
+        },
+        "seconds": 11.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cffc56443f860b64",
+        "title": "Constellation-Google deal will bring $4.3B investment, 890 MW new nuclear to PJM",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.31,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 612,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "13f240ebb92d91d4528c43301ac26b6342e30af188746709e3130fc988c8d9de"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cdc9a17428466d2b",
+        "title": "Etched fields funding offers at $40B+ valuation, sources say",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 513,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8fa5955f4a4003a846952185f4517ee57da979b6dda4f46bdb6e9b22bcb5eb6a"
+        },
+        "seconds": 8.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ccf47292d3f60539",
+        "title": "10-Year Treasury Yield Trends and Insights for CRE",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.23,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 646,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "54fa3bf6e3f5bf2e00f632652f0ce7422a5b551e8e2cc5170c60c28b892166a2"
+        },
+        "seconds": 9.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a4aa1b5f21a5236a",
+        "title": "Icon Real Estate Advisors Arranges Sale of 88-Unit East Orange Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.2,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 541,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "160ee6bef36af75b368925917041bef075f55df6c671a5f8ad377dc359247b2a"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0fa5e46423f3e6ff",
+        "title": "Denver Offers a Tale of Two Downtowns",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 645,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "bc0a939c31c803ec068f612d10373ca0d5461f515f67060d3352305bd6e35c3f"
+        },
+        "seconds": 11.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dab59f0e200db9a0",
+        "title": "$131 Million DoorDash Settlement Likely Just the Beginning",
+        "sector": "local_government",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 611,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "a0aab88f971fa018404519bb1f00dda5ca5e6c54224751f87a3305adc6e75abb"
+        },
+        "seconds": 10.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7bc85689dedf2d58",
+        "title": "Blackstone Sells Fort Lauderdale Industrial Campus for $57M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.47,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 548,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "13a5da062fcde0f47447f9c9d75f65c23421628bf18e240f21a6f3960e5ddd91"
+        },
+        "seconds": 9.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c23fc4eb516c929c",
+        "title": "Blackstone Sells Fort Lauderdale Industrial For $57M: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.42,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 517,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "ee84dd4343e4e31eb019605ead907f3d57e5a85f84204f30b2323ed63623aff6"
+        },
+        "seconds": 9.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7d11a797c03d1480",
+        "title": "Affinius Capital Provides $95M Construction Loan for Oregon State Student Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.78,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 471,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9c1aad601997891e05b23e8a83e79ce5b1876f5bfd931b4169182f2fa81f4943"
+        },
+        "seconds": 8.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fb4b30d075781bd9",
+        "title": "Financial District’s 70 Broad Street Purchased at Steep Discount",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.96,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 645,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "327d8093091b6627610cc9945bfd2faebca4d0c6a297df38a266330645ceed51"
+        },
+        "seconds": 11.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0a4b76dbd475ea58",
+        "title": "JLL Arranges $100M Financing for 2-Property Multifamily Portfolio in Northern Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 618,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c6bda15d93369870aa27701d098c7ebca024c859a479867bab22102dd6c652cd"
+        },
+        "seconds": 9.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c84c138c3e091e07",
+        "title": "AOI Raises $588M to Fund Manufacturing Expansion",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.19,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 249,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c6df946b8af4fe1fb9f0f1c743d5668de08a09c4212eedc7955cb709db290966"
+        },
+        "seconds": 4.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "597507c917ada614",
+        "title": "BWE Secures $28.3M in Permanent Financing for Columbus-Area Senior Living Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.86,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 339,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "f0b32878bcfa98a47cacb7bb0690b55ce16d6ee49a874a2d0e142a18cf6bd2e2"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "da1a86c62ab6ec97",
+        "title": "Box Street Park Breaks Ground At 65 Commercial Street In Greenpoint, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.17,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 365,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9f89ccbbd4fc4782d03c6ed5ed424785d97d25cdd877d1d7cb2007c0e943c55c"
+        },
+        "seconds": 5.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6fd13c0111496d70",
+        "title": "Northwest Bank Provides $34.5 Million Financing for $47.75 Million Industrial Portfolio Acquisition in Greater Boston",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.53,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 332,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "e6b5ad8680e87c49aff9515eae09f65a2adee271082650dbfe3dcd58e8d1e55b"
+        },
+        "seconds": 5.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c2c452eeb5f54099",
+        "title": "ICBA urges court to rein in OCC over trust charters",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.89,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 369,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1be65214c60111a7b42f18263446e9c1602eb3a97eb6e27d927a2369b51053f5"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "59a3494d219f3b2a",
+        "title": "Deal Roundup: KKR strikes $5.1bn Gen II buyout; TDR takes OCU from Triton after fourfold revenue growth",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 296,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "118b3d351bb3ee96529a0762947c5ea47f9504d0a5385e1f7450c2232ee5327f"
+        },
+        "seconds": 6.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2e59a3da31ea2ff9",
+        "title": "OCC Hails 2026 Update to U.S. National Strategy for Financial Literacy",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.51,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 290,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "eebe5cb3195421a8fb79a673d269cee1dec2a9b67009fd4015f47ce9bdbaa90d"
+        },
+        "seconds": 5.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "435ee53284f743a3",
+        "title": "Wall Street on track for record profits",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.86,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 281,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "648163dbbd120061ffa5e604597b1c65b231893c1a670b7e4fa8d5066e78183a"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fd65079f0923d2b1",
+        "title": "Council Grills AI Leaders and Whistleblowers in Marathon Hearing",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.71,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 363,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "615cf9a6c1731efb5dabc8af8cac11e2c043b4db9a4ff71154ce1813131b9899"
+        },
+        "seconds": 12.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6b7b2933f28fbed7",
+        "title": "TeraWulf Doubles Contracted Power at Muskie Data Campus to 1 GW",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 372,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "717dffa2879c5074aeb16f7f81edca9956a671e6f4ed6e7e979dbab02f774971"
+        },
+        "seconds": 5.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e78c39f0218553c2",
+        "title": "Exclusive: Blaze Energy Raises $6.5 Million for Low-Carbon Shipping Retrofits",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.28,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 361,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "b36454dab2937abab5b34ed42ce29e2d5878f28a47d66bfc1ca0a4711824108c"
+        },
+        "seconds": 6.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "046ae31c00873997",
+        "title": "Fifth Wall’s Brendan Wallace On Spotting Real Estate’s Next Hot Tech Early",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.12,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 305,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "2d4bc1aa00af71858c4b9f43808bc9f59efe23dc616fbbbed32d77955e6e2e2f"
+        },
+        "seconds": 13.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5391e53775b4c759",
+        "title": "Maryland nets 440 MW/1,760 MWh in first bulk energy storage procurement",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.05,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 357,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "421cc84c1320668120c84b281bc459274bee98f621f80d50d3de3d6f1f12cb3b"
+        },
+        "seconds": 6.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 26,
+    "published": 26,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value_social.png",
+      "insights/flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value.html",
+      "insights/old-glory-bank-raises-8m-chides-fed-over-blocked-deal_social.png",
+      "insights/old-glory-bank-raises-8m-chides-fed-over-blocked-deal.html",
+      "insights/constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm_social.png",
+      "insights/constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm.html",
+      "insights/etched-fields-funding-offers-at-40b-valuation-sources-say_social.png",
+      "insights/etched-fields-funding-offers-at-40b-valuation-sources-say.html",
+      "insights/10-year-treasury-yield-trends-and-insights-for-cre_social.png",
+      "insights/10-year-treasury-yield-trends-and-insights-for-cre.html",
+      "insights/icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf_social.png",
+      "insights/icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf.html",
+      "insights/denver-offers-a-tale-of-two-downtowns_social.png",
+      "insights/denver-offers-a-tale-of-two-downtowns.html",
+      "insights/131-million-doordash-settlement-likely-just-the-beginning_social.png",
+      "insights/131-million-doordash-settlement-likely-just-the-beginning.html",
+      "insights/blackstone-sells-fort-lauderdale-industrial-campus-for-57m_social.png",
+      "insights/blackstone-sells-fort-lauderdale-industrial-campus-for-57m.html",
+      "insights/blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet_social.png",
+      "insights/blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet.html",
+      "insights/affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing_social.png",
+      "insights/affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing.html",
+      "insights/financial-district-s-70-broad-street-purchased-at-steep-discount_social.png",
+      "insights/financial-district-s-70-broad-street-purchased-at-steep-discount.html",
+      "insights/jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult_social.png",
+      "insights/jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult.html",
+      "insights/aoi-raises-588m-to-fund-manufacturing-expansion_social.png",
+      "insights/aoi-raises-588m-to-fund-manufacturing-expansion.html",
+      "insights/bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi_social.png",
+      "insights/bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi.html",
+      "insights/box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn_social.png",
+      "insights/box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn.html",
+      "insights/northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port_social.png",
+      "insights/northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port.html",
+      "insights/icba-urges-court-to-rein-in-occ-over-trust-charters_social.png",
+      "insights/icba-urges-court-to-rein-in-occ-over-trust-charters.html",
+      "insights/deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou_social.png",
+      "insights/deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou.html",
+      "insights/occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy_social.png",
+      "insights/occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy.html",
+      "insights/wall-street-on-track-for-record-profits_social.png",
+      "insights/wall-street-on-track-for-record-profits.html",
+      "insights/council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing_social.png",
+      "insights/council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing.html",
+      "insights/terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw_social.png",
+      "insights/terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw.html",
+      "insights/exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits_social.png",
+      "insights/exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits.html",
+      "insights/fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early_social.png",
+      "insights/fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early.html",
+      "insights/maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement_social.png",
+      "insights/maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value_related.json",
+      "insights/old-glory-bank-raises-8m-chides-fed-over-blocked-deal_related.json",
+      "insights/constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm_related.json",
+      "insights/etched-fields-funding-offers-at-40b-valuation-sources-say_related.json",
+      "insights/10-year-treasury-yield-trends-and-insights-for-cre_related.json",
+      "insights/icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf_related.json",
+      "insights/denver-offers-a-tale-of-two-downtowns_related.json",
+      "insights/131-million-doordash-settlement-likely-just-the-beginning_related.json",
+      "insights/blackstone-sells-fort-lauderdale-industrial-campus-for-57m_related.json",
+      "insights/blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet_related.json",
+      "insights/affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing_related.json",
+      "insights/financial-district-s-70-broad-street-purchased-at-steep-discount_related.json",
+      "insights/jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult_related.json",
+      "insights/aoi-raises-588m-to-fund-manufacturing-expansion_related.json",
+      "insights/bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi_related.json",
+      "insights/box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn_related.json",
+      "insights/northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port_related.json",
+      "insights/icba-urges-court-to-rein-in-occ-over-trust-charters_related.json",
+      "insights/deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou_related.json",
+      "insights/occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy_related.json",
+      "insights/wall-street-on-track-for-record-profits_related.json",
+      "insights/council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing_related.json",
+      "insights/terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw_related.json",
+      "insights/exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits_related.json",
+      "insights/fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early_related.json",
+      "insights/maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "06d33f275a8393fd",
+        "title": "Flex Secures $2B Investment for Axiom at $37.5B Enterprise Value",
+        "slug": "flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value",
+        "url": "/insights/flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 67,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7409a880ed5d9c34",
+        "title": "Old Glory Bank raises $8M, chides Fed over blocked deal",
+        "slug": "old-glory-bank-raises-8m-chides-fed-over-blocked-deal",
+        "url": "/insights/old-glory-bank-raises-8m-chides-fed-over-blocked-deal.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cffc56443f860b64",
+        "title": "Constellation-Google deal will bring $4.3B investment, 890 MW new nuclear to PJM",
+        "slug": "constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm",
+        "url": "/insights/constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cdc9a17428466d2b",
+        "title": "Etched fields funding offers at $40B+ valuation, sources say",
+        "slug": "etched-fields-funding-offers-at-40b-valuation-sources-say",
+        "url": "/insights/etched-fields-funding-offers-at-40b-valuation-sources-say.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ccf47292d3f60539",
+        "title": "10-Year Treasury Yield Trends and Insights for CRE",
+        "slug": "10-year-treasury-yield-trends-and-insights-for-cre",
+        "url": "/insights/10-year-treasury-yield-trends-and-insights-for-cre.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a4aa1b5f21a5236a",
+        "title": "Icon Real Estate Advisors Arranges Sale of 88-Unit East Orange Multifamily Portfolio",
+        "slug": "icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf",
+        "url": "/insights/icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0fa5e46423f3e6ff",
+        "title": "Denver Offers a Tale of Two Downtowns",
+        "slug": "denver-offers-a-tale-of-two-downtowns",
+        "url": "/insights/denver-offers-a-tale-of-two-downtowns.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dab59f0e200db9a0",
+        "title": "$131 Million DoorDash Settlement Likely Just the Beginning",
+        "slug": "131-million-doordash-settlement-likely-just-the-beginning",
+        "url": "/insights/131-million-doordash-settlement-likely-just-the-beginning.html",
+        "category": "Policy & Regulation",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7bc85689dedf2d58",
+        "title": "Blackstone Sells Fort Lauderdale Industrial Campus for $57M",
+        "slug": "blackstone-sells-fort-lauderdale-industrial-campus-for-57m",
+        "url": "/insights/blackstone-sells-fort-lauderdale-industrial-campus-for-57m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c23fc4eb516c929c",
+        "title": "Blackstone Sells Fort Lauderdale Industrial For $57M: The South Florida Deal Sheet",
+        "slug": "blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet",
+        "url": "/insights/blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7d11a797c03d1480",
+        "title": "Affinius Capital Provides $95M Construction Loan for Oregon State Student Housing",
+        "slug": "affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing",
+        "url": "/insights/affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fb4b30d075781bd9",
+        "title": "Financial District’s 70 Broad Street Purchased at Steep Discount",
+        "slug": "financial-district-s-70-broad-street-purchased-at-steep-discount",
+        "url": "/insights/financial-district-s-70-broad-street-purchased-at-steep-discount.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0a4b76dbd475ea58",
+        "title": "JLL Arranges $100M Bridge Financing for Two Recently Delivered North Florida Multifamily Assets",
+        "slug": "jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult",
+        "url": "/insights/jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c84c138c3e091e07",
+        "title": "AOI Raises $588M to Fund Manufacturing Expansion",
+        "slug": "aoi-raises-588m-to-fund-manufacturing-expansion",
+        "url": "/insights/aoi-raises-588m-to-fund-manufacturing-expansion.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "597507c917ada614",
+        "title": "BWE Secures $28.3M in Permanent Financing for Columbus-Area Senior Living Community",
+        "slug": "bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi",
+        "url": "/insights/bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "da1a86c62ab6ec97",
+        "title": "Box Street Park Breaks Ground At 65 Commercial Street In Greenpoint, Brooklyn",
+        "slug": "box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn",
+        "url": "/insights/box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6fd13c0111496d70",
+        "title": "Northwest Bank Provides $34.5 Million Financing for $47.75 Million Industrial Portfolio Acquisition in Greater Boston",
+        "slug": "northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port",
+        "url": "/insights/northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c2c452eeb5f54099",
+        "title": "ICBA urges court to rein in OCC over trust charters",
+        "slug": "icba-urges-court-to-rein-in-occ-over-trust-charters",
+        "url": "/insights/icba-urges-court-to-rein-in-occ-over-trust-charters.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "59a3494d219f3b2a",
+        "title": "Deal Roundup: KKR strikes $5.1bn Gen II buyout; TDR takes OCU from Triton after fourfold revenue growth",
+        "slug": "deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou",
+        "url": "/insights/deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "2e59a3da31ea2ff9",
+        "title": "OCC Hails 2026 Update to U.S. National Strategy for Financial Literacy",
+        "slug": "occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy",
+        "url": "/insights/occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "435ee53284f743a3",
+        "title": "Wall Street on track for record profits",
+        "slug": "wall-street-on-track-for-record-profits",
+        "url": "/insights/wall-street-on-track-for-record-profits.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "fd65079f0923d2b1",
+        "title": "Council Grills AI Leaders and Whistleblowers in Marathon Hearing",
+        "slug": "council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing",
+        "url": "/insights/council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6b7b2933f28fbed7",
+        "title": "TeraWulf Doubles Contracted Power at Muskie Data Campus to 1 GW",
+        "slug": "terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw",
+        "url": "/insights/terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e78c39f0218553c2",
+        "title": "Exclusive: Blaze Energy Raises $6.5 Million for Low-Carbon Shipping Retrofits",
+        "slug": "exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits",
+        "url": "/insights/exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "046ae31c00873997",
+        "title": "Fifth Wall’s Brendan Wallace On Spotting Real Estate’s Next Hot Tech Early",
+        "slug": "fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early",
+        "url": "/insights/fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5391e53775b4c759",
+        "title": "Maryland nets 440 MW/1,760 MWh in first bulk energy storage procurement",
+        "slug": "maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement",
+        "url": "/insights/maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "06d33f275a8393fd",
+        "slug": "flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value",
+        "title": "Flex Secures $2B Investment for Axiom at $37.5B Enterprise Value",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7409a880ed5d9c34",
+        "slug": "old-glory-bank-raises-8m-chides-fed-over-blocked-deal",
+        "title": "Old Glory Bank raises $8M, chides Fed over blocked deal",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/old-glory-bank-raises-8m-chides-fed-over-blocked-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cffc56443f860b64",
+        "slug": "constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm",
+        "title": "Constellation-Google deal will bring $4.3B investment, 890 MW new nuclear to PJM",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cdc9a17428466d2b",
+        "slug": "etched-fields-funding-offers-at-40b-valuation-sources-say",
+        "title": "Etched fields funding offers at $40B+ valuation, sources say",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/etched-fields-funding-offers-at-40b-valuation-sources-say.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ccf47292d3f60539",
+        "slug": "10-year-treasury-yield-trends-and-insights-for-cre",
+        "title": "10-Year Treasury Yield Trends and Insights for CRE",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/10-year-treasury-yield-trends-and-insights-for-cre.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a4aa1b5f21a5236a",
+        "slug": "icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf",
+        "title": "Icon Real Estate Advisors Arranges Sale of 88-Unit East Orange Multifamily Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0fa5e46423f3e6ff",
+        "slug": "denver-offers-a-tale-of-two-downtowns",
+        "title": "Denver Offers a Tale of Two Downtowns",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/denver-offers-a-tale-of-two-downtowns.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dab59f0e200db9a0",
+        "slug": "131-million-doordash-settlement-likely-just-the-beginning",
+        "title": "$131 Million DoorDash Settlement Likely Just the Beginning",
+        "sector": "local_government",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/131-million-doordash-settlement-likely-just-the-beginning.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7bc85689dedf2d58",
+        "slug": "blackstone-sells-fort-lauderdale-industrial-campus-for-57m",
+        "title": "Blackstone Sells Fort Lauderdale Industrial Campus for $57M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackstone-sells-fort-lauderdale-industrial-campus-for-57m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c23fc4eb516c929c",
+        "slug": "blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet",
+        "title": "Blackstone Sells Fort Lauderdale Industrial For $57M: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7d11a797c03d1480",
+        "slug": "affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing",
+        "title": "Affinius Capital Provides $95M Construction Loan for Oregon State Student Housing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fb4b30d075781bd9",
+        "slug": "financial-district-s-70-broad-street-purchased-at-steep-discount",
+        "title": "Financial District’s 70 Broad Street Purchased at Steep Discount",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/financial-district-s-70-broad-street-purchased-at-steep-discount.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0a4b76dbd475ea58",
+        "slug": "jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult",
+        "title": "JLL Arranges $100M Financing for 2-Property Multifamily Portfolio in Northern Florida",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c84c138c3e091e07",
+        "slug": "aoi-raises-588m-to-fund-manufacturing-expansion",
+        "title": "AOI Raises $588M to Fund Manufacturing Expansion",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/aoi-raises-588m-to-fund-manufacturing-expansion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "597507c917ada614",
+        "slug": "bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi",
+        "title": "BWE Secures $28.3M in Permanent Financing for Columbus-Area Senior Living Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi.html",
+        "reason": ""
+      },
+      {
+        "object_id": "da1a86c62ab6ec97",
+        "slug": "box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn",
+        "title": "Box Street Park Breaks Ground At 65 Commercial Street In Greenpoint, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6fd13c0111496d70",
+        "slug": "northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port",
+        "title": "Northwest Bank Provides $34.5 Million Financing for $47.75 Million Industrial Portfolio Acquisition in Greater Boston",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c2c452eeb5f54099",
+        "slug": "icba-urges-court-to-rein-in-occ-over-trust-charters",
+        "title": "ICBA urges court to rein in OCC over trust charters",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/icba-urges-court-to-rein-in-occ-over-trust-charters.html",
+        "reason": ""
+      },
+      {
+        "object_id": "59a3494d219f3b2a",
+        "slug": "deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou",
+        "title": "Deal Roundup: KKR strikes $5.1bn Gen II buyout; TDR takes OCU from Triton after fourfold revenue growth",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2e59a3da31ea2ff9",
+        "slug": "occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy",
+        "title": "OCC Hails 2026 Update to U.S. National Strategy for Financial Literacy",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy.html",
+        "reason": ""
+      },
+      {
+        "object_id": "435ee53284f743a3",
+        "slug": "wall-street-on-track-for-record-profits",
+        "title": "Wall Street on track for record profits",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/wall-street-on-track-for-record-profits.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fd65079f0923d2b1",
+        "slug": "council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing",
+        "title": "Council Grills AI Leaders and Whistleblowers in Marathon Hearing",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6b7b2933f28fbed7",
+        "slug": "terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw",
+        "title": "TeraWulf Doubles Contracted Power at Muskie Data Campus to 1 GW",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e78c39f0218553c2",
+        "slug": "exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits",
+        "title": "Exclusive: Blaze Energy Raises $6.5 Million for Low-Carbon Shipping Retrofits",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits.html",
+        "reason": ""
+      },
+      {
+        "object_id": "046ae31c00873997",
+        "slug": "fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early",
+        "title": "Fifth Wall’s Brendan Wallace On Spotting Real Estate’s Next Hot Tech Early",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5391e53775b4c759",
+        "slug": "maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement",
+        "title": "Maryland nets 440 MW/1,760 MWh in first bulk energy storage procurement",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 28,
+    "successful_calls": 28,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 21.25,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.57,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.67,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.31,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 221.81,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 110.49,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.19,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 43.9,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.7,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.48,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent",
+    "published 26 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 410.55,
+  "status": "ready",
+  "candidate_count": 845,
+  "event_count": 802,
+  "articles": [
+    {
+      "event_id": "06d33f275a8393fd",
+      "title": "Flex Secures $2B Investment for Axiom at $37.5B Enterprise Value",
+      "slug": "flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value",
+      "url": "/insights/flex-secures-2b-investment-for-axiom-at-37-5b-enterprise-value.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 67,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7409a880ed5d9c34",
+      "title": "Old Glory Bank raises $8M, chides Fed over blocked deal",
+      "slug": "old-glory-bank-raises-8m-chides-fed-over-blocked-deal",
+      "url": "/insights/old-glory-bank-raises-8m-chides-fed-over-blocked-deal.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cffc56443f860b64",
+      "title": "Constellation-Google deal will bring $4.3B investment, 890 MW new nuclear to PJM",
+      "slug": "constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm",
+      "url": "/insights/constellation-google-deal-will-bring-4-3b-investment-890-mw-new-nuclear-to-pjm.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cdc9a17428466d2b",
+      "title": "Etched fields funding offers at $40B+ valuation, sources say",
+      "slug": "etched-fields-funding-offers-at-40b-valuation-sources-say",
+      "url": "/insights/etched-fields-funding-offers-at-40b-valuation-sources-say.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ccf47292d3f60539",
+      "title": "10-Year Treasury Yield Trends and Insights for CRE",
+      "slug": "10-year-treasury-yield-trends-and-insights-for-cre",
+      "url": "/insights/10-year-treasury-yield-trends-and-insights-for-cre.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a4aa1b5f21a5236a",
+      "title": "Icon Real Estate Advisors Arranges Sale of 88-Unit East Orange Multifamily Portfolio",
+      "slug": "icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf",
+      "url": "/insights/icon-real-estate-advisors-arranges-sale-of-88-unit-east-orange-multifamily-portf.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0fa5e46423f3e6ff",
+      "title": "Denver Offers a Tale of Two Downtowns",
+      "slug": "denver-offers-a-tale-of-two-downtowns",
+      "url": "/insights/denver-offers-a-tale-of-two-downtowns.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dab59f0e200db9a0",
+      "title": "$131 Million DoorDash Settlement Likely Just the Beginning",
+      "slug": "131-million-doordash-settlement-likely-just-the-beginning",
+      "url": "/insights/131-million-doordash-settlement-likely-just-the-beginning.html",
+      "category": "Policy & Regulation",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7bc85689dedf2d58",
+      "title": "Blackstone Sells Fort Lauderdale Industrial Campus for $57M",
+      "slug": "blackstone-sells-fort-lauderdale-industrial-campus-for-57m",
+      "url": "/insights/blackstone-sells-fort-lauderdale-industrial-campus-for-57m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c23fc4eb516c929c",
+      "title": "Blackstone Sells Fort Lauderdale Industrial For $57M: The South Florida Deal Sheet",
+      "slug": "blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet",
+      "url": "/insights/blackstone-sells-fort-lauderdale-industrial-for-57m-the-south-florida-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7d11a797c03d1480",
+      "title": "Affinius Capital Provides $95M Construction Loan for Oregon State Student Housing",
+      "slug": "affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing",
+      "url": "/insights/affinius-capital-provides-95m-construction-loan-for-oregon-state-student-housing.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fb4b30d075781bd9",
+      "title": "Financial District’s 70 Broad Street Purchased at Steep Discount",
+      "slug": "financial-district-s-70-broad-street-purchased-at-steep-discount",
+      "url": "/insights/financial-district-s-70-broad-street-purchased-at-steep-discount.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0a4b76dbd475ea58",
+      "title": "JLL Arranges $100M Bridge Financing for Two Recently Delivered North Florida Multifamily Assets",
+      "slug": "jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult",
+      "url": "/insights/jll-arranges-100m-bridge-financing-for-two-recently-delivered-north-florida-mult.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c84c138c3e091e07",
+      "title": "AOI Raises $588M to Fund Manufacturing Expansion",
+      "slug": "aoi-raises-588m-to-fund-manufacturing-expansion",
+      "url": "/insights/aoi-raises-588m-to-fund-manufacturing-expansion.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "597507c917ada614",
+      "title": "BWE Secures $28.3M in Permanent Financing for Columbus-Area Senior Living Community",
+      "slug": "bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi",
+      "url": "/insights/bwe-secures-28-3m-in-permanent-financing-for-columbus-area-senior-living-communi.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "da1a86c62ab6ec97",
+      "title": "Box Street Park Breaks Ground At 65 Commercial Street In Greenpoint, Brooklyn",
+      "slug": "box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn",
+      "url": "/insights/box-street-park-breaks-ground-at-65-commercial-street-in-greenpoint-brooklyn.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6fd13c0111496d70",
+      "title": "Northwest Bank Provides $34.5 Million Financing for $47.75 Million Industrial Portfolio Acquisition in Greater Boston",
+      "slug": "northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port",
+      "url": "/insights/northwest-bank-provides-34-5-million-financing-for-47-75-million-industrial-port.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c2c452eeb5f54099",
+      "title": "ICBA urges court to rein in OCC over trust charters",
+      "slug": "icba-urges-court-to-rein-in-occ-over-trust-charters",
+      "url": "/insights/icba-urges-court-to-rein-in-occ-over-trust-charters.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "59a3494d219f3b2a",
+      "title": "Deal Roundup: KKR strikes $5.1bn Gen II buyout; TDR takes OCU from Triton after fourfold revenue growth",
+      "slug": "deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou",
+      "url": "/insights/deal-roundup-kkr-strikes-5-1bn-gen-ii-buyout-tdr-takes-ocu-from-triton-after-fou.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "2e59a3da31ea2ff9",
+      "title": "OCC Hails 2026 Update to U.S. National Strategy for Financial Literacy",
+      "slug": "occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy",
+      "url": "/insights/occ-hails-2026-update-to-u-s-national-strategy-for-financial-literacy.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "435ee53284f743a3",
+      "title": "Wall Street on track for record profits",
+      "slug": "wall-street-on-track-for-record-profits",
+      "url": "/insights/wall-street-on-track-for-record-profits.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "fd65079f0923d2b1",
+      "title": "Council Grills AI Leaders and Whistleblowers in Marathon Hearing",
+      "slug": "council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing",
+      "url": "/insights/council-grills-ai-leaders-and-whistleblowers-in-marathon-hearing.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6b7b2933f28fbed7",
+      "title": "TeraWulf Doubles Contracted Power at Muskie Data Campus to 1 GW",
+      "slug": "terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw",
+      "url": "/insights/terawulf-doubles-contracted-power-at-muskie-data-campus-to-1-gw.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e78c39f0218553c2",
+      "title": "Exclusive: Blaze Energy Raises $6.5 Million for Low-Carbon Shipping Retrofits",
+      "slug": "exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits",
+      "url": "/insights/exclusive-blaze-energy-raises-6-5-million-for-low-carbon-shipping-retrofits.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "046ae31c00873997",
+      "title": "Fifth Wall’s Brendan Wallace On Spotting Real Estate’s Next Hot Tech Early",
+      "slug": "fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early",
+      "url": "/insights/fifth-wall-s-brendan-wallace-on-spotting-real-estate-s-next-hot-tech-early.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5391e53775b4c759",
+      "title": "Maryland nets 440 MW/1,760 MWh in first bulk energy storage procurement",
+      "slug": "maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement",
+      "url": "/insights/maryland-nets-440-mw-1-760-mwh-in-first-bulk-energy-storage-procurement.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 26
+}
