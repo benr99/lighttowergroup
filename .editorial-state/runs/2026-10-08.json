@@ -1,0 +1,2673 @@
+{
+  "run_at": "2026-10-08T17:50:15.683176+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 914,
+  "documents_from_feeds": 811,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 859,
+  "documents_consolidated": 55,
+  "eligible": 119,
+  "enriched": 250,
+  "evidence_upgraded": 147,
+  "selected": 35,
+  "publication_candidates": 35,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 50,
+      "eligible": 4,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 474,
+      "eligible": 68,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 91,
+      "eligible": 9,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 125,
+      "eligible": 15,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 15 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 26,
+      "eligible": 10,
+      "selected": 7,
+      "target": 10,
+      "shortfall_reason": "only 7 of 10 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 4,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 89,
+      "eligible": 11,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 11 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 22,
+    "tier_c": 13
+  },
+  "shortfalls": [
+    "banking_credit: only 4 of 4 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 6 of 9 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 4 of 15 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 7 of 10 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 3 of 11 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 64.1,
+    "mean": 23.2,
+    "stdev": 11.92,
+    "range_used": 64.1,
+    "median": 19.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 258,
+    "fetched": 230,
+    "from_cache": 0,
+    "blocked": 24,
+    "failed": 4,
+    "skipped_budget": 0,
+    "bytes_downloaded": 54363983,
+    "elapsed_ms": 86746,
+    "by_status": {
+      "full_text": 149,
+      "partial_text": 81,
+      "failed": 4,
+      "blocked": 24
+    }
+  },
+  "novelty": {
+    "new": 783,
+    "already_published": 2,
+    "minor_follow_up": 74
+  },
+  "memory": {
+    "events_remembered": 15354,
+    "published": 997,
+    "seen_but_not_run": 14357,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-08",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0,
+    "spent_today_usd": 0.0,
+    "remaining_usd": 25.0,
+    "exhausted": false,
+    "total_calls": 0,
+    "refused_calls": 0,
+    "elapsed_seconds": 394.8,
+    "by_stage": {},
+    "most_expensive_articles": []
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 35,
+    "written": 35,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "attempts": 40,
+    "elapsed_seconds": 56.41,
+    "provider_attempts": {
+      "deepseek": 40
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "78e350bbfddf443b",
+        "title": "LS Power Closes Funding Round With $6 Billion in Commitments",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 663,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "f2726988abc2fa3e91cd42b656770e498d02370729e0d19af6c669f605b73bfb"
+        },
+        "seconds": 11.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2feda8b52ce3a967",
+        "title": "Fed's Waller says more interest rate hikes likely on the way",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.4,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 679,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "bb6677a575b31317f9546126704832d15691fea7facab659248bd0541fb080ec"
+        },
+        "seconds": 10.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "198a05571923a721",
+        "title": "Citigroup Supplies $28M Refi for Revived Office Building in Arlington, Va.",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.31,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 526,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "4548aa09b6eee0d589f372f591272325b7bbd92ed7d3e96eed20782cf3ebccdf"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "691382af6057522a",
+        "title": "Black Hills to Invest $1.8B to Power Google Data Center in Wyoming",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.21,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 598,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "8c761067d0469788de593c4dc5eeeeabdb9ed73477e56b2442f43ab6f248597e"
+        },
+        "seconds": 19.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b070627ea379a6fc",
+        "title": "Chrysler Building will get major revamp under new owner",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 11.2,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 732,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "db0124bb0167dae5a9a1e79f80596e5e3a9a7c1f6a281ee6bd53ddd21c49dbfa"
+        },
+        "seconds": 11.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b16a8d5153646dab",
+        "title": "Tishman Speyer Retakes Chrysler Building, Plans $235M Renovation",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.19,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 625,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "7d2e4dba2f7d80f10ba25726798d953507c2ed60d8abece50216988fd6992caa"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "689209baa74b385d",
+        "title": "Sesterce to invest $10bn in 600MW AI data center campus in Jämsä, Finland",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.78,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 555,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "987aea62f5bd41259b8007e22ffd9adb10fde1aa1159cf589f2f0b618260d933"
+        },
+        "seconds": 9.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6f3cbaba1e877ed0",
+        "title": "AI Adoption and Employment Expectations: Evidence from a Survey of Small Business Owners",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.38,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 504,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c1bc6e3da1af679077bf2f834c74e4834a44c2a557d50c8fd11e03a238f0145a"
+        },
+        "seconds": 8.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "39ce755d06c566cd",
+        "title": "Google Deal Backs 890 MW of Constellation Nuclear Uprates at 11 PJM Reactors",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.2,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 686,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "5adfbf0ada14407e44b8ba99756cfeac69c8a05e0b6a3fd3457a471ed2871379"
+        },
+        "seconds": 10.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ab6cc9c30dc47407",
+        "title": "BridgeInvest Refis Savannah Industrial Portfolio With $43M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 591,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "e721dd67ad98fa1188557bedf2646543ae092bae43dd3716c390f389af2c0c21"
+        },
+        "seconds": 10.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a170dfab6e175237",
+        "title": "Terra-Led JV Lands $507M Construction Loan for South Beach Condo Before Pre-Sales",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.56,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 534,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d4feb052b28964ae7931f39c49a99bafa998ddae29ccc3577c35d280045105d5"
+        },
+        "seconds": 9.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6bcad90db45a81ac",
+        "title": "Delaware Statutory Trust Fundraising Jumps 27% From 2025",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.1,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 568,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "1e74b95b6083b97c8e96fcf48e275effbb91b590d4919bf47183cd0c30abc026"
+        },
+        "seconds": 10.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "42b17d3e7ddb6aca",
+        "title": "All Fed officials backed vote to hike benchmark rate: FOMC minutes",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.77,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 538,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "0aa84ab8851a720a73ce213418fcce0049a6bb1a61e86ba4e1530a43d11aeded"
+        },
+        "seconds": 9.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "708af8d50a3d57af",
+        "title": "Third Coast to buy Oklahoma bank for $240M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.95,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 536,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "12b84bc490ad84fe053eb419f3917f31702d5959145cb8d24b5afcdb94c7a900"
+        },
+        "seconds": 8.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a6fd06933f771d0b",
+        "title": "Gantry Secures $16M for Seattle’s Russell Hall Mixed Use in University District",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 10.04,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 498,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "bd8a26393d7e2849a4316ad4fc76a5b10c95791bd1198f96a0190838adc2e2e6"
+        },
+        "seconds": 10.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3a98343a1fa90d2e",
+        "title": "Firm Heterogeneity and the Response of Investment to Monetary Policy",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.25,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 552,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c88d8e8d103795b644531b5a860b2719464cac8ea16e196b0dcc538a365d219b"
+        },
+        "seconds": 9.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a2acb28a8a79f254",
+        "title": "Inflation mostly skipped the wireless bill",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.84,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 758,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "778af51a97f5fe8aa928c860d478593abf8364d1b13960a64c6d7b92fa755c30"
+        },
+        "seconds": 8.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bcdc800b16dbf4fc",
+        "title": "BWE Provides $28.3M Permanent Loan for Columbus-Area Senior Living Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.52,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 507,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "d5a0fa9644a9dc286659b5c779678d6f39ac12552db503b2686df952d606c579"
+        },
+        "seconds": 8.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1e16bc6544829912",
+        "title": "Cushman & Wakefield Sells $89M Senior Housing Portfolio in Virginia, Maryland",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 12.98,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 697,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "acda8136bb0af1a7c254fed7f522de6a14e9ac2d85dd1ae50f7402b541f01ffd"
+        },
+        "seconds": 13.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "25075284a0a9029b",
+        "title": "Waller, The Signaling Value of the Summary of Economic Projections",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.84,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 589,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "c69c6c885014f2cdb1051fa80a437c0a03aff5fcb076c99269263df21e0b1b15"
+        },
+        "seconds": 9.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4aad186c33293ea9",
+        "title": "HITT breaks ground on $500M solid rocket motor manufacturing site",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 8.72,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 489,
+            "paragraph_count": 5
+          },
+          "dossier_hash": "9504546ab1efc770c2c28a460d3989392f773deab5e1d648bfa87bf3c4449edb"
+        },
+        "seconds": 8.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "456dd56aa9302e45",
+        "title": "Fed policymakers saw multiple 2026 rate hikes as likely, September FOMC minutes show",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 9.85,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 557,
+            "paragraph_count": 6
+          },
+          "dossier_hash": "dbbc9a8a84a1cba7028ca236013cf31a9f89dad08dd293932872cfb2068b34e7"
+        },
+        "seconds": 9.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f9da7addb7a191fa",
+        "title": "Institutional Property Advisors Brokers $72M Puget Sound MF Sale",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.23,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 240,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "9dfbe2c64986464c0b56ebbdb1c0f82b1e1e80922c5394be6ab4d71306efd989"
+        },
+        "seconds": 5.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "455f440413926c3b",
+        "title": "ABA, associations urge housing agencies to seek uniformity in appraisal modernization",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.33,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 301,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "0db7ed41b70f550669b473cd0e0ffccb2ad883576269162983907893981dfe1c"
+        },
+        "seconds": 5.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4065885414c31489",
+        "title": "AI cloud company Boost Run secures $525.6m contract with Cohere",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.26,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 340,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "d44d4a8f2dc176a0851d5b986c304404e487b27d6a1c02c4b3a8bf955ef7b39d"
+        },
+        "seconds": 5.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "06ca5a231151d9bc",
+        "title": "The Tesla Alum Trying to Turn GM Into an American Battery Juggernaut",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 7.02,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 351,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c6e22a1eb4ddfd3fe96ebaca257446f0a21e19f7abe3f992f83225a505bc3cc7"
+        },
+        "seconds": 7.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "95262a3079b36a9b",
+        "title": "Google Signs 20-Year Nuclear PPA With Constellation For 890MW In PJM",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.12,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 365,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "3d05d3d897f5abaf45b7e3025c76c15efbd3f21bfd057ce4c8846f82b0f30c6b"
+        },
+        "seconds": 10.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c02fc931df4ad695",
+        "title": "Speaker Menin and Mayor Mamdani Cut Red Tape to Expedite Payments for Up to 800 Nonprofits",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.92,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 325,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "22d8e04b4e979bac77fb533dec6bda0c737df8437bc04f85cd6d6a0946689696"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f24b0cf2b8e4773d",
+        "title": "Comptroller Gould Announces New Efforts to Combat Financial Fraud in Minnesota",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.87,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 350,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "ad25021d58a6e3ecd4fcfab4e8e7280b2dc8ad32769f4a1f976cc3f009449a8c"
+        },
+        "seconds": 5.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9f324eff3ba129a5",
+        "title": "The Art Basel and UBS Collecting Survey Shows Gen Z Setting the Pace, and the Megafair Is Remaking Itself to Keep Up",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.64,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 352,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "f7396d84f5a51f82d482c40110051ede3b376fa6e7468d657d2683ee5209ca48"
+        },
+        "seconds": 11.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "25ea53425847fb5c",
+        "title": "India’s SPECTRA Program Targets 1.6T Silicon Photonics and CPO",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.48,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 366,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "33719dde4e0d79db11ee174c53665c33ced6988ee48686cc8637a4752caa535d"
+        },
+        "seconds": 11.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "248776d8a0446f09",
+        "title": "DOWNLOAD: Private equity fundraising turns a corner",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.75,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 250,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "02253ef9c544eab2a3f8660b7e27e2dfba4abc9c153d98bc036e8ae0dbf856a7"
+        },
+        "seconds": 5.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "49378f0757967077",
+        "title": "NexPoint Launches $18.8M Energy DST Holding Haynesville, Permian Royalties",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 4.8,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 312,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "73bf17520fb7117f82aa3d0f2f6e76f9c25da8959a7473c7d3b117251e129a57"
+        },
+        "seconds": 10.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "34dff08beab58015",
+        "title": "Deal Roundup: Sycamore exits Boots in $8.9bn Weston family sale, Brookfield buys Indian logistics portfolio",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 6.87,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 337,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "c386eb2ed10fe7c57e28278bc1471bd313491fbc1d36cc781653a6d956a7cfb1"
+        },
+        "seconds": 6.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5567a6bc02a9abac",
+        "title": "Google's €13bn data center buildout in Finland under investigation for 300-hectare forest removal",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "error_kind": "validation",
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "request_seconds": 5.75,
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 344,
+            "paragraph_count": 4
+          },
+          "dossier_hash": "1c9bd7d783d18f1aa9b61bd113cb0368ccac2e81101e2b5a6dc50cd39e43d840"
+        },
+        "seconds": 5.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 35,
+    "published": 35,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for_social.png",
+      "insights/ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for.html",
+      "insights/fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher_social.png",
+      "insights/fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher.html",
+      "insights/citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va_social.png",
+      "insights/citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va.html",
+      "insights/black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming_social.png",
+      "insights/black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming.html",
+      "insights/chrysler-building-will-get-major-revamp-under-new-owner_social.png",
+      "insights/chrysler-building-will-get-major-revamp-under-new-owner.html",
+      "insights/tishman-speyer-retakes-chrysler-building-plans-235m-renovation_social.png",
+      "insights/tishman-speyer-retakes-chrysler-building-plans-235m-renovation.html",
+      "insights/sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland_social.png",
+      "insights/sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland.html",
+      "insights/ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business_social.png",
+      "insights/ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business.html",
+      "insights/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors_social.png",
+      "insights/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors.html",
+      "insights/bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan_social.png",
+      "insights/bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan.html",
+      "insights/terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales_social.png",
+      "insights/terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales.html",
+      "insights/delaware-statutory-trust-fundraising-jumps-27-from-2025_social.png",
+      "insights/delaware-statutory-trust-fundraising-jumps-27-from-2025.html",
+      "insights/all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes_social.png",
+      "insights/all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes.html",
+      "insights/third-coast-to-buy-oklahoma-bank-for-240m_social.png",
+      "insights/third-coast-to-buy-oklahoma-bank-for-240m.html",
+      "insights/gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district_social.png",
+      "insights/gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district.html",
+      "insights/firm-heterogeneity-and-the-response-of-investment-to-monetary-policy_social.png",
+      "insights/firm-heterogeneity-and-the-response-of-investment-to-monetary-policy.html",
+      "insights/inflation-mostly-skipped-the-wireless-bill_social.png",
+      "insights/inflation-mostly-skipped-the-wireless-bill.html",
+      "insights/bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community_social.png",
+      "insights/bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community.html",
+      "insights/cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland_social.png",
+      "insights/cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland.html",
+      "insights/waller-the-signaling-value-of-the-summary-of-economic-projections_social.png",
+      "insights/waller-the-signaling-value-of-the-summary-of-economic-projections.html",
+      "insights/hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site_social.png",
+      "insights/hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site.html",
+      "insights/fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s_social.png",
+      "insights/fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s.html",
+      "insights/institutional-property-advisors-brokers-72m-puget-sound-mf-sale_social.png",
+      "insights/institutional-property-advisors-brokers-72m-puget-sound-mf-sale.html",
+      "insights/aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza_social.png",
+      "insights/aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza.html",
+      "insights/ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere_social.png",
+      "insights/ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere.html",
+      "insights/the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut_social.png",
+      "insights/the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut.html",
+      "insights/google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm_social.png",
+      "insights/google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm.html",
+      "insights/speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800_social.png",
+      "insights/speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800.html",
+      "insights/comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota_social.png",
+      "insights/comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota.html",
+      "insights/the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg_social.png",
+      "insights/the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg.html",
+      "insights/india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo_social.png",
+      "insights/india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo.html",
+      "insights/private-equity-fundraising-turns-a-corner_social.png",
+      "insights/private-equity-fundraising-turns-a-corner.html",
+      "insights/nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties_social.png",
+      "insights/nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties.html",
+      "insights/deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in_social.png",
+      "insights/deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in.html",
+      "insights/google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare_social.png",
+      "insights/google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for_related.json",
+      "insights/fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher_related.json",
+      "insights/citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va_related.json",
+      "insights/black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming_related.json",
+      "insights/chrysler-building-will-get-major-revamp-under-new-owner_related.json",
+      "insights/tishman-speyer-retakes-chrysler-building-plans-235m-renovation_related.json",
+      "insights/sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland_related.json",
+      "insights/ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business_related.json",
+      "insights/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors_related.json",
+      "insights/bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan_related.json",
+      "insights/terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales_related.json",
+      "insights/delaware-statutory-trust-fundraising-jumps-27-from-2025_related.json",
+      "insights/all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes_related.json",
+      "insights/third-coast-to-buy-oklahoma-bank-for-240m_related.json",
+      "insights/gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district_related.json",
+      "insights/firm-heterogeneity-and-the-response-of-investment-to-monetary-policy_related.json",
+      "insights/inflation-mostly-skipped-the-wireless-bill_related.json",
+      "insights/bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community_related.json",
+      "insights/cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland_related.json",
+      "insights/waller-the-signaling-value-of-the-summary-of-economic-projections_related.json",
+      "insights/hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site_related.json",
+      "insights/fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s_related.json",
+      "insights/institutional-property-advisors-brokers-72m-puget-sound-mf-sale_related.json",
+      "insights/aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza_related.json",
+      "insights/ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere_related.json",
+      "insights/the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut_related.json",
+      "insights/google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm_related.json",
+      "insights/speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800_related.json",
+      "insights/comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota_related.json",
+      "insights/the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg_related.json",
+      "insights/india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo_related.json",
+      "insights/private-equity-fundraising-turns-a-corner_related.json",
+      "insights/nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties_related.json",
+      "insights/deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in_related.json",
+      "insights/google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "78e350bbfddf443b",
+        "title": "LS Power Closes Fund VI at $6 Billion, Signaling Strong Institutional Appetite for U.S. Energy Infrastructure",
+        "slug": "ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for",
+        "url": "/insights/ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2feda8b52ce3a967",
+        "title": "Fed's Waller signals more rate hikes likely as inflation risks shift higher",
+        "slug": "fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher",
+        "url": "/insights/fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "198a05571923a721",
+        "title": "Citigroup Supplies $28M Refi for Revived Office Building in Arlington, Va.",
+        "slug": "citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va",
+        "url": "/insights/citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "691382af6057522a",
+        "title": "Black Hills to Invest $1.8B to Power Google Data Center in Wyoming",
+        "slug": "black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming",
+        "url": "/insights/black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b070627ea379a6fc",
+        "title": "Chrysler Building will get major revamp under new owner",
+        "slug": "chrysler-building-will-get-major-revamp-under-new-owner",
+        "url": "/insights/chrysler-building-will-get-major-revamp-under-new-owner.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b16a8d5153646dab",
+        "title": "Tishman Speyer Retakes Chrysler Building, Plans $235M Renovation",
+        "slug": "tishman-speyer-retakes-chrysler-building-plans-235m-renovation",
+        "url": "/insights/tishman-speyer-retakes-chrysler-building-plans-235m-renovation.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "689209baa74b385d",
+        "title": "Sesterce to invest $10bn in 600MW AI data center campus in Jämsä, Finland",
+        "slug": "sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland",
+        "url": "/insights/sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6f3cbaba1e877ed0",
+        "title": "AI Adoption and Employment Expectations: Evidence from a Survey of Small Business Owners",
+        "slug": "ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business",
+        "url": "/insights/ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "39ce755d06c566cd",
+        "title": "Google Deal Backs 890 MW of Constellation Nuclear Uprates at 11 PJM Reactors",
+        "slug": "google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors",
+        "url": "/insights/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ab6cc9c30dc47407",
+        "title": "BridgeInvest Refis Savannah Industrial Portfolio With $43M Loan",
+        "slug": "bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan",
+        "url": "/insights/bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a170dfab6e175237",
+        "title": "Terra-Led JV Lands $507M Construction Loan for South Beach Condo Before Pre-Sales",
+        "slug": "terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales",
+        "url": "/insights/terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6bcad90db45a81ac",
+        "title": "Delaware Statutory Trust Fundraising Jumps 27% From 2025",
+        "slug": "delaware-statutory-trust-fundraising-jumps-27-from-2025",
+        "url": "/insights/delaware-statutory-trust-fundraising-jumps-27-from-2025.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "42b17d3e7ddb6aca",
+        "title": "All Fed officials backed vote to hike benchmark rate: FOMC minutes",
+        "slug": "all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes",
+        "url": "/insights/all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "708af8d50a3d57af",
+        "title": "Third Coast to buy Oklahoma bank for $240M",
+        "slug": "third-coast-to-buy-oklahoma-bank-for-240m",
+        "url": "/insights/third-coast-to-buy-oklahoma-bank-for-240m.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a6fd06933f771d0b",
+        "title": "Gantry Secures $16M for Seattle’s Russell Hall Mixed Use in University District",
+        "slug": "gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district",
+        "url": "/insights/gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3a98343a1fa90d2e",
+        "title": "Firm Heterogeneity and the Response of Investment to Monetary Policy",
+        "slug": "firm-heterogeneity-and-the-response-of-investment-to-monetary-policy",
+        "url": "/insights/firm-heterogeneity-and-the-response-of-investment-to-monetary-policy.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a2acb28a8a79f254",
+        "title": "Inflation mostly skipped the wireless bill",
+        "slug": "inflation-mostly-skipped-the-wireless-bill",
+        "url": "/insights/inflation-mostly-skipped-the-wireless-bill.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bcdc800b16dbf4fc",
+        "title": "BWE Provides $28.3M Permanent Loan for Columbus-Area Senior Living Community",
+        "slug": "bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community",
+        "url": "/insights/bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1e16bc6544829912",
+        "title": "Cushman & Wakefield Sells $89M Senior Housing Portfolio in Virginia, Maryland",
+        "slug": "cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland",
+        "url": "/insights/cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "25075284a0a9029b",
+        "title": "Waller, The Signaling Value of the Summary of Economic Projections",
+        "slug": "waller-the-signaling-value-of-the-summary-of-economic-projections",
+        "url": "/insights/waller-the-signaling-value-of-the-summary-of-economic-projections.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4aad186c33293ea9",
+        "title": "HITT breaks ground on $500M solid rocket motor manufacturing site",
+        "slug": "hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site",
+        "url": "/insights/hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "456dd56aa9302e45",
+        "title": "Fed policymakers saw multiple 2026 rate hikes as likely, September FOMC minutes show",
+        "slug": "fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s",
+        "url": "/insights/fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f9da7addb7a191fa",
+        "title": "Institutional Property Advisors Brokers $72M Puget Sound MF Sale",
+        "slug": "institutional-property-advisors-brokers-72m-puget-sound-mf-sale",
+        "url": "/insights/institutional-property-advisors-brokers-72m-puget-sound-mf-sale.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "455f440413926c3b",
+        "title": "ABA, associations urge housing agencies to seek uniformity in appraisal modernization",
+        "slug": "aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza",
+        "url": "/insights/aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4065885414c31489",
+        "title": "AI cloud company Boost Run secures $525.6 million contract with Cohere",
+        "slug": "ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere",
+        "url": "/insights/ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "06ca5a231151d9bc",
+        "title": "The Tesla Alum Trying to Turn GM Into an American Battery Juggernaut",
+        "slug": "the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut",
+        "url": "/insights/the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "95262a3079b36a9b",
+        "title": "Google Signs 20-Year Nuclear PPA With Constellation For 890MW In PJM",
+        "slug": "google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm",
+        "url": "/insights/google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c02fc931df4ad695",
+        "title": "Speaker Menin and Mayor Mamdani Cut Red Tape to Expedite Payments for Up to 800 Nonprofits",
+        "slug": "speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800",
+        "url": "/insights/speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f24b0cf2b8e4773d",
+        "title": "Comptroller Gould Announces New Efforts to Combat Financial Fraud in Minnesota",
+        "slug": "comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota",
+        "url": "/insights/comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9f324eff3ba129a5",
+        "title": "The Art Basel and UBS Collecting Survey Shows Gen Z Setting the Pace, and the Megafair Is Remaking Itself to Keep Up",
+        "slug": "the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg",
+        "url": "/insights/the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "25ea53425847fb5c",
+        "title": "India’s SPECTRA Program Targets 1.6T Silicon Photonics and CPO",
+        "slug": "india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo",
+        "url": "/insights/india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "248776d8a0446f09",
+        "title": "Private equity fundraising turns a corner",
+        "slug": "private-equity-fundraising-turns-a-corner",
+        "url": "/insights/private-equity-fundraising-turns-a-corner.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "49378f0757967077",
+        "title": "NexPoint Launches $18.8M Energy DST Holding Haynesville, Permian Royalties",
+        "slug": "nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties",
+        "url": "/insights/nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "34dff08beab58015",
+        "title": "Deal Roundup: Sycamore exits Boots in $8.9bn Weston family sale, Brookfield buys Indian logistics portfolio",
+        "slug": "deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in",
+        "url": "/insights/deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "5567a6bc02a9abac",
+        "title": "Google's €13bn Finland data center buildout under investigation over 300-hectare forest removal",
+        "slug": "google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare",
+        "url": "/insights/google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "78e350bbfddf443b",
+        "slug": "ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for",
+        "title": "LS Power Closes Funding Round With $6 Billion in Commitments",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2feda8b52ce3a967",
+        "slug": "fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher",
+        "title": "Fed's Waller says more interest rate hikes likely on the way",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher.html",
+        "reason": ""
+      },
+      {
+        "object_id": "198a05571923a721",
+        "slug": "citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va",
+        "title": "Citigroup Supplies $28M Refi for Revived Office Building in Arlington, Va.",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va.html",
+        "reason": ""
+      },
+      {
+        "object_id": "691382af6057522a",
+        "slug": "black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming",
+        "title": "Black Hills to Invest $1.8B to Power Google Data Center in Wyoming",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b070627ea379a6fc",
+        "slug": "chrysler-building-will-get-major-revamp-under-new-owner",
+        "title": "Chrysler Building will get major revamp under new owner",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/chrysler-building-will-get-major-revamp-under-new-owner.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b16a8d5153646dab",
+        "slug": "tishman-speyer-retakes-chrysler-building-plans-235m-renovation",
+        "title": "Tishman Speyer Retakes Chrysler Building, Plans $235M Renovation",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/tishman-speyer-retakes-chrysler-building-plans-235m-renovation.html",
+        "reason": ""
+      },
+      {
+        "object_id": "689209baa74b385d",
+        "slug": "sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland",
+        "title": "Sesterce to invest $10bn in 600MW AI data center campus in Jämsä, Finland",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6f3cbaba1e877ed0",
+        "slug": "ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business",
+        "title": "AI Adoption and Employment Expectations: Evidence from a Survey of Small Business Owners",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business.html",
+        "reason": ""
+      },
+      {
+        "object_id": "39ce755d06c566cd",
+        "slug": "google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors",
+        "title": "Google Deal Backs 890 MW of Constellation Nuclear Uprates at 11 PJM Reactors",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ab6cc9c30dc47407",
+        "slug": "bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan",
+        "title": "BridgeInvest Refis Savannah Industrial Portfolio With $43M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a170dfab6e175237",
+        "slug": "terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales",
+        "title": "Terra-Led JV Lands $507M Construction Loan for South Beach Condo Before Pre-Sales",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6bcad90db45a81ac",
+        "slug": "delaware-statutory-trust-fundraising-jumps-27-from-2025",
+        "title": "Delaware Statutory Trust Fundraising Jumps 27% From 2025",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/delaware-statutory-trust-fundraising-jumps-27-from-2025.html",
+        "reason": ""
+      },
+      {
+        "object_id": "42b17d3e7ddb6aca",
+        "slug": "all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes",
+        "title": "All Fed officials backed vote to hike benchmark rate: FOMC minutes",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes.html",
+        "reason": ""
+      },
+      {
+        "object_id": "708af8d50a3d57af",
+        "slug": "third-coast-to-buy-oklahoma-bank-for-240m",
+        "title": "Third Coast to buy Oklahoma bank for $240M",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/third-coast-to-buy-oklahoma-bank-for-240m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a6fd06933f771d0b",
+        "slug": "gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district",
+        "title": "Gantry Secures $16M for Seattle’s Russell Hall Mixed Use in University District",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3a98343a1fa90d2e",
+        "slug": "firm-heterogeneity-and-the-response-of-investment-to-monetary-policy",
+        "title": "Firm Heterogeneity and the Response of Investment to Monetary Policy",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/firm-heterogeneity-and-the-response-of-investment-to-monetary-policy.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a2acb28a8a79f254",
+        "slug": "inflation-mostly-skipped-the-wireless-bill",
+        "title": "Inflation mostly skipped the wireless bill",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/inflation-mostly-skipped-the-wireless-bill.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bcdc800b16dbf4fc",
+        "slug": "bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community",
+        "title": "BWE Provides $28.3M Permanent Loan for Columbus-Area Senior Living Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1e16bc6544829912",
+        "slug": "cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland",
+        "title": "Cushman & Wakefield Sells $89M Senior Housing Portfolio in Virginia, Maryland",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland.html",
+        "reason": ""
+      },
+      {
+        "object_id": "25075284a0a9029b",
+        "slug": "waller-the-signaling-value-of-the-summary-of-economic-projections",
+        "title": "Waller, The Signaling Value of the Summary of Economic Projections",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/waller-the-signaling-value-of-the-summary-of-economic-projections.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4aad186c33293ea9",
+        "slug": "hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site",
+        "title": "HITT breaks ground on $500M solid rocket motor manufacturing site",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site.html",
+        "reason": ""
+      },
+      {
+        "object_id": "456dd56aa9302e45",
+        "slug": "fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s",
+        "title": "Fed policymakers saw multiple 2026 rate hikes as likely, September FOMC minutes show",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f9da7addb7a191fa",
+        "slug": "institutional-property-advisors-brokers-72m-puget-sound-mf-sale",
+        "title": "Institutional Property Advisors Brokers $72M Puget Sound MF Sale",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/institutional-property-advisors-brokers-72m-puget-sound-mf-sale.html",
+        "reason": ""
+      },
+      {
+        "object_id": "455f440413926c3b",
+        "slug": "aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza",
+        "title": "ABA, associations urge housing agencies to seek uniformity in appraisal modernization",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4065885414c31489",
+        "slug": "ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere",
+        "title": "AI cloud company Boost Run secures $525.6m contract with Cohere",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere.html",
+        "reason": ""
+      },
+      {
+        "object_id": "06ca5a231151d9bc",
+        "slug": "the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut",
+        "title": "The Tesla Alum Trying to Turn GM Into an American Battery Juggernaut",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut.html",
+        "reason": ""
+      },
+      {
+        "object_id": "95262a3079b36a9b",
+        "slug": "google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm",
+        "title": "Google Signs 20-Year Nuclear PPA With Constellation For 890MW In PJM",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c02fc931df4ad695",
+        "slug": "speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800",
+        "title": "Speaker Menin and Mayor Mamdani Cut Red Tape to Expedite Payments for Up to 800 Nonprofits",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f24b0cf2b8e4773d",
+        "slug": "comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota",
+        "title": "Comptroller Gould Announces New Efforts to Combat Financial Fraud in Minnesota",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9f324eff3ba129a5",
+        "slug": "the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg",
+        "title": "The Art Basel and UBS Collecting Survey Shows Gen Z Setting the Pace, and the Megafair Is Remaking Itself to Keep Up",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg.html",
+        "reason": ""
+      },
+      {
+        "object_id": "25ea53425847fb5c",
+        "slug": "india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo",
+        "title": "India’s SPECTRA Program Targets 1.6T Silicon Photonics and CPO",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo.html",
+        "reason": ""
+      },
+      {
+        "object_id": "248776d8a0446f09",
+        "slug": "private-equity-fundraising-turns-a-corner",
+        "title": "DOWNLOAD: Private equity fundraising turns a corner",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/private-equity-fundraising-turns-a-corner.html",
+        "reason": ""
+      },
+      {
+        "object_id": "49378f0757967077",
+        "slug": "nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties",
+        "title": "NexPoint Launches $18.8M Energy DST Holding Haynesville, Permian Royalties",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties.html",
+        "reason": ""
+      },
+      {
+        "object_id": "34dff08beab58015",
+        "slug": "deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in",
+        "title": "Deal Roundup: Sycamore exits Boots in $8.9bn Weston family sale, Brookfield buys Indian logistics portfolio",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5567a6bc02a9abac",
+        "slug": "google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare",
+        "title": "Google's €13bn data center buildout in Finland under investigation for 300-hectare forest removal",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 40,
+    "successful_calls": 40,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.59,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 7.23,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.76,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.25,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 218.08,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 87.74,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.2,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 57.9,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 3.39,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.46,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty",
+    "published 35 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 394.78,
+  "status": "ready",
+  "candidate_count": 914,
+  "event_count": 859,
+  "articles": [
+    {
+      "event_id": "78e350bbfddf443b",
+      "title": "LS Power Closes Fund VI at $6 Billion, Signaling Strong Institutional Appetite for U.S. Energy Infrastructure",
+      "slug": "ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for",
+      "url": "/insights/ls-power-closes-fund-vi-at-6-billion-signaling-strong-institutional-appetite-for.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2feda8b52ce3a967",
+      "title": "Fed's Waller signals more rate hikes likely as inflation risks shift higher",
+      "slug": "fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher",
+      "url": "/insights/fed-s-waller-signals-more-rate-hikes-likely-as-inflation-risks-shift-higher.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "198a05571923a721",
+      "title": "Citigroup Supplies $28M Refi for Revived Office Building in Arlington, Va.",
+      "slug": "citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va",
+      "url": "/insights/citigroup-supplies-28m-refi-for-revived-office-building-in-arlington-va.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "691382af6057522a",
+      "title": "Black Hills to Invest $1.8B to Power Google Data Center in Wyoming",
+      "slug": "black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming",
+      "url": "/insights/black-hills-to-invest-1-8b-to-power-google-data-center-in-wyoming.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b070627ea379a6fc",
+      "title": "Chrysler Building will get major revamp under new owner",
+      "slug": "chrysler-building-will-get-major-revamp-under-new-owner",
+      "url": "/insights/chrysler-building-will-get-major-revamp-under-new-owner.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b16a8d5153646dab",
+      "title": "Tishman Speyer Retakes Chrysler Building, Plans $235M Renovation",
+      "slug": "tishman-speyer-retakes-chrysler-building-plans-235m-renovation",
+      "url": "/insights/tishman-speyer-retakes-chrysler-building-plans-235m-renovation.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "689209baa74b385d",
+      "title": "Sesterce to invest $10bn in 600MW AI data center campus in Jämsä, Finland",
+      "slug": "sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland",
+      "url": "/insights/sesterce-to-invest-10bn-in-600mw-ai-data-center-campus-in-j-ms-finland.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6f3cbaba1e877ed0",
+      "title": "AI Adoption and Employment Expectations: Evidence from a Survey of Small Business Owners",
+      "slug": "ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business",
+      "url": "/insights/ai-adoption-and-employment-expectations-evidence-from-a-survey-of-small-business.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "39ce755d06c566cd",
+      "title": "Google Deal Backs 890 MW of Constellation Nuclear Uprates at 11 PJM Reactors",
+      "slug": "google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors",
+      "url": "/insights/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ab6cc9c30dc47407",
+      "title": "BridgeInvest Refis Savannah Industrial Portfolio With $43M Loan",
+      "slug": "bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan",
+      "url": "/insights/bridgeinvest-refis-savannah-industrial-portfolio-with-43m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a170dfab6e175237",
+      "title": "Terra-Led JV Lands $507M Construction Loan for South Beach Condo Before Pre-Sales",
+      "slug": "terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales",
+      "url": "/insights/terra-led-jv-lands-507m-construction-loan-for-south-beach-condo-before-pre-sales.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6bcad90db45a81ac",
+      "title": "Delaware Statutory Trust Fundraising Jumps 27% From 2025",
+      "slug": "delaware-statutory-trust-fundraising-jumps-27-from-2025",
+      "url": "/insights/delaware-statutory-trust-fundraising-jumps-27-from-2025.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "42b17d3e7ddb6aca",
+      "title": "All Fed officials backed vote to hike benchmark rate: FOMC minutes",
+      "slug": "all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes",
+      "url": "/insights/all-fed-officials-backed-vote-to-hike-benchmark-rate-fomc-minutes.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "708af8d50a3d57af",
+      "title": "Third Coast to buy Oklahoma bank for $240M",
+      "slug": "third-coast-to-buy-oklahoma-bank-for-240m",
+      "url": "/insights/third-coast-to-buy-oklahoma-bank-for-240m.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a6fd06933f771d0b",
+      "title": "Gantry Secures $16M for Seattle’s Russell Hall Mixed Use in University District",
+      "slug": "gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district",
+      "url": "/insights/gantry-secures-16m-for-seattle-s-russell-hall-mixed-use-in-university-district.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3a98343a1fa90d2e",
+      "title": "Firm Heterogeneity and the Response of Investment to Monetary Policy",
+      "slug": "firm-heterogeneity-and-the-response-of-investment-to-monetary-policy",
+      "url": "/insights/firm-heterogeneity-and-the-response-of-investment-to-monetary-policy.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a2acb28a8a79f254",
+      "title": "Inflation mostly skipped the wireless bill",
+      "slug": "inflation-mostly-skipped-the-wireless-bill",
+      "url": "/insights/inflation-mostly-skipped-the-wireless-bill.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bcdc800b16dbf4fc",
+      "title": "BWE Provides $28.3M Permanent Loan for Columbus-Area Senior Living Community",
+      "slug": "bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community",
+      "url": "/insights/bwe-provides-28-3m-permanent-loan-for-columbus-area-senior-living-community.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1e16bc6544829912",
+      "title": "Cushman & Wakefield Sells $89M Senior Housing Portfolio in Virginia, Maryland",
+      "slug": "cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland",
+      "url": "/insights/cushman-wakefield-sells-89m-senior-housing-portfolio-in-virginia-maryland.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "25075284a0a9029b",
+      "title": "Waller, The Signaling Value of the Summary of Economic Projections",
+      "slug": "waller-the-signaling-value-of-the-summary-of-economic-projections",
+      "url": "/insights/waller-the-signaling-value-of-the-summary-of-economic-projections.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4aad186c33293ea9",
+      "title": "HITT breaks ground on $500M solid rocket motor manufacturing site",
+      "slug": "hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site",
+      "url": "/insights/hitt-breaks-ground-on-500m-solid-rocket-motor-manufacturing-site.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "456dd56aa9302e45",
+      "title": "Fed policymakers saw multiple 2026 rate hikes as likely, September FOMC minutes show",
+      "slug": "fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s",
+      "url": "/insights/fed-policymakers-saw-multiple-2026-rate-hikes-as-likely-september-fomc-minutes-s.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f9da7addb7a191fa",
+      "title": "Institutional Property Advisors Brokers $72M Puget Sound MF Sale",
+      "slug": "institutional-property-advisors-brokers-72m-puget-sound-mf-sale",
+      "url": "/insights/institutional-property-advisors-brokers-72m-puget-sound-mf-sale.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "455f440413926c3b",
+      "title": "ABA, associations urge housing agencies to seek uniformity in appraisal modernization",
+      "slug": "aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza",
+      "url": "/insights/aba-associations-urge-housing-agencies-to-seek-uniformity-in-appraisal-moderniza.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4065885414c31489",
+      "title": "AI cloud company Boost Run secures $525.6 million contract with Cohere",
+      "slug": "ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere",
+      "url": "/insights/ai-cloud-company-boost-run-secures-525-6-million-contract-with-cohere.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "06ca5a231151d9bc",
+      "title": "The Tesla Alum Trying to Turn GM Into an American Battery Juggernaut",
+      "slug": "the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut",
+      "url": "/insights/the-tesla-alum-trying-to-turn-gm-into-an-american-battery-juggernaut.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "95262a3079b36a9b",
+      "title": "Google Signs 20-Year Nuclear PPA With Constellation For 890MW In PJM",
+      "slug": "google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm",
+      "url": "/insights/google-signs-20-year-nuclear-ppa-with-constellation-for-890mw-in-pjm.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c02fc931df4ad695",
+      "title": "Speaker Menin and Mayor Mamdani Cut Red Tape to Expedite Payments for Up to 800 Nonprofits",
+      "slug": "speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800",
+      "url": "/insights/speaker-menin-and-mayor-mamdani-cut-red-tape-to-expedite-payments-for-up-to-800.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f24b0cf2b8e4773d",
+      "title": "Comptroller Gould Announces New Efforts to Combat Financial Fraud in Minnesota",
+      "slug": "comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota",
+      "url": "/insights/comptroller-gould-announces-new-efforts-to-combat-financial-fraud-in-minnesota.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9f324eff3ba129a5",
+      "title": "The Art Basel and UBS Collecting Survey Shows Gen Z Setting the Pace, and the Megafair Is Remaking Itself to Keep Up",
+      "slug": "the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg",
+      "url": "/insights/the-art-basel-and-ubs-collecting-survey-shows-gen-z-setting-the-pace-and-the-meg.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "25ea53425847fb5c",
+      "title": "India’s SPECTRA Program Targets 1.6T Silicon Photonics and CPO",
+      "slug": "india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo",
+      "url": "/insights/india-s-spectra-program-targets-1-6t-silicon-photonics-and-cpo.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "248776d8a0446f09",
+      "title": "Private equity fundraising turns a corner",
+      "slug": "private-equity-fundraising-turns-a-corner",
+      "url": "/insights/private-equity-fundraising-turns-a-corner.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "49378f0757967077",
+      "title": "NexPoint Launches $18.8M Energy DST Holding Haynesville, Permian Royalties",
+      "slug": "nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties",
+      "url": "/insights/nexpoint-launches-18-8m-energy-dst-holding-haynesville-permian-royalties.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "34dff08beab58015",
+      "title": "Deal Roundup: Sycamore exits Boots in $8.9bn Weston family sale, Brookfield buys Indian logistics portfolio",
+      "slug": "deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in",
+      "url": "/insights/deal-roundup-sycamore-exits-boots-in-8-9bn-weston-family-sale-brookfield-buys-in.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "5567a6bc02a9abac",
+      "title": "Google's €13bn Finland data center buildout under investigation over 300-hectare forest removal",
+      "slug": "google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare",
+      "url": "/insights/google-s-13bn-finland-data-center-buildout-under-investigation-over-300-hectare.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 35
+}

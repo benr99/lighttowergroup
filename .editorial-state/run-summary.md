@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **845**
-- Distinct events: **802**
-- Articles: **26**
+- Candidates: **914**
+- Distinct events: **859**
+- Articles: **35**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,29 +12,38 @@
 
 ## Published candidates
 
-- **analysis** — Flex Secures $2B Investment for Axiom at $37.5B Enterprise Value (1 sources; v3_daily_slate selection)
-- **analysis** — Old Glory Bank raises $8M, chides Fed over blocked deal (1 sources; v3_daily_slate selection)
-- **analysis** — Constellation-Google deal will bring $4.3B investment, 890 MW new nuclear to PJM (1 sources; v3_daily_slate selection)
-- **analysis** — Etched fields funding offers at $40B+ valuation, sources say (1 sources; v3_daily_slate selection)
-- **analysis** — 10-Year Treasury Yield Trends and Insights for CRE (1 sources; v3_daily_slate selection)
-- **analysis** — Icon Real Estate Advisors Arranges Sale of 88-Unit East Orange Multifamily Portfolio (1 sources; v3_daily_slate selection)
-- **analysis** — Denver Offers a Tale of Two Downtowns (1 sources; v3_daily_slate selection)
-- **analysis** — $131 Million DoorDash Settlement Likely Just the Beginning (1 sources; v3_daily_slate selection)
-- **analysis** — Blackstone Sells Fort Lauderdale Industrial Campus for $57M (1 sources; v3_daily_slate selection)
-- **analysis** — Blackstone Sells Fort Lauderdale Industrial For $57M: The South Florida Deal Sheet (1 sources; v3_daily_slate selection)
-- **analysis** — Affinius Capital Provides $95M Construction Loan for Oregon State Student Housing (1 sources; v3_daily_slate selection)
-- **analysis** — Financial District’s 70 Broad Street Purchased at Steep Discount (1 sources; v3_daily_slate selection)
-- **analysis** — JLL Arranges $100M Bridge Financing for Two Recently Delivered North Florida Multifamily Assets (1 sources; v3_daily_slate selection)
-- **brief** — AOI Raises $588M to Fund Manufacturing Expansion (1 sources; v3_daily_slate selection)
-- **brief** — BWE Secures $28.3M in Permanent Financing for Columbus-Area Senior Living Community (1 sources; v3_daily_slate selection)
-- **brief** — Box Street Park Breaks Ground At 65 Commercial Street In Greenpoint, Brooklyn (1 sources; v3_daily_slate selection)
-- **brief** — Northwest Bank Provides $34.5 Million Financing for $47.75 Million Industrial Portfolio Acquisition in Greater Boston (1 sources; v3_daily_slate selection)
-- **brief** — ICBA urges court to rein in OCC over trust charters (1 sources; v3_daily_slate selection)
-- **brief** — Deal Roundup: KKR strikes $5.1bn Gen II buyout; TDR takes OCU from Triton after fourfold revenue growth (1 sources; v3_daily_slate selection)
-- **brief** — OCC Hails 2026 Update to U.S. National Strategy for Financial Literacy (1 sources; v3_daily_slate selection)
-- **brief** — Wall Street on track for record profits (1 sources; v3_daily_slate selection)
-- **brief** — Council Grills AI Leaders and Whistleblowers in Marathon Hearing (1 sources; v3_daily_slate selection)
-- **brief** — TeraWulf Doubles Contracted Power at Muskie Data Campus to 1 GW (1 sources; v3_daily_slate selection)
-- **brief** — Exclusive: Blaze Energy Raises $6.5 Million for Low-Carbon Shipping Retrofits (1 sources; v3_daily_slate selection)
-- **brief** — Fifth Wall’s Brendan Wallace On Spotting Real Estate’s Next Hot Tech Early (1 sources; v3_daily_slate selection)
-- **brief** — Maryland nets 440 MW/1,760 MWh in first bulk energy storage procurement (1 sources; v3_daily_slate selection)
+- **analysis** — LS Power Closes Fund VI at $6 Billion, Signaling Strong Institutional Appetite for U.S. Energy Infrastructure (1 sources; v3_daily_slate selection)
+- **analysis** — Fed's Waller signals more rate hikes likely as inflation risks shift higher (2 sources; v3_daily_slate selection)
+- **analysis** — Citigroup Supplies $28M Refi for Revived Office Building in Arlington, Va. (1 sources; v3_daily_slate selection)
+- **analysis** — Black Hills to Invest $1.8B to Power Google Data Center in Wyoming (1 sources; v3_daily_slate selection)
+- **analysis** — Chrysler Building will get major revamp under new owner (1 sources; v3_daily_slate selection)
+- **analysis** — Tishman Speyer Retakes Chrysler Building, Plans $235M Renovation (1 sources; v3_daily_slate selection)
+- **analysis** — Sesterce to invest $10bn in 600MW AI data center campus in Jämsä, Finland (1 sources; v3_daily_slate selection)
+- **analysis** — AI Adoption and Employment Expectations: Evidence from a Survey of Small Business Owners (1 sources; v3_daily_slate selection)
+- **analysis** — Google Deal Backs 890 MW of Constellation Nuclear Uprates at 11 PJM Reactors (1 sources; v3_daily_slate selection)
+- **analysis** — BridgeInvest Refis Savannah Industrial Portfolio With $43M Loan (1 sources; v3_daily_slate selection)
+- **analysis** — Terra-Led JV Lands $507M Construction Loan for South Beach Condo Before Pre-Sales (1 sources; v3_daily_slate selection)
+- **analysis** — Delaware Statutory Trust Fundraising Jumps 27% From 2025 (1 sources; v3_daily_slate selection)
+- **analysis** — All Fed officials backed vote to hike benchmark rate: FOMC minutes (1 sources; v3_daily_slate selection)
+- **analysis** — Third Coast to buy Oklahoma bank for $240M (1 sources; v3_daily_slate selection)
+- **analysis** — Gantry Secures $16M for Seattle’s Russell Hall Mixed Use in University District (1 sources; v3_daily_slate selection)
+- **analysis** — Firm Heterogeneity and the Response of Investment to Monetary Policy (1 sources; v3_daily_slate selection)
+- **analysis** — Inflation mostly skipped the wireless bill (1 sources; v3_daily_slate selection)
+- **analysis** — BWE Provides $28.3M Permanent Loan for Columbus-Area Senior Living Community (1 sources; v3_daily_slate selection)
+- **analysis** — Cushman & Wakefield Sells $89M Senior Housing Portfolio in Virginia, Maryland (1 sources; v3_daily_slate selection)
+- **analysis** — Waller, The Signaling Value of the Summary of Economic Projections (1 sources; v3_daily_slate selection)
+- **analysis** — HITT breaks ground on $500M solid rocket motor manufacturing site (1 sources; v3_daily_slate selection)
+- **analysis** — Fed policymakers saw multiple 2026 rate hikes as likely, September FOMC minutes show (1 sources; v3_daily_slate selection)
+- **brief** — Institutional Property Advisors Brokers $72M Puget Sound MF Sale (1 sources; v3_daily_slate selection)
+- **brief** — ABA, associations urge housing agencies to seek uniformity in appraisal modernization (1 sources; v3_daily_slate selection)
+- **brief** — AI cloud company Boost Run secures $525.6 million contract with Cohere (1 sources; v3_daily_slate selection)
+- **brief** — The Tesla Alum Trying to Turn GM Into an American Battery Juggernaut (1 sources; v3_daily_slate selection)
+- **brief** — Google Signs 20-Year Nuclear PPA With Constellation For 890MW In PJM (1 sources; v3_daily_slate selection)
+- **brief** — Speaker Menin and Mayor Mamdani Cut Red Tape to Expedite Payments for Up to 800 Nonprofits (1 sources; v3_daily_slate selection)
+- **brief** — Comptroller Gould Announces New Efforts to Combat Financial Fraud in Minnesota (1 sources; v3_daily_slate selection)
+- **brief** — The Art Basel and UBS Collecting Survey Shows Gen Z Setting the Pace, and the Megafair Is Remaking Itself to Keep Up (1 sources; v3_daily_slate selection)
+- **brief** — India’s SPECTRA Program Targets 1.6T Silicon Photonics and CPO (1 sources; v3_daily_slate selection)
+- **brief** — Private equity fundraising turns a corner (1 sources; v3_daily_slate selection)
+- **brief** — NexPoint Launches $18.8M Energy DST Holding Haynesville, Permian Royalties (1 sources; v3_daily_slate selection)
+- **brief** — Deal Roundup: Sycamore exits Boots in $8.9bn Weston family sale, Brookfield buys Indian logistics portfolio (1 sources; v3_daily_slate selection)
+- **brief** — Google's €13bn Finland data center buildout under investigation over 300-hectare forest removal (1 sources; v3_daily_slate selection)
