@@ -83,6 +83,11 @@ class FakeVerifier:
         self.calls += 1
         if self.error:
             raise self.error
+        if "SENTENCES TO RULE ON:" in user:  # the voice layer's independent review
+            listing = json.loads(user.split("SENTENCES TO RULE ON:")[1].split("Rules.")[0])
+            return json.dumps({"results": [
+                {"id": row["id"], "verdict": "reject" if any(m in row["sentence"] for m in self.reject) else "ok",
+                 "issue": ""} for row in listing]})
         atomic = "SENTENCES TO CHECK:" not in user
         block = (user.split("SENTENCES:")[1].split("For each sentence:")[0] if atomic
                  else user.split("SENTENCES TO CHECK:")[1].split("Rules by kind:")[0])
@@ -155,10 +160,17 @@ class V4GenerationTests(unittest.TestCase):
         self.assertEqual(post.call_count, 1)
         self.assertEqual(result.diagnostics["attempts"], 1)
 
-    def test_transient_error_has_at_most_one_retry(self):
+    def test_network_errors_are_retried_patiently_then_the_story_fails(self):
         import requests
-        result, post, _ = _write("Slow story", responses=requests.Timeout("slow"))
+        with patch.object(v4_generation.time, "sleep"):
+            result, post, _ = _write("Slow story", responses=requests.Timeout("slow"))
         self.assertEqual(result.status, "failed")
+        self.assertEqual(post.call_count, len(v4_generation.REQUEST_RETRY_PAUSES))
+
+    def test_rate_limit_then_success_is_retried(self):
+        with patch.object(v4_generation.time, "sleep"):
+            result, post, _ = _write("Busy", responses=[_Response({}, status=429), _ok(_draft())])
+        self.assertEqual(result.status, "completed")
         self.assertEqual(post.call_count, 2)
 
     def test_invented_quote_is_dropped_and_a_rewrite_requested(self):
