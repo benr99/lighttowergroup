@@ -543,6 +543,15 @@ def run(
         _write_artifacts(report, slate_report, objects, drafts=drafts, state_dir=state_dir)
     if verbose:
         print(format_summary(report), flush=True)
+    if pipeline == "v4" and generate:
+        # The page Ben reads (every sentence beside its source quote) and the five-line health note.
+        try:
+            from daily_digest import build as build_digest
+            digest, health = build_digest(state_dir or STATE_DIR)
+            if verbose:
+                print(health.read_text(encoding="utf-8") + f"Digest: {digest}", flush=True)
+        except Exception as exc:  # noqa: BLE001
+            report.warnings.append(f"digest not built: {type(exc).__name__}: {exc}"[:200])
     return report, slate_report
 
 

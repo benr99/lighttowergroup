@@ -562,8 +562,11 @@ def _build_article(
 
 
 def _voice_evidence(vd: Any) -> dict[str, Any]:
+    facts = {i.id: i.text for _, items in vd.paragraphs for i in items if i.kind == "fact"}
+
     def dump(i: Any) -> dict[str, Any]:
-        return {"kind": i.kind, "text": i.text, "quotes": i.quotes, "because": i.because}
+        return {"kind": i.kind, "text": i.text, "quotes": i.quotes, "because": i.because,
+                "because_text": [facts[b] for b in i.because if b in facts]}
     return {
         "title": vd.title, "excerpt": vd.excerpt,
         "paragraphs": [[{**dump(i), "role": role} for i in items] for role, items in vd.paragraphs],

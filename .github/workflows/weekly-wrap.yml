@@ -4,6 +4,10 @@ name: Friday Weekly Wrap
 # Insights by sector (Fed and rates, debt, multifamily, industrial, office, ...)
 # and post the result to the Intelligence page.
 #
+# Safety switch: the scheduled run only publishes when the repository variable
+# WEEKLY_WRAP_PUBLISH is "true". Until Ben switches it on, Fridays build a preview
+# (kept as a run artifact) and nothing reaches the site.
+#
 # Two UTC triggers keep 16:30 New York time through EDT and EST. The script's
 # --scheduled guard skips the wrong one, and publishing is idempotent, so a
 # duplicate trigger can never publish a second wrap.
@@ -78,9 +82,8 @@ jobs:
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-v4-pro
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           EVENT_NAME: ${{ github.event_name }}
-          MODE: ${{ github.event_name == 'schedule' && 'publish' || inputs.mode }}
+          MODE: ${{ github.event_name == 'schedule' && (vars.WEEKLY_WRAP_PUBLISH == 'true' && 'publish' || 'preview') || inputs.mode }}
           WEEK_ENDING: ${{ inputs.week_ending }}
           FORCE: ${{ inputs.force }}
         shell: bash

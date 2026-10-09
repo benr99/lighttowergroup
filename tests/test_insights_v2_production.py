@@ -594,11 +594,12 @@ class InsightsV2ProductionTests(unittest.TestCase):
             text = path.read_text(encoding="utf-8")
             self.assertNotIn("deepseek-chat", text, path.name)
 
-    def test_workflow_invokes_v2_and_exposes_honest_fallback_configuration(self):
+    def test_workflow_invokes_v2_and_is_deepseek_only(self):
         workflow = (ROOT / ".github" / "workflows" / "daily-insights-agent.yml").read_text(encoding="utf-8")
         self.assertIn("--pipeline-v2", workflow)
         self.assertIn("DEEPSEEK_MODEL: deepseek-v4-pro", workflow)
-        self.assertIn("OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}", workflow)
+        # Ben's decision (2026-10-09): DeepSeek only; no run is given an OpenAI key.
+        self.assertNotIn("OPENAI_API_KEY", workflow)
 
 
 if __name__ == "__main__":
