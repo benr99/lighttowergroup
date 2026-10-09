@@ -75,7 +75,7 @@ article = {
 }
 
 # Render full HTML
-from daily_news_agent import render_html
+from site_renderer import render_html
 html = render_html(article)
 
 # Write to disk

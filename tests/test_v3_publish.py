@@ -51,11 +51,11 @@ class _Sandbox:
         v3_publish.SITE_ROOT = self.tmp
         v3_publish.INSIGHTS_DIR = self.tmp / "insights"
         self.render = mock.patch(
-            "daily_news_agent.render_html", side_effect=lambda a: f"<html>{a['title']}</html>"
+            "site_renderer.render_html", side_effect=lambda a: f"<html>{a['title']}</html>"
         )
-        self.manifest = mock.patch("daily_news_agent.update_manifest")
-        self.feed = mock.patch("daily_news_agent.update_feed_xml")
-        self.sitemap = mock.patch("daily_news_agent.update_sitemap_xml")
+        self.manifest = mock.patch("site_renderer.update_manifest")
+        self.feed = mock.patch("site_renderer.update_feed_xml")
+        self.sitemap = mock.patch("site_renderer.update_sitemap_xml")
         self.mocks = [m.start() for m in (self.render, self.manifest, self.feed, self.sitemap)]
         return self
 
@@ -83,7 +83,7 @@ class Slugs(unittest.TestCase):
 
 class PublishesFinishedWork(unittest.TestCase):
     def test_v3_payload_satisfies_the_real_shared_renderer_contract(self) -> None:
-        from daily_news_agent import render_html
+        from site_renderer import render_html
 
         obj = _obj("Blackstone acquires Phoenix portfolio for $450 million")
         draft = _draft(obj)

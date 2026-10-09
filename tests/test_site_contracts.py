@@ -97,7 +97,7 @@ class SiteContractTests(unittest.TestCase):
         site_script = (ROOT / "site.js").read_text(encoding="utf-8")
         diagnostic_script = (ROOT / "capital-diagnostic.js").read_text(encoding="utf-8")
         diagnostic_styles = (ROOT / "capital-diagnostic.css").read_text(encoding="utf-8")
-        generator = (ROOT / "scripts" / "daily_news_agent.py").read_text(encoding="utf-8")
+        generator = (ROOT / "scripts" / "site_renderer.py").read_text(encoding="utf-8")
         config = (ROOT / "netlify.toml").read_text(encoding="utf-8")
 
         self.assertIn("loadCapitalDiagnostic", site_script)

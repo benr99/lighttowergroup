@@ -793,7 +793,7 @@ def build_wrap(
 
 def publish(article: dict[str, Any], diagnostics: dict[str, Any], *, force: bool = False) -> list[str]:
     """Write the page and update manifest, feed, sitemap and the deploy manifest."""
-    from daily_news_agent import render_html, update_feed_xml, update_manifest, update_sitemap_xml
+    from site_renderer import render_html, update_feed_xml, update_manifest, update_sitemap_xml
     from edition_manager import write_generated_files
 
     slug = article["slug"]

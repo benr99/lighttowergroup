@@ -101,7 +101,7 @@ def main():
         return
 
     sys.path.insert(0, str(SCRIPT_DIR))
-    from daily_news_agent import render_html
+    from site_renderer import render_html
 
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     rebuilt = 0

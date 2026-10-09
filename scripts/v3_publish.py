@@ -205,7 +205,7 @@ def publish(
     dry_run: bool = False,
 ) -> PublishReport:
     """Write finished drafts to the site. Never raises."""
-    from daily_news_agent import render_html, update_feed_xml, update_manifest, update_sitemap_xml
+    from site_renderer import render_html, update_feed_xml, update_manifest, update_sitemap_xml
 
     report = PublishReport(requested=len(drafts))
     existing = {p.stem for p in INSIGHTS_DIR.glob("*.html")}
