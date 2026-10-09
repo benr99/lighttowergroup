@@ -123,6 +123,15 @@ _SYSTEMIC = re.compile(
     r"\b(?:first (?:time|ever)|largest (?:ever|on record)|record(?:-| )(?:high|low|size)|"
     r"unprecedented|landmark|sets? (?:a )?precedent|bellwether|watershed|"
     r"systemic|contagion|bailout|receivership|conservatorship)\b", re.I)
+_POLICY_ACTION = re.compile(
+    r"\b(?:moratorium|ordinance|zoning (?:change|amendment|reform)|rezon\w+|rent (?:control|stabiliz\w+|freeze)|"
+    r"(?:final|proposed|new) rule|rulemaking|legislation|signed into law|(?:bill|act) (?:passe[sd]|signed)|"
+    r"tariffs?|tax credits?|ruling|court (?:ruled|blocks?|upholds?)|regulators? (?:approve[sd]?|propose[sd]?)|"
+    r"rate (?:cut|hike|decision)|cuts? (?:interest )?rates|raises? (?:interest )?rates|holds? rates)\b", re.I)
+_PRICED_TERMS = re.compile(
+    r"(?:\bcap(?:italization)? rate\b|\bSOFR\b|\bbasis points\b|\bbps\b|\bspread of\b|"
+    r"\bper (?:square foot|sq\.? ?ft|unit|key|bed|door|acre)\b|\bpsf\b|\bloan-to-value\b|\bLTV\b|"
+    r"\bdebt yield\b|\bfixed rate of\b|\binterest rate of\b|\d(?:\.\d+)?\s?% (?:interest|coupon|fixed))", re.I)
 _SURPRISE = re.compile(
     r"\b(?:unexpected(?:ly)?|surprise[sd]?|shock(?:ed|ing)?|"
     r"(?:higher|lower|weaker|stronger) than (?:expected|forecast)|"
@@ -266,6 +275,21 @@ def _precedent(obj: IntelligenceObject) -> ScoreComponent:
     if obj.object_class == ObjectClass.TREND:
         score = max(score, 6)
         why = "presented as an emerging pattern"
+
+    # F18: the signals above are rare in feed text, so 85% of candidates scored the same 2.
+    # Two common, real distinctions: a rule change resets terms for everyone it touches,
+    # and a deal that discloses its price or terms becomes a comparable others will
+    # underwrite against (a deal with no disclosed terms sets no reference point).
+    policy = _POLICY_ACTION.search(text)
+    if policy:
+        if score < 6:
+            score, why = 6, "a policy or rule change that resets terms for others"
+        evidence.append(policy.group(0))
+    priced = _PRICED_TERMS.search(text)
+    if priced:
+        if score < 5:
+            score, why = 5, "discloses a price or terms others will use as a comparable"
+        evidence.append(priced.group(0))
 
     # Exceptional size is itself precedent-setting, and size does vary.
     ladder = _MAGNITUDE_LADDERS.get(obj.primary_sector, _MAGNITUDE_LADDERS["commercial_real_estate"])
@@ -496,6 +520,9 @@ def explain(obj: IntelligenceObject) -> str:
     return "\n".join(lines)
 
 
+MIN_POOL_FOR_DISTRIBUTION = 20
+
+
 def distribution_report(objects: Sequence[IntelligenceObject]) -> dict[str, Any]:
     """Catch a measure going constant again.
 
@@ -514,6 +541,16 @@ def distribution_report(objects: Sequence[IntelligenceObject]) -> dict[str, Any]
     }
     if not objects:
         return report
+
+    # A measure only has to separate the stories that actually compete for a slot. Measured
+    # over every ingested item, hundreds of rejected listings and notices (all "new", none
+    # priced) made working measures look dead (F18). Fall back to everything when the
+    # eligible pool is too small to judge.
+    eligible = [o for o in objects if getattr(o, "eligible", False)]
+    pool = eligible if len(eligible) >= MIN_POOL_FOR_DISTRIBUTION else list(objects)
+    report["measured_over"] = "eligible" if pool is eligible else "all"
+    report["pool_size"] = len(pool)
+    objects = pool
 
     by_name: dict[str, list[float]] = {}
     for obj in objects:

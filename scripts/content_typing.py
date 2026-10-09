@@ -48,7 +48,13 @@ _CONTENT_RULES: tuple[tuple[str, re.Pattern[str]], ...] = (
         r"^(?:agency information collection activities|sunshine act meetings?|"
         r"submission for omb review|comment request on .+ forms?|"
         r"joint industry plan;?\s+order|notice of (?:public )?meeting|"
-        r"information collection request|request for comments? on information collection)\b",
+        r"information collection request|request for comments? on information collection|"
+        # Statistical-release housekeeping (F17: "Notice to Users of the H.8 Release" reached the writer).
+        r"notice to (?:users|data users|subscribers|readers)|"
+        r"notice of (?:change|revision|discontinuation|delay|postponement)s?|"
+        r"(?:changes?|revisions?|updates?) to (?:the )?(?:\S+ )?(?:release|publication|data) (?:schedule|calendar|dates?)|"
+        r"(?:release|publication) (?:schedule|calendar) (?:change|update|revision)s?|"
+        r"(?:website|system|systems) (?:maintenance|outage|update|migration)|technical notes?\b|errata|correction to)\b",
         re.I)),
     (ContentType.DIGEST, re.compile(
         r"\b(?:sunday summary|week(?:ly|end) (?:roundup|recap|digest)|daily digest|"

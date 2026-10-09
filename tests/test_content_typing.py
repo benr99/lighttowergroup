@@ -145,6 +145,11 @@ class KeepsGenuineIntelligence(unittest.TestCase):
             "Agency Information Collection Activities: Comment Request",
             "Sunshine Act Meetings",
             "Joint Industry Plan; Order",
+            "Notice to Users of the H.8 Release",  # F17: reached the writer in the first live preview
+            "Notice of Change to the G.19 Release Schedule",
+            "Changes to the 2026 release schedule",
+            "Website maintenance this weekend",
+            "Errata: Industrial Production and Capacity Utilization",
         ):
             with self.subTest(headline=headline):
                 content_type, _, evidence = classify_content_type(
@@ -152,6 +157,17 @@ class KeepsGenuineIntelligence(unittest.TestCase):
                 )
                 self.assertEqual(content_type, ContentType.ADMINISTRATIVE_NOTICE, evidence)
                 self.assertIn(content_type, ContentType.NEVER_ELIGIBLE)
+
+
+    def test_real_releases_that_mention_revisions_are_not_notices(self) -> None:
+        for headline, summary in (
+            ("Employment Situation Summary", "Revisions to the prior two months lowered payrolls by 40,000."),
+            ("H.8 Assets and Liabilities of Commercial Banks", "Bank credit rose at an annual rate of 3 percent."),
+            ("Apollo closes $1.2 billion data center loan", "A notice to lenders was filed in March."),
+        ):
+            with self.subTest(headline=headline):
+                content_type, _, evidence = classify_content_type(headline, summary, source_type="government")
+                self.assertNotEqual(content_type, ContentType.ADMINISTRATIVE_NOTICE, evidence)
 
 
 class TaxonomyPopulation(unittest.TestCase):

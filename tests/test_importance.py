@@ -129,6 +129,39 @@ class NoDeadMeasures(unittest.TestCase):
         self.assertGreater(report["final_score"]["stdev"], 8.0)
 
 
+class PrecedentVaries(unittest.TestCase):
+    """F18: precedent scored the same 2 for 85% of live candidates."""
+
+    def _precedent(self, title: str, summary: str = "") -> float:
+        node = obj(title, summary)
+        return next(c.score for c in node.importance_components if c.name == "precedent")
+
+    def test_ordinary_deal_without_terms_is_low(self) -> None:
+        self.assertEqual(self._precedent("Hines acquires office building in Denver"), 2)
+
+    def test_disclosed_terms_make_a_comparable(self) -> None:
+        self.assertEqual(self._precedent("Hines refinances Denver office",
+                                         "The loan carries a spread of 250 basis points over SOFR."), 5)
+        self.assertEqual(self._precedent("Greystar buys 300 units at $410,000 per unit"), 5)
+
+    def test_policy_actions_reset_terms(self) -> None:
+        self.assertEqual(self._precedent("City council passes rent stabilization ordinance"), 6)
+        self.assertEqual(self._precedent("Fed holds rates steady"), 6)
+
+    def test_distribution_is_measured_over_the_stories_that_compete(self) -> None:
+        competing = []
+        for i in range(30):
+            node = obj(["Greystar buys 300 units at $410,000 per unit", "Hines acquires office building",
+                        "Council passes rezoning ordinance"][i % 3])
+            node.eligible = True
+            competing.append(node)
+        junk = [obj(f"Listing {i}") for i in range(400)]  # never eligible, all identical
+        report = distribution_report(competing + junk)
+        self.assertEqual(report["measured_over"], "eligible")
+        self.assertEqual(report["pool_size"], 30)
+        self.assertNotIn("precedent", report["degenerate"])
+
+
 class SectorRelativeMagnitude(unittest.TestCase):
     """One yardstick cannot measure a property deal and a buyout fund."""
 
