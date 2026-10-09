@@ -29,6 +29,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Sequence
 
+from readability import trim_to_sentence
+
 SITE_ROOT = Path(__file__).resolve().parents[1]
 INSIGHTS_DIR = SITE_ROOT / "insights"
 MANIFEST_PATH = SITE_ROOT / "insights.json"
@@ -85,8 +87,10 @@ def _article_payload(draft: Any, obj: Any, slug: str) -> dict[str, Any]:
     article = dict(draft.article or {})
     article.setdefault("title", obj.title)
     article["slug"] = slug
-    article.setdefault("subtitle", article.get("excerpt", "")[:160])
-    article.setdefault("meta_description", article.get("excerpt", "")[:200])
+    # Trim at a sentence or word boundary: a hard [:160] cut left half the subtitles and link
+    # previews ending mid-word.
+    article.setdefault("subtitle", trim_to_sentence(article.get("excerpt", ""), 160))
+    article.setdefault("meta_description", trim_to_sentence(article.get("excerpt", ""), 200))
     article.setdefault("category", _category_for(obj.primary_sector))
     now = datetime.now(timezone.utc)
     article.setdefault("date_iso", now.isoformat())

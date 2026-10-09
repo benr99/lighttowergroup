@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import html
 import re
 import threading
 import time
@@ -20,8 +21,22 @@ from urllib.parse import urlparse
 
 import requests
 
+from claim_verifier import (
+    LLM,
+    VerifiedDraft,
+    assemble_paragraphs,
+    source_text_from_dossier,
+    verify_draft,
+)
 from intelligence_object import IntelligenceObject
-from v3_generation import DEPTH_SPEC, DraftResult, object_to_dossier
+from readability import (
+    paragraph_texts,
+    readability_warnings,
+    trim_to_sentence,
+    unsupported_names,
+    unsupported_numbers,
+)
+from v3_generation import DraftResult, object_to_dossier
 
 DEFAULT_EDITION_BUDGET_S = 45 * 60
 DEFAULT_ARTICLE_BUDGET_S = 4 * 60
@@ -31,7 +46,26 @@ MAX_TOTAL_ATTEMPTS = 6
 DEFAULT_WORKERS = 6
 _STATE_LOCK = threading.Lock()
 
-MIN_PARAGRAPHS = {"tier_a": 6, "tier_b": 4, "tier_c": 3}
+# Lengths are for readers on a phone. The floors only guard against an empty or
+# truncated answer; the writer is told to stop when the facts run out rather than
+# pad to a minimum (padding was the main source of abstract, hard-to-read copy).
+DEPTH_SPEC = {
+    "tier_a": {"format": "flagship", "min_words": 220, "max_words": 850},
+    "tier_b": {"format": "analysis", "min_words": 100, "max_words": 520},
+    "tier_c": {"format": "brief", "min_words": 60, "max_words": 300},
+}
+MIN_PARAGRAPHS = {"tier_a": 5, "tier_b": 3, "tier_c": 2}
+WRITER_TEMPERATURE = 0.35
+# Bump when the writer prompt changes so drafts cached under an older prompt are not reused.
+WRITER_PROMPT_VERSION = "v4.3-verified-sentences"
+
+WRITER_SYSTEM = (
+    "You write Light Tower Insights, a commercial real estate capital markets publication. "
+    "Readers are sponsors, lenders, brokers and investors. They know the business and read on "
+    "their phones between meetings. Write like a sharp colleague explaining a deal over coffee: "
+    "plain words, short sentences, a point of view. Be an expert who is easy to read, never a "
+    "professor and never a press release."
+)
 
 
 @dataclass(frozen=True)
@@ -67,6 +101,7 @@ class ValidationResult:
     messages: list[str] = field(default_factory=list)
     word_count: int = 0
     paragraph_count: int = 0
+    warnings: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -80,6 +115,7 @@ class GenerationReport:
     needs_review: int = 0
     failed: int = 0
     skipped: int = 0
+    withheld: int = 0  # written but not verifiable against sources; never a pipeline failure
     attempts: int = 0
     elapsed_seconds: float = 0.0
     provider_attempts: dict[str, int] = field(default_factory=dict)
@@ -128,52 +164,51 @@ def _safe_dossier(obj: IntelligenceObject, max_chars: int = 18000) -> dict[str, 
 def _writer_prompt(obj: IntelligenceObject, dossier: dict[str, Any], spec: dict[str, Any]) -> str:
     dossier_json = json.dumps(dossier, ensure_ascii=False, separators=(",", ":"))
     depth = next((name for name, value in DEPTH_SPEC.items() if value is spec), "tier_c")
-    min_paragraphs = MIN_PARAGRAPHS.get(depth, 3)
     target_words = (spec["min_words"] + spec["max_words"]) // 2
-    if depth == "tier_b":
+    if depth == "tier_c":
         structure = (
-            "Use 4-6 paragraphs: (1) what happened and why it matters, "
-            "(2) material facts and mechanics, (3) evidence and source context, "
-            "(4) sector or market implications, and optionally (5-6) limitations and what to watch."
+            "3-5 short paragraphs: the hook, what happened, and why it matters, each only as the source states it."
         )
-    elif depth == "tier_a":
+    elif depth == "tier_b":
         structure = (
-            "Use 6-9 paragraphs: establish the event, explain the mechanics, develop the evidence, "
-            "analyze implications, address competing interpretations, and close with what to watch."
+            "4-7 short paragraphs: the hook, what happened, the number that matters, and why it matters, "
+            "each only as the source states it."
         )
     else:
         structure = (
-            "Use 3-4 paragraphs: (1) event summary, (2) important facts and parties, "
-            "(3) supported implication, and (4) uncertainty or what remains unknown."
+            "6-10 short paragraphs: the hook, what happened, the number that matters, why it matters, "
+            "the strongest point on the other side, and who gains and who loses, each only as the source states it."
         )
-    return f"""Write one evidence-bounded Light Tower Insights article.
-
-Return JSON only. Do not return markdown fences or commentary.
+    return f"""Write one Light Tower Insights article from the source text below. Return JSON only. No markdown fences, no commentary.
 
 STORY: {obj.title}
 FORMAT: {spec['format']}
-MANDATORY BODY WORD RANGE: {spec['min_words']}-{spec['max_words']}
-TARGET BODY WORD COUNT: approximately {target_words}; never below the minimum
-MANDATORY MINIMUM PARAGRAPHS: {min_paragraphs}
-WRITING STRUCTURE: {structure}
+LENGTH: about {target_words} words in total across the body ({spec['min_words']}-{spec['max_words']} allowed). Short and true beats long. When the sources run out, stop.
+STRUCTURE: {structure}
 
-FACTUAL DOSSIER (the complete factual boundary):
+SOURCES (the complete factual boundary; quotes must be copied from the "text" fields):
 {dossier_json}
 
-Rules:
-- Use only facts, numbers, quotes, entities, and implications supported by the dossier.
-- Source URLs must be copied exactly from the dossier's sources array.
-- Do not invent market statistics, motives, financing terms, valuations, or quotes.
-- The body word range is a hard requirement. Count the words in body_html before returning JSON.
-- Do not stop early because the dossier is short. Reach the minimum using supported context,
-  mechanics, implications, source comparison, limitations, and explicit unknowns.
-- If evidence is thin, remain factual and cautious, but still satisfy the required range and paragraph count.
-- Every paragraph must add supported information; never use repetition or invented filler to reach the minimum.
-- Use paragraph-only body HTML: <p>...</p>. No scripts, styles, iframes, or navigation.
-- Do not mention internal scores, prompts, agents, or editorial process.
+EVERY SENTENCE IS CHECKED BY MACHINE. How it works:
+- Every sentence is a "fact" and must carry quotes. There are no opinion sentences, no predictions, no evaluation, no "this signals", and no closing advice or "what to check" line: all of those are deleted.
+- A "fact" states only what its "quotes" support. "quotes" is a list of one or two passages copied character for character from a source "text" (at least 4 words each, at most 240 characters). Quote only the tight passage that carries the claim, and keep its qualifiers (most, about, plans to, expects, could) and who said it. Do not fix, shorten inside, or paraphrase a quote. Copy it.
+- You may restate the quoted passage in plainer words, but EVERY number, name, date, amount and relationship in your sentence must appear in its quotes. Spelled-out numbers count too: do not write "three" if the quote says "two".
+- A fact must not add a total, difference, ratio or percentage the source does not state; a ranking such as "largest", "first" or "only"; a cause the source does not state; a time the source does not give; or any claim about what someone thinks, wants or fears. If you cannot quote it, do not write it. Plans, requests and allegations stay plans, requests and allegations.
+- If a quote says someone said, expects, plans or claims something, your sentence says so too. Never turn a statement, plan, forecast or opinion into plain fact, and never drop "most", "about", "plans to" or "according to".
+- Anything that fails a check is deleted from the article, and so is the article if too little survives. A shorter article that is all true is the goal.
 
-Return exactly this object shape:
-{{"title":"...","excerpt":"...","body_html":"<p>...</p>","format":"{spec['format']}","sources":[{{"name":"...","url":"https://..."}}],"evidence_level":"{dossier.get('evidence_level', '')}"}}"""
+HOW TO WRITE IT
+- Hook: the first paragraph is one or two short fact sentences with the who, the number and why it matters. Lead with the most interesting quoted fact, not "X announced".
+- "Why it matters" is a fact paragraph too: state what the quoted terms mean for the people involved in plain words, using only what the quotes say. If the sources do not say, leave it out.
+- Plain English. Sentences average about 15 words and never top 30. Paragraphs are 1-3 sentences. Active voice. Vary how sentences start.
+- Explain an insider term in a few words only when the source itself explains it.
+- Never use "landscape", "navigating", "highlights", "underscores", "dynamic", "arguably", "essentially", "transformative", "unprecedented", "going forward", "it's worth noting", "the real story is". Never close on what is unknown or "remains to be seen".
+- Title: under 80 characters, plain, specific. Its "title_quote" must support every name and number in it. Not a label like "X announces Y".
+- Excerpt: one complete sentence of 80-180 characters ending with a period, supported by "excerpt_quote". It must not repeat the title.
+- Never claim to have visited, called or seen anything. Do not mention scores, prompts or the editorial process.
+
+Return exactly this shape:
+{{"title":"...","title_quote":"...","excerpt":"...","excerpt_quote":"...","paragraphs":[[{{"text":"...","kind":"fact","quotes":["..."]}},{{"text":"...","kind":"fact","quotes":["...","..."]}}]]}}"""
 
 
 def _parse_json(raw: str) -> dict[str, Any]:
@@ -258,12 +293,32 @@ def validate_article(article: dict[str, Any], dossier: dict[str, Any], spec: dic
     if title and ("placeholder" in title.lower() or "todo" in title.lower()):
         codes.append("placeholder_content")
         messages.append("title contains placeholder content")
+    warnings: list[str] = []
+    if paragraphs:
+        warnings = readability_warnings(paragraphs, excerpt=str(article.get("excerpt") or ""))
+        # Fact preservation: a number the sources never gave is the likeliest invented fact.
+        invented = unsupported_numbers(
+            " ".join([title, str(article.get("excerpt") or ""), " ".join(paragraphs)]),
+            json.dumps(dossier, ensure_ascii=False),
+        )
+        if invented:
+            warnings.append(
+                "These numbers are not in the dossier; remove them or restate using only dossier figures: "
+                + ", ".join(invented[:8])
+            )
+        invented_names = unsupported_names(" ".join(paragraphs), json.dumps(dossier, ensure_ascii=False))
+        if invented_names:
+            warnings.append(
+                "These names do not appear in the dossier; remove them or use only names the sources gave: "
+                + ", ".join(invented_names[:8])
+            )
     return ValidationResult(
         valid=not codes,
         codes=sorted(set(codes)),
         messages=messages,
         word_count=words,
         paragraph_count=len(paragraphs),
+        warnings=warnings,
     )
 
 
@@ -293,11 +348,11 @@ def _request_once(prompt: str, provider: dict[str, Any], timeout_s: float) -> st
     payload: dict[str, Any] = {
         "model": model,
         "messages": [
-            {"role": "system", "content": "You are a precise financial journalist."},
+            {"role": "system", "content": WRITER_SYSTEM},
             {"role": "user", "content": prompt},
         ],
         "max_tokens": 3600,
-        "temperature": 0.2,
+        "temperature": WRITER_TEMPERATURE,
     }
     if name == "deepseek":
         payload["thinking"] = {"type": "disabled"}
@@ -328,6 +383,113 @@ def _request_once(prompt: str, provider: dict[str, Any], timeout_s: float) -> st
         raise
 
 
+def _make_verifier(writer: dict[str, Any], *, timeout_s: float = 75.0) -> LLM:
+    """The fact-checking model: a different provider from the writer when one is configured.
+
+    Two models from one family make correlated mistakes, so independence is preferred. If only
+    one provider exists it is used at temperature 0 and the evidence file records that fact.
+    """
+    from model_router import log_provider_event, provider_config
+
+    chain: list[dict[str, Any]] = []
+    for name in ("openai", "deepseek"):
+        candidate = provider_config(name, for_writing=True)  # the strong model, not the cheap fallback
+        if candidate:
+            chain.append(candidate)
+    chain.sort(key=lambda c: c.get("provider") == writer.get("provider"))  # others first, stable
+
+    dead: set[str] = set()  # providers that are out of credit or unauthorised: skip for the rest of the run
+
+    def call(system: str, user: str) -> str:
+        last: Exception | None = None
+        for provider in chain:
+            if str(provider.get("provider")) in dead:
+                continue
+            name = str(provider.get("provider") or "unknown")
+            model = str(provider.get("model") or "")
+            started = time.monotonic()
+            payload: dict[str, Any] = {
+                "model": model, "temperature": 0.0, "max_tokens": 16000 if name == "deepseek" else 3000,
+                "response_format": {"type": "json_object"},
+                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+            }
+            if name == "deepseek":
+                # Reasoning mode: slower, but it checks each claim against the source more carefully.
+                payload["thinking"] = {"type": "enabled"}
+            try:
+                response = None
+                for pause in (0, 3, 8):  # rate limits and dropped connections are common under load
+                    if pause:
+                        time.sleep(pause)
+                    try:
+                        response = requests.post(
+                            str(provider.get("url")),
+                            headers={"Authorization": f"Bearer {provider.get('api_key')}",
+                                     "Content-Type": "application/json"},
+                            json=payload, timeout=max(1.0, timeout_s),
+                        )
+                    except (requests.ConnectionError, requests.Timeout) as network_error:
+                        last = network_error
+                        response = None
+                        continue
+                    if response.status_code in (401, 403) or (
+                            response.status_code == 429 and "insufficient_quota" in response.text):
+                        dead.add(name)
+                        break
+                    if response.status_code not in (429, 500, 502, 503):
+                        break
+                if response is None:
+                    raise last or RuntimeError("no response")
+                response.raise_for_status()
+                choice = (response.json().get("choices") or [{}])[0]
+                content = str((choice.get("message") or {}).get("content") or "").strip()
+                if str(choice.get("finish_reason") or "") == "length" or not content:
+                    raise ValueError("verifier_incomplete")
+                log_provider_event("fact_check", outcome="success", provider=name, model=model,
+                                   attempt_seconds=round(time.monotonic() - started, 2))
+                call.used = f"{name}/{model}"  # type: ignore[attr-defined]
+                return content
+            except Exception as exc:  # noqa: BLE001
+                last = exc
+                log_provider_event("fact_check", outcome="failed", provider=name, model=model,
+                                   attempt_seconds=round(time.monotonic() - started, 2),
+                                   error=f"{type(exc).__name__}: {exc}"[:240])
+        raise RuntimeError(f"fact-check unavailable: {last}")
+
+    call.used = ""  # type: ignore[attr-defined]
+    return call
+
+
+# A story must keep at least this many verified fact sentences to be published.
+MIN_FACT_SENTENCES = {"tier_a": 8, "tier_b": 5, "tier_c": 3}
+
+
+def _build_article(
+    verified: VerifiedDraft, dossier: dict[str, Any], spec: dict[str, Any], story_title: str,
+) -> dict[str, Any]:
+    """Assemble the page from verified sentences only."""
+    paragraphs = assemble_paragraphs(verified)
+    facts = [i.text for p in verified.paragraphs for i in p if i.kind == "fact"]
+    title = verified.title if verified.title_ok and verified.title else story_title
+    if verified.excerpt_ok and 40 <= len(verified.excerpt) <= 200 and verified.excerpt.rstrip()[-1:] in ".!?":
+        excerpt = verified.excerpt
+    else:
+        excerpt = trim_to_sentence(facts[0], 200) if facts else ""
+    sources = [
+        {"name": str(s.get("name") or s.get("source") or ""), "url": str(s.get("url") or "")}
+        for s in dossier.get("sources", []) if s.get("url")
+    ]
+    return {
+        "title": title,
+        "excerpt": excerpt,
+        "body_html": "".join(f"<p>{html.escape(text, quote=False)}</p>" for text in paragraphs),
+        "format": spec["format"],
+        "sources": sources,
+        "evidence_level": dossier.get("evidence_level", ""),
+        "fact_checked": True,
+    }
+
+
 def write_one(
     obj: IntelligenceObject,
     *,
@@ -336,6 +498,7 @@ def write_one(
     runtime: RuntimeBudget | None = None,
     state_dir: Path | None = None,
     run_id: str = "",
+    verifier: LLM | None = None,
 ) -> DraftResult:
     depth = obj.recommended_depth or "tier_c"
     spec = DEPTH_SPEC.get(depth, DEPTH_SPEC["tier_c"])
@@ -348,6 +511,7 @@ def write_one(
     ).hexdigest()
     state_path = Path(state_dir) / "v4-article-state.jsonl" if state_dir else None
     cached_path = _cache_path(state_dir, obj.object_id)
+    source_text = source_text_from_dossier(dossier)
 
     def record(status: str, **extra: Any) -> None:
         if not state_path:
@@ -369,10 +533,12 @@ def write_one(
     if cached_path and cached_path.exists():
         try:
             cached = json.loads(cached_path.read_text(encoding="utf-8"))
-            if cached.get("dossier_hash") == dossier_hash and cached.get("depth") == depth:
+            if (cached.get("dossier_hash") == dossier_hash and cached.get("depth") == depth
+                    and cached.get("prompt_version") == WRITER_PROMPT_VERSION):
                 article = cached.get("article")
                 validation = validate_article(article, dossier, spec) if isinstance(article, dict) else None
-                if validation and validation.valid:
+                # Only drafts that already passed the fact gate are ever cached.
+                if validation and validation.valid and article.get("fact_checked"):
                     result.article = article
                     result.status = "completed"
                     result.stages_run = ["cache_reuse", "local_validation"]
@@ -387,9 +553,22 @@ def write_one(
     prompt = _writer_prompt(obj, dossier, spec)
     provider_name = str(provider.get("provider") or "unknown")
     provider_model = str(provider.get("model") or "")
-    last_error = ""
-    retry_feedback = ""
+    try:
+        check = verifier or _make_verifier(provider)
+    except Exception as exc:  # noqa: BLE001
+        check = None
+        setup_error = f"{type(exc).__name__}: {exc}"[:200]
+    else:
+        setup_error = ""
+    last_error = setup_error
+    feedback = ""
+    # (article, validation, verified, attempt) for every attempt that produced an assemblable draft.
+    candidates: list[tuple[dict[str, Any], ValidationResult, VerifiedDraft, int]] = []
+    min_facts = MIN_FACT_SENTENCES.get(depth, 3)
+
     for attempt in range(1, runtime.max_attempts_per_article + 1):
+        if check is None:
+            break  # no fact-checker: nothing may publish
         result.diagnostics["attempts"] = attempt
         remaining = runtime.request_timeout(deadline)
         if remaining <= 0:
@@ -401,52 +580,53 @@ def write_one(
         request_started = time.monotonic()
         try:
             attempt_prompt = prompt
-            if retry_feedback:
+            if feedback:
                 attempt_prompt += (
-                    "\n\nYour previous response failed local validation. Correct every issue below "
-                    "and return a complete replacement JSON object. Do not explain the correction.\n"
-                    + retry_feedback
+                    "\n\nYour previous draft was fact-checked. The sentences and notes below were rejected "
+                    "and deleted. Write a complete replacement in the same JSON shape. Copy quotes exactly "
+                    "from the source text, and leave out any claim you cannot quote.\n" + feedback
                 )
             raw = _request_once(attempt_prompt, provider, remaining)
             request_seconds = round(time.monotonic() - request_started, 2)
-            article = _parse_json(raw)
+            draft = _parse_json(raw)
+            verified = verify_draft(draft, source_text, check)
+            article = _build_article(verified, dossier, spec, obj.title)
             validation = validate_article(article, dossier, spec)
-            result.diagnostics = {"attempts": attempt, "error_kind": "validation",
-                                  "provider": provider_name, "model": provider_model,
-                                  "request_seconds": request_seconds,
-                                  "validation": validation.to_dict(), "dossier_hash": dossier_hash}
-            if validation.valid:
-                article.setdefault("event_id", obj.object_id)
-                article.setdefault("research_evidence_level", obj.evidence_level)
-                article.setdefault("format", spec["format"])
-                result.article = article
-                result.status = "completed"
-                result.stages_run = ["bounded_writer", "local_validation"]
-                if cached_path:
-                    cached_path.parent.mkdir(parents=True, exist_ok=True)
-                    cached_path.write_text(json.dumps({
-                        "object_id": obj.object_id,
-                        "depth": depth,
-                        "dossier_hash": dossier_hash,
-                        "article": article,
-                    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-                record("completed", attempt=attempt, validation=validation.to_dict(),
-                       output_artifact=str(cached_path) if cached_path else "")
-                result.seconds = round(time.monotonic() - started, 1)
-                return result
-            last_error = "; ".join(validation.codes)
-            record("validation_failed", attempt=attempt, codes=validation.codes,
-                   word_count=validation.word_count,
-                   paragraph_count=validation.paragraph_count)
+            result.diagnostics = {
+                "attempts": attempt, "error_kind": "validation", "provider": provider_name,
+                "model": provider_model, "request_seconds": request_seconds,
+                "validation": validation.to_dict(), "dossier_hash": dossier_hash,
+                "fact_check": {"checked": verified.items_checked, "rejected": len(verified.rejected),
+                               "kept_facts": verified.fact_count, "kept_views": verified.view_count,
+                               "verifier": getattr(check, "used", "")},
+            }
+            enough = verified.fact_count >= min_facts
+            record("fact_checked", attempt=attempt, checked=verified.items_checked,
+                   rejected=len(verified.rejected), kept_facts=verified.fact_count,
+                   hard_valid=validation.valid, warnings=validation.warnings[:5])
+            if validation.valid and enough:
+                candidates.append((article, validation, verified, attempt))
+            clean = validation.valid and enough and not verified.rejected and not validation.warnings
+            if clean:
+                break
             if attempt < runtime.max_attempts_per_article:
-                retry_feedback = "\n".join(
-                    f"- {message}" for message in validation.messages
-                ) or "- The returned object did not satisfy the required schema."
+                notes = verified.rejected_report()
+                notes += [f"readability: {w}" for w in validation.warnings]
+                if not enough:
+                    notes.append(f"too few verified facts survived ({verified.fact_count}); "
+                                 f"write at least {min_facts} quoted fact sentences")
+                notes += [f"structure: {m}" for m in validation.messages]
+                feedback = "\n".join(f"- {n}" for n in notes)
                 continue
             break
         except Exception as exc:  # noqa: BLE001
             last_error = f"{type(exc).__name__}: {exc}"[:240]
-            error_kind = "parse" if isinstance(exc, json.JSONDecodeError) or str(exc) == "invalid_json_object" else "provider"
+            if isinstance(exc, json.JSONDecodeError) or str(exc) == "invalid_json_object":
+                error_kind = "parse"
+            elif "fact-check" in str(exc) or "verifier" in str(exc):
+                error_kind = "verifier"
+            else:
+                error_kind = "provider"
             result.diagnostics = {"attempts": attempt, "error_kind": error_kind,
                                   "provider": provider_name, "model": provider_model,
                                   "request_seconds": round(time.monotonic() - request_started, 2),
@@ -454,10 +634,48 @@ def write_one(
             record("attempt_failed", attempt=attempt, error_kind=error_kind, error=last_error)
             if attempt >= runtime.max_attempts_per_article or not _retryable_error(exc):
                 break
+
+    if candidates:
+        # Best verified draft: no warnings first, then the most verified facts, then the later attempt.
+        article, validation, verified, attempt = max(
+            candidates, key=lambda c: (not c[1].warnings, c[2].fact_count, c[3]))
+        result.article = article
+        result.status = "completed"
+        result.stages_run = ["bounded_writer", "fact_check", "local_validation"]
+        result.diagnostics = {**result.diagnostics, "attempts": attempt, "validation": validation.to_dict(),
+                              "readability_warnings": validation.warnings,
+                              "sentences_rejected_by_fact_check": [i.reason for i in verified.rejected][:20]}
+        if cached_path:
+            cached_path.parent.mkdir(parents=True, exist_ok=True)
+            cached_path.write_text(json.dumps({
+                "object_id": obj.object_id, "depth": depth, "dossier_hash": dossier_hash,
+                "prompt_version": WRITER_PROMPT_VERSION, "article": article,
+            }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        if state_dir:
+            evidence = Path(state_dir) / "v4-evidence" / f"{re.sub(r'[^A-Za-z0-9_.-]+', '_', obj.object_id)[:120]}.json"
+            evidence.parent.mkdir(parents=True, exist_ok=True)
+            evidence.write_text(json.dumps({
+                "object_id": obj.object_id, "title": article["title"], "run_id": run_id,
+                "writer": f"{provider_name}/{provider_model}", "verifier": getattr(check, "used", ""),
+                "sources": [s["url"] for s in article["sources"]], **verified.to_evidence(),
+            }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        record("completed", attempt=attempt, validation=validation.to_dict(),
+               output_artifact=str(cached_path) if cached_path else "")
+        result.seconds = round(time.monotonic() - started, 1)
+        return result
+
+    result.seconds = round(time.monotonic() - started, 1)
+    if result.diagnostics.get("fact_check") and result.diagnostics.get("error_kind") == "validation":
+        # The story was written but too little of it survived verification. Withholding is the
+        # correct outcome, not a pipeline failure: the other stories still publish.
+        result.status = "withheld"
+        result.skipped_reason = "could not be verified against its sources"
+        result.stages_run = ["bounded_writer", "fact_check"]
+        record("withheld", reason=result.skipped_reason, fact_check=result.diagnostics.get("fact_check"))
+        return result
     result.status = "failed"
     result.errors = [last_error or "generation failed"]
-    result.stages_run = ["bounded_writer", "local_validation"]
-    result.seconds = round(time.monotonic() - started, 1)
+    result.stages_run = ["bounded_writer", "fact_check"]
     return result
 
 
@@ -472,6 +690,7 @@ def write_all(
     verbose: bool = True,
     state_dir: Path | None = None,
     run_id: str = "",
+    verifier: LLM | None = None,
 ) -> tuple[list[DraftResult], GenerationReport]:
     started = time.monotonic()
     report = GenerationReport(requested=len(objects))
@@ -488,6 +707,11 @@ def write_all(
 
     runtime = RuntimeBudget.start(deadline_s, article_budget_s=article_budget_s)
     deadline = runtime.deadline
+    if verifier is None:
+        try:
+            verifier = _make_verifier(provider)
+        except Exception:  # noqa: BLE001
+            verifier = None  # write_one fails closed without a fact-checker
     indexed = list(enumerate(objects))
     next_index = 0
     futures: dict[Any, tuple[int, IntelligenceObject]] = {}
@@ -504,7 +728,7 @@ def write_all(
         )
         future = pool.submit(write_one, obj, provider=provider,
                              deadline=article_deadline, runtime=article_runtime,
-                             state_dir=state_dir, run_id=run_id)
+                             state_dir=state_dir, run_id=run_id, verifier=verifier)
         futures[future] = (index, obj)
 
     try:
@@ -567,6 +791,8 @@ def write_all(
             report.written += 1
         elif result.status == "skipped":
             report.skipped += 1
+        elif result.status == "withheld":
+            report.withheld += 1
         else:
             report.failed += 1
             error_kind = result.diagnostics.get("error_kind")
@@ -588,4 +814,4 @@ def write_all(
 def summarise(report: GenerationReport) -> str:
     return (f"  v4 wrote {report.written}/{report.requested} in {report.elapsed_seconds:.0f}s "
             f"({report.attempts} bounded provider attempts; {report.failed} failed; "
-            f"{report.skipped} skipped)")
+            f"{report.skipped} skipped; {report.withheld} withheld as unverifiable)")

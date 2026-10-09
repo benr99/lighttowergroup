@@ -425,13 +425,13 @@ def run(
                     generation_kwargs = {
                         "provider": provider,
                         "budget": budget,
-                        "deadline_s": (720 if pipeline == "v4" else generation_deadline_s),
+                        "deadline_s": (2700 if pipeline == "v4" else generation_deadline_s),
                         "verbose": verbose,
                         "state_dir": state_dir,
                         "run_id": report.run_at,
                     }
                     if pipeline == "v4":
-                        generation_kwargs["article_budget_s"] = 240
+                        generation_kwargs["article_budget_s"] = 300
                     else:
                         generation_kwargs.update({
                             "api_key": api_key,
@@ -447,6 +447,12 @@ def run(
                             report.errors.append(message)
                         else:
                             report.warnings.append(message)
+                    withheld = getattr(gen_report, "withheld", 0)
+                    if withheld:
+                        report.warnings.append(
+                            f"{withheld} of {gen_report.requested} drafts were withheld because they could "
+                            "not be verified against their sources"
+                        )
                     if verbose:
                         print(summarise(gen_report), flush=True)
                 else:
