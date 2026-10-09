@@ -126,6 +126,7 @@ kbd{font-family:var(--mono);font-size:.85em;background:var(--chip-bg);border:1px
 .fl b{display:block;font-size:14px;margin-bottom:3px}
 .fl.high{--fc:#dc2626} .fl.med{--fc:#d97706} .fl.low{--fc:#64748b}
 .fl .fix{color:var(--muted);margin-top:4px}
+.fl.fixed{--fc:#16a34a;opacity:.8} .fl .done{color:#16a34a;margin-top:4px;font-weight:600}
 .sev{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fc)}
 #closeDrawer{float:right}
 #flagpanel{position:fixed;left:14px;top:78px;bottom:14px;width:430px;max-width:calc(100vw - 28px);z-index:35;border-radius:16px;padding:18px 20px;overflow:auto;transform:translateX(-120%);transition:transform .22s}
@@ -280,7 +281,7 @@ groups: [
 /* ----------------------------------------------------------------- NODES */
 nodes: [
   /* ===== 0 · TRIGGER ===== */
-  { id:'wf_daily', group:'g_trigger', kind:'workflow', status:'live', name:'daily-insights-agent.yml', file:'.github/workflows/daily-insights-agent.yml', lines:283,
+  { id:'wf_daily', group:'g_trigger', kind:'workflow', status:'live', name:'daily-insights-agent.yml', file:'.github/workflows/daily-insights-agent.yml', lines:284,
     tagline:'The one production publisher. Cron 07:07 ET plus manual dispatch.',
     does:['Two cron triggers (11:07 and 12:07 UTC) cover daylight and standard time; the policy script keeps only the right one.',
       'Steps: checkout → resolve policy → install locked deps → compile + unit tests + validate_publication + JS tests → provider preflight → run insights_v3.py → validate again → write run report → zero-output gate → upload artifacts → decide branch → publish_generated → verify deployment or roll back → open review PR if needed.',
@@ -295,7 +296,7 @@ nodes: [
   { id:'st_scheduler', group:'g_trigger', kind:'state', status:'state', name:'scheduler.json (lease)', file:'.editorial-state/scheduler.json',
     tagline:'Says GitHub Actions is the only active publisher.',
     does:['active_scheduler = "github-actions".','The old Windows task reads this and exits without publishing, preventing double publication.'], inputs:[], outputs:[] },
-  { id:'model_router', group:'g_trigger', kind:'script', status:'live', name:'model_router.py', file:'scripts/model_router.py', lines:211,
+  { id:'model_router', group:'g_trigger', kind:'script', status:'live', name:'model_router.py', file:'scripts/model_router.py', lines:232,
     tagline:'Picks the AI provider and logs every call.',
     does:['DeepSeek is primary (model deepseek-v4-pro); OpenAI is the fallback (gpt-4o for writing, gpt-4o-mini otherwise).','select_provider() sends a 4-token ping to each and returns the first healthy one.','log_provider_event() appends a secret-free line per call to provider-log.jsonl.','Also run as a script in the workflow as a provider preflight.'],
     inputs:['env keys'], outputs:['provider config dict','provider-log.jsonl'],
@@ -323,7 +324,7 @@ nodes: [
     does:['Each source has a tier (1–4), sectors, type, fetch frequency, and a "health" block written by the feed probe.','Types among active: 91 industry publications, 34 government, 16 html_listing, 11 mainstream business, 7 research, 7 NewsAPI, 3 government research, 2 wires.','Tier counts among active: T1 40 · T2 73 · T3 39 · T4 19.'],
     inputs:['edited by hand and by source_health_probe'], outputs:['read by ingestion.py and insights_v3 (listing sources)'],
     levers:['Add or retire a feed here: set "active". This is the main lever on what the system can see.'], flags:['F7','F8'], touches:[] },
-  { id:'ingestion', group:'s1', kind:'script', status:'live', name:'ingestion.py', file:'scripts/ingestion.py', lines:347,
+  { id:'ingestion', group:'s1', kind:'script', status:'live', name:'ingestion.py', file:'scripts/ingestion.py', lines:348,
     tagline:'Fetches every active feed in parallel and normalises entries.',
     does:['8 worker threads; 8 s connect / 15 s read timeouts; up to 500 entries per feed.','Keeps only entries from the last 36 hours.','Hands feedparser the bytes (urllib has no timeout, which once stalled a whole run).','Skips any source whose URL is "newsapi.org" (the 7 NewsAPI entries).','Has no source-type filter, so index-page sources are also tried as RSS (suspected waste).'],
     inputs:['config/sources.json'], outputs:['list of CanonicalItem'], numbers:[['workers','8'],['lookback','36 h'],['max entries / feed','500']],
@@ -361,7 +362,7 @@ nodes: [
     inputs:['clusters'], outputs:['IntelligenceObject'], numbers:[['evidence levels','primary_corroborated · corroborated · single_full_text · single_summary · insufficient']] },
 
   /* ===== 4 · TYPE & GATE ===== */
-  { id:'content_typing', group:'s4', kind:'script', status:'live', name:'content_typing.py', file:'scripts/content_typing.py', lines:311,
+  { id:'content_typing', group:'s4', kind:'script', status:'live', name:'content_typing.py', file:'scripts/content_typing.py', lines:317,
     tagline:'Works out what a document IS before asking how important it is.',
     does:['Classifies into 17 content types. Marketing, explainers, listicles, personnel notices, event promotions, admin notices and digests are never eligible.','Interviews and opinion pieces are not blanket-excluded: they qualify only with a "material disclosure".','Also assigns event type and subsector from the configured lists.'],
     inputs:['title, summary, sector'], outputs:['content_type + evidence spans'] },
@@ -387,7 +388,7 @@ nodes: [
     does:['No model calls.','Feeds the dossier\'s "facts" list and (in older paths) the post-hoc article fact audit.'], inputs:['retrieved text'], outputs:['Fact objects'] },
 
   /* ===== 7 · SCORE ===== */
-  { id:'importance', group:'s7', kind:'script', status:'live', name:'importance.py', file:'scripts/importance.py', lines:565,
+  { id:'importance', group:'s7', kind:'script', status:'live', name:'importance.py', file:'scripts/importance.py', lines:602,
     tagline:'0–100 importance with eight measures that must each vary and explain themselves.',
     does:['Measures and base weights: magnitude 1.5 · market_impact 1.3 · parties 1.1 · precedent 1.2 · novelty 1.2 · story_richness 1.2 · evidence 1.4 · right_to_win 1.1. (A ninth, "surprise", is retired.)','Magnitude uses a per-sector dollar ladder (a $100M trade is big in CRE, small in private equity).','Sector profiles from scoring_profiles.json nudge the weights; weighted average × 10.','Penalties: archive repetition −18, minor follow-up −8, uncorroborated press release −10, opinion format −6.','Bands: 90+ defining · 80 major · 70 important · 60 solid · 50 signal · 40 routine · <40 not publishable.','distribution_report() flags any measure that stops varying.'],
     inputs:['enriched objects','config/scoring_profiles.json'], outputs:['final_score, tier, per-measure rationale'], numbers:[['SCORE_VERSION','importance-v3']],
@@ -407,9 +408,9 @@ nodes: [
     inputs:['config/thresholds.json'], outputs:['spend-ledger.json'], numbers:[['max daily LLM cost','$25 (declared)']], flags:['F5'], touches:['st_spend'] },
 
   /* ===== 9 · WRITE ===== */
-  { id:'v4_generation', group:'s9', kind:'script', status:'live', name:'v4_generation.py', file:'scripts/v4_generation.py', lines:818,
-    tagline:'The writer: one story, one structured request, one retry, nothing unverified.',
-    does:['write_all(): 6 workers, 300 s per article, edition window 2,700 s (set by insights_v3), at most 2 attempts per article.','_safe_dossier(): the factual boundary, each source capped at 5,000 characters.','_writer_prompt(): asks for JSON sentences, each with verbatim quotes; no opinions, predictions or closing advice.','write_one(): request → verify → assemble → validate → retry once with the rejections quoted back → choose the best verified candidate, else withheld or failed.','Writes an evidence file per article and a draft cache keyed by dossier hash and prompt version.','Lengths: brief 60–300 words, analysis 100–520, flagship 220–850; minimum 3 / 5 / 8 verified facts or the story is withheld.'],
+  { id:'v4_generation', group:'s9', kind:'script', status:'live', name:'v4_generation.py', file:'scripts/v4_generation.py', lines:1080,
+    tagline:'The writer: Ben\'s voice for flagships and analyses, facts-only for briefs, nothing unverified.',
+    does:['Voice path (INSIGHTS_VOICE=on; tier_a and tier_b): a brief call (shape, lens, hooks), the piece in Ben\'s voice, the fact gate on every fact, the voice gate on every take and voice line, one rewrite, then a single fallback to the facts-only writer.','Every model call goes through _chat(): DeepSeek only, retries after 0/4/12 s for rate limits, server errors and dropped connections, spend checked before and recorded after, and a shared health check that stops new stories after 3 exhausted calls or one refused key.','write_all(): 6 workers, 300 s per article (540 s in the voice path), edition window 2,700 s (set by insights_v3), at most 2 attempts per article.','_safe_dossier(): the factual boundary, each source capped at 5,000 characters.','_writer_prompt(): asks for JSON sentences, each with verbatim quotes; no opinions, predictions or closing advice.','write_one(): request → verify → assemble → validate → retry once with the rejections quoted back → choose the best verified candidate, else withheld or failed.','Writes an evidence file per article and a draft cache keyed by dossier hash and prompt version.','Lengths: brief 60–300 words, analysis 100–520, flagship 220–850; minimum 3 / 5 / 8 verified facts or the story is withheld.'],
     inputs:['IntelligenceObjects on the slate','provider config'], outputs:['DraftResult per story','v4-drafts/, v4-evidence/, v4-article-state.jsonl'], numbers:[['writer temperature','0.35'],['attempts / article','2'],['min facts (a/b/c)','8 / 5 / 3'],['edition window','2,700 s']],
     levers:['_writer_prompt wording, MIN_FACT_SENTENCES, DEPTH_SPEC, WRITER_PROMPT_VERSION (bump it to invalidate cached drafts).'], flags:['F5','F10','F11'], touches:['st_v4','st_evidence','st_provider'] },
   { id:'claim_verifier', group:'s9', kind:'script', status:'live', name:'claim_verifier.py', file:'scripts/claim_verifier.py', lines:462,
@@ -425,11 +426,24 @@ nodes: [
     does:['object_to_dossier() builds the evidence packet; DraftResult is the result type; DEPTH_SPEC is imported but v4 defines its own.','The rest (the 7-stage editorial_pipeline writer) is the v3 rollback path.'], inputs:['IntelligenceObject'], outputs:['dossier dict'], flags:['F10'] },
 
   /* ===== 10 · PUBLISH ===== */
-  { id:'v3_publish', group:'s10', kind:'script', status:'live', name:'v3_publish.py', file:'scripts/v3_publish.py', lines:460,
+  { id:'v3_publish', group:'s10', kind:'script', status:'live', name:'v3_publish.py', file:'scripts/v3_publish.py', lines:498,
     tagline:'Puts finished drafts on the site, idempotently and without half-states.',
     does:['Slug from the title; an existing slug is skipped, so a rerun never double-publishes.','Maps each sector to a reader category (energy → "Market Commentary", banking → "Debt & Equity"...), trims subtitle and meta description at sentence or word boundaries.','Writes the social image, renders the page, then updates insights.json, feed.xml and sitemap.xml once at the end, then writes the related-articles JSON.','finalize_publication(): builds the edition record and decision, runs validation, and writes the declared-files list.'],
     inputs:['verified drafts','objects'], outputs:['insights/<slug>.html + _social.png + _related.json','insights.json, feed.xml, sitemap.xml'], levers:['_CATEGORY maps sectors to reader-facing categories.'], flags:['F1','F14'], touches:['pub_pages','pub_manifest','pub_feed','st_memory'] },
-  { id:'daily_news_agent', group:'s10', kind:'script', status:'legacy', name:'daily_news_agent.py', file:'scripts/daily_news_agent.py', lines:2872,
+  { id:'site_renderer', group:'s10', kind:'script', status:'live', name:'site_renderer.py', file:'scripts/site_renderer.py', lines:580,
+    tagline:'Builds the article page, insights.json, feed.xml and sitemap.xml.',
+    does:['render_html(): the full standalone article page (sanitised body, share buttons, structured data, CTA).','update_manifest(): adds or replaces the entry in insights.json, now with the story\'s sector so the page filters work.','update_feed_xml() and update_sitemap_xml(): rebuild the RSS feed and sitemap from the manifest.','Moved unchanged out of daily_news_agent.py on 2026-10-09; the legacy agent re-exports it.'],
+    inputs:['article dict from v3_publish or weekly_wrap'], outputs:['insights/<slug>.html','insights.json','feed.xml','sitemap.xml'], numbers:[['lines','~520']],
+    levers:['The page template inside render_html().'], flags:[], touches:['pub_pages','pub_manifest'] },
+  { id:'daily_digest', group:'s10', kind:'script', status:'live', name:'daily_digest.py', file:'scripts/daily_digest.py', lines:213,
+    tagline:'The page Ben reads: every published sentence beside its source quote.',
+    does:['Built offline after every v4 writing run from the run report, the drafts and the evidence files.','Shows each story\'s sentences with their kind (fact, Ben\'s read, voice), the quote or facts each rests on, and every cut with its reason.','Lists what was not published and why; writes a five-line health note (stories, checker, spend, time, problems).'],
+    inputs:['v3-run.json','v3-drafts.json','v4-evidence/'], outputs:['digest.html','health.txt'], numbers:[], levers:[], flags:[], touches:['st_evidence'] },
+  { id:'rehearsal', group:'s10', kind:'script', status:'satellite', name:'rehearsal.py + rehearsal.ps1', file:'scripts/rehearsal.py', lines:65,
+    tagline:'A full preview day outside the repo, for the dress-rehearsal week.',
+    does:['Runs insights_v3 --pipeline v4 in preview with Ben\'s voice on into %USERPROFILE%/ltg-rehearsal/<date>/, then the digest.','Refuses to write inside the repository; DeepSeek only; optional spend cap.','rehearsal.ps1 documents the one Task Scheduler command that makes it daily (Ben runs it).'],
+    inputs:['DEEPSEEK_API_KEY'], outputs:['a dated folder with digest.html and health.txt'], numbers:[['default slate','70 stories']], levers:['--article-limit, --max-usd, --voice'], flags:[], touches:[] },
+  { id:'daily_news_agent', group:'s10', kind:'script', status:'legacy', name:'daily_news_agent.py', file:'scripts/daily_news_agent.py', lines:2362,
     tagline:'The old v2 monolith, still imported for four functions.',
     does:['Live use: render_html(), update_manifest(), update_feed_xml(), update_sitemap_xml() (plus sanitize_html and read time).','Importing it also loads 18 other modules (legacy scoring, LinkedIn essay agent, editorial room...) at import time.','Its own end-to-end flow (RSS + NewsAPI → score → write → publish) is the v2 rollback path.','The version in your working tree has an unfinished edit (a try/finally in update_manifest) that fails to compile; production uses the committed copy.'],
     inputs:['article dict'], outputs:['HTML page, manifest entry, feed.xml, sitemap.xml'], flags:['F1'] },
@@ -474,7 +488,7 @@ nodes: [
   /* ===== GATE ZOOM ===== */
   { id:'gt1', group:'g_gate', kind:'script', status:'live', name:'W1 · Build the dossier', file:'scripts/v3_generation.py', lines:380,
     tagline:'Source text + facts packed into the boundary the writer may use.', does:['object_to_dossier() then _safe_dossier(): each source text ≤5,000 characters, whole packet ≤18,000.','Quotes must come from source "text" only, never from derived summaries.'], inputs:['object'], outputs:['dossier'] },
-  { id:'gt2', group:'g_gate', kind:'script', status:'live', name:'W2 · Writer request', file:'scripts/v4_generation.py', lines:818,
+  { id:'gt2', group:'g_gate', kind:'script', status:'live', name:'W2 · Writer request', file:'scripts/v4_generation.py', lines:1080,
     tagline:'DeepSeek returns structured sentences with quotes.', does:['Thinking off, temperature 0.35, 90 s timeout; a rate limit or 5xx is retried only through the attempt budget.','JSON shape: title, title_quote, excerpt, excerpt_quote, paragraphs → sentences {text, kind, quotes}.'], inputs:['prompt'], outputs:['draft JSON'] },
   { id:'gt3', group:'g_gate', kind:'script', status:'live', name:'V1 · Deterministic checks', file:'scripts/claim_verifier.py', lines:462,
     tagline:'Code only, no model. The cheapest and most trusted gate.', does:['Quote verbatim in source · numbers incl. spelled-out · names · quoted phrases · dropped qualifier · dropped attribution · non-fact kinds refused.','A sentence failing here never reaches a model.'], inputs:['sentences + quotes'], outputs:['rejections (red)'], red:true },
@@ -482,13 +496,13 @@ nodes: [
     tagline:'Yes/no: is every claim in this sentence in the source?', does:['Reasoning-mode model, temperature 0, chunks of 8 sentences.','Checks causes, rankings, sums, tense, plans-as-facts, misattribution.','Checker unreachable → whole article fails closed.'], inputs:['source + sentences'], outputs:['supported / unsupported + issue'], red:true, flags:['F6'] },
   { id:'gt5', group:'g_gate', kind:'script', status:'live', name:'V3 · Model pass 2', file:'scripts/claim_verifier.py', lines:462,
     tagline:'Break each sentence into atomic claims and test each one.', does:['Differently framed so it fails differently from pass 1.','A "supported" verdict that lists an unsupported claim is treated as unsupported.'], inputs:['sentences that passed pass 1'], outputs:['supported / unsupported'], red:true },
-  { id:'gt6', group:'g_gate', kind:'script', status:'live', name:'A1 · Assemble', file:'scripts/v4_generation.py', lines:818,
+  { id:'gt6', group:'g_gate', kind:'script', status:'live', name:'A1 · Assemble', file:'scripts/v4_generation.py', lines:1080,
     tagline:'Build the page from surviving sentences only.', does:['Title falls back to the story headline if the writer\'s title fails; excerpt falls back to the first verified fact.','Sources are copied from the dossier by code, never by the model.'], inputs:['verified sentences'], outputs:['article dict (fact_checked: true)'] },
-  { id:'gt7', group:'g_gate', kind:'script', status:'live', name:'A2 · Structural + readability validation', file:'scripts/v4_generation.py', lines:818,
+  { id:'gt7', group:'g_gate', kind:'script', status:'live', name:'A2 · Structural + readability validation', file:'scripts/v4_generation.py', lines:1080,
     tagline:'HTML, length, sources, repeats, plain-English limits.', does:['Hard: paragraph-only HTML, word range, minimum paragraphs, sources inside the dossier, no repeated paragraphs.','Soft (retry feedback): sentence and paragraph length, banned phrases, closers, unsupported numbers and names.'], inputs:['article'], outputs:['valid? + warnings'], red:true },
-  { id:'gt8', group:'g_gate', kind:'script', status:'live', name:'A3 · One corrective retry', file:'scripts/v4_generation.py', lines:818,
+  { id:'gt8', group:'g_gate', kind:'script', status:'live', name:'A3 · One corrective retry', file:'scripts/v4_generation.py', lines:1080,
     tagline:'If anything was rejected or too thin, ask once more.', does:['The retry prompt quotes the rejected sentences and reasons back to the writer.','Skipped when the first attempt was already clean.'], inputs:['rejections, warnings'], outputs:['second draft → back through V1–A2'] },
-  { id:'gt9', group:'g_gate', kind:'script', status:'live', name:'A4 · Decide', file:'scripts/v4_generation.py', lines:818,
+  { id:'gt9', group:'g_gate', kind:'script', status:'live', name:'A4 · Decide', file:'scripts/v4_generation.py', lines:1080,
     tagline:'Publish the best verified draft, or withhold, or fail.', does:['Best = no warnings, then most verified facts, then later attempt.','Too few verified facts (8 / 5 / 3 by tier) → status "withheld": not a failure, does not block the edition.','Provider or verifier errors → "failed" (blocks auto-publish).','Writes the evidence file and the draft cache.'], inputs:['candidates'], outputs:['completed | withheld | failed'], red:true },
 
   /* ===== PUBLIC SITE ===== */
@@ -496,7 +510,7 @@ nodes: [
   { id:'pub_manifest', group:'g_public', kind:'public', status:'live', name:'insights.json', file:'insights.json', tagline:'The manifest: title, slug, date, category, excerpt, tags, format, score, source.', does:['Read by insights.html, by editorial memory (seed) and by the weekly wrap.','Has no "sector" field: sector is only recoverable from tags and category.'], inputs:[], outputs:[], flags:['F14'] },
   { id:'pub_feed', group:'g_public', kind:'public', status:'live', name:'feed.xml + sitemap.xml', file:'feed.xml', tagline:'RSS (latest 50, Google News tags) and a sitemap of every page.', does:['Both regenerated from insights.json after each publish.'], inputs:[], outputs:[] },
   { id:'pub_edition', group:'g_public', kind:'public', status:'live', name:'latest-edition.json + editions/', file:'latest-edition.json', tagline:'The daily edition record.', does:['Written daily; used by verify_deployment.','edition.js can render it, but no page includes edition.js (verified by search).'], inputs:[], outputs:[], flags:['F4'] },
-  { id:'pub_listing', group:'g_public', kind:'public', status:'live', name:'insights.html (the Intelligence page)', file:'insights.html', lines:655, tagline:'Card grid with sector filters, search and a pinned Friday wrap.', does:['Loads /insights.json in the browser, sorts by date, 18 per page.','Filters map category names to buckets, but four of them (Energy, Banking, Fed & Macro, Government) match no current category; "Weekly Wrap" is its own filter plus a feature band.'], inputs:[], outputs:[], flags:['F14'] },
+  { id:'pub_listing', group:'g_public', kind:'public', status:'live', name:'insights.html (the Intelligence page)', file:'insights.html', lines:662, tagline:'Card grid with sector filters, search and a pinned Friday wrap.', does:['Loads /insights.json in the browser, sorts by date, 18 per page.','Filters map category names to buckets, but four of them (Energy, Banking, Fed & Macro, Government) match no current category; "Weekly Wrap" is its own filter plus a feature band.'], inputs:[], outputs:[], flags:['F14'] },
   { id:'pub_js', group:'g_public', kind:'public', status:'live', name:'site.js, chat-widget.js', file:'site.js', lines:819, tagline:'Shared browser code.', does:['Related-research loader, share buttons, LinkedIn essay and PDF links, scroll tracking.'], inputs:[], outputs:[] },
 
   /* ===== READERS ===== */
@@ -506,7 +520,7 @@ nodes: [
   { id:'readers', group:'g_readers', kind:'human', status:'live', name:'Readers, LinkedIn, crawlers', tagline:'The audience.', does:['Sponsors, lenders, brokers, investors; Google News via feed.xml; LinkedIn via links and the satellite agents.'], inputs:[], outputs:[] },
 
   /* ===== WEEKLY WRAP ===== */
-  { id:'wf_wrap', group:'g_wrap', kind:'workflow', status:'weekly', name:'weekly-wrap.yml', file:'.github/workflows/weekly-wrap.yml', lines:130, tagline:'Fridays 16:30 ET, preview or publish.',
+  { id:'wf_wrap', group:'g_wrap', kind:'workflow', status:'weekly', name:'weekly-wrap.yml', file:'.github/workflows/weekly-wrap.yml', lines:133, tagline:'Fridays 16:30 ET, preview or publish.',
     does:['Two UTC crons (20:30 and 21:30) plus a --scheduled guard that only runs Friday 16:00–19:00 New York time.','Runs the unit tests, builds the wrap, validates, then publish_generated.py.','Shares the daily job\'s concurrency lock.'], inputs:[], outputs:[], numbers:[['timeout','25 min']] },
   { id:'w1', group:'g_wrap', kind:'script', status:'weekly', name:'W1 · Select the week', file:'scripts/weekly_wrap.py', lines:931, tagline:'Saturday to Friday, from insights.json.', does:['load_week_items(): published items dated in the window, excluding earlier wraps.','Exits if fewer than 8.'], inputs:['insights.json'], outputs:['items'], touches:['pub_manifest'] },
   { id:'w2', group:'g_wrap', kind:'script', status:'weekly', name:'W2 · Classify into 12 sections', file:'scripts/weekly_wrap.py', lines:931, tagline:'Tags first, then keywords.', does:['Fed/rates · Debt & capital markets · Multifamily · Industrial & warehouse · Office · Retail · Hospitality · Data centers · Energy · Private equity · Policy · Other CRE.','Tag order decides ties; keyword fallback for untagged older items.'], inputs:['items'], outputs:['sections'] },
@@ -539,9 +553,9 @@ nodes: [
   /* ===== VOICE ENGINE ===== */
   { id:'v_guide', group:'g_voice', kind:'public', status:'prototype', name:'WRITING_GUIDE.md', file:'docs/voice/WRITING_GUIDE.md', lines:333, tagline:'Thirty books distilled, how the trade press writes, the WSJ/FT standard, and the Ben Rohr character brief.',
     does:['14 laws for writing that gets read online; 8 story shapes; 10 lenses; 10 hook formulas; 10 headline formulas; 6 kicker types.',`Measured prose stats for Commercial Observer, Bisnow, Multi-Housing News, Connect CRE and others; The Real Deal, GlobeSt and Crain's block automated fetching, so those are general knowledge and marked so.`,'The Two-Layer Rule and the LinkedIn playbook.'], inputs:[], outputs:[] },
-  { id:'v_prompts', group:'g_voice', kind:'config', status:'prototype', name:'system.txt, brief.txt, article.txt', file:'docs/voice/prompts/system.txt', lines:60, tagline:'The prompts, as plain text files so they can be read and edited without code.',
+  { id:'v_prompts', group:'g_voice', kind:'config', status:'prototype', name:'system.txt, brief.txt, article.txt', file:'docs/voice/prompts/system.txt', lines:80, tagline:'The prompts, as plain text files so they can be read and edited without code.',
     does:['system.txt: the Ben Rohr voice bible, the reader, hook and voice rules, significance and emotional-depth rules, WSJ/FT standards, the accuracy contract, the Two-Layer Rule with a worked example.','brief.txt: step 1, find the story (protagonist, tension, lens, shape, four hooks, four headlines, significance, kicker idea).','article.txt: step 2, write it as paragraph roles and typed sentences.'], inputs:['sources JSON','brief'], outputs:['brief JSON','article JSON'], levers:['Edit the text files directly; bump VOICE_PROMPT_VERSION in ben_voice.py.'] },
-  { id:'v_module', group:'g_voice', kind:'script', status:'prototype', name:'ben_voice.py', file:'scripts/ben_voice.py', lines:128, tagline:'Loads the prompts, defines the story shapes and lenses, and fills the templates.',
+  { id:'v_module', group:'g_voice', kind:'script', status:'prototype', name:'ben_voice.py', file:'scripts/ben_voice.py', lines:137, tagline:'Loads the prompts, defines the story shapes and lenses, and fills the templates.',
     does:['Eight story shapes with when-to-use and beats; ten lenses.','Loads the two banks and tells the writer plainly when a bank is empty.'], inputs:['prompt files','banks'], outputs:['filled prompts'] },
   { id:'v_gate', group:'g_voice', kind:'script', status:'prototype', name:'voice_gate.py', file:'scripts/voice_gate.py', lines:318, tagline:'Verifies facts with claim_verifier, then polices the opinion layer.',
     does:['Sentence kinds: fact, take, voice, context, ben.','A take must be first person or framed as opinion, cite surviving facts in "because", add no number or name, avoid loaded labels (distressed, bargain, lower basis), attribute no decisions or inner states to a party, avoid sweeping market claims, and claim no experience without a note.','Voice lines carry no numbers or names; context and note lines must derive from their bank entry.','An independent model rubric then rules on every take and voice line; fail-closed.'], inputs:['draft JSON','source text'], outputs:['VoiceDraft (kept sentences by paragraph role)'], numbers:[['take limit','38 words'],['voice limit','26 words']], levers:['The _LOADED, _MENTAL and _SWEEPING patterns, and the rubric prompt.'], flags:['F9'] },
@@ -553,7 +567,7 @@ nodes: [
     does:['Not built yet. Plan items 7.4 and 7.5.'], inputs:['kept sentences'], outputs:['scored piece','LinkedIn post'] },
 
   /* ===== LEGACY ===== */
-  { id:'lg_v2', group:'g_legacy', kind:'script', status:'legacy', name:'daily_news_agent.py (v2 flow)', file:'scripts/daily_news_agent.py', lines:2872, tagline:'The original end-to-end agent.', does:['RSS + NewsAPI discovery, scoring, writing, publishing, LinkedIn. Runs when the workflow is dispatched with pipeline=v2.'], inputs:[], outputs:[], flags:['F1'] },
+  { id:'lg_v2', group:'g_legacy', kind:'script', status:'legacy', name:'daily_news_agent.py (v2 flow)', file:'scripts/daily_news_agent.py', lines:2362, tagline:'The original end-to-end agent.', does:['RSS + NewsAPI discovery, scoring, writing, publishing, LinkedIn. Runs when the workflow is dispatched with pipeline=v2.'], inputs:[], outputs:[], flags:['F1'] },
   { id:'lg_p2', group:'g_legacy', kind:'script', status:'legacy', name:'pipeline_v2.py, v2_editorial.py', file:'scripts/pipeline_v2.py', lines:395, tagline:'The multi-sector v2 selection and its publishing bridge.', does:['Uses ranking.py and scoring_engine.py rather than selection.py and importance.py.'], inputs:[], outputs:[] },
   { id:'lg_rank', group:'g_legacy', kind:'script', status:'legacy', name:'ranking.py, scoring_engine.py', file:'scripts/ranking.py', lines:296, tagline:'v2 within-sector ranking and 100-point scorer.', does:['ranking.py is the only reader of config/thresholds.json: articles_per_sector, tier boundaries, diversity controls.'], inputs:[], outputs:[], flags:['F2'] },
   { id:'lg_story', group:'g_legacy', kind:'script', status:'legacy', name:'story_normalizer, bucketed_editorial, editorial_scoring, editorial_intelligence, editorial_room, editorial_store, editorial_scorer', file:'scripts/story_normalizer.py', lines:447, tagline:'v2 editorial layers.', does:['Normalisation, volume routing, daily top-news scoring, deterministic editorial intelligence, planning controls and an old 14-dimension review rubric.'], inputs:[], outputs:[] },
@@ -613,7 +627,7 @@ steps: [
   { title:'8 · Select the slate', focus:['s8'], edges:['s8-s9'], text:'Top 10 per sector above 40, at most 3 per publisher and company, then the best 70 overall. Each gets a depth (flagship, analysis or brief) that its evidence can honestly support.' },
   { title:'9 · Write and fact-check', focus:['s9','g_gate'], edges:['s9-s10'], text:'The model writes sentences with verbatim quotes. Code checks every quote and detail; two reasoning passes judge every claim; whatever fails is deleted. Too little left means the story is withheld. Zoom into the box below to see each gate.' },
   { title:'10 · Publish', focus:['s10'], edges:['s10-s11'], text:'Pages, social cards, manifest, feed and sitemap are written, an edition record and a publication decision are produced, and an explicit allow-list of files is declared.' },
-  { title:'11 · Release and verify', focus:['s11','g_public'], edges:['s11-g_public'], text:'Only declared files are committed, rebased and pushed. Netlify deploys; a verifier polls the live site; a failure rolls back. Any failed or skipped story sends the whole day to a review PR instead of main.' },
+  { title:'11 · Release and verify', focus:['s11','g_public'], edges:['s11-g_public'], text:'Only declared files are committed, rebased and pushed. Netlify deploys; a verifier polls the live site; a failure rolls back. The verified stories go straight to main unless more than 20% of the day failed or was skipped; then the whole day goes to a review PR.' },
   { title:'The Friday weekly wrap', focus:['g_wrap'], text:'A second, smaller pipeline summarises what the daily pipeline already published, by sector, and fact-checks every line with the same gate. It publishes through the same release path.' },
   { title:'Monitoring and satellites', focus:['g_monitor','g_social'], text:'CI, feed probes and weekly reports watch the system. LinkedIn, PDFs, carousels, Ideas and buildings are separate code that is not in the daily workflow.' },
   { title:'The voice engine (next)', focus:['g_voice'], text:`The planned evolution of stage 9: first decide what the story is about (angle, shape, lens, hooks), then draft it in Ben Rohr's voice as typed sentences, then prove the facts and police the opinion. Prototyped and tested on real stories; not in production.` },
@@ -623,17 +637,17 @@ steps: [
 
 /* ----------------------------------------------------------------- FLAGS */
 flags: [
-  { id:'F5', sev:'high', title:'The spending cap is not enforced on the v4 writer', nodes:['budget','v4_generation','st_spend'],
+  { id:'F5', fixed:'2026-10-09: every writer and fact-check call asks the budget first and records real token spend; the run reports it; a reached cap skips stories.', sev:'high', title:'The spending cap is not enforced on the v4 writer', nodes:['budget','v4_generation','st_spend'],
     detail:'config/thresholds.json declares a $25 daily cap and budget.py implements it, but v4 write_all() accepts a budget argument and never uses it. The ledger is not incremented, so spend reports read $0. The 70-story run can issue several hundred reasoning-mode calls per day with no ceiling.', fix:'Ask budget.allow() before each model call in write_one and the verifier, and record spend.' },
-  { id:'F1', sev:'high', title:'A 2,872-line legacy monolith sits on the publish path', nodes:['daily_news_agent','v3_publish'],
+  { id:'F1', fixed:'2026-10-09, branch codex/phase-0-accurate-writer: render_html and the index writers moved to site_renderer.py; publishing no longer loads daily_news_agent (byte-identical pages).', sev:'high', title:'A 2,872-line legacy monolith sits on the publish path', nodes:['daily_news_agent','v3_publish'],
     detail:'v3_publish imports daily_news_agent for four functions. Importing it loads 18 modules at import time (legacy scoring, LinkedIn essay agent, editorial room...). Any edit or error there can stop publishing: your working copy currently fails to compile.', fix:'Move render_html, update_manifest, update_feed_xml, update_sitemap_xml into a small renderer module.' },
-  { id:'F6', sev:'high', title:'The second fact-checker is the same model family as the writer', nodes:['claim_verifier','x_openai','model_router','gt4','w6'],
+  { id:'F6', fixed:"2026-10-09, by Ben's decision (DeepSeek only): no second family is used. Independence comes from two differently framed reasoning passes at temperature 0 plus the deterministic checks.", sev:'high', title:'The second fact-checker is the same model family as the writer', nodes:['claim_verifier','x_openai','model_router','gt4','w6'],
     detail:'OpenAI is the preferred independent checker but the account returns insufficient_quota, so DeepSeek writes and checks. Code checks do not depend on a model, but the two model passes can share blind spots.', fix:'Add OpenAI credit or another provider; the verifier already prefers a different provider.' },
   { id:'F12', sev:'high', title:'The existing archive was never verified', nodes:['pub_pages','w4','w6'],
     detail:'In the 2026-10-08 audit, 23.6% of sentences from the old writer were unsupported (14 of 16 articles). About 1,450 live pages predate the gate, and the weekly wrap\'s fallback excerpts inherit their errors.', fix:'Run the audit across the archive; correct or unpublish the worst pages.' },
-  { id:'F11', sev:'med', title:'The writer has no provider fallback', nodes:['v4_generation','model_router'],
+  { id:'F11', fixed:"2026-10-09: patient retries for rate limits, server errors and dropped connections; a shared health check stops new stories cleanly if DeepSeek is down. No second provider, by Ben's decision.", sev:'med', title:'The writer has no provider fallback', nodes:['v4_generation','model_router'],
     detail:'v4 deliberately makes one request per attempt with no provider chain. If DeepSeek is down, stories fail, and (with no OpenAI credit) there is nothing to fall back to anyway.', fix:'Decide whether a bounded fallback to a second provider is acceptable for writing.' },
-  { id:'F16', sev:'med', title:'One skipped or failed story blocks the whole day', nodes:['st_decision','wf_daily','review_pr','edition_manager'],
+  { id:'F16', fixed:'2026-10-09: the verified stories publish unless more than 20% of the day failed or was skipped; reasons and notes go into publication-decision.json.', sev:'med', title:'One skipped or failed story blocks the whole day', nodes:['st_decision','wf_daily','review_pr','edition_manager'],
     detail:'auto_publish_allowed requires zero failed and zero skipped stories. A single skipped story (for example when the generation window closes) routes all 70 to a review PR and the "fail visibly" step exits 1. Withheld stories are excluded, deliberately.', fix:'Consider publishing the completed subset and reporting the rest.' },
   { id:'F2', sev:'med', title:'thresholds.json does not control the live pipeline', nodes:['lg_thresholds','selection','lg_rank'],
     detail:'Per-sector targets, tier boundaries and diversity caps in config/thresholds.json are read only by legacy ranking.py. Live selection uses constants hard-coded in selection.py (floor 40, 10 per sector, 3 per source, 3 per company, tier cutoffs 70 and 50).', fix:'Make selection.py read the config, or delete the misleading keys.' },
@@ -641,7 +655,7 @@ flags: [
     detail:'assignment-queue.json and structured-candidates.json are consumed only by daily_news_agent.py\'s legacy discovery. A weekly workflow commits files that no live stage reads.', fix:'Wire the queue into selection, or retire the workflow.' },
   { id:'F4', sev:'med', title:'latest-edition.json is written daily but displayed nowhere', nodes:['pub_edition','edition_manager','verify_deployment'],
     detail:'edition.js can render it, but no page includes edition.js or edition.css (searched every page). The record is used only by verify_deployment. Under v4 the flagship, culture signal and deal tape fields are mostly empty.', fix:'Either render it on the homepage or simplify the edition record.' },
-  { id:'F9', sev:'med', title:'The voice persona does not shape the daily articles', nodes:['voice','v4_generation'],
+  { id:'F9', fixed:"2026-10-09: the voice engine (Ben's persona, merged with Codex's July voice work) writes flagships and analyses when INSIGHTS_VOICE is on; on for previews, off for production until Ben switches it.", sev:'med', title:'The voice persona does not shape the daily articles', nodes:['voice','v4_generation'],
     detail:'editorial_voice.py (556 lines of persona, voice modes, headline shapes) is used by the LinkedIn, carousel and Ideas agents. The v4 writer has its own prompt and readability.py, so voice and headline conventions can diverge between the site and LinkedIn.', fix:'Decide the single house style and apply it in one place.' },
   { id:'F13', sev:'med', title:'The audience feedback loop is open', nodes:['fn_feedback','st_signals','li_scrape'],
     detail:'Reader feedback writes audience-signals-live.json inside the Netlify function (probably not the repo, suspected), and the live pipeline does not read audience signals anyway. Only legacy v2 code and the weekly retrospective do.', fix:'Persist signals durably and feed them into importance.py or selection.py.' },
@@ -651,13 +665,13 @@ flags: [
     detail:'load_sources() applies no source-type filter, so html_listing sources are also fetched as feeds (suspected to fail quietly). The listing reader is capped at 12 by default, so 4 active index pages are never read.', fix:'Filter by type in ingestion; raise --listing-limit.' },
   { id:'F10', sev:'low', title:'DEPTH_SPEC exists twice; the old writer is imported for three symbols', nodes:['v3_generation','v4_generation'],
     detail:'v3_generation.DEPTH_SPEC (word ranges 180–1400) is stale; v4 defines its own. v4 still imports DraftResult, object_to_dossier and the old spec from v3_generation, which pulls the v3 writer into the import graph.', fix:'Move the shared types into their own module.' },
-  { id:'F14', sev:'high', title:'Four filter buttons on the Intelligence page match nothing', nodes:['pub_listing','pub_manifest','v3_publish'],
+  { id:'F14', fixed:'2026-10-09: new manifest entries carry their sector and the page filters on it; older entries fall back to category.', sev:'high', title:'Four filter buttons on the Intelligence page match nothing', nodes:['pub_listing','pub_manifest','v3_publish'],
     detail:'v3_publish maps each sector to a reader category (energy → "Market Commentary", banking → "Debt & Equity", Fed → "Market Analysis", government → "Policy & Regulation"). insights.html filters Energy, Banking, Fed & Macro and Government by different names ("Energy", "Banking", "Federal Reserve", "Local Government"). Of 535 articles since Sep 1 these four buttons match 0; only Private Equity (23) and Data Centers (58) work, and everything else is lumped under "CRE". insights.json also has no sector field, so the page cannot filter by sector at all.', fix:'Store sector in each manifest entry and filter on it.' },
-  { id:'F17', sev:'med', title:'An administrative notice passed eligibility', nodes:['content_typing','eligibility'],
+  { id:'F17', fixed:'2026-10-09: release notices, schedule changes, website notices and errata are typed as administrative notices (never eligible).', sev:'med', title:'An administrative notice passed eligibility', nodes:['content_typing','eligibility'],
     detail:'In the first live preview (2026-10-09) "Notice to Users of the H.8 Release" was selected for writing. Administrative notices are meant to be never-eligible; the content typer did not recognise it. The fact gate withheld it, so nothing wrong was published, but a slot was spent.', fix:'Add Federal Reserve release-notice patterns to content_typing and a test.' },
-  { id:'F18', sev:'med', title:'Two scoring measures do not vary on live data', nodes:['importance'],
+  { id:'F18', fixed:'2026-10-09: precedent now reads policy actions and disclosed terms; degeneracy is judged over the eligible pool. On the saved Aug 7 candidates no measure is degenerate.', sev:'med', title:'Two scoring measures do not vary on live data', nodes:['importance'],
     detail:'The live preview reported precedent and novelty as degenerate (no discriminating power). The top score was 64.4, so no story reached tier_a (flagship).', fix:'Inspect the two measures against a week of candidates; recalibrate or retire them.' },
-  { id:'F19', sev:'low', title:'Previews still write some state into the repo', nodes:['retrieval','source_health'],
+  { id:'F19', fixed:'2026-10-09: source health and the retrieval cache follow --state-dir.', sev:'low', title:'Previews still write some state into the repo', nodes:['retrieval','source_health'],
     detail:'insights_v3.py --state-dir redirects run artifacts, memory, spend and provider logs, but source-health.json and the retrieval cache are written to the repo .editorial-state regardless.', fix:'Route both through the state directory.' },
   { id:'F15', sev:'low', title:'Local Windows scheduler remnants', nodes:['agent_runtime'],
     detail:'agent_runtime.py, the .bat wrappers and setup_scheduler.ps1 remain, though the lease makes them exit. A stale task on a PC is a quiet risk if the lease file is ever changed.', fix:'Delete once the cloud scheduler is trusted.' }
@@ -676,7 +690,7 @@ const LAYERS=[['live','Live path','var(--live)'],['weekly','Weekly wrap','var(--
 const layerOn={live:true,weekly:true,monitor:true,satellite:true,voice:true,legacy:true};
 const STATUS_LABEL={prototype:'PROTOTYPE',live:'LIVE',weekly:'WEEKLY',satellite:'SATELLITE',legacy:'LEGACY',config:'CONFIG',state:'STATE',external:'EXTERNAL'};
 const gById={}, nById={}, flagById={}, flagsByNode={};
-MAP.groups.forEach(g=>gById[g.id]=g); MAP.nodes.forEach(n=>nById[n.id]=n); MAP.flags.forEach(f=>{flagById[f.id]=f;(f.nodes||[]).forEach(id=>(flagsByNode[id]=flagsByNode[id]||[]).push(f));});
+MAP.groups.forEach(g=>gById[g.id]=g); MAP.nodes.forEach(n=>nById[n.id]=n); MAP.flags.forEach(f=>{flagById[f.id]=f;if(f.fixed)return;(f.nodes||[]).forEach(id=>(flagsByNode[id]=flagsByNode[id]||[]).push(f));});
 let scale=0.2, tx=0, ty=0, selected=null, lodChanged=false;
 
 /* ---------- build the DOM ---------- */
@@ -853,7 +867,7 @@ function hover(id,on){
 /* ---------- drawer ---------- */
 const drawer=$('#drawer');
 function pills(ids){ return ids.map(id=>{ const n=nById[id]||gById[id]; return n?`<span class="pill" data-go="${esc(id)}">${esc(n.name||n.title)}</span>`:''; }).join(''); }
-function renderFlag(f){ return `<div class="fl ${f.sev}" data-flag="${f.id}"><span class="sev">${f.sev} · ${f.id}</span><b>${esc(f.title)}</b>${esc(f.detail)}<div class="fix"><b style="display:inline">Possible fix:</b> ${esc(f.fix)}</div></div>`; }
+function renderFlag(f){ return `<div class="fl ${f.fixed?'fixed':f.sev}" data-flag="${f.id}"><span class="sev">${f.fixed?'fixed':f.sev} · ${f.id}</span><b>${esc(f.title)}</b>${esc(f.detail)}${f.fixed?`<div class="done">Fixed: ${esc(f.fixed)}</div>`:`<div class="fix"><b style="display:inline">Possible fix:</b> ${esc(f.fix)}</div>`}</div>`; }
 function openNode(id){
   const n=nById[id]; if(!n) return; select(id);
   const fl=flagsByNode[id]||[];
@@ -893,8 +907,8 @@ drawer.addEventListener('click',e=>{
 /* ---------- flags panel ---------- */
 const fp=$('#flagpanel');
 function buildFlags(){
-  const order={high:0,med:1,low:2}; const fs=[...MAP.flags].sort((a,b)=>order[a.sev]-order[b.sev]);
-  fp.innerHTML=`<button class="btn" style="float:right" id="closeFlags">✕</button><h3>🚩 Critique flags (${fs.length})</h3><p class="muted" style="font-size:13px;margin:4px 0 8px">Verified against the code on 2026-10-09 unless marked "suspected". Click one to jump to the boxes it concerns.</p>`+fs.map(renderFlag).join('');
+  const order={high:0,med:1,low:2}; const fs=[...MAP.flags].sort((a,b)=>(!!a.fixed-!!b.fixed)||order[a.sev]-order[b.sev]); const open=fs.filter(f=>!f.fixed).length;
+  fp.innerHTML=`<button class="btn" style="float:right" id="closeFlags">✕</button><h3>🚩 Critique flags (${open} open, ${fs.length-open} fixed)</h3><p class="muted" style="font-size:13px;margin:4px 0 8px">Verified against the code on 2026-10-09 unless marked "suspected". Click one to jump to the boxes it concerns.</p>`+fs.map(renderFlag).join('');
 }
 function goFlag(id){ const f=flagById[id]; if(!f) return; const ids=(f.nodes||[]).filter(i=>domOf[i]); flyTo(unionRect(ids),{maxScale:.55,pad:140}); if(ids[0]&&nById[ids[0]]) openNode(ids[0]); }
 fp.addEventListener('click',e=>{ if(e.target.id==='closeFlags'){fp.classList.remove('open');$('#bFlags').classList.remove('on');return;} const f=e.target.closest('[data-flag]'); if(f) goFlag(f.dataset.flag); });

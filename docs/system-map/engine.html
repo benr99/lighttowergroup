@@ -126,6 +126,7 @@ kbd{font-family:var(--mono);font-size:.85em;background:var(--chip-bg);border:1px
 .fl b{display:block;font-size:14px;margin-bottom:3px}
 .fl.high{--fc:#dc2626} .fl.med{--fc:#d97706} .fl.low{--fc:#64748b}
 .fl .fix{color:var(--muted);margin-top:4px}
+.fl.fixed{--fc:#16a34a;opacity:.8} .fl .done{color:#16a34a;margin-top:4px;font-weight:600}
 .sev{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fc)}
 #closeDrawer{float:right}
 #flagpanel{position:fixed;left:14px;top:78px;bottom:14px;width:430px;max-width:calc(100vw - 28px);z-index:35;border-radius:16px;padding:18px 20px;overflow:auto;transform:translateX(-120%);transition:transform .22s}
@@ -185,7 +186,7 @@ const LAYERS=[['live','Live path','var(--live)'],['weekly','Weekly wrap','var(--
 const layerOn={live:true,weekly:true,monitor:true,satellite:true,voice:true,legacy:true};
 const STATUS_LABEL={prototype:'PROTOTYPE',live:'LIVE',weekly:'WEEKLY',satellite:'SATELLITE',legacy:'LEGACY',config:'CONFIG',state:'STATE',external:'EXTERNAL'};
 const gById={}, nById={}, flagById={}, flagsByNode={};
-MAP.groups.forEach(g=>gById[g.id]=g); MAP.nodes.forEach(n=>nById[n.id]=n); MAP.flags.forEach(f=>{flagById[f.id]=f;(f.nodes||[]).forEach(id=>(flagsByNode[id]=flagsByNode[id]||[]).push(f));});
+MAP.groups.forEach(g=>gById[g.id]=g); MAP.nodes.forEach(n=>nById[n.id]=n); MAP.flags.forEach(f=>{flagById[f.id]=f;if(f.fixed)return;(f.nodes||[]).forEach(id=>(flagsByNode[id]=flagsByNode[id]||[]).push(f));});
 let scale=0.2, tx=0, ty=0, selected=null, lodChanged=false;
 
 /* ---------- build the DOM ---------- */
@@ -362,7 +363,7 @@ function hover(id,on){
 /* ---------- drawer ---------- */
 const drawer=$('#drawer');
 function pills(ids){ return ids.map(id=>{ const n=nById[id]||gById[id]; return n?`<span class="pill" data-go="${esc(id)}">${esc(n.name||n.title)}</span>`:''; }).join(''); }
-function renderFlag(f){ return `<div class="fl ${f.sev}" data-flag="${f.id}"><span class="sev">${f.sev} · ${f.id}</span><b>${esc(f.title)}</b>${esc(f.detail)}<div class="fix"><b style="display:inline">Possible fix:</b> ${esc(f.fix)}</div></div>`; }
+function renderFlag(f){ return `<div class="fl ${f.fixed?'fixed':f.sev}" data-flag="${f.id}"><span class="sev">${f.fixed?'fixed':f.sev} · ${f.id}</span><b>${esc(f.title)}</b>${esc(f.detail)}${f.fixed?`<div class="done">Fixed: ${esc(f.fixed)}</div>`:`<div class="fix"><b style="display:inline">Possible fix:</b> ${esc(f.fix)}</div>`}</div>`; }
 function openNode(id){
   const n=nById[id]; if(!n) return; select(id);
   const fl=flagsByNode[id]||[];
@@ -402,8 +403,8 @@ drawer.addEventListener('click',e=>{
 /* ---------- flags panel ---------- */
 const fp=$('#flagpanel');
 function buildFlags(){
-  const order={high:0,med:1,low:2}; const fs=[...MAP.flags].sort((a,b)=>order[a.sev]-order[b.sev]);
-  fp.innerHTML=`<button class="btn" style="float:right" id="closeFlags">✕</button><h3>🚩 Critique flags (${fs.length})</h3><p class="muted" style="font-size:13px;margin:4px 0 8px">Verified against the code on 2026-10-09 unless marked "suspected". Click one to jump to the boxes it concerns.</p>`+fs.map(renderFlag).join('');
+  const order={high:0,med:1,low:2}; const fs=[...MAP.flags].sort((a,b)=>(!!a.fixed-!!b.fixed)||order[a.sev]-order[b.sev]); const open=fs.filter(f=>!f.fixed).length;
+  fp.innerHTML=`<button class="btn" style="float:right" id="closeFlags">✕</button><h3>🚩 Critique flags (${open} open, ${fs.length-open} fixed)</h3><p class="muted" style="font-size:13px;margin:4px 0 8px">Verified against the code on 2026-10-09 unless marked "suspected". Click one to jump to the boxes it concerns.</p>`+fs.map(renderFlag).join('');
 }
 function goFlag(id){ const f=flagById[id]; if(!f) return; const ids=(f.nodes||[]).filter(i=>domOf[i]); flyTo(unionRect(ids),{maxScale:.55,pad:140}); if(ids[0]&&nById[ids[0]]) openNode(ids[0]); }
 fp.addEventListener('click',e=>{ if(e.target.id==='closeFlags'){fp.classList.remove('open');$('#bFlags').classList.remove('on');return;} const f=e.target.closest('[data-flag]'); if(f) goFlag(f.dataset.flag); });
