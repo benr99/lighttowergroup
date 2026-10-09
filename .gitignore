@@ -5,6 +5,8 @@ tmp/
 *.py
 !scripts/*.py
 !tests/*.py
+!docs/**/*.py
+!outputs/**/*.py
 .env
 scripts/.env
 .DS_Store
@@ -54,3 +56,7 @@ data/scoring-evaluation.json
 .editorial-state/v3-candidates.json
 .editorial-state/v3-drafts.json
 .editorial-state/retrieval-cache/
+
+# Session-local files that must never be committed
+docs/session/wip/
+outputs/**/__pycache__/

@@ -1,0 +1,1829 @@
+[
+ {
+  "slug": "cobblestone-village",
+  "tier": "tier_c",
+  "A": {
+   "status": "written",
+   "title": "Cobblestone Village",
+   "sentences": 12,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 312,
+    "paragraphs": 4,
+    "words_per_para_mean": 78.0,
+    "words_per_para_p90": 76,
+    "sent_per_para_mean": 3,
+    "sentences": 12,
+    "words_per_sentence_mean": 27.4,
+    "words_per_sentence_p90": 34,
+    "pct_sentences_over_30": 33.3,
+    "flesch_reading_ease": 27.0,
+    "fk_grade": 16.0,
+    "jargon_per_100w": 0.32,
+    "unknown_acronyms_per_100w": 1.28,
+    "numbers_per_100w": 4.49,
+    "passive_per_100w": 0.64,
+    "hedges_per_100w": 0.64,
+    "the_starter_pct": 25.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 32,
+    "template_closer": false,
+    "title_len": 19,
+    "title_has_number": false,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "BWE, a national commercial and multifamily mortgage banking company, announced that it has secured a $16,782,000 loan to provide permanent financing for Cobblestone Village, a 200-unit, garden-style affordable community in Grapevine, Texas, part of the Dallas-Fort Worth metropolitan area. Jake Roberts, senior vice president in BWE’s Los Angeles office, originated the financing from Freddie Mac on behalf of Falkin Platnick Realty Group, a San Antonio-based multifamily owner and operator.",
+    "The loan was rate locked at the beginning of the year to allow Falkin Platnick to run out an existing loan with a favorable interest rate. It carries a 7-year term and full-term interest-only payments. Loan proceeds will be used to make further capital improvements to the property. Initially constructed in 1983 and located at 951 Turner Rd, Cobblestone Village contains 96 one-bedroom and 104 two-bedroom apartments. The property includes affordability protections on 70 units, with 40 units restricted to residents earning up to 50% of area median income and another 30 restricted to residents earning up to 80% of AMI.",
+    "Roberts said BWE worked with Falkin Platnick, a longtime client, to organize and identify historical capex and future capital investment plans so the owner could obtain a low-risk, low-leverage loan that would help maintain strong cash flow even when moving off a very low interest rate loan from 2017. This framing suggests the financing was structured to preserve cash flow during a transition away from cheaper legacy debt, while still funding property improvements.",
+    "The announcement does not disclose the loan's interest rate, loan-to-value ratio, debt yield, or the size and timing of planned capital improvements. It also does not state whether the affordability restrictions on the 70 income-restricted units are subject to renewal, expiration, or regulatory oversight. Because the source is a single full-text announcement from yieldpro.com, independent confirmation of the financing terms and property performance was not available."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 107.2,
+   "diagnostics": {
+    "attempts": 1,
+    "error": "RuntimeError: fact-check unavailable: Response ended prematurely"
+   },
+   "title": "Cobblestone Village",
+   "sentences": 4,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 101,
+    "paragraphs": 2,
+    "words_per_para_mean": 50.5,
+    "words_per_para_p90": 51,
+    "sent_per_para_mean": 2,
+    "sentences": 4,
+    "words_per_sentence_mean": 26.2,
+    "words_per_sentence_p90": 29,
+    "pct_sentences_over_30": 25.0,
+    "flesch_reading_ease": 38.8,
+    "fk_grade": 14.1,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 1.98,
+    "numbers_per_100w": 8.91,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.99,
+    "the_starter_pct": 50.0,
+    "hook_has_number": false,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 29,
+    "template_closer": false,
+    "title_len": 19,
+    "title_has_number": false,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Jake Roberts, senior vice president in BWE's Los Angeles office, originated the Freddie Mac financing for Falkin Platnick Realty Group, a San Antonio-based multifamily owner and operator. The loan was rate locked at the beginning of the year so Falkin Platnick could run out an existing loan with a favorable interest rate.",
+    "Built in 1983 at 951 Turner Rd, Cobblestone Village has 96 one-bedroom and 104 two-bedroom apartments. The property includes affordability protections on 70 units, with 40 units restricted to residents earning up to 50% of area median income and 30 restricted to residents earning up to 80% of AMI."
+   ],
+   "rejected_by_gate": [
+    "quote is longer than allowed",
+    "quote is longer than allowed",
+    "quote is longer than allowed",
+    "quote is longer than allowed"
+   ]
+  }
+ },
+ {
+  "slug": "bluerock-value-exchange-launches-58-4m-all-cash-industrial-dst",
+  "tier": "tier_c",
+  "A": {
+   "status": "written",
+   "title": "Bluerock Value Exchange Launches $58.4M All-Cash Industrial DST",
+   "sentences": 15,
+   "flagged": {
+    "What remains unknown from the single source is the specific tenant roster, lease durations, property locations beyond the state level, and the expected hold period for DIP 8.": [
+     "deepseek-reasoning-audit: Source does not state what remains unknown; this adds absence claims not in the source."
+    ],
+    "The report also does not detail the timing of the offering's close or the split between the three exit paths: a tax-deferred 721 UPREIT exchange, a subsequent 1031 exchange, or a taxable cash redemption.": [
+     "deepseek-reasoning-audit: Source does not state it lacks those details; this adds absence claims not in the source."
+    ],
+    "Bluerock, BVEX's parent company, is described as an alternative investment manager with more than $20 billion in acquired and managed assets, but the source does not provide independent verification of that figure.": [
+     "deepseek-reasoning-audit: Source does not explicitly state it lacks independent verification; only attributes the figure to the firm."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 367,
+    "paragraphs": 4,
+    "words_per_para_mean": 91.8,
+    "words_per_para_p90": 103,
+    "sent_per_para_mean": 3.8,
+    "sentences": 15,
+    "words_per_sentence_mean": 25.5,
+    "words_per_sentence_p90": 34,
+    "pct_sentences_over_30": 33.3,
+    "flesch_reading_ease": 37.0,
+    "fk_grade": 14.2,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 5.18,
+    "numbers_per_100w": 7.36,
+    "passive_per_100w": 1.09,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 40.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 22,
+    "template_closer": true,
+    "title_len": 63,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Bluerock Value Exchange, a national sponsor of 1031 exchange and Delaware statutory trust programs, has launched BR Diversified Industrial Portfolio 8, DST. The all-cash offering seeks to raise approximately $58.4 million from accredited investors, according to the company. DIP 8 marks BVEX's 46th individual DST program and its eighth consecutive industrial-focused offering, following the launch of BR Diversified Industrial Portfolio 7, DST in February, which sought approximately $60 million.",
+    "The new offering comprises five industrial properties across Florida, Illinois, and Missouri totaling approximately 460,000 rentable square feet. That compares with DIP 7's roughly 550,000 square feet. Both offerings are fully leased under long-term, triple-net leases to credit-rated, national tenants. DIP 8's in-place rents sit an average of 20% below current market rates, according to CoStar data, while DIP 7's in-place rents were reported at 25% below market at launch. The unlevered structure is designed to eliminate leverage risk while prioritizing capital preservation, the company said. DIP 8 is distributing 4.8% annualized under its master lease structure, paid monthly.",
+    "Bluerock Value Exchange president Josh Hoffman said the industrial sector continues to benefit from \"declining new supply, sustained demand, and projected rent growth\" relative to the broader real estate market. The platform's structured exchange volume has grown through its recent run of industrial offerings: BVEX reported $3 billion in property value across 15.5 million square feet at DIP 7's launch in February, which grew to 15.7 million square feet by April, when BVEX fully subscribed BR Diversified Industrial Portfolio 6, DST with $71 million in equity. The company now reports more than 17 million square feet structured to date.",
+    "What remains unknown from the single source is the specific tenant roster, lease durations, property locations beyond the state level, and the expected hold period for DIP 8. The report also does not detail the timing of the offering's close or the split between the three exit paths: a tax-deferred 721 UPREIT exchange, a subsequent 1031 exchange, or a taxable cash redemption. Bluerock, BVEX's parent company, is described as an alternative investment manager with more than $20 billion in acquired and managed assets, but the source does not provide independent verification of that figure."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 146.5,
+   "diagnostics": {
+    "attempts": 1,
+    "fact_check": {
+     "checked": 9,
+     "rejected": 1,
+     "kept_facts": 6,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Bluerock Value Exchange Launches 58 4M All Cash Industrial Dst",
+   "sentences": 6,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 105,
+    "paragraphs": 4,
+    "words_per_para_mean": 26.2,
+    "words_per_para_p90": 32,
+    "sent_per_para_mean": 1.5,
+    "sentences": 6,
+    "words_per_sentence_mean": 18.5,
+    "words_per_sentence_p90": 18,
+    "pct_sentences_over_30": 0.0,
+    "flesch_reading_ease": 17.5,
+    "fk_grade": 15.2,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 1.9,
+    "numbers_per_100w": 2.86,
+    "passive_per_100w": 1.9,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 50.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": true,
+    "hook_first_sentence_words": 18,
+    "template_closer": false,
+    "title_len": 62,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "The offering comprises five industrial properties across Florida, Illinois, and Missouri totaling approximately 460,000 rentable square feet.",
+    "The portfolio is fully leased under long-term, triple-net leases to credit-rated, national tenants. In-place rents sit an average of 20% below current market rates, according to CoStar data.",
+    "The unlevered structure is designed to eliminate leverage risk while prioritizing capital preservation, the company said.",
+    "This is BVEX's 46th individual DST program and its eighth consecutive industrial-focused offering. Bluerock Value Exchange president Josh Hoffman said the industrial sector continues to benefit from \"declining new supply, sustained demand, and projected rent growth\" relative to the broader real estate market."
+   ],
+   "rejected_by_gate": [
+    "Attribution changed: source says Bluerock Value Exchange launched, not Bluerock.",
+    "quote is longer than allowed",
+    "drops the attribution (“said”, “according to”) that its quote carries"
+   ]
+  }
+ },
+ {
+  "slug": "prp-buys-downtown-office-building-from-tishman-speyer",
+  "tier": "tier_c",
+  "A": {
+   "status": "written",
+   "title": "Prp Buys Downtown Office Building From Tishman Speyer",
+   "sentences": 14,
+   "flagged": {
+    "The vacancy is concentrated on three empty floors of 16K SF each, which PRP says could position the building for an anchor tenant opportunity.": [
+     "deepseek-reasoning-audit: The source does not attribute the anchor-tenant positioning statement to PRP."
+    ],
+    "The firm's larger recent presence includes its 2024 purchase of Market Square, the twin Pennsylvania Avenue properties surrounding the Navy Memorial, for $323M.": [
+     "deepseek-reasoning-audit: The source says the purchase was one of the largest office deals of that year, but does not characterize it as part of a \"larger recent presence.\""
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 291,
+    "paragraphs": 4,
+    "words_per_para_mean": 72.8,
+    "words_per_para_p90": 80,
+    "sent_per_para_mean": 3.8,
+    "sentences": 15,
+    "words_per_sentence_mean": 19.7,
+    "words_per_sentence_p90": 24,
+    "pct_sentences_over_30": 13.3,
+    "flesch_reading_ease": 49.6,
+    "fk_grade": 11.2,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 3.78,
+    "numbers_per_100w": 4.81,
+    "passive_per_100w": 0.69,
+    "hedges_per_100w": 1.03,
+    "the_starter_pct": 46.7,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 20,
+    "template_closer": true,
+    "title_len": 53,
+    "title_has_number": false,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "D.C.-based investment firm PRP Real Assets closed Tuesday on a 117K SF office building at 900 19th St. NW, paying around $30M, according to PRP Chief Investment Officer Jon McAvoy. The 1979-era building, sold by Tishman Speyer, is roughly 60% vacant. Tishman confirmed the sale closed but declined to comment on the transaction.",
+    "Tishman Speyer had owned the property since December 2006, when it paid $11.3M to Carr Properties, deed records show. The seller completed a substantial renovation in 2017. PRP plans to infuse six figures into modifications within the next year. McAvoy described the deal as a \"basis reset\" that gives the firm an opportunity to reinvest. The vacancy is concentrated on three empty floors of 16K SF each, which PRP says could position the building for an anchor tenant opportunity.",
+    "The acquisition fits a stated PRP strategy of finding buildings where current owners may not be interested in reinvesting. McAvoy called the model \"good building, bad balance sheet\" and said PRP is looking to replicate it at other D.C. properties. The firm's larger recent presence includes its 2024 purchase of Market Square, the twin Pennsylvania Avenue properties surrounding the Navy Memorial, for $323M. The new asset sits next to Tishman's International Square, a more than 1M SF office building whose CMBS loans were sent to special servicing in May and whose $450M capital stack matures this month, according to Morningstar Credit.",
+    "What remains unknown is the identity of any prospective tenants, the exact scope or cost of the planned improvements beyond a six-figure range, and whether PRP will secure an anchor occupant for the three vacant floors. The source also does not specify the building's current occupancy composition or the timeline for completing the modifications."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 73.9,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 11,
+     "rejected": 3,
+     "kept_facts": 8,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Prp Buys Downtown Office Building From Tishman Speyer",
+   "sentences": 8,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 142,
+    "paragraphs": 4,
+    "words_per_para_mean": 35.5,
+    "words_per_para_p90": 34,
+    "sent_per_para_mean": 2.2,
+    "sentences": 9,
+    "words_per_sentence_mean": 16.2,
+    "words_per_sentence_p90": 22,
+    "pct_sentences_over_30": 0.0,
+    "flesch_reading_ease": 58.0,
+    "fk_grade": 9.1,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 4.93,
+    "numbers_per_100w": 7.04,
+    "passive_per_100w": 0.7,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 22.2,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 22,
+    "template_closer": false,
+    "title_len": 53,
+    "title_has_number": false,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "A downtown office building that's roughly 60% vacant has a new owner with a lease-up and small-scale improvement plan. D.C.-based investment firm PRP Real Assets closed Tuesday on a 117K SF office building at 900 19th St. NW, paying around $30M, PRP Chief Investment Officer Jon McAvoy told Bisnow.",
+    "The 1979-era building was sold by Tishman Speyer, which had owned it since 2006 and completed a substantial renovation in 2017. Tishman confirmed the sale closed but declined to comment on the transaction.",
+    "McAvoy called the deal a \"basis reset\" and said it gave the firm the opportunity to reinvest. PRP plans to infuse six figures into modifications within the next year.",
+    "The 60% vacancy is concentrated on three empty floors, each 16K SF, which would position the building for an anchor tenant opportunity. McAvoy said PRP is assessing all interest."
+   ],
+   "rejected_by_gate": [
+    "figures not in its quote: 30; drops the qualifier “roughly” that its quote carries",
+    "drops the attribution (“said”, “according to”) that its quote carries",
+    "names not in its quote: McAvoy"
+   ]
+  }
+ },
+ {
+  "slug": "ejs-group-jv-secures-138m-refi-for-brooklyn-community",
+  "tier": "tier_c",
+  "A": {
+   "status": "written",
+   "title": "EJS Group JV Secures $138M Refi for Brooklyn Community",
+   "sentences": 14,
+   "flagged": {
+    "The refinancing suggests continued lender appetite for newly delivered Brooklyn multifamily assets, even as the loan replaces a smaller construction facility with a larger floating-rate package.": [
+     "deepseek-reasoning-audit: The source does not state lender appetite; that is an added interpretation."
+    ],
+    "What remains unknown is the pricing, spread, or other terms of the floating-rate debt beyond its three-year duration, as well as the property’s current occupancy, rent levels, or operating performance since delivery.": [
+     "deepseek-reasoning-audit: The source does not state what remains unknown; this is an inference from omission."
+    ],
+    "The source does not disclose the loan-to-value ratio, debt yield, or any interest rate cap arrangements.": [
+     "deepseek-reasoning-audit: The source does not state what it does not disclose; this is an observation about omission."
+    ],
+    "It is also unclear whether the refinancing proceeds were used solely to retire the prior construction loan or included additional cash-out to the sponsors.": [
+     "deepseek-reasoning-audit: The source does not state whether proceeds were used solely or included cash-out; this is an inference from omission."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 352,
+    "paragraphs": 4,
+    "words_per_para_mean": 88.0,
+    "words_per_para_p90": 114,
+    "sent_per_para_mean": 3.5,
+    "sentences": 14,
+    "words_per_sentence_mean": 26.6,
+    "words_per_sentence_p90": 38,
+    "pct_sentences_over_30": 28.6,
+    "flesch_reading_ease": 32.5,
+    "fk_grade": 15.0,
+    "jargon_per_100w": 0.28,
+    "unknown_acronyms_per_100w": 0.57,
+    "numbers_per_100w": 5.68,
+    "passive_per_100w": 0.28,
+    "hedges_per_100w": 0.28,
+    "the_starter_pct": 35.7,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 28,
+    "template_closer": true,
+    "title_len": 54,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Developers EJS Group and Hope Street Capital have secured a $137.5 million refinancing loan for 12 Halsey, a 240-unit community in Brooklyn’s Bedford-Stuyvesant neighborhood. AllianceBernstein issued the three-year, floating-rate debt package in a transaction arranged by Walker & Dunlop. The refinancing retires a construction loan package amounting to $108.2 million, issued in 2023 by Bank OZK and CanAm Enterprises.",
+    "The two-building community rises 10 stories and came online in 2025. Under New York’s affordable housing program 421-a, 12 Halsey features 72 income-restricted units. The property has studio, one- and two-bedroom layouts ranging from 481 to 1,207 square feet, along with 2,400 square feet of ground-floor retail space. Shared amenities include a fitness center, swimming pool, community room and a 59-spot subterranean parking garage. Located at 12 Halsey St., the property is close to several subway stops on Franklin and Nostrand avenues, as well as in proximity to the Nostrand Avenue train station, which connects the area to Manhattan’s Financial District, some 4.5 miles northwest.",
+    "The refinancing suggests continued lender appetite for newly delivered Brooklyn multifamily assets, even as the loan replaces a smaller construction facility with a larger floating-rate package. Recent noteworthy multifamily refinancing deals in Brooklyn include the $370 million bridge loan The Carlyle Group and Property Markets Group received for the 517-unit Society Brooklyn in Gowanus, and the $374 million Barings recapitalization of the first phase of Williamsburg Wharf by Naftali Group and Access Real Estate. Walker & Dunlop arranged the 12 Halsey loan through Senior Managing Directors Aaron Appel, Jonathan Schwartz, Keith Kurland, Adam Schwartz, Dustin Stolly and Sean Reimer, together with Managing Director Michael Diaz, Senior Director Michael Ianno and Associate Cole Grims.",
+    "What remains unknown is the pricing, spread, or other terms of the floating-rate debt beyond its three-year duration, as well as the property’s current occupancy, rent levels, or operating performance since delivery. The source does not disclose the loan-to-value ratio, debt yield, or any interest rate cap arrangements. It is also unclear whether the refinancing proceeds were used solely to retire the prior construction loan or included additional cash-out to the sponsors."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 51.7,
+   "diagnostics": {
+    "attempts": 1,
+    "fact_check": {
+     "checked": 8,
+     "rejected": 0,
+     "kept_facts": 6,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "EJS Group JV Lands $137.5M Refi for Bed-Stuy Community",
+   "sentences": 6,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 100,
+    "paragraphs": 4,
+    "words_per_para_mean": 25.0,
+    "words_per_para_p90": 28,
+    "sent_per_para_mean": 1.5,
+    "sentences": 6,
+    "words_per_sentence_mean": 18.2,
+    "words_per_sentence_p90": 21,
+    "pct_sentences_over_30": 0.0,
+    "flesch_reading_ease": 40.2,
+    "fk_grade": 11.8,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 2.0,
+    "numbers_per_100w": 11.0,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 33.3,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 28,
+    "template_closer": false,
+    "title_len": 54,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Developers EJS Group and Hope Street Capital have secured a $137.5 million refinancing loan for 12 Halsey, a 240-unit community in Brooklyn's Bedford-Stuyvesant neighborhood. AllianceBernstein issued the three-year, floating-rate debt package in a transaction arranged by Walker & Dunlop.",
+    "The refinancing retires a construction loan package amounting to $108.2 million, issued in 2023 by Bank OZK and CanAm Enterprises.",
+    "The two-building community rises 10 stories and came online in 2025. Under New York's affordable housing program 421-a, 12 Halsey features 72 income-restricted units.",
+    "Walker & Dunlop arranged more than $32 billion in multifamily financing over the course of last year."
+   ],
+   "rejected_by_gate": []
+  }
+ },
+ {
+  "slug": "tishman-speyer-enters-charlotte-with-76m-deal",
+  "tier": "tier_c",
+  "A": {
+   "status": "written",
+   "title": "Tishman Speyer Enters Charlotte With 76M Deal",
+   "sentences": 14,
+   "flagged": {
+    "The acquisition aligns with Charlotte's active multifamily market.": [
+     "deepseek-reasoning-audit: Source says recent investment activity adds to Charlotte's active multifamily construction pipeline, not that the acquisition aligns with the active multifamily market."
+    ],
+    "What remains unknown is the capitalization rate or per-unit pricing implied by the $76.3 million sale, as the source does not disclose underwriting assumptions or financing terms.": [
+     "deepseek-reasoning-audit: Adds a claim about what the source omits, which is not stated in the source."
+    ],
+    "The article also does not specify the timeline or budget for Tishman Speyer's planned renovations, nor whether the acquisition includes assumptions of existing debt.": [
+     "deepseek-reasoning-audit: Adds a claim about unspecified renovation details and debt assumptions not present in the source."
+    ],
+    "Future reporting may clarify how the property's performance compares with other Charlotte luxury assets and whether Tishman Speyer pursues additional acquisitions in the market.": [
+     "deepseek-reasoning-audit: Speculates about future reporting and market comparisons absent from the source."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 323,
+    "paragraphs": 4,
+    "words_per_para_mean": 80.8,
+    "words_per_para_p90": 94,
+    "sent_per_para_mean": 3.8,
+    "sentences": 15,
+    "words_per_sentence_mean": 22.6,
+    "words_per_sentence_p90": 32,
+    "pct_sentences_over_30": 20.0,
+    "flesch_reading_ease": 37.0,
+    "fk_grade": 13.4,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.93,
+    "numbers_per_100w": 5.26,
+    "passive_per_100w": 0.31,
+    "hedges_per_100w": 0.31,
+    "the_starter_pct": 33.3,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 26,
+    "template_closer": true,
+    "title_len": 45,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Tishman Speyer has acquired Berkshire Dilworth, a 296-unit luxury multifamily property in Charlotte, N.C., for $76.3 million, according to Mecklenburg County public records. The transaction closed through the company's TS Plus investment fund and represents Tishman Speyer's first acquisition in Charlotte and its second in North Carolina. Berkshire Residential sold the six-story building, with Newmark representing the seller.",
+    "Completed in 2016, Berkshire Dilworth is located at 1351 E. Morehead St. on 2 acres between West Midtown and the historic Dilworth neighborhood. The property is 97 percent occupied and includes studios and one- to three-bedroom floorplans averaging 856 square feet, plus a penthouse collection. Amenities include a 24-hour fitness center, yoga studio, coworking spaces, rooftop lounge, swimming pool, pet spa, EV charging stations, 395 parking spots, and 3,000 square feet of street-level retail. Tishman Speyer plans to upgrade the property's amenities and exterior, along with select apartment improvements.",
+    "The acquisition aligns with Charlotte's active multifamily market. At the end of the first quarter of 2026, developers had 24,927 units underway across the metro, with another 96,000 units in planning and permitting stages, according to a Yardi Matrix report. Berkshire Dilworth is adjacent to Atrium Health's Carolinas Medical Center, which is undergoing an $893 million expansion, and close to The Pearl Innovation District, a $1.5 billion medical innovation campus. The TS Plus fund has raised $973 million and targets core-plus investments in high-growth markets; this deal marks the fund's seventh investment since launch.",
+    "What remains unknown is the capitalization rate or per-unit pricing implied by the $76.3 million sale, as the source does not disclose underwriting assumptions or financing terms. The article also does not specify the timeline or budget for Tishman Speyer's planned renovations, nor whether the acquisition includes assumptions of existing debt. Future reporting may clarify how the property's performance compares with other Charlotte luxury assets and whether Tishman Speyer pursues additional acquisitions in the market."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 59.4,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 9,
+     "rejected": 1,
+     "kept_facts": 7,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Tishman Speyer Enters Charlotte With 76M Deal",
+   "sentences": 7,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 118,
+    "paragraphs": 4,
+    "words_per_para_mean": 29.5,
+    "words_per_para_p90": 35,
+    "sent_per_para_mean": 2,
+    "sentences": 8,
+    "words_per_sentence_mean": 15.6,
+    "words_per_sentence_p90": 24,
+    "pct_sentences_over_30": 0.0,
+    "flesch_reading_ease": 46.3,
+    "fk_grade": 10.5,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.85,
+    "numbers_per_100w": 5.08,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 37.5,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 26,
+    "template_closer": false,
+    "title_len": 45,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Tishman Speyer has purchased Berkshire Dilworth, a 296-unit luxury multifamily property in Charlotte, N.C., for $76.3 million, according to Mecklenburg County public records. The transaction is the company's first acquisition in Charlotte and its second in North Carolina.",
+    "The buyer completed the acquisition through its TS Plus fund, which has raised $973 million and targets core-plus investments in high-growth markets. The transaction marks the fund's seventh investment since its launch.",
+    "Berkshire Residential sold the six-story building, and Newmark worked on behalf of the seller. Completed in 2016, Berkshire Dilworth is at 1351 E. Morehead St. and is 97 percent occupied.",
+    "Tishman Speyer is planning to upgrade the property's amenities and exterior, along with select apartment improvements."
+   ],
+   "rejected_by_gate": [
+    "drops the attribution (“said”, “according to”) that its quote carries"
+   ]
+  }
+ },
+ {
+  "slug": "providence-enters-austin-with-576-unit-buy",
+  "tier": "tier_c",
+  "A": {
+   "status": "written",
+   "title": "Providence Enters Austin With 576 Unit Buy",
+   "sentences": 14,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 355,
+    "paragraphs": 4,
+    "words_per_para_mean": 88.8,
+    "words_per_para_p90": 101,
+    "sent_per_para_mean": 3.5,
+    "sentences": 14,
+    "words_per_sentence_mean": 26.6,
+    "words_per_sentence_p90": 35,
+    "pct_sentences_over_30": 28.6,
+    "flesch_reading_ease": 36.0,
+    "fk_grade": 14.5,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.28,
+    "numbers_per_100w": 4.51,
+    "passive_per_100w": 0.28,
+    "hedges_per_100w": 0.28,
+    "the_starter_pct": 42.9,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 25,
+    "template_closer": true,
+    "title_len": 42,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Providence Real Estate has acquired Beck at Wells Branch, a 576-unit multifamily asset in Austin, Texas, marking the firm's entry into the metro. The property was previously owned by Electra America and Ascenda Capital, according to Yardi Matrix data cited by Multi-Housing News. The 1999-built community comprises 25 three-story garden-style buildings with one- to three-bedroom floorplans averaging 963 square feet, and amenities include two swimming pools, a fitness center, and a resident lounge.",
+    "The asset previously traded in 2019 as part of a six-property, $311 million portfolio deal, when it was known as Hyde Park at Wells Branch. At that time, the community became subject to a $55.3 million Freddie Mac loan originated by Lument with a 3.9 percent interest rate, and the note was set to mature two months ago. Following the 2019 acquisition, the prior owners engaged in a $4 million capital expenditure plan targeting unit interiors and exterior amenities. Providence now plans to implement another value-add program with further improvements and upgrades to both interiors and exteriors.",
+    "The acquisition aligns with broader investor interest in Austin. The property sits more than 4 miles north of The Domain, an area often described as Austin's second downtown, and employers such as Dell, Apple, Samsung, NVIDIA, Meta, and Amazon operate on average within 8 miles of the community. A Yardi Matrix report noted that Austin advertised rents increased month-over-month in July, suggesting competitive pressures may be softening as deliveries dry up. Providence, which debuted in 1985 and has principals that have acquired more than 65,000 units valued above $7.5 billion, made another Sun Belt acquisition two months ago with the purchase of The Preserve at Tampa Palms, a 378-unit property in Tampa, Florida.",
+    "The source does not disclose the purchase price, the seller's motivation, or the financing terms for Providence's Austin acquisition. It also does not specify the scope, cost, or timeline of the planned value-add program, nor the current occupancy or rent levels at Beck at Wells Branch. Whether the transaction reflects a broader pricing trend in Austin or a one-off entry strategy remains unknown based on the available evidence."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 59.9,
+   "diagnostics": {
+    "attempts": 1,
+    "fact_check": {
+     "checked": 12,
+     "rejected": 0,
+     "kept_facts": 10,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Providence Enters Austin With 576-Unit Buy",
+   "sentences": 10,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 213,
+    "paragraphs": 5,
+    "words_per_para_mean": 42.6,
+    "words_per_para_p90": 47,
+    "sent_per_para_mean": 2,
+    "sentences": 10,
+    "words_per_sentence_mean": 21.9,
+    "words_per_sentence_p90": 25,
+    "pct_sentences_over_30": 10.0,
+    "flesch_reading_ease": 44.2,
+    "fk_grade": 12.4,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.47,
+    "numbers_per_100w": 6.57,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 30.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 23,
+    "template_closer": false,
+    "title_len": 42,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Providence Real Estate has acquired Beck at Wells Branch, a 576-unit multifamily asset in Austin, Texas, marking its entry in the metro. Electra America and Ascenda Capital previously owned the property, Yardi Matrix data shows.",
+    "The asset traded before in 2019 as part of a six-property, $311 million portfolio deal, according to the data provider. Back then, the community became subject to a $55.3 million Freddie Mac loan originated by Lument with a 3.9 percent interest rate.",
+    "The prior owners engaged in a $4 million capex plan following the 2019 acquisition targeting unit interiors and exterior amenities. Providence plans to implement another value-add program with further improvements and upgrades to both interiors and exteriors.",
+    "The 1999-built property sits more than 4 miles north of The Domain, an area often described as Austin's second downtown on account of its high density of office, retail and residential space. Employers such as Dell, Apple, Samsung, NVIDIA, Meta and Amazon operate on average within 8 miles from the community.",
+    "Providence debuted in 1985, and its principals have acquired more than 65,000 units with a value north of $7.5 billion. Two months ago, the company made another Sun Belt acquisition with the purchase of The Preserve at Tampa Palms, a 378-unit in Tampa, Fla."
+   ],
+   "rejected_by_gate": []
+  }
+ },
+ {
+  "slug": "reserve-at-waterford-lakes",
+  "tier": "tier_c",
+  "A": {
+   "status": "written",
+   "title": "Reserve At Waterford Lakes",
+   "sentences": 14,
+   "flagged": {
+    "The sale's significance lies in the buyer's stated long-term strategy.": [
+     "deepseek-reasoning-audit: Source does not state the sale's significance; it only mentions the buyer's long-term vision and mission, not that the significance lies there."
+    ],
+    "Jason Kon said it is \"increasingly rare to find buyers committed to preserving affordable housing in highly desirable locations while also investing in programs and services that create meaningful opportunities for residents.\" That framing suggests the deal reflects a niche segment of multifamily investment where mission alignment, rather than purely market-rate repositioning, shapes ownership.": [
+     "deepseek-reasoning-audit: Adds interpretation not stated: 'niche segment' and 'purely market-rate repositioning'."
+    ],
+    "Because the evidence comes from a single Newmark announcement, independent confirmation of transaction terms and buyer performance is not available.": [
+     "deepseek-reasoning-audit: Asserts independent confirmation is unavailable, which is not stated in source."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 371,
+    "paragraphs": 4,
+    "words_per_para_mean": 92.8,
+    "words_per_para_p90": 92,
+    "sent_per_para_mean": 3.5,
+    "sentences": 14,
+    "words_per_sentence_mean": 27.5,
+    "words_per_sentence_p90": 36,
+    "pct_sentences_over_30": 35.7,
+    "flesch_reading_ease": 16.2,
+    "fk_grade": 17.6,
+    "jargon_per_100w": 0.27,
+    "unknown_acronyms_per_100w": 0.27,
+    "numbers_per_100w": 2.43,
+    "passive_per_100w": 0.27,
+    "hedges_per_100w": 0.27,
+    "the_starter_pct": 42.9,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 36,
+    "template_closer": true,
+    "title_len": 26,
+    "title_has_number": false,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Newmark announced it arranged the $27.8 million sale of and $15.9 million in acquisition financing for Reserve at Waterford Lakes, a 140-unit garden-style multifamily community at 8725 Kody Marie Court in Charlotte, North Carolina. The seller was Eller Capital Partners, represented by Newmark Senior Managing Director Jason Kon, Vice Chairmen Dean Smith, John Heimburger and Sean Wood, Senior Managing Director John Munroe and Managing Director Brenna Campbell. The buyer was Ascent Housing, with financing secured through Freddie Mac by Executive Managing Director Josh Davis and Director Patrick Breed.",
+    "The transaction marks the 10th multifamily asset Newmark has facilitated for Ascent Housing, a mission-driven owner focused on preserving naturally occurring affordable housing throughout Mecklenburg County. Ascent Housing is committed to maintaining affordability while investing in resident-focused programming, including on-site collaborations supporting financial empowerment, education, health and wellness initiatives. Built in 2008, the property offers one- and two-bedroom apartments with modern kitchens, nine-foot ceilings and crown molding, plus amenities including a swimming pool, fitness center, resident lounge, business center and outdoor picnic areas. It sits in South Charlotte near the Sharon Road West LYNX Blue Line station, with access to employment centers such as South End, SouthPark, Ballantyne and Quail Hollow, and to Interstates 485 and 77.",
+    "The sale's significance lies in the buyer's stated long-term strategy. Jason Kon said it is \"increasingly rare to find buyers committed to preserving affordable housing in highly desirable locations while also investing in programs and services that create meaningful opportunities for residents.\" That framing suggests the deal reflects a niche segment of multifamily investment where mission alignment, rather than purely market-rate repositioning, shapes ownership. The Freddie Mac financing also indicates agency-backed debt supported the acquisition, though the dossier does not specify loan terms, rate, or amortization.",
+    "What remains unknown is the per-unit pricing, capitalization rate, or how the sale price compares with prior valuations. The announcement does not disclose the property's occupancy, rent levels, or the specific affordability commitments Ascent Housing will implement. It also does not state whether the $15.9 million financing represents the full debt stack or only a first mortgage. Because the evidence comes from a single Newmark announcement, independent confirmation of transaction terms and buyer performance is not available."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 46.3,
+   "diagnostics": {
+    "attempts": 1,
+    "error": "JSONDecodeError: Expecting ',' delimiter: line 1 column 1358 (char 1357)"
+   },
+   "title": "Reserve at Waterford Lakes sells for $27.8 million",
+   "sentences": 7,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 108,
+    "paragraphs": 4,
+    "words_per_para_mean": 27.0,
+    "words_per_para_p90": 39,
+    "sent_per_para_mean": 1.8,
+    "sentences": 7,
+    "words_per_sentence_mean": 16.1,
+    "words_per_sentence_p90": 21,
+    "pct_sentences_over_30": 0.0,
+    "flesch_reading_ease": 20.4,
+    "fk_grade": 14.2,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.93,
+    "numbers_per_100w": 2.78,
+    "passive_per_100w": 0.93,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 57.1,
+    "hook_has_number": true,
+    "hook_starts_with_the": true,
+    "hook_first_sentence_words": 10,
+    "template_closer": false,
+    "title_len": 50,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "The deal also included $15.9 million in acquisition financing.",
+    "The buyer was Ascent Housing, a mission-driven owner focused on preserving naturally occurring affordable housing throughout Mecklenburg County. The seller was Eller Capital Partners.",
+    "The acquisition marks the 10th multifamily asset Newmark has facilitated for Ascent Housing. Ascent Housing is committed to maintaining affordability while investing in resident-focused programming, including on-site collaborations that support financial empowerment, education, health and wellness initiatives.",
+    "Built in 2008, the property offers one- and two-bedroom apartment homes with modern kitchens, nine-foot ceilings and crown molding. It sits in South Charlotte, just minutes from the Sharon Road West Station on the LYNX Blue Line."
+   ],
+   "rejected_by_gate": [
+    "quote is longer than allowed",
+    "quote is longer than allowed"
+   ]
+  }
+ },
+ {
+  "slug": "starwoods-net-income-drops-95-annually-and-then-its-stock-drops",
+  "tier": "tier_b",
+  "A": {
+   "status": "written",
+   "title": "Starwood’s Net Income Drops 95% Annually — and Then Its Stock Drops",
+   "sentences": 25,
+   "flagged": {
+    "The market reaction matters because it signals investor concern about the firm’s large loan lending and mortgage business, even as management framed the underlying property fundamentals as improving.": [
+     "deepseek-reasoning-audit: Source does not state market reaction signals investor concern; it only says analysts seem concerned."
+    ],
+    "The material facts are stark.": [
+     "deepseek-reasoning-audit: Source does not characterize the facts as 'stark'."
+    ],
+    "The analysis is limited by the single-source evidence base and by the fact that the article is truncated before Sternlicht’s full closing remarks.": [
+     "deepseek-reasoning-audit: Source text does not state analysis limitations or single-source evidence base."
+    ],
+    "The dossier does not include Starwood’s full earnings release, balance sheet detail, or independent analyst commentary, so the precise drivers of the net income decline beyond the multifamily downgrades are not fully specified.": [
+     "deepseek-reasoning-audit: Source text does not state what the dossier lacks or that drivers are not fully specified."
+    ],
+    "What to watch is whether Starwood’s record origination pipeline translates into distributable earnings that restore dividend coverage, whether the $800 million in asset resolutions materializes, and whether the Sun Belt multifamily stress spreads beyond the three disclosed assets.": [
+     "deepseek-reasoning-audit: Source does not characterize a 'record origination pipeline' or frame these as watch items."
+    ],
+    "Sternlicht’s promise to go “asset by asset” to improve performance will be tested against those outcomes.": [
+     "deepseek-reasoning-audit: Adds a claim about the promise being tested, which is not stated in the source."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 663,
+    "paragraphs": 5,
+    "words_per_para_mean": 132.6,
+    "words_per_para_p90": 159,
+    "sent_per_para_mean": 5,
+    "sentences": 24,
+    "words_per_sentence_mean": 28.5,
+    "words_per_sentence_p90": 40,
+    "pct_sentences_over_30": 37.5,
+    "flesch_reading_ease": 37.0,
+    "fk_grade": 15.0,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.3,
+    "numbers_per_100w": 5.88,
+    "passive_per_100w": 0.75,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 33.3,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 32,
+    "template_closer": false,
+    "title_len": 67,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Starwood Property Trust’s stock fell 4 percent in one morning after the Miami Beach-based lender and investment firm reported second-quarter 2026 earnings showing a dramatic collapse in net income. The shares traded at $15.55, down 6 percent from one month earlier and nearly 20 percent from a year ago. The market reaction matters because it signals investor concern about the firm’s large loan lending and mortgage business, even as management framed the underlying property fundamentals as improving. Chairman and CEO Barry Sternlicht said he was “a little surprised by the stock’s reaction this morning” and argued the market was “throwing the baby out with the bathwater.”",
+    "The material facts are stark. Starwood reported just $6.6 million in net income for the second quarter of 2026, an 87.3 percent decline from the $51.9 million reported in the fourth quarter of 2025 and nearly 95 percent less than the $129.8 million reported in the second quarter of 2025. Distributable earnings were $151.5 million, up slightly from $147.3 million in the prior quarter and $151.1 million a year earlier. Revenue was $513 million, up marginally from $512.5 million in the first quarter and from $444.28 million in the year-ago period. Rental income rose to $87.8 million from $80 million in the previous quarter and $28.2 million in the second quarter of 2025. On the lending side, Starwood originated $1.4 billion of CRE loans, funded $754 million, and grew its funded loan profile to a record $17.3 billion after factoring in $447 million of repayments.",
+    "The evidence comes from a single full-text secondary source, a Commercial Observer article by Brian Pascus published August 6, 2026. The reporting draws on Starwood’s second-quarter earnings call and includes direct quotes from Sternlicht, CFO Rina Paniry, and President Jeffrey DiModica. DiModica said the firm has “accretively deployed a near-record $6.7 billion year-to-date” and that the third quarter of 2026 is positioned to be Starwood’s “strongest origination quarter ever.” However, he also disclosed that three multifamily assets moved to the highest possible risk rating: a $73 million asset in Phoenix, a $63 million asset in Clearwater, Florida, and $74 million in multifamily assets in Mesa, Arizona. DiModica attributed the downgrades to higher forward rates and softness in certain Sun Belt multifamily markets where elevated supply has pressured near-term cash flow. Starwood has over $6 billion in multifamily loans, representing 20 percent of its balance sheet, twice as large as any other exposure.",
+    "The sector implications are mixed. Sternlicht said that at the property level almost every asset class in the U.S. and Europe is “in repair, everything is getting better,” and he singled out equity REITs in multifamily, self-storage, senior housing, and logistics as showing positive signs. He also cited “nonexistent supply” as a support for office, retail, logistics, and multifamily investments. Yet the multifamily downgrades show that higher rates and regional supply imbalances still create pockets of stress, particularly in Sun Belt markets. Sternlicht also criticized Federal Reserve policy under Chairman Kevin Warsh, saying he “cannot fundamentally understand the Fed’s position of raising rates in this economy” and that rate increases would only hurt the interest rate-sensitive portion of the economy. The firm expects more than $800 million in resolutions of underperforming assets in 2026.",
+    "The analysis is limited by the single-source evidence base and by the fact that the article is truncated before Sternlicht’s full closing remarks. The dossier does not include Starwood’s full earnings release, balance sheet detail, or independent analyst commentary, so the precise drivers of the net income decline beyond the multifamily downgrades are not fully specified. What to watch is whether Starwood’s record origination pipeline translates into distributable earnings that restore dividend coverage, whether the $800 million in asset resolutions materializes, and whether the Sun Belt multifamily stress spreads beyond the three disclosed assets. Sternlicht’s promise to go “asset by asset” to improve performance will be tested against those outcomes."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 154.3,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 13,
+     "rejected": 4,
+     "kept_facts": 9,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Starwoods Net Income Drops 95 Annually And Then Its Stock Drops",
+   "sentences": 8,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 170,
+    "paragraphs": 6,
+    "words_per_para_mean": 28.3,
+    "words_per_para_p90": 35,
+    "sent_per_para_mean": 1.3,
+    "sentences": 7,
+    "words_per_sentence_mean": 25,
+    "words_per_sentence_p90": 33,
+    "pct_sentences_over_30": 28.6,
+    "flesch_reading_ease": 58.3,
+    "fk_grade": 11.2,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.59,
+    "numbers_per_100w": 5.88,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.59,
+    "the_starter_pct": 28.6,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 19,
+    "template_closer": false,
+    "title_len": 63,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Starwood Property Trust's stock dropped 4 percent in one morning after the firm reported its second-quarter earnings. The stock trades at $15.55 per share, down nearly 20 percent from a year ago.",
+    "The Miami Beach-based lender reported just $6.6 million in net income in the second quarter of 2026. That is nearly 95 percent less than the $129.8 million it reported in the second quarter of 2025.",
+    "Chairman and CEO Barry Sternlicht said he was \"a little surprised by the stock's reaction this morning.\" He said analysts seem concerned about the firm's large loan lending and mortgage business.",
+    "Sternlicht said the firm is \"pretty confident in our ability to get back to earnings power to drive the dividend and restore coverage of our dividend.\"",
+    "Starwood originated $1.4 billion of CRE loans in the quarter, and its funded loan profile grew to a record $17.3 billion.",
+    "He said the downgrades reflect the effect of higher forward rates and broader softness in certain Sun Belt multifamily markets."
+   ],
+   "rejected_by_gate": [
+    "figures not in its quote: 95",
+    "quote is longer than allowed",
+    "drops the qualifier “about” that its quote carries",
+    "names not in its quote: Jeffrey"
+   ]
+  }
+ },
+ {
+  "slug": "jpmorganchase-commits-750b-to-increase-housing-supply-through-2035",
+  "tier": "tier_b",
+  "A": {
+   "status": "written",
+   "title": "JPMorganChase Commits $750B to Increase Housing Supply Through 2035",
+   "sentences": 20,
+   "flagged": {
+    "The commitment matters because it represents a nearly 40 percent increase—up by more than $200 billion from the previous decade—and positions the nation's largest multifamily and residential bank mortgage lender to shape housing policy and capital flows for more than a decade.": [
+     "deepseek-reasoning-audit: Adds unsupported claim about shaping housing policy and capital flows."
+    ],
+    "The evidence comes from a single full-text secondary source, Multihousing News, which reported the announcement without additional independent verification or third-party commentary.": [
+     "deepseek-reasoning-audit: Source text does not state that it is a single full-text secondary source or lacks independent verification/third-party commentary."
+    ],
+    "For the commercial real estate and multifamily sectors, the commitment signals sustained capital availability for affordable and middle-income housing construction and preservation.": [
+     "deepseek-reasoning-audit: Source describes the commitment but does not state it signals sustained capital availability for commercial real estate/multifamily sectors."
+    ],
+    "The Power Station development itself is planned for 2,600 residential units and 1.6 million square feet of commercial space, indicating that the bank's capital is tied to large, multi-phase projects with long timelines.": [
+     "deepseek-reasoning-audit: Source states planned 2,600 units and 1.6M sq ft commercial but does not state multi-phase projects or long timelines."
+    ],
+    "The main limitation is that the dossier contains only one source read in full, so the analysis cannot compare the announcement against independent data on housing starts, affordability metrics, or the bank's prior lending performance.": [
+     "deepseek-reasoning-audit: Source does not discuss dossier limitations or independent data."
+    ],
+    "It is also unclear how much of the commitment represents new incremental capital versus a continuation or rebranding of existing lending activity.": [
+     "deepseek-reasoning-audit: Source does not discuss incremental versus existing capital."
+    ],
+    "What to watch is whether the firm discloses quarterly or annual progress toward the 1 million-unit target, whether the 850 new Home Lending Advisors are actually hired, and whether the modular and manufactured home loan products move from possibility to offering.": [
+     "deepseek-reasoning-audit: Source does not state what to watch or future disclosure plans."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 587,
+    "paragraphs": 5,
+    "words_per_para_mean": 117.4,
+    "words_per_para_p90": 127,
+    "sent_per_para_mean": 4,
+    "sentences": 20,
+    "words_per_sentence_mean": 30.3,
+    "words_per_sentence_p90": 43,
+    "pct_sentences_over_30": 50.0,
+    "flesch_reading_ease": 23.7,
+    "fk_grade": 17.2,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.17,
+    "numbers_per_100w": 3.75,
+    "passive_per_100w": 0.85,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 65.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 30,
+    "template_closer": false,
+    "title_len": 67,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "JPMorganChase announced plans to deploy $750 billion through 2035 to boost U.S. housing supply and increase homeownership, including financing the construction and preservation of 1 million affordable housing units. The commitment matters because it represents a nearly 40 percent increase—up by more than $200 billion from the previous decade—and positions the nation's largest multifamily and residential bank mortgage lender to shape housing policy and capital flows for more than a decade. The plan sits inside the firm's newly launched American Dream Initiative, which is intended to expand housing, employment, and business opportunities for millions of Americans.",
+    "The mechanics of the commitment are broad rather than a single product. JPMorganChase said it will expand financing tools including debt, equity, and grants to build or preserve supply, working with developers, owners, nonprofits, and governments. The firm expects to help 500,000 borrowers, including 200,000 first-time homebuyers, purchase homes. Plans call for increasing mortgage lending by more than 40 percent, hiring 850 new Home Lending Advisors, introducing new digital tools, and possibly adding new loan product offerings for modular and manufactured homes. The bank also said it will support new public-private partnerships and collaborate with local and state stakeholders to accelerate streamlined zoning, building codes, permitting, expanded tax credits, and other supply-side solutions.",
+    "The evidence comes from a single full-text secondary source, Multihousing News, which reported the announcement without additional independent verification or third-party commentary. The source notes that JPMorganChase will support implementation of the bipartisan 21st Century ROAD to Housing Act, which became law last month, including provisions such as the Accelerating Home Building Act, the Housing Supply Expansion Act, and the Helping More Families Save Act. The article also details an immediate Bay Area deployment: nearly $200 million in financing for a 342-unit residential building at the 29-acre Power Station mixed-use development in San Francisco's Dogpatch neighborhood, designed by Foster + Partners, with construction expected to begin in the fall. The firm also plans up to a $15 million equity investment in Fifth Space's new Essential Housing Fund and $6 million in new grants to several Bay Area housing organizations.",
+    "For the commercial real estate and multifamily sectors, the commitment signals sustained capital availability for affordable and middle-income housing construction and preservation. The Bay Area example shows how the bank is layering construction financing, equity investments, and grants across specific projects and intermediaries. Over the past five years, JPMorganChase has deployed more than $5.6 billion in financing for affordable housing construction and preservation across the region, helping build or preserve nearly 26,000 affordable housing units. The Power Station development itself is planned for 2,600 residential units and 1.6 million square feet of commercial space, indicating that the bank's capital is tied to large, multi-phase projects with long timelines.",
+    "The main limitation is that the dossier contains only one source read in full, so the analysis cannot compare the announcement against independent data on housing starts, affordability metrics, or the bank's prior lending performance. The source does not specify how the $750 billion will be allocated across debt, equity, and grants, nor does it provide a year-by-year deployment schedule. It is also unclear how much of the commitment represents new incremental capital versus a continuation or rebranding of existing lending activity. What to watch is whether the firm discloses quarterly or annual progress toward the 1 million-unit target, whether the 850 new Home Lending Advisors are actually hired, and whether the modular and manufactured home loan products move from possibility to offering."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 148.2,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 16,
+     "rejected": 0,
+     "kept_facts": 14,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "JPMorganChase Plans $750B Housing Push Through 2035",
+   "sentences": 14,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 292,
+    "paragraphs": 7,
+    "words_per_para_mean": 41.7,
+    "words_per_para_p90": 49,
+    "sent_per_para_mean": 2,
+    "sentences": 14,
+    "words_per_sentence_mean": 21.2,
+    "words_per_sentence_p90": 28,
+    "pct_sentences_over_30": 7.1,
+    "flesch_reading_ease": 39.9,
+    "fk_grade": 12.9,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.34,
+    "numbers_per_100w": 4.45,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 42.9,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 18,
+    "template_closer": false,
+    "title_len": 51,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "JPMorganChase announced plans to deploy $750 billion through 2035 to boost U.S. housing supply and increase homeownership. The investment marks a nearly 40 percent increase, up by more than $200 billion from the previous decade.",
+    "The plan includes financing the construction and preservation of 1 million affordable units. It is part of the institution's American Dream Initiative, a recently launched plan intended to expand housing, employment and business opportunities for millions of Americans.",
+    "As the nation's largest multifamily and residential bank mortgage lender, JPMorganChase will work with the real estate community, local governments and nonprofits to expand supply and affordability. The company will expand financing tools including debt, equity and grants to build or preserve supply.",
+    "JPMorganChase stated it will be supporting the implementation of the bipartisan 21st Century ROAD to Housing Act, which became law last month. The firm noted it supports provisions in the federal legislation such as the Accelerating Home Building Act, the Housing Supply Expansion Act and the Helping More Families Save Act.",
+    "JPMorganChase also expects to help 500,000 borrowers, including 200,000 first-time homebuyers, purchase homes. Plans call for increasing mortgage lending by more than 40 percent, hiring 850 new Home Lending Advisors, introducing new digital tools and possibly adding new loan product offerings for modular and manufactured homes.",
+    "The firm also announced it would provide more than $200 million for affordable housing in San Francisco and the Bay Area. Much of the focus will be on creating more units for middle-income households.",
+    "Over the past five years, JPMorganChase has deployed more than $5.6 billion in financing for affordable housing construction and preservation across the region. The firm's investments have helped build or preserve nearly 26,000 affordable housing units in the Bay Area."
+   ],
+   "rejected_by_gate": []
+  }
+ },
+ {
+  "slug": "tpg-ag-redfearn-capital-industrial",
+  "tier": "tier_b",
+  "A": {
+   "status": "written",
+   "title": "TPG AG, Redfearn Capital Acquire Industrial Portfolio for $628M",
+   "sentences": 19,
+   "flagged": {
+    "The deal matters because it signals continued institutional conviction in U.S. shallow-bay industrial assets at a time when capital deployment in commercial real estate remains selective, and because it deepens an existing partnership between TPG AG and Redfearn Capital that dates back to 2021.": [
+     "deepseek-reasoning-audit: Adds market context and 'deepens' interpretation not in source."
+    ],
+    "The evidence for this transaction comes from a single full-text article by Cathy Cunningham in Commercial Observer, a secondary trade publication.": [
+     "deepseek-reasoning-audit: Adds commentary about source type not in source."
+    ],
+    "Because the dossier contains only one source read in full, the analysis must remain close to that reporting and cannot independently verify the transaction terms.": [
+     "deepseek-reasoning-audit: The source text does not mention the dossier or analysis limitations."
+    ],
+    "The acquisition has direct implications for the industrial real estate sector, particularly the shallow-bay segment.": [
+     "deepseek-reasoning-audit: The source text does not state the acquisition has direct sector implications."
+    ],
+    "Several limitations apply to this analysis.": [
+     "deepseek-reasoning-audit: The source text does not address limitations of this analysis."
+    ],
+    "The 87 percent occupancy figure suggests some vacancy-related execution risk, but the report does not detail lease expirations or capital expenditure plans.": [
+     "deepseek-reasoning-audit: Adds inference of execution risk, which source does not state."
+    ],
+    "What to watch next includes any confirmation from Eastdil or BDT & MSD, subsequent reporting on the financing structure, and whether TPG AG and Redfearn pursue additional acquisitions that extend the partnership's scale in Southeast industrial markets.": [
+     "deepseek-reasoning-audit: Adds speculative future events not stated in source."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 540,
+    "paragraphs": 5,
+    "words_per_para_mean": 108.0,
+    "words_per_para_p90": 117,
+    "sent_per_para_mean": 4.2,
+    "sentences": 21,
+    "words_per_sentence_mean": 26.8,
+    "words_per_sentence_p90": 43,
+    "pct_sentences_over_30": 28.6,
+    "flesch_reading_ease": 25.6,
+    "fk_grade": 16.1,
+    "jargon_per_100w": 0.19,
+    "unknown_acronyms_per_100w": 4.26,
+    "numbers_per_100w": 2.78,
+    "passive_per_100w": 0.19,
+    "hedges_per_100w": 0.37,
+    "the_starter_pct": 52.4,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 4,
+    "template_closer": false,
+    "title_len": 63,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "TPG AG U.S. Real Estate and Redfearn Capital have acquired a 5.4 million-square-foot industrial portfolio for $628 million, Commercial Observer first reported on August 7, 2026. The seller was DRA Advisors, and BDT & MSD Partners provided a $479 million loan in the transaction, according to sources cited in the report. The deal matters because it signals continued institutional conviction in U.S. shallow-bay industrial assets at a time when capital deployment in commercial real estate remains selective, and because it deepens an existing partnership between TPG AG and Redfearn Capital that dates back to 2021.",
+    "The 53-building portfolio is roughly 87 percent occupied and includes both logistics and manufacturing properties spread across Florida, Georgia, North Carolina, Tennessee, Minnesota, Illinois and Oregon. Shallow-bay industrial assets in high barrier-to-entry markets make up the majority of the portfolio, and TPG AG now plans to add value through capital investment in the properties. The majority of the portfolio assets are in major industrial markets in the Southeast such as Tampa, Atlanta and Charlotte, N.C. In addition to Redfearn, TPG AG purchased the portfolio with two additional operating partners: Atlanta Property Group and Matterhorn Venture Partners. Each will co-manage the portfolio in their respective markets.",
+    "The evidence for this transaction comes from a single full-text article by Cathy Cunningham in Commercial Observer, a secondary trade publication. The report attributes the $479 million loan figure and the identity of the seller to unnamed sources, and it notes that Eastdil and BDT & MSD could not immediately be reached for comment. The article also cites prior reporting by The Real Deal on earlier deals between TPG and Redfearn, including a $150 million refinance for a 10-asset industrial portfolio in February and a $37 million acquisition of two Miami-Dade County warehouses in October. Because the dossier contains only one source read in full, the analysis must remain close to that reporting and cannot independently verify the transaction terms.",
+    "The acquisition has direct implications for the industrial real estate sector, particularly the shallow-bay segment. Chris Oka, a managing director at TPG AG, said the deal \"reinforces our conviction in the long-term fundamentals of the U.S. shallow-bay industrial sector\" and cited \"strong occupancy, diversified tenancy, and compelling opportunities to create value through active asset management.\" Alex Redfearn, founder, president and CEO of Redfearn Capital, said the transaction \"accelerates\" the firm's strategy of building an industrial platform centered on well-located infill assets in markets with long-term demand. The deal brings Redfearn's industrial assets under management to more than $1.2 billion across 8 million square feet, according to the report.",
+    "Several limitations apply to this analysis. The article does not disclose the purchase price allocation across markets, the capitalization rate, the loan-to-value ratio, or the specific terms of the BDT & MSD Partners financing. It also does not identify the tenants or provide a breakdown of logistics versus manufacturing square footage. The 87 percent occupancy figure suggests some vacancy-related execution risk, but the report does not detail lease expirations or capital expenditure plans. What to watch next includes any confirmation from Eastdil or BDT & MSD, subsequent reporting on the financing structure, and whether TPG AG and Redfearn pursue additional acquisitions that extend the partnership's scale in Southeast industrial markets."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 165.7,
+   "diagnostics": {
+    "attempts": 1,
+    "fact_check": {
+     "checked": 17,
+     "rejected": 1,
+     "kept_facts": 14,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "TPG AG, Redfearn Capital Buy Industrial Portfolio for $628M",
+   "sentences": 10,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 168,
+    "paragraphs": 7,
+    "words_per_para_mean": 24.0,
+    "words_per_para_p90": 30,
+    "sent_per_para_mean": 1.6,
+    "sentences": 10,
+    "words_per_sentence_mean": 17.6,
+    "words_per_sentence_p90": 25,
+    "pct_sentences_over_30": 10.0,
+    "flesch_reading_ease": 36.2,
+    "fk_grade": 12.4,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 5.36,
+    "numbers_per_100w": 4.17,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 20.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 4,
+    "template_closer": false,
+    "title_len": 59,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "TPG AG U.S. Real Estate and Redfearn Capital have acquired a 5.4 million-square-foot industrial portfolio for $628 million. BDT & MSD Partners provided a $479 million loan in the deal.",
+    "The 53-building portfolio is roughly 87 percent occupied and includes logistics and manufacturing properties across Florida, Georgia, North Carolina, Tennessee, Minnesota, Illinois and Oregon.",
+    "Shallow-bay industrial assets in high barrier-to-entry markets make up the majority of the portfolio. TPG AG now plans to add value through capital investment in the properties.",
+    "The majority of the portfolio assets are in major industrial markets in the Southeast such as Tampa, Atlanta and Charlotte, N.C.",
+    "TPG AG purchased the portfolio with two additional operating partners: Atlanta Property Group and Matterhorn Venture Partners. Each will co-manage the portfolio in their respective markets.",
+    "Alex Redfearn, founder, president and CEO of Redfearn Capital, said the transaction \"accelerates that strategy in a meaningful way.\"",
+    "The acquisition brings Redfearn's industrial assets under management to more than $1.2 billion across 8 million square feet."
+   ],
+   "rejected_by_gate": [
+    "figures not in its quote: 7",
+    "Source attributes the seller information to 'sources said', but the sentence states it as fact without attribution.",
+    "names not in its quote: Oka, TPG"
+   ]
+  }
+ },
+ {
+  "slug": "brookfield-asset-management-q2-2026",
+  "tier": "tier_b",
+  "A": {
+   "status": "written",
+   "title": "Brookfield Asset Management Q2 2026",
+   "sentences": 21,
+   "flagged": {
+    "The result matters because it signals accelerating institutional demand across Brookfield's private equity, infrastructure, credit, and real estate strategies at a time when the firm is also expanding aggressively into AI infrastructure.": [
+     "deepseek-reasoning-audit: Adds interpretive causal claim about accelerating demand not in source."
+    ],
+    "Year-to-date fundraising reached $98 billion, more than half of what Brookfield raised for all of last year, indicating that the firm's distribution engine is operating at a materially faster pace than its prior annual cadence.": [
+     "deepseek-reasoning-audit: Adds 'distribution engine' and 'materially faster pace' not stated in source."
+    ],
+    "The quarter's mechanics were broad-based.": [
+     "deepseek-reasoning-audit: Source does not state the quarter's mechanics were broad-based."
+    ],
+    "The results carry implications for the broader alternative asset management sector.": [
+     "deepseek-reasoning-audit: The source does not state or directly imply implications for the broader alternative asset management sector."
+    ],
+    "Crossing $1 trillion in assets under management places Brookfield among the largest alternative managers, and the record fundraising pace suggests that institutional allocators are concentrating capital with platforms that can offer multi-strategy exposure, including credit, infrastructure, and AI-linked assets.": [
+     "deepseek-reasoning-audit: Adds ranking among largest alternative managers and institutional allocator behavior not stated in the source."
+    ],
+    "The Oaktree buyout deepens Brookfield's credit capabilities at a time when private credit remains a competitive focus for large managers.": [
+     "deepseek-reasoning-audit: Adds claim about private credit competition and characterizes the Oaktree move beyond the source's statement."
+    ],
+    "The AI infrastructure commitments, including the expanded Bloom Energy framework, indicate that Brookfield is positioning itself as a full-stack provider of power, land, and compute for AI workloads, a strategy that could differentiate it from peers that lack integrated development and operating capabilities.": [
+     "deepseek-reasoning-audit: Adds interpretation of full-stack positioning and peer differentiation not explicitly stated in the source."
+    ],
+    "Commercial Observer's report is a secondary account of an earnings call and does not include Brookfield's full financial statements, segment-level fee breakdowns, or forward guidance beyond the figures cited.": [
+     "deepseek-reasoning-audit: The source text does not state that it is a secondary account or that it omits those items."
+    ],
+    "What remains unknown is how much of the $77 billion in fundraising is fee-paying versus committed but uncalled capital, the duration of the AI infrastructure commitments, and the specific terms of the Oaktree transaction beyond the $3 billion headline price.": [
+     "deepseek-reasoning-audit: The source text does not state what remains unknown or identify those specific gaps."
+    ],
+    "Investors should watch whether Brookfield can sustain this fundraising pace in the second half of 2026 and whether the AI infrastructure strategy converts commitments into deployed, earnings-generating assets.": [
+     "deepseek-reasoning-audit: The source text does not advise investors on what to watch."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 632,
+    "paragraphs": 5,
+    "words_per_para_mean": 126.4,
+    "words_per_para_p90": 151,
+    "sent_per_para_mean": 4.2,
+    "sentences": 20,
+    "words_per_sentence_mean": 33.1,
+    "words_per_sentence_p90": 44,
+    "pct_sentences_over_30": 60.0,
+    "flesch_reading_ease": 22.0,
+    "fk_grade": 18.0,
+    "jargon_per_100w": 0.16,
+    "unknown_acronyms_per_100w": 0.16,
+    "numbers_per_100w": 4.11,
+    "passive_per_100w": 0.16,
+    "hedges_per_100w": 0.32,
+    "the_starter_pct": 40.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 32,
+    "template_closer": true,
+    "title_len": 35,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Brookfield Asset Management reported a company record $77 billion in capital raised during the second quarter of 2026, lifting its assets under management above $1 trillion, according to an earnings call covered by Commercial Observer. The result matters because it signals accelerating institutional demand across Brookfield's private equity, infrastructure, credit, and real estate strategies at a time when the firm is also expanding aggressively into AI infrastructure. Year-to-date fundraising reached $98 billion, more than half of what Brookfield raised for all of last year, indicating that the firm's distribution engine is operating at a materially faster pace than its prior annual cadence.",
+    "The quarter's mechanics were broad-based. Brookfield's seventh flagship private equity fund raised $6.7 billion, while its sixth flagship infrastructure fund brought in $9.3 billion, putting both on pace to become the largest funds of their respective vintages. The firm also secured $5 billion in commitments for its first AI Infrastructure Fund and increased its financing framework with Bloom Energy for AI infrastructure power projects to $25 billion, up from the $5 billion commitment announced in October 2025. On the real estate side, Brookfield raised $4.3 billion across segment funds and deployed $5.2 billion, including the purchase of a privately held U.S. manufactured-home portfolio and the taking private of an outdoor industrial storage portfolio. Total deployment for the quarter was $21 billion.",
+    "The evidence comes from a single full-text secondary source, Commercial Observer, which reported on Brookfield's earnings call. The article quotes Sikander Rashid, Brookfield's global head of AI infrastructure, who said the firm can \"source and entitle power land, develop and operate large-scale AI factories, deliver behind-the-meter and baseload power, provide contracted compute, and pursue partnerships with some of the major stakeholders, including semiconductor players and hyperscalers.\" Rashid added, \"Not many firms can bring all of that together.\" The source also notes that Brookfield completed its purchase of Oaktree, buying the remaining 26 percent stake for about $3 billion, a move meant to bolster Brookfield's credit business. CEO Connor Teskey, who assumed the role in February, said the upside for Oaktree is \"on the revenue front, the ability to include Oaktree into Brookfield's broader distribution, product development, multi-asset programs with our largest partners.\"",
+    "The results carry implications for the broader alternative asset management sector. Crossing $1 trillion in assets under management places Brookfield among the largest alternative managers, and the record fundraising pace suggests that institutional allocators are concentrating capital with platforms that can offer multi-strategy exposure, including credit, infrastructure, and AI-linked assets. The Oaktree buyout deepens Brookfield's credit capabilities at a time when private credit remains a competitive focus for large managers. The AI infrastructure commitments, including the expanded Bloom Energy framework, indicate that Brookfield is positioning itself as a full-stack provider of power, land, and compute for AI workloads, a strategy that could differentiate it from peers that lack integrated development and operating capabilities.",
+    "The analysis is limited by the single-source evidence base. Commercial Observer's report is a secondary account of an earnings call and does not include Brookfield's full financial statements, segment-level fee breakdowns, or forward guidance beyond the figures cited. Net income grew to $1.17 billion in the quarter, almost double from a year prior, bringing the 12-month total to just over $3 billion. Fee-related earnings climbed 20 percent year-over-year to $808 million, and distributable earnings grew 15 percent to $707 million. What remains unknown is how much of the $77 billion in fundraising is fee-paying versus committed but uncalled capital, the duration of the AI infrastructure commitments, and the specific terms of the Oaktree transaction beyond the $3 billion headline price. Investors should watch whether Brookfield can sustain this fundraising pace in the second half of 2026 and whether the AI infrastructure strategy converts commitments into deployed, earnings-generating assets."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 159.4,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 17,
+     "rejected": 0,
+     "kept_facts": 15,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Brookfield Raises Record $77B in Q2 2026",
+   "sentences": 15,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 230,
+    "paragraphs": 7,
+    "words_per_para_mean": 32.9,
+    "words_per_para_p90": 41,
+    "sent_per_para_mean": 2.1,
+    "sentences": 15,
+    "words_per_sentence_mean": 16.1,
+    "words_per_sentence_p90": 21,
+    "pct_sentences_over_30": 6.7,
+    "flesch_reading_ease": 59.6,
+    "fk_grade": 8.8,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.0,
+    "numbers_per_100w": 8.7,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 13.3,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 15,
+    "template_closer": false,
+    "title_len": 40,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Brookfield Asset Management raised a company record $77 billion in the second quarter of 2026. That brought its assets under management to more than $1 trillion.",
+    "Year-to-date, the investor has brought in $98 billion, more than half of what Brookfield raised for all last year. It also deployed $21 billion this past quarter.",
+    "Brookfield's seventh flagship private equity fund raised $6.7 billion during the quarter, while its sixth flagship infrastructure fund brought in $9.3 billion. Both are on pace to become the largest funds of their respective vintages.",
+    "The firm also secured $5 billion in commitments for its first AI Infrastructure Fund. In another AI-focused venture, Brookfield increased its financing framework with Bloom Energy for AI infrastructure power projects to $25 billion, up from the $5 billion commitment announced in October 2025.",
+    "On the real estate front, Brookfield raised $4.3 billion across segment funds and deployed $5.2 billion. It bought a privately held U.S. manufactured-home portfolio and took private an outdoor industrial storage portfolio.",
+    "Brookfield completed its purchase of Oaktree, buying the remaining 26 percent stake for about $3 billion. The move is meant to bolster Brookfield's credit business.",
+    "Net income grew to $1.17 billion this past quarter, almost double from a year prior. Fee-related earnings climbed 20 percent year-over-year to $808 million. Distributable earnings grew to $707 million, up by 15 percent year-over-year."
+   ],
+   "rejected_by_gate": []
+  }
+ },
+ {
+  "slug": "feds-cook-ready-to-hike-rates-if-necessary",
+  "tier": "tier_b",
+  "A": {
+   "status": "written",
+   "title": "Feds Cook Ready To Hike Rates If Necessary",
+   "sentences": 21,
+   "flagged": {
+    "Her position signals that the central bank is in a conditional holding pattern: willing to wait on three specific inflation drivers, but not indefinitely.": [
+     "deepseek-reasoning-audit: The source states Cook's individual stance, not that the entire central bank is in a conditional holding pattern."
+    ],
+    "For commercial real estate and other rate-sensitive sectors, the implication is that policy remains data-dependent and could tighten if disinflation stalls.": [
+     "deepseek-reasoning-audit: Adds commercial real estate and rate-sensitive sectors not mentioned in source."
+    ],
+    "The evidence base is limited to a single full-text secondary source from americanbanker.com, so the analysis cannot independently verify the full context of the FOMC dissent or the broader market reaction.": [
+     "deepseek-reasoning-audit: Source text does not state or imply limitations about evidence base or analysis."
+    ],
+    "The dossier does not include the complete text of Cook's speech, the exact vote tally, or any market pricing data.": [
+     "deepseek-reasoning-audit: Source text does not state what it does not include; absence is not a stated fact."
+    ],
+    "What to watch next is whether the three inflation drivers Cook identified—tariffs, oil prices, and AI-related spending—show continued disinflation in upcoming data, and whether other Fed officials align with her conditional readiness to hike or push for earlier tightening.": [
+     "deepseek-reasoning-audit: Source text does not frame this as a forward-looking monitoring statement; adds speculation about other officials' alignment."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 566,
+    "paragraphs": 5,
+    "words_per_para_mean": 113.2,
+    "words_per_para_p90": 110,
+    "sent_per_para_mean": 4.4,
+    "sentences": 20,
+    "words_per_sentence_mean": 28.9,
+    "words_per_sentence_p90": 42,
+    "pct_sentences_over_30": 30.0,
+    "flesch_reading_ease": 34.5,
+    "fk_grade": 15.5,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.0,
+    "numbers_per_100w": 0.35,
+    "passive_per_100w": 0.35,
+    "hedges_per_100w": 0.88,
+    "the_starter_pct": 5.0,
+    "hook_has_number": false,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 3,
+    "template_closer": false,
+    "title_len": 42,
+    "title_has_number": false,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Federal Reserve Gov. Lisa Cook reiterated that she is ready to support higher interest rates, but only \"if it becomes necessary to bring inflation down.\" The comments, delivered in a speech to the Anchorage Economic Development Corp. in Anchorage, Alaska, matter because they clarify why Cook voted with the majority at last week's Federal Open Market Committee meeting to keep the target range for the federal funds rate unchanged, even though she described inflation as too far above the Fed's 2% annual growth target. Her position signals that the central bank is in a conditional holding pattern: willing to wait on three specific inflation drivers, but not indefinitely.",
+    "Cook attributed her decision to support no change to three factors: tariffs, oil prices, and investment in artificial intelligence technologies. She said each has inflationary potential and has contributed to overall inflation growth this year to varying degrees, but she is still waiting for a clear signal that the resulting price shocks amount to a durable and secular increase in prices. \"For these three reasons, I felt it was appropriate not to change rates while we see how these factors evolve,\" Cook said. \"If I do not see signs of continued disinflation soon, I am prepared to act.\"",
+    "The speech follows one of the more divisive FOMC decisions in recent memory, with three committee members voting against the majority. Cleveland Fed President Kashkari, in his statement, said he sees high inflation as a durable trend and would rather tighten policy incrementally than wait and risk falling behind the curve. Kansas City Fed President Jeffrey Schmid, a non-voting member this year, said he does not see the current stance of monetary policy as restrictive and believes bringing inflation down to 2% will require tighter policy. Cook's remarks add a contrasting view: she sees reason to believe the three main shocks could improve on their own without a Fed policy response. On tariffs, she said those price pressures have largely been priced into goods and are not driving new price growth. On energy, she noted some forecasts expect a decline in oil prices by the end of the year. On AI spending, she is optimistic that supply chain improvements and efficiency gains will ease pricing pressures.",
+    "For commercial real estate and other rate-sensitive sectors, the implication is that policy remains data-dependent and could tighten if disinflation stalls. Cook acknowledged high uncertainty around all three areas and said they warrant close attention from the FOMC. She also emphasized that with five years of above-target inflation, the risk grows that higher inflation may become entrenched in price- and wage-setting behavior. \"The longer inflation is above target, the more likely this scenario becomes,\" Cook said. \"Thus, while we might be able to afford to wait for longer in a different environment, we do not have that luxury in this one.\"",
+    "The evidence base is limited to a single full-text secondary source from americanbanker.com, so the analysis cannot independently verify the full context of the FOMC dissent or the broader market reaction. The dossier does not include the complete text of Cook's speech, the exact vote tally, or any market pricing data. What to watch next is whether the three inflation drivers Cook identified—tariffs, oil prices, and AI-related spending—show continued disinflation in upcoming data, and whether other Fed officials align with her conditional readiness to hike or push for earlier tightening."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 180.3,
+   "diagnostics": {
+    "attempts": 1,
+    "fact_check": {
+     "checked": 13,
+     "rejected": 4,
+     "kept_facts": 7,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Fed's Cook Ready To Hike Rates If Inflation Stays High",
+   "sentences": 7,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 188,
+    "paragraphs": 4,
+    "words_per_para_mean": 47.0,
+    "words_per_para_p90": 66,
+    "sent_per_para_mean": 2,
+    "sentences": 8,
+    "words_per_sentence_mean": 23.9,
+    "words_per_sentence_p90": 32,
+    "pct_sentences_over_30": 25.0,
+    "flesch_reading_ease": 55.2,
+    "fk_grade": 11.4,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.0,
+    "numbers_per_100w": 0.53,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.53,
+    "the_starter_pct": 0.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 3,
+    "template_closer": false,
+    "title_len": 54,
+    "title_has_number": false,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Federal Reserve Gov. Lisa Cook is ready for the central bank to increase interest rates, but only \"if it becomes necessary to bring inflation down.\" Cook said inflation is too far above the Fed's long-stated 2% annual growth target. She voted with the majority during last week's Federal Open Market Committee meeting to keep the target range for the federal funds rate unchanged.",
+    "Cook said her decision to support no change came down to three factors: tariffs, oil prices and investment in artificial intelligence technologies. She said she is still waiting for a clear signal that the resulting price shocks amount to a durable and secular increase in prices. \"For these three reasons, I felt it was appropriate not to change rates while we see how these factors evolve,\" Cook said.",
+    "Cook said she sees signs of disinflation in the three main drivers of price growth this year — tariffs, oil prices and AI spending — but is watching to see if those trends continue.",
+    "\"Thus, while we might be able to afford to wait for longer in a different environment, we do not have that luxury in this one.\""
+   ],
+   "rejected_by_gate": [
+    "names not in its quote: Reserve, Gov, Lisa, Cook",
+    "names not in its quote: Cook",
+    "quote is longer than allowed",
+    "names not in its quote: Cook"
+   ]
+  }
+ },
+ {
+  "slug": "zenith-jpmam-keybank-truist-cooper-horowitz-ios",
+  "tier": "tier_b",
+  "A": {
+   "status": "written",
+   "title": "Zenith IOS and JPMAM Secure $215M Credit Facility With KeyBank and Truist",
+   "sentences": 20,
+   "flagged": {
+    "Limitations include the absence of pricing, maturity, loan-to-value, interest rate structure, or covenant details.": [
+     "deepseek-reasoning-audit: The source does not state or discuss limitations or the absence of pricing, maturity, loan-to-value, interest rate, or covenant details."
+    ],
+    "The article does not disclose the total size of the second programmatic joint venture, the acquisition pipeline, or the specific markets beyond broad regional descriptions.": [
+     "deepseek-reasoning-audit: The source does not state that it omits total JV size, acquisition pipeline, or specific markets; these are observations about omissions, not sourced facts."
+    ],
+    "It also does not provide independent performance data for the underlying assets beyond the 99.6 percent leased figure.": [
+     "deepseek-reasoning-audit: The source does not state that it lacks independent performance data beyond the 99.6 percent leased figure; this is an observation about omissions."
+    ],
+    "Future reporting should watch whether the accordion feature is exercised, whether additional lenders join the facility, and whether other IOS platforms secure similar credit structures as lender competition in the sector evolves.": [
+     "deepseek-reasoning-audit: The source does not mention future reporting considerations or predictions about lender competition."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 432,
+    "paragraphs": 5,
+    "words_per_para_mean": 86.4,
+    "words_per_para_p90": 92,
+    "sent_per_para_mean": 4.4,
+    "sentences": 22,
+    "words_per_sentence_mean": 20.4,
+    "words_per_sentence_p90": 30,
+    "pct_sentences_over_30": 13.6,
+    "flesch_reading_ease": 23.4,
+    "fk_grade": 14.9,
+    "jargon_per_100w": 0.46,
+    "unknown_acronyms_per_100w": 1.62,
+    "numbers_per_100w": 3.01,
+    "passive_per_100w": 0.46,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 50.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 7,
+    "template_closer": false,
+    "title_len": 73,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Zenith Industrial Outdoor Storage and J.P. Morgan Asset Management have secured a $215 million credit facility from KeyBank and Truist, marking the next phase of their second programmatic joint venture. The financing, first reported by Commercial Observer, refinances 34 industrial outdoor storage assets spanning 140 acres and is almost fully leased at 99.6 percent. The transaction matters because it shows continued institutional capital formation in the IOS sector, with a repeat lender expanding its commitment only months after backing the same sponsors' first venture.",
+    "The facility is senior secured and includes an accordion feature, allowing the joint venture to increase borrowing capacity as needed. KeyBank served as administrative agent and led the transaction, while Truist served as joint lead arranger. Cooper-Horowitz's Justin Horowitz, Ben Knopf and Josh Tropper arranged the facility. The portfolio is concentrated across Southeast, South Central and Southwest markets. Zenith co-founder and CEO Ben Atkins said the financing will allow the venture to accelerate acquisitions, deepen its presence in key growth markets, and continue executing its long-term investment strategy.",
+    "The evidence comes from a single full-text Commercial Observer article by Cathy Cunningham, published August 5, 2026. The report includes direct statements from Atkins, KeyBank's Jessica Lauerhass, and Cooper-Horowitz's Justin Horowitz. Lauerhass described the transaction as a natural extension of the framework established for Zenith's first programmatic venture earlier in 2026, citing familiarity with the platform, confidence in Zenith's management team, J.P. Morgan Asset Management's sponsorship, and the institutionalizing dynamics of the IOS sector. Horowitz said KeyBank's continued commitment reflects deepening institutional conviction in the asset class.",
+    "The sector implication is that IOS is maturing as a recognized institutional real estate asset class. The February 2026 credit facility for the first Zenith-JPMAM venture was $130 million across 14 IOS properties, according to the article. The new $215 million facility covering 34 assets represents a larger portfolio and a larger borrowing base, suggesting both portfolio growth and lender willingness to scale exposure. The same Cooper-Horowitz team arranged both facilities, reinforcing continuity in the capital stack and broker relationships.",
+    "Limitations include the absence of pricing, maturity, loan-to-value, interest rate structure, or covenant details. The article does not disclose the total size of the second programmatic joint venture, the acquisition pipeline, or the specific markets beyond broad regional descriptions. It also does not provide independent performance data for the underlying assets beyond the 99.6 percent leased figure. Future reporting should watch whether the accordion feature is exercised, whether additional lenders join the facility, and whether other IOS platforms secure similar credit structures as lender competition in the sector evolves."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 114.8,
+   "diagnostics": {
+    "attempts": 1,
+    "fact_check": {
+     "checked": 12,
+     "rejected": 2,
+     "kept_facts": 9,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Zenith, JPMAM Get $215M IOS Facility From KeyBank, Truist",
+   "sentences": 7,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 108,
+    "paragraphs": 4,
+    "words_per_para_mean": 27.0,
+    "words_per_para_p90": 31,
+    "sent_per_para_mean": 2,
+    "sentences": 8,
+    "words_per_sentence_mean": 13.8,
+    "words_per_sentence_p90": 21,
+    "pct_sentences_over_30": 0.0,
+    "flesch_reading_ease": 37.2,
+    "fk_grade": 11.4,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 2.78,
+    "numbers_per_100w": 3.7,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 62.5,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 7,
+    "template_closer": false,
+    "title_len": 57,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Zenith Industrial Outdoor Storage and J.P. Morgan Asset Management secured a $215 million credit facility from KeyBank and Truist. The facility finances Zenith's second programmatic joint venture with JPMAM.",
+    "KeyBank served as administrative agent on the senior secured facility and led the transaction, while Truist served as joint lead arranger. The facility includes an accordion feature, allowing the JV to increase its borrowing capacity as needed.",
+    "The facility refinances 34 IOS assets spanning 140 acres. The portfolio is almost fully leased at 99.6 percent.",
+    "The same Cooper-Horowitz team of Justin Horowitz, Ben Knopf and Josh Tropper arranged both the February credit facility and the new one."
+   ],
+   "rejected_by_gate": [
+    "names not in its quote: KeyBank",
+    "names not in its quote: Atkins, CEO, Zenith",
+    "names not in its quote: Jessica, Lauerhass",
+    "names not in its quote: Justin"
+   ]
+  }
+ },
+ {
+  "slug": "uwm-2-05b-capital-q2-loss",
+  "tier": "tier_b",
+  "A": {
+   "status": "written",
+   "title": "UWM pairs record $2.05B capital raise with Q2 loss as leverage triples",
+   "sentences": 23,
+   "flagged": {
+    "The capital structure mechanics are substantial.": [
+     "deepseek-reasoning-audit: Source does not state that capital structure mechanics are substantial; this is an added characterization."
+    ],
+    "The combination of a growing MSR book, higher leverage, and a swing to a quarterly loss helps explain the decision to raise permanent capital, suspend the dividend, and prioritize deleveraging.": [
+     "deepseek-reasoning-audit: Source attributes decision to equity halved and leverage tripled, not to MSR growth or quarterly loss."
+    ],
+    "The governance implications extend beyond the balance sheet.": [
+     "deepseek-reasoning-audit: Source only states governance changes, not that implications extend beyond balance sheet."
+    ],
+    "The analysis is bounded by a single full-text source from HousingWire, which reviewed the internal employee memo and the earnings release but did not include the full financial statements or the specific terms of the warrants.": [
+     "deepseek-reasoning-audit: Source does not discuss analysis bounds or include the referenced limitations."
+    ],
+    "The exact timing of the rights offering, the dividend suspension's expected duration, and the pace of preferred equity repayment remain unstated.": [
+     "deepseek-reasoning-audit: Source does not state these items remain unstated."
+    ],
+    "What to watch is whether the hedge-related loss proves truly quarter-specific, whether the preferred equity and warrant structure dilute common shareholders over time, and whether the Oaktree board presence shifts UWM's strategic direction after the failed Two Harbors bid.": [
+     "deepseek-reasoning-audit: Source does not present this as a fact or include such forward-looking analysis."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 698,
+    "paragraphs": 6,
+    "words_per_para_mean": 116.3,
+    "words_per_para_p90": 122,
+    "sent_per_para_mean": 4,
+    "sentences": 22,
+    "words_per_sentence_mean": 32.8,
+    "words_per_sentence_p90": 42,
+    "pct_sentences_over_30": 59.1,
+    "flesch_reading_ease": 29.8,
+    "fk_grade": 17.0,
+    "jargon_per_100w": 0.43,
+    "unknown_acronyms_per_100w": 3.15,
+    "numbers_per_100w": 3.44,
+    "passive_per_100w": 0.29,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 31.8,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 34,
+    "template_closer": false,
+    "title_len": 70,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "UWM Holdings Corp. is pairing the announcement of a record $2.05 billion strategic capital partnership with its second-quarter 2026 results, which show the nation's largest mortgage lender is still leaning into growth despite higher leverage and moving into the red. The transaction, described in an internal memo reviewed by HousingWire as \"the largest capital raise in mortgage industry history,\" arrives after UWM lost its bid to acquire Two Harbors Investment Corp. to CrossCountry Mortgage, when analysts pointed to leverage as an issue. Chairman, president and CEO Mat Ishbia framed the investment as giving UWM \"even more strength to keep investing in our people, technology, innovation and the opportunities ahead.\"",
+    "The capital structure mechanics are substantial. UWM is bringing in $1.65 billion of preferred equity at closing from the Ishbia family's new vehicle, SFS Group Capital, alongside Oaktree Capital Management, with an additional $400 million targeted through a rights offering for Class A shareholders, if needed. Investors will receive warrants in connection with the transaction, further linking returns to future performance. The company will suspend its quarterly common dividend and focus on debt reduction and balance-sheet strength, with a stated goal of using earnings and manageable leverage to pay down the preferred equity over time. Proceeds will be used on \"balance sheet fortification, including repayment of existing debt, repayment of MSR financing facilities and support for general corporate purposes.\"",
+    "The earnings evidence explains why permanent capital became necessary. UWM reported loan origination volume of $39.7 billion in Q2, flat year over year and down from $44.9 billion in the first quarter. Total gain-on-sale margin rose to 133 basis points, up from 123 bps in the first quarter and 113 bps in the second quarter of 2025. Despite stable volume and a higher margin, UWM reported a net loss of $451.9 million, compared with a profit of $170.4 million in the first quarter and $314.5 million in the second quarter of 2025. A UWM spokesperson attributed the loss to \"a unique hedge-related event tied to the anticipated Two Harbors MSR transaction,\" calling it \"a quarter-specific mark-to-market impact\" that \"does not reflect the underlying strength of UWM's core business.\" The earnings release shows equity nearly halved to $985.3 million over the past year and non-funding leverage more than tripling to 6.13 times.",
+    "The servicing portfolio continued to expand even as the balance sheet strained. UWM's MSR portfolio unpaid principal balance grew to $247.6 billion with a weighted average coupon of 5.93%, up from $229.5 billion and 5.90% as of March 31. UWM ended the second quarter with roughly $1.3 billion in available liquidity, including $498.4 million in cash and available borrowing capacity under secured and unsecured credit lines. The combination of a growing MSR book, higher leverage, and a swing to a quarterly loss helps explain the decision to raise permanent capital, suspend the dividend, and prioritize deleveraging.",
+    "The governance implications extend beyond the balance sheet. UWM's board has agreed to add an Oaktree representative and has given the firm the right to nominate one additional independent director, adding a large institutional credit investor to its governance mix. Nick Basso, co-Head of North America for Oaktree's Global Opportunities Group, said the firm is \"thrilled to partner with Mat and the UWM team at a pivotal time for the mortgage industry,\" citing \"conviction in UWM's differentiated platform, market leadership and long-term growth potential.\" J.P. Morgan Securities LLC is serving as financial adviser to UWMC in connection with the transaction, and Wells Fargo Securities is serving as financial adviser to Oaktree.",
+    "The analysis is bounded by a single full-text source from HousingWire, which reviewed the internal employee memo and the earnings release but did not include the full financial statements or the specific terms of the warrants. The exact timing of the rights offering, the dividend suspension's expected duration, and the pace of preferred equity repayment remain unstated. What to watch is whether the hedge-related loss proves truly quarter-specific, whether the preferred equity and warrant structure dilute common shareholders over time, and whether the Oaktree board presence shifts UWM's strategic direction after the failed Two Harbors bid."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 251.8,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 17,
+     "rejected": 2,
+     "kept_facts": 13,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "UWM pairs $2.05B capital raise with Q2 loss",
+   "sentences": 12,
+   "non_fact_sentences": 0,
+   "flagged": {
+    "Proceeds will be used on \"balance sheet fortification, including repayment of existing debt, repayment of MSR financing facilities and support for general corporate purposes.\" UWM's board has agreed to add an Oaktree representative and has given the firm the right to nominate one additional independent director.": [
+     "deepseek-reasoning-audit: Merges two separate claims."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 240,
+    "paragraphs": 6,
+    "words_per_para_mean": 40.0,
+    "words_per_para_p90": 49,
+    "sent_per_para_mean": 2,
+    "sentences": 11,
+    "words_per_sentence_mean": 22.7,
+    "words_per_sentence_p90": 46,
+    "pct_sentences_over_30": 18.2,
+    "flesch_reading_ease": 51.1,
+    "fk_grade": 11.6,
+    "jargon_per_100w": 1.25,
+    "unknown_acronyms_per_100w": 2.08,
+    "numbers_per_100w": 6.25,
+    "passive_per_100w": 0.83,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 36.4,
+    "hook_has_number": true,
+    "hook_starts_with_the": true,
+    "hook_first_sentence_words": 17,
+    "template_closer": false,
+    "title_len": 43,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "The nation's largest mortgage lender reported a net loss of $451.9 million for the quarter.",
+    "That compares with a profit of $170.4 million in the first quarter and $314.5 million in the second quarter of 2025. The spokesperson called it \"a quarter-specific mark-to-market impact\" that \"does not reflect the underlying strength of UWM's core business.\"",
+    "Loan origination volume was $39.7 billion in Q2, flat year over year and down from $44.9 billion in the first quarter. Total gain-on-sale margin was 133 basis points, up from 123 bps in the first quarter and 113 bps in the second quarter of 2025.",
+    "The earnings release shows equity nearly halved to $985.3 million over the past year. Non-funding leverage more than tripled to 6.13 times. That explains why UWM moved to raise permanent capital, suspend the dividend and prioritize deleveraging.",
+    "UWM is bringing in $1.65 billion of preferred equity at closing from the Ishbia family and Oaktree. An additional $400 million is targeted through a rights offering for Class A shareholders, if needed. The company will suspend its quarterly common dividend and focus on debt reduction and balance-sheet strength.",
+    "Proceeds will be used on \"balance sheet fortification, including repayment of existing debt, repayment of MSR financing facilities and support for general corporate purposes.\" UWM's board has agreed to add an Oaktree representative and has given the firm the right to nominate one additional independent director."
+   ],
+   "rejected_by_gate": [
+    "Tense changed from 'is pairing' to 'paired'.",
+    "quote is longer than allowed"
+   ]
+  }
+ },
+ {
+  "slug": "texas-audit-could-delay-49-8-gw-of-data-center-load-cost-projects-up-to-15-billion-bnef-warns",
+  "tier": "tier_a",
+  "A": {
+   "status": "written",
+   "title": "Texas Audit Could Delay 49.8 GW of Data Center Load, Cost Projects Up to $15 Billion, BNEF Warns",
+   "sentences": 33,
+   "flagged": {
+    "The mechanics of the delay are already visible in ERCOT's interconnection process.": [
+     "deepseek-reasoning-audit: The source does not state that the mechanics of the delay are already visible in ERCOT's interconnection process; this is an added characterization."
+    ],
+    "What to watch next is the PUCT's Aug. 20 open meeting, where ERCOT's request for a good cause exception related to Batch Zero timelines will be considered.": [
+     "deepseek-reasoning-audit: Source says ERCOT will file the request in advance of the meeting, not that it will be considered there."
+    ],
+    "The audit's scope and duration remain unspecified in the available reporting, and the dossier does not establish how many projects would ultimately be approved, rejected, or modified.": [
+     "deepseek-reasoning-audit: Source specifies the audit scope (every data center project in queue), so 'scope unspecified' is inaccurate."
+    ],
+    "Until the audit parameters and timeline are defined, the full financial and operational impact on Texas data center development remains an open question.": [
+     "deepseek-reasoning-audit: The source does not state that the full financial and operational impact remains an open question; it reports specific BNEF delay and cost estimates under assumptions."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 975,
+    "paragraphs": 8,
+    "words_per_para_mean": 121.9,
+    "words_per_para_p90": 141,
+    "sent_per_para_mean": 5.1,
+    "sentences": 41,
+    "words_per_sentence_mean": 24.7,
+    "words_per_sentence_p90": 44,
+    "pct_sentences_over_30": 39.0,
+    "flesch_reading_ease": 33.5,
+    "fk_grade": 14.5,
+    "jargon_per_100w": 0.51,
+    "unknown_acronyms_per_100w": 2.77,
+    "numbers_per_100w": 5.95,
+    "passive_per_100w": 0.82,
+    "hedges_per_100w": 0.62,
+    "the_starter_pct": 24.4,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 2,
+    "template_closer": false,
+    "title_len": 96,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Texas Gov. Greg Abbott's Aug. 3 order pausing all new data center connections to the Electric Reliability Council of Texas (ERCOT) grid until a comprehensive audit is complete could delay 49.8 GW of new data center electricity demand from advancing on the ERCOT system, BloombergNEF said in an Aug. 5 report. That exposed capacity equals almost 20% of the U.S.'s 253-GW data center pipeline, according to the New York–based research firm. The report was authored by senior policy associate Derrick Flakoll, senior associate Nathalie Limandibhratha, and Head of Technology and Innovation Mark Daly, with editor Kamala Schelling.",
+    "The mechanics of the delay are already visible in ERCOT's interconnection process. Abbott's directive ordered the Public Utility Commission of Texas (PUCT) and ERCOT to verify and audit every data center project in the interconnection queue—roughly 474 GW of pending large-load requests, about 90% of them data centers—before any additional projects advance. Within hours, ERCOT issued Market Notice M-A080326-01 suspending the first scheduled deliverable of its new Batch Zero large-load interconnection process. The notice states that ERCOT will not notify each Interconnecting Distribution Service Provider and Transmission Service Provider of how any Large Load is classified in the Batch Zero Interconnection Study by August 7, 2026. ERCOT said it will file a request for a good cause exception related to the timelines and process for Batch Zero set forth in ERCOT Planning Guide Sections 5 and 9 in advance of the PUCT's Aug. 20 open meeting.",
+    "BNEF's scenario models a three-month-long delay across the 3Q 2026 through 1Q 2027 subset of ERCOT data center capacity additions, which are assumed to slip to 2Q 2027. BNEF forecasts 1.2 GW of total ERCOT data center capacity additions between 2Q 2026 and 1Q 2027. Under those assumptions, delays could cost projects just over $8 billion cumulatively by 1Q 2027 if a supermajority of 60% of delayed capacity is AI-related, rising to roughly $15 billion in a full-delay case under a 100% AI-compute mix. Cumulative revenue at risk climbs with AI-compute share, from about $2 billion at a 10% AI mix to nearly $15 billion at a 100% mix, assuming Texas data center capacity additions forecast for 3Q 2026 through 1Q 2027 slip to 2Q 2027.",
+    "Abbott cast the audit as a reliability action. ERCOT's 474-GW queue is more than five times Texas' record peak electricity demand, and that unprecedented load growth could endanger the reliability and stability of the Texas electric grid, the governor wrote in his Aug. 3 letter to PUCT Chairman Thomas Gleeson and ERCOT President and CEO Pablo Vegas. He also cited a compliance failure already on the record: the failure of some data centers to comply with the PUC's survey measuring water and power usage under the General Appropriations Act. Abbott further pointed to recent legislative hearings and public meetings that raised important questions regarding the impact of data centers on the grid and on the local communities in which they operate or seek to operate.",
+    "However, BNEF suggests the audit is politically tilted. \"Abbott is facing reelection in November this year, and the pause is likely intended to take the controversial data center issue off the table until after the voters have their say,\" the report states. The governor's letter followed a weeklong lobbying push against data centers in the state, including a contentious 15-hour public hearing and a call from Abbott's lieutenant governor, a fellow Republican, to pause $33 billion in planned power grid spending that would boost transmission capacity to western Texas data centers as well as Permian oil and gas production. Abbott had recently called Texas \"the epicenter of AI development\" after Google's $40 billion investment announcement. \"Community opposition is becoming a material constraint on data center development, even in markets that have actively courted the industry,\" BNEF adds.",
+    "Abbott's action extends a pattern of gubernatorial data center restrictions in 2026. New York Gov. Kathy Hochul on July 14 signed Executive Order 62, the nation's first statewide moratorium on new hyperscale data centers of 50 MW or more, directing the New York Department of Environmental Conservation to hold pending permits in abeyance while the Department of Public Service prepares a Generic Environmental Impact Statement. Illinois Gov. JB Pritzker on June 5 directed the state's Department of Commerce and Economic Opportunity to pause processing of Data Center Investment Program agreements starting July 1, after the Illinois General Assembly failed to advance legislation on data center energy and water disclosure and cost allocation.",
+    "The competing interpretations hinge on whether the Texas pause is a genuine reliability safeguard or a political maneuver ahead of the November election. The reliability argument rests on the scale of the queue—474 GW of pending large-load requests, about 90% of them data centers—and the documented compliance failure on the PUC's water and power usage survey. The political argument rests on timing and context: the pause follows a weeklong lobbying push, a 15-hour public hearing, and a lieutenant governor's call to pause $33 billion in planned grid spending. BNEF's report does not resolve this tension but frames the pause as likely intended to remove the data center issue from electoral contention.",
+    "What to watch next is the PUCT's Aug. 20 open meeting, where ERCOT's request for a good cause exception related to Batch Zero timelines will be considered. The audit's scope and duration remain unspecified in the available reporting, and the dossier does not establish how many projects would ultimately be approved, rejected, or modified. The 49.8 GW figure represents exposed capacity in the queue, not confirmed cancellations. The revenue-at-risk estimates depend on assumptions about AI-compute mix and delay duration that BNEF itself models as scenarios rather than certainties. Until the audit parameters and timeline are defined, the full financial and operational impact on Texas data center development remains an open question."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 235.5,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 18,
+     "rejected": 4,
+     "kept_facts": 13,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Texas Audit Could Delay 49 8 Gw Of Data Center Load Cost Projects Up To 15 Billion Bnef Warns",
+   "sentences": 12,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 259,
+    "paragraphs": 6,
+    "words_per_para_mean": 43.2,
+    "words_per_para_p90": 54,
+    "sent_per_para_mean": 2.3,
+    "sentences": 13,
+    "words_per_sentence_mean": 20.8,
+    "words_per_sentence_p90": 27,
+    "pct_sentences_over_30": 15.4,
+    "flesch_reading_ease": 46.2,
+    "fk_grade": 11.8,
+    "jargon_per_100w": 0.77,
+    "unknown_acronyms_per_100w": 2.32,
+    "numbers_per_100w": 8.11,
+    "passive_per_100w": 1.16,
+    "hedges_per_100w": 1.16,
+    "the_starter_pct": 15.4,
+    "hook_has_number": true,
+    "hook_starts_with_the": true,
+    "hook_first_sentence_words": 20,
+    "template_closer": false,
+    "title_len": 93,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "The exposed capacity equals \"almost 20% of the U.S.'s 253-GW data center pipeline,\" according to the report.",
+    "Abbott ordered the Public Utility Commission of Texas and ERCOT to verify and audit every data center project in the interconnection queue before any additional projects advance. That queue holds roughly 474 GW of pending large-load requests, about 90% of them data centers.",
+    "BNEF models a three-month delay across the 3Q 2026 through 1Q 2027 subset of additions, which are assumed to slip to 2Q 2027. Under those assumptions, delays could cost projects \"just over $8 billion cumulatively by 1Q 2027\" if 60% of delayed capacity is AI-related. The cost rises to roughly $15 billion in a full-delay case under a 100% AI-compute mix.",
+    "Abbott cast the audit as a reliability action, writing that ERCOT's 474-GW queue is \"more than five times Texas' record peak electricity demand.\" He also cited \"the failure of some data centers to comply with the PUC's survey measuring water and power usage.\"",
+    "BNEF suggests the audit is politically tilted. \"Abbott is facing reelection in November this year, and the pause is likely intended to take the controversial data center issue off the table until after the voters have their say,\" the report states.",
+    "Abbott's action extends a pattern of gubernatorial data center restrictions in 2026. New York Gov. Kathy Hochul signed the nation's first statewide moratorium on new hyperscale data centers of 50 MW or more on July 14. Illinois Gov. JB Pritzker directed a pause on Data Center Investment Program agreements starting July 1."
+   ],
+   "rejected_by_gate": [
+    "quote is longer than allowed",
+    "quote is longer than allowed",
+    "names not in its quote: BNEF",
+    "The source attributes this claim to the BNEF report, but the sentence presents it as fact without attribution."
+   ]
+  }
+ },
+ {
+  "slug": "finance-of-america-q2-2026-earnings-reverse-mortgage",
+  "tier": "tier_a",
+  "A": {
+   "status": "written",
+   "title": "Finance Of America Q2 2026 Earnings Reverse Mortgage",
+   "sentences": 35,
+   "flagged": {
+    "The retirement solutions segment's first-half performance supports that view: pretax income grew 43% year over year to $20 million, while adjusted net income increased 21% to $29 million.": [
+     "deepseek-reasoning-audit: The source reports the segment's first-half numbers but does not state they support the CEO's view."
+    ],
+    "The balance sheet and servicing data add another layer to the quarter's story.": [
+     "deepseek-reasoning-audit: The source does not characterize the balance sheet and servicing data as adding another layer to the quarter's story."
+    ],
+    "Competing interpretations emerge from the same set of facts.": [
+     "deepseek-reasoning-audit: Not stated in source."
+    ],
+    "One reading emphasizes the operational strength: 21% volume growth, 53% adjusted net income improvement, and a 43% first-half pretax income gain in retirement solutions suggest the core business is scaling as intended.": [
+     "deepseek-reasoning-audit: Interpretive framing and conclusion not in source."
+    ],
+    "Another reading focuses on the portfolio management segment's $26 million pretax loss and the decline in total equity from $473 million to $407 million year over year.": [
+     "deepseek-reasoning-audit: Interpretive framing not in source."
+    ],
+    "The portfolio segment's year-to-date adjusted net income still improved 24% to $46 million, up from $37 million in the first half of 2025, indicating that underlying economics remained positive even as quarterly marks swung sharply.": [
+     "deepseek-reasoning-audit: Adds interpretation not directly stated."
+    ],
+    "The Onity transaction, which closed July 1, adds a forward-looking dimension to the quarter.": [
+     "deepseek-reasoning-audit: Adds commentary not in source."
+    ],
+    "What remains to be seen is whether the acquired HECM servicing portfolio and personnel translate into higher origination volume and revenue margins in future quarters, or whether integration costs and fair value volatility continue to obscure the operational gains.": [
+     "deepseek-reasoning-audit: Adds speculation about future results and integration costs not stated in source."
+    ],
+    "The next earnings report will show whether the 21% volume growth trajectory holds and whether portfolio management marks stabilize enough to let adjusted profitability flow through to reported results.": [
+     "deepseek-reasoning-audit: Adds speculation about next earnings report and future stability not stated in source."
+    ]
+   },
+   "bad_numbers": [],
+   "metrics": {
+    "words": 882,
+    "paragraphs": 7,
+    "words_per_para_mean": 126.0,
+    "words_per_para_p90": 145,
+    "sent_per_para_mean": 5,
+    "sentences": 35,
+    "words_per_sentence_mean": 26,
+    "words_per_sentence_p90": 38,
+    "pct_sentences_over_30": 37.1,
+    "flesch_reading_ease": 35.8,
+    "fk_grade": 14.5,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.91,
+    "numbers_per_100w": 7.94,
+    "passive_per_100w": 0.23,
+    "hedges_per_100w": 0.11,
+    "the_starter_pct": 40.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 36,
+    "template_closer": true,
+    "title_len": 52,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Finance of America Companies Inc. reported a second quarter defined by two opposing forces: a 21% year-over-year increase in reverse mortgage and home equity funding volume, and a $29 million net loss driven by non-cash fair value adjustments in its portfolio management segment. The Texas-based lender disclosed $730 million in funded volume for the quarter ending June 30, up from $602 million during the same period in 2025, according to its earnings release. First-half 2026 volume reached $1.33 billion, a 14% increase from $1.16 billion in the first half of 2025. The results show an origination business gaining momentum while a valuation-driven swing in portfolio assets pulled reported earnings into negative territory.",
+    "The mechanics of the quarter reveal how two distinct business lines produced divergent outcomes. FOA's retirement solutions segment, which originates reverse mortgages and other home equity products, generated $730 million in funded volume and $74 million in total revenue, a 19% year-over-year increase. Revenue margins held near 10.1%, and the segment posted $10 million in pretax income, flat compared to a year earlier. The portfolio management segment, by contrast, swung to a $26 million pretax loss in Q2 2026, compared with a $108 million profit in Q2 2025 and a $36 million profit in Q1 2026. The company attributed the loss primarily to negative non-cash fair value adjustments on retained interests in securitizations, partially offset by higher accreted yield on residual interests.",
+    "The earnings evidence shows a wide gap between reported and adjusted figures. FOA reported $0.10 in basic earnings per share, or $1 million in net income attributable to Class A common shareholders. On a diluted basis, the company posted a loss of $1.28 per share, or the $29 million net loss for the period. On an adjusted basis, FOA reported $0.84 in earnings per share, or $19 million in adjusted net income, a 53% year-over-year improvement. Adjusted EBITDA totaled $35 million for the quarter and $79 million for the first half of 2026. The divergence between basic and diluted results, and between reported and adjusted figures, underscores how heavily non-cash valuation marks weighed on the quarter's headline numbers.",
+    "CEO Graham Fleming framed the results as validation of a multi-quarter operational strategy. \"The second quarter of 2026 reinforced what we've been communicating over the past several quarters: that the operational improvements and investments we have made are now translating into a stronger, more scalable business,\" Fleming said in a statement. He cited strengthening demand, improved conversion and sales productivity, and growth in proprietary products serving older homeowners. The retirement solutions segment's first-half performance supports that view: pretax income grew 43% year over year to $20 million, while adjusted net income increased 21% to $29 million.",
+    "The balance sheet and servicing data add another layer to the quarter's story. As of June 30, FOA reported $85 million in cash and cash equivalents, up 85% from $46 million a year earlier but down from $108 million at the end of March. The company said strong cash generation from originations and capital markets activities funded most of its recently completed acquisition of Onity Mortgage Corp.'s servicing portfolio of Home Equity Conversion Mortgages. Total assets rose 24% year over year to $37.3 billion, driven largely by securitized loans held for investment tied to HECM and other nonrecourse obligations, which increased 25% to $36 billion. Assets under management in the portfolio management segment climbed 24% year over year to $37 billion. Total equity stood at $407 million at the end of Q2 2026, down from $473 million a year earlier, with tangible equity of $246 million, or $13.31 per share.",
+    "Competing interpretations emerge from the same set of facts. One reading emphasizes the operational strength: 21% volume growth, 53% adjusted net income improvement, and a 43% first-half pretax income gain in retirement solutions suggest the core business is scaling as intended. Another reading focuses on the portfolio management segment's $26 million pretax loss and the decline in total equity from $473 million to $407 million year over year. The non-cash nature of the fair value marks means the loss does not necessarily reflect cash outflows, but it does reflect volatility in how securitized reverse mortgage collateral is valued. The portfolio segment's year-to-date adjusted net income still improved 24% to $46 million, up from $37 million in the first half of 2025, indicating that underlying economics remained positive even as quarterly marks swung sharply.",
+    "The Onity transaction, which closed July 1, adds a forward-looking dimension to the quarter. Fleming told investors and analysts that the deal \"represents more than the acquisition of servicing assets. It diversifies our servicing footprint, broadens the population of homeowners we can serve, and creates additional opportunities to introduce our proprietary solutions.\" The transaction included 13 staff members from Onity across originations and operations, according to Fleming's prior comments to HousingWire's Reverse Mortgage Daily. What remains to be seen is whether the acquired HECM servicing portfolio and personnel translate into higher origination volume and revenue margins in future quarters, or whether integration costs and fair value volatility continue to obscure the operational gains. The next earnings report will show whether the 21% volume growth trajectory holds and whether portfolio management marks stabilize enough to let adjusted profitability flow through to reported results."
+   ]
+  },
+  "B": {
+   "status": "completed",
+   "seconds": 132.0,
+   "diagnostics": {
+    "attempts": 2,
+    "fact_check": {
+     "checked": 13,
+     "rejected": 3,
+     "kept_facts": 10,
+     "kept_views": 0,
+     "verifier": "deepseek/deepseek-v4-pro"
+    }
+   },
+   "title": "Finance Of America Q2 2026 Earnings Reverse Mortgage",
+   "sentences": 10,
+   "non_fact_sentences": 0,
+   "flagged": {},
+   "bad_numbers": [],
+   "metrics": {
+    "words": 206,
+    "paragraphs": 5,
+    "words_per_para_mean": 41.2,
+    "words_per_para_p90": 49,
+    "sent_per_para_mean": 2,
+    "sentences": 10,
+    "words_per_sentence_mean": 21.4,
+    "words_per_sentence_p90": 26,
+    "pct_sentences_over_30": 10.0,
+    "flesch_reading_ease": 57.4,
+    "fk_grade": 10.4,
+    "jargon_per_100w": 0.0,
+    "unknown_acronyms_per_100w": 0.0,
+    "numbers_per_100w": 12.62,
+    "passive_per_100w": 0.0,
+    "hedges_per_100w": 0.0,
+    "the_starter_pct": 40.0,
+    "hook_has_number": true,
+    "hook_starts_with_the": false,
+    "hook_first_sentence_words": 21,
+    "template_closer": false,
+    "title_len": 52,
+    "title_has_number": true,
+    "excerpt_truncated": false
+   },
+   "paragraphs": [
+    "Finance of America grew reverse mortgage and home equity funding volume 21% year over year in the second quarter of 2026. Non-cash fair value marks in its portfolio business drove a net loss of $29 million from April through June.",
+    "The Texas-based lender reported $730 million in funded volume for the quarter ending June 30, up from $602 million during the same period in 2025, according to the company's earnings release. First-half 2026 volume reached $1.33 billion, up 14% from $1.16 billion in H1 2025.",
+    "On a diluted basis, the company posted a loss of $1.28 per share, or a $29 million net loss for the period. On an adjusted basis, the company reported $0.84 in earnings per share, or $19 million in adjusted net income, a 53% year-over-year improvement.",
+    "The retirement solutions segment, which originates reverse mortgages and other home equity products, drove the growth. Second-quarter funded volume in the segment rose 21% year over year to $730 million.",
+    "The portfolio management segment reported a pretax loss of $26 million in Q2 2026, compared with a profit of $108 million in Q2 2025. The company attributed the quarterly loss primarily to negative non-cash fair value adjustments on retained interests in securitizations."
+   ],
+   "rejected_by_gate": [
+    "quote is longer than allowed",
+    "quote is longer than allowed",
+    "quote is longer than allowed"
+   ]
+  }
+ }
+]
