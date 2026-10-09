@@ -1,7 +1,7 @@
 # Ground truth
 
 Facts only, each with how it was established. Updated at the end of every iteration.
-Last updated: 2026-10-09, before Iteration 1.
+Last updated: 2026-10-09, after Iteration 01.
 
 ## Repository
 
@@ -13,7 +13,16 @@ Last updated: 2026-10-09, before Iteration 1.
 | `.gitignore` ignores `*.py` except `scripts/*.py` and `tests/*.py`, so `docs/system-map/build.py` and `outputs/**/*.py` would not be committed by default | `.gitignore` lines 6–8 |
 | `quality.yml` CI runs on pushes to `main` and `codex/**`, and on pull requests | `.github/workflows/quality.yml` |
 
-## Uncommitted work in the main checkout
+## Branch
+
+| Fact | Proof |
+|---|---|
+| `codex/phase-0-accurate-writer` exists locally in worktree `../ltg-phase0`, cut from `origin/main` (`ef65d89`); **not pushed** | `git -C ../ltg-phase0 log --oneline origin/main..HEAD` |
+| It holds groups A–D as commits 0.3a–0.3d, the gate fix 0.3e, and the session record | same |
+| 502 tests pass on that worktree; publication validation passes; map validates | Iteration 01 verification |
+| Ben's work in progress is preserved, uncommitted, at `docs/session/wip/ben-wip-2026-10-09.patch` | file exists; main checkout unchanged |
+
+## Uncommitted work in the main checkout (unchanged by Iteration 01; groups A–D now also live on the branch)
 
 | Group | Files | Status |
 |---|---|---|
@@ -38,9 +47,19 @@ Last updated: 2026-10-09, before Iteration 1.
 
 | Fact | Proof |
 |---|---|
-| 496 tests pass on a clean `origin/main` worktree plus all A–D changes | run 2026-10-09 |
+| 502 tests pass on a clean `origin/main` worktree plus the branch (496 before the 0.3e fix) | Iteration 01 |
 | Old writer: 74 of 314 audited fact sentences unsupported (23.6%), 14 of 16 articles | `outputs/readability/ACCURACY.md` |
 | New gated writer: 0 genuine unsupported of 143, 0 of 16 articles (one audit artifact explained) | same |
 | Weekly wrap, week of Sep 26: 0 of 52 published lines unsupported | same |
 | Voice engine prototype: accurate and readable (grade 9–11) but takes generic; 100–290 s per story | `docs/voice/SAMPLES.md` |
-| The new writer has never run end to end on live feeds; only on cached stories | not yet done |
+| The gated writer ran end to end on live feeds (two local previews, five stories each): 4 completed, 1 withheld, 0 failed; whole pipeline about 3 to 4 minutes | `docs/session/LOG.md` |
+| Independent audit of the second preview: 46 kept fact sentences, 0 unsupported | `outputs/readability/audit_preview.py` |
+| A day selects about 26 stories; writing takes about 85 to 140 s per story, 6 in parallel | preview logs |
+
+## Open findings from the live preview
+
+| ID | Finding |
+|---|---|
+| F17 | An administrative notice ("Notice to Users of the H.8 Release") passed eligibility; the gate withheld it |
+| F18 | `precedent` and `novelty` measures did not vary on live data; top score 64.4, so nothing reached tier_a |
+| F19 | A preview with `--state-dir` still rewrites `.editorial-state/source-health.json` and the retrieval cache in the repo |

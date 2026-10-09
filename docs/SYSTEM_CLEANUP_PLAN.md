@@ -65,6 +65,9 @@ Severity: **H** harms readers or the business now · **M** wastes effort or hide
 | F3 | No integration test that runs a whole day on recorded fixtures | M | 5 | L | n/a |
 | G1 | Off-topic stories still reach the page (for example a ship-fuel startup) | M | 6 | M | n/a |
 | G2 | Voice and readability tuning on real reader data | M | 6 | M | n/a |
+| F17 | Administrative notices pass eligibility (H.8 notice selected; gate withheld it) | M | 6 | S | F17 |
+| F18 | `precedent` and `novelty` measures degenerate on live data; nothing reaches tier_a | M | 6 | M | F18 |
+| F19 | Previews with `--state-dir` still write source health and the retrieval cache into the repo | L | 5 | S | F19 |
 | H1 | Writing is accurate but flat: no hooks, point of view or cultural meaning, so reach and deal flow suffer | H | 7 | L | n/a |
 
 ## 4. The plan, phase by phase
@@ -76,8 +79,8 @@ Each phase ends with a checkpoint: all tests green, a preview run read by a huma
 **Goal:** the accurate writer is in production, behind a safe rollout, on a clean branch.
 
 - [ ] **0.1 Decide the fate of the local `daily_news_agent.py` edit (A2).** It adds a lock around `update_manifest` and a Google Analytics tag but is half-applied. Either finish the lock correctly (a proper `try/finally`) or revert. *Acceptance:* `python -m py_compile scripts/*.py` passes locally.
-- [ ] **0.2 Create a working branch and sync (A3).** `git switch -c cleanup/phase-0`, rebase onto `origin/main` (36 bot commits touch content only, so conflicts are unlikely). *Acceptance:* `git rev-list --left-right --count HEAD...origin/main` shows 0 behind.
-- [ ] **0.3 Split the uncommitted work into reviewable commits.** (a) readability + claim verifier + v4 writer + tests; (b) weekly wrap + workflow + tests + `insights.html` feature band; (c) system map + plan + audit scripts under `docs/` and `outputs/`; (d) the unrelated `index.html` and `editorial_voice.py` changes, each as its own commit or deferred. *Acceptance:* every commit passes `python -m unittest discover -s tests`.
+- [x] **0.2 Create a working branch and sync (A3).** Done 2026-10-09: `codex/phase-0-accurate-writer` from `origin/main`, in worktree `../ltg-phase0`. `git switch -c cleanup/phase-0`, rebase onto `origin/main` (36 bot commits touch content only, so conflicts are unlikely). *Acceptance:* `git rev-list --left-right --count HEAD...origin/main` shows 0 behind.
+- [x] **0.3 Split the uncommitted work into reviewable commits.** Done 2026-10-09: commits 0.3a–0.3e; a live preview found and fixed one defect (0.3e). (a) readability + claim verifier + v4 writer + tests; (b) weekly wrap + workflow + tests + `insights.html` feature band; (c) system map + plan + audit scripts under `docs/` and `outputs/`; (d) the unrelated `index.html` and `editorial_voice.py` changes, each as its own commit or deferred. *Acceptance:* every commit passes `python -m unittest discover -s tests`.
 - [ ] **0.4 Restore a genuinely independent second checker (A4).** Add OpenAI credit, or supply another provider key. Then re-run `outputs/readability/accuracy_audit.py` once so the report says which model checked which. *Acceptance:* the evidence file shows verifier ≠ writer provider.
 - [ ] **0.5 Rotate any key that was ever in a memory or notes file (A5).** DeepSeek and NewsAPI at minimum. Update the GitHub secrets.
 - [ ] **0.6 Supervised rollout.** Dispatch the daily workflow with `pipeline=v4`, `mode=preview`. Read 10 evidence files in `.editorial-state/v4-evidence/` and spot-check 5 sentences each against the source. Then one manual `mode=publish`, then enable the cron. *Acceptance:* zero unsupported sentences found in the spot check; withheld rate under 25%.

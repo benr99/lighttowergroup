@@ -444,7 +444,7 @@ steps: [
   { title:'Monitoring and satellites', focus:['g_monitor','g_social'], text:'CI, feed probes and weekly reports watch the system. LinkedIn, PDFs, carousels, Ideas and buildings are separate code that is not in the daily workflow.' },
   { title:'The voice engine (next)', focus:['g_voice'], text:`The planned evolution of stage 9: first decide what the story is about (angle, shape, lens, hooks), then draft it in Ben Rohr's voice as typed sentences, then prove the facts and police the opinion. Prototyped and tested on real stories; not in production.` },
   { title:'Legacy: what you can ignore', focus:['g_legacy'], text:'The v2 and v3 pipelines remain for rollback. Most of the repo\'s line count is here. Only four functions of daily_news_agent.py are still on the live path.' },
-  { title:'Your critique list', focus:[], flags:true, text:'Open the Flags panel: sixteen verified issues, ranked, each linked to the box it concerns.' }
+  { title:'Your critique list', focus:[], flags:true, text:'Open the Flags panel: nineteen verified issues, ranked, each linked to the box it concerns.' }
 ],
 
 /* ----------------------------------------------------------------- FLAGS */
@@ -479,6 +479,12 @@ flags: [
     detail:'v3_generation.DEPTH_SPEC (word ranges 180–1400) is stale; v4 defines its own. v4 still imports DraftResult, object_to_dossier and the old spec from v3_generation, which pulls the v3 writer into the import graph.', fix:'Move the shared types into their own module.' },
   { id:'F14', sev:'high', title:'Four filter buttons on the Intelligence page match nothing', nodes:['pub_listing','pub_manifest','v3_publish'],
     detail:'v3_publish maps each sector to a reader category (energy → "Market Commentary", banking → "Debt & Equity", Fed → "Market Analysis", government → "Policy & Regulation"). insights.html filters Energy, Banking, Fed & Macro and Government by different names ("Energy", "Banking", "Federal Reserve", "Local Government"). Of 535 articles since Sep 1 these four buttons match 0; only Private Equity (23) and Data Centers (58) work, and everything else is lumped under "CRE". insights.json also has no sector field, so the page cannot filter by sector at all.', fix:'Store sector in each manifest entry and filter on it.' },
+  { id:'F17', sev:'med', title:'An administrative notice passed eligibility', nodes:['content_typing','eligibility'],
+    detail:'In the first live preview (2026-10-09) "Notice to Users of the H.8 Release" was selected for writing. Administrative notices are meant to be never-eligible; the content typer did not recognise it. The fact gate withheld it, so nothing wrong was published, but a slot was spent.', fix:'Add Federal Reserve release-notice patterns to content_typing and a test.' },
+  { id:'F18', sev:'med', title:'Two scoring measures do not vary on live data', nodes:['importance'],
+    detail:'The live preview reported precedent and novelty as degenerate (no discriminating power). The top score was 64.4, so no story reached tier_a (flagship).', fix:'Inspect the two measures against a week of candidates; recalibrate or retire them.' },
+  { id:'F19', sev:'low', title:'Previews still write some state into the repo', nodes:['retrieval','source_health'],
+    detail:'insights_v3.py --state-dir redirects run artifacts, memory, spend and provider logs, but source-health.json and the retrieval cache are written to the repo .editorial-state regardless.', fix:'Route both through the state directory.' },
   { id:'F15', sev:'low', title:'Local Windows scheduler remnants', nodes:['agent_runtime'],
     detail:'agent_runtime.py, the .bat wrappers and setup_scheduler.ps1 remain, though the lease makes them exit. A stale task on a PC is a quiet risk if the lease file is ever changed.', fix:'Delete once the cloud scheduler is trusted.' }
 ]
