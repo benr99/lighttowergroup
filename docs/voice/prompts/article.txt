@@ -21,6 +21,7 @@ HOW TO BUILD IT
 - Most sentences are "fact", each one a single plain claim. Use "take" for Ben's interpretation (at most {{MAX_TAKES}}), "voice" for connective tissue or a light touch of humor (at most {{MAX_VOICE}}), "context" and "ben" only when an entry is supplied above.
 - A "take" sits next to the facts it rests on and lists their ids in "because". Give every sentence an "id" like "s1", "s2" in order.
 - Paragraphs are 1-3 sentences, under 55 words. Sentences average about 15 words and none tops 30. Start sentences differently.
+- Every fact sentence must stand on its own because any one can be deleted: name its subject rather than opening with "It", "They" or "The property". A sentence that points back to a deleted one is deleted too.
 - The title comes from the picked headline (or a better one built from verified facts). It needs a "title_quote". The excerpt is one complete sentence of 80-180 characters that works as the first line of a LinkedIn post, supported by "excerpt_quote".
 
 FACT RULES (hard, same as always)

@@ -119,6 +119,66 @@ class DeterministicTests(unittest.TestCase):
             cv.verify_draft(body({"text": "x y z", "kind": "opinion", "quotes": []}), SOURCE, supportive)
 
 
+PORTFOLIO = (
+    "Hines Global Income Trust Inc., a $3.35 billion nontraded real estate investment trust, bought three properties. "
+    "99 West Paces, Atlanta: $237.8 million. The largest of the three deals, 99 West Paces is a 13-story, 312-unit "
+    "multifamily tower completed in 2023. "
+    + "Filler sentence about unrelated market conditions and broad commentary. " * 12
+    + "Castings Commerce Center is an 862,000-square-foot industrial portfolio near Columbus. "
+    "It is 96% leased to five tenants. "
+    "The Fed's preferred measure of inflation tracks prices on a huge number of consumer goods."
+)
+
+
+class NameContextAndReferenceTests(unittest.TestCase):
+    def kept(self, *sentences: dict, source: str = PORTFOLIO) -> tuple[list[str], cv.VerifiedDraft]:
+        d = draft(title="Hines buys three properties", title_quote="Hines Global Income Trust Inc., a $3.35 billion nontraded",
+                  excerpt="Hines Global Income Trust bought three properties for its nontraded REIT portfolio.",
+                  excerpt_quote="Hines Global Income Trust Inc., a $3.35 billion nontraded real estate investment trust, bought three properties",
+                  paragraphs=[list(sentences)])
+        v = cv.verify_draft(d, source, supportive)
+        return [i.text for p in v.paragraphs for i in p], v
+
+    def test_a_name_from_the_quotes_immediate_surroundings_is_allowed(self):
+        texts, _ = self.kept(fact("99 West Paces in Atlanta is a 13-story tower.",
+                                  "The largest of the three deals, 99 West Paces is a 13-story"))
+        self.assertEqual(texts, ["99 West Paces in Atlanta is a 13-story tower."])
+
+    def test_a_name_from_far_away_in_the_source_is_still_rejected(self):
+        texts, v = self.kept(fact("99 West Paces near Columbus is a 13-story tower.",
+                                  "The largest of the three deals, 99 West Paces is a 13-story"))
+        self.assertEqual(texts, [])
+        self.assertIn("names not in or near its quote: Columbus", v.rejected[0].reason)
+
+    def test_standard_aliases_are_recognised(self):
+        texts, _ = self.kept(
+            fact("The Federal Reserve's preferred measure of inflation tracks prices on a huge number of consumer goods.",
+                 "The Fed's preferred measure of inflation tracks prices on a huge number of consumer goods"),
+            fact("Hines Global Income Trust is a REIT.", "a $3.35 billion nontraded real estate investment trust"))
+        self.assertEqual(len(texts), 2)
+
+    def test_numbers_stay_bound_to_the_quote_even_when_nearby(self):
+        texts, v = self.kept(fact("99 West Paces cost $237.8 million and has 312 units.",
+                                  "99 West Paces is a 13-story, 312-unit multifamily tower"))
+        self.assertEqual(texts, [])
+        self.assertIn("237.8", v.rejected[0].reason)
+
+    def test_a_sentence_pointing_back_to_a_deleted_one_is_deleted_too(self):
+        texts, v = self.kept(
+            fact("Castings Commerce Center is a big industrial portfolio near Dayton.",
+                 "Castings Commerce Center is an 862,000-square-foot industrial portfolio near Columbus"),
+            fact("It is 96% leased to five tenants.", "It is 96% leased to five tenants"))
+        self.assertEqual(texts, [])
+        self.assertTrue(any("refers back to a deleted sentence" in i.reason for i in v.rejected))
+
+    def test_a_pointing_sentence_survives_when_its_antecedent_survives(self):
+        texts, _ = self.kept(
+            fact("Castings Commerce Center is an 862,000-square-foot industrial portfolio near Columbus.",
+                 "Castings Commerce Center is an 862,000-square-foot industrial portfolio near Columbus"),
+            fact("It is 96% leased to five tenants.", "It is 96% leased to five tenants"))
+        self.assertEqual(len(texts), 2)
+
+
 class VerifierModelTests(unittest.TestCase):
     def test_model_veto_removes_the_sentence_and_records_the_reason(self):
         def veto(system: str, user: str) -> str:

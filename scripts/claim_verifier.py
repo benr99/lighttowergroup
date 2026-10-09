@@ -56,6 +56,16 @@ _QUALIFIER_GROUPS = (
 _ATTRIBUTION = {"said", "says", "told", "according", "argued", "argues", "claims", "claimed", "alleges",
                 "noted", "added", "described", "called", "stated", "believes", "predicts"}
 
+_REFERS_BACK = re.compile(
+    r"^(?:it|its|it's|they|their|them|this|that|these|those|he|she|his|her|such|both|either|"
+    r"the (?:property|building|tower|complex|community|portfolio|asset|site|project|deal|transaction|sale|"
+    r"acquisition|purchase|loan|financing|refinancing|fund|company|firm|reit|trust|lender|buyer|seller|"
+    r"borrower|sponsor|developer|bank|tenant|plan|proposal|move|report|survey|agreement|order|rule|"
+    r"measure|index|release|filing|venture|partnership|partner|partners|group|investor|owner|"
+    r"former|latter|first|second|third|other|remaining|same|new owner))\b",
+    re.I,
+)
+
 VERIFIER_SYSTEM = (
     "You are a strict fact-checker for a commercial real estate publication. You are shown SOURCE TEXT "
     "and a numbered list of sentences written from it. You never write or improve anything. You only "
@@ -110,6 +120,44 @@ def _clean_quotes(raw: Any) -> list[str]:
     return [str(q).strip() for q in raw if str(q).strip()][:2]
 
 
+NAME_WINDOW = 300  # characters of source on each side of a quote that may supply a name
+
+# Standard aliases: if the left-hand form appears near the quote, the right-hand names are allowed too.
+_ALIASES: tuple[tuple[str, str], ...] = (
+    ("real estate investment trust", "REIT REITs"),
+    ("the fed", "Federal Reserve"),
+    ("federal reserve", "Fed"),
+    ("federal open market committee", "FOMC"),
+    ("securities and exchange commission", "SEC"),
+    ("federal deposit insurance", "FDIC"),
+    ("commercial mortgage-backed", "CMBS"),
+    ("new york city", "NYC"),
+    ("united states", "U.S. US"),
+)
+
+
+def name_context(quotes: list[str], source_text: str, window: int = NAME_WINDOW) -> str:
+    """The quotes plus the source text around each one, plus any standard aliases found there."""
+    flat = " ".join(str(source_text or "").split())
+    lowered = flat.lower()
+    parts = list(quotes)
+    for quote in quotes:
+        probe = " ".join(quote.split()).lower()[:60]
+        at = lowered.find(probe) if probe else -1
+        if at < 0:
+            # Fall back to the squashed form, which ignores punctuation differences.
+            words = squash(quote).split()[:8]
+            at = squash(flat).find(" ".join(words))
+            region = squash(flat)[max(0, at - window): at + len(squash(quote)) + window] if at >= 0 else ""
+        else:
+            region = flat[max(0, at - window): at + len(quote) + window]
+        parts.append(region)
+    context = " ".join(parts)
+    low = context.lower()
+    parts += [names for phrase, names in _ALIASES if phrase in low]
+    return " ".join(parts)
+
+
 def check_fact_deterministic(item: Item, source_text: str, *, is_title: bool = False) -> None:
     if not item.quotes:
         item.problems.append("no source quote supplied")
@@ -126,9 +174,12 @@ def check_fact_deterministic(item: Item, source_text: str, *, is_title: bool = F
     if bad_numbers:
         item.problems.append("figures not in its quote: " + ", ".join(bad_numbers[:6]))
     # Headlines capitalise every word, so the name tripwire cannot read them; the model checks cover them.
-    bad_names = [] if is_title else unsupported_names(item.text, joined)
+    # A name may come from the quote's immediate surroundings ("99 West Paces, Atlanta" one line up) or
+    # be a standard alias ("the Fed"). Numbers stay bound to the quote itself. Both model passes still
+    # check the whole sentence against the full source, which is what catches a name moved to the wrong fact.
+    bad_names = [] if is_title else unsupported_names(item.text, name_context(item.quotes, source_text))
     if bad_names:
-        item.problems.append("names not in its quote: " + ", ".join(bad_names[:6]))
+        item.problems.append("names not in or near its quote: " + ", ".join(bad_names[:6]))
     for phrase in _quoted_phrases(item.text):
         if squash(phrase) not in squash(source_text):
             item.problems.append(f"quoted words are not in the source: “{phrase[:60]}”")
@@ -341,6 +392,14 @@ def verify_draft(draft: dict[str, Any], source_text: str, llm: LLM, llm_b: LLM |
     # Second, differently framed pass over what the first pass accepted (facts, title, excerpt).
     run_verifier_atomic(llm_b or llm, source_text,
                         [i for i in to_judge if i.kind == FACT and i.verdict == "supported"])
+
+    # A sentence that points back ("It", "The property", "They") must not survive the deletion of the
+    # sentence it points to: it would silently attach its facts to the wrong subject.
+    previous_ok = True
+    for item in body_items:
+        if item.ok and not previous_ok and _REFERS_BACK.match(item.text):
+            item.problems.append("refers back to a deleted sentence, so its subject would be ambiguous")
+        previous_ok = item.ok
 
     rejected = [i for i in (title, excerpt, *body_items) if not i.ok]
     kept_paragraphs = [[i for i in p if i.ok] for p in paragraphs]

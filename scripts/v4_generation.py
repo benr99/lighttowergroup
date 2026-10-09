@@ -196,6 +196,7 @@ EVERY SENTENCE IS CHECKED BY MACHINE. How it works:
 - A fact must not add a total, difference, ratio or percentage the source does not state; a ranking such as "largest", "first" or "only"; a cause the source does not state; a time the source does not give; or any claim about what someone thinks, wants or fears. If you cannot quote it, do not write it. Plans, requests and allegations stay plans, requests and allegations.
 - If a quote says someone said, expects, plans or claims something, your sentence says so too. Never turn a statement, plan, forecast or opinion into plain fact, and never drop "most", "about", "plans to" or "according to".
 - Anything that fails a check is deleted from the article, and so is the article if too little survives. A shorter article that is all true is the goal.
+- Each sentence is checked and may be deleted on its own, so each must stand on its own: name its subject ("99 West Paces", "Hines Global Income Trust") instead of opening with "It", "They" or "The property". A sentence that points back to a deleted one is deleted too.
 
 HOW TO WRITE IT
 - Hook: the first paragraph is one or two short fact sentences with the who, the number and why it matters. Lead with the most interesting quoted fact, not "X announced".
