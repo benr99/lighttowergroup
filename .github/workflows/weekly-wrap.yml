@@ -1,0 +1,130 @@
+name: Friday Weekly Wrap
+
+# Once a week, after the New York market day, summarise the week's published
+# Insights by sector (Fed and rates, debt, multifamily, industrial, office, ...)
+# and post the result to the Intelligence page.
+#
+# Two UTC triggers keep 16:30 New York time through EDT and EST. The script's
+# --scheduled guard skips the wrong one, and publishing is idempotent, so a
+# duplicate trigger can never publish a second wrap.
+
+on:
+  schedule:
+    - cron: "30 20 * * 5"
+    - cron: "30 21 * * 5"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "preview writes nothing to the site; publish commits the wrap to main"
+        required: true
+        default: "preview"
+        type: choice
+        options:
+          - preview
+          - publish
+      week_ending:
+        description: "Friday to wrap (YYYY-MM-DD). Blank means the latest Friday."
+        required: false
+        default: ""
+      force:
+        description: "Rewrite the wrap if one already exists for that week"
+        required: false
+        default: false
+        type: boolean
+
+# Share the daily edition's lock so the two jobs never push to main together.
+concurrency:
+  group: curated-insights-edition
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  TZ: America/New_York
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  wrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref_name || 'main' }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: scripts/requirements.lock
+
+      - name: Install locked dependencies
+        run: python -m pip install -r scripts/requirements.lock
+
+      - name: Test the wrap generator
+        run: python -m unittest tests.test_weekly_wrap -v
+
+      - name: Configure the publication identity
+        run: |
+          git config user.name "LTG Editorial Desk"
+          git config user.email "actions@lighttowergroup.co"
+
+      - name: Build the weekly wrap
+        id: build
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-v4-pro
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          EVENT_NAME: ${{ github.event_name }}
+          MODE: ${{ github.event_name == 'schedule' && 'publish' || inputs.mode }}
+          WEEK_ENDING: ${{ inputs.week_ending }}
+          FORCE: ${{ inputs.force }}
+        shell: bash
+        run: |
+          args=(--mode "$MODE")
+          [[ "$EVENT_NAME" == "schedule" ]] && args+=(--scheduled)
+          [[ -n "$WEEK_ENDING" ]] && args+=(--week-ending "$WEEK_ENDING")
+          [[ "$FORCE" == "true" ]] && args+=(--force)
+          python scripts/weekly_wrap.py "${args[@]}" | tee wrap-output.txt
+          if [[ "$MODE" == "publish" && -n "$(git status --porcelain -- insights | grep 'weekly-wrap-')" ]]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate before deployment
+        if: steps.build.outputs.publish == 'true'
+        run: python scripts/validate_publication.py
+
+      - name: Report
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "# Friday Weekly Wrap"
+            echo '```'
+            cat wrap-output.txt 2>/dev/null || echo "no output"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Preserve the preview
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: weekly-wrap-${{ github.run_id }}
+          path: |
+            .editorial-state/weekly-wrap-preview.json
+            .editorial-state/weekly-wraps/
+            wrap-output.txt
+          if-no-files-found: ignore
+          include-hidden-files: true
+          retention-days: 30
+
+      - name: Publish the wrap to main
+        if: steps.build.outputs.publish == 'true'
+        run: >-
+          python scripts/publish_generated.py
+          --branch main
+          --message "Publish Friday weekly wrap ${{ github.run_id }}"

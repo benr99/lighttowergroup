@@ -121,6 +121,17 @@
     }
 
     /* FILTERS */
+    .weekly-feature { padding-top: 0; padding-bottom: 1.75rem; }
+    .weekly-feature[hidden] { display: none; }
+    .weekly-feature a {
+      display: block; text-decoration: none; color: inherit;
+      border: 1px solid var(--accent); background: rgba(201,168,76,0.07); padding: 1.6rem 1.8rem;
+    }
+    .weekly-feature a:hover .post-card-title { color: var(--accent); }
+    .weekly-feature-eyebrow {
+      display: block; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 0.85rem;
+    }
     .insights-filters {
       padding: 2.5rem 0;
       border-bottom: 1px solid var(--line);
@@ -302,7 +313,7 @@
     <div class="insights-hero container">
       <span class="index-header">Insights</span>
       <h1 class="insights-headline">Capital Markets,<br>Clearly Explained</h1>
-      <p class="insights-sub">Daily intelligence across commercial real estate, private equity, data centers, energy, banking, macro policy, and government regulation.</p>
+      <p class="insights-sub">Daily intelligence across commercial real estate, private equity, data centers, energy, banking, macro policy, and government regulation. Every Friday, a sector-by-sector wrap of the week.</p>
       <form class="newsletter-inline" id="newsletter-form" style="margin-top:1.5rem;display:flex;gap:0.5rem;max-width:480px;">
         <input type="email" id="newsletter-email" placeholder="Your email" required
                style="flex:1;border:1px solid var(--line-strong);background:var(--bg);padding:0.7rem 1rem;font:inherit;font-size:0.9rem;">
@@ -323,7 +334,10 @@
       <button class="filter-btn" data-filter="banking_credit" aria-pressed="false">Banking</button>
       <button class="filter-btn" data-filter="fed_macro" aria-pressed="false">Fed & Macro</button>
       <button class="filter-btn" data-filter="local_government" aria-pressed="false">Government</button>
+      <button class="filter-btn" data-filter="weekly_wrap" aria-pressed="false">Weekly Wrap</button>
     </div>
+
+    <section class="weekly-feature container" id="weekly-feature" aria-label="Latest Friday weekly wrap" hidden></section>
 
     <div class="insights-tools" style="padding-bottom:0;">
       <label class="sr-only" for="insights-search">Search Insights</label>
@@ -392,6 +406,7 @@
       banking_credit: ['Banking', 'Credit Markets', 'Lending', 'CMBS'],
       fed_macro: ['Federal Reserve', 'Macroeconomic Policy', 'Interest Rates', 'Treasury'],
       local_government: ['Local Government', 'Zoning', 'Regulation', 'Development'],
+      weekly_wrap: ['Weekly Wrap'],
     };
     let allPosts = [];
     let activeFilter = 'all';
@@ -469,7 +484,8 @@
         badge.textContent = post.format === 'flagship' ? 'Flagship' :
                            post.format === 'brief' ? 'Brief' :
                            post.format === 'culture_signal' ? 'Culture of Capital' :
-                           post.format === 'data_note' ? 'Data Note' : '';
+                           post.format === 'data_note' ? 'Data Note' :
+                           post.format === 'weekly' ? 'Weekly Wrap' : '';
         badge.style.cssText = 'display:inline-block;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.14em;padding:0.15rem 0.55rem;margin-left:0.5rem;background:rgba(201,168,76,0.1);color:var(--accent);font-weight:600;';
         if (post.format === 'flagship') {
           badge.style.background = 'var(--accent)';
@@ -548,6 +564,20 @@
       });
     }
 
+    function renderWeeklyFeature() {
+      const box = document.getElementById('weekly-feature');
+      const latest = allPosts.find(function (p) { return p.format === 'weekly'; });
+      if (!box || !latest) return;
+      const link = document.createElement('a');
+      link.href = safeHref(latest);
+      addText(link, 'span', 'weekly-feature-eyebrow', 'Friday Weekly Wrap · ' + formatDate(latest.date));
+      addText(link, 'p', 'post-card-title', latest.title);
+      addText(link, 'p', 'post-card-excerpt', latest.excerpt);
+      addText(link, 'span', 'post-card-read', 'Read the week by sector →');
+      box.replaceChildren(link);
+      box.hidden = false;
+    }
+
     function applyFilter(cat) {
       activeFilter = cat;
       activePage = 1;
@@ -580,6 +610,7 @@
       .then(r => r.json())
       .then(data => {
         allPosts = Array.isArray(data) ? data.sort((a, b) => parseSortDate(b.date) - parseSortDate(a.date)) : [];
+        renderWeeklyFeature();
         renderCuratedGrid();
       })
       .catch(() => {

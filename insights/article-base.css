@@ -108,6 +108,22 @@ body { background: var(--black); color: var(--white);
 .article-body strong { color: var(--white); }
 .article-body a { color: var(--gold); }
 
+/* ── Lists and section heads (used by the Friday weekly wrap) ── */
+.article-body h2 {
+  font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); margin: 2.8rem 0 1.1rem; padding-top: 1.4rem; border-top: 1px solid var(--gold-dim);
+}
+.article-body ul { list-style: none; margin: 0 0 1.8rem; padding: 0; }
+.article-body li {
+  position: relative; padding-left: 1.4rem; margin-bottom: 1.15rem;
+  font-size: 1.12rem; line-height: 1.7; color: var(--body-txt);
+}
+.article-body li::before {
+  content: ""; position: absolute; left: 0; top: 0.72em; width: 0.42rem; height: 0.42rem;
+  background: var(--gold); border-radius: 50%;
+}
+.article-body li em { color: var(--muted); }
+
 .article-data-note {
   margin: 0 0 2.5rem; padding: 1.5rem;
   border: 1px solid var(--gold-dim); background: rgba(var(--gold-rgb), 0.05);
