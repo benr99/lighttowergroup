@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VOICE_DIR = ROOT / "docs" / "voice"
 PROMPT_DIR = VOICE_DIR / "prompts"
 
-VOICE_PROMPT_VERSION = "voice-1"
+VOICE_PROMPT_VERSION = "voice-2-codex-merge"
 
 LENSES = (
     "capital cycle", "time and patience", "trust and institutions", "home and belonging",
@@ -60,6 +60,15 @@ SHAPES: dict[str, tuple[str, str]] = {
     "The Rule Changed": (
         "a policy, ruling or regulation reallocates who wins and loses",
         "hook on the rule and the person it lands on; what changed; who gains, who pays, who waits; the turn (the second-order effect); the pattern; kicker on the next test",
+    ),
+    # The next two come from Codex's July voice modes ("lender's-eye memorandum" and "underwriting margin").
+    "The Lender's Question": (
+        "a loan, refinancing or credit decision where the terms the sources give answer a hard question",
+        "hook on the loan term that matters; the question a credit committee would ask, as a voice line; the facts that answer it; the turn (what the terms protect against); who carries the risk; kicker is the question the reader should ask their own lender",
+    ),
+    "What Has to Be True": (
+        "a purchase, development or recapitalisation whose plan depends on something the sources state (a lease-up, a rate, a completion date)",
+        "hook on the plan's key number; what the sources say the plan needs; the turn (a take on what has to hold for it to work, framed as a reading); the evidence for and against in the sources; kicker on the date or figure that will settle it",
     ),
     "The Ritual": (
         "the deal reveals what people value: status, ownership, belonging, legacy",
