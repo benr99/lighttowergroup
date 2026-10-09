@@ -136,6 +136,9 @@ jobs:
           RUN_MODE: ${{ steps.policy.outputs.mode }}
           ARTICLE_COUNT: ${{ inputs.article_count || '5' }}
           PIPELINE: ${{ github.event_name == 'workflow_dispatch' && inputs.pipeline || 'v4' }}
+          # Ben's voice for flagships and analyses. Off in production until Ben sets the
+          # repository variable INSIGHTS_VOICE to "on" after reading the rehearsal week.
+          INSIGHTS_VOICE: ${{ vars.INSIGHTS_VOICE || 'off' }}
         working-directory: scripts
         shell: bash
         run: |

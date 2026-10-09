@@ -156,6 +156,7 @@ def run(
     state_dir: Path | None = None,
     budget: Any = None,
     memory: Any = None,
+    voice: bool | None = None,
 ) -> tuple[RunReport, Any]:
     """Run the full v3 pass. Returns (report, slate_report).
 
@@ -432,6 +433,13 @@ def run(
                     }
                     if pipeline == "v4":
                         generation_kwargs["article_budget_s"] = 300
+                        # Ben's voice is on for previews unless switched off, and off for
+                        # publishing unless INSIGHTS_VOICE=on says otherwise.
+                        if voice is None:
+                            import os
+                            env = os.environ.get("INSIGHTS_VOICE", "").strip().lower()
+                            voice = (env in {"on", "1", "true", "yes"}) if env else (mode == "preview")
+                        generation_kwargs["voice"] = voice
                     else:
                         generation_kwargs.update({
                             "api_key": api_key,
@@ -448,6 +456,8 @@ def run(
                         else:
                             report.warnings.append(message)
                     withheld = getattr(gen_report, "withheld", 0)
+                    if getattr(gen_report, "stop_reason", ""):
+                        report.warnings.append(f"writing stopped early: {gen_report.stop_reason}")
                     if withheld:
                         report.warnings.append(
                             f"{withheld} of {gen_report.requested} drafts were withheld because they could "
@@ -634,7 +644,8 @@ def format_summary(report: RunReport) -> str:
         lines.append(
             f"    written        {g.get('written', 0)}/{g.get('requested', 0)}"
             f"  in {g.get('elapsed_seconds', 0):.0f}s"
-            f"  (held {g.get('held', 0)}, failed {g.get('failed', 0)})"
+            f"  (voice {g.get('voiced', 0)}, withheld {g.get('withheld', 0)},"
+            f" skipped {g.get('skipped', 0)}, failed {g.get('failed', 0)})"
         )
     if report.publication:
         p = report.publication
@@ -681,6 +692,9 @@ def main() -> int:
     parser.add_argument("--quality-floor", type=float, default=40.0)
     parser.add_argument("--include-review", action="store_true",
                         help="manual only: include drafts flagged for editorial review")
+    parser.add_argument("--voice", choices=["on", "off"],
+                        help="write flagships and analyses in Ben's voice (default: on for preview, "
+                             "off for publish, unless INSIGHTS_VOICE says otherwise)")
     parser.add_argument("--state-dir", type=Path,
                         help="operator/testing override for run artifacts and durable state")
     args = parser.parse_args()
@@ -700,6 +714,7 @@ def main() -> int:
         quality_floor=args.quality_floor,
         generation_workers=args.workers,
         state_dir=args.state_dir,
+        voice=None if args.voice is None else args.voice == "on",
     )
     # Shadow is diagnostic and may report weak measures without taking down the
     # production v2 edition. Preview and publish must fail visibly on real errors.

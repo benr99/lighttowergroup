@@ -323,6 +323,40 @@ def summarise(report: PublishReport) -> str:
     return "\n".join(lines)
 
 
+#: The verified subset of a day publishes on its own unless more than this share of the
+#: selected stories failed or were skipped; then the whole day goes to a review PR.
+MAX_UNFINISHED_SHARE = 0.2
+
+
+def publication_decision(
+    *, published: int, publish_failed: int, generation_failed: int, generation_skipped: int,
+    requested: int, stop_reason: str = "", max_share: float = MAX_UNFINISHED_SHARE,
+) -> tuple[bool, list[str], list[str]]:
+    """May today's verified stories go live without a person looking first?
+
+    Every published sentence has already passed the fact gate, so one story that failed
+    or ran out of time is not a reason to hold back the others. A large share of failures
+    is: it usually means something is wrong with the day, and a person should look.
+    Withheld stories (written but not verifiable) are a correct outcome and never count.
+    """
+    reasons: list[str] = []
+    notes: list[str] = []
+    unfinished = generation_failed + generation_skipped
+    if not published:
+        reasons.append("nothing was published")
+    if publish_failed:
+        reasons.append(f"{publish_failed} publication operation(s) failed")
+    if requested and unfinished / requested > max_share:
+        reasons.append(f"{unfinished} of {requested} selected stories failed or were skipped "
+                       f"(more than {max_share:.0%})")
+    elif unfinished:
+        notes.append(f"{unfinished} of {requested or unfinished} selected stories failed or were skipped; "
+                     "the verified rest published")
+    if stop_reason:
+        notes.append(f"writing stopped early: {stop_reason}")
+    return not reasons, reasons, notes
+
+
 def finalize_publication(
     report: PublishReport,
     run_report: Any,
@@ -388,6 +422,11 @@ def finalize_publication(
     paths = [SITE_ROOT / value for value in report.files_written]
     paths.extend(save_public_edition(edition))
 
+    allowed, reasons, notes = publication_decision(
+        published=report.published, publish_failed=report.failed,
+        generation_failed=generation_failed, generation_skipped=generation_skipped,
+        requested=int(generation.get("requested") or 0), stop_reason=str(generation.get("stop_reason") or ""),
+    )
     held = [
         result.get("title") or result.get("object_id") or "Untitled"
         for result in report.results
@@ -401,11 +440,9 @@ def finalize_publication(
         # completed subset can continue to main without one held article
         # blocking the day's entire edition.
         "review_required": False,
-        "auto_publish_allowed": total_failed == 0 and generation_skipped == 0 and bool(report.published),
-        "reasons": (["one or more selected stories failed during generation or publication"]
-                    if total_failed else []) +
-                   (["one or more selected stories were skipped before publication"]
-                    if generation_skipped else []),
+        "auto_publish_allowed": allowed,
+        "reasons": reasons,
+        "notes": notes,
         "held_for_review": held,
         "article_count": report.published,
         "failed_count": total_failed,

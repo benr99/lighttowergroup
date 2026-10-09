@@ -146,5 +146,36 @@ class CompleteReleasePackage(unittest.TestCase):
         self.assertEqual(edition["briefs"][0]["source_count"], 2)
 
 
+
+
+class PublicationDecisionTests(unittest.TestCase):
+    """One failed or skipped story must not hold back the verified rest of the day (F16)."""
+
+    def decide(self, **kwargs):
+        from v3_publish import publication_decision
+        base = {"published": 9, "publish_failed": 0, "generation_failed": 0, "generation_skipped": 0,
+                "requested": 10}
+        return publication_decision(**{**base, **kwargs})
+
+    def test_one_failure_in_ten_still_publishes_and_says_so(self):
+        allowed, reasons, notes = self.decide(generation_failed=1)
+        self.assertTrue(allowed)
+        self.assertEqual(reasons, [])
+        self.assertIn("1 of 10", notes[0])
+
+    def test_three_unfinished_in_ten_goes_to_review(self):
+        allowed, reasons, _ = self.decide(published=7, generation_failed=1, generation_skipped=2)
+        self.assertFalse(allowed)
+        self.assertIn("3 of 10", reasons[0])
+
+    def test_nothing_published_or_a_publish_error_never_goes_live(self):
+        self.assertFalse(self.decide(published=0)[0])
+        self.assertFalse(self.decide(publish_failed=1)[0])
+
+    def test_early_stop_is_recorded(self):
+        _, _, notes = self.decide(stop_reason="DeepSeek unavailable")
+        self.assertTrue(any("DeepSeek unavailable" in n for n in notes))
+
+
 if __name__ == "__main__":
     unittest.main()

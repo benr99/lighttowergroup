@@ -42,11 +42,44 @@ class ProviderChain(unittest.TestCase):
         finally:
             model_router.configure_state_dir(original)
 
+    def test_deepseek_is_the_only_provider_by_default(self) -> None:
+        with (
+            patch.dict(model_router.os.environ, {}, clear=False),
+            patch.object(model_router, "get_api_keys",
+                         return_value={"deepseek": "deep-key", "openai": "open-key"}),
+        ):
+            model_router.os.environ.pop("LTG_PROVIDERS", None)
+            chain = model_router.provider_chain(None, for_writing=True)
+            self.assertIsNone(model_router.provider_config("openai", for_writing=True))
+        self.assertEqual([entry["provider"] for entry in chain], ["deepseek"])
+
+    def test_select_provider_retries_deepseek_then_names_it(self) -> None:
+        health = [False, False, True]
+        with (
+            patch.object(model_router, "get_api_keys", return_value={"deepseek": "k", "openai": "o"}),
+            patch.object(model_router, "check_provider_health", side_effect=health) as probe,
+            patch.object(model_router.time, "sleep"),
+        ):
+            model_router.os.environ.pop("LTG_PROVIDERS", None)
+            provider = model_router.select_provider(for_writing=True)
+        self.assertEqual(provider["provider"], "deepseek")
+        self.assertEqual(probe.call_count, 3)
+        with (
+            patch.object(model_router, "get_api_keys", return_value={"deepseek": "k", "openai": "o"}),
+            patch.object(model_router, "check_provider_health", return_value=False),
+            patch.object(model_router.time, "sleep"),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "deepseek did not answer"):
+                model_router.select_provider(for_writing=True)
+
     def test_configured_alternate_follows_preferred_provider(self) -> None:
-        with patch.object(
-            model_router,
-            "get_api_keys",
-            return_value={"deepseek": "deep-key", "openai": "open-key"},
+        with (
+            patch.dict(model_router.os.environ, {"LTG_PROVIDERS": "deepseek,openai"}),
+            patch.object(
+                model_router,
+                "get_api_keys",
+                return_value={"deepseek": "deep-key", "openai": "open-key"},
+            ),
         ):
             chain = model_router.provider_chain(
                 {
@@ -112,7 +145,7 @@ class PerCallFailover(unittest.TestCase):
                 editorial_scoring.call_deepseek("prompt", "deep-key", max_tokens=500, provider=preferred)
         self.assertTrue(any("provider_call" in call.args for call in log.call_args_list))
 
-    def test_failed_primary_call_retries_then_uses_openai(self) -> None:
+    def test_failed_primary_call_retries_then_uses_openai_when_opted_in(self) -> None:
         success = {
             "choices": [{"message": {"content": '{"ok": true}'}, "finish_reason": "stop"}],
             "usage": {"prompt_tokens": 10, "completion_tokens": 4, "total_tokens": 14},
@@ -125,6 +158,7 @@ class PerCallFailover(unittest.TestCase):
             "url": "https://api.deepseek.com/v1/chat/completions",
         }
         with (
+            patch.dict(model_router.os.environ, {"LTG_PROVIDERS": "deepseek,openai"}),
             patch.object(
                 model_router,
                 "get_api_keys",
@@ -151,6 +185,7 @@ class PerCallFailover(unittest.TestCase):
             "url": "https://api.deepseek.com/v1/chat/completions",
         }
         with (
+            patch.dict(model_router.os.environ, {"LTG_PROVIDERS": "deepseek,openai"}),
             patch.object(
                 model_router,
                 "get_api_keys",

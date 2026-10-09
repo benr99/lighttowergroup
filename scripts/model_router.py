@@ -1,4 +1,10 @@
-"""Model provider router with automatic fallback for Light Tower editorial pipeline."""
+"""Model provider router for the Light Tower editorial pipeline.
+
+DeepSeek is the only provider in use (Ben's decision, 2026-10-09). OpenAI support
+remains in the code for history and can be switched back on deliberately with
+LTG_PROVIDERS=deepseek,openai, but nothing in the live pipeline tries it by default,
+so a missing or exhausted OpenAI account can never cost a call or a delay.
+"""
 
 from __future__ import annotations
 import json
@@ -22,6 +28,13 @@ OPENAI_MODEL_FALLBACK = os.environ.get("OPENAI_MODEL_FALLBACK", "gpt-4o-mini")
 OPENAI_MODEL_WRITING = os.environ.get("OPENAI_MODEL_WRITING", "gpt-4o")
 
 
+def allowed_providers() -> tuple[str, ...]:
+    """Providers the pipeline may call, in order. Default: DeepSeek only."""
+    raw = os.environ.get("LTG_PROVIDERS", "deepseek")
+    names = tuple(n.strip().lower() for n in raw.split(",") if n.strip())
+    return names or ("deepseek",)
+
+
 def configure_state_dir(path: str | Path | None = None) -> Path:
     """Route provider diagnostics alongside the current run's other state."""
     global STATE_DIR, PROVIDER_LOG_PATH, PRIMARY_HEALTH_PATH
@@ -40,6 +53,8 @@ def get_api_keys() -> dict[str, str | None]:
 
 def provider_config(provider: str, *, for_writing: bool = False) -> dict[str, Any] | None:
     """Build a secret-bearing provider config from the current environment."""
+    if provider not in allowed_providers():
+        return None
     keys = get_api_keys()
     if provider == "deepseek" and keys.get("deepseek"):
         return {
@@ -76,7 +91,7 @@ def provider_chain(
     chain: list[dict[str, Any]] = []
     if preferred and preferred.get("api_key"):
         chain.append(dict(preferred))
-    for name in ("deepseek", "openai"):
+    for name in allowed_providers():
         candidate = provider_config(name, for_writing=for_writing)
         if candidate is None:
             continue
@@ -120,23 +135,29 @@ def check_provider_health(
     return False
 
 
-def select_provider(for_writing: bool = False) -> dict[str, Any]:
-    """Select the best available provider. Returns {provider, model, api_key, url, fallback}."""
+def select_provider(for_writing: bool = False, *, pauses: tuple[float, ...] = (0, 5, 15)) -> dict[str, Any]:
+    """Return the first allowed provider that answers a health check.
+
+    DeepSeek is occasionally slow to answer under load, so each provider gets a few
+    patient attempts before the run gives up and says plainly that it is unavailable.
+    """
     keys = get_api_keys()
-
-    # Check primary (DeepSeek)
-    primary_ok = check_provider_health("deepseek", keys.get("deepseek"), DEEPSEEK_MODEL)
-    if primary_ok:
-        return provider_config("deepseek", for_writing=for_writing) or {}
-
-    # Try fallback (OpenAI)
-    fallback_model = OPENAI_MODEL_WRITING if for_writing else OPENAI_MODEL_FALLBACK
-    fallback_ok = check_provider_health("openai", keys.get("openai"), fallback_model)
-    if fallback_ok:
-        _log_provider_switch("deepseek -> openai", "primary unavailable")
-        return provider_config("openai", for_writing=for_writing) or {}
-
-    raise RuntimeError("No LLM provider available. Both primary and fallback are down.")
+    tried: list[str] = []
+    for index, name in enumerate(allowed_providers()):
+        config = provider_config(name, for_writing=for_writing)
+        if not config:
+            continue
+        tried.append(name)
+        for pause in pauses:
+            if pause:
+                time.sleep(pause)
+            if check_provider_health(name, keys.get(name), config.get("model")):
+                if index:
+                    _log_provider_switch(f"{allowed_providers()[0]} -> {name}", "primary unavailable")
+                return config
+    if not tried:
+        raise RuntimeError("No LLM provider available: DEEPSEEK_API_KEY is not set.")
+    raise RuntimeError(f"No LLM provider available: {', '.join(tried)} did not answer.")
 
 
 def log_provider_event(event: str, **fields: Any) -> None:
