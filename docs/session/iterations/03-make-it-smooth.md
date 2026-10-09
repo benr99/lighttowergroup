@@ -1,3 +1,5 @@
+> **Status (2026-10-09): done.** See LOG.md, Iteration 03.
+
 # Iteration 03: Make it smooth (everything before the rehearsal week)
 
 Milestones: M1 (writer), M2 (protect the reader), M4 (part), M5 (part), M6 (part)

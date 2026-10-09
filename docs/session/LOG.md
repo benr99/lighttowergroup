@@ -33,3 +33,24 @@
 ## Between iterations: Ben zooms out (2026-10-09)
 
 Ben asked where Codex's writing work went, paused go-live, chose DeepSeek only, and approved turning off the old "LTG Daily News Agent" task. Disabling it failed with "Access is denied" (it needs administrator rights), so Ben will do that one step. Codex's writing history and the zoomed-out plan are in `ZOOM_OUT_PLAN.md`; the backlog is reordered; Iteration 02 is on hold.
+
+## Iteration 03: Make it smooth (2026-10-09)
+
+**Outcome: done, except the parts that need Ben** (push, switching on the rehearsal schedule, the admin step for the old Windows task, and voice in production). Prompt: `iterations/03-make-it-smooth.md`.
+
+**Commits** (on `codex/phase-0-accurate-writer`, not pushed): session prompt; 1.4–1.6 DeepSeek only, retries, spend cap, verified subset publishes; 7.1 one writer with Ben's voice; 7.3 Codex's voice work merged; 6.1 story picking (F17, F18); oversight (digest, health note, wrap switch); 3.1 renderer extracted (F1); F19 state isolation; 1.3 sector filters (F14); 0.6 rehearsal kit; map and plan; two rounds of rehearsal fixes.
+
+**Evidence**
+- 542 tests pass; compile, publication validation, JS checks and map validation pass.
+- Rendered page byte-identical before and after the renderer move.
+- Three live 10-story preview days, DeepSeek only, $0.34–0.37 each, 10/10 written every time, 9 in Ben's voice.
+- Independent audits: run 1, 0 of 81; run 2, **1 of 76** ("will add updated apartments" where the source says "offer"); run 3, 0 of 94. The run-2 sentence was re-checked with the updated checker and is now cut.
+- A human read of every opinion line found: an intent claim ("the mayor is trying to... without another tax hike"), a motive claim ("betting that"), stock deadline lines ("the clock is ticking"), a take adopting one side's allegation (Cook hearing), a reading stated as a finding with a prediction about other cities. All are now rejected by rules, with tests that replay the exact sentences.
+- Encoding damage from one source (U+FFFD) would have failed the publisher's mojibake check and sent the whole day to review; the source text is now repaired before writing.
+- Found in passing: two backspace characters in the retired `_surprise` regex on `origin/main`; fixed.
+
+**Deviations from the prompt**
+- Moving legacy code to `scripts/legacy/` and extracting shared types were left out (too many importers to do safely in one run).
+- The prompt planned one live run; there were three, because each read found something to fix.
+
+**Decisions requested:** see the report to Ben (switch on the rehearsal, disable the old task, push when ready).
