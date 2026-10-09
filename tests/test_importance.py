@@ -119,7 +119,7 @@ class NoDeadMeasures(unittest.TestCase):
         self.assertAlmostEqual(report["weight_sum"], 1.0, places=5)
         self.assertNotIn("surprise", report["measures"])
         for name in report["active_measures"]:
-            self.assertEqual(report["measures"][name]["status"], "active")
+            self.assertIn(report["measures"][name]["status"], ("active", "gate"))
             self.assertGreater(report["measures"][name]["weight"], 0)
 
     def test_the_scale_uses_a_meaningful_range(self) -> None:
@@ -160,6 +160,17 @@ class PrecedentVaries(unittest.TestCase):
         self.assertEqual(report["measured_over"], "eligible")
         self.assertEqual(report["pool_size"], 30)
         self.assertNotIn("precedent", report["degenerate"])
+
+
+class NoveltyIsAGate(unittest.TestCase):
+    def test_a_day_with_no_repeats_is_not_a_dead_measure(self) -> None:
+        population = _varied_population()
+        for node in population:
+            node.novelty_state = NoveltyState.NEW
+        score_all(population)
+        report = distribution_report(population)
+        self.assertNotIn("novelty", report["degenerate"])
+        self.assertTrue(report["measures"]["novelty"]["verdict"].startswith("gate"))
 
 
 class SectorRelativeMagnitude(unittest.TestCase):

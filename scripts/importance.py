@@ -68,7 +68,10 @@ MEASURE_CONTRACTS = {
     "market_impact": {"status": "active", "range": [1, 10], "base_weight": 1.3},
     "parties": {"status": "active", "range": [1, 10], "base_weight": 1.1},
     "precedent": {"status": "active", "range": [1, 10], "base_weight": 1.2},
-    "novelty": {"status": "active", "range": [1, 10], "base_weight": 1.2},
+    # A gate, not a ranker: it separates repeats from new events. On a day with no repeats
+    # every eligible story is "new" and the measure is constant by design (rehearsal
+    # 2026-10-09), so it is reported but never flagged as degenerate.
+    "novelty": {"status": "gate", "range": [1, 10], "base_weight": 1.2},
     "story_richness": {"status": "active", "range": [1, 10], "base_weight": 1.2},
     "evidence": {"status": "active", "range": [0, 10], "base_weight": 1.4},
     "right_to_win": {"status": "active", "range": [1, 10], "base_weight": 1.1},
@@ -323,8 +326,8 @@ def _surprise(obj: IntelligenceObject) -> ScoreComponent:
     elif _DISTRESS.search(text):
         score, why = 6, "distress is rarely what the market had priced"
         evidence.append("distress language")
-    elif re.search(r"(?:first|record|halt(?:s|ed)?|paus(?:e|es|ed)|cancel\w+|"
-                   r"withdraw\w+|scrap(?:s|ped)?|delay(?:s|ed)?|abandon\w+)", text, re.I):
+    elif re.search(r"\b(?:first|record|halt(?:s|ed)?|paus(?:e|es|ed)|cancel\w+|"
+                   r"withdraw\w+|scrap(?:s|ped)?|delay(?:s|ed)?|abandon\w+)\b", text, re.I):
         score, why = 5, "a change of course rather than a continuation"
         evidence.append("reversal language")
     elif obj.object_class == ObjectClass.DATA_RELEASE:
@@ -573,7 +576,9 @@ def distribution_report(objects: Sequence[IntelligenceObject]) -> dict[str, Any]
         if component is not None:
             entry["weight"] = component.weight
             report["weights"][name] = component.weight
-        if unique == 1:
+        if entry["status"] == "gate" and (unique == 1 or modal_share >= 0.9):
+            entry["verdict"] = "gate: most stories pass, as expected"
+        elif unique == 1:
             entry["verdict"] = "CONSTANT"
             report["degenerate"].append(name)
         elif modal_share >= 0.9:

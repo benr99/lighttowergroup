@@ -146,13 +146,27 @@ class GenerationReport:
         return asdict(self)
 
 
+_REPLACEMENT_BETWEEN_LETTERS = re.compile(r"(?<=[A-Za-z])\ufffd(?=[A-Za-z])")
+
+
+def _repair_decoding(text: str) -> str:
+    """Undo the commonest decoding damage in retrieved pages (rehearsal 2026-10-09: "Solomon\ufffds").
+
+    A replacement character between letters is an apostrophe in practice; anywhere else it is
+    dropped. The writer quotes from this repaired text, so quotes still match the source.
+    """
+    if "\ufffd" not in text:
+        return text
+    return _REPLACEMENT_BETWEEN_LETTERS.sub("\u2019", text).replace("\ufffd", "")
+
+
 def _safe_dossier(obj: IntelligenceObject, max_chars: int = 18000) -> dict[str, Any]:
     """Keep the factual boundary while preventing an unbounded prompt."""
     dossier = object_to_dossier(obj)
     sources = []
     for source in dossier.get("sources", []):
         item = dict(source)
-        text = str(item.get("text") or item.get("summary") or "")
+        text = _repair_decoding(str(item.get("text") or item.get("summary") or ""))
         item["text"] = text[:5000]
         item.pop("full_text_excerpt", None)
         item.pop("reported_facts", None)

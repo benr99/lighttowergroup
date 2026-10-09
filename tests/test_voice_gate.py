@@ -170,3 +170,40 @@ class PromptAssemblyTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RehearsalFindings(unittest.TestCase):
+    """Sentences the 2026-10-09 rehearsal let through, which a human read rejected."""
+
+    FACTS = {
+        "f1": "Solomon said in a statement that their departures were part of an administrative restructuring.",
+        "f2": "The termination fee is $480M.",
+        "f3": "A grocery-anchored center in Huntington Beach traded for about $589 per square foot.",
+    }
+
+    def check(self, kind: str, text: str, because=("f1",)):
+        from voice_gate import VoiceItem, check_voice_item
+        item = VoiceItem(id="t", kind=kind, text=text, because=list(because))
+        check_voice_item(item, self.FACTS, [], [])
+        return item.problems
+
+    def test_intent_claims_are_rejected(self):
+        self.assertTrue(self.check("take", "My read is that the mayor is trying to rebuild a team that can close the gap."))
+        self.assertTrue(self.check("take", "The pattern I see is a company paying a large price, betting that the savings will outweigh the fee.",
+                                   because=("f2",)))
+
+    def test_stock_deadline_lines_are_rejected(self):
+        self.assertTrue(self.check("voice", "The clock is running."))
+        self.assertTrue(self.check("voice", "That is a serious charge, and the clock is already ticking."))
+
+    def test_fair_readings_still_pass(self):
+        self.assertEqual(self.check("take", "I read the price as a bet on scarcity, not just on the tenant roster.",
+                                    because=("f3",)), [])
+        self.assertEqual(self.check("voice", "That number says more than any press release."), [])
+
+
+class DecodingRepair(unittest.TestCase):
+    def test_replacement_character_between_letters_becomes_an_apostrophe(self):
+        import v4_generation
+        self.assertEqual(v4_generation._repair_decoding("Mayor Solomon�s office � today"),
+                         "Mayor Solomon’s office  today")

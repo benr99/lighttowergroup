@@ -49,7 +49,10 @@ _MENTAL = re.compile(
     r"\b(wants?|wanted|needs?|needed|fears?|feared|hopes?|hoped|believes?|believed|thinks?|thought|knows?|knew|"
     r"worr(?:y|ies|ied)|desperate|panick\w*|secretly|intends?|intended|assum\w+|expects?|expected|"
     r"is betting|was betting|are betting|scared|nervous|decid\w+|chos[ae]|chooses?|refus\w+|declin\w+|avoids?|"
-    r"prefers?|preferred|gives? up|giving up)\b", re.I)
+    r"prefers?|preferred|gives? up|giving up|"
+    # Intent and motive phrasing (rehearsal 2026-10-09: "the mayor is trying to rebuild a team").
+    r"(?:is|are|was|were) (?:trying|attempting|seeking|aiming|looking|hoping|scrambling|racing) to|"
+    r"tr(?:y|ies|ied) to|aims? to|seeks? to|in a bid to|betting that)\b", re.I)
 # Loaded labels are claims in disguise ("distressed", "bargain"). They may appear only if a cited fact uses them.
 _LOADED = re.compile(
     r"\b(distress\w*|desperat\w*|fire[- ]sale|bargain\w*|steal|overpa\w+|underpric\w+|undervalu\w+|overvalu\w+|cheap|"
@@ -60,8 +63,19 @@ _SWEEPING = re.compile(
     r"\b(are|is|will|always|never|all|most|every)\b", re.I)
 _FRAMED = re.compile(r"\b(may|might|could|I read|I'd|I suspect|my guess|looks like|reads like|to me)\b", re.I)
 _ROLE_MENTAL = re.compile(
-    r"\b(the (?:previous|prior|former|old|seller|buyer|owner|lender|sponsor|borrower|firm|company))\b[^.]{0,40}"
-    r"\b(decid\w+|chos[ae]|wants?|wanted|needs?|fears?|knew|knows?|refus\w+|avoid\w*|prefers?)\b", re.I)
+    r"\b(the (?:previous|prior|former|old|seller|buyer|owner|lender|sponsor|borrower|firm|company|"
+    r"mayor|governor|president|city|state|council|board|bank|fund|developer|landlord|tenant|agency|regulator)s?)\b[^.]{0,40}"
+    r"\b(decid\w+|chos[ae]|wants?|wanted|needs?|fears?|knew|knows?|refus\w+|avoid\w*|prefers?|"
+    r"(?:is|are|was|were) (?:trying|attempting|seeking|aiming|hoping) to|tr(?:y|ies|ied) to|betting)\b", re.I)
+# Intent and motive, about anyone, named or not ("a company ... betting that", "is trying to").
+_INTENT = re.compile(
+    r"\b(?:(?:is|are|was|were) (?:trying|attempting|seeking|aiming|hoping|scrambling|racing) to|"
+    # "betting that" claims a party's bet; "I read this as a bet that..." is Ben's own reading and stays.
+    r"tr(?:y|ies|ied) to|aims? to|seeks? to|in a bid to|betting that|in order to)\b", re.I)
+# Stock phrases that sound like reactions but assert something checkable.
+_IMPLIED_CLAIM = re.compile(
+    r"\b(?:clock is (?:already )?(?:ticking|running)|time is running out|running out of time|"
+    r"serious charge|the writing is on the wall|the die is cast|game over|all eyes)\b", re.I)
 _NAME =re.compile(r"(?<=[a-z,;] )(?!I(?:'[a-z]+)?\b)[A-Z][A-Za-z&'.-]{2,}")
 
 RUBRIC_SYSTEM = (
@@ -206,6 +220,8 @@ def check_voice_item(
             item.problems.append("voice lines may not contain numbers")
         if _NAME.search(text):
             item.problems.append("voice lines may not name anyone or anything")
+        if _IMPLIED_CLAIM.search(text):
+            item.problems.append("voice line implies a fact (a deadline, a charge or an outcome); voice lines state none")
         return
 
     # take
@@ -227,6 +243,9 @@ def check_voice_item(
         item.problems.append("uses loaded labels the cited facts do not use: " + ", ".join(loaded[:4]))
     if _SWEEPING.search(text) and not _FRAMED.search(text):
         item.problems.append("states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'")
+    intent = _INTENT.search(text)
+    if intent and intent.group(0).lower() not in cited_text.lower():
+        item.problems.append(f"claims to know what someone is trying to do ('{intent.group(0)}'); no cited fact says so")
     if (_MENTAL.search(text) and _NAME.search(text)) or _ROLE_MENTAL.search(text):
         verbs = {m.group(0).lower() for m in _MENTAL.finditer(text)} | {m.group(2).lower() for m in _ROLE_MENTAL.finditer(text)}
         if not any(v in cited_text.lower() for v in verbs):
@@ -247,6 +266,7 @@ Rules.
 - voice: acceptable only if it asserts nothing that could be true or false about the world (a reaction, a transition, a light joke about the situation). Reject it if it implies something happened, if it mocks a person or a hardship, or if it carries a hidden claim.
 - Opinion about patterns and implications is welcome. Speculation about people's inner states, and anything presented as fact without support, is not.
 - Reject a take if any premise it relies on is not in the cited facts: even a single loaded word ("distressed", "bargain", "lower basis", "struggling"), a comparison the facts do not make, a claim about what an owner, buyer or lender "decided", "chose", "wanted" or "avoided", or a broad claim about "the market" or "investors" stated as fact. A take must read as a reading ("I read this as", "may be", "I'd bet"), not as a finding.
+- Reject a take that adds any condition, goal or outcome the cited facts do not mention (for example "without another tax hike" when no fact mentions avoiding one, or "to win back investors" when no fact gives a reason). Reject any take that says what a person or organisation is "trying to", "aiming to" or "betting" will happen.
 
 Return exactly: {{"results": [{{"id": "...", "verdict": "ok" or "reject", "issue": "one short sentence if reject, else empty"}}]}}
 Include every id once."""
