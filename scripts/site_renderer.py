@@ -447,6 +447,9 @@ def update_manifest(article: dict):
         "pipelineVersion": article.get("pipeline_version"),
         "eventId": article.get("event_id"),
     }
+    if article.get("sector"):
+        # The Intelligence page filters on this (F14); older entries fall back to category.
+        entry["sector"] = article["sector"]
     assert_no_mojibake("manifest entry", entry)
     # Remove any existing entry with same slug
     data = [e for e in data if e.get("slug") != article["slug"]]

@@ -92,6 +92,7 @@ def _article_payload(draft: Any, obj: Any, slug: str) -> dict[str, Any]:
     article.setdefault("subtitle", trim_to_sentence(article.get("excerpt", ""), 160))
     article.setdefault("meta_description", trim_to_sentence(article.get("excerpt", ""), 200))
     article.setdefault("category", _category_for(obj.primary_sector))
+    article.setdefault("sector", obj.primary_sector)
     now = datetime.now(timezone.utc)
     article.setdefault("date_iso", now.isoformat())
     # The shared article renderer displays this human-readable field while its

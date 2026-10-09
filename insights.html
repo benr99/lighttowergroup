@@ -519,10 +519,17 @@
       return card;
     }
 
+    // Newer entries carry their sector; filter on it. Older ones only have a reader-facing category.
+    function matchesFilter(post, filter) {
+      const categories = FILTERS[filter];
+      if (!categories) return true;
+      if (post.sector && filter !== 'weekly_wrap') return post.sector === filter;
+      return categories.indexOf(post.category) !== -1;
+    }
+
     function renderCuratedGrid() {
-      const categories = FILTERS[activeFilter];
       var allFiltered = allPosts.filter(function (post) {
-        const inCategory = !categories || categories.indexOf(post.category) !== -1;
+        const inCategory = matchesFilter(post, activeFilter);
         const searchText = [post.title, post.excerpt, post.category].concat(post.tags || []).join(' ').toLowerCase();
         return inCategory && searchText.indexOf(activeQuery) !== -1;
       });

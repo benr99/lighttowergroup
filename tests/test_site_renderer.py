@@ -38,5 +38,33 @@ class RendererIsIndependent(unittest.TestCase):
             self.assertIs(getattr(daily_news_agent, name), getattr(site_renderer, name))
 
 
+
+class SectorReachesTheFilters(unittest.TestCase):
+    """F14: four sector buttons matched nothing because the manifest had no sector."""
+
+    def test_manifest_entry_carries_the_sector(self):
+        import json
+        import tempfile
+        from unittest import mock
+        sys.path.insert(0, str(SCRIPTS))
+        import site_renderer
+        manifest = Path(tempfile.mkdtemp()) / "insights.json"
+        manifest.write_text("[]", encoding="utf-8")
+        article = {"title": "T", "slug": "t", "date_iso": "2026-10-09T11:00:00+00:00", "category": "Market Commentary",
+                   "meta_description": "An excerpt.", "body_html": "<p>x</p>", "sector": "energy"}
+        with mock.patch.object(site_renderer, "INSIGHTS_JSON", manifest):
+            site_renderer.update_manifest(article)
+            site_renderer.update_manifest({**article, "slug": "legacy", "sector": ""})
+        entries = {e["slug"]: e for e in json.loads(manifest.read_text(encoding="utf-8"))}
+        self.assertEqual(entries["t"]["sector"], "energy")
+        self.assertNotIn("sector", entries["legacy"])
+
+    def test_page_filters_on_sector_when_present(self):
+        page = (ROOT / "insights.html").read_text(encoding="utf-8")
+        self.assertIn("if (post.sector && filter !== 'weekly_wrap') return post.sector === filter;", page)
+        for key in ("energy", "banking_credit", "fed_macro", "local_government"):
+            self.assertIn(f'data-filter="{key}"', page)
+
+
 if __name__ == "__main__":
     unittest.main()
