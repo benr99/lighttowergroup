@@ -192,6 +192,10 @@ class RehearsalFindings(unittest.TestCase):
         self.assertTrue(self.check("take", "The pattern I see is a company paying a large price, betting that the savings will outweigh the fee.",
                                    because=("f2",)))
 
+    def test_findings_and_predictions_elsewhere_are_rejected(self):
+        self.assertTrue(self.check("take", "The resignations show how fiscal stress can destabilize city leadership."))
+        self.assertTrue(self.check("take", "I read this as a pattern likely to repeat in other municipalities."))
+
     def test_stock_deadline_lines_are_rejected(self):
         self.assertTrue(self.check("voice", "The clock is running."))
         self.assertTrue(self.check("voice", "That is a serious charge, and the clock is already ticking."))

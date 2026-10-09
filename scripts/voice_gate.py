@@ -72,6 +72,12 @@ _INTENT = re.compile(
     r"\b(?:(?:is|are|was|were) (?:trying|attempting|seeking|aiming|hoping|scrambling|racing) to|"
     # "betting that" claims a party's bet; "I read this as a bet that..." is Ben's own reading and stays.
     r"tr(?:y|ies|ied) to|aims? to|seeks? to|in a bid to|betting that|in order to)\b", re.I)
+# Readings presented as findings (rehearsal 2026-10-09: "The resignations and vetoes show how fiscal stress...").
+_FINDING = re.compile(r"\b(?:shows?|proves?|demonstrates?|confirms?|reveals?|makes? clear) (?:how|that|why)\b", re.I)
+# Predictions beyond the story ("a pattern likely to repeat in other municipalities").
+_ELSEWHERE = re.compile(
+    r"\b(?:likely|bound|set|poised|expected) to (?:repeat|spread|follow|recur)\b|"
+    r"\b(?:in|across|for) other (?:cities|municipalities|markets|states|lenders|banks|landlords|companies|sectors)\b", re.I)
 # Stock phrases that sound like reactions but assert something checkable.
 _IMPLIED_CLAIM = re.compile(
     r"\b(?:clock is (?:already )?(?:ticking|running)|time is running out|running out of time|"
@@ -229,6 +235,10 @@ def check_voice_item(
         item.problems.append(f"take is {n} words; the limit is {MAX_TAKE_WORDS}")
     if not (_FIRST_PERSON.search(text) or _OPINION_FRAME.search(text)):
         item.problems.append("a take must be first person or plainly framed as opinion")
+    if _FINDING.search(text) and not _FIRST_PERSON.search(text):
+        item.problems.append("states a reading as a finding ('shows how', 'proves'); write it as Ben's read in the first person")
+    if _ELSEWHERE.search(text):
+        item.problems.append("predicts what will happen elsewhere; the facts cover only this story")
     cited = [facts[f] for f in item.because if f in facts]
     if not cited:
         item.problems.append("a take must cite at least one verified fact in 'because'")
@@ -266,6 +276,7 @@ Rules.
 - voice: acceptable only if it asserts nothing that could be true or false about the world (a reaction, a transition, a light joke about the situation). Reject it if it implies something happened, if it mocks a person or a hardship, or if it carries a hidden claim.
 - Opinion about patterns and implications is welcome. Speculation about people's inner states, and anything presented as fact without support, is not.
 - Reject a take if any premise it relies on is not in the cited facts: even a single loaded word ("distressed", "bargain", "lower basis", "struggling"), a comparison the facts do not make, a claim about what an owner, buyer or lender "decided", "chose", "wanted" or "avoided", or a broad claim about "the market" or "investors" stated as fact. A take must read as a reading ("I read this as", "may be", "I'd bet"), not as a finding.
+- Reject a take that adopts one side's allegation, accusation or characterisation as the writer's own reading (for example turning a lawyer's claim that a process is unfair into "I read this as a process built to produce a conclusion"). Another party's claim stays theirs, attributed, in a fact sentence.
 - Reject a take that adds any condition, goal or outcome the cited facts do not mention (for example "without another tax hike" when no fact mentions avoiding one, or "to win back investors" when no fact gives a reason). Reject any take that says what a person or organisation is "trying to", "aiming to" or "betting" will happen.
 
 Return exactly: {{"results": [{{"id": "...", "verdict": "ok" or "reject", "issue": "one short sentence if reject, else empty"}}]}}

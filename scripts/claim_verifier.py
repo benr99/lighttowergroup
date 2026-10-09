@@ -221,7 +221,7 @@ SENTENCES TO CHECK:
 {json.dumps(listing, ensure_ascii=False, indent=1)}
 
 Rules by kind:
-- fact: "supported" only if EVERY claim in the sentence is stated in, or follows directly from, the SOURCE TEXT: who, what, how much, which direction, when, and why. Mark "unsupported" if it adds anything; exaggerates; reverses a direction; merges two separate claims; states a cause the source does not state; adds "first", "largest", "only", "record" or any ranking the source does not give; sums or compares numbers the source does not compare; changes tense or timing; turns a plan, a request or an allegation into an accomplished fact; or attributes a statement to someone who did not make it.
+- fact: "supported" only if EVERY claim in the sentence is stated in, or follows directly from, the SOURCE TEXT: who, what, how much, which direction, when, and why. Mark "unsupported" if it adds anything; exaggerates; reverses a direction; merges two separate claims; states a cause the source does not state; adds "first", "largest", "only", "record" or any ranking the source does not give; sums or compares numbers the source does not compare; changes tense or timing; turns a plan, a request or an allegation into an accomplished fact; or attributes a statement to someone who did not make it. Also "unsupported": a verb that changes what happened (the source says a building will "offer" updated units and the sentence says it will "add" them; "agreed to buy" versus "bought"; "renovate" versus "build").
 - view: "supported" only if it is a cautious inference that follows from these verified facts and asserts no new fact:
 {fact_context[:3000]}
 - action: "supported" only if it is a suggestion to check or ask something and asserts no fact.
@@ -268,7 +268,7 @@ SENTENCES:
 
 For each sentence:
 1. Split it into atomic claims: who did or said what, amounts, dates, places, direction of change, and every qualifier (most, about, expects, plans, could) and attribution (who said it).
-2. For each atomic claim decide supported=true only if the SOURCE TEXT states it with the SAME strength and the SAME attribution. A source that says "most of" does not support "all of" or no qualifier; "plans to" does not support "will" or "did"; a person's opinion or claim does not support the same words as plain fact; a partial name or a partial total is not the whole.
+2. For each atomic claim decide supported=true only if the SOURCE TEXT states it with the SAME strength and the SAME attribution. A source that says "most of" does not support "all of" or no qualifier; "plans to" does not support "will" or "did"; a person's opinion or claim does not support the same words as plain fact; a partial name or a partial total is not the whole. The action must match too: "offer" does not support "add", "agreed to buy" does not support "bought", "renovate" does not support "build".
 3. verdict is "supported" only if every atomic claim is supported.
 
 Return exactly: {{"results": [{{"id": "...", "claims": [{{"claim": "...", "supported": true}}], "verdict": "supported" or "unsupported", "issue": "the unsupported claim, else empty"}}]}}

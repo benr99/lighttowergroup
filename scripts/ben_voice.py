@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VOICE_DIR = ROOT / "docs" / "voice"
 PROMPT_DIR = VOICE_DIR / "prompts"
 
-VOICE_PROMPT_VERSION = "voice-3-rehearsal-fixes"
+VOICE_PROMPT_VERSION = "voice-4-rehearsal-fixes"
 
 LENSES = (
     "capital cycle", "time and patience", "trust and institutions", "home and belonging",
