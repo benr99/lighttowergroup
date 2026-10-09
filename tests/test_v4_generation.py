@@ -73,6 +73,16 @@ def _draft() -> dict:
     }
 
 
+
+def setUpModule():  # keep provider diagnostics out of the repository's .editorial-state
+    import model_router
+    model_router.configure_state_dir(Path(tempfile.mkdtemp()))
+
+
+def tearDownModule():
+    import model_router
+    model_router.configure_state_dir(None)
+
 class FakeVerifier:
     """Stands in for the second model. Supports everything unless told otherwise."""
 

@@ -30,6 +30,16 @@ def _budget(daily: float):
                   ledger_path=Path(tempfile.mkdtemp()) / "spend.json", config={})
 
 
+
+def setUpModule():  # keep provider diagnostics out of the repository's .editorial-state
+    import model_router
+    model_router.configure_state_dir(Path(tempfile.mkdtemp()))
+
+
+def tearDownModule():
+    import model_router
+    model_router.configure_state_dir(None)
+
 class SpendAndOutageTests(unittest.TestCase):
     def test_spend_is_recorded_and_reported(self):
         budget = _budget(25.0)

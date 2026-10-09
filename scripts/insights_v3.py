@@ -229,7 +229,9 @@ def run(
         with stage("ingest feeds"):
             try:
                 from ingestion import fetch_all_sources
-                documents = list(fetch_all_sources())
+                # A preview with --state-dir keeps its source-health ledger there too (F19).
+                documents = list(fetch_all_sources(
+                    health_file=(state_dir / "source-health.json") if state_dir is not None else None))
                 report.documents_from_feeds = len(documents)
             except Exception as exc:  # noqa: BLE001
                 report.errors.append(f"feed ingestion failed: {type(exc).__name__}: {exc}"[:200])
@@ -335,7 +337,8 @@ def run(
             if shortlist:
                 retrieval_report = enrich_objects(
                     shortlist,
-                    retriever=Retriever(),
+                    retriever=Retriever(
+                        cache_dir=(state_dir / "retrieval-cache") if state_dir is not None else None),
                     budget_seconds=enrich_budget_s,
                 )
                 report.retrieval = retrieval_report.to_dict()

@@ -203,6 +203,7 @@ def fetch_single_feed(
 def fetch_all_sources(
     sources: list[dict[str, Any]] | None = None,
     max_workers: int = MAX_WORKERS,
+    health_file: Path | None = None,
 ) -> list[CanonicalItem]:
     """Fetch all active sources concurrently and return normalized CanonicalItems.
 
@@ -223,7 +224,7 @@ def fetch_all_sources(
     if max_workers < 1:
         max_workers = MAX_WORKERS
 
-    health = SourceHealthLedger(SOURCE_HEALTH_FILE)
+    health = SourceHealthLedger(health_file or SOURCE_HEALTH_FILE)
     active_sources: list[dict[str, Any]] = []
     skipped = 0
 

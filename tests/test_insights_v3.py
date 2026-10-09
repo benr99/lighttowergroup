@@ -281,3 +281,31 @@ class BoundedWork(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PreviewStateStaysInItsFolder(unittest.TestCase):
+    """F19: a preview with --state-dir wrote source health and the retrieval cache into the repo."""
+
+    def test_retrieval_cache_and_source_health_follow_the_state_dir(self) -> None:
+        import ingestion
+        import retrieval
+        state = Path(tempfile.mkdtemp())
+        seen = {}
+
+        def _fake_enrich(objects, retriever=None, **kwargs):  # noqa: ARG001
+            seen["cache_dir"] = retriever.cache_dir
+            return retrieval.RetrievalReport(requested=len(list(objects)))
+
+        def _fake_fetch(*args, health_file=None, **kwargs):  # noqa: ARG001
+            seen["health_file"] = health_file
+            return _fixture_documents()
+
+        original = (retrieval.enrich_objects, ingestion.fetch_all_sources, insights_v3._listing_sources)
+        retrieval.enrich_objects, ingestion.fetch_all_sources = _fake_enrich, _fake_fetch
+        insights_v3._listing_sources = lambda limit: []  # no index-page reads (no network)
+        try:
+            run(state_dir=state, enrich_limit=5, verbose=False)
+        finally:
+            retrieval.enrich_objects, ingestion.fetch_all_sources, insights_v3._listing_sources = original
+        self.assertEqual(seen["health_file"], state / "source-health.json")
+        self.assertEqual(seen["cache_dir"], state / "retrieval-cache")
