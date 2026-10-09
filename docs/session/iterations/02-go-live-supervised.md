@@ -1,3 +1,5 @@
+> **ON HOLD (2026-10-09).** Ben paused go-live until the system is smooth end to end. This prompt becomes backlog item 8. See `../ZOOM_OUT_PLAN.md`.
+
 # Iteration 02: Go live, supervised                                     Milestone: M1   Plan items: 0.4–0.7
 
 ## Why now

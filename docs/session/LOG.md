@@ -29,3 +29,7 @@
 - Six of seven sectors were short of their target of 10 (only commercial real estate filled).
 
 **Decisions requested:** push and PR, D12, D13 (see Iteration 02).
+
+## Between iterations: Ben zooms out (2026-10-09)
+
+Ben asked where Codex's writing work went, paused go-live, chose DeepSeek only, and approved turning off the old "LTG Daily News Agent" task. Disabling it failed with "Access is denied" (it needs administrator rights), so Ben will do that one step. Codex's writing history and the zoomed-out plan are in `ZOOM_OUT_PLAN.md`; the backlog is reordered; Iteration 02 is on hold.

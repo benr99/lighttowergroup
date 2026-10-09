@@ -51,8 +51,8 @@ Companion files: `STATE.md` (the verified ground truth, updated every iteration)
 | D9 | Reader feedback loop | Build after M2, starting with scroll depth |
 | D10 | Weekly wrap "why it matters" lines | Keep, source-stated only |
 | D11 | Opinion `take` sentences (voice engine) | Yes, behind a flag, previewed first |
-| D12 | Second, independent fact-check provider | Add OpenAI credit (or another key); today both passes are DeepSeek |
-| D13 | Local Windows tasks ("LTG Daily News Agent" 07:00, "Light Tower Ideas Daily" 06:30) | Keep Ideas until it moves to the cloud; disable the News Agent task |
+| D12 | Second, independent fact-check provider | **Decided 2026-10-09: DeepSeek only.** Remove OpenAI from all provider chains |
+| D13 | Local Windows tasks ("LTG Daily News Agent" 07:00, "Light Tower Ideas Daily" 06:30) | **Decided 2026-10-09:** disable the News Agent task (needs Ben's admin step); keep Ideas |
 
 The Director asks for **at most three decisions per iteration**, each with a recommendation and what happens by default if Ben does not answer.
 
@@ -132,20 +132,22 @@ In order of precedence:
 
 ## 8. Backlog (the queue the Director draws from)
 
-| # | Iteration | Milestone | Plan items | Needs Ben |
-|---|---|---|---|---|
-| 1 | Ship-ready branch and a local end-to-end preview of today's news | M1 | 0.1–0.3 | no |
-| 2 | GitHub preview on the branch, read evidence, one supervised publish, enable | M1 | 0.4–0.7 | push, publish, D12, D13 |
-| 3 | Sector in the manifest, the six filters, spend cap | M2 | 1.3, 1.4 | no |
-| 4 | Partial-day publishing and writer fallback | M2 | 1.5, 1.6 | D4, D5 |
-| 5 | Archive audit and triage | M2 | 1.1, 1.2 | D3 |
-| 6 | Config drives selection; sources; assignment desk; edition record | M3 | 2.1–2.5 | D7, D8, D9 |
-| 7 | Extract renderer and shared types | M4 | 3.1, 3.2 | D1 |
-| 8 | Quarantine legacy; repo hygiene; README and ARCHITECTURE | M4 | 3.4, 4.1–4.5 | D6 |
-| 9 | Health summary, spot check, fixture test, runbooks | M5 | 5.1–5.5 | no |
-| 10 | Voice engine behind a flag; seed the banks | M6 | 7.1–7.3 | D11, Ben's notes |
-| 11 | Editor pass, LinkedIn derivative, A/B | M6 | 7.4–7.6 | posting approval |
-| 12 | Relevance gate and source coverage | M6 | 6.1, 6.4 | no |
+Reordered 2026-10-09 after Ben paused go-live to make the whole system smooth first. See `ZOOM_OUT_PLAN.md`.
+
+| # | Iteration | Plan items | Needs Ben |
+|---|---|---|---|
+| 1 | Ship-ready branch and a live end-to-end preview | 0.1–0.3 | done |
+| 2 | DeepSeek-only reliability: remove OpenAI, patient retries, spend cap enforced, one failure does not block the day | 1.4, 1.5, 1.6 | no |
+| 3 | One writer: merge the voice engine and Codex's voice work into the fast fact-checked writer; light path for briefs | 7.1, 7.3 | D11 |
+| 4 | Better story picking: no administrative notices, relevance gate, fix the two dead measures | 6.1, F17, F18 | no |
+| 5 | Oversight tools: daily digest page, wrap preview switch, daily health note | 0.6a, 5.1, 5.2 | no |
+| 6 | Clean house: renderer out of `daily_news_agent.py`, shared types, legacy parked, sector in manifest and filters | 3.1, 3.2, 3.4, 1.3 | D1 |
+| 7 | Dress rehearsal week: daily previews on this PC, Ben reads digests | 0.6 | Ben's reading |
+| 8 | Go live, supervised (the former Iteration 02) | 0.4–0.7 | push, publish |
+| 9 | Archive triage | 1.1, 1.2 | D3 |
+| 10 | Honest flow and hygiene | 2.x, 4.x | D7, D8, D9 |
+| 11 | Operate it: fixture test, runbooks | 5.3–5.5 | no |
+| 12 | Editor pass, LinkedIn derivative and A/B | 7.4–7.7 | posting approval |
 
 ## 9. The report Ben reads after each iteration
 
