@@ -34,6 +34,8 @@ from readability import unsupported_numbers  # noqa: E402
 
 def main() -> int:
     run = Path(sys.argv[1])
+    from model_router import configure_state_dir
+    configure_state_dir(run)  # provider diagnostics stay with the run, never in the repository
     candidates = json.loads((run / "v3-candidates.json").read_text(encoding="utf-8"))["candidates"]
     by_id = {c["object_id"]: c for c in candidates}
     llm = auditor(provider_config("deepseek", for_writing=True))
