@@ -1,0 +1,25 @@
+STEP 1 OF 2: FIND THE STORY. Do not write the article yet.
+
+STORY: {{STORY}}
+DEPTH: {{DEPTH}}
+
+SOURCES (the complete factual boundary; quotes must be copied from the "text" fields):
+{{SOURCES}}
+
+Decide what this piece is really about, the way an editor would before assigning it. Work only from the sources.
+
+1. PROTAGONIST: the one person, company, building or place the reader should care about, and what they stand to win or lose.
+2. TENSION: the choice, clock, constraint or contradiction that makes this more than a transaction. If the sources show none, say so; the piece will then be shorter and plainer.
+3. WHY NOW: what makes this worth reading this week.
+4. THE NUMBER THAT MATTERS: the single figure (or detail) that does the most work, and what it means in human terms.
+5. LENS: choose exactly one from: capital cycle; time and patience; trust and institutions; home and belonging; status and ambition; work and cities; power and politics; technology and land; climate and risk; demographic change. Say in one line how it applies, using only what the sources show.
+6. SHAPE: choose exactly one:
+{{SHAPES}}
+7. HOOKS: write four candidate opening sentences (each one or two short sentences, under 200 characters). Every hook must be a plain statement of a quoted fact, chosen to surprise or to put a person in the scene. For each, give the quote it rests on, copied exactly from the source text.
+8. HEADLINES: write four candidates, each under 70 characters, built from verified facts, plain and specific, with one surprise. No labels like "X announces Y".
+9. PICK: choose the best hook and headline and say why in one line each.
+10. SIGNIFICANCE: one sentence naming the bigger pattern this story may illustrate, and the evidence from the sources that supports saying so. If the evidence is thin, write "none: keep it close to the facts".
+11. KICKER IDEA: how the piece could end (an echo of the hook, or a testable question).
+
+Return JSON only, exactly:
+{"protagonist":"...","stakes":"...","tension":"...","why_now":"...","number_that_matters":"...","lens":"...","lens_note":"...","shape":"...","hooks":[{"text":"...","quote":"..."}],"headlines":["..."],"pick":{"hook":0,"headline":0,"why":"..."},"significance":"...","kicker_idea":"..."}
