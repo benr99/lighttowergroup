@@ -309,3 +309,29 @@ class PreviewStateStaysInItsFolder(unittest.TestCase):
             retrieval.enrich_objects, ingestion.fetch_all_sources, insights_v3._listing_sources = original
         self.assertEqual(seen["health_file"], state / "source-health.json")
         self.assertEqual(seen["cache_dir"], state / "retrieval-cache")
+
+
+class ProductionRecordsEvidence(unittest.TestCase):
+    """The 2026-10-11 Actions preview wrote no evidence: production passes no --state-dir."""
+
+    def test_v4_without_a_state_dir_writes_evidence_to_the_editorial_state(self) -> None:
+        import model_router
+        import v4_generation
+        seen = {}
+
+        def fake_write_all(objects, **kwargs):
+            seen["state_dir"] = kwargs.get("state_dir")
+            return [], v4_generation.GenerationReport(requested=0)
+
+        original = (v4_generation.write_all, model_router.select_provider, insights_v3._write_artifacts)
+        v4_generation.write_all = fake_write_all
+        model_router.select_provider = lambda for_writing=False: {"provider": "deepseek", "model": "m", "api_key": "k"}
+        insights_v3._write_artifacts = lambda *a, **k: None
+        try:
+            from editorial_memory import EditorialMemory
+            _run_v3(pipeline="v4", mode="preview", items=_fixture_documents(), enrich_limit=0, verbose=False,
+                    memory=EditorialMemory(Path(tempfile.mkdtemp()) / "m.json"), voice=False,
+                    budget=__import__("budget").Budget(ledger_path=Path(tempfile.mkdtemp()) / "s.json"))
+        finally:
+            v4_generation.write_all, model_router.select_provider, insights_v3._write_artifacts = original
+        self.assertEqual(seen["state_dir"], insights_v3.STATE_DIR)

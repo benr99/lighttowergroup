@@ -431,7 +431,10 @@ def run(
                         "budget": budget,
                         "deadline_s": (2700 if pipeline == "v4" else generation_deadline_s),
                         "verbose": verbose,
-                        "state_dir": state_dir,
+                        # v4 always records its evidence, draft cache and per-article state:
+                        # the digest and the LinkedIn post are built from the evidence files,
+                        # and production runs pass no --state-dir.
+                        "state_dir": state_dir if (state_dir is not None or pipeline != "v4") else STATE_DIR,
                         "run_id": report.run_at,
                     }
                     if pipeline == "v4":
