@@ -41,7 +41,13 @@ def load_run(run_dir: Path) -> dict[str, Any]:
         data = _load(path)
         if isinstance(data, dict):
             evidence.append(data)
-    return {"report": report, "drafts": drafts, "evidence": evidence}
+    def text(name: str) -> str:
+        try:
+            return (run_dir / name).read_text(encoding="utf-8")
+        except OSError:
+            return ""
+    return {"report": report, "drafts": drafts, "evidence": evidence,
+            "linkedin": text("linkedin-post.txt"), "linkedin_comment": text("linkedin-comment.txt")}
 
 
 def summary(run: dict[str, Any]) -> dict[str, Any]:
@@ -134,6 +140,20 @@ def _story(ev: dict[str, Any]) -> str:
 </section>"""
 
 
+def _linkedin(run: dict[str, Any]) -> str:
+    post, comment = run.get("linkedin") or "", run.get("linkedin_comment") or ""
+    if not post:
+        return ""
+    return f"""<section class="story linkedin">
+<h2>Today's LinkedIn post</h2>
+<p class="muted">Every line was checked again against the stories' verified sentences. Paste the post, then the first comment.</p>
+<button type="button" onclick="navigator.clipboard.writeText(document.getElementById('li-post').textContent)">Copy post</button>
+<pre id="li-post">{_e(post)}</pre>
+<button type="button" onclick="navigator.clipboard.writeText(document.getElementById('li-comment').textContent)">Copy first comment</button>
+<pre id="li-comment">{_e(comment)}</pre>
+</section>"""
+
+
 def digest_html(run: dict[str, Any]) -> str:
     s = summary(run)
     others = [d for d in run["drafts"] if d.get("status") != "completed"]
@@ -169,6 +189,8 @@ td:nth-child(2) {{ width:45%; }} tr.gap td {{ border:0; padding:2px; }}
 blockquote {{ margin:0 0 4px; padding-left:8px; border-left:3px solid var(--line); font-size:14px; }}
 .kind {{ font:600 11px system-ui, sans-serif; padding:2px 6px; border-radius:4px; white-space:nowrap; }}
 .k-fact {{ background:var(--fact); }} .k-take {{ background:var(--take); }} .k-voice {{ background:var(--voice); }}
+pre {{ white-space:pre-wrap; font:15px/1.5 system-ui, sans-serif; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:12px; }}
+button {{ font:600 13px system-ui, sans-serif; padding:6px 12px; border-radius:6px; border:1px solid var(--line); background:var(--card); color:var(--fg); cursor:pointer; }}
 details {{ margin-top:10px; font-size:14px; }} .cut li {{ margin:6px 0; }}
 @media (max-width:640px) {{ table, thead, tbody, tr, td {{ display:block; width:auto !important; }} thead {{ display:none; }}
   td {{ border:0; padding:2px 0; }} tr {{ border-bottom:1px solid var(--line); padding:6px 0; }} }}
@@ -181,6 +203,7 @@ Opinion lines show the facts they cite. Everything the checker cut is listed und
 <div><b>{s['withheld']}</b>withheld</div><div><b>{s['skipped'] + s['failed']}</b>skipped or failed</div>
 <div><b>{s['sentences_kept']}</b>sentences kept</div><div><b>{s['sentences_cut']}</b>sentences cut</div>
 <div><b>${s['spend_run']:.2f}</b>spent</div><div><b>{s['minutes']}</b>minutes</div></div>
+{_linkedin(run)}
 {f'<h3>Notes</h3><ul>{notes}</ul>' if notes else ''}
 {stories or '<p>No stories were published in this run.</p>'}
 {f'<h3>Not published</h3><ul class="cut">{other_rows}</ul>' if other_rows else ''}

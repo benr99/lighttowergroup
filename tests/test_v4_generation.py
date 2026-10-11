@@ -264,7 +264,8 @@ class V4GenerationTests(unittest.TestCase):
         self.assertEqual(post.call_count, 2)
         self.assertEqual(result.diagnostics["readability_warnings"], [])
         import requests
-        result, post, _ = _write(responses=[_ok(wall), requests.Timeout("slow")])
+        with patch.object(v4_generation.time, "sleep"):
+            result, post, _ = _write(responses=[_ok(wall), requests.Timeout("slow")])
         self.assertEqual(result.status, "completed")
         self.assertTrue(result.diagnostics["readability_warnings"])
 

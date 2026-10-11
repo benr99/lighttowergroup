@@ -195,6 +195,22 @@ jobs:
             echo "The ${{ steps.policy.outputs.mode }} run completed without changing public files." >> "$GITHUB_STEP_SUMMARY"
             echo "See the build log and retained editorial artifact for the full output." >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [[ -s .editorial-state/linkedin-post.txt ]]; then
+            {
+              echo ""
+              echo "## Today's LinkedIn post (copy and paste)"
+              echo '```text'
+              cat .editorial-state/linkedin-post.txt
+              echo '```'
+              echo "### First comment"
+              echo '```text'
+              cat .editorial-state/linkedin-comment.txt
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [[ -s .editorial-state/health.txt ]]; then
+            { echo ""; echo "## Health"; echo '```text'; cat .editorial-state/health.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Fail visibly on zero-output publication
         if: always() && steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'

@@ -60,3 +60,13 @@ data/scoring-evaluation.json
 # Session-local files that must never be committed
 docs/session/wip/
 outputs/**/__pycache__/
+
+# Daily run outputs read by Ben, never committed (digest, health note, LinkedIn post, evidence)
+.editorial-state/digest.html
+.editorial-state/health.txt
+.editorial-state/linkedin-post.txt
+.editorial-state/linkedin-comment.txt
+.editorial-state/linkedin-post.json
+.editorial-state/v4-evidence/
+.editorial-state/v4-drafts/
+.editorial-state/v4-article-state.jsonl

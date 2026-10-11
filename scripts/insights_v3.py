@@ -548,6 +548,17 @@ def run(
         print(format_summary(report), flush=True)
     if pipeline == "v4" and generate:
         # The page Ben reads (every sentence beside its source quote) and the five-line health note.
+        # The day's LinkedIn roundup, built from the published (or, in preview, written) stories'
+        # verified sentences and checked again line by line. Written for Ben to paste; never posted.
+        try:
+            from linkedin_post import write as write_linkedin
+            linkedin = write_linkedin(state_dir or STATE_DIR, budget=budget)
+            report.publication.setdefault("linkedin_post", linkedin.status)
+            if verbose:
+                print(f"  LinkedIn post: {linkedin.status} ({len(linkedin.stories)} stories, "
+                      f"{len(linkedin.text)} characters)", flush=True)
+        except Exception as exc:  # noqa: BLE001
+            report.warnings.append(f"LinkedIn post not built: {type(exc).__name__}: {exc}"[:200])
         try:
             from daily_digest import build as build_digest
             digest, health = build_digest(state_dir or STATE_DIR)
