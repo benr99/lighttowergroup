@@ -54,3 +54,10 @@ Ben asked where Codex's writing work went, paused go-live, chose DeepSeek only, 
 - The prompt planned one live run; there were three, because each read found something to fix.
 
 **Decisions requested:** see the report to Ben (switch on the rehearsal, disable the old task, push when ready).
+
+## Go-live and the LinkedIn roundup (2026-10-11)
+
+Ben: "Push it, voice on, and build the LinkedIn post as a bulleted story post."
+- Built `scripts/linkedin_post.py` (plan 7.5): a daily bulleted roundup in Ben's voice from the published stories' verified sentences, every line re-checked, one rewrite with the deletions quoted back; shown on the digest page (copy buttons) and the Actions run summary. On the Oct 9 rehearsal stories: 7 stories, 2,130 characters; the check deleted 3 lines (e.g. "$98M" for "$97.8 million", a name not in the facts).
+- Pushed to `main` (`cd89386`), set repo variable `INSIGHTS_VOICE=on`. Site quality CI passed.
+- First Actions preview (run 38171000498) found that production wrote no evidence files (no `--state-dir`), so the digest and post would have been empty; fixed and pushed (`39215d3`). A second preview had a single (withheld) candidate, so the post path on Actions is proven by tests and local runs; the first real proof is the 07:07 ET run.
