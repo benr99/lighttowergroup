@@ -30,6 +30,14 @@ class _Response:
         return self._payload
 
 
+
+def setUpModule():  # keep provider diagnostics out of the repository's .editorial-state
+    model_router.configure_state_dir(Path(tempfile.mkdtemp()))
+
+
+def tearDownModule():
+    model_router.configure_state_dir(None)
+
 class ProviderChain(unittest.TestCase):
     def test_diagnostics_can_follow_an_isolated_run_state_directory(self) -> None:
         original = model_router.STATE_DIR
