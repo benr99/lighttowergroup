@@ -1,0 +1,1662 @@
+{
+  "run_at": "2026-10-12T20:14:15.667998+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 567,
+  "documents_from_feeds": 464,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 535,
+  "documents_consolidated": 32,
+  "eligible": 68,
+  "enriched": 250,
+  "evidence_upgraded": 159,
+  "selected": 15,
+  "publication_candidates": 15,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 34,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 320,
+      "eligible": 46,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 53,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 65,
+      "eligible": 9,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 15,
+      "eligible": 2,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 2,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 46,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 6,
+    "tier_b": 9
+  },
+  "shortfalls": [
+    "banking_credit: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 1 of 9 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 1 of 2 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 2 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 59.4,
+    "mean": 35.2,
+    "stdev": 12.97,
+    "range_used": 59.4,
+    "median": 35.0,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 253,
+    "fetched": 238,
+    "from_cache": 0,
+    "blocked": 8,
+    "failed": 7,
+    "skipped_budget": 0,
+    "bytes_downloaded": 43845960,
+    "elapsed_ms": 90345,
+    "by_status": {
+      "full_text": 159,
+      "partial_text": 79,
+      "blocked": 8,
+      "failed": 7
+    }
+  },
+  "novelty": {
+    "new": 446,
+    "minor_follow_up": 86,
+    "material_update": 2,
+    "already_published": 1
+  },
+  "memory": {
+    "events_remembered": 15918,
+    "published": 1018,
+    "seen_but_not_run": 14900,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-12",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.3847,
+    "spent_today_usd": 0.3847,
+    "remaining_usd": 24.6153,
+    "exhausted": false,
+    "total_calls": 130,
+    "refused_calls": 0,
+    "elapsed_seconds": 592.8,
+    "by_stage": {
+      "v4_verify": {
+        "calls": 92,
+        "input_tokens": 130914,
+        "output_tokens": 210339,
+        "usd": 0.2917,
+        "seconds": 1457.96,
+        "refused": 0
+      },
+      "v4_write": {
+        "calls": 38,
+        "input_tokens": 158031,
+        "output_tokens": 38020,
+        "usd": 0.093,
+        "seconds": 232.82,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "3e7defd00f4e580c",
+        "usd": 0.0403
+      },
+      {
+        "id": "ee6680ae52bc1068",
+        "usd": 0.0402
+      },
+      {
+        "id": "af45753a219d9c2e",
+        "usd": 0.04
+      },
+      {
+        "id": "fd55e8c9c2478d71",
+        "usd": 0.0323
+      },
+      {
+        "id": "24a899c7b5df26af",
+        "usd": 0.0323
+      },
+      {
+        "id": "90719cfa70fc78dc",
+        "usd": 0.0313
+      },
+      {
+        "id": "39fca3c76b9a0221",
+        "usd": 0.0271
+      },
+      {
+        "id": "72c528a638192ff2",
+        "usd": 0.0269
+      },
+      {
+        "id": "8cb19ea92e3796cc",
+        "usd": 0.0238
+      },
+      {
+        "id": "f6acdbf1c67ed5bc",
+        "usd": 0.021
+      }
+    ]
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 15,
+    "written": 14,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "withheld": 1,
+    "voiced": 9,
+    "voice": true,
+    "stop_reason": "",
+    "spend_usd": 0.3847,
+    "attempts": 38,
+    "elapsed_seconds": 322.13,
+    "provider_attempts": {
+      "deepseek": 38
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "2f75d66a3cfeb572",
+        "title": "JE Dunn-Alberici JV breaks ground on $3.2B Texas shipyard",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e5cf7717618d7fa5e2b6d1620f492a6657a800860597408d2e4138b78888b9e1",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "capital cycle",
+            "protagonist": "The JE Dunn-Alberici joint venture",
+            "tension": "The project is massive and fast-moving, with three overlapping phases and a progressive design-build approach that requires them to advance work before final pricing is set—a risk-reward trade-off."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 217,
+            "paragraph_count": 7,
+            "warnings": [
+              "Split these sentences (over 35 words): “Scott Shelby, vice president at JE Dunn and program…” (40 words)",
+              "Paragraph 4 has 70 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 1,
+            "kept_facts": 8,
+            "kept_takes": 2,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Split these sentences (over 35 words): “Scott Shelby, vice president at JE Dunn and program…” (40 words)",
+            "Paragraph 4 has 70 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion"
+          ]
+        },
+        "seconds": 75.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fd55e8c9c2478d71",
+        "title": "Cannot stop the battery | Factor This Brief",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "72d1c804c8e66b64ba044d368286252c6e7c583d928de5fbd15565198624d1e1",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "time and patience",
+            "protagonist": "PJM Interconnection",
+            "tension": "PJM has a huge battery pipeline (60 GW accepted) but only 686 MW operating today; it must approve and interconnect projects fast enough to meet reliability needs."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 190,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 2,
+            "kept_facts": 7,
+            "kept_takes": 2,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "attributes a motive and outcome not in cited facts"
+          ]
+        },
+        "seconds": 127.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3e7defd00f4e580c",
+        "title": "MBA expects two more Federal Reserve hikes, in December and Q1 2027",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "91f7c0a1021834fb271a096dcf02488e7ee2ed5cfa4092a952e46aba289a1486",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "home and belonging",
+            "protagonist": "The typical American household, represented through the lens of a mortgage borrower or broker, facing a prolonged period of high mortgage rates and financial pressure.",
+            "tension": "The contradiction between the Fed's need to hike rates to control inflation and the resulting squeeze on households, whose incomes are not keeping up with the cost of living, compounded by heavy government borrowing and AI capital spending that keep rates elevated."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 157,
+            "paragraph_count": 7,
+            "warnings": [
+              "60% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 3,
+            "kept_facts": 7,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "60% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion",
+            "fact rejected by the fact check"
+          ]
+        },
+        "seconds": 167.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "39fca3c76b9a0221",
+        "title": "Financing Closes For Renovation Of Nostrand Houses In Sheepshead Bay, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "9689fd5b99785841da37e991fd6d2559e02b2a3ed85f17ea855801eb4f3429ad",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "trust and institutions",
+            "protagonist": "Nostrand Houses, the 1,148-apartment public housing development in Sheepshead Bay, Brooklyn, and its roughly 2,000 residents.",
+            "tension": "The project's cost has risen from $400 million to $607 million since the design-build team was selected, raising the question of whether the increased investment will deliver the promised improvements without further delays."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 214,
+            "paragraph_count": 6,
+            "warnings": [
+              "45% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 3,
+            "kept_facts": 9,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "45% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion",
+            "a take must be first person or plainly framed as opinion",
+            "Implies a specific number caused the situation, which the facts do not support."
+          ]
+        },
+        "seconds": 108.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "af45753a219d9c2e",
+        "title": "Soar AI Secures $1B Equity For Industrial-To-Data-Center Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "9ab3d673e3370d47320e98cb1009188f40dd63dcde691371d6cdb421d6441dfb",
+          "mode": "voice",
+          "brief": {
+            "shape": "What Has to Be True: the plan depends on converting industrial sites, securing customers, and drawing the equity facility on favorable terms.",
+            "lens": "capital cycle",
+            "protagonist": "Soar AI (formerly Volato Group), a company pivoting from private aviation to AI data center development, led by CEO Chris Ensey.",
+            "tension": "The company's pivot from aviation to AI infrastructure is a high-stakes transformation, and the equity facility's structure—no obligation to sell shares, discretion on timing—reveals a careful balancing act between funding ambition and protecting shareholder value."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 211,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 2,
+            "kept_facts": 10,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Adds unsupported purpose about construction risk and capital costs not in cited facts.",
+            "Broad market trend claim not supported by cited facts."
+          ]
+        },
+        "seconds": 180.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "90719cfa70fc78dc",
+        "title": "CBL Properties Receives $135 Million Refinancing for St. Louis Mall",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8dab9c855510a1d4b69d1317170b8a0c41d34be7aee9ad212cbb43b987464250",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "CBL Properties",
+            "tension": "The refinancing removes the cash management sweep, freeing up cash flow, but the new loan is at a 7.4% fixed rate for five years, which may be higher than the prior loan's rate, though the source doesn't state the prior rate."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 213,
+            "paragraph_count": 4,
+            "warnings": [
+              "Paragraph 1 has 61 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 61 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "Remove these phrases: “going forward”"
+            ]
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 4,
+            "kept_facts": 6,
+            "kept_takes": 0,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 1 has 61 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 61 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "Remove these phrases: “going forward”"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "higher fixed rate is not in cited facts",
+            "take is 40 words; the limit is 38",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 137.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "72c528a638192ff2",
+        "title": "Fuse Group Joint Venture Secures $127M Construction Loan for Miami-Area Multifamily Property",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8a8313329c4a26a246d1031467f53c6bbdfb26af502debeb43ca83105ecfc729",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "time and patience",
+            "protagonist": "The Arcadian, a 502-unit multifamily community in Fort Lauderdale’s Sistrunk District, developed by Fuse Group and KREA Developments.",
+            "tension": "The property opened in January and is now in lease-up. The new loan is a construction take-out, meaning the development risk has passed, but the operating risk remains: the clock is the lease-up and stabilization period, with no explicit deadline in the source. The tension is between the cost of capital and the pace of leasing."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 142,
+            "paragraph_count": 6,
+            "warnings": [
+              "44% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 5,
+            "kept_facts": 7,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "44% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a view or action may not add figures: 50",
+            "a take must be first person or plainly framed as opinion",
+            "a take must be first person or plainly framed as opinion",
+            "Asserts a factual claim about rent caps not stated in the verified facts.",
+            "a take must be first person or plainly framed as opinion"
+          ]
+        },
+        "seconds": 116.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "24a899c7b5df26af",
+        "title": "Merchants Capital Arranges $97.8M in Financing for Affordable Housing Project in Newport News, Virginia",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "dbd9e931ed1a1dcc093036a7b084c2793aba825d53e94e6d8137e5085bd160cc",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Building as Character",
+            "lens": "home and belonging",
+            "protagonist": "Stuart Gardens, a 491-unit affordable housing property in Newport News, Virginia",
+            "tension": "The rehabilitation of a historic 1941 property, with a complex capital stack and a 17-month construction timeline (Aug 2026–Jan 2028), must balance preservation, affordability, and modernization."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 193,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 3,
+            "kept_facts": 9,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Asserts a factual claim about public awareness not in facts.",
+            "Relies on uncited premise about financing.",
+            "a take must be first person or plainly framed as opinion; states a reading as a finding ('shows how', 'proves'); write it as Ben's read in the first person"
+          ]
+        },
+        "seconds": 140.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ee6680ae52bc1068",
+        "title": "Institutional Property Advisors Completes Two Multifamily Sales in the South Puget Sound Region",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0b6cb3386c0e2c6cde9b09c6902230292a174aac36235f174a38ee68c8ea541f",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "The buyer, FPA Multifamily",
+            "tension": "None explicitly stated; the sources show no deadline, constraint, or contradiction. The only implied tension is the buyer's plan to implement upgrades and increase efficiency, which is presented as an opportunity, not a conflict."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 141,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 6,
+            "kept_facts": 6,
+            "kept_takes": 0,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "Buyer paying for stability with a plan to add value is not supported by the cited ownership fact.",
+            "a take must be first person or plainly framed as opinion",
+            "a take must be first person or plainly framed as opinion"
+          ]
+        },
+        "seconds": 194.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "118d1f09ffc06ca7",
+        "title": "Upland Apartments with Value-Add Potential Trade to Limited Partnership",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0274bf636116ef3c46f27ef4aef0c3772c9b9f37c1a12a1105d0302b58ca61fb",
+          "mode": "facts",
+          "request_seconds": 5.03,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 155,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 0,
+            "kept_facts": 9,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 78.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8cb19ea92e3796cc",
+        "title": "Oxide Computer Company raises $445m in Series D funding round",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "2563488afbf029c4c733d844a9e483edeaaab56708527f09e0a0f7ac2621e100",
+          "mode": "facts",
+          "request_seconds": 3.72,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 99,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 1,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 118.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ca206a6912afd5f7",
+        "title": "Marcus & Millichap Arranges Sale of New Multifamily Townhome Property in Southern California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d9707d8737610af2b3bc033d272fb1ebbbcdead3e91443ac08154f4d9b7b4b65",
+          "mode": "facts",
+          "request_seconds": 4.57,
+          "error_kind": "validation",
+          "error": "JSONDecodeError: Expecting ',' delimiter: line 1 column 1713 (char 1712)",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 119,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 3,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 19",
+            "Source attributes that statement to Douglas McCauley, not Steve Bogoyevac.",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 67.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0606903a0b2354d7",
+        "title": "$100M Private Capital Effort Launched to Address Baltimore Housing Issues",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "458d053287af44a07e0f422acc5b8003b4348a592f1c143842b2b81b749e0fd6",
+          "mode": "facts",
+          "request_seconds": 4.15,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 88,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 4,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “most” that its quote carries",
+            "quote is longer than allowed",
+            "quote not found verbatim in the source: “The initiative builds on a partnership launched in December 2023 by GC”",
+            "refers back to a deleted sentence, so its subject would be ambiguous"
+          ]
+        },
+        "seconds": 73.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8468172a92946c29",
+        "title": "Deal Roundup: One Equity Partners strikes $725m Nexora deal, TA exits Rocscience for $535m",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "5173d6e37e68fe7f3e89dcb72beceefe8827735d234f9d97ab0e8de8c8d4b9d2",
+          "mode": "facts",
+          "request_seconds": 2.91,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "missing_field",
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "missing required field: excerpt",
+              "missing required field: body_html",
+              "word count 0 is outside 60-300"
+            ],
+            "word_count": 0,
+            "paragraph_count": 0,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 6,
+            "rejected": 6,
+            "kept_facts": 0,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 5.2,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "f6acdbf1c67ed5bc",
+        "title": "Upgrade is latest fintech to seek ILC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d5d49d6736f29e5011eb58f17b2af2580a6c91bc81f629d277241c0f7ada41a8",
+          "mode": "facts",
+          "request_seconds": 4.82,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 105,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 2,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the attribution (“said”, “according to”) that its quote carries",
+            "drops the attribution (“said”, “according to”) that its quote carries",
+            "Source attributes this conditional statement to the company ('the company said'), but the sentence presents it without attribution as an independent assertion."
+          ]
+        },
+        "seconds": 98.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 15,
+    "published": 14,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard_social.png",
+      "insights/je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard.html",
+      "insights/cannot-stop-the-battery-factor-this-brief_social.png",
+      "insights/cannot-stop-the-battery-factor-this-brief.html",
+      "insights/mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027_social.png",
+      "insights/mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027.html",
+      "insights/financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn_social.png",
+      "insights/financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn.html",
+      "insights/soar-ai-secures-1b-equity-for-industrial-to-data-center-development_social.png",
+      "insights/soar-ai-secures-1b-equity-for-industrial-to-data-center-development.html",
+      "insights/cbl-properties-receives-135-million-refinancing-for-st-louis-mall_social.png",
+      "insights/cbl-properties-receives-135-million-refinancing-for-st-louis-mall.html",
+      "insights/fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami_social.png",
+      "insights/fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami.html",
+      "insights/merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in_social.png",
+      "insights/merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in.html",
+      "insights/institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug_social.png",
+      "insights/institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug.html",
+      "insights/amber-pines-apartments-in-upland-sold-for-5-9-million_social.png",
+      "insights/amber-pines-apartments-in-upland-sold-for-5-9-million.html",
+      "insights/oxide-raises-445m-series-d_social.png",
+      "insights/oxide-raises-445m-series-d.html",
+      "insights/marcus-millichap-sells-yucaipa-townhomes-for-7-25m_social.png",
+      "insights/marcus-millichap-sells-yucaipa-townhomes-for-7-25m.html",
+      "insights/100m-private-capital-effort-launched-to-address-baltimore-housing-issues_social.png",
+      "insights/100m-private-capital-effort-launched-to-address-baltimore-housing-issues.html",
+      "insights/upgrade-is-latest-fintech-to-seek-ilc-charter_social.png",
+      "insights/upgrade-is-latest-fintech-to-seek-ilc-charter.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard_related.json",
+      "insights/cannot-stop-the-battery-factor-this-brief_related.json",
+      "insights/mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027_related.json",
+      "insights/financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn_related.json",
+      "insights/soar-ai-secures-1b-equity-for-industrial-to-data-center-development_related.json",
+      "insights/cbl-properties-receives-135-million-refinancing-for-st-louis-mall_related.json",
+      "insights/fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami_related.json",
+      "insights/merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in_related.json",
+      "insights/institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug_related.json",
+      "insights/amber-pines-apartments-in-upland-sold-for-5-9-million_related.json",
+      "insights/oxide-raises-445m-series-d_related.json",
+      "insights/marcus-millichap-sells-yucaipa-townhomes-for-7-25m_related.json",
+      "insights/100m-private-capital-effort-launched-to-address-baltimore-housing-issues_related.json",
+      "insights/upgrade-is-latest-fintech-to-seek-ilc-charter_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "2f75d66a3cfeb572",
+        "title": "JE Dunn-Alberici JV breaks ground on $3.2B Texas shipyard",
+        "slug": "je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard",
+        "url": "/insights/je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fd55e8c9c2478d71",
+        "title": "Cannot stop the battery | Factor This Brief",
+        "slug": "cannot-stop-the-battery-factor-this-brief",
+        "url": "/insights/cannot-stop-the-battery-factor-this-brief.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3e7defd00f4e580c",
+        "title": "MBA expects two more Federal Reserve hikes, in December and Q1 2027",
+        "slug": "mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027",
+        "url": "/insights/mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "39fca3c76b9a0221",
+        "title": "Financing Closes For Renovation Of Nostrand Houses In Sheepshead Bay, Brooklyn",
+        "slug": "financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn",
+        "url": "/insights/financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "af45753a219d9c2e",
+        "title": "Soar AI Secures $1B Equity For Industrial-To-Data-Center Development",
+        "slug": "soar-ai-secures-1b-equity-for-industrial-to-data-center-development",
+        "url": "/insights/soar-ai-secures-1b-equity-for-industrial-to-data-center-development.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "90719cfa70fc78dc",
+        "title": "CBL Properties Receives $135 Million Refinancing for St. Louis Mall",
+        "slug": "cbl-properties-receives-135-million-refinancing-for-st-louis-mall",
+        "url": "/insights/cbl-properties-receives-135-million-refinancing-for-st-louis-mall.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "72c528a638192ff2",
+        "title": "Fuse Group Joint Venture Secures $127M Construction Loan for Miami-Area Multifamily Property",
+        "slug": "fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami",
+        "url": "/insights/fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "24a899c7b5df26af",
+        "title": "Merchants Capital Arranges $97.8M in Financing for Affordable Housing Project in Newport News, Virginia",
+        "slug": "merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in",
+        "url": "/insights/merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ee6680ae52bc1068",
+        "title": "Institutional Property Advisors Completes Two Multifamily Sales in the South Puget Sound Region",
+        "slug": "institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug",
+        "url": "/insights/institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "118d1f09ffc06ca7",
+        "title": "Amber Pines Apartments in Upland Sold for $5.9 Million",
+        "slug": "amber-pines-apartments-in-upland-sold-for-5-9-million",
+        "url": "/insights/amber-pines-apartments-in-upland-sold-for-5-9-million.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8cb19ea92e3796cc",
+        "title": "Oxide raises $445m Series D",
+        "slug": "oxide-raises-445m-series-d",
+        "url": "/insights/oxide-raises-445m-series-d.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ca206a6912afd5f7",
+        "title": "Marcus & Millichap Sells Yucaipa Townhomes for $7.25M",
+        "slug": "marcus-millichap-sells-yucaipa-townhomes-for-7-25m",
+        "url": "/insights/marcus-millichap-sells-yucaipa-townhomes-for-7-25m.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0606903a0b2354d7",
+        "title": "$100M Private Capital Effort Launched to Address Baltimore Housing Issues",
+        "slug": "100m-private-capital-effort-launched-to-address-baltimore-housing-issues",
+        "url": "/insights/100m-private-capital-effort-launched-to-address-baltimore-housing-issues.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f6acdbf1c67ed5bc",
+        "title": "Upgrade is latest fintech to seek ILC charter",
+        "slug": "upgrade-is-latest-fintech-to-seek-ilc-charter",
+        "url": "/insights/upgrade-is-latest-fintech-to-seek-ilc-charter.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "2f75d66a3cfeb572",
+        "slug": "je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard",
+        "title": "JE Dunn-Alberici JV breaks ground on $3.2B Texas shipyard",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fd55e8c9c2478d71",
+        "slug": "cannot-stop-the-battery-factor-this-brief",
+        "title": "Cannot stop the battery | Factor This Brief",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cannot-stop-the-battery-factor-this-brief.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3e7defd00f4e580c",
+        "slug": "mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027",
+        "title": "MBA expects two more Federal Reserve hikes, in December and Q1 2027",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027.html",
+        "reason": ""
+      },
+      {
+        "object_id": "39fca3c76b9a0221",
+        "slug": "financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn",
+        "title": "Financing Closes For Renovation Of Nostrand Houses In Sheepshead Bay, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn.html",
+        "reason": ""
+      },
+      {
+        "object_id": "af45753a219d9c2e",
+        "slug": "soar-ai-secures-1b-equity-for-industrial-to-data-center-development",
+        "title": "Soar AI Secures $1B Equity For Industrial-To-Data-Center Development",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/soar-ai-secures-1b-equity-for-industrial-to-data-center-development.html",
+        "reason": ""
+      },
+      {
+        "object_id": "90719cfa70fc78dc",
+        "slug": "cbl-properties-receives-135-million-refinancing-for-st-louis-mall",
+        "title": "CBL Properties Receives $135 Million Refinancing for St. Louis Mall",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cbl-properties-receives-135-million-refinancing-for-st-louis-mall.html",
+        "reason": ""
+      },
+      {
+        "object_id": "72c528a638192ff2",
+        "slug": "fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami",
+        "title": "Fuse Group Joint Venture Secures $127M Construction Loan for Miami-Area Multifamily Property",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami.html",
+        "reason": ""
+      },
+      {
+        "object_id": "24a899c7b5df26af",
+        "slug": "merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in",
+        "title": "Merchants Capital Arranges $97.8M in Financing for Affordable Housing Project in Newport News, Virginia",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ee6680ae52bc1068",
+        "slug": "institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug",
+        "title": "Institutional Property Advisors Completes Two Multifamily Sales in the South Puget Sound Region",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug.html",
+        "reason": ""
+      },
+      {
+        "object_id": "118d1f09ffc06ca7",
+        "slug": "amber-pines-apartments-in-upland-sold-for-5-9-million",
+        "title": "Upland Apartments with Value-Add Potential Trade to Limited Partnership",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/amber-pines-apartments-in-upland-sold-for-5-9-million.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8cb19ea92e3796cc",
+        "slug": "oxide-raises-445m-series-d",
+        "title": "Oxide Computer Company raises $445m in Series D funding round",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/oxide-raises-445m-series-d.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ca206a6912afd5f7",
+        "slug": "marcus-millichap-sells-yucaipa-townhomes-for-7-25m",
+        "title": "Marcus & Millichap Arranges Sale of New Multifamily Townhome Property in Southern California",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/marcus-millichap-sells-yucaipa-townhomes-for-7-25m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0606903a0b2354d7",
+        "slug": "100m-private-capital-effort-launched-to-address-baltimore-housing-issues",
+        "title": "$100M Private Capital Effort Launched to Address Baltimore Housing Issues",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/100m-private-capital-effort-launched-to-address-baltimore-housing-issues.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8468172a92946c29",
+        "slug": "",
+        "title": "Deal Roundup: One Equity Partners strikes $725m Nexora deal, TA exits Rocscience for $535m",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "f6acdbf1c67ed5bc",
+        "slug": "upgrade-is-latest-fintech-to-seek-ilc-charter",
+        "title": "Upgrade is latest fintech to seek ILC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/upgrade-is-latest-fintech-to-seek-ilc-charter.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 38,
+    "successful_calls": 38,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 21.37,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 10.52,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.11,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.31,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.8,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 142.63,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 91.47,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.16,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 323.23,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.69,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.5,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "1 of 15 drafts were withheld because they could not be verified against their sources",
+    "published 14 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 592.8,
+  "status": "ready",
+  "candidate_count": 567,
+  "event_count": 535,
+  "articles": [
+    {
+      "event_id": "2f75d66a3cfeb572",
+      "title": "JE Dunn-Alberici JV breaks ground on $3.2B Texas shipyard",
+      "slug": "je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard",
+      "url": "/insights/je-dunn-alberici-jv-breaks-ground-on-3-2b-texas-shipyard.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fd55e8c9c2478d71",
+      "title": "Cannot stop the battery | Factor This Brief",
+      "slug": "cannot-stop-the-battery-factor-this-brief",
+      "url": "/insights/cannot-stop-the-battery-factor-this-brief.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3e7defd00f4e580c",
+      "title": "MBA expects two more Federal Reserve hikes, in December and Q1 2027",
+      "slug": "mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027",
+      "url": "/insights/mba-expects-two-more-federal-reserve-hikes-in-december-and-q1-2027.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "39fca3c76b9a0221",
+      "title": "Financing Closes For Renovation Of Nostrand Houses In Sheepshead Bay, Brooklyn",
+      "slug": "financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn",
+      "url": "/insights/financing-closes-for-renovation-of-nostrand-houses-in-sheepshead-bay-brooklyn.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "af45753a219d9c2e",
+      "title": "Soar AI Secures $1B Equity For Industrial-To-Data-Center Development",
+      "slug": "soar-ai-secures-1b-equity-for-industrial-to-data-center-development",
+      "url": "/insights/soar-ai-secures-1b-equity-for-industrial-to-data-center-development.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "90719cfa70fc78dc",
+      "title": "CBL Properties Receives $135 Million Refinancing for St. Louis Mall",
+      "slug": "cbl-properties-receives-135-million-refinancing-for-st-louis-mall",
+      "url": "/insights/cbl-properties-receives-135-million-refinancing-for-st-louis-mall.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "72c528a638192ff2",
+      "title": "Fuse Group Joint Venture Secures $127M Construction Loan for Miami-Area Multifamily Property",
+      "slug": "fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami",
+      "url": "/insights/fuse-group-joint-venture-secures-127m-construction-loan-for-miami-area-multifami.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "24a899c7b5df26af",
+      "title": "Merchants Capital Arranges $97.8M in Financing for Affordable Housing Project in Newport News, Virginia",
+      "slug": "merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in",
+      "url": "/insights/merchants-capital-arranges-97-8m-in-financing-for-affordable-housing-project-in.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ee6680ae52bc1068",
+      "title": "Institutional Property Advisors Completes Two Multifamily Sales in the South Puget Sound Region",
+      "slug": "institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug",
+      "url": "/insights/institutional-property-advisors-completes-two-multifamily-sales-in-the-south-pug.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "118d1f09ffc06ca7",
+      "title": "Amber Pines Apartments in Upland Sold for $5.9 Million",
+      "slug": "amber-pines-apartments-in-upland-sold-for-5-9-million",
+      "url": "/insights/amber-pines-apartments-in-upland-sold-for-5-9-million.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8cb19ea92e3796cc",
+      "title": "Oxide raises $445m Series D",
+      "slug": "oxide-raises-445m-series-d",
+      "url": "/insights/oxide-raises-445m-series-d.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ca206a6912afd5f7",
+      "title": "Marcus & Millichap Sells Yucaipa Townhomes for $7.25M",
+      "slug": "marcus-millichap-sells-yucaipa-townhomes-for-7-25m",
+      "url": "/insights/marcus-millichap-sells-yucaipa-townhomes-for-7-25m.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0606903a0b2354d7",
+      "title": "$100M Private Capital Effort Launched to Address Baltimore Housing Issues",
+      "slug": "100m-private-capital-effort-launched-to-address-baltimore-housing-issues",
+      "url": "/insights/100m-private-capital-effort-launched-to-address-baltimore-housing-issues.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f6acdbf1c67ed5bc",
+      "title": "Upgrade is latest fintech to seek ILC charter",
+      "slug": "upgrade-is-latest-fintech-to-seek-ilc-charter",
+      "url": "/insights/upgrade-is-latest-fintech-to-seek-ilc-charter.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 14
+}
