@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **567**
-- Distinct events: **535**
-- Articles: **14**
+- Candidates: **791**
+- Distinct events: **753**
+- Articles: **18**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,17 +12,21 @@
 
 ## Published candidates
 
-- **analysis** — JE Dunn-Alberici JV breaks ground on $3.2B Texas shipyard (1 sources; v3_daily_slate selection)
-- **analysis** — Cannot stop the battery | Factor This Brief (1 sources; v3_daily_slate selection)
-- **analysis** — MBA expects two more Federal Reserve hikes, in December and Q1 2027 (1 sources; v3_daily_slate selection)
-- **analysis** — Financing Closes For Renovation Of Nostrand Houses In Sheepshead Bay, Brooklyn (1 sources; v3_daily_slate selection)
-- **analysis** — Soar AI Secures $1B Equity For Industrial-To-Data-Center Development (1 sources; v3_daily_slate selection)
-- **analysis** — CBL Properties Receives $135 Million Refinancing for St. Louis Mall (1 sources; v3_daily_slate selection)
-- **analysis** — Fuse Group Joint Venture Secures $127M Construction Loan for Miami-Area Multifamily Property (1 sources; v3_daily_slate selection)
-- **analysis** — Merchants Capital Arranges $97.8M in Financing for Affordable Housing Project in Newport News, Virginia (1 sources; v3_daily_slate selection)
-- **analysis** — Institutional Property Advisors Completes Two Multifamily Sales in the South Puget Sound Region (1 sources; v3_daily_slate selection)
-- **brief** — Amber Pines Apartments in Upland Sold for $5.9 Million (1 sources; v3_daily_slate selection)
-- **brief** — Oxide raises $445m Series D (1 sources; v3_daily_slate selection)
-- **brief** — Marcus & Millichap Sells Yucaipa Townhomes for $7.25M (1 sources; v3_daily_slate selection)
-- **brief** — $100M Private Capital Effort Launched to Address Baltimore Housing Issues (1 sources; v3_daily_slate selection)
-- **brief** — Upgrade is latest fintech to seek ILC charter (1 sources; v3_daily_slate selection)
+- **analysis** — 2 Major H&R REIT Shareholders Plan To Vote To Block $5B Breakup (1 sources; v3_daily_slate selection)
+- **analysis** — Anderson Family Properties Lands $550M Refi for Century City Office Campus (1 sources; v3_daily_slate selection)
+- **analysis** — Walker & Dunlop Arranges $203M Financing for East Village Multifamily (2 sources; v3_daily_slate selection)
+- **analysis** — BlackRock and Baillie Gifford bet big on Icon 3D printed homes (1 sources; v3_daily_slate selection)
+- **analysis** — Walker & Dunlop Arranges $86.5 Million Refinancing for Richmond Multifamily Community (1 sources; v3_daily_slate selection)
+- **analysis** — DayOne secures $3.67bn in funding for Malaysia expansion (1 sources; v3_daily_slate selection)
+- **analysis** — DPR breaks ground on $230M Kaiser Permanente project in Colorado (1 sources; v3_daily_slate selection)
+- **analysis** — Home equity-sharing firm Unison is said to pick banks for US IPO (1 sources; v3_daily_slate selection)
+- **analysis** — Orlando Apartments Get $76.2M Bridge Loan (1 sources; v3_daily_slate selection)
+- **analysis** — Revere Beach Apartments Sell For $77M (1 sources; v3_daily_slate selection)
+- **brief** — IPA Capital Markets Arranges $50M for 18-Property Industrial Portfolio (1 sources; v3_daily_slate selection)
+- **brief** — Annex Group Finishes 216-Unit Union at Rivers Edge (1 sources; v3_daily_slate selection)
+- **brief** — FEDS Paper: Inattentive Price Setting and Inflation Under Fiscal Policy Uncertainty (1 sources; v3_daily_slate selection)
+- **brief** — Waller: AI spending could fuel inflation for years (1 sources; v3_daily_slate selection)
+- **brief** — Waller: Higher yields are cooling housing demand (1 sources; v3_daily_slate selection)
+- **brief** — U.S. REITs Raise $20B in Q3 2026; IPO Market Cools (1 sources; v3_daily_slate selection)
+- **brief** — Fintech Upgrade applies for ILC charter (1 sources; v3_daily_slate selection)
+- **brief** — SBA citizenship rule creates a headache for lenders (1 sources; v3_daily_slate selection)

@@ -1,0 +1,1960 @@
+{
+  "run_at": "2026-10-13T18:08:12.516767+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 791,
+  "documents_from_feeds": 688,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 753,
+  "documents_consolidated": 38,
+  "eligible": 105,
+  "enriched": 250,
+  "evidence_upgraded": 128,
+  "selected": 18,
+  "publication_candidates": 18,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 56,
+      "eligible": 5,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 424,
+      "eligible": 69,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 71,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 102,
+      "eligible": 14,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "14 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 21,
+      "eligible": 5,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 5 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 76,
+      "eligible": 7,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 10,
+    "tier_c": 8
+  },
+  "shortfalls": [
+    "banking_credit: only 3 of 5 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 1 of 4 eligible candidates cleared the floor, against a target of 10",
+    "energy: 14 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: only 3 of 5 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 65.9,
+    "mean": 32.1,
+    "stdev": 13.15,
+    "range_used": 65.9,
+    "median": 31.5,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 254,
+    "fetched": 240,
+    "from_cache": 0,
+    "blocked": 7,
+    "failed": 7,
+    "skipped_budget": 0,
+    "bytes_downloaded": 49380691,
+    "elapsed_ms": 66130,
+    "by_status": {
+      "full_text": 129,
+      "partial_text": 111,
+      "failed": 7,
+      "blocked": 7
+    }
+  },
+  "novelty": {
+    "new": 652,
+    "already_published": 8,
+    "minor_follow_up": 92,
+    "material_update": 1
+  },
+  "memory": {
+    "events_remembered": 16379,
+    "published": 1036,
+    "seen_but_not_run": 15343,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-13",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.5101,
+    "spent_today_usd": 0.5101,
+    "remaining_usd": 24.4899,
+    "exhausted": false,
+    "total_calls": 161,
+    "refused_calls": 0,
+    "elapsed_seconds": 707.1,
+    "by_stage": {
+      "v4_verify": {
+        "calls": 116,
+        "input_tokens": 166948,
+        "output_tokens": 292164,
+        "usd": 0.4007,
+        "seconds": 2278.93,
+        "refused": 0
+      },
+      "v4_write": {
+        "calls": 45,
+        "input_tokens": 187047,
+        "output_tokens": 44429,
+        "usd": 0.1094,
+        "seconds": 303.83,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "eef8520e59f195b8",
+        "usd": 0.0443
+      },
+      {
+        "id": "318bd8a6bc409caa",
+        "usd": 0.0385
+      },
+      {
+        "id": "ab30b1d487cedafb",
+        "usd": 0.0367
+      },
+      {
+        "id": "e5adc664e0e9dfff",
+        "usd": 0.0355
+      },
+      {
+        "id": "3db0eddc77f87d68",
+        "usd": 0.0347
+      },
+      {
+        "id": "1ddf201326ec75ca",
+        "usd": 0.0338
+      },
+      {
+        "id": "ea207a09d02ad17f",
+        "usd": 0.0333
+      },
+      {
+        "id": "a42687edb064f0d1",
+        "usd": 0.0299
+      },
+      {
+        "id": "2090591ad979b709",
+        "usd": 0.0296
+      },
+      {
+        "id": "c12d02ce203d58e3",
+        "usd": 0.0283
+      }
+    ]
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 18,
+    "written": 18,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "withheld": 0,
+    "voiced": 10,
+    "voice": true,
+    "stop_reason": "",
+    "spend_usd": 0.5101,
+    "attempts": 45,
+    "elapsed_seconds": 499.46,
+    "provider_attempts": {
+      "deepseek": 45
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "c12d02ce203d58e3",
+        "title": "2 Major H&R REIT Shareholders Plan To Vote To Block $5B Breakup",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c3b4a8627b6bbe56b15e8cb9a2b2d4559e20e2c24a1c811dd42993ba0f6c9156",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "trust and institutions",
+            "protagonist": "H&R REIT shareholders",
+            "tension": "Two major shareholders plan to vote against the $4.8B breakup, while the special meeting on Nov. 13 approaches. The sources do not state a specific clock beyond that date."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 251,
+            "paragraph_count": 7,
+            "warnings": [
+              "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "These names do not appear in the dossier; remove them or use only names the sources gave: H&amp"
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 2,
+            "kept_facts": 8,
+            "kept_takes": 2,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "These names do not appear in the dossier; remove them or use only names the sources gave: H&amp"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Voice sentence asserts a truth-evaluable claim about the vote.",
+            "take is 44 words; the limit is 38; a view or action may not add names: REIT; uses loaded labels the cited facts do not use: discount"
+          ]
+        },
+        "seconds": 125.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1ddf201326ec75ca",
+        "title": "Anderson Family Properties Lands $550M Refi for Century City Office Campus",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "67a855f5a8ed0d0441df3c37416d1ea742ead14a0302144040a1d42c74fd6221",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Anderson Family Properties",
+            "tension": "The deal lets the owner pull out $219 million, which is a big equity extraction, while the campus is nearly full and rents are rising. The tension is whether that cash-out is prudent or a sign of overconfidence in a still-uncertain office market."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 122,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 6,
+            "kept_facts": 6,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "Premise 'cash-out' not in cited facts; 'hold up better than rest of L.A.' not supported by cited fact.",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'"
+          ]
+        },
+        "seconds": 176.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3db0eddc77f87d68",
+        "title": "Walker & Dunlop Arranges $203M Financing for East Village Multifamily",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "81b3e99551d6d4a5a5813971e8a98cbb7d0750ff340d320332d1e3d512315e67",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "SK Development and Kinsmen Property Group, the joint venture partners developing 50 Third Avenue",
+            "tension": "The loan is floating rate and interest-only, which means the developers are exposed to interest rate risk during construction and lease-up; the sources do not state the loan term or any rate cap."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 151,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 2,
+            "kept_facts": 7,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Asserts as fact that the building does not exist yet.",
+            "fact rejected by the fact check",
+            "a view or action may not add names: New, York"
+          ]
+        },
+        "seconds": 177.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ab30b1d487cedafb",
+        "title": "BlackRock and Baillie Gifford bet big on Icon 3D printed homes",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "2109c49958e42146db53afe3924b30cf8afb738a5dac33fcdbf10dc7fdc2e4cb",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "technology and land",
+            "protagonist": "Icon",
+            "tension": "Icon is shifting from building its own projects to selling its technology to other builders, a new motion that requires financing and incentives to persuade an industry under stress to adopt untested methods."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 208,
+            "paragraph_count": 8,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a view or action may not add names: Texas",
+            "a view or action may not add figures: 3"
+          ]
+        },
+        "seconds": 192.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "eef8520e59f195b8",
+        "title": "Walker & Dunlop Arranges $86.5 Million Refinancing for Richmond Multifamily Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "03c94aac7fc6aa0153b6f444182a9a86245010e881d8e8fabf6c0e270ea485fa",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "time and patience",
+            "protagonist": "Chasen, the newly completed 352-unit multifamily community in Richmond’s Scott’s Addition",
+            "tension": "The property is newly completed, in a Qualified Opportunity Zone, and the loan is variable-rate and interest-only. That structure buys time but exposes the borrower to rate risk and the need to perform before the bridge matures."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 195,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 5,
+            "kept_facts": 6,
+            "kept_takes": 2,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "Asserts a factual claim about the financing structure's effect.",
+            "a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check"
+          ]
+        },
+        "seconds": 233.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e5adc664e0e9dfff",
+        "title": "DayOne secures $3.67bn in funding for Malaysia expansion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d2a6ddf00331828536df42ad4fe60205ababbfd69c992e100fd75edb921ca1ac",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "DayOne",
+            "tension": "The sources show no explicit clock, choice, or contradiction. The tension is implicit: DayOne is rapidly scaling (capacity in service up from 675MW to 962MW in three months) and stacking debt ($3.67bn now, plus $3.67bn in June 2025) ahead of an IPO."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 216,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 2,
+            "kept_facts": 7,
+            "kept_takes": 3,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add names: DayOne; states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'"
+          ]
+        },
+        "seconds": 180.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ea207a09d02ad17f",
+        "title": "DPR breaks ground on $230M Kaiser Permanente project in Colorado",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "aa214ead66c1d4ebe864580dcac12ed592a66ecd750a348904051355b8424823",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Building as Character",
+            "lens": "technology and land",
+            "protagonist": "DPR Construction",
+            "tension": "The tension is between the complexity of a healthcare building and the promise of prefabrication to tame that complexity. The source quotes DPR's Scott Miller saying the approach helps with schedule certainty and reducing site complexity, which is especially valuable in healthcare environments."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 217,
+            "paragraph_count": 5,
+            "warnings": [
+              "Paragraph 2 has 66 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "55% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 4,
+            "kept_facts": 10,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 2 has 66 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "55% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion",
+            "a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "voice lines may not contain numbers"
+          ]
+        },
+        "seconds": 169.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a42687edb064f0d1",
+        "title": "Home equity-sharing firm Unison is said to pick banks for US IPO",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "9499e743605cd8fad8fc0013fbb263444fc6a7388e8f9c1b3f2a120318316ef7",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "home and belonging",
+            "protagonist": "Unison",
+            "tension": "The IPO is planned despite recent IPO postponements by other firms, and the product itself is controversial: critics warn it can be difficult to understand and punishingly expensive."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 187,
+            "paragraph_count": 4,
+            "warnings": [
+              "Paragraph 3 has 64 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 46 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 7,
+            "kept_facts": 3,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 3 has 64 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 46 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "Asserts as fact that the product makes some people nervous.",
+            "a take must be first person or plainly framed as opinion; a view or action may not add names: IPO",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'",
+            "Predicts as fact that the first trade will reveal more than any prospectus."
+          ]
+        },
+        "seconds": 149.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "318bd8a6bc409caa",
+        "title": "Newmark Arranges $76.2M Financing for Citron at The Packing District an Apartment Property in Orlando",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f9fd8e2190a3f242a802cfe0b34aadf5fb8b78b7a6cbeafcec944b46007b3a47",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Citron at The Packing District, a 354-unit Class A multifamily community in Orlando, delivered in 2025.",
+            "tension": "The property was delivered in 2025, but the financing is a bridge loan, implying a transition period before permanent financing. The tension is the gap between construction completion and stabilization or permanent take-out, and the lender's confidence in that plan."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 148,
+            "paragraph_count": 5,
+            "warnings": [
+              "38% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 17,
+            "rejected": 9,
+            "kept_facts": 6,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "38% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Implies the property recently opened, which the facts do not state.",
+            "a take must be first person or plainly framed as opinion; states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'; claims to know what someone is trying to do ('betting that'); no cited fact says so",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "Asserts a market condition ('plenty of capital is chasing deals') as fact, without support in cited facts.",
+            "states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'"
+          ]
+        },
+        "seconds": 195.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7dbb11fdde4fb531",
+        "title": "Revere Beach Apartments Sell For $77M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "7c039f3cf8a48381c99ba52cbeb175f07c381db303662cdf5adf03ff4d451f7b",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Redgate",
+            "tension": "The sources show no explicit constraint, clock, or contradiction. The tension is implicit: Redgate is systematically selling assets it developed, while institutional buyers are paying increasing prices. The interesting question is whether Redgate is harvesting gains or repositioning, but the sources do not say."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 227,
+            "paragraph_count": 5,
+            "warnings": [
+              "Paragraph 3 has 62 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "42% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 3,
+            "kept_facts": 11,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 3 has 62 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "42% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion",
+            "a take must be first person or plainly framed as opinion",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 72.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4d67c7f5d532d599",
+        "title": "IPA Capital Markets Arranges $50M for 18-Property Industrial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8462a2d4fc54ece1d60a7a9b20ee31bdce410e439beddddc69dd66e4a5cd6bf4",
+          "mode": "facts",
+          "request_seconds": 4.65,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 119,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 0,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 136.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "73c143586c7bf02a",
+        "title": "Annex Group Completes $62.9M Affordable Housing Development in Des Moines",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "6f25b0c8c20eb81fdcb194996cda92d1140ff54beb455342171eae5d7791a5b5",
+          "mode": "facts",
+          "request_seconds": 4.73,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 136,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 120.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2417c27dffeb1a39",
+        "title": "FEDS Paper: Inattentive Price Setting and Inflation Under Fiscal Policy Uncertainty",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f94e0b5306776daf30f059924f446508d107cd47ed46d3c19d9a5e38bf0b7843",
+          "mode": "facts",
+          "request_seconds": 4.52,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 106,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 4,
+            "kept_facts": 4,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Overgeneralizes: source specifies an increase from 100% to 175% of GDP, not high debt generally.",
+            "drops the qualifier “about” that its quote carries",
+            "names not in or near its quote: Federal, Reserve",
+            "The source states this causal explanation specifically for an increase in debt from 100% to 175% of GDP in the calibrated general-equilibrium model, not for any rise in inflation volatility generally."
+          ]
+        },
+        "seconds": 86.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "6062bac2942dc769",
+        "title": "Fed’s Waller says AI-fueled inflation could persist for years",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "599a54c563a905566124ee6487ec12464de5e161bb8cf5dcdb2719179b2949b4",
+          "mode": "facts",
+          "request_seconds": 4.35,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 109,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 1,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “plans” that its quote carries"
+          ]
+        },
+        "seconds": 88.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7a2aafcef5091c82",
+        "title": "Fed's Waller says higher US yields could help cool demand",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "bb2e50d72ee18bac3f200b5c663ded6de887eafec906058bec882d1ca95ae5d7",
+          "mode": "facts",
+          "request_seconds": 4.57,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 144,
+            "paragraph_count": 4,
+            "warnings": [
+              "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 124.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cf8d144856674994",
+        "title": "U.S. REITs Raise $20B in Q3 2026; IPO Market Cools",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "ba22369cb8524cda60d0655ffa2202afbe2b050825b62269eb4eeae2846de0ec",
+          "mode": "facts",
+          "request_seconds": 4.88,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 84,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 5,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 3",
+            "quote not found verbatim in the source: “matching capital-raising activities from Q2, Nareit reported. After an”",
+            "figures not in its quote: 3",
+            "refers back to a deleted sentence, so its subject would be ambiguous",
+            "The claim 'Borrowing costs rose' lacks the qualifiers 'for REIT debt' and 'during 2026' present in the source."
+          ]
+        },
+        "seconds": 70.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2090591ad979b709",
+        "title": "Fintech Upgrade applies for ILC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "dc3d72caaaf4f8ff75e0de3da27db2b5624204e4d8a358106018c8c40d4cf3d8",
+          "mode": "facts",
+          "request_seconds": 5.6,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 156,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 4,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Tense changed from 'has applied' to 'applies'.",
+            "drops the attribution (“said”, “according to”) that its quote carries"
+          ]
+        },
+        "seconds": 160.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "140f3deb8326eb49",
+        "title": "The SBA citizenship rule can shut out borrowers who still qualify",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "078afc0fbd488c48536bdc96e1f4eaf8c76658c1d9a744975608c113ab397424",
+          "mode": "facts",
+          "request_seconds": 4.42,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 123,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Omits the condition that the SBA must determine the lender failed to adhere to program requirements; default alone is insufficient."
+          ]
+        },
+        "seconds": 123.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 18,
+    "published": 18,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup_social.png",
+      "insights/2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup.html",
+      "insights/anderson-family-properties-lands-550m-refi-for-century-city-office-campus_social.png",
+      "insights/anderson-family-properties-lands-550m-refi-for-century-city-office-campus.html",
+      "insights/walker-dunlop-arranges-203m-financing-for-east-village-multifamily_social.png",
+      "insights/walker-dunlop-arranges-203m-financing-for-east-village-multifamily.html",
+      "insights/blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes_social.png",
+      "insights/blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes.html",
+      "insights/walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi_social.png",
+      "insights/walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi.html",
+      "insights/dayone-secures-3-67bn-in-funding-for-malaysia-expansion_social.png",
+      "insights/dayone-secures-3-67bn-in-funding-for-malaysia-expansion.html",
+      "insights/dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado_social.png",
+      "insights/dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado.html",
+      "insights/home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo_social.png",
+      "insights/home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo.html",
+      "insights/orlando-apartments-get-76-2m-bridge-loan_social.png",
+      "insights/orlando-apartments-get-76-2m-bridge-loan.html",
+      "insights/revere-beach-apartments-sell-for-77m_social.png",
+      "insights/revere-beach-apartments-sell-for-77m.html",
+      "insights/ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio_social.png",
+      "insights/ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio.html",
+      "insights/annex-group-finishes-216-unit-union-at-rivers-edge_social.png",
+      "insights/annex-group-finishes-216-unit-union-at-rivers-edge.html",
+      "insights/feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain_social.png",
+      "insights/feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain.html",
+      "insights/waller-ai-spending-could-fuel-inflation-for-years_social.png",
+      "insights/waller-ai-spending-could-fuel-inflation-for-years.html",
+      "insights/waller-higher-yields-are-cooling-housing-demand_social.png",
+      "insights/waller-higher-yields-are-cooling-housing-demand.html",
+      "insights/u-s-reits-raise-20b-in-q3-2026-ipo-market-cools_social.png",
+      "insights/u-s-reits-raise-20b-in-q3-2026-ipo-market-cools.html",
+      "insights/fintech-upgrade-applies-for-ilc-charter_social.png",
+      "insights/fintech-upgrade-applies-for-ilc-charter.html",
+      "insights/sba-citizenship-rule-creates-a-headache-for-lenders_social.png",
+      "insights/sba-citizenship-rule-creates-a-headache-for-lenders.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup_related.json",
+      "insights/anderson-family-properties-lands-550m-refi-for-century-city-office-campus_related.json",
+      "insights/walker-dunlop-arranges-203m-financing-for-east-village-multifamily_related.json",
+      "insights/blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes_related.json",
+      "insights/walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi_related.json",
+      "insights/dayone-secures-3-67bn-in-funding-for-malaysia-expansion_related.json",
+      "insights/dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado_related.json",
+      "insights/home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo_related.json",
+      "insights/orlando-apartments-get-76-2m-bridge-loan_related.json",
+      "insights/revere-beach-apartments-sell-for-77m_related.json",
+      "insights/ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio_related.json",
+      "insights/annex-group-finishes-216-unit-union-at-rivers-edge_related.json",
+      "insights/feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain_related.json",
+      "insights/waller-ai-spending-could-fuel-inflation-for-years_related.json",
+      "insights/waller-higher-yields-are-cooling-housing-demand_related.json",
+      "insights/u-s-reits-raise-20b-in-q3-2026-ipo-market-cools_related.json",
+      "insights/fintech-upgrade-applies-for-ilc-charter_related.json",
+      "insights/sba-citizenship-rule-creates-a-headache-for-lenders_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "c12d02ce203d58e3",
+        "title": "2 Major H&R REIT Shareholders Plan To Vote To Block $5B Breakup",
+        "slug": "2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup",
+        "url": "/insights/2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 66,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1ddf201326ec75ca",
+        "title": "Anderson Family Properties Lands $550M Refi for Century City Office Campus",
+        "slug": "anderson-family-properties-lands-550m-refi-for-century-city-office-campus",
+        "url": "/insights/anderson-family-properties-lands-550m-refi-for-century-city-office-campus.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3db0eddc77f87d68",
+        "title": "Walker & Dunlop Arranges $203M Financing for East Village Multifamily",
+        "slug": "walker-dunlop-arranges-203m-financing-for-east-village-multifamily",
+        "url": "/insights/walker-dunlop-arranges-203m-financing-for-east-village-multifamily.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "ab30b1d487cedafb",
+        "title": "BlackRock and Baillie Gifford bet big on Icon 3D printed homes",
+        "slug": "blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes",
+        "url": "/insights/blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "eef8520e59f195b8",
+        "title": "Walker & Dunlop Arranges $86.5 Million Refinancing for Richmond Multifamily Community",
+        "slug": "walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi",
+        "url": "/insights/walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e5adc664e0e9dfff",
+        "title": "DayOne secures $3.67bn in funding for Malaysia expansion",
+        "slug": "dayone-secures-3-67bn-in-funding-for-malaysia-expansion",
+        "url": "/insights/dayone-secures-3-67bn-in-funding-for-malaysia-expansion.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ea207a09d02ad17f",
+        "title": "DPR breaks ground on $230M Kaiser Permanente project in Colorado",
+        "slug": "dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado",
+        "url": "/insights/dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a42687edb064f0d1",
+        "title": "Home equity-sharing firm Unison is said to pick banks for US IPO",
+        "slug": "home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo",
+        "url": "/insights/home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "318bd8a6bc409caa",
+        "title": "Orlando Apartments Get $76.2M Bridge Loan",
+        "slug": "orlando-apartments-get-76-2m-bridge-loan",
+        "url": "/insights/orlando-apartments-get-76-2m-bridge-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7dbb11fdde4fb531",
+        "title": "Revere Beach Apartments Sell For $77M",
+        "slug": "revere-beach-apartments-sell-for-77m",
+        "url": "/insights/revere-beach-apartments-sell-for-77m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4d67c7f5d532d599",
+        "title": "IPA Capital Markets Arranges $50M for 18-Property Industrial Portfolio",
+        "slug": "ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio",
+        "url": "/insights/ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "73c143586c7bf02a",
+        "title": "Annex Group Finishes 216-Unit Union at Rivers Edge",
+        "slug": "annex-group-finishes-216-unit-union-at-rivers-edge",
+        "url": "/insights/annex-group-finishes-216-unit-union-at-rivers-edge.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2417c27dffeb1a39",
+        "title": "FEDS Paper: Inattentive Price Setting and Inflation Under Fiscal Policy Uncertainty",
+        "slug": "feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain",
+        "url": "/insights/feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6062bac2942dc769",
+        "title": "Waller: AI spending could fuel inflation for years",
+        "slug": "waller-ai-spending-could-fuel-inflation-for-years",
+        "url": "/insights/waller-ai-spending-could-fuel-inflation-for-years.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7a2aafcef5091c82",
+        "title": "Waller: Higher yields are cooling housing demand",
+        "slug": "waller-higher-yields-are-cooling-housing-demand",
+        "url": "/insights/waller-higher-yields-are-cooling-housing-demand.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cf8d144856674994",
+        "title": "U.S. REITs Raise $20B in Q3 2026; IPO Market Cools",
+        "slug": "u-s-reits-raise-20b-in-q3-2026-ipo-market-cools",
+        "url": "/insights/u-s-reits-raise-20b-in-q3-2026-ipo-market-cools.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "2090591ad979b709",
+        "title": "Fintech Upgrade applies for ILC charter",
+        "slug": "fintech-upgrade-applies-for-ilc-charter",
+        "url": "/insights/fintech-upgrade-applies-for-ilc-charter.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "140f3deb8326eb49",
+        "title": "SBA citizenship rule creates a headache for lenders",
+        "slug": "sba-citizenship-rule-creates-a-headache-for-lenders",
+        "url": "/insights/sba-citizenship-rule-creates-a-headache-for-lenders.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "c12d02ce203d58e3",
+        "slug": "2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup",
+        "title": "2 Major H&R REIT Shareholders Plan To Vote To Block $5B Breakup",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1ddf201326ec75ca",
+        "slug": "anderson-family-properties-lands-550m-refi-for-century-city-office-campus",
+        "title": "Anderson Family Properties Lands $550M Refi for Century City Office Campus",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/anderson-family-properties-lands-550m-refi-for-century-city-office-campus.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3db0eddc77f87d68",
+        "slug": "walker-dunlop-arranges-203m-financing-for-east-village-multifamily",
+        "title": "Walker & Dunlop Arranges $203M Financing for East Village Multifamily",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-arranges-203m-financing-for-east-village-multifamily.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ab30b1d487cedafb",
+        "slug": "blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes",
+        "title": "BlackRock and Baillie Gifford bet big on Icon 3D printed homes",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes.html",
+        "reason": ""
+      },
+      {
+        "object_id": "eef8520e59f195b8",
+        "slug": "walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi",
+        "title": "Walker & Dunlop Arranges $86.5 Million Refinancing for Richmond Multifamily Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e5adc664e0e9dfff",
+        "slug": "dayone-secures-3-67bn-in-funding-for-malaysia-expansion",
+        "title": "DayOne secures $3.67bn in funding for Malaysia expansion",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dayone-secures-3-67bn-in-funding-for-malaysia-expansion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ea207a09d02ad17f",
+        "slug": "dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado",
+        "title": "DPR breaks ground on $230M Kaiser Permanente project in Colorado",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a42687edb064f0d1",
+        "slug": "home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo",
+        "title": "Home equity-sharing firm Unison is said to pick banks for US IPO",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo.html",
+        "reason": ""
+      },
+      {
+        "object_id": "318bd8a6bc409caa",
+        "slug": "orlando-apartments-get-76-2m-bridge-loan",
+        "title": "Newmark Arranges $76.2M Financing for Citron at The Packing District an Apartment Property in Orlando",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/orlando-apartments-get-76-2m-bridge-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7dbb11fdde4fb531",
+        "slug": "revere-beach-apartments-sell-for-77m",
+        "title": "Revere Beach Apartments Sell For $77M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/revere-beach-apartments-sell-for-77m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4d67c7f5d532d599",
+        "slug": "ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio",
+        "title": "IPA Capital Markets Arranges $50M for 18-Property Industrial Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "73c143586c7bf02a",
+        "slug": "annex-group-finishes-216-unit-union-at-rivers-edge",
+        "title": "Annex Group Completes $62.9M Affordable Housing Development in Des Moines",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/annex-group-finishes-216-unit-union-at-rivers-edge.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2417c27dffeb1a39",
+        "slug": "feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain",
+        "title": "FEDS Paper: Inattentive Price Setting and Inflation Under Fiscal Policy Uncertainty",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain.html",
+        "reason": ""
+      },
+      {
+        "object_id": "6062bac2942dc769",
+        "slug": "waller-ai-spending-could-fuel-inflation-for-years",
+        "title": "Fed’s Waller says AI-fueled inflation could persist for years",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/waller-ai-spending-could-fuel-inflation-for-years.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7a2aafcef5091c82",
+        "slug": "waller-higher-yields-are-cooling-housing-demand",
+        "title": "Fed's Waller says higher US yields could help cool demand",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/waller-higher-yields-are-cooling-housing-demand.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cf8d144856674994",
+        "slug": "u-s-reits-raise-20b-in-q3-2026-ipo-market-cools",
+        "title": "U.S. REITs Raise $20B in Q3 2026; IPO Market Cools",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/u-s-reits-raise-20b-in-q3-2026-ipo-market-cools.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2090591ad979b709",
+        "slug": "fintech-upgrade-applies-for-ilc-charter",
+        "title": "Fintech Upgrade applies for ILC charter",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fintech-upgrade-applies-for-ilc-charter.html",
+        "reason": ""
+      },
+      {
+        "object_id": "140f3deb8326eb49",
+        "slug": "sba-citizenship-rule-creates-a-headache-for-lenders",
+        "title": "The SBA citizenship rule can shut out borrowers who still qualify",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/sba-citizenship-rule-creates-a-headache-for-lenders.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 45,
+    "successful_calls": 45,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 20.71,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 9.22,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.09,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.37,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.66,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 107.07,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 66.68,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.13,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 500.69,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.14,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.36,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "published 18 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 707.11,
+  "status": "ready",
+  "candidate_count": 791,
+  "event_count": 753,
+  "articles": [
+    {
+      "event_id": "c12d02ce203d58e3",
+      "title": "2 Major H&R REIT Shareholders Plan To Vote To Block $5B Breakup",
+      "slug": "2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup",
+      "url": "/insights/2-major-h-r-reit-shareholders-plan-to-vote-to-block-5b-breakup.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 66,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1ddf201326ec75ca",
+      "title": "Anderson Family Properties Lands $550M Refi for Century City Office Campus",
+      "slug": "anderson-family-properties-lands-550m-refi-for-century-city-office-campus",
+      "url": "/insights/anderson-family-properties-lands-550m-refi-for-century-city-office-campus.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3db0eddc77f87d68",
+      "title": "Walker & Dunlop Arranges $203M Financing for East Village Multifamily",
+      "slug": "walker-dunlop-arranges-203m-financing-for-east-village-multifamily",
+      "url": "/insights/walker-dunlop-arranges-203m-financing-for-east-village-multifamily.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "ab30b1d487cedafb",
+      "title": "BlackRock and Baillie Gifford bet big on Icon 3D printed homes",
+      "slug": "blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes",
+      "url": "/insights/blackrock-and-baillie-gifford-bet-big-on-icon-3d-printed-homes.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "eef8520e59f195b8",
+      "title": "Walker & Dunlop Arranges $86.5 Million Refinancing for Richmond Multifamily Community",
+      "slug": "walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi",
+      "url": "/insights/walker-dunlop-arranges-86-5-million-refinancing-for-richmond-multifamily-communi.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e5adc664e0e9dfff",
+      "title": "DayOne secures $3.67bn in funding for Malaysia expansion",
+      "slug": "dayone-secures-3-67bn-in-funding-for-malaysia-expansion",
+      "url": "/insights/dayone-secures-3-67bn-in-funding-for-malaysia-expansion.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ea207a09d02ad17f",
+      "title": "DPR breaks ground on $230M Kaiser Permanente project in Colorado",
+      "slug": "dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado",
+      "url": "/insights/dpr-breaks-ground-on-230m-kaiser-permanente-project-in-colorado.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a42687edb064f0d1",
+      "title": "Home equity-sharing firm Unison is said to pick banks for US IPO",
+      "slug": "home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo",
+      "url": "/insights/home-equity-sharing-firm-unison-is-said-to-pick-banks-for-us-ipo.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "318bd8a6bc409caa",
+      "title": "Orlando Apartments Get $76.2M Bridge Loan",
+      "slug": "orlando-apartments-get-76-2m-bridge-loan",
+      "url": "/insights/orlando-apartments-get-76-2m-bridge-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7dbb11fdde4fb531",
+      "title": "Revere Beach Apartments Sell For $77M",
+      "slug": "revere-beach-apartments-sell-for-77m",
+      "url": "/insights/revere-beach-apartments-sell-for-77m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4d67c7f5d532d599",
+      "title": "IPA Capital Markets Arranges $50M for 18-Property Industrial Portfolio",
+      "slug": "ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio",
+      "url": "/insights/ipa-capital-markets-arranges-50m-for-18-property-industrial-portfolio.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "73c143586c7bf02a",
+      "title": "Annex Group Finishes 216-Unit Union at Rivers Edge",
+      "slug": "annex-group-finishes-216-unit-union-at-rivers-edge",
+      "url": "/insights/annex-group-finishes-216-unit-union-at-rivers-edge.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2417c27dffeb1a39",
+      "title": "FEDS Paper: Inattentive Price Setting and Inflation Under Fiscal Policy Uncertainty",
+      "slug": "feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain",
+      "url": "/insights/feds-paper-inattentive-price-setting-and-inflation-under-fiscal-policy-uncertain.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6062bac2942dc769",
+      "title": "Waller: AI spending could fuel inflation for years",
+      "slug": "waller-ai-spending-could-fuel-inflation-for-years",
+      "url": "/insights/waller-ai-spending-could-fuel-inflation-for-years.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7a2aafcef5091c82",
+      "title": "Waller: Higher yields are cooling housing demand",
+      "slug": "waller-higher-yields-are-cooling-housing-demand",
+      "url": "/insights/waller-higher-yields-are-cooling-housing-demand.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cf8d144856674994",
+      "title": "U.S. REITs Raise $20B in Q3 2026; IPO Market Cools",
+      "slug": "u-s-reits-raise-20b-in-q3-2026-ipo-market-cools",
+      "url": "/insights/u-s-reits-raise-20b-in-q3-2026-ipo-market-cools.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "2090591ad979b709",
+      "title": "Fintech Upgrade applies for ILC charter",
+      "slug": "fintech-upgrade-applies-for-ilc-charter",
+      "url": "/insights/fintech-upgrade-applies-for-ilc-charter.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "140f3deb8326eb49",
+      "title": "SBA citizenship rule creates a headache for lenders",
+      "slug": "sba-citizenship-rule-creates-a-headache-for-lenders",
+      "url": "/insights/sba-citizenship-rule-creates-a-headache-for-lenders.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 18
+}
