@@ -1,0 +1,3214 @@
+{
+  "run_at": "2026-10-14T15:47:44.073668+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 917,
+  "documents_from_feeds": 814,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 866,
+  "documents_consolidated": 51,
+  "eligible": 129,
+  "enriched": 250,
+  "evidence_upgraded": 129,
+  "selected": 32,
+  "publication_candidates": 32,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 72,
+      "eligible": 11,
+      "selected": 8,
+      "target": 10,
+      "shortfall_reason": "only 8 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 475,
+      "eligible": 74,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 78,
+      "eligible": 9,
+      "selected": 7,
+      "target": 10,
+      "shortfall_reason": "only 7 of 9 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 118,
+      "eligible": 13,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 13 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 40,
+      "eligible": 13,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 13 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 78,
+      "eligible": 8,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "8 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 18,
+    "tier_c": 14
+  },
+  "shortfalls": [
+    "banking_credit: only 8 of 11 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 7 of 9 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 2 of 13 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 5 of 13 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: 8 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 63.8,
+    "mean": 34.5,
+    "stdev": 13.5,
+    "range_used": 63.8,
+    "median": 34.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 256,
+    "fetched": 249,
+    "from_cache": 0,
+    "blocked": 7,
+    "failed": 0,
+    "skipped_budget": 0,
+    "bytes_downloaded": 52726307,
+    "elapsed_ms": 70691,
+    "by_status": {
+      "full_text": 130,
+      "partial_text": 119,
+      "blocked": 7
+    }
+  },
+  "novelty": {
+    "new": 747,
+    "already_published": 11,
+    "minor_follow_up": 106,
+    "material_update": 2
+  },
+  "memory": {
+    "events_remembered": 16906,
+    "published": 1065,
+    "seen_but_not_run": 15841,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-14",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 1.0036,
+    "spent_today_usd": 1.0036,
+    "remaining_usd": 23.9964,
+    "exhausted": false,
+    "total_calls": 317,
+    "refused_calls": 0,
+    "elapsed_seconds": 1588.5,
+    "by_stage": {
+      "v4_verify": {
+        "calls": 232,
+        "input_tokens": 338348,
+        "output_tokens": 574984,
+        "usd": 0.7915,
+        "seconds": 6429.14,
+        "refused": 0
+      },
+      "v4_write": {
+        "calls": 85,
+        "input_tokens": 357748,
+        "output_tokens": 87302,
+        "usd": 0.2121,
+        "seconds": 843.44,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "d6a14c5d754462b2",
+        "usd": 0.0629
+      },
+      {
+        "id": "1b49de49a24d94d5",
+        "usd": 0.0599
+      },
+      {
+        "id": "278906b7c60c679c",
+        "usd": 0.051
+      },
+      {
+        "id": "7b37c6b2053a1264",
+        "usd": 0.0459
+      },
+      {
+        "id": "e086bd6598d3605c",
+        "usd": 0.0446
+      },
+      {
+        "id": "2e90777055b8d4f7",
+        "usd": 0.0441
+      },
+      {
+        "id": "dbc0ecc6040871b8",
+        "usd": 0.0412
+      },
+      {
+        "id": "2027a7d56ac3ba98",
+        "usd": 0.0396
+      },
+      {
+        "id": "24e8f35847c23f80",
+        "usd": 0.0388
+      },
+      {
+        "id": "1f049d5697603c79",
+        "usd": 0.0387
+      }
+    ]
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 32,
+    "written": 29,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "withheld": 3,
+    "voiced": 16,
+    "voice": true,
+    "stop_reason": "",
+    "spend_usd": 1.0036,
+    "attempts": 85,
+    "elapsed_seconds": 1246.47,
+    "provider_attempts": {
+      "deepseek": 85
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "950e2b164534a4a3",
+        "title": "Starwood Property Trust Provides $238M Refi on N.C. Life Sciences Campus",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "92aad8780b6d9ede0716a706662eade8836814e1f1d493e02041f8da132e45ee",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "King Street Properties",
+            "tension": "The sources do not explicitly state a clock, a choice, or a contradiction. The refinancing appears to be a straightforward transaction. However, there is an implicit tension: the first phase is only 582,000 square feet, and the second phase will bring the total to over 950,000 square feet. The refinancing may be a step toward funding that expansion, but the sources do not say. So the tension is the gap between what is built and what is planned, and the refinancing as a bridge."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 122,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Asserts a factual state about the campus being unfinished, not a voice reaction or transition.",
+            "Assumes the refinancing funds the next stage, which the cited facts do not say.",
+            "Predicts future events and information, carried as a hidden factual claim."
+          ]
+        },
+        "seconds": 238.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7b37c6b2053a1264",
+        "title": "BofA gets $1.21B penalty for money laundering",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "497bdf51ead7c919d0b74b3a982087de9f40a35c6cebc8ac37a9cee162e7f2a6",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "trust and institutions",
+            "protagonist": "Bank of America",
+            "tension": "The bank was aware of sanctioned banks in its payment directory since March 2022 but did not fully identify the scope of transactions until after an OFAC subpoena in January 2025, and more than a year after a 2024 cease-and-desist order, it still failed to escalate suspicious activities."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 161,
+            "paragraph_count": 5,
+            "warnings": [
+              "50% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 20,
+            "rejected": 10,
+            "kept_facts": 10,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "50% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "unsupported superlative stated as fact",
+            "a view or action may not add names: AML",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a view or action may not add figures: 2024; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "implies lookback has begun without support"
+          ]
+        },
+        "seconds": 317.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e086bd6598d3605c",
+        "title": "BlackRock Invests In 3D-Printing Construction Startup Valued At $1.4B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "5e061c22777930a1beb222f81e5de5ae78f1933292482cee9cead021c0b0d6fc",
+          "mode": "voice",
+          "brief": {
+            "shape": "What Has to Be True",
+            "lens": "technology and land",
+            "protagonist": "Icon",
+            "tension": "The funding round is a growth capital bet on a company whose technology has only recently moved from single-story to multistory structures, and whose claims of 40% cost reduction and six-week time savings are unproven at scale."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 165,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 5,
+            "kept_facts": 10,
+            "kept_takes": 0,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add figures: 40",
+            "fact rejected by the fact check",
+            "Speculates about investors' bet on industry change and economics.",
+            "Asserts a future test, not a pure reaction or transition."
+          ]
+        },
+        "seconds": 316.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1f049d5697603c79",
+        "title": "Bond Traders Shift Bets Toward Rate Hike After Latest Inflation Data",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "6657bcdccf3a9d4983006b5c39b8129fe5e4e36e572b9ab33b830357febb56fb",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "capital cycle",
+            "protagonist": "Bond traders in futures markets",
+            "tension": "The inflation print came in slightly above expectations, forcing traders to reassess their positions, but the probability of a hike is still below 50%, leaving the outcome genuinely uncertain."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 157,
+            "paragraph_count": 5,
+            "warnings": [
+              "44% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 4,
+            "kept_facts": 7,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "44% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Relies on the Fed's 2% target, which is not cited.",
+            "fact rejected by the fact check",
+            "voice lines may not name anyone or anything",
+            "a take must be first person or plainly framed as opinion"
+          ]
+        },
+        "seconds": 284.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2ea3964abfaefe8e",
+        "title": "IURC approves AES Indiana plan for $1.3bn solar, storage, and transmission project for Google data center in Monrovia",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a848db312c453a0c834100c6736144258c423a191bf4a3023c4a585ed24c4a0e",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "AES Indiana",
+            "tension": "The project is the first filed under a new 2025 law requiring large load data centers to cover at least 80% of infrastructure costs, and Google will pay 100%, but the long-term risk of cost shifting if Google scales back or drops the project is addressed through contract provisions."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 211,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 21,
+            "rejected": 8,
+            "kept_facts": 11,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a take must cite at least one verified fact in 'because'",
+            "a take must be first person or plainly framed as opinion; a view or action may not add figures: 20",
+            "a view or action may not add figures: 2025; a view or action may not add names: Indiana",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 253.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1a804c04bb4608c9",
+        "title": "Merchants Capital Secures Freddie Mac Forward TEL Loan for Affordable Multifamily Development in Indianapolis",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f1c90f781c32aff3fb62ac9d4cf23f8f851271a615bfbdaf78b26bffb9f8a50c",
+          "mode": "voice",
+          "brief": {
+            "shape": "What Has to Be True",
+            "lens": "time and patience",
+            "protagonist": "The Annex Group",
+            "tension": "The deal is a forward commitment: construction starts in 2026, permanent financing is already locked, but completion isn't until 2028. The gap between commitment and delivery is the tension."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 241,
+            "paragraph_count": 6,
+            "warnings": [
+              "Split these sentences (over 35 words): “Ryan Clark, Senior Vice President of Development for The…” (37 words); “The property has been awarded an Affordable Housing and…” (36 words); “Nick Miller, Assistant Vice President of Originations at Merchants…” (48 words)",
+              "Paragraph 3 has 62 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "36% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 17,
+            "rejected": 4,
+            "kept_facts": 10,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Split these sentences (over 35 words): “Ryan Clark, Senior Vice President of Development for The…” (37 words); “The property has been awarded an Affordable Housing and…” (36 words); “Nick Miller, Assistant Vice President of Originations at Merchants…” (48 words)",
+            "Paragraph 3 has 62 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "36% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion",
+            "a take must be first person or plainly framed as opinion; a view or action may not add figures: 227",
+            "Adds unsupported market trend and purpose not in cited facts.",
+            "voice lines may not contain numbers"
+          ]
+        },
+        "seconds": 234.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2e90777055b8d4f7",
+        "title": "Trump goes after an offshore wind farm that’s already up and running",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d90a1c0143771916a8e15f8003e5b990a446f4401cff42dfd8a667e1900062c3",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "Revolution Wind",
+            "tension": "The project is nearly complete and generating electricity, but a federal court filing to remand its key approval injects uncertainty into a project that electricity planners and consumers are counting on."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 308,
+            "paragraph_count": 8,
+            "warnings": [
+              "39% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 23,
+            "rejected": 6,
+            "kept_facts": 15,
+            "kept_takes": 2,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "39% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "States a factual characterization that could be true or false.",
+            "Adds grid stress/weather claim not in cited facts.",
+            "fact rejected by the fact check",
+            "Adds safety/gap claim not in cited quote.",
+            "fact rejected by the fact check",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 304.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2027a7d56ac3ba98",
+        "title": "Braemar Hotels & Resorts to Sell Four Seasons Resort Scottsdale for $372M as Part of Self-Managed REIT Strategy",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f8dbc40cbb92edeb0438bd2ee3453ac03a4a3297eb75af16cebbeef58df9446c",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "time and patience",
+            "protagonist": "Braemar Hotels & Resorts",
+            "tension": "The sale is not a pure profit-maximizing move; it is a step in a larger restructuring with a hard deadline, and the undisclosed buyer and $10 million non-refundable deposit raise questions about certainty and pricing."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 135,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 4,
+            "kept_facts": 4,
+            "kept_takes": 2,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "a view or action may not add names: Braemar; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "fact rejected by the fact check",
+            "Adds unstated premise that the property is a trophy resort and speculates about the buyer's motive.",
+            "a view or action may not add names: Braemar; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 314.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "888c8b3c8fa50551",
+        "title": "Thompson Thrift Inks Bridge Financing on 6 Florida Rental Assets",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "be06e11baa6558c399afe0116f275c32f6157a5606bfec1bccbc2d9972e0297c",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Thompson Thrift",
+            "tension": "The sources show no explicit clock or constraint beyond the implicit need to refinance construction debt and lease up newly delivered properties. The tension is structural: a floating-rate bridge loan leaves the borrower exposed to interest rate risk while the properties are still in lease-up."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 171,
+            "paragraph_count": 6,
+            "warnings": [
+              "Paragraph 5 has 40 words and 5 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "47% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 19,
+            "rejected": 4,
+            "kept_facts": 11,
+            "kept_takes": 2,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 5 has 40 words and 5 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "47% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion",
+            "Asserts a trade-off as fact without support"
+          ]
+        },
+        "seconds": 238.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dbc0ecc6040871b8",
+        "title": "Cohen & Steers Nontraded REIT Adds $92.3M in Shopping Centers as NAV Nears $392M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "978c1bfc0dc7a0a5c1b065f84e6c3565560515db7382eee9c51e93bc94570b85",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "capital cycle",
+            "protagonist": "Cohen & Steers Income Opportunities REIT (CNSREIT)",
+            "tension": "The REIT's growth is funded largely by non-public share classes (nearly 90% of NAV) while its public offering has raised only $21.6 million of a $3 billion target, creating a mismatch between its acquisition pace and its public fundraising."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 214,
+            "paragraph_count": 5,
+            "warnings": [
+              "The opening paragraph is 48 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 2,
+            "kept_facts": 11,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 48 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a view or action may not add names: REIT; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "voice lines may not contain numbers"
+          ]
+        },
+        "seconds": 302.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7b578211bfcfed4f",
+        "title": "Developers Land $204M Loan For East Village Project: The N.Y. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "40b6fc25423cb1ad5fb29b89060a90e80fdca0e333be13d49d59dae0cb345313",
+          "mode": "voice",
+          "brief": {
+            "shape": "What Has to Be True",
+            "lens": "power and politics",
+            "protagonist": "SK Development and Kinsmen Property Group (the developers)",
+            "tension": "The air rights transfer needs approval from the Landmarks Preservation Commission; if it fails, the developers plan a much smaller, market-rate building with only 14 apartments."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 230,
+            "paragraph_count": 4,
+            "warnings": [
+              "Sentences average 29 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “If it goes through — which the developers need…” (37 words); “The submarket has a vacancy rate of 2%, according…” (39 words)",
+              "Paragraph 2 has 84 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 53 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "38% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 11,
+            "kept_facts": 2,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 29 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “If it goes through — which the developers need…” (37 words); “The submarket has a vacancy rate of 2%, according…” (39 words)",
+            "Paragraph 2 has 84 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 53 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "38% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Adds a condition not in cited facts",
+            "a take must be first person or plainly framed as opinion; a view or action may not add figures: 184",
+            "a take must be first person or plainly framed as opinion; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "a take must be first person or plainly framed as opinion; states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'",
+            "Asserts a factual claim about the church's stake",
+            "a take must be first person or plainly framed as opinion",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 235.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1cb3b80fb693fc8a",
+        "title": "OCC Imposes $750 Million Assessment Against Bank of America for Deficient BSA/AML Compliance",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "50f9e29f52fe100995a593f071499fbe826d3aa425a76efb6fac338f23dd86f0",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "trust and institutions",
+            "protagonist": "Bank of America",
+            "tension": "The bank agreed to a 2024 cease-and-desist order but, more than a year later, still failed to escalate suspicious activity and had systemic transaction monitoring gaps, showing a contradiction between commitment and execution."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 376,
+            "paragraph_count": 7,
+            "warnings": [
+              "Paragraph 2 has 61 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "37% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 20,
+            "rejected": 2,
+            "kept_facts": 15,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 2 has 61 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "37% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion",
+            "Unsupported contrast: facts don't show prior private handling."
+          ]
+        },
+        "seconds": 194.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "634eaaca180c092f",
+        "title": "Inflation uptick puts pressure on Fed to hike again",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0374f0506b2cd15cd569f0971df2c71ed1bdcbbff785f6aa7a69064a8f1d9d36",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "power and politics",
+            "protagonist": "The Federal Open Market Committee (FOMC)",
+            "tension": "The CPI report, released just before the Fed's communications blackout period, may force the FOMC to choose between acting on new inflation data or holding off to gather more information, as some officials have urged."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 219,
+            "paragraph_count": 6,
+            "warnings": [
+              "Sentences average 27 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “Dallas Fed President Lorie Logan said, \"I currently estimate…” (67 words)",
+              "Paragraph 2 has 67 words and 1 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 17,
+            "rejected": 7,
+            "kept_facts": 8,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 27 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “Dallas Fed President Lorie Logan said, \"I currently estimate…” (67 words)",
+            "Paragraph 2 has 67 words and 1 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "voice lines may not name anyone or anything",
+            "cited facts do not show a patient camp",
+            "a take must be first person or plainly framed as opinion",
+            "fact rejected by the fact check",
+            "a view or action may not add names: FOMC",
+            "asserts blackout starts next week as fact"
+          ]
+        },
+        "seconds": 265.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1b49de49a24d94d5",
+        "title": "PNC Lends $96M for Hawaii Retail Portfolio Acquisition",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f626713fc99e57aa16dece40e67e93ef44fddbd8fa2fe336cedfbbeeb5a87dd4",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "climate and risk",
+            "protagonist": "11North Partners",
+            "tension": "The deal is presented as a triumph, but the financing is nonrecourse and the properties depend heavily on tourism, which is still recovering from the 2023 wildfires. The tension is between the confidence of the acquisition and the fragility of the local economy."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 142,
+            "paragraph_count": 5,
+            "warnings": [
+              "50% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 2,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 7.61,
+          "readability_warnings": [
+            "50% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "names not in or near its quote: Joe",
+            "refers back to a deleted sentence, so its subject would be ambiguous"
+          ]
+        },
+        "seconds": 453.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "278906b7c60c679c",
+        "title": "Microsoft acquires 600 acres of land for data center in Woodward, Iowa",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "3fe3ab90019942e0d45436f6237cb6fe61c8a809c0f647e0f9571e5d16d2bfd9",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "The town of Woodward, Iowa, and its residents, who face a massive data center campus in their community without a vote.",
+            "tension": "Residents asked if they get a vote and were told 'No.' The land was rezoned in June with the usual additional readings waived, and the purchase closed four days before the meeting."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 200,
+            "paragraph_count": 6,
+            "warnings": [
+              "Split these sentences (over 35 words): “Microsoft's land development manager, Jackie Nickolaus, told residents: \"We…” (50 words)",
+              "The opening paragraph is 50 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 22,
+            "rejected": 9,
+            "kept_facts": 11,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Split these sentences (over 35 words): “Microsoft's land development manager, Jackie Nickolaus, told residents: \"We…” (50 words)",
+            "The opening paragraph is 50 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "asserts a causal claim about the meeting",
+            "a take must be first person or plainly framed as opinion",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion",
+            "adds unsupported trust-cost outcome",
+            "implies residents lack a vote"
+          ]
+        },
+        "seconds": 419.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d6a14c5d754462b2",
+        "title": "ABA, state bankers associations offer recommendations for CRA rules revisions",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "84fb594ac1c2a27259987c3a4e85fb6d77aa708b7232c33457e57efa57c9cf2b",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "The American Bankers Association and 45 state bankers associations",
+            "tension": "The proposed rule is the third attempt in eight years to update CRA regulations, creating uncertainty and disruption for banks."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 174,
+            "paragraph_count": 4,
+            "warnings": [
+              "Sentences average 25 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “The American Bankers Association and 45 state bankers associations…” (36 words); “Banks that move to a different asset classification should…” (41 words)",
+              "Paragraph 4 has 62 words and 2 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 58 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 3,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 6.62,
+          "readability_warnings": [
+            "Sentences average 25 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “The American Bankers Association and 45 state bankers associations…” (36 words); “Banks that move to a different asset classification should…” (41 words)",
+            "Paragraph 4 has 62 words and 2 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 58 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Source says ABA and 45 state bankers associations said small and intermediate bank thresholds should be increased to $1 billion and $10 billion respectively; not ABA alone pushing a single CRA threshold to $1 billion.",
+            "figures not in its quote: 1; drops the attribution (“said”, “according to”) that its quote carries",
+            "The source does not attribute the 'third attempt' statement to the associations."
+          ]
+        },
+        "seconds": 511.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "24e8f35847c23f80",
+        "title": "OCC Releases Report on Large Banks’ Debanking Activities",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "9fffe7742368b4070cc565faadb834377ebed974ed89b5a7ef3d4fe78b1f265f",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "The nine largest national banks supervised by the OCC",
+            "tension": "The OCC found that all nine banks had policies that may have denied or limited access to financial services based on political, religious, or social views, or lawful business activities, despite some efforts by the banks to rein in these practices."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 142,
+            "paragraph_count": 5,
+            "warnings": [
+              "Sentences average 28 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “The OCC conducted its supervisory review in accordance with…” (44 words)",
+              "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 8,
+            "kept_facts": 5,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 28 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “The OCC conducted its supervisory review in accordance with…” (44 words)",
+            "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "Implies a complaint file exists and is not stray.",
+            "Relies on uncited finding; adds 'risk committees' not in facts.",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "Implies rule changes are underway."
+          ]
+        },
+        "seconds": 303.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "487375340d05e962",
+        "title": "Global Investor Buys 8 Mass. Industrial Buildings For $76.5M: The Boston Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "6954375938ab3be2778d49b732fb3bf6175eef5b30e410d76e7326203fe5caac",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Investcorp",
+            "tension": "The sources show no explicit clock, choice, or contradiction. The transaction is a straightforward acquisition with no stated deadlines or competing parties. The only mild tension is the silent gap: Investcorp did not respond to a request for comment, leaving its specific plans for these properties unknown."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 193,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 1,
+            "kept_facts": 7,
+            "kept_takes": 2,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "asserts a factual change rather than being a non-assertive voice sentence"
+          ]
+        },
+        "seconds": 165.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bcbb617fd7af2344",
+        "title": "Inflation Accelerates to 3.7% as Gasoline Prices Surge",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "94fb4797232c3a370c771cf075639ff3bb143041c807d17adaa9cee1c70a8e2e",
+          "mode": "facts",
+          "request_seconds": 6.16,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 139,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 0,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the attribution (“said”, “according to”) that its quote carries"
+          ]
+        },
+        "seconds": 126.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e9a2528af434268c",
+        "title": "One Street Secures $38M Loan for D.C. Office-to-Condo Conversion",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "2f89a20740f68dec45767d3fed5598af862384710432c06518a5be1df9ddf98e",
+          "mode": "facts",
+          "request_seconds": 5.66,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 199,
+            "paragraph_count": 3,
+            "warnings": [
+              "Sentences average 22 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Paragraph 1 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 63 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "These names do not appear in the dossier; remove them or use only names the sources gave: C&amp"
+            ]
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 0,
+            "kept_facts": 9,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 22 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Paragraph 1 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 63 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "These names do not appear in the dossier; remove them or use only names the sources gave: C&amp"
+          ],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 159.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "87520685a215efe0",
+        "title": "Blackstone-Backed Data Center Firm AirTrunk Reportedly Delaying $1.5B IPO",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a39ffc5446dd97874e2d564c7e9cec18ca4836af1dbffc4f8b3f2c4d9c28ceff",
+          "mode": "facts",
+          "request_seconds": 5.95,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 180,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 1.5"
+          ]
+        },
+        "seconds": 188.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e7b114b6ad469c99",
+        "title": "CFPB Announces New Initiative to Address OCC-Uncovered Debanking by Large Banks",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "b85f36baed1bbd8d7e1caa4f37203aa48cea26b96b1974116f2f8fe685b3ee09",
+          "mode": "facts",
+          "request_seconds": 6.36,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 104,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 1,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 106.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2600b76dcf73ff9c",
+        "title": "FDIC's Hill cites 'more work to do' on tokenized deposits",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "6d8345d9f6c7866101f3799fc008543e1d76484c965dbb14849ebc49d80f0821",
+          "mode": "facts",
+          "request_seconds": 6.0,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "missing_field",
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "missing required field: excerpt",
+              "missing required field: body_html",
+              "word count 0 is outside 60-300"
+            ],
+            "word_count": 0,
+            "paragraph_count": 0,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 7,
+            "rejected": 7,
+            "kept_facts": 0,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 134.9,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "7cc14ba7828db623",
+        "title": "Solid consumer results at Wells Fargo propel larger profits",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8b701e4348ef6c7a31185661a519c4687303df21a9aeeb6a17625253c79218b2",
+          "mode": "facts",
+          "request_seconds": 7.61,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 121,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "names not in or near its quote: Financial, Officer, Mike"
+          ]
+        },
+        "seconds": 115.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0f4cc7a1eb5ab1fc",
+        "title": "Digi Power X secures $200m in debt financing for Alabama data center project",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f386b9c86a6b275ac43ba452d839005e0e0525a660a846ab2221eac7e5fe57df",
+          "mode": "facts",
+          "request_seconds": 5.57,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 150,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 0,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 91.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9e0d6fe6a784f2e5",
+        "title": "Mortgage clients make ground-floor investments in AI fintech",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c3dca8bed833092e318521250a23c031e98871d62f1631d626f971268d85e41e",
+          "mode": "facts",
+          "request_seconds": 4.99,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 101,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 3,
+            "kept_facts": 4,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "The source does not mention New American Funding.",
+            "figures not in its quote: 3, 30; names not in or near its quote: Series, Vesta",
+            "quote not found verbatim in the source: “Pennymac, New American Funding and NBKC Bank joined previous investors”",
+            "names not in or near its quote: Bank; drops the qualifier “some” that its quote carries"
+          ]
+        },
+        "seconds": 102.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "115c1b0df4349212",
+        "title": "Oregon Govenor Tina Kotek asks state environmental regulator to pause permits, introducing de facto data center moratorium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "51876137245ca99fa2423a49a33ff88df7f757bcf16084e93e1f0d5cc85c2398",
+          "mode": "facts",
+          "request_seconds": 6.37,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 152,
+            "paragraph_count": 4,
+            "warnings": [
+              "The opening paragraph is 46 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 46 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Source says he said it was 'without meaningful stakeholder engagement of the workers, businesses, and municipalities it will affect'; the sentence omits that specific qualifier, broadening the claim."
+          ]
+        },
+        "seconds": 148.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5d1d7b9842d3cbc9",
+        "title": "Oswal Pumps to set up 1.2 GW TOPCon solar cell factory in India",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a1f860203bb0c32c9260ddb6cbfbaa184703c45a62ec53de6a94181c6ee246a0",
+          "mode": "facts",
+          "request_seconds": 6.66,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 130,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 3,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "quote not found verbatim in the source: “The project is expected to cost approximately INR 4.56 billion ($48.1 ”",
+            "drops the qualifier “proposed” that its quote carries",
+            "refers back to a deleted sentence, so its subject would be ambiguous"
+          ]
+        },
+        "seconds": 158.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "e713a102d56d42ae",
+        "title": "Charlotte City Council Leans Toward Extending Data Center Moratorium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "31d650d2fc84d57c966b92bd4eb75dc2b3708e644d2fd90790b05f6b6d61103b",
+          "mode": "facts",
+          "request_seconds": 7.38,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 157,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 26; names not in or near its quote: Oct",
+            "figures not in its quote: 26; names not in or near its quote: Oct",
+            "names not in or near its quote: Member, Mazuera, Arias"
+          ]
+        },
+        "seconds": 148.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "197bf2455140ee4b",
+        "title": "Memphis Council Delays Vote on Proposed Year-Long Data Center Moratorium Amid Protests Oct 14, 2026",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "72c667b9b7730102cbd091e8fed3b78d53f1b893d5e01fdf7a9fe886614a8a15",
+          "mode": "facts",
+          "request_seconds": 5.87,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 143,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 2,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “proposed” that its quote carries",
+            "figures not in its quote: 20",
+            "The source says a vote is now expected on October 20, not a decision."
+          ]
+        },
+        "seconds": 182.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7e58f808f2ad430a",
+        "title": "Hot Inflation Lifts Fed Rate-Hike Bets",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e803f75ee8628bdb43a95ab6e60f4a29d2d077db005a7ae27b907e46d21e69e5",
+          "mode": "facts",
+          "request_seconds": 3.96,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "word count 43 is outside 60-300"
+            ],
+            "word_count": 43,
+            "paragraph_count": 2,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 5,
+            "rejected": 2,
+            "kept_facts": 2,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 99.1,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "12ccb011a292790e",
+        "title": "Treasuries Slump as Hot Inflation Lifts Fed Rate-Hike Bets",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "b3d297df2e85a8e5c31f216947a320bb21ee8e2c23e87fbde846315529f3864c",
+          "mode": "facts",
+          "request_seconds": 3.81,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "word count 33 is outside 60-300"
+            ],
+            "word_count": 33,
+            "paragraph_count": 2,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 6,
+            "rejected": 2,
+            "kept_facts": 3,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 157.0,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 32,
+    "published": 29,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus_social.png",
+      "insights/starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus.html",
+      "insights/bofa-gets-1-21b-penalty-for-money-laundering_social.png",
+      "insights/bofa-gets-1-21b-penalty-for-money-laundering.html",
+      "insights/blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b_social.png",
+      "insights/blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b.html",
+      "insights/rate-hike-odds-jump-to-47-after-inflation-surprise_social.png",
+      "insights/rate-hike-odds-jump-to-47-after-inflation-surprise.html",
+      "insights/iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project_social.png",
+      "insights/iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project.html",
+      "insights/merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil_social.png",
+      "insights/merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil.html",
+      "insights/trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running_social.png",
+      "insights/trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running.html",
+      "insights/braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o_social.png",
+      "insights/braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o.html",
+      "insights/thompson-thrift-lands-463m-bridge-loan-for-8-rentals_social.png",
+      "insights/thompson-thrift-lands-463m-bridge-loan-for-8-rentals.html",
+      "insights/cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m_social.png",
+      "insights/cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m.html",
+      "insights/developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet_social.png",
+      "insights/developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet.html",
+      "insights/occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml_social.png",
+      "insights/occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml.html",
+      "insights/inflation-uptick-puts-pressure-on-fed-to-hike-again_social.png",
+      "insights/inflation-uptick-puts-pressure-on-fed-to-hike-again.html",
+      "insights/pnc-lends-96m-for-hawaii-retail-portfolio-acquisition_social.png",
+      "insights/pnc-lends-96m-for-hawaii-retail-portfolio-acquisition.html",
+      "insights/microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa_social.png",
+      "insights/microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa.html",
+      "insights/aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions_social.png",
+      "insights/aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions.html",
+      "insights/occ-all-nine-largest-banks-had-debanking-policies_social.png",
+      "insights/occ-all-nine-largest-banks-had-debanking-policies.html",
+      "insights/global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet_social.png",
+      "insights/global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet.html",
+      "insights/inflation-hits-3-7-as-gasoline-prices-surge_social.png",
+      "insights/inflation-hits-3-7-as-gasoline-prices-surge.html",
+      "insights/one-street-gets-38m-loan-for-d-c-office-to-condo-conversion_social.png",
+      "insights/one-street-gets-38m-loan-for-d-c-office-to-condo-conversion.html",
+      "insights/blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo_social.png",
+      "insights/blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo.html",
+      "insights/cfpb-to-probe-big-banks-over-debanking_social.png",
+      "insights/cfpb-to-probe-big-banks-over-debanking.html",
+      "insights/wells-fargo-consumer-revenue-hits-10-7-billion_social.png",
+      "insights/wells-fargo-consumer-revenue-hits-10-7-billion.html",
+      "insights/digi-power-x-lands-200m-debt-for-alabama-data-center_social.png",
+      "insights/digi-power-x-lands-200m-debt-for-alabama-data-center.html",
+      "insights/mortgage-clients-make-ground-floor-investments-in-ai-fintech_social.png",
+      "insights/mortgage-clients-make-ground-floor-investments-in-ai-fintech.html",
+      "insights/oregon-governor-pauses-data-center-pollution-permits_social.png",
+      "insights/oregon-governor-pauses-data-center-pollution-permits.html",
+      "insights/oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant_social.png",
+      "insights/oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant.html",
+      "insights/charlotte-council-weighs-extending-data-center-moratorium_social.png",
+      "insights/charlotte-council-weighs-extending-data-center-moratorium.html",
+      "insights/memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr_social.png",
+      "insights/memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus_related.json",
+      "insights/bofa-gets-1-21b-penalty-for-money-laundering_related.json",
+      "insights/blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b_related.json",
+      "insights/rate-hike-odds-jump-to-47-after-inflation-surprise_related.json",
+      "insights/iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project_related.json",
+      "insights/merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil_related.json",
+      "insights/trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running_related.json",
+      "insights/braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o_related.json",
+      "insights/thompson-thrift-lands-463m-bridge-loan-for-8-rentals_related.json",
+      "insights/cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m_related.json",
+      "insights/developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet_related.json",
+      "insights/occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml_related.json",
+      "insights/inflation-uptick-puts-pressure-on-fed-to-hike-again_related.json",
+      "insights/pnc-lends-96m-for-hawaii-retail-portfolio-acquisition_related.json",
+      "insights/microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa_related.json",
+      "insights/aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions_related.json",
+      "insights/occ-all-nine-largest-banks-had-debanking-policies_related.json",
+      "insights/global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet_related.json",
+      "insights/inflation-hits-3-7-as-gasoline-prices-surge_related.json",
+      "insights/one-street-gets-38m-loan-for-d-c-office-to-condo-conversion_related.json",
+      "insights/blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo_related.json",
+      "insights/cfpb-to-probe-big-banks-over-debanking_related.json",
+      "insights/wells-fargo-consumer-revenue-hits-10-7-billion_related.json",
+      "insights/digi-power-x-lands-200m-debt-for-alabama-data-center_related.json",
+      "insights/mortgage-clients-make-ground-floor-investments-in-ai-fintech_related.json",
+      "insights/oregon-governor-pauses-data-center-pollution-permits_related.json",
+      "insights/oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant_related.json",
+      "insights/charlotte-council-weighs-extending-data-center-moratorium_related.json",
+      "insights/memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "950e2b164534a4a3",
+        "title": "Starwood Property Trust Provides $238M Refi on N.C. Life Sciences Campus",
+        "slug": "starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus",
+        "url": "/insights/starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7b37c6b2053a1264",
+        "title": "BofA gets $1.21B penalty for money laundering",
+        "slug": "bofa-gets-1-21b-penalty-for-money-laundering",
+        "url": "/insights/bofa-gets-1-21b-penalty-for-money-laundering.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 62,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e086bd6598d3605c",
+        "title": "BlackRock Invests In 3D-Printing Construction Startup Valued At $1.4B",
+        "slug": "blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b",
+        "url": "/insights/blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1f049d5697603c79",
+        "title": "Rate Hike Odds Jump to 47% After Inflation Surprise",
+        "slug": "rate-hike-odds-jump-to-47-after-inflation-surprise",
+        "url": "/insights/rate-hike-odds-jump-to-47-after-inflation-surprise.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2ea3964abfaefe8e",
+        "title": "IURC approves AES Indiana plan for $1.3bn solar, storage, and transmission project for Google data center in Monrovia",
+        "slug": "iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project",
+        "url": "/insights/iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1a804c04bb4608c9",
+        "title": "Merchants Capital Secures Freddie Mac Forward TEL Loan for Affordable Multifamily Development in Indianapolis",
+        "slug": "merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil",
+        "url": "/insights/merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2e90777055b8d4f7",
+        "title": "Trump goes after an offshore wind farm that’s already up and running",
+        "slug": "trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running",
+        "url": "/insights/trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2027a7d56ac3ba98",
+        "title": "Braemar Hotels & Resorts to Sell Four Seasons Resort Scottsdale for $372M as Part of Self-Managed REIT Strategy",
+        "slug": "braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o",
+        "url": "/insights/braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "888c8b3c8fa50551",
+        "title": "Thompson Thrift Lands $463M Bridge Loan for 8 Rentals",
+        "slug": "thompson-thrift-lands-463m-bridge-loan-for-8-rentals",
+        "url": "/insights/thompson-thrift-lands-463m-bridge-loan-for-8-rentals.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dbc0ecc6040871b8",
+        "title": "Cohen & Steers Nontraded REIT Adds $92.3M in Shopping Centers as NAV Nears $392M",
+        "slug": "cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m",
+        "url": "/insights/cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7b578211bfcfed4f",
+        "title": "Developers Land $204M Loan For East Village Project: The N.Y. Deal Sheet",
+        "slug": "developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet",
+        "url": "/insights/developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1cb3b80fb693fc8a",
+        "title": "OCC Imposes $750 Million Assessment Against Bank of America for Deficient BSA/AML Compliance",
+        "slug": "occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml",
+        "url": "/insights/occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "634eaaca180c092f",
+        "title": "Inflation uptick puts pressure on Fed to hike again",
+        "slug": "inflation-uptick-puts-pressure-on-fed-to-hike-again",
+        "url": "/insights/inflation-uptick-puts-pressure-on-fed-to-hike-again.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 2,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "corroborated"
+      },
+      {
+        "event_id": "1b49de49a24d94d5",
+        "title": "PNC Lends $96M for Hawaii Retail Portfolio Acquisition",
+        "slug": "pnc-lends-96m-for-hawaii-retail-portfolio-acquisition",
+        "url": "/insights/pnc-lends-96m-for-hawaii-retail-portfolio-acquisition.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "278906b7c60c679c",
+        "title": "Microsoft acquires 600 acres of land for data center in Woodward, Iowa",
+        "slug": "microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa",
+        "url": "/insights/microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d6a14c5d754462b2",
+        "title": "ABA, state bankers associations offer recommendations for CRA rules revisions",
+        "slug": "aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions",
+        "url": "/insights/aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "24e8f35847c23f80",
+        "title": "OCC: All Nine Largest Banks Had Debanking Policies",
+        "slug": "occ-all-nine-largest-banks-had-debanking-policies",
+        "url": "/insights/occ-all-nine-largest-banks-had-debanking-policies.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "487375340d05e962",
+        "title": "Global Investor Buys 8 Mass. Industrial Buildings For $76.5M: The Boston Deal Sheet",
+        "slug": "global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet",
+        "url": "/insights/global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bcbb617fd7af2344",
+        "title": "Inflation Hits 3.7% as Gasoline Prices Surge",
+        "slug": "inflation-hits-3-7-as-gasoline-prices-surge",
+        "url": "/insights/inflation-hits-3-7-as-gasoline-prices-surge.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e9a2528af434268c",
+        "title": "One Street Gets $38M Loan for D.C. Office-to-Condo Conversion",
+        "slug": "one-street-gets-38m-loan-for-d-c-office-to-condo-conversion",
+        "url": "/insights/one-street-gets-38m-loan-for-d-c-office-to-condo-conversion.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "87520685a215efe0",
+        "title": "Blackstone-Backed Data Center Firm AirTrunk Reportedly Delaying $1.5B IPO",
+        "slug": "blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo",
+        "url": "/insights/blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e7b114b6ad469c99",
+        "title": "CFPB to Probe Big Banks Over Debanking",
+        "slug": "cfpb-to-probe-big-banks-over-debanking",
+        "url": "/insights/cfpb-to-probe-big-banks-over-debanking.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7cc14ba7828db623",
+        "title": "Wells Fargo consumer revenue hits $10.7 billion",
+        "slug": "wells-fargo-consumer-revenue-hits-10-7-billion",
+        "url": "/insights/wells-fargo-consumer-revenue-hits-10-7-billion.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0f4cc7a1eb5ab1fc",
+        "title": "Digi Power X lands $200m debt for Alabama data center",
+        "slug": "digi-power-x-lands-200m-debt-for-alabama-data-center",
+        "url": "/insights/digi-power-x-lands-200m-debt-for-alabama-data-center.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9e0d6fe6a784f2e5",
+        "title": "Mortgage clients make ground-floor investments in AI fintech",
+        "slug": "mortgage-clients-make-ground-floor-investments-in-ai-fintech",
+        "url": "/insights/mortgage-clients-make-ground-floor-investments-in-ai-fintech.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "115c1b0df4349212",
+        "title": "Oregon governor pauses data center pollution permits",
+        "slug": "oregon-governor-pauses-data-center-pollution-permits",
+        "url": "/insights/oregon-governor-pauses-data-center-pollution-permits.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5d1d7b9842d3cbc9",
+        "title": "Oswal Pumps to build 1.2 GW TOPCon solar cell plant",
+        "slug": "oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant",
+        "url": "/insights/oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "e713a102d56d42ae",
+        "title": "Charlotte Council Weighs Extending Data Center Moratorium",
+        "slug": "charlotte-council-weighs-extending-data-center-moratorium",
+        "url": "/insights/charlotte-council-weighs-extending-data-center-moratorium.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "197bf2455140ee4b",
+        "title": "Memphis Council Delays Vote on Proposed Year-Long Data Center Moratorium Amid Protests Oct 14, 2026",
+        "slug": "memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr",
+        "url": "/insights/memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "950e2b164534a4a3",
+        "slug": "starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus",
+        "title": "Starwood Property Trust Provides $238M Refi on N.C. Life Sciences Campus",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7b37c6b2053a1264",
+        "slug": "bofa-gets-1-21b-penalty-for-money-laundering",
+        "title": "BofA gets $1.21B penalty for money laundering",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bofa-gets-1-21b-penalty-for-money-laundering.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e086bd6598d3605c",
+        "slug": "blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b",
+        "title": "BlackRock Invests In 3D-Printing Construction Startup Valued At $1.4B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1f049d5697603c79",
+        "slug": "rate-hike-odds-jump-to-47-after-inflation-surprise",
+        "title": "Bond Traders Shift Bets Toward Rate Hike After Latest Inflation Data",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/rate-hike-odds-jump-to-47-after-inflation-surprise.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2ea3964abfaefe8e",
+        "slug": "iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project",
+        "title": "IURC approves AES Indiana plan for $1.3bn solar, storage, and transmission project for Google data center in Monrovia",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1a804c04bb4608c9",
+        "slug": "merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil",
+        "title": "Merchants Capital Secures Freddie Mac Forward TEL Loan for Affordable Multifamily Development in Indianapolis",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2e90777055b8d4f7",
+        "slug": "trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running",
+        "title": "Trump goes after an offshore wind farm that’s already up and running",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2027a7d56ac3ba98",
+        "slug": "braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o",
+        "title": "Braemar Hotels & Resorts to Sell Four Seasons Resort Scottsdale for $372M as Part of Self-Managed REIT Strategy",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o.html",
+        "reason": ""
+      },
+      {
+        "object_id": "888c8b3c8fa50551",
+        "slug": "thompson-thrift-lands-463m-bridge-loan-for-8-rentals",
+        "title": "Thompson Thrift Inks Bridge Financing on 6 Florida Rental Assets",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/thompson-thrift-lands-463m-bridge-loan-for-8-rentals.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dbc0ecc6040871b8",
+        "slug": "cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m",
+        "title": "Cohen & Steers Nontraded REIT Adds $92.3M in Shopping Centers as NAV Nears $392M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7b578211bfcfed4f",
+        "slug": "developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet",
+        "title": "Developers Land $204M Loan For East Village Project: The N.Y. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1cb3b80fb693fc8a",
+        "slug": "occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml",
+        "title": "OCC Imposes $750 Million Assessment Against Bank of America for Deficient BSA/AML Compliance",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml.html",
+        "reason": ""
+      },
+      {
+        "object_id": "634eaaca180c092f",
+        "slug": "inflation-uptick-puts-pressure-on-fed-to-hike-again",
+        "title": "Inflation uptick puts pressure on Fed to hike again",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/inflation-uptick-puts-pressure-on-fed-to-hike-again.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1b49de49a24d94d5",
+        "slug": "pnc-lends-96m-for-hawaii-retail-portfolio-acquisition",
+        "title": "PNC Lends $96M for Hawaii Retail Portfolio Acquisition",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/pnc-lends-96m-for-hawaii-retail-portfolio-acquisition.html",
+        "reason": ""
+      },
+      {
+        "object_id": "278906b7c60c679c",
+        "slug": "microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa",
+        "title": "Microsoft acquires 600 acres of land for data center in Woodward, Iowa",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d6a14c5d754462b2",
+        "slug": "aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions",
+        "title": "ABA, state bankers associations offer recommendations for CRA rules revisions",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions.html",
+        "reason": ""
+      },
+      {
+        "object_id": "24e8f35847c23f80",
+        "slug": "occ-all-nine-largest-banks-had-debanking-policies",
+        "title": "OCC Releases Report on Large Banks’ Debanking Activities",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/occ-all-nine-largest-banks-had-debanking-policies.html",
+        "reason": ""
+      },
+      {
+        "object_id": "487375340d05e962",
+        "slug": "global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet",
+        "title": "Global Investor Buys 8 Mass. Industrial Buildings For $76.5M: The Boston Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bcbb617fd7af2344",
+        "slug": "inflation-hits-3-7-as-gasoline-prices-surge",
+        "title": "Inflation Accelerates to 3.7% as Gasoline Prices Surge",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/inflation-hits-3-7-as-gasoline-prices-surge.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e9a2528af434268c",
+        "slug": "one-street-gets-38m-loan-for-d-c-office-to-condo-conversion",
+        "title": "One Street Secures $38M Loan for D.C. Office-to-Condo Conversion",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/one-street-gets-38m-loan-for-d-c-office-to-condo-conversion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "87520685a215efe0",
+        "slug": "blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo",
+        "title": "Blackstone-Backed Data Center Firm AirTrunk Reportedly Delaying $1.5B IPO",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e7b114b6ad469c99",
+        "slug": "cfpb-to-probe-big-banks-over-debanking",
+        "title": "CFPB Announces New Initiative to Address OCC-Uncovered Debanking by Large Banks",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/cfpb-to-probe-big-banks-over-debanking.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2600b76dcf73ff9c",
+        "slug": "",
+        "title": "FDIC's Hill cites 'more work to do' on tokenized deposits",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "7cc14ba7828db623",
+        "slug": "wells-fargo-consumer-revenue-hits-10-7-billion",
+        "title": "Solid consumer results at Wells Fargo propel larger profits",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/wells-fargo-consumer-revenue-hits-10-7-billion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0f4cc7a1eb5ab1fc",
+        "slug": "digi-power-x-lands-200m-debt-for-alabama-data-center",
+        "title": "Digi Power X secures $200m in debt financing for Alabama data center project",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/digi-power-x-lands-200m-debt-for-alabama-data-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9e0d6fe6a784f2e5",
+        "slug": "mortgage-clients-make-ground-floor-investments-in-ai-fintech",
+        "title": "Mortgage clients make ground-floor investments in AI fintech",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/mortgage-clients-make-ground-floor-investments-in-ai-fintech.html",
+        "reason": ""
+      },
+      {
+        "object_id": "115c1b0df4349212",
+        "slug": "oregon-governor-pauses-data-center-pollution-permits",
+        "title": "Oregon Govenor Tina Kotek asks state environmental regulator to pause permits, introducing de facto data center moratorium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/oregon-governor-pauses-data-center-pollution-permits.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5d1d7b9842d3cbc9",
+        "slug": "oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant",
+        "title": "Oswal Pumps to set up 1.2 GW TOPCon solar cell factory in India",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant.html",
+        "reason": ""
+      },
+      {
+        "object_id": "e713a102d56d42ae",
+        "slug": "charlotte-council-weighs-extending-data-center-moratorium",
+        "title": "Charlotte City Council Leans Toward Extending Data Center Moratorium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/charlotte-council-weighs-extending-data-center-moratorium.html",
+        "reason": ""
+      },
+      {
+        "object_id": "197bf2455140ee4b",
+        "slug": "memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr",
+        "title": "Memphis Council Delays Vote on Proposed Year-Long Data Center Moratorium Amid Protests Oct 14, 2026",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7e58f808f2ad430a",
+        "slug": "",
+        "title": "Hot Inflation Lifts Fed Rate-Hike Bets",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "12ccb011a292790e",
+        "slug": "",
+        "title": "Treasuries Slump as Hot Inflation Lifts Fed Rate-Hike Bets",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 85,
+    "successful_calls": 85,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 18.78,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 12.35,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.18,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.78,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.35,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 231.07,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 71.72,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.31,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 1248.44,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 3.0,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.55,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "3 of 32 drafts were withheld because they could not be verified against their sources",
+    "published 29 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1588.55,
+  "status": "ready",
+  "candidate_count": 917,
+  "event_count": 866,
+  "articles": [
+    {
+      "event_id": "950e2b164534a4a3",
+      "title": "Starwood Property Trust Provides $238M Refi on N.C. Life Sciences Campus",
+      "slug": "starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus",
+      "url": "/insights/starwood-property-trust-provides-238m-refi-on-n-c-life-sciences-campus.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7b37c6b2053a1264",
+      "title": "BofA gets $1.21B penalty for money laundering",
+      "slug": "bofa-gets-1-21b-penalty-for-money-laundering",
+      "url": "/insights/bofa-gets-1-21b-penalty-for-money-laundering.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 62,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e086bd6598d3605c",
+      "title": "BlackRock Invests In 3D-Printing Construction Startup Valued At $1.4B",
+      "slug": "blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b",
+      "url": "/insights/blackrock-invests-in-3d-printing-construction-startup-valued-at-1-4b.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1f049d5697603c79",
+      "title": "Rate Hike Odds Jump to 47% After Inflation Surprise",
+      "slug": "rate-hike-odds-jump-to-47-after-inflation-surprise",
+      "url": "/insights/rate-hike-odds-jump-to-47-after-inflation-surprise.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2ea3964abfaefe8e",
+      "title": "IURC approves AES Indiana plan for $1.3bn solar, storage, and transmission project for Google data center in Monrovia",
+      "slug": "iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project",
+      "url": "/insights/iurc-approves-aes-indiana-plan-for-1-3bn-solar-storage-and-transmission-project.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1a804c04bb4608c9",
+      "title": "Merchants Capital Secures Freddie Mac Forward TEL Loan for Affordable Multifamily Development in Indianapolis",
+      "slug": "merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil",
+      "url": "/insights/merchants-capital-secures-freddie-mac-forward-tel-loan-for-affordable-multifamil.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2e90777055b8d4f7",
+      "title": "Trump goes after an offshore wind farm that’s already up and running",
+      "slug": "trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running",
+      "url": "/insights/trump-goes-after-an-offshore-wind-farm-that-s-already-up-and-running.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2027a7d56ac3ba98",
+      "title": "Braemar Hotels & Resorts to Sell Four Seasons Resort Scottsdale for $372M as Part of Self-Managed REIT Strategy",
+      "slug": "braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o",
+      "url": "/insights/braemar-hotels-resorts-to-sell-four-seasons-resort-scottsdale-for-372m-as-part-o.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "888c8b3c8fa50551",
+      "title": "Thompson Thrift Lands $463M Bridge Loan for 8 Rentals",
+      "slug": "thompson-thrift-lands-463m-bridge-loan-for-8-rentals",
+      "url": "/insights/thompson-thrift-lands-463m-bridge-loan-for-8-rentals.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dbc0ecc6040871b8",
+      "title": "Cohen & Steers Nontraded REIT Adds $92.3M in Shopping Centers as NAV Nears $392M",
+      "slug": "cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m",
+      "url": "/insights/cohen-steers-nontraded-reit-adds-92-3m-in-shopping-centers-as-nav-nears-392m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7b578211bfcfed4f",
+      "title": "Developers Land $204M Loan For East Village Project: The N.Y. Deal Sheet",
+      "slug": "developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet",
+      "url": "/insights/developers-land-204m-loan-for-east-village-project-the-n-y-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1cb3b80fb693fc8a",
+      "title": "OCC Imposes $750 Million Assessment Against Bank of America for Deficient BSA/AML Compliance",
+      "slug": "occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml",
+      "url": "/insights/occ-imposes-750-million-assessment-against-bank-of-america-for-deficient-bsa-aml.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "634eaaca180c092f",
+      "title": "Inflation uptick puts pressure on Fed to hike again",
+      "slug": "inflation-uptick-puts-pressure-on-fed-to-hike-again",
+      "url": "/insights/inflation-uptick-puts-pressure-on-fed-to-hike-again.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 2,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "corroborated"
+    },
+    {
+      "event_id": "1b49de49a24d94d5",
+      "title": "PNC Lends $96M for Hawaii Retail Portfolio Acquisition",
+      "slug": "pnc-lends-96m-for-hawaii-retail-portfolio-acquisition",
+      "url": "/insights/pnc-lends-96m-for-hawaii-retail-portfolio-acquisition.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "278906b7c60c679c",
+      "title": "Microsoft acquires 600 acres of land for data center in Woodward, Iowa",
+      "slug": "microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa",
+      "url": "/insights/microsoft-acquires-600-acres-of-land-for-data-center-in-woodward-iowa.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d6a14c5d754462b2",
+      "title": "ABA, state bankers associations offer recommendations for CRA rules revisions",
+      "slug": "aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions",
+      "url": "/insights/aba-state-bankers-associations-offer-recommendations-for-cra-rules-revisions.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "24e8f35847c23f80",
+      "title": "OCC: All Nine Largest Banks Had Debanking Policies",
+      "slug": "occ-all-nine-largest-banks-had-debanking-policies",
+      "url": "/insights/occ-all-nine-largest-banks-had-debanking-policies.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "487375340d05e962",
+      "title": "Global Investor Buys 8 Mass. Industrial Buildings For $76.5M: The Boston Deal Sheet",
+      "slug": "global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet",
+      "url": "/insights/global-investor-buys-8-mass-industrial-buildings-for-76-5m-the-boston-deal-sheet.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bcbb617fd7af2344",
+      "title": "Inflation Hits 3.7% as Gasoline Prices Surge",
+      "slug": "inflation-hits-3-7-as-gasoline-prices-surge",
+      "url": "/insights/inflation-hits-3-7-as-gasoline-prices-surge.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e9a2528af434268c",
+      "title": "One Street Gets $38M Loan for D.C. Office-to-Condo Conversion",
+      "slug": "one-street-gets-38m-loan-for-d-c-office-to-condo-conversion",
+      "url": "/insights/one-street-gets-38m-loan-for-d-c-office-to-condo-conversion.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "87520685a215efe0",
+      "title": "Blackstone-Backed Data Center Firm AirTrunk Reportedly Delaying $1.5B IPO",
+      "slug": "blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo",
+      "url": "/insights/blackstone-backed-data-center-firm-airtrunk-reportedly-delaying-1-5b-ipo.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e7b114b6ad469c99",
+      "title": "CFPB to Probe Big Banks Over Debanking",
+      "slug": "cfpb-to-probe-big-banks-over-debanking",
+      "url": "/insights/cfpb-to-probe-big-banks-over-debanking.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7cc14ba7828db623",
+      "title": "Wells Fargo consumer revenue hits $10.7 billion",
+      "slug": "wells-fargo-consumer-revenue-hits-10-7-billion",
+      "url": "/insights/wells-fargo-consumer-revenue-hits-10-7-billion.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0f4cc7a1eb5ab1fc",
+      "title": "Digi Power X lands $200m debt for Alabama data center",
+      "slug": "digi-power-x-lands-200m-debt-for-alabama-data-center",
+      "url": "/insights/digi-power-x-lands-200m-debt-for-alabama-data-center.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9e0d6fe6a784f2e5",
+      "title": "Mortgage clients make ground-floor investments in AI fintech",
+      "slug": "mortgage-clients-make-ground-floor-investments-in-ai-fintech",
+      "url": "/insights/mortgage-clients-make-ground-floor-investments-in-ai-fintech.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "115c1b0df4349212",
+      "title": "Oregon governor pauses data center pollution permits",
+      "slug": "oregon-governor-pauses-data-center-pollution-permits",
+      "url": "/insights/oregon-governor-pauses-data-center-pollution-permits.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5d1d7b9842d3cbc9",
+      "title": "Oswal Pumps to build 1.2 GW TOPCon solar cell plant",
+      "slug": "oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant",
+      "url": "/insights/oswal-pumps-to-build-1-2-gw-topcon-solar-cell-plant.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "e713a102d56d42ae",
+      "title": "Charlotte Council Weighs Extending Data Center Moratorium",
+      "slug": "charlotte-council-weighs-extending-data-center-moratorium",
+      "url": "/insights/charlotte-council-weighs-extending-data-center-moratorium.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "197bf2455140ee4b",
+      "title": "Memphis Council Delays Vote on Proposed Year-Long Data Center Moratorium Amid Protests Oct 14, 2026",
+      "slug": "memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr",
+      "url": "/insights/memphis-council-delays-vote-on-proposed-year-long-data-center-moratorium-amid-pr.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 29
+}
