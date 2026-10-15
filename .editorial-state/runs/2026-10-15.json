@@ -1,0 +1,3275 @@
+{
+  "run_at": "2026-10-15T15:33:49.881698+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 903,
+  "documents_from_feeds": 800,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 857,
+  "documents_consolidated": 46,
+  "eligible": 117,
+  "enriched": 250,
+  "evidence_upgraded": 150,
+  "selected": 32,
+  "publication_candidates": 32,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 49,
+      "eligible": 6,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 6 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 462,
+      "eligible": 62,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 90,
+      "eligible": 12,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "energy": {
+      "considered": 134,
+      "eligible": 14,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "14 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 36,
+      "eligible": 12,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 12 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 5,
+      "eligible": 3,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 3 eligible candidates cleared the floor, against a target of 10"
+    },
+    "private_equity": {
+      "considered": 81,
+      "eligible": 8,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 8 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 21,
+    "tier_c": 11
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 6 eligible candidates cleared the floor, against a target of 10",
+    "energy: 14 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: only 6 of 12 eligible candidates cleared the floor, against a target of 10",
+    "local_government: only 2 of 3 eligible candidates cleared the floor, against a target of 10",
+    "private_equity: only 2 of 8 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 78.3,
+    "mean": 36.2,
+    "stdev": 16.07,
+    "range_used": 78.3,
+    "median": 37.3,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 253,
+    "fetched": 232,
+    "from_cache": 0,
+    "blocked": 13,
+    "failed": 8,
+    "skipped_budget": 0,
+    "bytes_downloaded": 53548740,
+    "elapsed_ms": 49170,
+    "by_status": {
+      "full_text": 150,
+      "partial_text": 82,
+      "failed": 8,
+      "blocked": 13
+    }
+  },
+  "novelty": {
+    "new": 756,
+    "already_published": 7,
+    "material_update": 3,
+    "minor_follow_up": 91
+  },
+  "memory": {
+    "events_remembered": 17481,
+    "published": 1096,
+    "seen_but_not_run": 16385,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-15",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 1.0318,
+    "spent_today_usd": 1.0318,
+    "remaining_usd": 23.9682,
+    "exhausted": false,
+    "total_calls": 345,
+    "refused_calls": 0,
+    "elapsed_seconds": 1653.3,
+    "by_stage": {
+      "v4_verify": {
+        "calls": 255,
+        "input_tokens": 377567,
+        "output_tokens": 567908,
+        "usd": 0.7948,
+        "seconds": 6541.31,
+        "refused": 0
+      },
+      "v4_write": {
+        "calls": 90,
+        "input_tokens": 392100,
+        "output_tokens": 99487,
+        "usd": 0.237,
+        "seconds": 919.65,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "20c229db2fd59262",
+        "usd": 0.0555
+      },
+      {
+        "id": "2e8bf3c4f37be13e",
+        "usd": 0.0457
+      },
+      {
+        "id": "13d0bc5ac9456d1c",
+        "usd": 0.045
+      },
+      {
+        "id": "210a24ec3458b9ee",
+        "usd": 0.0427
+      },
+      {
+        "id": "fdbc18bdf17c653c",
+        "usd": 0.0419
+      },
+      {
+        "id": "ed5469f3b783da85",
+        "usd": 0.0409
+      },
+      {
+        "id": "94ef76b25cb055bb",
+        "usd": 0.0396
+      },
+      {
+        "id": "20b5ad8500407518",
+        "usd": 0.0378
+      },
+      {
+        "id": "5497b82f82c8fff3",
+        "usd": 0.0378
+      },
+      {
+        "id": "e9e1adb7fadaa080",
+        "usd": 0.0372
+      }
+    ]
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 32,
+    "written": 31,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "withheld": 1,
+    "voiced": 18,
+    "voice": true,
+    "stop_reason": "",
+    "spend_usd": 1.0318,
+    "attempts": 90,
+    "elapsed_seconds": 1335.36,
+    "provider_attempts": {
+      "deepseek": 90
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "e9e1adb7fadaa080",
+        "title": "Where Is Multifamily Delinquency Concentrated? Private-Label CMBS Holds Half of Delinquent Debt",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "2b0823b76188b0bf9147fb3e9b4558967380716e63b7900e62292790325dc81f",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "capital cycle",
+            "protagonist": "Private-label CMBS lenders",
+            "tension": "The contradiction between private-label CMBS's small share of total debt (12%) and its large share of delinquencies (50.2%)."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 176,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 20,
+            "rejected": 5,
+            "kept_facts": 13,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a view or action may not add figures: 1.6; uses loaded labels the cited facts do not use: distress",
+            "a take must be first person or plainly framed as opinion",
+            "Implies loans can be removed before they appear in delinquency data, a claim not in verified facts."
+          ]
+        },
+        "seconds": 257.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0a3e4730776c8a6e",
+        "title": "Rithm Capital Closes $375M Securitization of Multifamily Loans",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c22cf7634d674380fc0674856fc6c4620b41c7c55b60eb452fb620c58d0d84af",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "capital cycle",
+            "protagonist": "Genesis Capital, Rithm Capital's commercial real estate originations subsidiary",
+            "tension": "The deal is the first multifamily-only securitization since Rithm acquired Genesis in 2021, and it comes after a massive ramp-up in originations from $160 million in Q1 2024 to $637 million in Q2 2026 — a pace that needs permanent capital markets take-out to be sustainable."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 208,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_takes": 3,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Implies a gap exists and is easy to miss, but no such gap is in the verified facts.",
+            "a take must be first person or plainly framed as opinion",
+            "Voice sentence asserts an interpretive claim, not just a reaction or transition."
+          ]
+        },
+        "seconds": 270.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "118c09d5d4382bbf",
+        "title": "EQT to Acquire Stockbridge, Adding US$16.5B in AUM",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "ab9739a68fbdcd31bd204872cf3e862b37855b8f318b14a15bcbfea8137c08b9",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "EQT AB",
+            "tension": "The acquisition is expected to close in the first quarter of 2027, leaving over a year for integration planning and potential deal risk. The earn-out structure ($175 million over four years) ties part of the payment to future performance, creating alignment but also uncertainty."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 269,
+            "paragraph_count": 8,
+            "warnings": [
+              "Split these sentences (over 35 words): “I read this as a sign of consolidation in…” (38 words)"
+            ]
+          },
+          "fact_check": {
+            "checked": 22,
+            "rejected": 6,
+            "kept_facts": 14,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Split these sentences (over 35 words): “I read this as a sign of consolidation in…” (38 words)"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "voice asserts an evaluative comparison rather than a pure reaction.",
+            "a view or action may not add figures: 2.3",
+            "a take must be first person or plainly framed as opinion",
+            "voice asserts a characterization of the deal as a bet, not a pure reaction.",
+            "a view or action may not add names: EQT",
+            "a take must be first person or plainly framed as opinion"
+          ]
+        },
+        "seconds": 250.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c183bd1458cb2591",
+        "title": "ARMs, non-QM are the 4Q opportunities, rate lock data shows",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "4f138dfd874cbcd9da6c4217e348afe9b1b515e74f49ccf9ab2bdcb00a0684c2",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "The lender or mortgage originator deciding which products to offer in a high-rate market.",
+            "tension": "The market is contracting overall (rate locks down 26% year-over-year), but certain products are gaining share. The tension is between the overall decline and the pockets of growth—lenders must decide whether to follow the shift or risk being left behind."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 202,
+            "paragraph_count": 5,
+            "warnings": [
+              "The opening paragraph is 55 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 5,
+            "kept_facts": 8,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 55 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a take must be first person or plainly framed as opinion; states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "Infers borrower motive and lender outcome beyond cited facts",
+            "uses loaded labels the cited facts do not use: desperation"
+          ]
+        },
+        "seconds": 257.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b40b15afb0cb94c3",
+        "title": "Brookfield-Backed Castlelake Dives Into CRE CLO Market With $1.1B Deal",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "2ad359a7c42bd0d091335117fd13337c9ef951805d6184ce97e8cb9e9c9bb193",
+          "mode": "voice",
+          "brief": {
+            "shape": "What Has to Be True",
+            "lens": "capital cycle",
+            "protagonist": "Castlelake",
+            "tension": "The deal is built on bridge loans to properties whose owners are betting interest rates will fall, but the sources note the 10-year Treasury yield is at highs not seen since 2007, driven by war, policy shifts, and a Fed willing to raise rates. That's a contradiction: the structure assumes relief, but the market is moving the other way."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 110,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 8,
+            "kept_facts": 8,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "Asserts Castlelake is making a bet on rates moving opposite.",
+            "Adds borrower plan and interest-rate fall premise not in cited fact.",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a view or action may not add figures: 10; a view or action may not add names: CLO, Treasury; uses loaded labels the cited facts do not use: crisis",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 252.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "57bcc4b1e82b092d",
+        "title": "Dell’Oro: Data Center Infrastructure Market Surges 27%",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "4f9fcd4d13c970e2bedabe4aedbe457ea02df91581d5d623d1150c41d70b542b",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "technology and land",
+            "protagonist": "Data center operators (colocation and hyperscalers) building new capacity",
+            "tension": "The market is booming, but the physical constraints—busway availability, permitting, grid delays, community opposition—mean that revenue growth may not translate into completed capacity. The tension is between demand and the ability to deliver."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 172,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 3,
+            "kept_facts": 9,
+            "kept_takes": 2,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Asserts a factual claim about the market hitting a huge number within a reaction.",
+            "a take must be first person or plainly framed as opinion; uses loaded labels the cited facts do not use: boom",
+            "voice line is 28 words; the limit is 26"
+          ]
+        },
+        "seconds": 200.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "94ef76b25cb055bb",
+        "title": "Deal Roundup: Blackstone exits ZO Skin Health in $1.5bn sale, Ares invests in 1.9GW UK energy portfolio",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e0ee1caf5d88be99796ce9228188c21266111f41f258b473a00c2b92db066401",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Blackstone Tactical Opportunities",
+            "tension": "None evident: the sale is straightforward, with no disclosed clock, constraint, or contradiction beyond the implied multiple."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 128,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 0,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 5.88,
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 267.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d0948327bbfe6659",
+        "title": "Solaria plans 500 MW data center project powered by 350 MW of solar in Uruguay",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "6f6155a5d25d49443da1716e70b051f2907b597c294f5e95d52b16b3a4b08932",
+          "mode": "voice",
+          "brief": {
+            "shape": "What Has to Be True",
+            "lens": "technology and land",
+            "protagonist": "Solaria",
+            "tension": "The planned 350 MW of solar capacity is not enough to meet the data centers' full electricity demand, meaning additional power sources will be required, but the company has not disclosed details on electrical configuration, grid connection, energy storage, power supply agreements, or development schedule. This creates a mismatch between ambition and disclosed plan."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 279,
+            "paragraph_count": 6,
+            "warnings": [
+              "Paragraph 1 has 69 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 69 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "36% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 1,
+            "kept_facts": 11,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 1 has 69 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 69 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "36% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "a view or action may not add names: Solaria"
+          ]
+        },
+        "seconds": 207.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "20c229db2fd59262",
+        "title": "Terra Secures $184M Refi for New Tom Brady-Leased Office Near Miami",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "be8171cdc61db70c28ee962c767195de1bfb990d3050247f8a5df6aad34f34bf",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Terra (led by David Martin)",
+            "tension": "The refinancing replaces a $238 million loan with a $183.8 million loan, a reduction of over $54 million, suggesting either an equity infusion or a tighter credit environment; the source does not explain the gap."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 171,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 17,
+            "rejected": 2,
+            "kept_facts": 13,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 9.29,
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the attribution (“said”, “according to”) that its quote carries",
+            "The source attributes this information to a representative for the development firm, but the sentence presents it as an unattributed fact."
+          ]
+        },
+        "seconds": 397.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "210a24ec3458b9ee",
+        "title": "AMD Backs 222 MW Fermi America Data Center Lease",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d7ad0332cb3986b980d6629f4e7b90d13afe4ff45db58ae2d5d25c8917ec46fd",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "capital cycle",
+            "protagonist": "Fermi America",
+            "tension": "The 222 MW contracted phase is small relative to the 17 GW vision. AMD's credit support is for the initial lease, but expansion to 650 MW is only a framework. The tension is between the ambition and the current, conditional reality."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 235,
+            "paragraph_count": 8,
+            "warnings": [
+              "38% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 2,
+            "kept_facts": 9,
+            "kept_takes": 3,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "38% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Voice asserts as fact that AMD is underwriting a building.",
+            "a take must be first person or plainly framed as opinion"
+          ]
+        },
+        "seconds": 323.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "20b5ad8500407518",
+        "title": "Bowman: global regulators should match Fed's 'modernization",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "17d5163b106af9ca3b1158477d9e072249b1d5acd2fd5ff1a4d5bfee796e5e70",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "trust and institutions",
+            "protagonist": "Michelle Bowman, the Federal Reserve's vice chair for supervision",
+            "tension": "Bowman is pushing her reforms globally while accusing international bodies of basing policy on faulty research, creating a conflict over who defines sound supervision."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 146,
+            "paragraph_count": 5,
+            "warnings": [
+              "Paragraph 3 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 5,
+            "kept_facts": 7,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 3 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "Cited facts do not support a direct challenge to credibility.",
+            "fact rejected by the fact check",
+            "Adds a goal—using the review to set the agenda—not in cited facts.",
+            "fact rejected by the fact check"
+          ]
+        },
+        "seconds": 295.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f7c6abd78e0ef882",
+        "title": "University of Tennessee breaks ground on $350M health studies build",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "814ede326aabe98efad44e571401897703396aad6775ee0c78a5b5789ae7772f",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "time and patience",
+            "protagonist": "The University of Tennessee's College of Medicine Interdisciplinary Building in Memphis",
+            "tension": "The state has made its largest-ever capital investment in higher education, but the payoff is years away: substantial completion is expected in 2029 and full occupancy by 2030. The state needs physicians now, so the clock is the tension."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 195,
+            "paragraph_count": 4,
+            "warnings": [
+              "Paragraph 4 has 75 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 7,
+            "kept_facts": 3,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 4 has 75 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'",
+            "a take must be first person or plainly framed as opinion",
+            "a take must cite at least one verified fact in 'because'",
+            "voice lines may not contain numbers",
+            "Infers an unstated purpose (addressing shortages) and generalizes to multiple states without support.",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 250.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "fdbc18bdf17c653c",
+        "title": "Lake Forest Bank Refis Queens IOS Site With $39M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "bbb8f3892c9c98c1fd63d0d3773a4f7b13d7460cf430decf97e94b164a4eff00",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Sitex Group",
+            "tension": "The new loan is significantly lower than the purchase price, suggesting the property's value hasn't grown much or the loan is conservative. The FDNY lease provides stable income, but the refinancing may be a defensive move."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 148,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 7,
+            "kept_facts": 7,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Facts don't state the property hasn't appreciated.",
+            "a take must be first person or plainly framed as opinion; a view or action may not add names: FDNY",
+            "a take must be first person or plainly framed as opinion; a view or action may not add figures: 79",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "No cited fact says lenders are reducing leverage.",
+            "a take must be first person or plainly framed as opinion; a view or action may not add figures: 80; a view or action may not add names: IOS"
+          ]
+        },
+        "seconds": 318.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "75441dfae56360a0",
+        "title": "Flex Completes $4.4 Billion Acquisition of EPC Power",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "203b45405508b49132d520107ee543abf9e76c092d4ffc84d091d9726d9aa9de",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Flex (and the soon-to-be-separated Axiom Solutions International)",
+            "tension": "The acquisition is part of a larger restructuring: Flex is separating its Cloud and Power Infrastructure business into Axiom, which will be publicly traded. The deal must be integrated while the separation is executed, and the $2 billion preferred equity investment still has to close."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 178,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 5,
+            "kept_facts": 9,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion",
+            "Asserts a factual claim about what the next milestone is.",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 240.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "86ef2af8da83191a",
+        "title": "2 San Jose Multifamily Towers Change Hands For Combined $380M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "2ef305bd26a54e86459a35b62540c6ad0298730f9359a4866067615aff6f3723",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "The Grad, a 19-story student housing tower",
+            "tension": "The former owners lacked capital to refinance, forcing a sale despite the building being fully occupied and recently refinanced; the sale price ($204M) exceeds the recent loan ($150M), but the seller's CEO said he would have held on if he could."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 218,
+            "paragraph_count": 7,
+            "warnings": [
+              "42% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_takes": 2,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "42% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "The cited facts do not establish any gap or shortfall.",
+            "fact rejected by the fact check"
+          ]
+        },
+        "seconds": 276.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ed5469f3b783da85",
+        "title": "Brookdale Senior Living To Buy 30 Communities It Operates From Welltower For $290M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "315c1ada6df7270cd41afc110dc90cf1e976c64568a50b1954f3ec2d79a0a409",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Brookdale Senior Living",
+            "tension": "Brookdale must balance the benefits of owning real estate—control, cost savings, and upside—against the financial and operational risks of increasing its owned portfolio, especially as it continues to lease 39 communities from Welltower with a newly flexible purchase option."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 266,
+            "paragraph_count": 7,
+            "warnings": [
+              "Paragraph 6 has 64 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 22,
+            "rejected": 8,
+            "kept_facts": 12,
+            "kept_takes": 2,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 6 has 64 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "Asserts savings are real as fact.",
+            "fact rejected by the fact check",
+            "a view or action may not add figures: 18",
+            "fact rejected by the fact check",
+            "a view or action may not add names: Brookdale",
+            "voice line is 32 words; the limit is 26; voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 293.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "71eb208b8d2beb1b",
+        "title": "Chicago Office Tower Sells For $550M To Zara Founder In Blockbuster Deal",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "609f77bb542a9bd22f057824632ebebc56a897f762baa4e0d888cf973b279753",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Amancio Ortega, via his family office Ponte Gadea",
+            "tension": "The deal includes the assumption of a $353 million CMBS loan taken out in 2021. That loan's maturity and rate are not disclosed, but the assumption means Ortega is stepping into an existing debt structure that may not reflect today's higher interest rates. The choice: accept that debt and the risk it carries, or pay more cash. The source does not state the terms, but the assumption itself is the tension."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 361,
+            "paragraph_count": 9,
+            "warnings": [
+              "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “Only two larger full-building office trades occurred nationwide in…” (38 words); “Ortega's real estate investment arm, Ponte Gadea, is no…” (36 words)",
+              "Paragraph 8 has 90 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 18,
+            "rejected": 3,
+            "kept_facts": 13,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “Only two larger full-building office trades occurred nationwide in…” (38 words); “Ortega's real estate investment arm, Ponte Gadea, is no…” (36 words)",
+            "Paragraph 8 has 90 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Speculates about buyer's willingness and adds a rate-environment claim not in cited facts.",
+            "uses loaded labels the cited facts do not use: struggling",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 168.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "13d0bc5ac9456d1c",
+        "title": "Businesses view stablecoins warily",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "aa694a85053e6301aed0c8e2f6e9b0cd072726297c66746a4803d474315c9374",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "technology and land",
+            "protagonist": "The surveyed businesses in the Fourth Federal Reserve District (Ohio, western Pennsylvania, eastern Kentucky, northern panhandle of West Virginia)",
+            "tension": "Businesses are not adopting stablecoins despite regulatory clarity (Genius Act) and industry hype, because they lack familiarity, see no clear advantage, and face no customer demand. The Fed researchers expected more adoption, but found almost none."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 326,
+            "paragraph_count": 9,
+            "warnings": [
+              "Split these sentences (over 35 words): “Peter Zimmerman, a research economist for the Cleveland Fed…” (49 words)",
+              "Paragraph 4 has 83 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 11,
+            "kept_facts": 4,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Split these sentences (over 35 words): “Peter Zimmerman, a research economist for the Cleveland Fed…” (49 words)",
+            "Paragraph 4 has 83 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion",
+            "a take must be first person or plainly framed as opinion",
+            "Asserts a factual conclusion instead of a mere reaction.",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check"
+          ]
+        },
+        "seconds": 360.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "aac7a748c9a46b65",
+        "title": "Inflation speeds up to 3.7%, fueled by surging gasoline prices",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "76104c36898088453c35db8ec360301737bc431798605e14193dc6f488d23468",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "trust and institutions",
+            "protagonist": "The American consumer, whose long-term inflation expectations have risen to 2.7%, the highest since 2007.",
+            "tension": "The Fed is caught between rising inflation and the risk that raising rates too aggressively could slow the economy, while consumers and politicians apply pressure from both sides."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 187,
+            "paragraph_count": 4,
+            "warnings": [
+              "Sentences average 27 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Paragraph 3 has 67 words and 2 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 6,
+            "kept_facts": 5,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 27 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Paragraph 3 has 67 words and 2 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Asserts a relationship between the number and trust, a hidden claim.",
+            "Slips in new fact: Fed's 2% goal not in cited facts.",
+            "fact rejected by the fact check",
+            "States Fed's motive/intention as fact unsupported by cited fact.",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 196.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5ed5806ae8ff47bc",
+        "title": "Bowman, Supervisory Modernization After Silicon Valley Bank",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "7eb63324a8520036e696747e4790017975647c87dcfa10d45b300cc37c31f1be",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "trust and institutions",
+            "protagonist": "Michelle W. Bowman, Vice Chair for Supervision at the Federal Reserve",
+            "tension": "The contradiction between the Federal Reserve's extensive supervisory activity and its failure to act on known risks in time, as highlighted by the independent review's findings."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 133,
+            "paragraph_count": 6,
+            "warnings": [
+              "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 6,
+            "kept_facts": 5,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a take must be first person or plainly framed as opinion; a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "Voice sentence states facts, not merely a reaction or transition.",
+            "a view or action may not add names: Fed; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "Extrapolates global impact from one quote not supported by cited fact."
+          ]
+        },
+        "seconds": 179.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2e8bf3c4f37be13e",
+        "title": "OCC blasts debanking instances by JPMorgan, others in report",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "5f9f05919a349e17949599b694ecd851266ddaee12cab9a44fcd62a1e365750e",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "The nine banks under OCC purview, particularly JPMorgan Chase, as the subject of regulatory scrutiny over debanking practices.",
+            "tension": "The contradiction between banks' stated policies prohibiting discrimination and the OCC's documented evidence of debanking based on political or religious leanings, with ongoing regulatory scrutiny and potential further action."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 308,
+            "paragraph_count": 7,
+            "warnings": [
+              "Sentences average 28 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “Comptroller of the Currency Jonathan Gould said the 47-page…” (46 words); “The Consumer Financial Protection Bureau on Wednesday said it…” (69 words)",
+              "Paragraph 6 has 69 words and 1 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "45% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 3,
+            "kept_facts": 13,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 11.01,
+          "error": "JSONDecodeError: Expecting ',' delimiter: line 1 column 1908 (char 1907)",
+          "readability_warnings": [
+            "Sentences average 28 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “Comptroller of the Currency Jonathan Gould said the 47-page…” (46 words); “The Consumer Financial Protection Bureau on Wednesday said it…” (69 words)",
+            "Paragraph 6 has 69 words and 1 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "45% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "quote is longer than allowed",
+            "names not in or near its quote: OCC",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 317.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1810b7a6b49ef2ab",
+        "title": "CtrlS plans 150MW data center in Bihar, India",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c59ec14dbf5563991cdd801de085e567988a8a893cb43457409b884ec62c43a0",
+          "mode": "facts",
+          "request_seconds": 6.51,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 139,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 0,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 190.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a9a51883565933c4",
+        "title": "3C and Datalec Merge to Form $400M+ AI Data Center Infrastructure Platform",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e6403687f6213acd68fcf8bdcd02abe3d2900b37dc6e33e7885df27672f236a6",
+          "mode": "facts",
+          "request_seconds": 7.06,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 131,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 2,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 400",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 86.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "087c3456db56ee2c",
+        "title": "Horse-drawn carriages to be banned in Central Park after deal between Council and Mamdani",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "08bedf345245a8c99012f840bf3c80068c013bc53f7ce963fede8bde5fdcd51d",
+          "mode": "facts",
+          "request_seconds": 7.84,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 195,
+            "paragraph_count": 5,
+            "warnings": [
+              "The opening paragraph is 55 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 3,
+            "kept_facts": 9,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 55 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "SOURCE TEXT says agreement on legislation that would end the use of horse-drawn carriages by June 2028, not that carriages will definitely end by that date.",
+            "SOURCE TEXT attributes this information to the New York Times; the sentence presents it as an unattributed fact.",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 207.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "59b2bf97ba83a60b",
+        "title": "Salience Labs Secures $125 Million Series B for Photonic AI Networking",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "824b9d0f8f8e4d607488f443e9cc3f987b3e49f54a574281b4d118b797425e26",
+          "mode": "facts",
+          "request_seconds": 5.13,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 90,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 3,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source says announced, not lands/raised.",
+            "figures not in its quote: 125",
+            "Source does not state Bullhound Capital led the round; it only says the round includes Bullhound Capital and participation from AMD Ventures and Intel Capital."
+          ]
+        },
+        "seconds": 105.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f3384e5973a80ea7",
+        "title": "Exclusive: Chariot Raises $10M To Help Consumers Fight Back Against Hidden Fees And Hard-To-Cancel Subscriptions",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "081482d7b5ee45632eb6eced0b9546228d2c03c1e4e90d6a6591f6ef0b9749c4",
+          "mode": "facts",
+          "request_seconds": 6.15,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 169,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source says 'has raised $10 million in Series A funding' and 'Silverton Partners', not 'raises' and 'Silverton'.",
+            "drops the qualifier “alleged” that its quote carries",
+            "names not in or near its quote: Zim",
+            "refers back to a deleted sentence, so its subject would be ambiguous"
+          ]
+        },
+        "seconds": 187.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3cb1d5068cd89bec",
+        "title": "Meta under investigation regarding alleged tax filings claiming data center projects qualify for research credits",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8dce7673fd8b7434a15ec8531c2fd48f7cabca133da17e760a23fb857762e9fd",
+          "mode": "facts",
+          "request_seconds": 7.14,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 87,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 4,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "quote is longer than allowed",
+            "quote is longer than allowed",
+            "The source says 'unclear exactly how Meta was able to reduce', not 'unclear how Meta reduced'; omitting 'exactly' and 'was able to' changes the strength.",
+            "Source says it offsets the cost of experimental efforts with a high risk of technical uncertainty; sentence omits 'cost' and 'risk'."
+          ]
+        },
+        "seconds": 230.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a1b76eec2960ba73",
+        "title": "Oil Economics Are Plaguing Trump’s Presidency",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "4d4725e9cee19479980034cf48ffba24f4421b742a430b37db3f4fcce2717b51",
+          "mode": "facts",
+          "request_seconds": 7.89,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 208,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 3,
+            "kept_facts": 10,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "quote not found verbatim in the source: “Oil Economics Are Plaguing Trump’s Presidency”"
+          ]
+        },
+        "seconds": 198.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5497b82f82c8fff3",
+        "title": "Oracle renews attempts to secure natural gas pipeline approval for Project Jupiter data center - report",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "2aa6633618265363bf8d31ad9ae02690638d1a99817e3f93a528a4268693eca2",
+          "mode": "facts",
+          "request_seconds": 8.71,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 192,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 4,
+            "kept_facts": 10,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "The source attributes the request to Bloomberg (\"According to Bloomberg\"), but the sentence presents it as fact without attribution.",
+            "The source attributes this request to Bloomberg, but the sentence omits that attribution.",
+            "The source attributes this projection to the company in a letter to FERC; the sentence states it as fact without attribution.",
+            "Source says sent in an effort to shield, not that it would shield."
+          ]
+        },
+        "seconds": 301.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a90c1a134bf2dd89",
+        "title": "Fed Won't Raise Rates at Next Meeting, Strategist Amoroso Says",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0e41c2a255bc5caaab98ed90fd769958d439f64d8c35275e2d21e9985e0ca1d6",
+          "mode": "facts",
+          "request_seconds": 3.36,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "paragraph_count_out_of_range",
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "word count 21 is outside 60-300",
+              "paragraph count 1 is below minimum 2 for tier_c"
+            ],
+            "word_count": 21,
+            "paragraph_count": 1,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 6,
+            "rejected": 3,
+            "kept_facts": 1,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 88.3,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "615a13f3a295e144",
+        "title": "Housing Report: City Planning Commission Adds 670 Dwelling Units and a Long-Term Care Facility as Summer Ends",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "93614f89ca7b79a8ea77b1d4296d399795e69c46b38120da74cb479fa6ed29c1",
+          "mode": "facts",
+          "request_seconds": 5.67,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 125,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “proposed” that its quote carries"
+          ]
+        },
+        "seconds": 76.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "132ec266eb0ba796",
+        "title": "Virginia senator proposes three-year state-wide data center moratorium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "db60936e645cfde28164113dcecb10337a242de16ed6148d39b3c849b59f34eb",
+          "mode": "facts",
+          "request_seconds": 6.07,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 129,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “could” that its quote carries",
+            "figures not in its quote: 843",
+            "Source says a 12-month data center moratorium is being introduced in Loudoun County, not that Loudoun County itself is introducing it."
+          ]
+        },
+        "seconds": 210.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 32,
+    "published": 31,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d_social.png",
+      "insights/where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d.html",
+      "insights/first-multifamily-only-deal-for-genesis-since-2021_social.png",
+      "insights/first-multifamily-only-deal-for-genesis-since-2021.html",
+      "insights/eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum_social.png",
+      "insights/eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum.html",
+      "insights/arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows_social.png",
+      "insights/arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows.html",
+      "insights/brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal_social.png",
+      "insights/brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal.html",
+      "insights/dell-oro-data-center-infrastructure-market-surges-27_social.png",
+      "insights/dell-oro-data-center-infrastructure-market-surges-27.html",
+      "insights/blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale_social.png",
+      "insights/blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale.html",
+      "insights/solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay_social.png",
+      "insights/solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay.html",
+      "insights/terra-refinances-tom-brady-leased-office-near-miami-for-184m_social.png",
+      "insights/terra-refinances-tom-brady-leased-office-near-miami-for-184m.html",
+      "insights/amd-backs-222-mw-fermi-america-data-center-lease_social.png",
+      "insights/amd-backs-222-mw-fermi-america-data-center-lease.html",
+      "insights/bowman-global-regulators-should-match-fed-s-modernization_social.png",
+      "insights/bowman-global-regulators-should-match-fed-s-modernization.html",
+      "insights/university-of-tennessee-breaks-ground-on-350m-health-studies-build_social.png",
+      "insights/university-of-tennessee-breaks-ground-on-350m-health-studies-build.html",
+      "insights/lake-forest-bank-refis-queens-ios-site-with-39m-loan_social.png",
+      "insights/lake-forest-bank-refis-queens-ios-site-with-39m-loan.html",
+      "insights/flex-completes-4-4-billion-acquisition-of-epc-power_social.png",
+      "insights/flex-completes-4-4-billion-acquisition-of-epc-power.html",
+      "insights/2-san-jose-multifamily-towers-change-hands-for-combined-380m_social.png",
+      "insights/2-san-jose-multifamily-towers-change-hands-for-combined-380m.html",
+      "insights/brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290_social.png",
+      "insights/brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290.html",
+      "insights/chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal_social.png",
+      "insights/chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal.html",
+      "insights/businesses-view-stablecoins-warily_social.png",
+      "insights/businesses-view-stablecoins-warily.html",
+      "insights/inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices_social.png",
+      "insights/inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices.html",
+      "insights/bowman-supervisory-modernization-after-silicon-valley-bank_social.png",
+      "insights/bowman-supervisory-modernization-after-silicon-valley-bank.html",
+      "insights/occ-blasts-debanking-instances-by-jpmorgan-others-in-report_social.png",
+      "insights/occ-blasts-debanking-instances-by-jpmorgan-others-in-report.html",
+      "insights/ctrls-plans-150mw-data-center-in-bihar-india_social.png",
+      "insights/ctrls-plans-150mw-data-center-in-bihar-india.html",
+      "insights/3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform_social.png",
+      "insights/3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform.html",
+      "insights/horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an_social.png",
+      "insights/horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an.html",
+      "insights/salience-labs-secures-125-million-series-b-for-photonic-ai-networking_social.png",
+      "insights/salience-labs-secures-125-million-series-b-for-photonic-ai-networking.html",
+      "insights/exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an_social.png",
+      "insights/exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an.html",
+      "insights/meta-faces-senate-questions-on-data-center-research-credits_social.png",
+      "insights/meta-faces-senate-questions-on-data-center-research-credits.html",
+      "insights/oil-economics-are-plaguing-trump-s-presidency_social.png",
+      "insights/oil-economics-are-plaguing-trump-s-presidency.html",
+      "insights/oracle-renews-ferc-push-for-project-jupiter-gas-pipeline_social.png",
+      "insights/oracle-renews-ferc-push-for-project-jupiter-gas-pipeline.html",
+      "insights/housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term_social.png",
+      "insights/housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term.html",
+      "insights/virginia-senator-proposes-three-year-state-wide-data-center-moratorium_social.png",
+      "insights/virginia-senator-proposes-three-year-state-wide-data-center-moratorium.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d_related.json",
+      "insights/first-multifamily-only-deal-for-genesis-since-2021_related.json",
+      "insights/eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum_related.json",
+      "insights/arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows_related.json",
+      "insights/brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal_related.json",
+      "insights/dell-oro-data-center-infrastructure-market-surges-27_related.json",
+      "insights/blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale_related.json",
+      "insights/solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay_related.json",
+      "insights/terra-refinances-tom-brady-leased-office-near-miami-for-184m_related.json",
+      "insights/amd-backs-222-mw-fermi-america-data-center-lease_related.json",
+      "insights/bowman-global-regulators-should-match-fed-s-modernization_related.json",
+      "insights/university-of-tennessee-breaks-ground-on-350m-health-studies-build_related.json",
+      "insights/lake-forest-bank-refis-queens-ios-site-with-39m-loan_related.json",
+      "insights/flex-completes-4-4-billion-acquisition-of-epc-power_related.json",
+      "insights/2-san-jose-multifamily-towers-change-hands-for-combined-380m_related.json",
+      "insights/brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290_related.json",
+      "insights/chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal_related.json",
+      "insights/businesses-view-stablecoins-warily_related.json",
+      "insights/inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices_related.json",
+      "insights/bowman-supervisory-modernization-after-silicon-valley-bank_related.json",
+      "insights/occ-blasts-debanking-instances-by-jpmorgan-others-in-report_related.json",
+      "insights/ctrls-plans-150mw-data-center-in-bihar-india_related.json",
+      "insights/3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform_related.json",
+      "insights/horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an_related.json",
+      "insights/salience-labs-secures-125-million-series-b-for-photonic-ai-networking_related.json",
+      "insights/exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an_related.json",
+      "insights/meta-faces-senate-questions-on-data-center-research-credits_related.json",
+      "insights/oil-economics-are-plaguing-trump-s-presidency_related.json",
+      "insights/oracle-renews-ferc-push-for-project-jupiter-gas-pipeline_related.json",
+      "insights/housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term_related.json",
+      "insights/virginia-senator-proposes-three-year-state-wide-data-center-moratorium_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "e9e1adb7fadaa080",
+        "title": "Where Is Multifamily Delinquency Concentrated? Private-Label CMBS Holds Half of Delinquent Debt",
+        "slug": "where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d",
+        "url": "/insights/where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 78,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0a3e4730776c8a6e",
+        "title": "First Multifamily-Only Deal for Genesis Since 2021",
+        "slug": "first-multifamily-only-deal-for-genesis-since-2021",
+        "url": "/insights/first-multifamily-only-deal-for-genesis-since-2021.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 73,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "118c09d5d4382bbf",
+        "title": "EQT to Acquire Stockbridge, Adding US$16.5B in AUM",
+        "slug": "eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum",
+        "url": "/insights/eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 66,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c183bd1458cb2591",
+        "title": "ARMs, non-QM are the 4Q opportunities, rate lock data shows",
+        "slug": "arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows",
+        "url": "/insights/arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b40b15afb0cb94c3",
+        "title": "Brookfield-Backed Castlelake Dives Into CRE CLO Market With $1.1B Deal",
+        "slug": "brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal",
+        "url": "/insights/brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "57bcc4b1e82b092d",
+        "title": "Dell’Oro: Data Center Infrastructure Market Surges 27%",
+        "slug": "dell-oro-data-center-infrastructure-market-surges-27",
+        "url": "/insights/dell-oro-data-center-infrastructure-market-surges-27.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "94ef76b25cb055bb",
+        "title": "Blackstone Tactical Opportunities exits ZO Skin Health in $1.5bn sale",
+        "slug": "blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale",
+        "url": "/insights/blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d0948327bbfe6659",
+        "title": "Solaria plans 500 MW data center project powered by 350 MW of solar in Uruguay",
+        "slug": "solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay",
+        "url": "/insights/solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "20c229db2fd59262",
+        "title": "Terra Refinances Tom Brady-Leased Office Near Miami for $184M",
+        "slug": "terra-refinances-tom-brady-leased-office-near-miami-for-184m",
+        "url": "/insights/terra-refinances-tom-brady-leased-office-near-miami-for-184m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "210a24ec3458b9ee",
+        "title": "AMD Backs 222 MW Fermi America Data Center Lease",
+        "slug": "amd-backs-222-mw-fermi-america-data-center-lease",
+        "url": "/insights/amd-backs-222-mw-fermi-america-data-center-lease.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "20b5ad8500407518",
+        "title": "Bowman: global regulators should match Fed's 'modernization",
+        "slug": "bowman-global-regulators-should-match-fed-s-modernization",
+        "url": "/insights/bowman-global-regulators-should-match-fed-s-modernization.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f7c6abd78e0ef882",
+        "title": "University of Tennessee breaks ground on $350M health studies build",
+        "slug": "university-of-tennessee-breaks-ground-on-350m-health-studies-build",
+        "url": "/insights/university-of-tennessee-breaks-ground-on-350m-health-studies-build.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "fdbc18bdf17c653c",
+        "title": "Lake Forest Bank Refis Queens IOS Site With $39M Loan",
+        "slug": "lake-forest-bank-refis-queens-ios-site-with-39m-loan",
+        "url": "/insights/lake-forest-bank-refis-queens-ios-site-with-39m-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "75441dfae56360a0",
+        "title": "Flex Completes $4.4 Billion Acquisition of EPC Power",
+        "slug": "flex-completes-4-4-billion-acquisition-of-epc-power",
+        "url": "/insights/flex-completes-4-4-billion-acquisition-of-epc-power.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "86ef2af8da83191a",
+        "title": "2 San Jose Multifamily Towers Change Hands For Combined $380M",
+        "slug": "2-san-jose-multifamily-towers-change-hands-for-combined-380m",
+        "url": "/insights/2-san-jose-multifamily-towers-change-hands-for-combined-380m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ed5469f3b783da85",
+        "title": "Brookdale Senior Living To Buy 30 Communities It Operates From Welltower For $290M",
+        "slug": "brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290",
+        "url": "/insights/brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "71eb208b8d2beb1b",
+        "title": "Chicago Office Tower Sells For $550M To Zara Founder In Blockbuster Deal",
+        "slug": "chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal",
+        "url": "/insights/chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "13d0bc5ac9456d1c",
+        "title": "Businesses view stablecoins warily",
+        "slug": "businesses-view-stablecoins-warily",
+        "url": "/insights/businesses-view-stablecoins-warily.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "aac7a748c9a46b65",
+        "title": "Inflation speeds up to 3.7%, fueled by surging gasoline prices",
+        "slug": "inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices",
+        "url": "/insights/inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5ed5806ae8ff47bc",
+        "title": "Bowman, Supervisory Modernization After Silicon Valley Bank",
+        "slug": "bowman-supervisory-modernization-after-silicon-valley-bank",
+        "url": "/insights/bowman-supervisory-modernization-after-silicon-valley-bank.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2e8bf3c4f37be13e",
+        "title": "OCC blasts debanking instances by JPMorgan, others in report",
+        "slug": "occ-blasts-debanking-instances-by-jpmorgan-others-in-report",
+        "url": "/insights/occ-blasts-debanking-instances-by-jpmorgan-others-in-report.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1810b7a6b49ef2ab",
+        "title": "CtrlS plans 150MW data center in Bihar, India",
+        "slug": "ctrls-plans-150mw-data-center-in-bihar-india",
+        "url": "/insights/ctrls-plans-150mw-data-center-in-bihar-india.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a9a51883565933c4",
+        "title": "3C and Datalec Merge to Form $400M+ AI Data Center Infrastructure Platform",
+        "slug": "3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform",
+        "url": "/insights/3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "087c3456db56ee2c",
+        "title": "Horse-drawn carriages to be banned in Central Park after deal between Council and Mamdani",
+        "slug": "horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an",
+        "url": "/insights/horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "59b2bf97ba83a60b",
+        "title": "Salience Labs Secures $125 Million Series B for Photonic AI Networking",
+        "slug": "salience-labs-secures-125-million-series-b-for-photonic-ai-networking",
+        "url": "/insights/salience-labs-secures-125-million-series-b-for-photonic-ai-networking.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f3384e5973a80ea7",
+        "title": "Exclusive: Chariot Raises $10M To Help Consumers Fight Back Against Hidden Fees And Hard-To-Cancel Subscriptions",
+        "slug": "exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an",
+        "url": "/insights/exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3cb1d5068cd89bec",
+        "title": "Meta faces Senate questions on data center research credits",
+        "slug": "meta-faces-senate-questions-on-data-center-research-credits",
+        "url": "/insights/meta-faces-senate-questions-on-data-center-research-credits.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a1b76eec2960ba73",
+        "title": "Oil Economics Are Plaguing Trump’s Presidency",
+        "slug": "oil-economics-are-plaguing-trump-s-presidency",
+        "url": "/insights/oil-economics-are-plaguing-trump-s-presidency.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5497b82f82c8fff3",
+        "title": "Oracle renews FERC push for Project Jupiter gas pipeline",
+        "slug": "oracle-renews-ferc-push-for-project-jupiter-gas-pipeline",
+        "url": "/insights/oracle-renews-ferc-push-for-project-jupiter-gas-pipeline.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "615a13f3a295e144",
+        "title": "Housing Report: City Planning Commission Adds 670 Dwelling Units and a Long-Term Care Facility as Summer Ends",
+        "slug": "housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term",
+        "url": "/insights/housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term.html",
+        "category": "Policy & Regulation",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "132ec266eb0ba796",
+        "title": "Virginia senator proposes three-year state-wide data center moratorium",
+        "slug": "virginia-senator-proposes-three-year-state-wide-data-center-moratorium",
+        "url": "/insights/virginia-senator-proposes-three-year-state-wide-data-center-moratorium.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "e9e1adb7fadaa080",
+        "slug": "where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d",
+        "title": "Where Is Multifamily Delinquency Concentrated? Private-Label CMBS Holds Half of Delinquent Debt",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0a3e4730776c8a6e",
+        "slug": "first-multifamily-only-deal-for-genesis-since-2021",
+        "title": "Rithm Capital Closes $375M Securitization of Multifamily Loans",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/first-multifamily-only-deal-for-genesis-since-2021.html",
+        "reason": ""
+      },
+      {
+        "object_id": "118c09d5d4382bbf",
+        "slug": "eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum",
+        "title": "EQT to Acquire Stockbridge, Adding US$16.5B in AUM",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c183bd1458cb2591",
+        "slug": "arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows",
+        "title": "ARMs, non-QM are the 4Q opportunities, rate lock data shows",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b40b15afb0cb94c3",
+        "slug": "brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal",
+        "title": "Brookfield-Backed Castlelake Dives Into CRE CLO Market With $1.1B Deal",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "57bcc4b1e82b092d",
+        "slug": "dell-oro-data-center-infrastructure-market-surges-27",
+        "title": "Dell’Oro: Data Center Infrastructure Market Surges 27%",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/dell-oro-data-center-infrastructure-market-surges-27.html",
+        "reason": ""
+      },
+      {
+        "object_id": "94ef76b25cb055bb",
+        "slug": "blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale",
+        "title": "Deal Roundup: Blackstone exits ZO Skin Health in $1.5bn sale, Ares invests in 1.9GW UK energy portfolio",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d0948327bbfe6659",
+        "slug": "solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay",
+        "title": "Solaria plans 500 MW data center project powered by 350 MW of solar in Uruguay",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay.html",
+        "reason": ""
+      },
+      {
+        "object_id": "20c229db2fd59262",
+        "slug": "terra-refinances-tom-brady-leased-office-near-miami-for-184m",
+        "title": "Terra Secures $184M Refi for New Tom Brady-Leased Office Near Miami",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/terra-refinances-tom-brady-leased-office-near-miami-for-184m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "210a24ec3458b9ee",
+        "slug": "amd-backs-222-mw-fermi-america-data-center-lease",
+        "title": "AMD Backs 222 MW Fermi America Data Center Lease",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/amd-backs-222-mw-fermi-america-data-center-lease.html",
+        "reason": ""
+      },
+      {
+        "object_id": "20b5ad8500407518",
+        "slug": "bowman-global-regulators-should-match-fed-s-modernization",
+        "title": "Bowman: global regulators should match Fed's 'modernization",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bowman-global-regulators-should-match-fed-s-modernization.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f7c6abd78e0ef882",
+        "slug": "university-of-tennessee-breaks-ground-on-350m-health-studies-build",
+        "title": "University of Tennessee breaks ground on $350M health studies build",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/university-of-tennessee-breaks-ground-on-350m-health-studies-build.html",
+        "reason": ""
+      },
+      {
+        "object_id": "fdbc18bdf17c653c",
+        "slug": "lake-forest-bank-refis-queens-ios-site-with-39m-loan",
+        "title": "Lake Forest Bank Refis Queens IOS Site With $39M Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/lake-forest-bank-refis-queens-ios-site-with-39m-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "75441dfae56360a0",
+        "slug": "flex-completes-4-4-billion-acquisition-of-epc-power",
+        "title": "Flex Completes $4.4 Billion Acquisition of EPC Power",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/flex-completes-4-4-billion-acquisition-of-epc-power.html",
+        "reason": ""
+      },
+      {
+        "object_id": "86ef2af8da83191a",
+        "slug": "2-san-jose-multifamily-towers-change-hands-for-combined-380m",
+        "title": "2 San Jose Multifamily Towers Change Hands For Combined $380M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/2-san-jose-multifamily-towers-change-hands-for-combined-380m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ed5469f3b783da85",
+        "slug": "brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290",
+        "title": "Brookdale Senior Living To Buy 30 Communities It Operates From Welltower For $290M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290.html",
+        "reason": ""
+      },
+      {
+        "object_id": "71eb208b8d2beb1b",
+        "slug": "chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal",
+        "title": "Chicago Office Tower Sells For $550M To Zara Founder In Blockbuster Deal",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "13d0bc5ac9456d1c",
+        "slug": "businesses-view-stablecoins-warily",
+        "title": "Businesses view stablecoins warily",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/businesses-view-stablecoins-warily.html",
+        "reason": ""
+      },
+      {
+        "object_id": "aac7a748c9a46b65",
+        "slug": "inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices",
+        "title": "Inflation speeds up to 3.7%, fueled by surging gasoline prices",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5ed5806ae8ff47bc",
+        "slug": "bowman-supervisory-modernization-after-silicon-valley-bank",
+        "title": "Bowman, Supervisory Modernization After Silicon Valley Bank",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/bowman-supervisory-modernization-after-silicon-valley-bank.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2e8bf3c4f37be13e",
+        "slug": "occ-blasts-debanking-instances-by-jpmorgan-others-in-report",
+        "title": "OCC blasts debanking instances by JPMorgan, others in report",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/occ-blasts-debanking-instances-by-jpmorgan-others-in-report.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1810b7a6b49ef2ab",
+        "slug": "ctrls-plans-150mw-data-center-in-bihar-india",
+        "title": "CtrlS plans 150MW data center in Bihar, India",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ctrls-plans-150mw-data-center-in-bihar-india.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a9a51883565933c4",
+        "slug": "3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform",
+        "title": "3C and Datalec Merge to Form $400M+ AI Data Center Infrastructure Platform",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform.html",
+        "reason": ""
+      },
+      {
+        "object_id": "087c3456db56ee2c",
+        "slug": "horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an",
+        "title": "Horse-drawn carriages to be banned in Central Park after deal between Council and Mamdani",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an.html",
+        "reason": ""
+      },
+      {
+        "object_id": "59b2bf97ba83a60b",
+        "slug": "salience-labs-secures-125-million-series-b-for-photonic-ai-networking",
+        "title": "Salience Labs Secures $125 Million Series B for Photonic AI Networking",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/salience-labs-secures-125-million-series-b-for-photonic-ai-networking.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f3384e5973a80ea7",
+        "slug": "exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an",
+        "title": "Exclusive: Chariot Raises $10M To Help Consumers Fight Back Against Hidden Fees And Hard-To-Cancel Subscriptions",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3cb1d5068cd89bec",
+        "slug": "meta-faces-senate-questions-on-data-center-research-credits",
+        "title": "Meta under investigation regarding alleged tax filings claiming data center projects qualify for research credits",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/meta-faces-senate-questions-on-data-center-research-credits.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a1b76eec2960ba73",
+        "slug": "oil-economics-are-plaguing-trump-s-presidency",
+        "title": "Oil Economics Are Plaguing Trump’s Presidency",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/oil-economics-are-plaguing-trump-s-presidency.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5497b82f82c8fff3",
+        "slug": "oracle-renews-ferc-push-for-project-jupiter-gas-pipeline",
+        "title": "Oracle renews attempts to secure natural gas pipeline approval for Project Jupiter data center - report",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/oracle-renews-ferc-push-for-project-jupiter-gas-pipeline.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a90c1a134bf2dd89",
+        "slug": "",
+        "title": "Fed Won't Raise Rates at Next Meeting, Strategist Amoroso Says",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "615a13f3a295e144",
+        "slug": "housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term",
+        "title": "Housing Report: City Planning Commission Adds 670 Dwelling Units and a Long-Term Care Facility as Summer Ends",
+        "sector": "local_government",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term.html",
+        "reason": ""
+      },
+      {
+        "object_id": "132ec266eb0ba796",
+        "slug": "virginia-senator-proposes-three-year-state-wide-data-center-moratorium",
+        "title": "Virginia senator proposes three-year state-wide data center moratorium",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/virginia-senator-proposes-three-year-state-wide-data-center-moratorium.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 90,
+    "successful_calls": 90,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.49,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 6.2,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.18,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.73,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.36,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 236.5,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 50.23,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.31,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 1336.5,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 3.24,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.58,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "1 of 32 drafts were withheld because they could not be verified against their sources",
+    "published 31 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1653.32,
+  "status": "ready",
+  "candidate_count": 903,
+  "event_count": 857,
+  "articles": [
+    {
+      "event_id": "e9e1adb7fadaa080",
+      "title": "Where Is Multifamily Delinquency Concentrated? Private-Label CMBS Holds Half of Delinquent Debt",
+      "slug": "where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d",
+      "url": "/insights/where-is-multifamily-delinquency-concentrated-private-label-cmbs-holds-half-of-d.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 78,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0a3e4730776c8a6e",
+      "title": "First Multifamily-Only Deal for Genesis Since 2021",
+      "slug": "first-multifamily-only-deal-for-genesis-since-2021",
+      "url": "/insights/first-multifamily-only-deal-for-genesis-since-2021.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 73,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "118c09d5d4382bbf",
+      "title": "EQT to Acquire Stockbridge, Adding US$16.5B in AUM",
+      "slug": "eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum",
+      "url": "/insights/eqt-to-acquire-stockbridge-adding-us-16-5b-in-aum.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 66,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c183bd1458cb2591",
+      "title": "ARMs, non-QM are the 4Q opportunities, rate lock data shows",
+      "slug": "arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows",
+      "url": "/insights/arms-non-qm-are-the-4q-opportunities-rate-lock-data-shows.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b40b15afb0cb94c3",
+      "title": "Brookfield-Backed Castlelake Dives Into CRE CLO Market With $1.1B Deal",
+      "slug": "brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal",
+      "url": "/insights/brookfield-backed-castlelake-dives-into-cre-clo-market-with-1-1b-deal.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "57bcc4b1e82b092d",
+      "title": "Dell’Oro: Data Center Infrastructure Market Surges 27%",
+      "slug": "dell-oro-data-center-infrastructure-market-surges-27",
+      "url": "/insights/dell-oro-data-center-infrastructure-market-surges-27.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "94ef76b25cb055bb",
+      "title": "Blackstone Tactical Opportunities exits ZO Skin Health in $1.5bn sale",
+      "slug": "blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale",
+      "url": "/insights/blackstone-tactical-opportunities-exits-zo-skin-health-in-1-5bn-sale.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d0948327bbfe6659",
+      "title": "Solaria plans 500 MW data center project powered by 350 MW of solar in Uruguay",
+      "slug": "solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay",
+      "url": "/insights/solaria-plans-500-mw-data-center-project-powered-by-350-mw-of-solar-in-uruguay.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "20c229db2fd59262",
+      "title": "Terra Refinances Tom Brady-Leased Office Near Miami for $184M",
+      "slug": "terra-refinances-tom-brady-leased-office-near-miami-for-184m",
+      "url": "/insights/terra-refinances-tom-brady-leased-office-near-miami-for-184m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "210a24ec3458b9ee",
+      "title": "AMD Backs 222 MW Fermi America Data Center Lease",
+      "slug": "amd-backs-222-mw-fermi-america-data-center-lease",
+      "url": "/insights/amd-backs-222-mw-fermi-america-data-center-lease.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "20b5ad8500407518",
+      "title": "Bowman: global regulators should match Fed's 'modernization",
+      "slug": "bowman-global-regulators-should-match-fed-s-modernization",
+      "url": "/insights/bowman-global-regulators-should-match-fed-s-modernization.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f7c6abd78e0ef882",
+      "title": "University of Tennessee breaks ground on $350M health studies build",
+      "slug": "university-of-tennessee-breaks-ground-on-350m-health-studies-build",
+      "url": "/insights/university-of-tennessee-breaks-ground-on-350m-health-studies-build.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "fdbc18bdf17c653c",
+      "title": "Lake Forest Bank Refis Queens IOS Site With $39M Loan",
+      "slug": "lake-forest-bank-refis-queens-ios-site-with-39m-loan",
+      "url": "/insights/lake-forest-bank-refis-queens-ios-site-with-39m-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "75441dfae56360a0",
+      "title": "Flex Completes $4.4 Billion Acquisition of EPC Power",
+      "slug": "flex-completes-4-4-billion-acquisition-of-epc-power",
+      "url": "/insights/flex-completes-4-4-billion-acquisition-of-epc-power.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "86ef2af8da83191a",
+      "title": "2 San Jose Multifamily Towers Change Hands For Combined $380M",
+      "slug": "2-san-jose-multifamily-towers-change-hands-for-combined-380m",
+      "url": "/insights/2-san-jose-multifamily-towers-change-hands-for-combined-380m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ed5469f3b783da85",
+      "title": "Brookdale Senior Living To Buy 30 Communities It Operates From Welltower For $290M",
+      "slug": "brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290",
+      "url": "/insights/brookdale-senior-living-to-buy-30-communities-it-operates-from-welltower-for-290.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "71eb208b8d2beb1b",
+      "title": "Chicago Office Tower Sells For $550M To Zara Founder In Blockbuster Deal",
+      "slug": "chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal",
+      "url": "/insights/chicago-office-tower-sells-for-550m-to-zara-founder-in-blockbuster-deal.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "13d0bc5ac9456d1c",
+      "title": "Businesses view stablecoins warily",
+      "slug": "businesses-view-stablecoins-warily",
+      "url": "/insights/businesses-view-stablecoins-warily.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "aac7a748c9a46b65",
+      "title": "Inflation speeds up to 3.7%, fueled by surging gasoline prices",
+      "slug": "inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices",
+      "url": "/insights/inflation-speeds-up-to-3-7-fueled-by-surging-gasoline-prices.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5ed5806ae8ff47bc",
+      "title": "Bowman, Supervisory Modernization After Silicon Valley Bank",
+      "slug": "bowman-supervisory-modernization-after-silicon-valley-bank",
+      "url": "/insights/bowman-supervisory-modernization-after-silicon-valley-bank.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2e8bf3c4f37be13e",
+      "title": "OCC blasts debanking instances by JPMorgan, others in report",
+      "slug": "occ-blasts-debanking-instances-by-jpmorgan-others-in-report",
+      "url": "/insights/occ-blasts-debanking-instances-by-jpmorgan-others-in-report.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1810b7a6b49ef2ab",
+      "title": "CtrlS plans 150MW data center in Bihar, India",
+      "slug": "ctrls-plans-150mw-data-center-in-bihar-india",
+      "url": "/insights/ctrls-plans-150mw-data-center-in-bihar-india.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a9a51883565933c4",
+      "title": "3C and Datalec Merge to Form $400M+ AI Data Center Infrastructure Platform",
+      "slug": "3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform",
+      "url": "/insights/3c-and-datalec-merge-to-form-400m-ai-data-center-infrastructure-platform.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "087c3456db56ee2c",
+      "title": "Horse-drawn carriages to be banned in Central Park after deal between Council and Mamdani",
+      "slug": "horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an",
+      "url": "/insights/horse-drawn-carriages-to-be-banned-in-central-park-after-deal-between-council-an.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "59b2bf97ba83a60b",
+      "title": "Salience Labs Secures $125 Million Series B for Photonic AI Networking",
+      "slug": "salience-labs-secures-125-million-series-b-for-photonic-ai-networking",
+      "url": "/insights/salience-labs-secures-125-million-series-b-for-photonic-ai-networking.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f3384e5973a80ea7",
+      "title": "Exclusive: Chariot Raises $10M To Help Consumers Fight Back Against Hidden Fees And Hard-To-Cancel Subscriptions",
+      "slug": "exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an",
+      "url": "/insights/exclusive-chariot-raises-10m-to-help-consumers-fight-back-against-hidden-fees-an.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3cb1d5068cd89bec",
+      "title": "Meta faces Senate questions on data center research credits",
+      "slug": "meta-faces-senate-questions-on-data-center-research-credits",
+      "url": "/insights/meta-faces-senate-questions-on-data-center-research-credits.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a1b76eec2960ba73",
+      "title": "Oil Economics Are Plaguing Trump’s Presidency",
+      "slug": "oil-economics-are-plaguing-trump-s-presidency",
+      "url": "/insights/oil-economics-are-plaguing-trump-s-presidency.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5497b82f82c8fff3",
+      "title": "Oracle renews FERC push for Project Jupiter gas pipeline",
+      "slug": "oracle-renews-ferc-push-for-project-jupiter-gas-pipeline",
+      "url": "/insights/oracle-renews-ferc-push-for-project-jupiter-gas-pipeline.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "615a13f3a295e144",
+      "title": "Housing Report: City Planning Commission Adds 670 Dwelling Units and a Long-Term Care Facility as Summer Ends",
+      "slug": "housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term",
+      "url": "/insights/housing-report-city-planning-commission-adds-670-dwelling-units-and-a-long-term.html",
+      "category": "Policy & Regulation",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "132ec266eb0ba796",
+      "title": "Virginia senator proposes three-year state-wide data center moratorium",
+      "slug": "virginia-senator-proposes-three-year-state-wide-data-center-moratorium",
+      "url": "/insights/virginia-senator-proposes-three-year-state-wide-data-center-moratorium.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 31
+}

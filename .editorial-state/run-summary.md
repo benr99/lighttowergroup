@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **917**
-- Distinct events: **866**
-- Articles: **29**
+- Candidates: **903**
+- Distinct events: **857**
+- Articles: **31**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,32 +12,34 @@
 
 ## Published candidates
 
-- **analysis** — Starwood Property Trust Provides $238M Refi on N.C. Life Sciences Campus (1 sources; v3_daily_slate selection)
-- **analysis** — BofA gets $1.21B penalty for money laundering (1 sources; v3_daily_slate selection)
-- **analysis** — BlackRock Invests In 3D-Printing Construction Startup Valued At $1.4B (1 sources; v3_daily_slate selection)
-- **analysis** — Rate Hike Odds Jump to 47% After Inflation Surprise (1 sources; v3_daily_slate selection)
-- **analysis** — IURC approves AES Indiana plan for $1.3bn solar, storage, and transmission project for Google data center in Monrovia (1 sources; v3_daily_slate selection)
-- **analysis** — Merchants Capital Secures Freddie Mac Forward TEL Loan for Affordable Multifamily Development in Indianapolis (1 sources; v3_daily_slate selection)
-- **analysis** — Trump goes after an offshore wind farm that’s already up and running (1 sources; v3_daily_slate selection)
-- **analysis** — Braemar Hotels & Resorts to Sell Four Seasons Resort Scottsdale for $372M as Part of Self-Managed REIT Strategy (1 sources; v3_daily_slate selection)
-- **analysis** — Thompson Thrift Lands $463M Bridge Loan for 8 Rentals (1 sources; v3_daily_slate selection)
-- **analysis** — Cohen & Steers Nontraded REIT Adds $92.3M in Shopping Centers as NAV Nears $392M (1 sources; v3_daily_slate selection)
-- **analysis** — Developers Land $204M Loan For East Village Project: The N.Y. Deal Sheet (1 sources; v3_daily_slate selection)
-- **analysis** — OCC Imposes $750 Million Assessment Against Bank of America for Deficient BSA/AML Compliance (1 sources; v3_daily_slate selection)
-- **analysis** — Inflation uptick puts pressure on Fed to hike again (2 sources; v3_daily_slate selection)
-- **analysis** — PNC Lends $96M for Hawaii Retail Portfolio Acquisition (1 sources; v3_daily_slate selection)
-- **analysis** — Microsoft acquires 600 acres of land for data center in Woodward, Iowa (1 sources; v3_daily_slate selection)
-- **analysis** — ABA, state bankers associations offer recommendations for CRA rules revisions (1 sources; v3_daily_slate selection)
-- **analysis** — OCC: All Nine Largest Banks Had Debanking Policies (1 sources; v3_daily_slate selection)
-- **analysis** — Global Investor Buys 8 Mass. Industrial Buildings For $76.5M: The Boston Deal Sheet (1 sources; v3_daily_slate selection)
-- **brief** — Inflation Hits 3.7% as Gasoline Prices Surge (1 sources; v3_daily_slate selection)
-- **brief** — One Street Gets $38M Loan for D.C. Office-to-Condo Conversion (1 sources; v3_daily_slate selection)
-- **brief** — Blackstone-Backed Data Center Firm AirTrunk Reportedly Delaying $1.5B IPO (1 sources; v3_daily_slate selection)
-- **brief** — CFPB to Probe Big Banks Over Debanking (1 sources; v3_daily_slate selection)
-- **brief** — Wells Fargo consumer revenue hits $10.7 billion (1 sources; v3_daily_slate selection)
-- **brief** — Digi Power X lands $200m debt for Alabama data center (1 sources; v3_daily_slate selection)
-- **brief** — Mortgage clients make ground-floor investments in AI fintech (1 sources; v3_daily_slate selection)
-- **brief** — Oregon governor pauses data center pollution permits (1 sources; v3_daily_slate selection)
-- **brief** — Oswal Pumps to build 1.2 GW TOPCon solar cell plant (1 sources; v3_daily_slate selection)
-- **brief** — Charlotte Council Weighs Extending Data Center Moratorium (1 sources; v3_daily_slate selection)
-- **brief** — Memphis Council Delays Vote on Proposed Year-Long Data Center Moratorium Amid Protests Oct 14, 2026 (1 sources; v3_daily_slate selection)
+- **analysis** — Where Is Multifamily Delinquency Concentrated? Private-Label CMBS Holds Half of Delinquent Debt (1 sources; v3_daily_slate selection)
+- **analysis** — First Multifamily-Only Deal for Genesis Since 2021 (1 sources; v3_daily_slate selection)
+- **analysis** — EQT to Acquire Stockbridge, Adding US$16.5B in AUM (1 sources; v3_daily_slate selection)
+- **analysis** — ARMs, non-QM are the 4Q opportunities, rate lock data shows (1 sources; v3_daily_slate selection)
+- **analysis** — Brookfield-Backed Castlelake Dives Into CRE CLO Market With $1.1B Deal (1 sources; v3_daily_slate selection)
+- **analysis** — Dell’Oro: Data Center Infrastructure Market Surges 27% (1 sources; v3_daily_slate selection)
+- **analysis** — Blackstone Tactical Opportunities exits ZO Skin Health in $1.5bn sale (1 sources; v3_daily_slate selection)
+- **analysis** — Solaria plans 500 MW data center project powered by 350 MW of solar in Uruguay (1 sources; v3_daily_slate selection)
+- **analysis** — Terra Refinances Tom Brady-Leased Office Near Miami for $184M (1 sources; v3_daily_slate selection)
+- **analysis** — AMD Backs 222 MW Fermi America Data Center Lease (1 sources; v3_daily_slate selection)
+- **analysis** — Bowman: global regulators should match Fed's 'modernization (1 sources; v3_daily_slate selection)
+- **analysis** — University of Tennessee breaks ground on $350M health studies build (1 sources; v3_daily_slate selection)
+- **analysis** — Lake Forest Bank Refis Queens IOS Site With $39M Loan (1 sources; v3_daily_slate selection)
+- **analysis** — Flex Completes $4.4 Billion Acquisition of EPC Power (1 sources; v3_daily_slate selection)
+- **analysis** — 2 San Jose Multifamily Towers Change Hands For Combined $380M (1 sources; v3_daily_slate selection)
+- **analysis** — Brookdale Senior Living To Buy 30 Communities It Operates From Welltower For $290M (1 sources; v3_daily_slate selection)
+- **analysis** — Chicago Office Tower Sells For $550M To Zara Founder In Blockbuster Deal (1 sources; v3_daily_slate selection)
+- **analysis** — Businesses view stablecoins warily (1 sources; v3_daily_slate selection)
+- **analysis** — Inflation speeds up to 3.7%, fueled by surging gasoline prices (1 sources; v3_daily_slate selection)
+- **analysis** — Bowman, Supervisory Modernization After Silicon Valley Bank (1 sources; v3_daily_slate selection)
+- **analysis** — OCC blasts debanking instances by JPMorgan, others in report (1 sources; v3_daily_slate selection)
+- **brief** — CtrlS plans 150MW data center in Bihar, India (1 sources; v3_daily_slate selection)
+- **brief** — 3C and Datalec Merge to Form $400M+ AI Data Center Infrastructure Platform (1 sources; v3_daily_slate selection)
+- **brief** — Horse-drawn carriages to be banned in Central Park after deal between Council and Mamdani (1 sources; v3_daily_slate selection)
+- **brief** — Salience Labs Secures $125 Million Series B for Photonic AI Networking (1 sources; v3_daily_slate selection)
+- **brief** — Exclusive: Chariot Raises $10M To Help Consumers Fight Back Against Hidden Fees And Hard-To-Cancel Subscriptions (1 sources; v3_daily_slate selection)
+- **brief** — Meta faces Senate questions on data center research credits (1 sources; v3_daily_slate selection)
+- **brief** — Oil Economics Are Plaguing Trump’s Presidency (1 sources; v3_daily_slate selection)
+- **brief** — Oracle renews FERC push for Project Jupiter gas pipeline (1 sources; v3_daily_slate selection)
+- **brief** — Housing Report: City Planning Commission Adds 670 Dwelling Units and a Long-Term Care Facility as Summer Ends (1 sources; v3_daily_slate selection)
+- **brief** — Virginia senator proposes three-year state-wide data center moratorium (1 sources; v3_daily_slate selection)
