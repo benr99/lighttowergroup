@@ -1,0 +1,184 @@
+{
+  "friday": "2026-10-16",
+  "window": "Oct 10 to Oct 16",
+  "items_in_window": 99,
+  "status": "ok",
+  "sections": [
+    {
+      "key": "fed_rates",
+      "label": "Fed, Rates & Macro",
+      "items": 6,
+      "attempts": 1,
+      "fallback_items": 5,
+      "problems": [
+        "m1: summary rejected: Source says inflation was 'slightly ahead of analyst expectations', not simply 'above expectations'; it omits the qualifier 'slightly' and the attribution 'analyst'.",
+        "m2: summary rejected: Source says 50 basis points or more, not exactly 50 basis points.",
+        "m3: summary rejected: names not in the source: CPI",
+        "m4: take rejected: Source says 'about 5.36%', not an exact 5.36%.",
+        "m5: summary rejected: The claim about annual inflation omits the source attribution 'according to the Bureau of Labor Statistics' that appears in the source text.",
+        "m6: summary rejected: names not in the source: Governor"
+      ],
+      "error": ""
+    },
+    {
+      "key": "debt_capital",
+      "label": "Debt & Capital Markets",
+      "items": 6,
+      "attempts": 1,
+      "fallback_items": 3,
+      "problems": [
+        "m7: take rejected: Source does not state high mortgage rates caused borrowers to shift into non-QM and ARMs; it only links high rates to overall lock decline and separately reports share changes.",
+        "m8: summary rejected: J.P. Morgan Chase led a $550 million refinancing.",
+        "m10: take rejected: Source attributes this interpretation to the author ('I read the record penalty as...') rather than stating it as objective fact or as the regulator's actual view.",
+        "m11: summary rejected: Source specifies nominal GDP; sentence omits 'nominal'.",
+        "m12: summary rejected: Source states the $1 billion 'reportedly' had national security implications; the sentence presents it as fact.",
+        "sector line rejected: a view or action may not add figures: 1.21"
+      ],
+      "error": ""
+    },
+    {
+      "key": "multifamily",
+      "label": "Multifamily",
+      "items": 6,
+      "attempts": 1,
+      "fallback_items": 0,
+      "problems": [
+        "m13: take rejected: The source frames this as the author's interpretation ('I read this as a sign that...'), not as a factual claim.",
+        "m14: take rejected: The source only says the author read the ramp as the reason the securitization matters, not that it drove the securitization.",
+        "m15: take rejected: The source says the deal shows continued lender appetite, not the floating-rate, interest-only bridge loan specifically.",
+        "m16: take rejected: Source presents this as the author's interpretation ('I read'), not as an established fact.",
+        "m17: take rejected: Source frames 'a test of the new model' as the author's interpretation, not a stated fact.",
+        "sector line rejected: Adds a specific 12% share of balance not stated in source."
+      ],
+      "error": ""
+    },
+    {
+      "key": "industrial",
+      "label": "Industrial & Warehouse",
+      "items": 4,
+      "attempts": 1,
+      "fallback_items": 3,
+      "problems": [
+        "m19: summary rejected: Source says the equity facility is 'up to $1B', not a definite $1B; the sentence omits the 'up to' qualifier.",
+        "m20: summary rejected: The source says Sitex Group has secured a $39.4 million loan to refinance the property, not that it refinanced it.",
+        "m21: summary rejected: names not in the source: Massachusetts",
+        "m22: take rejected: The sentence presents Montalto's attributed opinion as fact and omits the qualifier 'with strong fundamentals'.",
+        "sector line rejected: The source does not mention data-center conversions, bifurcation, or credit-tenanted assets."
+      ],
+      "error": ""
+    },
+    {
+      "key": "office",
+      "label": "Office",
+      "items": 4,
+      "attempts": 1,
+      "fallback_items": 2,
+      "problems": [
+        "m23: summary rejected: The source says King Street Properties secured $237.7 million to refinance the first phase, not that they refinanced it.",
+        "m24: take rejected: Adds interpretation that lease indicates lender confidence, which source does not state.",
+        "m25: summary rejected: Source says 'reportedly acquired ... for about $550M' (not confirmed) and 'more than 1.4M SF', not '1.4M SF'.",
+        "m26: take rejected: Source says obsolete office properties 'go' (truncated), not that they are repurposed.",
+        "sector line rejected: a view or action may not add figures: 2015; a view or action may not add names: Chicago"
+      ],
+      "error": ""
+    },
+    {
+      "key": "retail",
+      "label": "Retail",
+      "items": 3,
+      "attempts": 1,
+      "fallback_items": 1,
+      "problems": [
+        "m28: summary rejected: Source does not state the acquisitions caused the NAV increase.",
+        "sector line rejected: Adds claims about last maturity, $7 million cash flow, and lender sentiment not in source."
+      ],
+      "error": ""
+    },
+    {
+      "key": "hospitality",
+      "label": "Hospitality",
+      "items": 1,
+      "attempts": 1,
+      "fallback_items": 0,
+      "problems": [
+        "m30: take rejected: Source says proceeds are expected to create sufficient funds, not that they will fund fees; it also specifies the remainder and exact fee names.",
+        "sector line rejected: Adds commentary that luxury resort pricing remains strong for desert assets not stated in source."
+      ],
+      "error": ""
+    },
+    {
+      "key": "data_centers",
+      "label": "Data Centers",
+      "items": 6,
+      "attempts": 2,
+      "fallback_items": 0,
+      "problems": [
+        "m33: take rejected: The source attributes the investment to Fermi's statement and the gap to the author's opinion, not as established facts.",
+        "m34: take rejected: The source directly states Google will pay all costs under the agreement, while the 'at least 100 percent' figure is attributed to Commissioner Joby Jerrells' testimony; the sentence presents it as an unattributed fact.",
+        "m35: take rejected: names not in the source: IPO",
+        "sector line rejected: The source does not state that data center demand is colliding with power constraints or that Solaria's data centers need more than its 350 MW of solar."
+      ],
+      "error": ""
+    },
+    {
+      "key": "energy",
+      "label": "Energy & Infrastructure",
+      "items": 3,
+      "attempts": 1,
+      "fallback_items": 2,
+      "problems": [
+        "m37: take rejected: Source presents 'permit is the whole game' only as the author's read, not a fact, and does not state the approval is at risk.",
+        "m38: summary rejected: The sentence omits 'ultimately' and changes the purpose: source says the initiative aims to ultimately create a $100 million private fund to drive large-scale investment in Baltimore's most challenged housing markets, not simply create a fund for challenged housing markets.",
+        "m39: summary rejected: The source says the project is expected to cost approximately INR 4.56 billion, but the sentence states the cost as a fact ('costing about') without 'expected'.",
+        "sector line rejected: a view or action may not add figures: 350000"
+      ],
+      "error": ""
+    },
+    {
+      "key": "private_equity",
+      "label": "Private Equity & Private Credit",
+      "items": 3,
+      "attempts": 1,
+      "fallback_items": 1,
+      "problems": [
+        "m41: summary rejected: names not in the source: IPOs",
+        "sector line rejected: Generalizes beyond the source by asserting what the deal shows about private equity and classifies ZO Skin Health as a scaled consumer health asset without source support."
+      ],
+      "error": ""
+    },
+    {
+      "key": "policy",
+      "label": "Policy & Local Government",
+      "items": 2,
+      "attempts": 1,
+      "fallback_items": 0,
+      "problems": [
+        "m43: take rejected: Source states through September, not full-year.",
+        "m44: take rejected: The source attributes this to Menin; the sentence states it as fact.",
+        "sector line rejected: The source does not say September was a slow month."
+      ],
+      "error": ""
+    },
+    {
+      "key": "other_cre",
+      "label": "Other Commercial Real Estate",
+      "items": 6,
+      "attempts": 1,
+      "fallback_items": 2,
+      "problems": [
+        "m45: take rejected: Source presents this as the author's interpretation ('I read'), not an objective signal.",
+        "m46: summary rejected: Source specifies approximately US$16.5 billion in fee-generating AUM, not total AUM.",
+        "m47: take rejected: The source attributes the capability to Icon's claim, not as an established fact, and omits 'average'.",
+        "m49: take rejected: The source does not mention a prefabrication approach; it says the approach reduces site complexity, not site disruption.",
+        "m50: summary rejected: Source says PJM claims roughly 686 MW, not that it has exactly 686 MW; CAISO is about 500 MW.",
+        "sector line rejected: a view or action may not add figures: 375"
+      ],
+      "error": ""
+    }
+  ],
+  "items_featured": 50,
+  "fallback_items": 19,
+  "llm_used": true,
+  "slug": "weekly-wrap-2026-10-16",
+  "generated_at": "2026-10-16T23:04:51+00:00"
+}
