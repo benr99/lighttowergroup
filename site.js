@@ -610,19 +610,19 @@
 
   function normalizePrimaryNavigation() {
     var items = [
-      ['/services.html', 'Expertise'],
+      ['/services.html', 'Capabilities'],
       ['/transactions.html', 'Transactions'],
-      ['/#process', 'Process'],
+      ['/buildings.html', 'NYC Maturities'],
       ['/insights.html', 'Intelligence'],
       ['/about.html', 'About']
     ];
     function linksMarkup() {
       return items.map(function (item) { return '<a href="' + item[0] + '">' + item[1] + '</a>'; }).join('') +
-        '<a href="/#contact" class="nav-cta">Request Review</a>';
+        '<a href="/#contact" class="nav-cta">Price a Deal</a>';
     }
     function mobileMarkup() {
       return items.map(function (item) { return '<a href="' + item[0] + '">' + item[1] + '</a>'; }).join('') +
-        '<a href="/#contact" class="nav-mobile-cta">Request Review</a>';
+        '<a href="/#contact" class="nav-mobile-cta">Price a Deal</a>';
     }
     document.querySelectorAll('.site-nav').forEach(function (nav) {
       var desktop = nav.querySelector('.nav-links');

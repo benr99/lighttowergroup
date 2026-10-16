@@ -314,32 +314,24 @@ def render_html(article: dict) -> str:
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="Light Tower Group home">Light Tower Group</a>
       <div class="nav-links">
-        <a href="/#practice">Practice</a>
-        <a href="/#advantage">Advantage</a>
-        <a href="/#leadership">Leadership</a>
-        <a href="/#faq">FAQ</a>
-        <a href="/insights.html">Insights</a>
-        <a href="/buildings.html">Buildings</a>
-        <a href="/services.html">Services</a>
+        <a href="/services.html">Capabilities</a>
+        <a href="/transactions.html">Transactions</a>
+        <a href="/buildings.html">NYC Maturities</a>
+        <a href="/insights.html">Intelligence</a>
         <a href="/about.html">About</a>
-        <a href="/#contact">Contact</a>
-        <button class="nav-cta" onclick="openLTGChat('nav_cta')">Initiate Mandate</button>
+        <a href="/#contact" class="nav-cta">Price a Deal</a>
       </div>
       <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="nav-mobile" id="nav-mobile" role="menu">
-      <a href="/#practice">Practice</a>
-      <a href="/#advantage">Advantage</a>
-      <a href="/#leadership">Leadership</a>
-      <a href="/#faq">FAQ</a>
-      <a href="/insights.html">Insights</a>
-      <a href="/buildings.html">Buildings</a>
-      <a href="/services.html">Services</a>
+      <a href="/services.html">Capabilities</a>
+      <a href="/transactions.html">Transactions</a>
+      <a href="/buildings.html">NYC Maturities</a>
+      <a href="/insights.html">Intelligence</a>
       <a href="/about.html">About</a>
-      <a href="/#contact">Contact</a>
-      <button class="nav-mobile-cta" onclick="openLTGChat('nav_mobile_cta')">Initiate Mandate</button>
+      <a href="/#contact" class="nav-mobile-cta">Price a Deal</a>
     </div>
   </nav>
 
@@ -379,10 +371,20 @@ def render_html(article: dict) -> str:
       {share_bot}
 
       <div class="article-cta-block">
-        <p class="article-cta-eyebrow">Talk to Light Tower Group</p>
+        <p class="article-cta-eyebrow">Direct Placement Desk</p>
         <h3 class="article-cta-headline">{esc(cta_headline)}</h3>
-        <p class="article-cta-sub">Tell us about it — Ben Rohr reviews every conversation personally and typically replies within one business day.</p>
-        <button class="article-cta-btn" onclick="openLTGChat('article_cta')">Start a Conversation</button>
+        <p class="article-cta-sub">Send us the address and target loan size. Ben Rohr prices every deal personally against live lender appetite and replies within 24 hours.</p>
+        <a href="/#contact" class="article-cta-btn" style="display:inline-block;text-decoration:none;">Price Your Deal &rarr;</a>
+      </div>
+
+      <div class="article-lead-capture" style="margin: 2.5rem 0; padding: 2rem; background: #f8f9fa; border: 1px solid #e2e8f0; border-radius: 6px;">
+        <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin: 0 0 0.5rem 0; font-weight: 600;">Daily Desk Intelligence</p>
+        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem; color: #0f172a;">Get Light Tower Group's Institutional CRE Brief</h3>
+        <p style="margin: 0 0 1.25rem 0; font-size: 0.95rem; color: #475569; line-height: 1.5;">Direct capital markets analysis, debt &amp; equity deal mechanics, and distressed credit signals delivered straight to your inbox.</p>
+        <form class="lead-capture-form" onsubmit="event.preventDefault(); var btn=this.querySelector('button'); btn.textContent='Subscribed ✓'; btn.disabled=true; this.querySelector('input').disabled=true;" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <input type="email" name="email" placeholder="Work email address..." required aria-label="Work email address" style="flex: 1; min-width: 220px; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.95rem;">
+          <button type="submit" style="padding: 0.75rem 1.5rem; background: #0f172a; color: #ffffff; border: none; border-radius: 4px; font-size: 0.95rem; font-weight: 600; cursor: pointer;">Subscribe</button>
+        </form>
       </div>
 
       <section class="related-research" id="related-research">
@@ -403,10 +405,13 @@ def render_html(article: dict) -> str:
   <footer class="site-footer">
     <p>
       <a href="/">Light Tower Group</a> &nbsp;&middot;&nbsp;
-      <a href="/insights.html">All Insights</a> &nbsp;&middot;&nbsp;
+      <a href="/services.html">Capabilities</a> &nbsp;&middot;&nbsp;
+      <a href="/transactions.html">Transactions</a> &nbsp;&middot;&nbsp;
+      <a href="/buildings.html">NYC Maturities</a> &nbsp;&middot;&nbsp;
+      <a href="/insights.html">Intelligence</a> &nbsp;&middot;&nbsp;
       <a href="/about.html">About</a> &nbsp;&middot;&nbsp;
       <a href="/feed.xml">RSS Feed</a> &nbsp;&middot;&nbsp;
-      <a href="/#contact">Contact</a>
+      <a href="/#contact">Price a Deal</a>
     </p>
     <p>&copy; {year} Light Tower Group. All rights reserved.</p>
   </footer>
@@ -418,47 +423,68 @@ def render_html(article: dict) -> str:
 
 
 def update_manifest(article: dict):
-    """Prepend new article entry to insights.json."""
-    data = []
-    if INSIGHTS_JSON.exists():
+    """Prepend new article entry to insights.json with a .lock file to prevent concurrent race conditions."""
+    import os
+    import time
+
+    lock_path = INSIGHTS_JSON.with_suffix(".lock")
+    lock_acquired = False
+    for _ in range(50):
         try:
-            data = json.loads(INSIGHTS_JSON.read_text(encoding="utf-8"))
-        except Exception:
-            data = []
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            os.close(fd)
+            lock_acquired = True
+            break
+        except FileExistsError:
+            time.sleep(0.1)
 
-    date_short = article["date_iso"][:10]   # Extract YYYY-MM-DD from ISO timestamp
+    try:
+        data = []
+        if INSIGHTS_JSON.exists():
+            try:
+                data = json.loads(INSIGHTS_JSON.read_text(encoding="utf-8"))
+            except Exception:
+                data = []
 
-    entry = {
-        "title":    article["title"],
-        "slug":     article["slug"],
-        "date":     date_short,
-        "publishedAt": article["date_iso"],
-        "readTime": calculate_read_time(article.get("body_html", "")),
-        "category": article["category"],
-        "excerpt":  article["meta_description"],
-        "url":      f"/insights/{article['slug']}.html",
-        "tags":     article.get("tags", []),
-        "format":   article.get("editorial_format", "analysis"),
-        "franchise": article.get("franchise"),
-        "mustReadScore": article.get("must_read_score"),
-        "sourceCount": article.get("source_count", len(article.get("sources", []))),
-        "sourceName": article.get("source_name"),
-        "sourceUrl": article.get("source_url"),
-        "pipelineVersion": article.get("pipeline_version"),
-        "eventId": article.get("event_id"),
-    }
-    if article.get("sector"):
-        # The Intelligence page filters on this (F14); older entries fall back to category.
-        entry["sector"] = article["sector"]
-    assert_no_mojibake("manifest entry", entry)
-    # Remove any existing entry with same slug
-    data = [e for e in data if e.get("slug") != article["slug"]]
-    data.insert(0, entry)
+        date_short = article["date_iso"][:10]   # Extract YYYY-MM-DD from ISO timestamp
 
-    manifest_json = json.dumps(data, indent=2, ensure_ascii=False)
-    assert_no_mojibake("insights.json", manifest_json)
-    INSIGHTS_JSON.write_text(manifest_json, encoding="utf-8")
-    print(f"  insights.json updated ({len(data)} total entries)")
+        entry = {
+            "title":    article["title"],
+            "slug":     article["slug"],
+            "date":     date_short,
+            "publishedAt": article["date_iso"],
+            "readTime": calculate_read_time(article.get("body_html", "")),
+            "category": article["category"],
+            "excerpt":  article["meta_description"],
+            "url":      f"/insights/{article['slug']}.html",
+            "tags":     article.get("tags", []),
+            "format":   article.get("editorial_format", "analysis"),
+            "franchise": article.get("franchise"),
+            "mustReadScore": article.get("must_read_score"),
+            "sourceCount": article.get("source_count", len(article.get("sources", []))),
+            "sourceName": article.get("source_name"),
+            "sourceUrl": article.get("source_url"),
+            "pipelineVersion": article.get("pipeline_version"),
+            "eventId": article.get("event_id"),
+        }
+        if article.get("sector"):
+            # The Intelligence page filters on this (F14); older entries fall back to category.
+            entry["sector"] = article["sector"]
+        assert_no_mojibake("manifest entry", entry)
+        # Remove any existing entry with same slug
+        data = [e for e in data if e.get("slug") != article["slug"]]
+        data.insert(0, entry)
+
+        manifest_json = json.dumps(data, indent=2, ensure_ascii=False)
+        assert_no_mojibake("insights.json", manifest_json)
+        INSIGHTS_JSON.write_text(manifest_json, encoding="utf-8")
+        print(f"  insights.json updated ({len(data)} total entries)")
+    finally:
+        if lock_acquired and lock_path.exists():
+            try:
+                lock_path.unlink()
+            except OSError:
+                pass
 
 
 def update_feed_xml():

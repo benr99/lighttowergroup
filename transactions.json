@@ -1,56 +1,56 @@
 [
   {
     "id": "t001",
-    "type": "Senior Debt",
+    "type": "Non-Recourse Bridge",
     "amount": "$47M",
-    "asset": "Multifamily",
+    "asset": "220-Unit Multifamily Portfolio",
     "market": "Brooklyn, NY",
-    "description": "Acquisition financing for a 220-unit rent-stabilized multifamily portfolio across four buildings in Central Brooklyn. Structured as a non-recourse floating-rate bridge loan with a 36-month term and two six-month extension options.",
+    "description": "Challenge: Conventional balance-sheet banks pulled back on rent-stabilized collateral under tight acquisition timelines. Execution: Engineered a 36-month non-recourse floating-rate bridge loan with two six-month extension options across four Central Brooklyn buildings.",
     "close_year": 2025
   },
   {
     "id": "t002",
     "type": "JV Equity",
     "amount": "$23M",
-    "asset": "Mixed-Use Development",
-    "market": "Manhattan, NY",
-    "description": "Joint venture equity raise for a ground-up mixed-use development in West Midtown. Sourced an institutional equity partner from LTG's family office network. GP/LP structure with a 20% promote above an 8% preferred return.",
+    "asset": "Mixed-Use Ground-Up Development",
+    "market": "West Midtown, Manhattan",
+    "description": "Challenge: Sponsor required 85% of the equity check without ceding day-to-day construction and leasing control. Execution: Sourced a single family office LP partner structured with a 20% promote above an 8% preferred return hurdle.",
     "close_year": 2025
   },
   {
     "id": "t003",
-    "type": "Bridge Financing",
+    "type": "Conversion Bridge",
     "amount": "$38M",
     "asset": "Office-to-Residential Conversion",
     "market": "Lower Manhattan, NY",
-    "description": "Bridge loan for a Class B office-to-residential conversion. 24-month term with one 12-month extension. Non-recourse with a completion guarantee. Placed with a debt fund lender specializing in NYC conversion assets.",
+    "description": "Challenge: Class B office basis reset with zero in-place residential cash flow during gut renovation. Execution: Placed a 24-month non-recourse debt-fund facility with a 12-month extension and completion guarantee covering full conversion through residential lease-up.",
     "close_year": 2025
   },
   {
     "id": "t004",
     "type": "Preferred Equity",
     "amount": "$18M",
-    "asset": "Multifamily",
+    "asset": "185-Unit Multifamily Recapitalization",
     "market": "Queens, NY",
-    "description": "Preferred equity tranche for a 185-unit multifamily recapitalization. Structured co-terminous with the senior debt at 12.5% current pay. Allowed the sponsor to extract equity without a full refinance.",
+    "description": "Challenge: Sponsor needed to extract trapped equity and fund capex without disturbing an existing below-market fixed-rate senior mortgage. Execution: Closed a co-terminous preferred equity tranche at 12.5% current pay with no senior refinance required.",
     "close_year": 2025
   },
   {
     "id": "t005",
     "type": "Construction Loan",
     "amount": "$61M",
-    "asset": "Ground-Up Multifamily",
+    "asset": "210-Unit 421a Multifamily",
     "market": "Brooklyn, NY",
-    "description": "Ground-up construction financing for a 210-unit multifamily development under the Affordable New York program. 30-month construction term with a mini-perm. Placed with a regional bank active on 421a-eligible projects.",
+    "description": "Challenge: Strict Affordable New York delivery milestones and interest-reserve sizing in a volatile rate environment. Execution: Cleared a 30-month regional bank construction facility with a built-in mini-perm conversion option at stabilization.",
     "close_year": 2024
   },
   {
     "id": "t006",
-    "type": "Mezzanine",
+    "type": "Mezzanine Debt",
     "amount": "$14M",
-    "asset": "Industrial",
+    "asset": "Industrial-to-Logistics Conversion",
     "market": "Bronx, NY",
-    "description": "Mezzanine loan behind a senior construction facility for an industrial-to-logistics conversion. 18-month term. Placed with a family office lender active in NYC industrial. Combined LTC of 83%.",
+    "description": "Challenge: Senior bank proceeds capped at 60% LTC, leaving a $14M gap in the last-mile conversion budget. Execution: Placed an 18-month subordinate mezzanine tranche with a NYC family office credit platform, pushing combined leverage to 83% LTC.",
     "close_year": 2024
   }
 ]
