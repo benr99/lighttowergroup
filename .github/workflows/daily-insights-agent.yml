@@ -148,6 +148,12 @@ jobs:
                 --daily-target 70 \
                 --article-limit 70 \
                 --quality-floor 40
+              python -m nyc_transactions.cli \
+                --mode "$RUN_MODE" \
+                --limit 30 \
+                --no-force \
+                --scan-live \
+                --use-llm || true
               ;;
             v3)
               python insights_v3.py \

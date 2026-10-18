@@ -1,8 +1,9 @@
-"""Unit and contract tests for the Light Tower Group NYC >$10M Transaction Desk."""
+"""Unit and contract tests for the Light Tower Group NYC >$10M Transaction Desk & Human Style Gate."""
 
 from __future__ import annotations
 
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -12,6 +13,7 @@ SCRIPTS_DIR = ROOT / "scripts"
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
+from human_style_gate import measure_burstiness, scrub_ai_tells
 from nyc_transactions.economics import (
     build_ammo_sheet,
     compute_economics,
@@ -28,6 +30,7 @@ from nyc_transactions.models import (
     PropertyIdentity,
 )
 from nyc_transactions.sources import (
+    _extract_rss_items,
     classify_mortgage_doc_type,
     get_curated_nyc_transactions,
 )
@@ -85,7 +88,12 @@ def _make_sample_dossier(
                 same_scope=True,
             )
         ],
-        notes=["Verified test deed transfer for 100 Test Avenue."],
+        notes=[
+            "Five years after buying a quiet Midtown South corner, Legacy Holdings handed the keys to Test Capital Partners.",
+            "The 10-story brick loft building sits steps from Madison Square Park.",
+            "SUBHEAD::Inside the CEMA Tax Shield",
+            "KICKER::At $250 a foot with 60 percent CEMA leverage, the deal sets the floor for Midtown South.",
+        ],
     )
 
 
@@ -151,17 +159,38 @@ class TestNycTransactionsEconomics(unittest.TestCase):
         self.assertTrue(is_mod2)
 
 
-class TestNycTransactionsGenerationAndSiteIntegration(unittest.TestCase):
-    def test_curated_dossiers_generate_valid_articles_and_html(self):
+class TestHumanStyleGateAnd30Deals(unittest.TestCase):
+    def test_human_style_gate_scrubs_ai_tells_and_database_strings(self):
+        raw = (
+            "<p>In a market where bid-ask spreads have kept deals on ice, "
+            "the buyer paid $46,200,000 ($46.2M) on 2026-03-22 at $400/GSF, "
+            "illustrating the disciplined credit market.</p>"
+        )
+        cleaned = scrub_ai_tells(raw)
+        self.assertNotIn("In a market where", cleaned)
+        self.assertNotIn("($46.2M)", cleaned)
+        self.assertIn("$46.2 million", cleaned)
+        self.assertIn("March 22, 2026", cleaned)
+        self.assertIn("$400 a square foot", cleaned)
+        self.assertNotIn(", illustrating the", cleaned)
+
+    def test_all_30_curated_dossiers_generate_closing_dated_literary_articles(self):
         dossiers = get_curated_nyc_transactions()
-        self.assertGreaterEqual(len(dossiers), 3)
+        self.assertEqual(len(dossiers), 30)
 
         for dossier in dossiers:
             self.assertTrue(evaluate_eligibility(dossier).eligible)
             article = generate_nyc_transaction_article(dossier, use_llm=False)
             self.assertEqual(article["vertical"], "nyc_transactions")
             self.assertEqual(article["category"], "NYC $10M+ Transaction Desk")
+            # Dated on closing_date!
+            self.assertTrue(article["date_iso"].startswith(dossier.closing_date))
             self.assertGreaterEqual(len(article["data_points"]), 5)
+
+            # Ensure no raw ISO dates or BBL codes leaked into body_html
+            self.assertIsNone(re.search(r"\b20[12][0-9]-[01][0-9]-[0-3][0-9]\b", article["body_html"]))
+            self.assertNotIn(dossier.property_info.bbl, article["body_html"])
+            self.assertNotIn("/GSF", article["body_html"])
 
             econ = compute_economics(dossier)
             ok, errs = verify_nyc_story(article, dossier, econ)
@@ -170,6 +199,20 @@ class TestNycTransactionsGenerationAndSiteIntegration(unittest.TestCase):
             rendered = site_renderer.render_html(article)
             self.assertIn("Verified ACRIS &amp; PLUTO Deal Sheet", rendered)
             self.assertIn(dossier.property_info.bbl, rendered)
+
+    def test_rss_extractor_parses_valid_xml(self):
+        sample_xml = b"""<?xml version="1.0"?>
+        <rss version="2.0"><channel>
+          <item>
+            <title>SL Green Buys 500 Park Avenue in Manhattan for $120 Million</title>
+            <link>https://example.com/500-park</link>
+            <description>The tower traded for $120M.</description>
+            <pubDate>Mon, 18 Oct 2026 12:00:00 GMT</pubDate>
+          </item>
+        </channel></rss>"""
+        items = _extract_rss_items(sample_xml)
+        self.assertEqual(len(items), 1)
+        self.assertIn("500 Park Avenue", items[0]["title"])
 
     def test_insights_html_has_nyc_transactions_filter(self):
         insights_html = (ROOT / "insights.html").read_text(encoding="utf-8")

@@ -483,6 +483,7 @@ def update_manifest(article: dict):
         # Remove any existing entry with same slug
         data = [e for e in data if e.get("slug") != article["slug"]]
         data.insert(0, entry)
+        data.sort(key=lambda e: _parse_manifest_date(str(e.get("date", ""))), reverse=True)
 
         manifest_json = json.dumps(data, indent=2, ensure_ascii=False)
         assert_no_mojibake("insights.json", manifest_json)
