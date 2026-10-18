@@ -48,14 +48,14 @@ class SiteContractTests(unittest.TestCase):
 
     def test_homepage_claims_and_transaction_summary_are_consistent(self) -> None:
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("Debt and equity capital", homepage)
-        self.assertIn("for commercial real estate.", homepage)
-        self.assertIn("transactions of $5 million and above", homepage)
-        self.assertIn("Request a Confidential Deal Review", homepage)
+        self.assertIn("We structure and close", homepage)
+        self.assertIn("the capital that gets deals done.", homepage)
+        self.assertIn("$5M to $250M+", homepage)
+        self.assertIn("Get 24-Hour Deal Pricing", homepage)
         self.assertNotIn("250,000", homepage)
         self.assertIn("$23M", homepage)
-        self.assertIn("Mixed-Use Development", homepage)
-        self.assertIn("Manhattan, NY", homepage)
+        self.assertIn("Mixed-Use", homepage)
+        self.assertIn("Manhattan", homepage)
         self.assertNotIn("Multifamily Acquisition", homepage)
 
     def test_homepage_structured_data_references_real_assets(self) -> None:

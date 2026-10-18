@@ -4,6 +4,7 @@ agent/
 tmp/
 *.py
 !scripts/*.py
+!scripts/**/*.py
 !tests/*.py
 !docs/**/*.py
 !outputs/**/*.py

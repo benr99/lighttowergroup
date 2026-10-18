@@ -1,4 +1,4 @@
-STEP 1 OF 2: FIND THE STORY. Do not write the article yet.
+STEP 1 OF 2: FIND THE REAL DEAL × COMMERCIAL OBSERVER STORY ANGLE. Do not write the article yet.
 
 STORY: {{STORY}}
 DEPTH: {{DEPTH}}
@@ -6,20 +6,20 @@ DEPTH: {{DEPTH}}
 SOURCES (the complete factual boundary; quotes must be copied from the "text" fields):
 {{SOURCES}}
 
-Decide what this piece is really about, the way an editor would before assigning it. Work only from the sources.
+Read the dossier the way a senior feature editor at The Real Deal and the Finance Desk editor at Commercial Observer would before assigning the piece. Work strictly from the sources.
 
-1. PROTAGONIST: the one person, company, building or place the reader should care about, and what they stand to win or lose.
-2. TENSION: the choice, clock, constraint or contradiction that makes this more than a transaction. If the sources show none, say so; the piece will then be shorter and plainer.
-3. WHY NOW: what makes this worth reading this week.
-4. THE NUMBER THAT MATTERS: the single figure (or detail) that does the most work, and what it means in human terms.
-5. LENS: choose exactly one from: capital cycle; time and patience; trust and institutions; home and belonging; status and ambition; work and cities; power and politics; technology and land; climate and risk; demographic change. Say in one line how it applies, using only what the sources show.
+1. PROTAGONIST: the primary sponsor, buyer, borrower, lender, company, or building at the center of the action, and what is at stake for them.
+2. TENSION: the capital-stack friction, basis reset, maturity window, policy shift, or counterparty tradeoff that makes this more than a routine announcement. If the sources show none, say so plainly.
+3. WHY NOW: why a sponsor, lender, or investor needs to pay attention to this print this week.
+4. THE NUMBER THAT MATTERS: the single dollar amount, rate, unit metric, or term that tells the real story, and what it implies in plain terms.
+5. LENS: choose exactly one from: capital cycle; time and patience; trust and institutions; home and belonging; status and ambition; work and cities; power and politics; technology and land; climate and risk; demographic change. State in one line how it applies using only what the sources show.
 6. SHAPE: choose exactly one:
 {{SHAPES}}
-7. HOOKS: write four candidate opening sentences (each one or two short sentences, under 200 characters). Every hook must be a plain statement of a quoted fact, chosen to surprise or to put a person in the scene. For each, give the quote it rests on, copied exactly from the source text.
-8. HEADLINES: write four candidates, each under 70 characters, built from verified facts, plain and specific, with one surprise. No labels like "X announces Y".
-9. PICK: choose the best hook and headline and say why in one line each.
-10. SIGNIFICANCE: one sentence naming the bigger pattern this story may illustrate, and the evidence from the sources that supports saying so. If the evidence is thin, write "none: keep it close to the facts".
-11. KICKER IDEA: how the piece could end (an echo of the hook, or a testable question).
+7. HOOKS: write four candidate opening sentences (each 1–2 short sentences, under 200 characters). Every hook must be a clean, high-impact statement of a quoted fact—leading with the sharpest number, deal action, or contrarian move rather than press-release throat-clearing. For each, copy the exact supporting quote from the source text.
+8. HEADLINES: write four candidates in the style of The Real Deal and Commercial Observer—under 70 characters, built from verified facts, using active deal verbs (lands, inks, buys, retires, backs, slashes) and concrete numbers early. Never write "X announces Y".
+9. PICK: choose the strongest hook and headline and explain why in one line each.
+10. SIGNIFICANCE: one sentence naming the broader capital-markets or sector pattern this story may illustrate, grounded strictly in the source evidence. If the evidence is thin, write "none: keep it close to the facts".
+11. KICKER IDEA: how the piece should close—a sharp desk question a borrower/lender can test on their own deal, or an echo of the opening number.
 
 Return JSON only, exactly:
 {"protagonist":"...","stakes":"...","tension":"...","why_now":"...","number_that_matters":"...","lens":"...","lens_note":"...","shape":"...","hooks":[{"text":"...","quote":"..."}],"headlines":["..."],"pick":{"hook":0,"headline":0,"why":"..."},"significance":"...","kicker_idea":"..."}

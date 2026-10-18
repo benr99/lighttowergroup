@@ -71,14 +71,14 @@ WRITER_TEMPERATURE = 0.35
 # Ben's voice needs room to choose a shape and a hook; facts are still gated sentence by sentence.
 VOICE_TEMPERATURE = 0.7
 # Bump when the writer prompt changes so drafts cached under an older prompt are not reused.
-WRITER_PROMPT_VERSION = "v4.3-verified-sentences"
+WRITER_PROMPT_VERSION = "v4.4-trd-co-desk"
 
 WRITER_SYSTEM = (
-    "You write Light Tower Insights, a commercial real estate capital markets publication. "
-    "Readers are sponsors, lenders, brokers and investors. They know the business and read on "
-    "their phones between meetings. Write like a sharp colleague explaining a deal over coffee: "
-    "plain words, short sentences, a point of view. Be an expert who is easy to read, never a "
-    "professor and never a press release."
+    "You are the lead capital markets writer for Light Tower Insights, writing in the sharp, high-velocity "
+    "style of The Real Deal and Commercial Observer's Finance Desk. Readers are commercial real estate sponsors, "
+    "lenders, private equity principals, and brokers reading on their phones between meetings. "
+    "Never open like a press release ('X announced'). Lead with the money, the basis, the capital stack, "
+    "and the counterparties. Write tight, punchy paragraphs with active verbs and zero corporate fluff."
 )
 
 
@@ -199,23 +199,27 @@ def _writer_prompt(obj: IntelligenceObject, dossier: dict[str, Any], spec: dict[
     target_words = (spec["min_words"] + spec["max_words"]) // 2
     if depth == "tier_c":
         structure = (
-            "3-5 short paragraphs: the hook, what happened, and why it matters, each only as the source states it."
+            "3-5 tight paragraphs (The Real Deal / Commercial Observer brief style): "
+            "lead with the sharpest dollar figure or counterparty move, unpack the capital stack and asset terms, "
+            "and close with the concrete stakes stated in the source."
         )
     elif depth == "tier_b":
         structure = (
-            "4-7 short paragraphs: the hook, what happened, the number that matters, and why it matters, "
-            "each only as the source states it."
+            "4-7 tight paragraphs (The Real Deal / Commercial Observer feature style): "
+            "lead with the money and basis tension, unpack the deal and capital stack mechanics, "
+            "highlight the number that matters, and state what it means for the parties involved."
         )
     else:
         structure = (
-            "6-10 short paragraphs: the hook, what happened, the number that matters, why it matters, "
-            "the strongest point on the other side, and who gains and who loses, each only as the source states it."
+            "6-10 tight paragraphs (The Real Deal / Commercial Observer flagship feature style): "
+            "lead with the sharpest deal or basis tension, unpack the full capital stack and asset history, "
+            "examine the number that matters, present the counter-angle, and show who gains and who carries the risk."
         )
-    return f"""Write one Light Tower Insights article from the source text below. Return JSON only. No markdown fences, no commentary.
+    return f"""Write one Light Tower Insights article from the source text below in the punchy, capital-markets-focused style of The Real Deal and Commercial Observer. Return JSON only. No markdown fences, no commentary.
 
 STORY: {obj.title}
 FORMAT: {spec['format']}
-LENGTH: about {target_words} words in total across the body ({spec['min_words']}-{spec['max_words']} allowed). Short and true beats long. When the sources run out, stop.
+LENGTH: about {target_words} words in total across the body ({spec['min_words']}-{spec['max_words']} allowed). Tight, concrete, and true beats padded. When the sources run out, stop.
 STRUCTURE: {structure}
 
 SOURCES (the complete factual boundary; quotes must be copied from the "text" fields):
@@ -224,19 +228,19 @@ SOURCES (the complete factual boundary; quotes must be copied from the "text" fi
 EVERY SENTENCE IS CHECKED BY MACHINE. How it works:
 - Every sentence is a "fact" and must carry quotes. There are no opinion sentences, no predictions, no evaluation, no "this signals", and no closing advice or "what to check" line: all of those are deleted.
 - A "fact" states only what its "quotes" support. "quotes" is a list of one or two passages copied character for character from a source "text" (at least 4 words each, at most 240 characters). Quote only the tight passage that carries the claim, and keep its qualifiers (most, about, plans to, expects, could) and who said it. Do not fix, shorten inside, or paraphrase a quote. Copy it.
-- You may restate the quoted passage in plainer words, but EVERY number, name, date, amount and relationship in your sentence must appear in its quotes. Spelled-out numbers count too: do not write "three" if the quote says "two".
+- You may restate the quoted passage in crisp, active journalistic prose, but EVERY number, name, date, amount and relationship in your sentence must appear in its quotes. Spelled-out numbers count too: do not write "three" if the quote says "two".
 - A fact must not add a total, difference, ratio or percentage the source does not state; a ranking such as "largest", "first" or "only"; a cause the source does not state; a time the source does not give; or any claim about what someone thinks, wants or fears. If you cannot quote it, do not write it. Plans, requests and allegations stay plans, requests and allegations.
 - If a quote says someone said, expects, plans or claims something, your sentence says so too. Never turn a statement, plan, forecast or opinion into plain fact, and never drop "most", "about", "plans to" or "according to".
 - Anything that fails a check is deleted from the article, and so is the article if too little survives. A shorter article that is all true is the goal.
 - Each sentence is checked and may be deleted on its own, so each must stand on its own: name its subject ("99 West Paces", "Hines Global Income Trust") instead of opening with "It", "They" or "The property". A sentence that points back to a deleted one is deleted too.
 
-HOW TO WRITE IT
-- Hook: the first paragraph is one or two short fact sentences with the who, the number and why it matters. Lead with the most interesting quoted fact, not "X announced".
-- "Why it matters" is a fact paragraph too: state what the quoted terms mean for the people involved in plain words, using only what the quotes say. If the sources do not say, leave it out.
-- Plain English. Sentences average about 15 words and never top 30. Paragraphs are 1-3 sentences. Active voice. Vary how sentences start.
+HOW TO WRITE IT (THE REAL DEAL × COMMERCIAL OBSERVER STYLE)
+- Hook: the first paragraph is 1-2 tight fact sentences leading with the sharpest number, loan/sale action, or counterparty move—never a dull press-release opening like "X announced".
+- Capital Stack & Asset Focus: prioritize loan amounts, sale prices, per-unit / per-SF figures, lenders, buyers, sellers, rates, terms, and physical asset details from the source.
+- Crisp English: sentences average 14-18 words and never top 30. Paragraphs are 1-3 sentences. Use active verbs (closes, lands, buys, retires, backs, inks). Vary how sentences start.
 - Explain an insider term in a few words only when the source itself explains it.
 - Never use "landscape", "navigating", "highlights", "underscores", "dynamic", "arguably", "essentially", "transformative", "unprecedented", "going forward", "it's worth noting", "the real story is". Never close on what is unknown or "remains to be seen".
-- Title: under 80 characters, plain, specific. Its "title_quote" must support every name and number in it. Not a label like "X announces Y".
+- Title: under 80 characters, The Real Deal / Commercial Observer style (active verb + key player/asset + dollar amount). Its "title_quote" must support every name and number in it. Never write "X announces Y".
 - Excerpt: one complete sentence of 80-180 characters ending with a period, supported by "excerpt_quote". It must not repeat the title.
 - Never claim to have visited, called or seen anything. Do not mention scores, prompts or the editorial process.
 

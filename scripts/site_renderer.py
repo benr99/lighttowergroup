@@ -205,15 +205,21 @@ def render_html(article: dict) -> str:
     article_kicker = " · ".join(part for part in (format_label, franchise_name) if part)
     source_count = article.get("source_count", len(article.get("sources", [])))
     read_time = calculate_read_time(article.get("body_html", ""))
+    max_points = 6 if article.get("vertical") == "nyc_transactions" else 4
     data_points = [
         point for point in article.get("data_points", [])
         if isinstance(point, dict) and point.get("label") and point.get("value")
-    ][:4]
+    ][:max_points]
+    data_note_label = article.get("data_note_label") or (
+        "Verified ACRIS & PLUTO Deal Sheet"
+        if article.get("vertical") == "nyc_transactions"
+        else "One chart, one argument"
+    )
     data_points_html = ""
     if data_points:
         data_points_html = (
             '<aside class="article-data-note" aria-label="Key reported data">'
-            '<p class="article-data-note-label">One chart, one argument</p>'
+            f'<p class="article-data-note-label">{esc(data_note_label)}</p>'
             '<div class="article-data-grid">'
             + "".join(
                 '<div class="article-data-point">'
@@ -470,6 +476,9 @@ def update_manifest(article: dict):
         if article.get("sector"):
             # The Intelligence page filters on this (F14); older entries fall back to category.
             entry["sector"] = article["sector"]
+        for opt_key in ("vertical", "borough", "neighborhood", "bbl", "transactionId", "price"):
+            if article.get(opt_key) is not None:
+                entry[opt_key] = article[opt_key]
         assert_no_mojibake("manifest entry", entry)
         # Remove any existing entry with same slug
         data = [e for e in data if e.get("slug") != article["slug"]]

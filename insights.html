@@ -327,6 +327,7 @@
 
     <div class="insights-filters" aria-label="Filter Insights by sector">
       <button class="filter-btn active" data-filter="all" aria-pressed="true">All Sectors</button>
+      <button class="filter-btn" data-filter="nyc_transactions" aria-pressed="false">NYC $10M+ Deals</button>
       <button class="filter-btn" data-filter="commercial_real_estate" aria-pressed="false">CRE</button>
       <button class="filter-btn" data-filter="private_equity" aria-pressed="false">Private Equity</button>
       <button class="filter-btn" data-filter="data_centers" aria-pressed="false">Data Centers</button>
@@ -397,7 +398,8 @@
     const PAGE_SIZE = 18;
     const FILTERS = {
       all: null,
-      commercial_real_estate: ['Capital Markets', 'Capital Markets Research', 'Market Commentary', 'Deal Intelligence', 'Debt & Equity', 'Policy & Regulation', 'Architecture & Capital Markets', 'Market Analysis'],
+      nyc_transactions: ['NYC $10M+ Transaction Desk'],
+      commercial_real_estate: ['Capital Markets', 'Capital Markets Research', 'Market Commentary', 'Deal Intelligence', 'Debt & Equity', 'Policy & Regulation', 'Architecture & Capital Markets', 'Market Analysis', 'NYC $10M+ Transaction Desk'],
       private_equity: ['Private Equity', 'Buyouts', 'Fundraising', 'Private Credit'],
       data_centers: ['Data Centers', 'Digital Infrastructure', 'Cloud Infrastructure'],
       energy: ['Energy', 'Power', 'Infrastructure', 'Utilities'],
@@ -432,8 +434,8 @@
           document.getElementById('newsletter-form').hidden = true;
         } else {
           msg.textContent = 'Something went wrong. Please try again.';
-          msg.hidden = false;
         }
+          msg.hidden = false;
       }).catch(function() {
         msg.textContent = 'Unable to subscribe right now. Please try later.';
         msg.hidden = false;
@@ -519,6 +521,9 @@
 
     // Newer entries carry their sector; filter on it. Older ones only have a reader-facing category.
     function matchesFilter(post, filter) {
+      if (filter === 'nyc_transactions') {
+        return post.vertical === 'nyc_transactions' || post.category === 'NYC $10M+ Transaction Desk';
+      }
       const categories = FILTERS[filter];
       if (!categories) return true;
       if (post.sector && filter !== 'weekly_wrap') return post.sector === filter;

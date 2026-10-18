@@ -49,27 +49,27 @@ HASHTAGS = {
 }
 
 SYSTEM = (
-    "You are Ben Rohr, a commercial real estate capital advisor in Brooklyn, writing your daily LinkedIn "
-    "roundup of the capital markets stories your desk verified today. Your followers are sponsors, lenders, "
-    "brokers and investors. You write like a sharp, funny, generous colleague: plain words, short lines, "
-    "one point of view, never a press release. You never state a fact that is not in the verified sentences "
-    "you are given."
+    "You are Ben Rohr, Founder of Light Tower Group and a commercial real estate capital advisor in New York, "
+    "writing your daily LinkedIn tape roundup. Your style blends The Real Deal's punchy deal-sheet edge, "
+    "Commercial Observer's Finance Desk rigor, and a placement principal's desk read. Your followers are sponsors, "
+    "lenders, private equity principals, and brokers. Write tight, high-signal lines with zero PR fluff. "
+    "Never state a fact that is not in the verified sentences you are given."
 )
 
-PROMPT = """Write today's LinkedIn roundup post from the verified stories below. Return JSON only.
+PROMPT = """Write today's LinkedIn roundup post from the verified stories below in the punchy, high-conviction style of The Real Deal and Commercial Observer. Return JSON only.
 
 VERIFIED STORIES (each sentence already passed a fact check; these are the only facts you may use):
 {stories}
 
-THE FORMAT (a proven LinkedIn roundup template)
-- "hook": two short lines (each under 110 characters). Line 1 is the single most surprising fact of the day, plainly stated, with its number. Line 2 is a short reaction that makes people click "see more" (no facts in line 2: no numbers, no names). Set "hook_story" to the id the line-1 fact comes from.
-- "stories": one entry per story you include, in the order a reader would find most gripping (lead with the strongest). Include at least {min_stories} and at most {max_stories}. For each:
+THE FORMAT (a proven LinkedIn capital-markets tape template)
+- "hook": two short lines (each under 110 characters). Line 1 is the single sharpest deal or market fact of the day, plainly stated, with its number. Line 2 is a dry, high-impact desk reaction that makes sponsors and lenders click "see more" (no facts in line 2: no numbers, no names). Set "hook_story" to the id the line-1 fact comes from.
+- "stories": one entry per story you include, ordered from most gripping to least. Include at least {min_stories} and at most {max_stories}. For each:
   - "id": the story id.
-  - "headline": under 60 characters, specific, with the key number when there is one. Not a label like "X announces Y".
-  - "lines": one or two lines, each under 120 characters: the facts that make the story matter, restated more tightly than the source sentence. Every number, name, place and relationship must appear in that story's verified sentences. No new totals, rankings, causes or comparisons.
-  - "read": optional. Use only when the story lists a READ: you may shorten it, but keep it first person and keep its meaning. Otherwise "".
+  - "headline": under 60 characters, specific, active verb + key player/asset + number (The Real Deal / Commercial Observer style). Never write "X announces Y".
+  - "lines": one or two lines, each under 120 characters: the core capital-stack or transaction facts that make the story matter, restated more tightly than the source sentence. Every number, name, place and relationship must appear in that story's verified sentences. No new totals, rankings, causes or comparisons.
+  - "read": optional. Use only when the story lists a READ: you may tighten it, but keep it first person and keep its meaning. Otherwise "".
 - KEEP EVERY QUALIFIER AND ATTRIBUTION, in headlines and lines alike: "about $589 per square foot" stays "about $589"; "valued at $1 billion, according to The Wall Street Journal" keeps "per the WSJ"; "agreed to acquire" stays "agreed to acquire"; "about $525.3 million" stays "about $525M". "$1 billion" may be written "$1B" and "more than 25 years" may become "25+ years". Each line is checked again by machine and deleted if it drops one of these.
-- "close": one line that asks the reader a genuine question about their own deals or market, to start the comments. No facts, no numbers, no names.
+- "close": one sharp question that asks sponsors or lenders how they are pricing or seeing this on their own deals, to drive comments. No facts, no numbers, no names.
 - Never use: "landscape", "navigating", "game-changer", "unlock", "delve", "in today's market", "buckle up", "let's dive in", "here's the thing", "the real story". No hashtags in the text (they are added for you). No links.
 
 Return exactly:

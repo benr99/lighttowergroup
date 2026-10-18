@@ -1,0 +1,40 @@
+{
+  "vertical": "nyc_transactions",
+  "min_consideration_usd": 10000000,
+  "strictly_greater_than_min": true,
+  "boroughs": {
+    "1": "Manhattan",
+    "2": "Bronx",
+    "3": "Brooklyn",
+    "4": "Queens",
+    "5": "Staten Island"
+  },
+  "excluded_building_classes_prefixes": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R6",
+    "R7",
+    "R8",
+    "R9"
+  ],
+  "included_asset_types": [
+    "Multifamily",
+    "Office",
+    "Retail",
+    "Industrial",
+    "Mixed-Use",
+    "Hotel / Hospitality",
+    "Development Site",
+    "Commercial / Specialty"
+  ],
+  "socrata_endpoints": {
+    "acris_master": "https://data.cityofnewyork.us/resource/bnx9-e6tj.json",
+    "acris_legals": "https://data.cityofnewyork.us/resource/8h5j-fqxa.json",
+    "acris_parties": "https://data.cityofnewyork.us/resource/636b-3b5g.json",
+    "pluto": "https://data.cityofnewyork.us/resource/64uk-42ks.json"
+  },
+  "deed_doc_types": ["DEED", "DEEDO", "DEED, RC", "ASTU", "RPTT&RET"],
+  "mortgage_doc_types": ["MTGE", "AGMT", "AL&R", "ASPM"]
+}
