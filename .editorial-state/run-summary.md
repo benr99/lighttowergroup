@@ -1,9 +1,9 @@
 # Light Tower Insights edition
 
 - Status: **ready**
-- Candidates: **903**
-- Distinct events: **857**
-- Articles: **31**
+- Candidates: **579**
+- Distinct events: **546**
+- Articles: **23**
 - Daily target: **70**
 - Daily target met: **no**
 - Research candidates: **0**
@@ -12,34 +12,26 @@
 
 ## Published candidates
 
-- **analysis** — Where Is Multifamily Delinquency Concentrated? Private-Label CMBS Holds Half of Delinquent Debt (1 sources; v3_daily_slate selection)
-- **analysis** — First Multifamily-Only Deal for Genesis Since 2021 (1 sources; v3_daily_slate selection)
-- **analysis** — EQT to Acquire Stockbridge, Adding US$16.5B in AUM (1 sources; v3_daily_slate selection)
-- **analysis** — ARMs, non-QM are the 4Q opportunities, rate lock data shows (1 sources; v3_daily_slate selection)
-- **analysis** — Brookfield-Backed Castlelake Dives Into CRE CLO Market With $1.1B Deal (1 sources; v3_daily_slate selection)
-- **analysis** — Dell’Oro: Data Center Infrastructure Market Surges 27% (1 sources; v3_daily_slate selection)
-- **analysis** — Blackstone Tactical Opportunities exits ZO Skin Health in $1.5bn sale (1 sources; v3_daily_slate selection)
-- **analysis** — Solaria plans 500 MW data center project powered by 350 MW of solar in Uruguay (1 sources; v3_daily_slate selection)
-- **analysis** — Terra Refinances Tom Brady-Leased Office Near Miami for $184M (1 sources; v3_daily_slate selection)
-- **analysis** — AMD Backs 222 MW Fermi America Data Center Lease (1 sources; v3_daily_slate selection)
-- **analysis** — Bowman: global regulators should match Fed's 'modernization (1 sources; v3_daily_slate selection)
-- **analysis** — University of Tennessee breaks ground on $350M health studies build (1 sources; v3_daily_slate selection)
-- **analysis** — Lake Forest Bank Refis Queens IOS Site With $39M Loan (1 sources; v3_daily_slate selection)
-- **analysis** — Flex Completes $4.4 Billion Acquisition of EPC Power (1 sources; v3_daily_slate selection)
-- **analysis** — 2 San Jose Multifamily Towers Change Hands For Combined $380M (1 sources; v3_daily_slate selection)
-- **analysis** — Brookdale Senior Living To Buy 30 Communities It Operates From Welltower For $290M (1 sources; v3_daily_slate selection)
-- **analysis** — Chicago Office Tower Sells For $550M To Zara Founder In Blockbuster Deal (1 sources; v3_daily_slate selection)
-- **analysis** — Businesses view stablecoins warily (1 sources; v3_daily_slate selection)
-- **analysis** — Inflation speeds up to 3.7%, fueled by surging gasoline prices (1 sources; v3_daily_slate selection)
-- **analysis** — Bowman, Supervisory Modernization After Silicon Valley Bank (1 sources; v3_daily_slate selection)
-- **analysis** — OCC blasts debanking instances by JPMorgan, others in report (1 sources; v3_daily_slate selection)
-- **brief** — CtrlS plans 150MW data center in Bihar, India (1 sources; v3_daily_slate selection)
-- **brief** — 3C and Datalec Merge to Form $400M+ AI Data Center Infrastructure Platform (1 sources; v3_daily_slate selection)
-- **brief** — Horse-drawn carriages to be banned in Central Park after deal between Council and Mamdani (1 sources; v3_daily_slate selection)
-- **brief** — Salience Labs Secures $125 Million Series B for Photonic AI Networking (1 sources; v3_daily_slate selection)
-- **brief** — Exclusive: Chariot Raises $10M To Help Consumers Fight Back Against Hidden Fees And Hard-To-Cancel Subscriptions (1 sources; v3_daily_slate selection)
-- **brief** — Meta faces Senate questions on data center research credits (1 sources; v3_daily_slate selection)
-- **brief** — Oil Economics Are Plaguing Trump’s Presidency (1 sources; v3_daily_slate selection)
-- **brief** — Oracle renews FERC push for Project Jupiter gas pipeline (1 sources; v3_daily_slate selection)
-- **brief** — Housing Report: City Planning Commission Adds 670 Dwelling Units and a Long-Term Care Facility as Summer Ends (1 sources; v3_daily_slate selection)
-- **brief** — Virginia senator proposes three-year state-wide data center moratorium (1 sources; v3_daily_slate selection)
+- **analysis** — SL Green Lands $2B Refi at Fully Leased 245 Park (1 sources; v3_daily_slate selection)
+- **analysis** — $62.1M Refinancing Secured for North Carolina Multifamily Community (1 sources; v3_daily_slate selection)
+- **analysis** — PCCP Lands $41M Refi for San Diego Apartments (1 sources; v3_daily_slate selection)
+- **analysis** — ICBC Supplies $24.4M Refi for 16-Story NoMad Office Tower (1 sources; v3_daily_slate selection)
+- **analysis** — Cadence Real Estate Acquires Seattle Multifamily Community for $29M (1 sources; v3_daily_slate selection)
+- **analysis** — Pivot Energy Lands $173M Term Loan (1 sources; v3_daily_slate selection)
+- **analysis** — $100 Million Transit-Oriented Development Coming To Westbury, Long Island (1 sources; v3_daily_slate selection)
+- **brief** — Hybrid sales rise while battery electric sales remain lower after tax credit expiration (1 sources; v3_daily_slate selection)
+- **brief** — S3 Capital Lends $53M for Upper East Side Condo Tower (1 sources; v3_daily_slate selection)
+- **brief** — Amazon and AEP to explore deployment of up to 960MW of X-energy SMRs in Indiana (1 sources; v3_daily_slate selection)
+- **brief** — Alcoa Unloads Massena Smelter for Up to $315M (1 sources; v3_daily_slate selection)
+- **brief** — Recurring bill service ScribeUp raises $13M (1 sources; v3_daily_slate selection)
+- **brief** — Innovative Urban Village Phase 1A Reaches Completion At 30 Inspiration Lane In East New York, Brooklyn (1 sources; v3_daily_slate selection)
+- **brief** — ACME Solar Inks 300 MW/1,200 MWh PPA at $0.063/kWh (1 sources; v3_daily_slate selection)
+- **brief** — AEP, Amazon and X-energy planning 12-SMR plant (1 sources; v3_daily_slate selection)
+- **brief** — Brixton Sells Dow's Lake Jackson Campus (1 sources; v3_daily_slate selection)
+- **brief** — EverWind pledges $7b investment in Point Tupper data center campus, wind portfolio across Nova Scotia (1 sources; v3_daily_slate selection)
+- **brief** — Fifth Third CEO downplays risk from AI agent Muse (1 sources; v3_daily_slate selection)
+- **brief** — Microsoft Kills Nscale Loughton Deal Over Expected Power Delays (1 sources; v3_daily_slate selection)
+- **brief** — AEP, X-energy Eye 960-MW Indiana Nuclear Plant Backed by Amazon (1 sources; v3_daily_slate selection)
+- **brief** — Valor Energy acquires computing site in Youngstown, Ohio (1 sources; v3_daily_slate selection)
+- **brief** — Heritage Square Apartments Trades for $25MM in Puyallup (1 sources; v3_daily_slate selection)
+- **brief** — Carrier Connect secures customer for 4MW data center outside Atlanta, Georgia (1 sources; v3_daily_slate selection)

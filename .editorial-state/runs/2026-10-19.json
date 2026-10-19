@@ -1,0 +1,2423 @@
+{
+  "run_at": "2026-10-19T17:25:38.463633+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 579,
+  "documents_from_feeds": 476,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 546,
+  "documents_consolidated": 33,
+  "eligible": 74,
+  "enriched": 250,
+  "evidence_upgraded": 154,
+  "selected": 24,
+  "publication_candidates": 24,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 28,
+      "eligible": 2,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 2 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 314,
+      "eligible": 44,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 62,
+      "eligible": 10,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 10 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 81,
+      "eligible": 15,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 15 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 7,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "7 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "local_government": {
+      "considered": 2,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 52,
+      "eligible": 3,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_c": 17,
+    "tier_b": 7
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 2 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 6 of 10 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 6 of 15 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: 7 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "local_government: 2 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: 3 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 70.4,
+    "mean": 36.8,
+    "stdev": 11.43,
+    "range_used": 70.4,
+    "median": 38.0,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 253,
+    "fetched": 228,
+    "from_cache": 0,
+    "blocked": 6,
+    "failed": 19,
+    "skipped_budget": 0,
+    "bytes_downloaded": 52140298,
+    "elapsed_ms": 45685,
+    "by_status": {
+      "full_text": 154,
+      "partial_text": 74,
+      "failed": 19,
+      "blocked": 6
+    }
+  },
+  "novelty": {
+    "new": 475,
+    "already_published": 2,
+    "minor_follow_up": 69
+  },
+  "memory": {
+    "events_remembered": 17942,
+    "published": 1119,
+    "seen_but_not_run": 16823,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-19",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.5859,
+    "spent_today_usd": 0.5859,
+    "remaining_usd": 24.4141,
+    "exhausted": false,
+    "total_calls": 197,
+    "refused_calls": 0,
+    "elapsed_seconds": 698.3,
+    "by_stage": {
+      "v4_verify": {
+        "calls": 143,
+        "input_tokens": 215703,
+        "output_tokens": 345573,
+        "usd": 0.4794,
+        "seconds": 2639.12,
+        "refused": 0
+      },
+      "v4_write": {
+        "calls": 54,
+        "input_tokens": 158433,
+        "output_tokens": 49128,
+        "usd": 0.1065,
+        "seconds": 326.81,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "dca4e1f91ff17a8f",
+        "usd": 0.0432
+      },
+      {
+        "id": "b7d77bb8e8d765d4",
+        "usd": 0.0421
+      },
+      {
+        "id": "2c9b097d282a1f27",
+        "usd": 0.0358
+      },
+      {
+        "id": "47ffbe7dc265f79f",
+        "usd": 0.032
+      },
+      {
+        "id": "eed4f413cc0899f7",
+        "usd": 0.0317
+      },
+      {
+        "id": "67e4d0b1388d7d7c",
+        "usd": 0.0306
+      },
+      {
+        "id": "21b2ee494053b1a8",
+        "usd": 0.0283
+      },
+      {
+        "id": "571f3f62e0adcd65",
+        "usd": 0.0274
+      },
+      {
+        "id": "9d58f088a1cff4c5",
+        "usd": 0.0248
+      },
+      {
+        "id": "c0b8d6462fc1d7c8",
+        "usd": 0.0231
+      }
+    ]
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 24,
+    "written": 23,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "withheld": 1,
+    "voiced": 7,
+    "voice": true,
+    "stop_reason": "",
+    "spend_usd": 0.5859,
+    "attempts": 54,
+    "elapsed_seconds": 538.99,
+    "provider_attempts": {
+      "deepseek": 54
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "2c9b097d282a1f27",
+        "title": "Office Repositioning Pays Off as SL Green Fills 1.8M SF Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "ee5b7d1adba3d4bb7c76c0891c94a5b8e173907d6c6b65aacc2d757a3ad11e8a",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "work and cities",
+            "protagonist": "SL Green",
+            "tension": "The refinancing replaces a $1.2 billion mortgage and $568 million mezzanine loan, but the source does not state the new loan's interest rate, term, or whether it is cheaper than the prior debt; the tension is whether lender support reflects the property's turnaround or broader market liquidity."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 206,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 1,
+            "kept_facts": 6,
+            "kept_takes": 3,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check"
+          ]
+        },
+        "seconds": 196.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dca4e1f91ff17a8f",
+        "title": "$62.1M Refinancing Secured for North Carolina Multifamily Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "50cfcf6c35ac84a31f9cc2777c2b5acc05b40f3aeb1ed6518e7ceb4d4391dfcf",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Myers Apartment Group (MAG) and Torchlight Investors, the borrowers, with JLL Capital Markets as their debt advisor, securing a $62.1 million refinancing for Exchange at Holly Springs.",
+            "tension": "The loan is floating-rate, so the borrowers are exposed to interest-rate risk over five years, but the 77% leverage and cash-neutral execution suggest the lender, D2 Residential, accepted that risk in exchange for the asset's strong fundamentals and growth story."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 282,
+            "paragraph_count": 9,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 17,
+            "rejected": 2,
+            "kept_facts": 11,
+            "kept_takes": 2,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check"
+          ]
+        },
+        "seconds": 214.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b7d77bb8e8d765d4",
+        "title": "PCCP Provides $41M Senior Loan for the Refinance of 125-Unit Multifamily Community in San Diego",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f778dff8928230bd68fb32d11daca733553791a44ef0159f117cf10f9ad54bf9",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "PCCP",
+            "tension": "The source shows no explicit friction, but the refinancing of a 2025 construction loan into a senior loan by an institutional debt fund signals a capital-stack transition from construction risk to stabilized cash flow, with the lender underwriting the property's lease-up and retail absorption without quoting a rate or term."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 207,
+            "paragraph_count": 5,
+            "warnings": [
+              "Paragraph 4 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "40% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 2,
+            "kept_facts": 7,
+            "kept_takes": 0,
+            "kept_voice": 3,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 4 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "40% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Asserts stabilized cash flow as fact without support.",
+            "fact rejected by the fact check",
+            "Adds unsupported market characterization and speculative claim about traditional lenders.",
+            "voice line is 30 words; the limit is 26; voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 230.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "eed4f413cc0899f7",
+        "title": "ICBC Supplies $24.4M Refi for 16-Story NoMad Office Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "92923ade1fcac7bd42c45846f488b6d6dd4932bd33332be794c8464c7499c42e",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "trust and institutions",
+            "protagonist": "LMR Assets, the real estate arm of Gourmet Home Products, led by Jack Saadeh, Victor Saadeh, and Jack Yadid",
+            "tension": "A $31.3 million acquisition in June 2024, followed by capital improvements, is now refinanced with a $24.4 million ICBC loan—a 78% loan-to-cost. The lender's willingness to step in for a first-time sponsor in a softening office market is the real friction."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 200,
+            "paragraph_count": 6,
+            "warnings": [
+              "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "40% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 2,
+            "kept_facts": 8,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "40% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "voice lines may not name anyone or anything",
+            "a view or action may not add names: ICBC",
+            "Implies trust caused the loan to close, a factual claim not supported.",
+            "fact rejected by the fact check",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 157.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "21b2ee494053b1a8",
+        "title": "Cadence Real Estate Acquires Seattle Multifamily Community for $29M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a718019d5903711f81fdeb546a7b674c076e84c8eb203f214d94b968d662e3ac",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Cadence Real Estate",
+            "tension": "The capital stack shows a 65% loan-to-purchase-price from a Freddie Mac loan, but the property last traded 30 years ago at $47,727 per unit—a 4.6x increase in unit price that raises the question of whether current rents can support the new basis."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 183,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 2,
+            "kept_facts": 8,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "a view or action may not add figures: 1990, 5",
+            "Relies on previous sale price not cited."
+          ]
+        },
+        "seconds": 134.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bc76a91b8b6944d8",
+        "title": "Pivot Energy Closes $173-Million Loan for 135 MW of Solar Capacity",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "df1ec914b81e5e2b08ebf644bf68a19386f68177617937f784b9dd1a1ef43f3e",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Pivot Energy",
+            "tension": "The source does not reveal pricing, spread, tenor, or covenants, so there is no explicit capital-stack friction. The tension is implied in the shift from construction warehouse to term loan—a maturity and liquidity transformation that the banks accepted, but terms are undisclosed."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 175,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 2,
+            "kept_facts": 6,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add names: IPPs"
+          ]
+        },
+        "seconds": 74.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "67e4d0b1388d7d7c",
+        "title": "$100 Million Transit-Oriented Development Coming To Westbury, Long Island",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "9ad89ad63b10f5b9e8ec42ddced630e3b6183f6b62d0fe1077e3b1204b29958d",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "time and patience",
+            "protagonist": "Gotham Organization",
+            "tension": "The deal hinges on a 99-year ground lease with the MTA, where rent starts at $500,000, steps up 12.5% every five years, and includes a $2.25 million construction payment plus a $500,000 capital transaction payment—terms that test the project's long-term affordability and the developer's patience."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 142,
+            "paragraph_count": 3,
+            "warnings": [
+              "Paragraph 3 has 91 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 10,
+            "kept_facts": 4,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 3 has 91 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a take must cite at least one verified fact in 'because'",
+            "a take must be first person or plainly framed as opinion; a view or action may not add names: MTA",
+            "fact rejected by the fact check",
+            "a take must cite at least one verified fact in 'because'",
+            "Asserts there is a lease and that it carries risk, a hidden claim not supported by the facts.",
+            "Introduces long-term ground leases, parking lots, and escalating rent structures not in the cited facts.",
+            "voice line is 29 words; the limit is 26; voice lines may not contain numbers"
+          ]
+        },
+        "seconds": 160.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1c457c7427cbbf9b",
+        "title": "Hybrid sales rise while battery electric sales remain lower after tax credit expiration",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "56710c4f0cf4e76fa456bca4501bcf47ab0e5bbe78e26aa8cae287fd4fb7fc0a",
+          "mode": "facts",
+          "request_seconds": 5.4,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 139,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 3,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Implies hybrid share gain was caused by or timed with EV credit expiration, which source does not state.",
+            "quote not found verbatim in the source: “Between 3Q25 and 3Q26, hybrid electric vehicles continued to gain mark”"
+          ]
+        },
+        "seconds": 92.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "57ef9d8b7986c6f0",
+        "title": "S3 Capital Lends $53M for Upper East Side Condo Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "25528720e851fc2240615cc6ebca09b1007e4aa4372160cdde7204bc530ac1ea",
+          "mode": "facts",
+          "request_seconds": 4.75,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 153,
+            "paragraph_count": 3,
+            "warnings": [
+              "Sentences average 26 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): ““Upper East Side condo buyers are a specific audience,…” (36 words)",
+              "Paragraph 3 has 67 words and 2 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 54 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 4,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 26 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): ““Upper East Side condo buyers are a specific audience,…” (36 words)",
+            "Paragraph 3 has 67 words and 2 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 54 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 93.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5d9afb1762560f1c",
+        "title": "Amazon and AEP to explore deployment of up to 960MW of X-energy SMRs in Indiana",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c1e24a9258e9e81eb3b4320f93bf0ad4a7c0fa3e895c876d1ec243bb97867dfc",
+          "mode": "facts",
+          "request_seconds": 5.16,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 142,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “almost” that its quote carries"
+          ]
+        },
+        "seconds": 95.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "571f3f62e0adcd65",
+        "title": "Alcoa sells New York aluminum smelter to data center developer for $315 million",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "7aba601bd2fa96f3c6648d5216893030d12ed89482dafa5adae9fb6a21bb32bd",
+          "mode": "facts",
+          "request_seconds": 5.1,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 156,
+            "paragraph_count": 4,
+            "warnings": [
+              "Sentences average 22 words. Aim for about 15 and stay under 18. Split long sentences; one idea each."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 22 words. Aim for about 15 and stay under 18. Split long sentences; one idea each."
+          ],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 139.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "249bdfe380ec11e1",
+        "title": "Recurring bill service ScribeUp raises $13M",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e15a278ff2684281330e6d28e7608093ae04e924fcfdc1b32853557000a45f95",
+          "mode": "facts",
+          "request_seconds": 4.18,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 130,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 1,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the attribution (“said”, “according to”) that its quote carries"
+          ]
+        },
+        "seconds": 61.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ef87aa465ece5e23",
+        "title": "Innovative Urban Village Phase 1A Reaches Completion At 30 Inspiration Lane In East New York, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "61baa44e5a157be7340b80ab40adab1f8357c515215bd2abd1630c4af4bb3da1",
+          "mode": "facts",
+          "request_seconds": 5.14,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 114,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 4,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 270",
+            "figures not in its quote: 30, 385, 437000",
+            "figures not in its quote: 30",
+            "figures not in its quote: 30"
+          ]
+        },
+        "seconds": 93.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ceeeb84254238eaa",
+        "title": "India’s ACME Solar signs 300 MW/1,200 MWh PPA at $0.063/kWh",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0cab12b81d4abb97691e66b43823a9c18a4b5fe903547dfcf3cbfa826cd5b19d",
+          "mode": "facts",
+          "request_seconds": 4.67,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 109,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source states the project 'is set to integrate' (planned), not 'will integrate'."
+          ]
+        },
+        "seconds": 91.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "280a644c8039f6f9",
+        "title": "AEP, Amazon and X-energy planning 12-SMR plant",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "4bf3361b2ef3ae92ede17626bb440afd262a53060d4ccaa05b0b9ebd046219c7",
+          "mode": "facts",
+          "request_seconds": 4.28,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 77,
+            "paragraph_count": 3,
+            "warnings": [
+              "Sentences average 26 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “The Indiana project would be the second one under…” (42 words)",
+              "These names do not appear in the dossier; remove them or use only names the sources gave: I&amp"
+            ]
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 6,
+            "kept_facts": 2,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 26 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “The Indiana project would be the second one under…” (42 words)",
+            "These names do not appear in the dossier; remove them or use only names the sources gave: I&amp"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "quote not found verbatim in the source: “US utility American Electric Power and X-energy have signed a joint de”",
+            "Source says Amazon is to support development through a funding agreement and a long-term PPA covering costs of facility and its operations; sentence states current funding/signing and omits operations.",
+            "quote not found verbatim in the source: “US utility American Electric Power and X-energy have signed a joint de”",
+            "Source says Amazon is to support (future/plan) not 'is supporting' (present).",
+            "Source says it envisages 12 units only if the project reaches final investment decision and moves forward; sentence omits condition.",
+            "names not in or near its quote: Josh, Weissman"
+          ]
+        },
+        "seconds": 122.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c0b8d6462fc1d7c8",
+        "title": "Brixton Offloads Dow’s 664K-SF Lake Jackson Facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d837918e1cb7b2f36ba594ff5aa0d0112df20c67d7a64782d8912466db367e9f",
+          "mode": "facts",
+          "request_seconds": 5.16,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 168,
+            "paragraph_count": 5,
+            "warnings": [
+              "60% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 0,
+            "kept_facts": 10,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "60% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 118.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "83f41943851ea411",
+        "title": "EverWind pledges $7b investment in Point Tupper data center campus, wind portfolio across Nova Scotia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "269b918702a85a1cd7661d33cc13c5e270c5d9b119c99b49a20412ff50cf5443",
+          "mode": "facts",
+          "request_seconds": 4.09,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 106,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 2,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source says 'more than C$10 billion ($7 billion)', not '$7 billion' without the 'more than' qualifier.",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 87.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "47ffbe7dc265f79f",
+        "title": "Fifth Third CEO downplays risk from AI agent Muse",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "50e5f966620e38a1ec975aa756737ab7f018e325b87b0b424cafc7e57a282257",
+          "mode": "facts",
+          "request_seconds": 4.23,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 147,
+            "paragraph_count": 4,
+            "warnings": [
+              "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 6,
+            "kept_facts": 4,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “around” that its quote carries",
+            "Source attributes the median household checking account balance to Preston, but the sentence presents it as plain fact without attribution.",
+            "Source quotes Spence as saying \"I just think the incumbents have a lot of leverage here, provided that we respond,\" but the sentence omits the qualifier \"I just think\" and the article \"the\", altering the strength of the statement."
+          ]
+        },
+        "seconds": 176.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "8646e7c57f86f90c",
+        "title": "Nscale Loses Microsoft Deal as Power Delays Threaten AI",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "ce9230b41191bc96b42af747e7b12dec695f9f2916575efb07ec0d4d2940fda1",
+          "mode": "facts",
+          "request_seconds": 5.46,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 140,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 2,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "names not in or near its quote: Data, Center, Knowledge",
+            "drops the attribution (“said”, “according to”) that its quote carries"
+          ]
+        },
+        "seconds": 92.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1ac5367a75701e7a",
+        "title": "AEP, X-energy Eye 960-MW Nuclear Plant at Retired Indiana Coal Site, Backed by Amazon",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "5c3221cf9ce71b6729058528e03373a46d114cf0d160e4a950893d3406a54289",
+          "mode": "facts",
+          "request_seconds": 5.04,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 114,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 2,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source identifies the location as potential, not definite.",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 107.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "9d58f088a1cff4c5",
+        "title": "Valor Energy acquires computing site in Youngstown, Ohio",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "fe53a82bff5de6787b0df404c9c2086c523a74d25487f5280dd395dd0a32e454",
+          "mode": "facts",
+          "request_seconds": 4.73,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 73,
+            "paragraph_count": 3,
+            "warnings": [
+              "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 5,
+            "kept_facts": 3,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "quote is longer than allowed",
+            "Source states an agreement to acquire, not that the acquisition is already underway or completed.",
+            "quote is longer than allowed",
+            "refers back to a deleted sentence, so its subject would be ambiguous",
+            "quote is longer than allowed",
+            "refers back to a deleted sentence, so its subject would be ambiguous"
+          ]
+        },
+        "seconds": 131.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0d7e962872c9170a",
+        "title": "104-Unit Heritage Square Apartments in Puyallup Trades for $25MM",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "08de86292e4dc7e478a702a79ec4ed88ad8f5ecde16a24064931df81491e18b4",
+          "mode": "facts",
+          "request_seconds": 3.25,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 68,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 6,
+            "rejected": 0,
+            "kept_facts": 4,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 95.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "67327e744994b6bd",
+        "title": "Carrier Connect secures customer for 4MW data center outside Atlanta, Georgia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e74f9105eaef7eca1ef4574bce5a2f971e980782f77c2daadb9c7245c33477eb",
+          "mode": "facts",
+          "request_seconds": 4.39,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 94,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 4, 5",
+            "Source attributes the five-year agreement and 4MW coverage to the company's announcement, not as plain fact.",
+            "Source states the company announced it has signed the agreement; the sentence presents it as plain fact without attribution.",
+            "refers back to a deleted sentence, so its subject would be ambiguous"
+          ]
+        },
+        "seconds": 81.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b2835af4bc7d26bd",
+        "title": "Group Questions Transparency of State Complaint over MISO Long-range Transmission",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "840f1b5ab2026f53a66b87757c376b31acf4a9940ee9bd1748d044dfff1367ab",
+          "mode": "facts",
+          "request_seconds": 2.91,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "invalid_source_url"
+            ],
+            "messages": [
+              "source URL is not an absolute HTTP(S) URL"
+            ],
+            "word_count": 60,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 5,
+            "rejected": 1,
+            "kept_facts": 3,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 120.7,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 24,
+    "published": 23,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/sl-green-lands-2b-refi-at-fully-leased-245-park_social.png",
+      "insights/sl-green-lands-2b-refi-at-fully-leased-245-park.html",
+      "insights/62-1m-refinancing-secured-for-north-carolina-multifamily-community_social.png",
+      "insights/62-1m-refinancing-secured-for-north-carolina-multifamily-community.html",
+      "insights/pccp-lands-41m-refi-for-san-diego-apartments_social.png",
+      "insights/pccp-lands-41m-refi-for-san-diego-apartments.html",
+      "insights/icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower_social.png",
+      "insights/icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower.html",
+      "insights/cadence-real-estate-acquires-seattle-multifamily-community-for-29m_social.png",
+      "insights/cadence-real-estate-acquires-seattle-multifamily-community-for-29m.html",
+      "insights/pivot-energy-lands-173m-term-loan_social.png",
+      "insights/pivot-energy-lands-173m-term-loan.html",
+      "insights/100-million-transit-oriented-development-coming-to-westbury-long-island_social.png",
+      "insights/100-million-transit-oriented-development-coming-to-westbury-long-island.html",
+      "insights/hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp_social.png",
+      "insights/hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp.html",
+      "insights/s3-capital-lends-53m-for-upper-east-side-condo-tower_social.png",
+      "insights/s3-capital-lends-53m-for-upper-east-side-condo-tower.html",
+      "insights/amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana_social.png",
+      "insights/amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana.html",
+      "insights/alcoa-unloads-massena-smelter-for-up-to-315m_social.png",
+      "insights/alcoa-unloads-massena-smelter-for-up-to-315m.html",
+      "insights/recurring-bill-service-scribeup-raises-13m_social.png",
+      "insights/recurring-bill-service-scribeup-raises-13m.html",
+      "insights/innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e_social.png",
+      "insights/innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e.html",
+      "insights/acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh_social.png",
+      "insights/acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh.html",
+      "insights/aep-amazon-and-x-energy-planning-12-smr-plant_social.png",
+      "insights/aep-amazon-and-x-energy-planning-12-smr-plant.html",
+      "insights/brixton-sells-dow-s-lake-jackson-campus_social.png",
+      "insights/brixton-sells-dow-s-lake-jackson-campus.html",
+      "insights/everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio_social.png",
+      "insights/everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio.html",
+      "insights/fifth-third-ceo-downplays-risk-from-ai-agent-muse_social.png",
+      "insights/fifth-third-ceo-downplays-risk-from-ai-agent-muse.html",
+      "insights/microsoft-kills-nscale-loughton-deal-over-expected-power-delays_social.png",
+      "insights/microsoft-kills-nscale-loughton-deal-over-expected-power-delays.html",
+      "insights/aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon_social.png",
+      "insights/aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon.html",
+      "insights/valor-energy-acquires-computing-site-in-youngstown-ohio_social.png",
+      "insights/valor-energy-acquires-computing-site-in-youngstown-ohio.html",
+      "insights/heritage-square-apartments-trades-for-25mm-in-puyallup_social.png",
+      "insights/heritage-square-apartments-trades-for-25mm-in-puyallup.html",
+      "insights/carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia_social.png",
+      "insights/carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/sl-green-lands-2b-refi-at-fully-leased-245-park_related.json",
+      "insights/62-1m-refinancing-secured-for-north-carolina-multifamily-community_related.json",
+      "insights/pccp-lands-41m-refi-for-san-diego-apartments_related.json",
+      "insights/icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower_related.json",
+      "insights/cadence-real-estate-acquires-seattle-multifamily-community-for-29m_related.json",
+      "insights/pivot-energy-lands-173m-term-loan_related.json",
+      "insights/100-million-transit-oriented-development-coming-to-westbury-long-island_related.json",
+      "insights/hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp_related.json",
+      "insights/s3-capital-lends-53m-for-upper-east-side-condo-tower_related.json",
+      "insights/amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana_related.json",
+      "insights/alcoa-unloads-massena-smelter-for-up-to-315m_related.json",
+      "insights/recurring-bill-service-scribeup-raises-13m_related.json",
+      "insights/innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e_related.json",
+      "insights/acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh_related.json",
+      "insights/aep-amazon-and-x-energy-planning-12-smr-plant_related.json",
+      "insights/brixton-sells-dow-s-lake-jackson-campus_related.json",
+      "insights/everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio_related.json",
+      "insights/fifth-third-ceo-downplays-risk-from-ai-agent-muse_related.json",
+      "insights/microsoft-kills-nscale-loughton-deal-over-expected-power-delays_related.json",
+      "insights/aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon_related.json",
+      "insights/valor-energy-acquires-computing-site-in-youngstown-ohio_related.json",
+      "insights/heritage-square-apartments-trades-for-25mm-in-puyallup_related.json",
+      "insights/carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "2c9b097d282a1f27",
+        "title": "SL Green Lands $2B Refi at Fully Leased 245 Park",
+        "slug": "sl-green-lands-2b-refi-at-fully-leased-245-park",
+        "url": "/insights/sl-green-lands-2b-refi-at-fully-leased-245-park.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 70,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dca4e1f91ff17a8f",
+        "title": "$62.1M Refinancing Secured for North Carolina Multifamily Community",
+        "slug": "62-1m-refinancing-secured-for-north-carolina-multifamily-community",
+        "url": "/insights/62-1m-refinancing-secured-for-north-carolina-multifamily-community.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b7d77bb8e8d765d4",
+        "title": "PCCP Lands $41M Refi for San Diego Apartments",
+        "slug": "pccp-lands-41m-refi-for-san-diego-apartments",
+        "url": "/insights/pccp-lands-41m-refi-for-san-diego-apartments.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "eed4f413cc0899f7",
+        "title": "ICBC Supplies $24.4M Refi for 16-Story NoMad Office Tower",
+        "slug": "icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower",
+        "url": "/insights/icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "21b2ee494053b1a8",
+        "title": "Cadence Real Estate Acquires Seattle Multifamily Community for $29M",
+        "slug": "cadence-real-estate-acquires-seattle-multifamily-community-for-29m",
+        "url": "/insights/cadence-real-estate-acquires-seattle-multifamily-community-for-29m.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bc76a91b8b6944d8",
+        "title": "Pivot Energy Lands $173M Term Loan",
+        "slug": "pivot-energy-lands-173m-term-loan",
+        "url": "/insights/pivot-energy-lands-173m-term-loan.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 51,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "67e4d0b1388d7d7c",
+        "title": "$100 Million Transit-Oriented Development Coming To Westbury, Long Island",
+        "slug": "100-million-transit-oriented-development-coming-to-westbury-long-island",
+        "url": "/insights/100-million-transit-oriented-development-coming-to-westbury-long-island.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1c457c7427cbbf9b",
+        "title": "Hybrid sales rise while battery electric sales remain lower after tax credit expiration",
+        "slug": "hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp",
+        "url": "/insights/hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "57ef9d8b7986c6f0",
+        "title": "S3 Capital Lends $53M for Upper East Side Condo Tower",
+        "slug": "s3-capital-lends-53m-for-upper-east-side-condo-tower",
+        "url": "/insights/s3-capital-lends-53m-for-upper-east-side-condo-tower.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5d9afb1762560f1c",
+        "title": "Amazon and AEP to explore deployment of up to 960MW of X-energy SMRs in Indiana",
+        "slug": "amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana",
+        "url": "/insights/amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "571f3f62e0adcd65",
+        "title": "Alcoa Unloads Massena Smelter for Up to $315M",
+        "slug": "alcoa-unloads-massena-smelter-for-up-to-315m",
+        "url": "/insights/alcoa-unloads-massena-smelter-for-up-to-315m.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "249bdfe380ec11e1",
+        "title": "Recurring bill service ScribeUp raises $13M",
+        "slug": "recurring-bill-service-scribeup-raises-13m",
+        "url": "/insights/recurring-bill-service-scribeup-raises-13m.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 48,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ef87aa465ece5e23",
+        "title": "Innovative Urban Village Phase 1A Reaches Completion At 30 Inspiration Lane In East New York, Brooklyn",
+        "slug": "innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e",
+        "url": "/insights/innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ceeeb84254238eaa",
+        "title": "ACME Solar Inks 300 MW/1,200 MWh PPA at $0.063/kWh",
+        "slug": "acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh",
+        "url": "/insights/acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "280a644c8039f6f9",
+        "title": "AEP, Amazon and X-energy planning 12-SMR plant",
+        "slug": "aep-amazon-and-x-energy-planning-12-smr-plant",
+        "url": "/insights/aep-amazon-and-x-energy-planning-12-smr-plant.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c0b8d6462fc1d7c8",
+        "title": "Brixton Sells Dow's Lake Jackson Campus",
+        "slug": "brixton-sells-dow-s-lake-jackson-campus",
+        "url": "/insights/brixton-sells-dow-s-lake-jackson-campus.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "83f41943851ea411",
+        "title": "EverWind pledges $7b investment in Point Tupper data center campus, wind portfolio across Nova Scotia",
+        "slug": "everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio",
+        "url": "/insights/everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "47ffbe7dc265f79f",
+        "title": "Fifth Third CEO downplays risk from AI agent Muse",
+        "slug": "fifth-third-ceo-downplays-risk-from-ai-agent-muse",
+        "url": "/insights/fifth-third-ceo-downplays-risk-from-ai-agent-muse.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "8646e7c57f86f90c",
+        "title": "Microsoft Kills Nscale Loughton Deal Over Expected Power Delays",
+        "slug": "microsoft-kills-nscale-loughton-deal-over-expected-power-delays",
+        "url": "/insights/microsoft-kills-nscale-loughton-deal-over-expected-power-delays.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1ac5367a75701e7a",
+        "title": "AEP, X-energy Eye 960-MW Indiana Nuclear Plant Backed by Amazon",
+        "slug": "aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon",
+        "url": "/insights/aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "9d58f088a1cff4c5",
+        "title": "Valor Energy acquires computing site in Youngstown, Ohio",
+        "slug": "valor-energy-acquires-computing-site-in-youngstown-ohio",
+        "url": "/insights/valor-energy-acquires-computing-site-in-youngstown-ohio.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0d7e962872c9170a",
+        "title": "Heritage Square Apartments Trades for $25MM in Puyallup",
+        "slug": "heritage-square-apartments-trades-for-25mm-in-puyallup",
+        "url": "/insights/heritage-square-apartments-trades-for-25mm-in-puyallup.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "67327e744994b6bd",
+        "title": "Carrier Connect secures customer for 4MW data center outside Atlanta, Georgia",
+        "slug": "carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia",
+        "url": "/insights/carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 40,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "2c9b097d282a1f27",
+        "slug": "sl-green-lands-2b-refi-at-fully-leased-245-park",
+        "title": "Office Repositioning Pays Off as SL Green Fills 1.8M SF Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/sl-green-lands-2b-refi-at-fully-leased-245-park.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dca4e1f91ff17a8f",
+        "slug": "62-1m-refinancing-secured-for-north-carolina-multifamily-community",
+        "title": "$62.1M Refinancing Secured for North Carolina Multifamily Community",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/62-1m-refinancing-secured-for-north-carolina-multifamily-community.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b7d77bb8e8d765d4",
+        "slug": "pccp-lands-41m-refi-for-san-diego-apartments",
+        "title": "PCCP Provides $41M Senior Loan for the Refinance of 125-Unit Multifamily Community in San Diego",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/pccp-lands-41m-refi-for-san-diego-apartments.html",
+        "reason": ""
+      },
+      {
+        "object_id": "eed4f413cc0899f7",
+        "slug": "icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower",
+        "title": "ICBC Supplies $24.4M Refi for 16-Story NoMad Office Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower.html",
+        "reason": ""
+      },
+      {
+        "object_id": "21b2ee494053b1a8",
+        "slug": "cadence-real-estate-acquires-seattle-multifamily-community-for-29m",
+        "title": "Cadence Real Estate Acquires Seattle Multifamily Community for $29M",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cadence-real-estate-acquires-seattle-multifamily-community-for-29m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bc76a91b8b6944d8",
+        "slug": "pivot-energy-lands-173m-term-loan",
+        "title": "Pivot Energy Closes $173-Million Loan for 135 MW of Solar Capacity",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/pivot-energy-lands-173m-term-loan.html",
+        "reason": ""
+      },
+      {
+        "object_id": "67e4d0b1388d7d7c",
+        "slug": "100-million-transit-oriented-development-coming-to-westbury-long-island",
+        "title": "$100 Million Transit-Oriented Development Coming To Westbury, Long Island",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/100-million-transit-oriented-development-coming-to-westbury-long-island.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1c457c7427cbbf9b",
+        "slug": "hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp",
+        "title": "Hybrid sales rise while battery electric sales remain lower after tax credit expiration",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp.html",
+        "reason": ""
+      },
+      {
+        "object_id": "57ef9d8b7986c6f0",
+        "slug": "s3-capital-lends-53m-for-upper-east-side-condo-tower",
+        "title": "S3 Capital Lends $53M for Upper East Side Condo Tower",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/s3-capital-lends-53m-for-upper-east-side-condo-tower.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5d9afb1762560f1c",
+        "slug": "amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana",
+        "title": "Amazon and AEP to explore deployment of up to 960MW of X-energy SMRs in Indiana",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana.html",
+        "reason": ""
+      },
+      {
+        "object_id": "571f3f62e0adcd65",
+        "slug": "alcoa-unloads-massena-smelter-for-up-to-315m",
+        "title": "Alcoa sells New York aluminum smelter to data center developer for $315 million",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/alcoa-unloads-massena-smelter-for-up-to-315m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "249bdfe380ec11e1",
+        "slug": "recurring-bill-service-scribeup-raises-13m",
+        "title": "Recurring bill service ScribeUp raises $13M",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/recurring-bill-service-scribeup-raises-13m.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ef87aa465ece5e23",
+        "slug": "innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e",
+        "title": "Innovative Urban Village Phase 1A Reaches Completion At 30 Inspiration Lane In East New York, Brooklyn",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ceeeb84254238eaa",
+        "slug": "acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh",
+        "title": "India’s ACME Solar signs 300 MW/1,200 MWh PPA at $0.063/kWh",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh.html",
+        "reason": ""
+      },
+      {
+        "object_id": "280a644c8039f6f9",
+        "slug": "aep-amazon-and-x-energy-planning-12-smr-plant",
+        "title": "AEP, Amazon and X-energy planning 12-SMR plant",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/aep-amazon-and-x-energy-planning-12-smr-plant.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c0b8d6462fc1d7c8",
+        "slug": "brixton-sells-dow-s-lake-jackson-campus",
+        "title": "Brixton Offloads Dow’s 664K-SF Lake Jackson Facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/brixton-sells-dow-s-lake-jackson-campus.html",
+        "reason": ""
+      },
+      {
+        "object_id": "83f41943851ea411",
+        "slug": "everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio",
+        "title": "EverWind pledges $7b investment in Point Tupper data center campus, wind portfolio across Nova Scotia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "47ffbe7dc265f79f",
+        "slug": "fifth-third-ceo-downplays-risk-from-ai-agent-muse",
+        "title": "Fifth Third CEO downplays risk from AI agent Muse",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fifth-third-ceo-downplays-risk-from-ai-agent-muse.html",
+        "reason": ""
+      },
+      {
+        "object_id": "8646e7c57f86f90c",
+        "slug": "microsoft-kills-nscale-loughton-deal-over-expected-power-delays",
+        "title": "Nscale Loses Microsoft Deal as Power Delays Threaten AI",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/microsoft-kills-nscale-loughton-deal-over-expected-power-delays.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1ac5367a75701e7a",
+        "slug": "aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon",
+        "title": "AEP, X-energy Eye 960-MW Nuclear Plant at Retired Indiana Coal Site, Backed by Amazon",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon.html",
+        "reason": ""
+      },
+      {
+        "object_id": "9d58f088a1cff4c5",
+        "slug": "valor-energy-acquires-computing-site-in-youngstown-ohio",
+        "title": "Valor Energy acquires computing site in Youngstown, Ohio",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/valor-energy-acquires-computing-site-in-youngstown-ohio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0d7e962872c9170a",
+        "slug": "heritage-square-apartments-trades-for-25mm-in-puyallup",
+        "title": "104-Unit Heritage Square Apartments in Puyallup Trades for $25MM",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/heritage-square-apartments-trades-for-25mm-in-puyallup.html",
+        "reason": ""
+      },
+      {
+        "object_id": "67327e744994b6bd",
+        "slug": "carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia",
+        "title": "Carrier Connect secures customer for 4MW data center outside Atlanta, Georgia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b2835af4bc7d26bd",
+        "slug": "",
+        "title": "Group Questions Transparency of State Complaint over MISO Long-range Transmission",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 54,
+    "successful_calls": 54,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 16.99,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 11.9,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.07,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.2,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.5,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 79.85,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 46.32,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 540.15,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 1.78,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.41,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "1 of 24 drafts were withheld because they could not be verified against their sources",
+    "published 23 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 698.27,
+  "status": "ready",
+  "candidate_count": 579,
+  "event_count": 546,
+  "articles": [
+    {
+      "event_id": "2c9b097d282a1f27",
+      "title": "SL Green Lands $2B Refi at Fully Leased 245 Park",
+      "slug": "sl-green-lands-2b-refi-at-fully-leased-245-park",
+      "url": "/insights/sl-green-lands-2b-refi-at-fully-leased-245-park.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 70,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dca4e1f91ff17a8f",
+      "title": "$62.1M Refinancing Secured for North Carolina Multifamily Community",
+      "slug": "62-1m-refinancing-secured-for-north-carolina-multifamily-community",
+      "url": "/insights/62-1m-refinancing-secured-for-north-carolina-multifamily-community.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b7d77bb8e8d765d4",
+      "title": "PCCP Lands $41M Refi for San Diego Apartments",
+      "slug": "pccp-lands-41m-refi-for-san-diego-apartments",
+      "url": "/insights/pccp-lands-41m-refi-for-san-diego-apartments.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "eed4f413cc0899f7",
+      "title": "ICBC Supplies $24.4M Refi for 16-Story NoMad Office Tower",
+      "slug": "icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower",
+      "url": "/insights/icbc-supplies-24-4m-refi-for-16-story-nomad-office-tower.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "21b2ee494053b1a8",
+      "title": "Cadence Real Estate Acquires Seattle Multifamily Community for $29M",
+      "slug": "cadence-real-estate-acquires-seattle-multifamily-community-for-29m",
+      "url": "/insights/cadence-real-estate-acquires-seattle-multifamily-community-for-29m.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bc76a91b8b6944d8",
+      "title": "Pivot Energy Lands $173M Term Loan",
+      "slug": "pivot-energy-lands-173m-term-loan",
+      "url": "/insights/pivot-energy-lands-173m-term-loan.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 51,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "67e4d0b1388d7d7c",
+      "title": "$100 Million Transit-Oriented Development Coming To Westbury, Long Island",
+      "slug": "100-million-transit-oriented-development-coming-to-westbury-long-island",
+      "url": "/insights/100-million-transit-oriented-development-coming-to-westbury-long-island.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1c457c7427cbbf9b",
+      "title": "Hybrid sales rise while battery electric sales remain lower after tax credit expiration",
+      "slug": "hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp",
+      "url": "/insights/hybrid-sales-rise-while-battery-electric-sales-remain-lower-after-tax-credit-exp.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "57ef9d8b7986c6f0",
+      "title": "S3 Capital Lends $53M for Upper East Side Condo Tower",
+      "slug": "s3-capital-lends-53m-for-upper-east-side-condo-tower",
+      "url": "/insights/s3-capital-lends-53m-for-upper-east-side-condo-tower.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5d9afb1762560f1c",
+      "title": "Amazon and AEP to explore deployment of up to 960MW of X-energy SMRs in Indiana",
+      "slug": "amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana",
+      "url": "/insights/amazon-and-aep-to-explore-deployment-of-up-to-960mw-of-x-energy-smrs-in-indiana.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "571f3f62e0adcd65",
+      "title": "Alcoa Unloads Massena Smelter for Up to $315M",
+      "slug": "alcoa-unloads-massena-smelter-for-up-to-315m",
+      "url": "/insights/alcoa-unloads-massena-smelter-for-up-to-315m.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "249bdfe380ec11e1",
+      "title": "Recurring bill service ScribeUp raises $13M",
+      "slug": "recurring-bill-service-scribeup-raises-13m",
+      "url": "/insights/recurring-bill-service-scribeup-raises-13m.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 48,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ef87aa465ece5e23",
+      "title": "Innovative Urban Village Phase 1A Reaches Completion At 30 Inspiration Lane In East New York, Brooklyn",
+      "slug": "innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e",
+      "url": "/insights/innovative-urban-village-phase-1a-reaches-completion-at-30-inspiration-lane-in-e.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ceeeb84254238eaa",
+      "title": "ACME Solar Inks 300 MW/1,200 MWh PPA at $0.063/kWh",
+      "slug": "acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh",
+      "url": "/insights/acme-solar-inks-300-mw-1-200-mwh-ppa-at-0-063-kwh.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "280a644c8039f6f9",
+      "title": "AEP, Amazon and X-energy planning 12-SMR plant",
+      "slug": "aep-amazon-and-x-energy-planning-12-smr-plant",
+      "url": "/insights/aep-amazon-and-x-energy-planning-12-smr-plant.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c0b8d6462fc1d7c8",
+      "title": "Brixton Sells Dow's Lake Jackson Campus",
+      "slug": "brixton-sells-dow-s-lake-jackson-campus",
+      "url": "/insights/brixton-sells-dow-s-lake-jackson-campus.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "83f41943851ea411",
+      "title": "EverWind pledges $7b investment in Point Tupper data center campus, wind portfolio across Nova Scotia",
+      "slug": "everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio",
+      "url": "/insights/everwind-pledges-7b-investment-in-point-tupper-data-center-campus-wind-portfolio.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "47ffbe7dc265f79f",
+      "title": "Fifth Third CEO downplays risk from AI agent Muse",
+      "slug": "fifth-third-ceo-downplays-risk-from-ai-agent-muse",
+      "url": "/insights/fifth-third-ceo-downplays-risk-from-ai-agent-muse.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "8646e7c57f86f90c",
+      "title": "Microsoft Kills Nscale Loughton Deal Over Expected Power Delays",
+      "slug": "microsoft-kills-nscale-loughton-deal-over-expected-power-delays",
+      "url": "/insights/microsoft-kills-nscale-loughton-deal-over-expected-power-delays.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1ac5367a75701e7a",
+      "title": "AEP, X-energy Eye 960-MW Indiana Nuclear Plant Backed by Amazon",
+      "slug": "aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon",
+      "url": "/insights/aep-x-energy-eye-960-mw-indiana-nuclear-plant-backed-by-amazon.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "9d58f088a1cff4c5",
+      "title": "Valor Energy acquires computing site in Youngstown, Ohio",
+      "slug": "valor-energy-acquires-computing-site-in-youngstown-ohio",
+      "url": "/insights/valor-energy-acquires-computing-site-in-youngstown-ohio.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0d7e962872c9170a",
+      "title": "Heritage Square Apartments Trades for $25MM in Puyallup",
+      "slug": "heritage-square-apartments-trades-for-25mm-in-puyallup",
+      "url": "/insights/heritage-square-apartments-trades-for-25mm-in-puyallup.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "67327e744994b6bd",
+      "title": "Carrier Connect secures customer for 4MW data center outside Atlanta, Georgia",
+      "slug": "carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia",
+      "url": "/insights/carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 40,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 23
+}
