@@ -1,0 +1,625 @@
+{
+ "total_considered": 754,
+ "total_selected": 16,
+ "depth_counts": {
+  "tier_b": 5,
+  "tier_c": 11
+ },
+ "has_shortfall": true,
+ "shortfalls": [
+  {
+   "sector": "banking_credit",
+   "target": 10,
+   "selected": 0,
+   "short_by": 10,
+   "reason": "14 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  },
+  {
+   "sector": "data_centers",
+   "target": 10,
+   "selected": 1,
+   "short_by": 9,
+   "reason": "only 1 of 9 eligible candidates cleared the floor, against a target of 10"
+  },
+  {
+   "sector": "energy",
+   "target": 10,
+   "selected": 0,
+   "short_by": 10,
+   "reason": "9 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  },
+  {
+   "sector": "fed_macro",
+   "target": 10,
+   "selected": 3,
+   "short_by": 7,
+   "reason": "only 3 of 8 eligible candidates cleared the floor, against a target of 10"
+  },
+  {
+   "sector": "local_government",
+   "target": 10,
+   "selected": 1,
+   "short_by": 9,
+   "reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+  },
+  {
+   "sector": "private_equity",
+   "target": 10,
+   "selected": 1,
+   "short_by": 9,
+   "reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+  }
+ ],
+ "sectors": {
+  "banking_credit": {
+   "sector": "banking_credit",
+   "target": 10,
+   "selected_count": 0,
+   "considered": 56,
+   "eligible": 14,
+   "above_floor": 0,
+   "shortfall": 10,
+   "shortfall_reason": "14 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+   "runner_up": null,
+   "selected": []
+  },
+  "commercial_real_estate": {
+   "sector": "commercial_real_estate",
+   "target": 10,
+   "selected_count": 10,
+   "considered": 398,
+   "eligible": 52,
+   "above_floor": 14,
+   "shortfall": 0,
+   "shortfall_reason": "",
+   "runner_up": {
+    "title": "Institutional Property Advisors Closes 288-Unit Multifamily Sale in Northern Colorado",
+    "score": 46.1,
+    "gap_to_last_selected": -2.6,
+    "explanation": "“Parts Town Unlimited Signs 538,450 SF Industrial Lease in Pe” took the final slot at 43.5; “Institutional Property Advisors Closes 288-Unit Multifamily ” scored 46.1, -2.6 points behind"
+   },
+   "selected": [
+    {
+     "rank": 1,
+     "title": "Cortland Sells West Palm Rental at Discount for $208M",
+     "score": 55.3,
+     "band": "signal",
+     "depth": "tier_b",
+     "evidence": "single_full_text",
+     "subsector": "multifamily",
+     "why": "rank 1 of 10 in commercial_real_estate: scored 55.3 (signal); single_full_text evidence supports tier_b"
+    },
+    {
+     "rank": 2,
+     "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+     "score": 54.7,
+     "band": "signal",
+     "depth": "tier_b",
+     "evidence": "single_full_text",
+     "subsector": "multifamily",
+     "why": "rank 2 of 10 in commercial_real_estate: scored 54.7 (signal); single_full_text evidence supports tier_b"
+    },
+    {
+     "rank": 3,
+     "title": "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon",
+     "score": 53.4,
+     "band": "signal",
+     "depth": "tier_b",
+     "evidence": "single_full_text",
+     "subsector": "multifamily",
+     "why": "rank 3 of 10 in commercial_real_estate: scored 53.4 (signal); single_full_text evidence supports tier_b"
+    },
+    {
+     "rank": 4,
+     "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+     "score": 48.2,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "",
+     "why": "rank 4 of 10 in commercial_real_estate: scored 48.2 (routine); single_full_text evidence supports tier_c"
+    },
+    {
+     "rank": 5,
+     "title": "Harrison Street, Meridian Buy 431K-SF NoVA Office Portfolio",
+     "score": 47.0,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "",
+     "why": "rank 5 of 10 in commercial_real_estate: scored 47.0 (routine); single_full_text evidence supports tier_c"
+    },
+    {
+     "rank": 6,
+     "title": "Bonaventure Acquires Ownership Interest Maryland Apartment Community",
+     "score": 46.9,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "multifamily",
+     "why": "rank 6 of 10 in commercial_real_estate: scored 46.9 (routine); single_full_text evidence supports tier_c"
+    },
+    {
+     "rank": 7,
+     "title": "Colliers Facilitates $23.15M Sale of Coolidge Corner Collection Portfolio in Brookline",
+     "score": 46.3,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "",
+     "why": "rank 7 of 10 in commercial_real_estate: scored 46.3 (routine); single_full_text evidence supports tier_c"
+    },
+    {
+     "rank": 8,
+     "title": "JLL Arranges $13.5M Sale and Financing of 96-Room Residence Inn in Danvers Massachusetts",
+     "score": 46.3,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "multifamily",
+     "why": "rank 8 of 10 in commercial_real_estate: scored 46.3 (routine); single_full_text evidence supports tier_c"
+    },
+    {
+     "rank": 9,
+     "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
+     "score": 44.9,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_summary",
+     "subsector": "multifamily",
+     "why": "rank 9 of 10 in commercial_real_estate: scored 44.9 (routine); single_summary evidence supports tier_c"
+    },
+    {
+     "rank": 10,
+     "title": "Parts Town Unlimited Signs 538,450 SF Industrial Lease in Pendergrass, Georgia",
+     "score": 43.5,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "industrial_logistics",
+     "why": "rank 10 of 10 in commercial_real_estate: scored 43.5 (routine); single_full_text evidence supports tier_c"
+    }
+   ]
+  },
+  "data_centers": {
+   "sector": "data_centers",
+   "target": 10,
+   "selected_count": 1,
+   "considered": 68,
+   "eligible": 9,
+   "above_floor": 1,
+   "shortfall": 9,
+   "shortfall_reason": "only 1 of 9 eligible candidates cleared the floor, against a target of 10",
+   "runner_up": {
+    "title": "Blue Owl Leads $2.4 Billion Iren Debt Deal to Buy Nvidia’s Chips",
+    "score": 38.4,
+    "gap_to_last_selected": 8.7,
+    "explanation": "“SK Telecom creates SK Horizon in $2.2B data center spin-off ” took the final slot at 47.1; “Blue Owl Leads $2.4 Billion Iren Debt Deal to Buy Nvidia’s C” scored 38.4, below the floor of 40"
+   },
+   "selected": [
+    {
+     "rank": 1,
+     "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+     "score": 47.1,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "",
+     "why": "rank 1 of 1 in data_centers: scored 47.1 (routine); single_full_text evidence supports tier_c"
+    }
+   ]
+  },
+  "energy": {
+   "sector": "energy",
+   "target": 10,
+   "selected_count": 0,
+   "considered": 117,
+   "eligible": 9,
+   "above_floor": 0,
+   "shortfall": 10,
+   "shortfall_reason": "9 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+   "runner_up": null,
+   "selected": []
+  },
+  "fed_macro": {
+   "sector": "fed_macro",
+   "target": 10,
+   "selected_count": 3,
+   "considered": 35,
+   "eligible": 8,
+   "above_floor": 3,
+   "shortfall": 7,
+   "shortfall_reason": "only 3 of 8 eligible candidates cleared the floor, against a target of 10",
+   "runner_up": {
+    "title": "Federal Reserve Board issues enforcement action with former employee of Banco Popular de Puerto Rico",
+    "score": 37.3,
+    "gap_to_last_selected": 4.9,
+    "explanation": "“Kevin Warsh Notes Inflation Concerns But Offers No Clues as ” took the final slot at 42.2; “Federal Reserve Board issues enforcement action with former ” scored 37.3, below the floor of 40"
+   },
+   "selected": [
+    {
+     "rank": 1,
+     "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+     "score": 53.1,
+     "band": "signal",
+     "depth": "tier_b",
+     "evidence": "single_full_text",
+     "subsector": "fed_speeches",
+     "why": "rank 1 of 3 in fed_macro: scored 53.1 (signal); single_full_text evidence supports tier_b"
+    },
+    {
+     "rank": 2,
+     "title": "Warsh furthers his push toward a ‘quieter Fed’",
+     "score": 53.1,
+     "band": "signal",
+     "depth": "tier_b",
+     "evidence": "single_full_text",
+     "subsector": "inflation",
+     "why": "rank 2 of 3 in fed_macro: scored 53.1 (signal); single_full_text evidence supports tier_b"
+    },
+    {
+     "rank": 3,
+     "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+     "score": 42.2,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "fed_speeches",
+     "why": "rank 3 of 3 in fed_macro: scored 42.2 (routine); single_full_text evidence supports tier_c"
+    }
+   ]
+  },
+  "local_government": {
+   "sector": "local_government",
+   "target": 10,
+   "selected_count": 1,
+   "considered": 6,
+   "eligible": 5,
+   "above_floor": 1,
+   "shortfall": 9,
+   "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+   "runner_up": {
+    "title": "NYC Wants 2,100 Public Restrooms, but City Hall’s Bathroom Strategy Is Backed Up",
+    "score": 39.6,
+    "gap_to_last_selected": 9.3,
+    "explanation": "“IT Services Company Spending $45M on Mesa HQ” took the final slot at 48.9; “NYC Wants 2,100 Public Restrooms, but City Hall’s Bathroom S” scored 39.6, below the floor of 40"
+   },
+   "selected": [
+    {
+     "rank": 1,
+     "title": "IT Services Company Spending $45M on Mesa HQ",
+     "score": 48.9,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_full_text",
+     "subsector": "zoning_board",
+     "why": "rank 1 of 1 in local_government: scored 48.9 (routine); single_full_text evidence supports tier_c"
+    }
+   ]
+  },
+  "private_equity": {
+   "sector": "private_equity",
+   "target": 10,
+   "selected_count": 1,
+   "considered": 74,
+   "eligible": 7,
+   "above_floor": 1,
+   "shortfall": 9,
+   "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10",
+   "runner_up": {
+    "title": "StepStone raises $1.7bn for first dedicated infrastructure secondaries fund, already 50% deployed",
+    "score": 36.2,
+    "gap_to_last_selected": 4.3,
+    "explanation": "“Capital F closes $17m debut fund targeting $15tn ‘female eco” took the final slot at 40.5; “StepStone raises $1.7bn for first dedicated infrastructure s” scored 36.2, below the floor of 40"
+   },
+   "selected": [
+    {
+     "rank": 1,
+     "title": "Capital F closes $17m debut fund targeting $15tn ‘female economy’, women make up nearly 85% of LP base",
+     "score": 40.5,
+     "band": "routine",
+     "depth": "tier_c",
+     "evidence": "single_summary",
+     "subsector": "fund_close",
+     "why": "rank 1 of 1 in private_equity: scored 40.5 (routine); single_summary evidence supports tier_c"
+    }
+   ]
+  }
+ },
+ "global_top": [
+  {
+   "rank": 1,
+   "sector": "commercial_real_estate",
+   "title": "Cortland Sells West Palm Rental at Discount for $208M",
+   "score": 55.3,
+   "depth": "tier_b"
+  },
+  {
+   "rank": 2,
+   "sector": "commercial_real_estate",
+   "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+   "score": 54.7,
+   "depth": "tier_b"
+  },
+  {
+   "rank": 3,
+   "sector": "commercial_real_estate",
+   "title": "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon",
+   "score": 53.4,
+   "depth": "tier_b"
+  },
+  {
+   "rank": 4,
+   "sector": "fed_macro",
+   "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+   "score": 53.1,
+   "depth": "tier_b"
+  },
+  {
+   "rank": 5,
+   "sector": "fed_macro",
+   "title": "Warsh furthers his push toward a ‘quieter Fed’",
+   "score": 53.1,
+   "depth": "tier_b"
+  },
+  {
+   "rank": 6,
+   "sector": "local_government",
+   "title": "IT Services Company Spending $45M on Mesa HQ",
+   "score": 48.9,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 7,
+   "sector": "commercial_real_estate",
+   "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+   "score": 48.2,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 8,
+   "sector": "data_centers",
+   "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+   "score": 47.1,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 9,
+   "sector": "commercial_real_estate",
+   "title": "Harrison Street, Meridian Buy 431K-SF NoVA Office Portfolio",
+   "score": 47.0,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 10,
+   "sector": "commercial_real_estate",
+   "title": "Bonaventure Acquires Ownership Interest Maryland Apartment Community",
+   "score": 46.9,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 11,
+   "sector": "commercial_real_estate",
+   "title": "Colliers Facilitates $23.15M Sale of Coolidge Corner Collection Portfolio in Brookline",
+   "score": 46.3,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 12,
+   "sector": "commercial_real_estate",
+   "title": "JLL Arranges $13.5M Sale and Financing of 96-Room Residence Inn in Danvers Massachusetts",
+   "score": 46.3,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 13,
+   "sector": "commercial_real_estate",
+   "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
+   "score": 44.9,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 14,
+   "sector": "commercial_real_estate",
+   "title": "Parts Town Unlimited Signs 538,450 SF Industrial Lease in Pendergrass, Georgia",
+   "score": 43.5,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 15,
+   "sector": "fed_macro",
+   "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+   "score": 42.2,
+   "depth": "tier_c"
+  },
+  {
+   "rank": 16,
+   "sector": "private_equity",
+   "title": "Capital F closes $17m debut fund targeting $15tn ‘female economy’, women make up nearly 85% of LP base",
+   "score": 40.5,
+   "depth": "tier_c"
+  }
+ ],
+ "publication_target": 70,
+ "article_limit": 70,
+ "publication_target_met": false,
+ "publication_runner_up": null,
+ "publication_slate": [
+  {
+   "rank": 1,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "Cortland Sells West Palm Rental at Discount for $208M",
+   "score": 55.3,
+   "band": "signal",
+   "depth": "tier_b",
+   "evidence": "single_full_text",
+   "why": "rank 1 of 10 in commercial_real_estate: scored 55.3 (signal); single_full_text evidence supports tier_b"
+  },
+  {
+   "rank": 2,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+   "score": 54.7,
+   "band": "signal",
+   "depth": "tier_b",
+   "evidence": "single_full_text",
+   "why": "rank 2 of 10 in commercial_real_estate: scored 54.7 (signal); single_full_text evidence supports tier_b"
+  },
+  {
+   "rank": 3,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon",
+   "score": 53.4,
+   "band": "signal",
+   "depth": "tier_b",
+   "evidence": "single_full_text",
+   "why": "rank 3 of 10 in commercial_real_estate: scored 53.4 (signal); single_full_text evidence supports tier_b"
+  },
+  {
+   "rank": 4,
+   "role": "daily",
+   "sector": "fed_macro",
+   "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+   "score": 53.1,
+   "band": "signal",
+   "depth": "tier_b",
+   "evidence": "single_full_text",
+   "why": "rank 1 of 3 in fed_macro: scored 53.1 (signal); single_full_text evidence supports tier_b"
+  },
+  {
+   "rank": 5,
+   "role": "daily",
+   "sector": "fed_macro",
+   "title": "Warsh furthers his push toward a ‘quieter Fed’",
+   "score": 53.1,
+   "band": "signal",
+   "depth": "tier_b",
+   "evidence": "single_full_text",
+   "why": "rank 2 of 3 in fed_macro: scored 53.1 (signal); single_full_text evidence supports tier_b"
+  },
+  {
+   "rank": 6,
+   "role": "daily",
+   "sector": "local_government",
+   "title": "IT Services Company Spending $45M on Mesa HQ",
+   "score": 48.9,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 1 of 1 in local_government: scored 48.9 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 7,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+   "score": 48.2,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 4 of 10 in commercial_real_estate: scored 48.2 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 8,
+   "role": "daily",
+   "sector": "data_centers",
+   "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+   "score": 47.1,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 1 of 1 in data_centers: scored 47.1 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 9,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "Harrison Street, Meridian Buy 431K-SF NoVA Office Portfolio",
+   "score": 47.0,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 5 of 10 in commercial_real_estate: scored 47.0 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 10,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "Bonaventure Acquires Ownership Interest Maryland Apartment Community",
+   "score": 46.9,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 6 of 10 in commercial_real_estate: scored 46.9 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 11,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "Colliers Facilitates $23.15M Sale of Coolidge Corner Collection Portfolio in Brookline",
+   "score": 46.3,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 7 of 10 in commercial_real_estate: scored 46.3 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 12,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "JLL Arranges $13.5M Sale and Financing of 96-Room Residence Inn in Danvers Massachusetts",
+   "score": 46.3,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 8 of 10 in commercial_real_estate: scored 46.3 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 13,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
+   "score": 44.9,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_summary",
+   "why": "rank 9 of 10 in commercial_real_estate: scored 44.9 (routine); single_summary evidence supports tier_c"
+  },
+  {
+   "rank": 14,
+   "role": "daily",
+   "sector": "commercial_real_estate",
+   "title": "Parts Town Unlimited Signs 538,450 SF Industrial Lease in Pendergrass, Georgia",
+   "score": 43.5,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 10 of 10 in commercial_real_estate: scored 43.5 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 15,
+   "role": "daily",
+   "sector": "fed_macro",
+   "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+   "score": 42.2,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_full_text",
+   "why": "rank 3 of 3 in fed_macro: scored 42.2 (routine); single_full_text evidence supports tier_c"
+  },
+  {
+   "rank": 16,
+   "role": "daily",
+   "sector": "private_equity",
+   "title": "Capital F closes $17m debut fund targeting $15tn ‘female economy’, women make up nearly 85% of LP base",
+   "score": 40.5,
+   "band": "routine",
+   "depth": "tier_c",
+   "evidence": "single_summary",
+   "why": "rank 1 of 1 in private_equity: scored 40.5 (routine); single_summary evidence supports tier_c"
+  }
+ ]
+}

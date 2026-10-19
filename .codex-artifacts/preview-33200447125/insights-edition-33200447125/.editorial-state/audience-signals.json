@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "updated_at": null,
+  "method": "Weights are derived from qualified replies, saves, forwards, poll responses, and business conversations—not raw pageviews alone.",
+  "weights": {},
+  "supported_keys": [
+    "topic:<normalized-topic>",
+    "culture:<culture-dimension>",
+    "source:<domain>"
+  ],
+  "guardrails": {
+    "maximum_total_adjustment": 5,
+    "minimum_total_adjustment": -5,
+    "note": "Audience response may refine editorial judgment but can never override evidence, duplication, or routine-event penalties."
+  }
+}

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Tower Insights Generator — Systems Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#08131c;--surface:#0e1a28;--text:#e8e4dc;--muted:#8b9cad;
+  --accent:#c9a84c;--accent-dim:rgba(201,168,76,0.14);--accent-glow:rgba(201,168,76,0.3);
+  --gold:#c9a84c;--gold-rgb:201,168,76;--cream:#f5f4f0;--navy:#08131c;--white:#ffffff;
+  --line:rgba(201,168,76,0.1);--line-strong:rgba(201,168,76,0.22);
+  --sans:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --mono:'JetBrains Mono','Cascadia Code',Consolas,monospace;
+  --c1:#d4a843;--c2:#5ba4cf;--c3:#6dbdb0;--c4:#e8945c;--c5:#c08ed4;
+  --c6:#7eb8da;--c7:#e06070;--c8:#5cba7d;--c9:#d0c080;--c10:#c07050;
+  --c11:#8090b0;--c12:#f0a860;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:var(--sans);color:var(--text)}
+#app{width:100%;height:100%;position:relative;cursor:grab}
+#app.panning{cursor:grabbing}
+#canvas-container{position:absolute;top:0;left:0;will-change:transform;transform-origin:0 0}
+#title-area{position:absolute;left:80px;top:50px}
+#title-area h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--gold);letter-spacing:0.02em;line-height:1.1}
+#title-area h1 span{display:block;font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+#title-area .subtitle{font-size:14px;color:var(--muted);margin-top:6px;font-family:var(--mono);letter-spacing:0.04em}
+#title-area .stats{display:flex;gap:24px;margin-top:14px}
+#title-area .stats .stat{font-family:var(--mono);font-size:11px;color:var(--muted)}
+#title-area .stats .stat b{color:var(--gold);font-weight:600}
+#flow-svg{position:absolute;top:0;left:0;pointer-events:none;z-index:0}
+
+.stage-header{position:absolute;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.05em;color:var(--white);z-index:2}
+.stage-header .stage-num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;margin-right:8px;font-family:var(--mono);font-size:10px;font-weight:600;color:var(--navy)}
+.stage-subtitle{font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:2px;letter-spacing:0.06em}
+
+.card{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;transition:all 0.2s ease;cursor:default;overflow:hidden;z-index:3}
+.card:hover{z-index:200;transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 36px rgba(0,0,0,0.5),0 0 0 1.5px var(--accent-dim)}
+.card .card-name{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--white);margin-bottom:6px;line-height:1.3}
+.card .card-lines{font-family:var(--mono);font-size:9px;color:var(--muted);float:right;margin-left:6px}
+.card .card-desc{font-size:11px;line-height:1.5;color:var(--muted);margin-bottom:4px}
+.card .card-meta{font-size:9.5px;color:var(--line-strong);line-height:1.4;font-family:var(--mono)}
+.card .card-io{font-size:9px;color:var(--muted);margin-top:5px;padding-top:5px;border-top:1px solid var(--line)}
+.card .card-io span{display:inline-block;background:rgba(201,168,76,0.1);padding:1px 6px;border-radius:2px;margin:1px 2px;font-family:var(--mono);font-size:8px}
+.card.accent-st1{border-left:3px solid var(--c2)}.card.accent-st1 .card-name{color:var(--c2)}
+.card.accent-st2{border-left:3px solid var(--c3)}.card.accent-st2 .card-name{color:var(--c3)}
+.card.accent-st3{border-left:3px solid var(--c4)}.card.accent-st3 .card-name{color:var(--c4)}
+.card.accent-st4{border-left:3px solid var(--c5)}.card.accent-st4 .card-name{color:var(--c5)}
+.card.accent-st5{border-left:3px solid var(--c6)}.card.accent-st5 .card-name{color:var(--c6)}
+.card.accent-st6{border-left:3px solid var(--c7)}.card.accent-st6 .card-name{color:var(--c7)}
+.card.accent-st7{border-left:3px solid var(--c8)}.card.accent-st7 .card-name{color:var(--c8)}
+.card.accent-st8{border-left:3px solid var(--c12)}.card.accent-st8 .card-name{color:var(--c12)}
+.card.accent-cfg{border-left:3px solid var(--c9)}.card.accent-cfg .card-name{color:var(--c9)}
+.card.accent-state{border-left:3px solid var(--c10)}.card.accent-state .card-name{color:var(--c10)}
+.card.accent-cicd{border-left:3px solid var(--c11)}.card.accent-cicd .card-name{color:var(--c11)}
+.card.accent-orch{border-left:3px solid var(--c1)}.card.accent-orch .card-name{color:var(--c1)}
+
+.card.big-card{padding:16px 20px}
+.card.big-card .card-name{font-size:14px}
+.card.highlight{animation:cardPulse 0.6s ease;border-color:var(--accent)!important;box-shadow:0 0 28px var(--accent-glow),0 0 0 1.5px var(--accent-dim)!important}
+@keyframes cardPulse{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+
+#tooltip{position:fixed;pointer-events:none;z-index:9999;background:rgba(14,26,40,0.96);border:1px solid var(--accent);border-radius:5px;padding:12px 16px;font-size:12px;line-height:1.55;max-width:340px;opacity:0;transition:opacity 0.12s;box-shadow:0 14px 44px rgba(0,0,0,0.65);backdrop-filter:blur(12px)}
+#tooltip .tt-name{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);margin-bottom:5px}
+#tooltip .tt-desc{color:var(--text);margin-bottom:5px}
+#tooltip .tt-meta{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:3px}
+#tooltip .tt-io{font-family:var(--mono);font-size:9px;color:var(--line-strong);margin-top:4px}
+#tooltip.visible{opacity:1}
+
+#legend{position:fixed;bottom:20px;right:20px;z-index:500;background:rgba(14,26,40,0.93);border:1px solid var(--line-strong);border-radius:6px;padding:12px 14px;font-family:var(--mono);font-size:10px;backdrop-filter:blur(10px);transition:all 0.2s;max-height:60vh;overflow-y:auto}
+#legend.collapsed .leg-body{display:none}
+#legend .leg-title{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:6px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+#legend .leg-row{display:flex;align-items:center;gap:8px;margin-bottom:3px;color:var(--muted);font-size:9px}
+#legend .leg-swatch{width:10px;height:10px;border-radius:1px;flex-shrink:0}
+#legend .leg-header{font-size:10px;color:var(--text);margin:6px 0 3px;font-weight:600}
+
+#search-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2000;background:rgba(8,19,28,0.93);display:none;flex-direction:column;align-items:center;padding-top:80px;backdrop-filter:blur(8px)}
+#search-overlay.active{display:flex}
+#search-input{width:480px;max-width:90%;background:var(--surface);border:1px solid var(--line-strong);border-radius:6px;padding:14px 20px;font-family:var(--mono);font-size:16px;color:var(--white);outline:none;transition:border-color 0.2s}
+#search-input:focus{border-color:var(--accent)}
+#search-input::placeholder{color:var(--muted)}
+#search-results{margin-top:16px;width:480px;max-width:90%;max-height:45vh;overflow-y:auto}
+#search-results .sr-item{padding:8px 12px;cursor:pointer;border-radius:3px;font-size:12px;color:var(--muted);transition:all 0.12s;font-family:var(--mono);margin-bottom:2px}
+#search-results .sr-item:hover{background:var(--surface);color:var(--gold)}
+#search-hint{position:fixed;top:20px;right:20px;z-index:500;font-family:var(--mono);font-size:10px;color:var(--muted);background:rgba(14,26,40,0.78);padding:6px 12px;border-radius:3px;border:1px solid var(--line);pointer-events:none}
+
+.mini-card{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:6px 10px;font-size:9px;font-family:var(--mono);color:var(--muted);z-index:2;transition:all 0.15s}
+.mini-card:hover{transform:translateY(-1px);border-color:var(--accent);z-index:50;color:var(--white);box-shadow:0 4px 16px rgba(0,0,0,0.4)}
+.mini-card .mc-name{font-weight:600;color:var(--white);margin-bottom:2px;font-size:10px}
+.mini-card.accent-dim{border-left:2px solid var(--line-strong)}
+.mini-card.accent-blue{border-left:2px solid var(--c2)}
+.mini-card.accent-teal{border-left:2px solid var(--c3)}
+.mini-card.accent-orange{border-left:2px solid var(--c4)}
+.mini-card.accent-purple{border-left:2px solid var(--c5)}
+.mini-card.accent-green{border-left:2px solid var(--c8)}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:2px}
+
+#watermark{position:absolute;right:80px;bottom:200px;font-family:var(--serif);font-size:180px;color:var(--line);opacity:0.025;pointer-events:none;z-index:0;white-space:nowrap;user-select:none}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="canvas-container">
+
+    <div id="watermark">INSIGHTS</div>
+
+    <div id="title-area" style="width:800px">
+      <h1><span>Autonomous Editorial Intelligence System</span>The Insights Generator</h1>
+      <div class="subtitle">Complete Pipeline Architecture — 13 Stages • 28+ Modules • 150+ Sources • 7 Sectors</div>
+      <div class="stats">
+        <div class="stat"><b>13</b> pipeline stages</div>
+        <div class="stat"><b>28</b> Python modules</div>
+        <div class="stat"><b>10</b> scoring dimensions</div>
+        <div class="stat"><b>7</b> stage article generator</div>
+        <div class="stat"><b>5</b> editorial formats</div>
+        <div class="stat"><b>10</b> quality gates</div>
+      </div>
+    </div>
+
+    <!-- All cards rendered by JS -->
+    <div id="cards-layer"></div>
+
+    <!-- SVG flow arrows -->
+    <svg id="flow-svg" width="10000" height="8000"></svg>
+  </div>
+</div>
+
+<div id="tooltip"></div>
+<div id="search-hint">Ctrl+F to search • Scroll to zoom • Drag to pan • Double-click to reset</div>
+<div id="legend">
+  <div class="leg-title" onclick="this.parentElement.classList.toggle('collapsed')">LEGEND ▼</div>
+  <div class="leg-body">
+    <div class="leg-header">PIPELINE STAGES</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c2)"></span> Stage 1 — Schedule & Preflight</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c3)"></span> Stage 2 — Ingest (150+ RSS feeds)</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c4)"></span> Stage 3 — Classify & Score</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c5)"></span> Stage 4 — Event Intelligence</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c6)"></span> Stage 5 — Research & Editorial Room</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c7)"></span> Stage 6 — 7-Stage Article Generation</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c8)"></span> Stage 7 — Quality Governance</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c12)"></span> Stage 8 — Publish & Deploy</div>
+    <div class="leg-header" style="margin-top:6px">SUPPORT</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c9)"></span> Configuration (sources, sectors, thresholds)</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c10)"></span> State / Memory (editorial-state/)</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c11)"></span> CI/CD (GitHub Actions, Netlify)</div>
+    <div class="leg-row"><span class="leg-swatch" style="background:var(--c1)"></span> Orchestrator (daily_news_agent.py)</div>
+  </div>
+</div>
+
+<div id="search-overlay">
+  <input id="search-input" type="text" placeholder="Search modules, stages, descriptions..." autofocus>
+  <div id="search-results"></div>
+</div>
+
+<script>
+const svgNS = 'http://www.w3.org/2000/svg';
+
+// ── STAGE HEADERS ─────────────────────────────────────────────────────
+
+const STAGES = [
+  {id:'s0',x:80,y:180,color:'#c9a84c',num:'',label:'ORCHESTRATOR',sub:'daily_news_agent.py — 2,842 lines — entry point'},
+  {id:'s1',x:80,y:480,color:'#5ba4cf',num:'1',label:'SCHEDULE & PREFLIGHT',sub:'resolve_schedule_policy.py + model_router.py'},
+  {id:'s2',x:80,y:740,color:'#6dbdb0',num:'2',label:'INGESTION — 150+ Sources × 7 Sectors',sub:'ingestion.py + canonical_item.py + intelligence_object.py'},
+  {id:'s3',x:80,y:1200,color:'#e8945c',num:'3',label:'CLASSIFY & SCORE — 10 Dimensions',sub:'classification.py + scoring_engine.py + ranking.py'},
+  {id:'s4',x:80,y:1760,color:'#c08ed4',num:'4',label:'EVENT INTELLIGENCE — Cluster • Match • Select',sub:'editorial_intelligence.py — 912 lines'},
+  {id:'s5',x:80,y:2280,color:'#7eb8da',num:'5',label:'RESEARCH DOSSIER & EDITORIAL ROOM',sub:'research_dossier.py + editorial_room.py'},
+  {id:'s6',x:80,y:2780,color:'#e06070',num:'6',label:'7-STAGE ARTICLE GENERATION',sub:'editorial_pipeline.py — 916 lines'},
+  {id:'s7',x:80,y:3800,color:'#5cba7d',num:'7',label:'QUALITY GOVERNANCE — 10 Gates',sub:'content_governance.py + fact_extractor.py'},
+  {id:'s8',x:80,y:4400,color:'#f0a860',num:'8',label:'PUBLISH & DEPLOY',sub:'edition_manager.py + publish_generated.py + social images + RSS/sitemap'},
+  {id:'cfg',x:80,y:5100,color:'#d0c080',num:'CFG',label:'CONFIGURATION',sub:'sources.json + sectors.json + thresholds.json + watchlists.json'},
+  {id:'st',x:80,y:5550,color:'#c07050',num:'ST',label:'DURABLE STATE',sub:'.editorial-state/ — event memory, scheduler lease, run records'},
+  {id:'cicd',x:80,y:5950,color:'#8090b0',num:'CI',label:'CI/CD & DEPLOYMENT',sub:'GitHub Actions + netlify.toml + Netlify Functions'},
+];
+
+STAGES.forEach((s,i) => {
+  const el = document.createElement('div');
+  el.className = 'stage-header';
+  el.style.cssText = `left:${s.x}px;top:${s.y}px;`;
+  const dotColor = s.color;
+  el.innerHTML = (s.num ? `<span class="stage-num" style="background:${s.color};color:#08131c">${s.num}</span>` : '') +
+    `${s.label}<div class="stage-subtitle">${s.sub}</div>`;
+  document.getElementById('cards-layer').appendChild(el);
+});
+
+// ── CARD DATA ──────────────────────────────────────────────────────────
+
+const CARDS = [
+
+  // ── STAGE 0: ORCHESTRATOR ──
+  {id:'agent',x:80,y:230,w:420,h:210,color:'orch',big:true,name:'daily_news_agent.py',lines:'2,842',
+   desc:'CENTRAL NERVOUS SYSTEM. Main entry point that coordinates every stage. Invoked by GitHub Actions or local scheduler. Handles --shadow, --dry-run, --pipeline-v2, --selection-mode edition flags. Imports 20+ sub-modules. Runs 8 numbered phases.',
+   meta:'Loads .env → fuses RSS+FEDERAL feeds → configures DeepSeek (deepseek-v4-pro, temp 0.2) → defines static sitemap pages → sets up ALL_RSS_FEEDS → implements secret redaction for logs → mojibake detection (encoding damage guard)',
+   io:''},
+
+  // ── STAGE 1: SCHEDULE & PREFLIGHT ──
+  {id:'resolve',x:180,y:540,w:280,h:150,color:'st2',name:'resolve_schedule_policy.py',
+   desc:'DST-aware schedule guard. GitHub Actions triggers at 11:07 and 12:07 UTC. This module permits only the cron trigger that maps to 07:07 NY time (handles both EDT UTC-4 and EST UTC-5 without manual cron changes).',
+   meta:'Event-driven: checks github.event_name, trigger cron string, dispatch mode. Sets RUN_MODE: shadow | preview | publish. Skip=true for inactive cron trigger.',
+   io:''},
+  {id:'router',x:510,y:540,w:200,h:120,color:'st2',name:'model_router.py',
+   desc:'Provider preflight. Pings DeepSeek API with DEEPSEEK_API_KEY. Confirms model availability and token limits. Fails the workflow if provider is unreachable.',
+   meta:'API connectivity test before any editorial work begins.',
+   io:''},
+  {id:'validate',x:760,y:540,w:220,h:120,color:'st2',name:'validate_publication.py',
+   desc:'Pre-run validation: python -m py_compile scripts/*.py, python -m unittest discover -s tests, node --check on all JS files, validates public assets.',
+   meta:'Runs BEFORE generation to verify baseline. Runs AGAIN after generation before deployment.',
+   io:''},
+
+  // ── STAGE 2: INGESTION ──
+  {id:'ingest',x:180,y:800,w:350,h:170,color:'st3',name:'ingestion.py',lines:'326',
+   desc:'Fetches from 150+ RSS feeds via feedparser. ThreadPoolExecutor (8 workers). 36-hour recency filter. Tracks source health. Shared outage detection: if ≥8 sources attempted and ≥50% fail → releases ALL quarantines (network outage, not per-publisher failure).',
+   meta:'MAX_ENTRIES_PER_FEED=500 • LOOKBACK_HOURS=36 • User-Agent: LightTowerGroup-NewsAgent/2.0 • Functions: load_sources(), fetch_single_feed(), fetch_all_sources() • Returns: list[CanonicalItem]',
+   io:'Input: config/sources.json | Output: ~80–150 CanonicalItem objects'},
+  {id:'canonical',x:580,y:800,w:330,h:170,color:'st3',name:'canonical_item.py',lines:'233',
+   desc:'UNIFIED DATA MODEL. Every story is a typed @dataclass with 40+ fields. Fields: identity (item_id, source_name, headline, publication_date), classification (primary_sector, secondary_sectors, event_type, subsector, confidence), entities (companies, buyers, sellers, lenders, developers), financial (amounts, square_feet, units, megawatts), scoring (all 10 dimension scores, composite, tier).',
+   meta:'Key methods: from_rss_entry() factory, age_hours() computes recency, set_scoring() records all dimension scores, set_classification() records sector/event/subtype. Source tier 1-5 + authority (primary/secondary).',
+   io:'Input: RSS entry dict + source config | Output: typed CanonicalItem'},
+  {id:'intelobj',x:960,y:800,w:370,h:170,color:'st3',name:'intelligence_object.py',lines:'498',
+   desc:'EVENT GROUPING — collapses multiple articles about the same transaction into one IntelligenceObject. CRITICAL INNOVATION: prevents 3 outlets covering the same $500M deal from consuming 3 slots in a 10-story slate.',
+   meta:'ObjectClass vocabulary: DISCRETE_EVENT, EVENT_UPDATE, DATA_RELEASE, MARKET_MOVEMENT, TREND, DISCLOSURE, ANALYTICAL_FINDING. ContentType: NEWS_REPORT, PRESS_RELEASE, PRIMARY_DOCUMENT, REGULATORY_FILING, EARNINGS_MATERIAL, DATA_PUBLICATION, RESEARCH_REPORT, INTERVIEW, OPINION. Schema versioned (v1).',
+   io:'Input: multiple CanonicalItem | Output: single IntelligenceObject with source cluster + entity merge'},
+  {id:'srchealth',x:1380,y:800,w:230,h:120,color:'st3',name:'source_health.py',lines:'—',
+   desc:'Feed reliability tracking across runs. Quarantines persistently failing sources. Shared outage detection releases quarantines on network-wide failures.',
+   meta:'SourceHealthLedger class. Tracks: ok, empty, error states per source. Quarantine after repeated failures.',
+   io:''},
+  {id:'stories',x:1380,y:950,w:230,h:90,color:'st3',name:'story_normalizer.py',lines:'—',
+   desc:'Normalizes stories: strips HTML, extracts entities, validates CRE editorial anchors and reported amounts ≥$10M.',
+   meta:'Functions: normalize_stories(), enrich_normalized_story(), has_cre_editorial_anchor(), has_reported_amount_at_least_ten_million()',
+   io:''},
+
+  // ── STAGE 3: CLASSIFY & SCORE ──
+  {id:'classify',x:180,y:1260,w:380,h:230,color:'st4',name:'classification.py',lines:'295',
+   desc:'MULTI-LABEL CLASSIFICATION — 3 layers: (1) Source-based priors: 70+ known source→sector mappings. (2) Regex signal scoring: 7 sector pattern sets (CRE, PE, DC, Energy, Banking, Fed/Macro, LocalGov). (3) Entity recognition via config/watchlists.json.',
+   meta:'CRE patterns: multifamily|office building|cap rate|occupancy|cmbs|noi|dscr|ltv|refinanc*|bridge loan|construction loan. PE patterns: buyout|take.private|leveraged buyout|growth equity|fund close|fundraising. DC patterns: data center|hyperscale|colocation|gpu cluster|pue. Energy: power plant|solar farm|ppa|ferc. Banking: bank failure|loan.loss reserve|fdic|basel|ccar. Fed: federal reserve|fomc|sofr|cpi|pce|nonfarm payroll. LocalGov: city council|planning board|zoning variance|tax abatement|pilot agreement.',
+   io:'Input: CanonicalItem | Output: classified item with primary_sector, secondary_sectors, confidence, method'},
+  {id:'contenttype',x:610,y:1260,w:200,h:100,color:'st4',name:'content_typing.py',lines:'—',
+   desc:'Content type classification: news_report, press_release, primary_document, regulatory_filing, earnings_material, data_publication, research_report, interview, opinion.',
+   meta:'Gates eligibility — opinion pieces and interviews are handled differently from hard news.',
+   io:''},
+  {id:'score',x:860,y:1260,w:420,h:230,color:'st4',name:'scoring_engine.py',lines:'416',
+   desc:'10-DIMENSION DETERMINISTIC SCORING. ZERO LLM CALLS. Each dimension scored 1-10: (1) financial_magnitude — extract $, sector thresholds (2) party_significance — watchlist entity tier matching (3) market_impact — pattern bonuses (4) strategic_relevance — CRE/capital term matching (5) policy_impact — regulatory pattern bonuses (6) novelty (7) source_quality — tier 1→10, tier 5→1 (8) timeliness — hours-based decay (9) editorial_potential — word count + entity bonus (10) cross_sector_impact.',
+   meta:'Composite = (weighted_sum / weight_sum) × 10 → 0-100. Tier assignment: ≥80 tier_1_must_cover, ≥65 tier_2_strongly_recommended, ≥50 tier_3_useful_coverage, ≥35 tier_4_reserve, <35 rejected. Sector-specific weight profiles from scoring_profiles.json. Thread-safe cached JSON loading.',
+   io:'Input: classified CanonicalItem | Output: scored item with all 10 dimension scores + composite + tier'},
+  {id:'rank',x:1330,y:1260,w:300,h:160,color:'st4',name:'ranking.py',lines:'296',
+   desc:'Within-sector ranking by composite score descending. DIVERSITY CONTROLS: no subsector >40%, no source >25%, no company >20%, min 3 distinct subsectors. Replaces excess from dominant subsectors/sources with diverse alternatives. Cross-sector deduplication.',
+   meta:'Functions: rank_within_sector(), apply_diversity_controls(), rank_and_select(). Produces per-sector slates (~30 stories each).',
+   io:''},
+
+  // ── STAGE 4: EVENT INTELLIGENCE ──
+  {id:'edintel',x:180,y:1820,w:490,h:280,color:'st5',name:'editorial_intelligence.py',lines:'912',
+   desc:'DETERMINISTIC EDITORIAL BRAIN. 4 subsystems: (A) Event Clustering — greedy clustering at 0.61 similarity threshold, multi-dimensional similarity (title 55%, companies 20%, amounts 15%, markets 5%, assets 5%). (B) Archive Matching — detects same-event prior coverage using 5 signal dimensions (title overlap ≥0.57, amount+context ≥0.16, address+context ≥0.14, entity+context ≥0.24, context ≥0.38). (C) Must-Read Scoring — 9 dimensions (consequence max15, novelty max15, conflict max15, explanatory max15, cultural max10, human_stakes max10, evidence max10, right_to_win max10, conversation max10). (D) Edition Selection — scarce daily portfolio targeting 3 publishable pieces.',
+   meta:'Formats: Flagship Analysis (750-1050w, 3 sources), Intelligence Brief (240-430w, 1 source), Culture of Capital (300-550w, 2 sources), Data Note (200-400w, 1 source), Deal Tape (≤80w, 1 source). Franchises: Credit Committee Theater, Five Minutes Before Maturity, Who Got Paid/Who Got Stuck, What the Press Release Left Out, Capital After Dark, The Most Expensive Assumption. Penalties: routine -18 (formulaic language), archive repeat up to -18.',
+   io:'Input: scored events + archive records | Output: editorial_selection with formats, scores, assignments'},
+
+  // ── STAGE 5: RESEARCH & EDITORIAL ROOM ──
+  {id:'dossier',x:180,y:2340,w:450,h:260,color:'st6',name:'research_dossier.py',lines:'236',
+   desc:'MULTI-SOURCE EVIDENCE LEDGER. For each selected event: fetches full text for every independent source, sanitizes (removes instruction-like text), extracts fact-bearing sentences (must contain: $X, X%, 20XX year, attribution verbs, transaction verbs, CRE metrics), extracts quotes (curly+straight, 20-280 chars). Computes evidence_level: deep (≥3 independent+≥2 full text), adequate (≥2 or primary source), thin (≥1), insufficient.',
+   meta:'Key metrics: independent_source_count (unique domains), usable_full_text_count, longform_allowed (deep or adequate). reporting_gaps: missing figures, missing party identities, missing market context. dossier_prompt_payload() serializes for LLM inclusion (24,000 character limit).',
+   io:'Input: editorial_event + fetched_text_by_url | Output: complete dossier with source_facts, quote_ledger, evidence_level'},
+  {id:'edroom',x:680,y:2340,w:450,h:260,color:'st6',name:'editorial_room.py',lines:'352',
+   desc:'THE ASSIGNING EDITOR & SKEPTIC. (1) Deterministic plan: format downgrades (flagship→brief if no longform, culture→brief if <2 sources, force deal_tape if insufficient evidence). (2) LLM editorial room: DeepSeek decides decision (write/shorten/kill/deal_tape), final_format, angle, why_now, skeptic_objections, reporting_gaps, human_stakes, kill_reason. (3) DAILY-DEPTH BRIEF OVERRIDE GUARD: if deterministic contract says supported (≥1 full text, ≥3 facts, no legal risk, no hard-stop patterns) but LLM says kill → deterministic OVERRIDES.',
+   meta:'EDITORIAL CONSTITUTION: "Light Tower publishes only when it can make a smart reader see a capital decision differently. Accuracy is the floor. Work must add consequence, mechanism, stakes, candor, and a bounded point of view." Hard-stop patterns: allegations, lawsuits, criminal, fraud, indicted, source authenticity, fabricate, cannot verify, unsupported claims, duplicate.',
+   io:'Input: editorial_event + dossier | Output: editorial plan with format, angle, kill/defer/shorten decision'},
+
+  // ── STAGE 6: 7-STAGE ARTICLE GENERATION ──
+  {id:'genroute',x:180,y:2840,w:330,h:150,color:'st7',name:'generation.py',lines:'439',
+   desc:'SECTOR-AWARE PROMPT ROUTING. Maps 7 sectors to system prompts (PE_SYSTEM_PROMPT, DC_SYSTEM_PROMPT, ENERGY_SYSTEM_PROMPT, BANKING_SYSTEM_PROMPT, FED_SYSTEM_PROMPT, LOCALGOV_SYSTEM_PROMPT). 60+ event_type→article_format mappings.',
+   meta:'Sector categories: CRE→Capital Markets, PE→Deal Intelligence, DC/Energy→Market Analysis, Banking→Debt & Equity, Fed/LocalGov→Policy & Regulation. Article types: fundraising_analysis, transaction_brief, exit_analysis, deal_analysis, development_brief, lease_analysis, energy_brief, distress_brief, macro_brief, data_note, policy_analysis.',
+   io:''},
+  {id:'v2bridge',x:560,y:2840,w:280,h:130,color:'st7',name:'v2_editorial.py',lines:'401',
+   desc:'Pipeline bridge — converts v2 multi-sector candidates into the research-dossier contract. Legal risk detection (allegation|alleged|lawsuit|litigation|fraud|indicted|sanction). Non-editorial format rejection (test drive|podcast|webinar|photo gallery). Capital/policy anchor verification.',
+   meta:'Sector article anchors: per-sector regexes verify the story is actually about that sector. generate_v2_article() runs the full 7-stage pipeline.',
+   io:''},
+  {id:'sectorpro',x:890,y:2840,w:230,h:110,color:'st7',name:'sector_prompts.py + enhanced_prompts.py',lines:'—',
+   desc:'7 sector-specific system prompts (PE, DC, Energy, Banking, Fed, LocalGov, CRE). SYSTEM_PROMPT_ENHANCED for the curated edition mode.',
+   meta:'Each prompt encodes the journalistic voice, analytical standards, and sector-specific vocabulary for that sector.',
+   io:''},
+  {id:'pipeline',x:180,y:3030,w:1000,h:370,color:'st7',big:true,name:'editorial_pipeline.py — THE 7-STAGE PIPELINE',lines:'916',
+   desc:'STAGE 1: Analytical Brief — deterministic structured pre-writing analysis (central question, core tension, thesis, parties+incentives, transaction economics, key numbers, unknowns) + optional LLM enhancement. STAGE 2: Assemble Writing Prompt — sector-specific system prompt + source dossier (24K chars) + analytical brief + 12 WRITING RULES (open with most revealing fact, interpret numbers, name parties and incentives, distinguish facts/inferences/unknowns, vary sentence rhythm, never use "signals/highlights/underscores/showcases", every claim must be dossier-supported, label calculations, sources = canonical URLs only, never mention internal scores).',
+   meta:'STAGE 3: Draft — DeepSeek call, json_mode, temp 0.2, max_tokens 8,000. Required fields: body_html, title, excerpt, sources, excellence_ledger. Non-empty sources array validation. STAGE 4: Financial Review — separate LLM: checks figures, explains what numbers MEAN, calibration rules (judge against dossier, not imagined underwriting; don\'t fail for undisclosed loan pricing — fail if article invents it). STAGE 5: Editorial Review — separate LLM: checks opening quality, logical flow, sentence variety, AI language detection, voice. STAGE 6: Fact Verification — DETERMINISTIC: source URL cross-ref, key number check, unsupported claim scan ("analysts predict", "sources say"), audit_article_facts() cross-ref. STAGE 7: Final Revision — LLM consolidates all issues, rewrites with fixes, deletes unsupported claims when no valid replacement.',
+   io:'Input: CanonicalItem + dossier + format | Output: complete article JSON with public fields + narrative_ledger + excellence_ledger'},
+
+  // ── STAGE 7: QUALITY GOVERNANCE ──
+  {id:'contentgov',x:180,y:3860,w:480,h:300,color:'st8',name:'content_governance.py',lines:'217',
+   desc:'THE SAFEGUARDS. DETERMINISTIC — NEVER CALLS AN LLM. 10 INDEPENDENT QUALITY GATES:',
+   meta:'GATE 1: Fallback writing detection → hold for review. GATE 2: Word count checks — format-specific min/max (flagship 725-1100, brief 215-475, culture 275-625, data_note 175-450). GATE 3: Structure — ≥2 h2 sections (full articles). GATE 4: Boilerplate detection — catches known LLM artifacts ("the headline is therefore a doorway", "buildings are where private capital"). GATE 5: Voice quality — editorial_quality_issues(). GATE 6: Source validation — non-empty, https://, no example.com fixtures. GATE 7: Paragraph repetition — ≥4 paras + <90% unique → flag. GATE 8: Fact audit — cross-ref article amounts/companies/addresses against dossier source_facts. GATE 9: Semantic claim audit — breaks central claim into assertions, checks each against source texts. GATE 10: Near-duplicate detection — SequenceMatcher ratio ≥0.86 or Jaccard token ≥0.82 against published archive. PROMPT INJECTION DEFENSE: regex blocks "ignore previous instructions", "system prompt", "reveal your instructions", "act as a different assistant". Applied to ALL source text before prompting.',
+   io:'Input: article dict + dossier + archive records | Output: list of error strings (empty = passed all 10 gates)'},
+  {id:'factext',x:710,y:3860,w:370,h:280,color:'st8',name:'fact_extractor.py',lines:'264',
+   desc:'DETERMINISTIC FACT VERIFICATION. ZERO LLM CALLS. extract_amounts(): regex \\$\\s*([\\d,.]+)\\s*(million|billion|trillion|mm|bn|m|b)? with 60-char context. extract_percentages(): X% or X bps with 40-char context. extract_companies(): 60+ hardcoded CRE/finance institutions (Blackstone, Brookfield, Apollo, KKR, Goldman, JPMorgan, CBRE, JLL, Cushman, Eastdil, Newmark, Meridian, Walker & Dunlop, KeyBank, PNC, M&T Bank...). extract_addresses(): street address regex. audit_article_facts(): cross-references all extracted article data against dossier source_facts — flags unmatched amounts, companies, addresses.',
+   meta:'audit_claim_semantic(): Breaks article\'s central claim into assertions (split on ; | , | "and"), checks each assertion via keyword matching against source texts. Returns claim_supported (bool), confidence (0-1), assertions_found, assertions_missing. Source tier affects fact audit leniency: tier 1-2 hold on 1 mismatch, tier 3 hold on 2, tier 4 hold on 3, tier 5 hold on 5.',
+   io:'Input: article body_html + dossier source_facts | Output: structured audit with matched/unmatched lists + hold_for_review flag'},
+
+  // ── STAGE 8: PUBLISH & DEPLOY ──
+  {id:'editionmgr',x:180,y:4460,w:370,h:200,color:'st9',name:'edition_manager.py',lines:'293',
+   desc:'DAILY EDITION BUILDER. calculate_read_time(): words/225 (standard reading speed). _article_summary(): event_id, title, subtitle, slug, url, category, format, must_read_score, selection_tier, read_time, source_count (unique domains). _deal_tape_summary(): compact structured entries.',
+   meta:'build_edition_document(): article summaries + Deal Tape + editorial metadata (thresholds, production window). save_public_edition() → editions/YYYY-MM-DD.json + latest-edition.json. update_event_memory() → SHA-256 event fingerprints added to persistent ledger. save_publication_decision() → auto-publish or review required. save_run_record() → .editorial-state/runs/. render_run_summary() → markdown for GitHub Actions.',
+   io:''},
+  {id:'publish',x:600,y:4460,w:300,h:150,color:'st9',name:'publish_generated.py',lines:'93',
+   desc:'SAFE GIT PUBLICATION. Only publishes files declared in .editorial-state/generated-files.json. Security: no absolute paths, no .. traversal, no .git/ paths. Resolves all paths relative to SITE_ROOT, verifies within root. git add → commit → push origin main (auto-publish) OR push review branch + gh pr create (editorial review).',
+   meta:'Publication decision from publication-decision.json: flagships, Culture of Capital, legal risk, insufficient evidence → review PR. Briefs, data notes, routine coverage → auto-publish to main.',
+   io:''},
+  {id:'social',x:950,y:4460,w:260,h:120,color:'st9',name:'social_image_generator.py',lines:'—',
+   desc:'Generates branded _social.png for each article. Navy/gold background, wrapped title+subtitle text via Pillow. Light Tower mark. Called per article during Phase 6.',
+   meta:'Output: insights/{slug}_social.png — used for Open Graph / Twitter Card meta tags.',
+   io:''},
+  {id:'render',x:600,y:4640,w:300,h:120,color:'st9',name:'render_html() + update_feed_xml() + update_sitemap_xml()',lines:'—',
+   desc:'Phase 6 rendering: HTML pages with site design, insights.json manifest update, RSS feed.xml rebuild, sitemap.xml rebuild (16 static pages + all insights). Related articles by tag overlap (≥2 shared tags). LinkedIn PDF carousel generation (non-brief articles). LinkedIn essay package generation.',
+   meta:'Output: insights/{slug}.html, insights/{slug}_social.png, insights/{slug}_related.json, feed.xml, sitemap.xml, insights.json, linkedin_essay_queue.json',
+   io:''},
+  {id:'linkedin',x:950,y:4590,w:260,h:170,color:'st9',name:'LinkedIn Distribution Suite',lines:'—',
+   desc:'linkedin_essay_agent.py: Generates essay packages with voice modes (standard/edge/compressed). Quality check: publish_ready + editorial_review status. Fallback template-based. linkedin_thread_agent.py: Multi-post threads. linkedin_pdf_scheduler.py/post.py: PDF carousel scheduling/posting. linkedin_auth.py: OAuth. linkedin_engagement_scraper.py: Analytics.',
+   meta:'article_adapter.py (862 lines): HTML→Carousel transformation. TENSION_WORDS: debt, risk, pressure, default, foreclosure, distress. ANALYSIS_WORDS: signals, reveals, means, shows, demonstrates. Sentence extraction (8-42 words), compact formatting.',
+   io:''},
+
+  // ── CONFIGURATION ──
+  {id:'cfgsrc',x:180,y:5160,w:380,h:140,color:'cfg',name:'config/sources.json',lines:'5,094',
+   desc:'150+ NEWS SOURCES across 7 sectors. Each with: name, url, sectors[], tier (1-5), fetch_frequency_hours, auth_required, js_required, full_text_available, geographic_scope, source_type, active status, health tracking (state, http_status, items_in_window, newest_age_hours).',
+   meta:'Tiers: 1=primary/authoritative (Bloomberg, WSJ, Federal Reserve), 2=established (Bisnow, PEI), 3=trade (GlobeSt), 4=regional, 5=aggregator. Sources: Commercial Observer, The Real Deal, Bisnow, Bloomberg, WSJ, Crain\'s, PERE, IPE Real Assets, Data Center Dynamics, Utility Dive, Reuters, Federal Reserve, SEC, FDIC + 140 more.',
+   io:''},
+  {id:'cfgsec',x:610,y:5160,w:260,h:110,color:'cfg',name:'config/sectors.json',lines:'40',
+   desc:'7 SECTORS with subsectors and event types. CRE: 18 subsectors (multifamily, office, retail, hospitality...), 30 event types (property_acquisition, refinancing, foreclosure...). PE: 31 subsectors, 18 event types. DC: 9 subsectors, 19 event types. Energy: 15 subsectors, 23 event types. Banking: 27 subsectors, 12 event types. Fed/Macro: 12 subsectors, 13 event types. LocalGov: 20 subsectors, 21 event types.',
+   meta:'Each sector defines: label, subsectors[], event_types[]. Used by classification.py for regex patterns and type routing.',
+   io:''},
+  {id:'cfgthr',x:920,y:5160,w:240,h:90,color:'cfg',name:'thresholds.json + scoring_profiles.json',lines:'—',
+   desc:'Scoring tier boundaries (tier_1 ≥80, tier_2 ≥65, tier_3 ≥50, tier_4 ≥35). Per-sector weight profiles for 10 scoring dimensions.',
+   meta:'Different sectors weight dimensions differently (CRE weights financial_magnitude, fed_macro weights policy_impact).',
+   io:''},
+  {id:'cfgwch',x:1210,y:5160,w:200,h:90,color:'cfg',name:'watchlists.json',lines:'—',
+   desc:'Entity recognition lists: tier_1_institutions (top banks, PE firms, REITs, government), tier_2_companies (mid-tier), tier_3_firms (niche).',
+   meta:'Used by scoring_engine for party_significance and classification for entity matching.',
+   io:''},
+
+  // ── STATE ──
+  {id:'st8',x:180,y:5610,w:260,h:110,color:'state',name:'.editorial-state/scheduler.json',lines:'—',
+   desc:'Single-scheduler lease. Active scheduler: "github-actions" in production. Prevents duplicate daily runs.',
+   meta:'agent_runtime.py reads this before any Git or editorial work. Local scheduler exits without publishing while lease belongs to GitHub.',
+   io:''},
+  {id:'st9',x:470,y:5610,w:280,h:110,color:'state',name:'.editorial-state/event-memory.json',lines:'—',
+   desc:'Persistent event fingerprint ledger. Every published event\'s SHA-256 hash stored. Prevents re-publishing same transaction. Compared via editoral_intelligence.archive_matches().',
+   meta:'Signals: title overlap, dollar amounts, street addresses, companies, markets, asset classes. Recent same-event → suppressed. Older/new development → visible.',
+   io:''},
+  {id:'st10',x:780,y:5610,w:220,h:90,color:'state',name:'source-health.json',lines:'—',
+   desc:'Feed reliability tracking across cloud runs. Per-source: state (ok/empty/error), last checked, HTTP status, items in window, newest age.',
+   meta:'SourceHealthLedger reads/writes this file. Quarantines after repeated failures.',
+   io:''},
+  {id:'st11',x:1030,y:5610,w:220,h:90,color:'state',name:'audience-signals.json + discovery-watchlist.json',lines:'—',
+   desc:'Bounded audience learning weights (±5 adjustment to editorial scores). Editable culture/original-reporting radar topics.',
+   meta:'Topic weights, culture dimension weights, source preference weights. Adjusts must-read scoring.',
+   io:''},
+  {id:'st12',x:1280,y:5610,w:280,h:90,color:'state',name:'generated-files.json + publication-decision.json + candidate-audit.json',lines:'—',
+   desc:'Current run manifest (every file path created), auto-publish vs review decision, full scored candidate pool for post-hoc audit.',
+   meta:'publish_generated.py reads generated-files.json — only these exact files get git committed.',
+   io:''},
+  {id:'st13',x:1590,y:5610,w:200,h:90,color:'state',name:'runs/ + checkpoints/',lines:'—',
+   desc:'Daily editorial run records (YYYY-MM-DD.json) and resumable checkpoints for long pipeline phases.',
+   meta:'editorial_store.py reads/writes runs. checkpoint.py provides timeout-protected pipeline phases.',
+   io:''},
+
+  // ── CI/CD ──
+  {id:'cicd1',x:180,y:6010,w:400,h:160,color:'cicd',name:'.github/workflows/daily-insights-agent.yml',lines:'212',
+   desc:'PRODUCTION WORKFLOW. Dual cron: 11:07 UTC (EDT) and 12:07 UTC (EST) → both map to 07:07 NY. Concurrency: cancel-in-progress=false (never kill a running edition). Permissions: contents write, PR write. Steps: checkout → resolve_schedule_policy → setup Python 3.11 → install deps → validate baseline (compile + unit tests + JS checks) → provider preflight → build curated edition (--pipeline-v2, --selection-mode edition, --articles 5, --daily-target 3) → validate generated edition → write run summary → upload artifacts (30-day retention) → resolve auto-publish vs review → push main or open PR.',
+   meta:'Timeout: 120 minutes. Manual dispatch: mode (shadow|preview|publish), article_count (1|3|5). Other workflows: weekly-health-check.yml, quality.yml, weekly-assignment-desk.yml.',
+   io:''},
+  {id:'cicd2',x:630,y:6010,w:350,h:130,color:'cicd',name:'netlify.toml',lines:'285',
+   desc:'PRODUCTION CDN. CSP headers with per-path overrides (insights pages, dashboard). Redirects: blocks internal paths (.editorial-state/*, scripts/*, config/*, data/*, agent/*, memory/*) with 404. Canonicalizes duplicate article URLs. Forces HTTPS.',
+   meta:'Cache: static assets (images, CSS) cached aggressively (1 year). Dynamic files (feed.xml, sitemap.xml, insights.json) with short TTL + stale-while-revalidate. Functions never cached. Security: X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy, HSTS.',
+   io:''},
+  {id:'cicd3',x:1030,y:6010,w:520,h:130,color:'cicd',name:'Netlify Serverless Functions',lines:'—',
+   desc:'11 FUNCTIONS: newsletter-subscribe.js (Resend API), editorial-feedback.js (reader feedback), analytics-dashboard.js + analytics-retention.js (Blobs), visitor-track.js + track-read.js (page views), capital-diagnostic.js (tool backend), mandate-submit.js (lead forms), deal-notify.js (alerts), chat.js (AI chat), linkedin-essay.js (essay endpoint).',
+   meta:'analytics-retention runs on @daily schedule. All functions: no-store caching, nosniff content type. editorial-feedback falls back to Resend or webhook sink.',
+   io:''},
+
+  // ── UTILITIES ──
+  {id:'util1',x:180,y:6260,w:320,h:80,color:'st1',name:'agent_runtime.py (146 lines) + checkpoint.py + cost_tracker.py',lines:'—',
+   desc:'Local scheduler with Git preflight + scheduler lease enforcement. Timeout-protected pipeline phases (gather 5min, enrich 10min, generate 30min). API cost tracking (DeepSeek tokens + NewsAPI calls).',
+   meta:'',
+   io:''},
+  {id:'util2',x:530,y:6260,w:450,h:80,color:'st1',name:'backfill_social_images.py / backfill_og_image.py / backfill_article_cta.py / cleanup_article_images.py / rebuild_articles.py / patch_nav_services.py',lines:'—',
+   desc:'Maintenance utilities — social image backfill, OG image generation, CTA backfill, orphan image cleanup, article rebuild from stored data, navigation patching across site.',
+   meta:'',
+   io:''},
+];
+
+// ── RENDER CARDS ───────────────────────────────────────────────────────
+
+const cardsLayer = document.getElementById('cards-layer');
+
+CARDS.forEach(card => {
+  const el = document.createElement('div');
+  el.className = `card ${card.big ? 'big-card' : ''}`;
+  if (card.color === 'orch') el.classList.add('accent-orch');
+  else if (card.color === 'st1') el.classList.add('accent-dim');
+  else if (card.color === 'st2') el.classList.add('accent-st1');
+  else if (card.color === 'st3') el.classList.add('accent-st2');
+  else if (card.color === 'st4') el.classList.add('accent-st3');
+  else if (card.color === 'st5') el.classList.add('accent-st4');
+  else if (card.color === 'st6') el.classList.add('accent-st5');
+  else if (card.color === 'st7') el.classList.add('accent-st6');
+  else if (card.color === 'st8') el.classList.add('accent-st7');
+  else if (card.color === 'st9') el.classList.add('accent-st8');
+  else if (card.color === 'cfg') el.classList.add('accent-cfg');
+  else if (card.color === 'state') el.classList.add('accent-state');
+  else if (card.color === 'cicd') el.classList.add('accent-cicd');
+
+  el.dataset.cardId = card.id;
+  el.style.cssText = `left:${card.x}px;top:${card.y}px;width:${card.w}px;min-height:${card.h}px;`;
+
+  let ioStr = '';
+  if (card.io) {
+    ioStr = `<div class="card-io">${card.io.split('|').map(s => {
+      const parts = s.split(':');
+      return `<span>${parts[0]}:</span> ${parts.slice(1).join(':')}`;
+    }).join('')}</div>`;
+  }
+
+  el.innerHTML = `
+    <span class="card-lines">${card.lines !== '—' ? card.lines + ' lines' : ''}</span>
+    <div class="card-name">${card.name}</div>
+    <div class="card-desc">${card.desc}</div>
+    ${card.meta ? `<div class="card-meta">${card.meta}</div>` : ''}
+    ${ioStr}
+  `;
+  cardsLayer.appendChild(el);
+});
+
+// ── FLOW ARROWS (SVG) ──────────────────────────────────────────────────
+
+const svg = document.getElementById('flow-svg');
+
+function drawFlow(x1,y1,x2,y2,color,opacity,dashed){
+  const path = document.createElementNS(svgNS,'path');
+  const mx = (x1+x2)/2;
+  const d = `M${x1} ${y1} C${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`;
+  path.setAttribute('d',d);
+  path.setAttribute('stroke',color||'var(--line-strong)');
+  path.setAttribute('stroke-width','1.5');
+  path.setAttribute('fill','none');
+  if(dashed) path.setAttribute('stroke-dasharray','6 4');
+  path.setAttribute('opacity',opacity||'0.4');
+  svg.appendChild(path);
+  return path;
+}
+
+function drawArrowEnd(x,y,color){
+  const a = document.createElementNS(svgNS,'polygon');
+  a.setAttribute('points',`${x},${y} ${x-4},${y-4} ${x-4},${y+4}`);
+  a.setAttribute('fill',color||'var(--line-strong)');
+  a.setAttribute('opacity','0.5');
+  svg.appendChild(a);
+}
+
+const G = 'rgba(201,168,76,0.45)';
+const B = 'rgba(91,164,207,0.4)';
+const W = 'rgba(255,255,255,0.15)';
+
+// Orchestrator → Stage 1
+drawFlow(500,340, 320,540, G, 0.5, true); drawArrowEnd(320,540,G);
+// Stage 1 → Stage 2
+drawFlow(500,660, 320,800, B, 0.4); drawArrowEnd(320,800,B);
+// Stage 2 → Stage 3
+drawFlow(600,970, 380,1260, B, 0.4); drawArrowEnd(380,1260,B);
+// Stage 3 → Stage 4
+drawFlow(600,1490, 425,1820, B, 0.4); drawArrowEnd(425,1820,B);
+// Stage 4 → Stage 5
+drawFlow(425,2100, 450,2340, B, 0.4); drawArrowEnd(450,2340,B);
+// Stage 5 → Stage 6
+drawFlow(850,2600, 325,2840, B, 0.4); drawArrowEnd(325,2840,B);
+// Stage 6 → Stage 7
+drawFlow(680,3400, 420,3860, B, 0.4); drawArrowEnd(420,3860,B);
+// Stage 7 → Stage 8
+drawFlow(420,4160, 420,4460, B, 0.4); drawArrowEnd(420,4460,B);
+// Stage 8 → CI/CD
+drawFlow(420,4660, 400,6010, B, 0.35, true);
+// Config → everywhere
+drawFlow(370,5160, 370,800, W, 0.2, true);
+drawFlow(370,5160, 370,1260, W, 0.2, true);
+drawFlow(370,5160, 370,1820, W, 0.2, true);
+// State → editorial
+drawFlow(300,5610, 550,2340, W, 0.15, true);
+drawFlow(600,5610, 600,2840, W, 0.15, true);
+// CI/CD → production
+drawFlow(380,6170, 380,6600, W, 0.15, true);
+
+// Internal flow: ingestion → canonical → intelligence_object
+drawFlow(530,970, 530,970, W, 0.1);
+// classification → scoring_engine → ranking
+drawFlow(560,1400, 860,1400, W, 0.2);
+drawFlow(1280,1400, 1330,1400, W, 0.2);
+// dossier → editorial_room
+drawFlow(630,2500, 680,2500, W, 0.2);
+// generation → v2_bridge → sector_prompts → editorial_pipeline
+drawFlow(510,2920, 560,2920, W, 0.15);
+// content_governance → fact_extractor
+drawFlow(660,3950, 710,3950, W, 0.2);
+// edition_manager → publish_generated → render
+drawFlow(550,4560, 600,4560, W, 0.2);
+
+// Grid
+for(let x=0;x<10000;x+=120){
+  const l=document.createElementNS(svgNS,'line');
+  l.setAttribute('x1',x);l.setAttribute('y1',0);
+  l.setAttribute('x2',x);l.setAttribute('y2',7000);
+  l.setAttribute('stroke','rgba(201,168,76,0.03)');
+  l.setAttribute('stroke-width','0.5');
+  svg.appendChild(l);
+}
+for(let y=0;y<7000;y+=120){
+  const l=document.createElementNS(svgNS,'line');
+  l.setAttribute('x1',0);l.setAttribute('y1',y);
+  l.setAttribute('x2',10000);l.setAttribute('y2',y);
+  l.setAttribute('stroke','rgba(201,168,76,0.03)');
+  l.setAttribute('stroke-width','0.5');
+  svg.appendChild(l);
+}
+
+// ── ZOOM & PAN ENGINE ──────────────────────────────────────────────────
+
+const app = document.getElementById('app');
+const container = document.getElementById('canvas-container');
+const tooltip = document.getElementById('tooltip');
+const searchOverlay = document.getElementById('search-overlay');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+
+let view = { x: 80, y: 80, scale: 0.55, minScale: 0.1, maxScale: 2.5 };
+let panning = false;
+let panStart = { x: 0, y: 0 };
+let viewStart = { x: 0, y: 0 };
+
+function updateTransform() {
+  container.style.transform = `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.scale})`;
+}
+
+app.addEventListener('wheel', e => {
+  e.preventDefault();
+  const rect = app.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  const zf = e.deltaY < 0 ? 1.08 : 1/1.08;
+  const ns = Math.min(view.maxScale, Math.max(view.minScale, view.scale * zf));
+  view.x = mx - (mx - view.x)*(ns/view.scale);
+  view.y = my - (my - view.y)*(ns/view.scale);
+  view.scale = ns;
+  updateTransform();
+},{passive:false});
+
+app.addEventListener('mousedown', e => {
+  if(e.target.closest('.card')) return;
+  panning = true;
+  panStart = {x:e.clientX, y:e.clientY};
+  viewStart = {x:view.x, y:view.y};
+  app.classList.add('panning');
+});
+
+window.addEventListener('mousemove', e => {
+  if(!panning) return;
+  view.x = viewStart.x + (e.clientX - panStart.x);
+  view.y = viewStart.y + (e.clientY - panStart.y);
+  updateTransform();
+});
+window.addEventListener('mouseup', () => { panning = false; app.classList.remove('panning'); });
+
+let touchDist0 = 0;
+app.addEventListener('touchstart', e => {
+  if(e.touches.length===1){panning=true;panStart={x:e.touches[0].clientX,y:e.touches[0].clientY};viewStart={x:view.x,y:view.y}}
+  if(e.touches.length===2){panning=false;const dx=e.touches[0].clientX-e.touches[1].clientX;const dy=e.touches[0].clientY-e.touches[1].clientY;touchDist0=Math.sqrt(dx*dx+dy*dy)}
+});
+app.addEventListener('touchmove', e => {
+  if(panning&&e.touches.length===1){view.x=viewStart.x+(e.touches[0].clientX-panStart.x);view.y=viewStart.y+(e.touches[0].clientY-panStart.y);updateTransform()}
+  if(e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX;const dy=e.touches[0].clientY-e.touches[1].clientY;const dist=Math.sqrt(dx*dx+dy*dy);if(touchDist0>0){view.scale=Math.min(view.maxScale,Math.max(view.minScale,view.scale*(dist/touchDist0)));updateTransform()}touchDist0=dist}
+});
+
+// ── TOOLTIP ────────────────────────────────────────────────────────────
+
+let currentTT = null;
+document.addEventListener('mousemove', e => {
+  const card = e.target.closest('.card') || e.target.closest('.mini-card');
+  if(card !== currentTT){
+    currentTT = card;
+    if(card){
+      const cid = card.dataset.cardId;
+      const data = CARDS.find(c => c.id === cid);
+      if(data){
+        const devider = data.io ? `<div class="tt-io">${data.io.replace(/\|/g,' ')}</div>` : '';
+        tooltip.innerHTML = `<div class="tt-name">${data.name} ${data.lines!=='—'?`(${data.lines} lines)` : ''}</div><div class="tt-desc">${data.desc.slice(0,400)}</div><div class="tt-meta">${(data.meta||'').slice(0,300)}</div>${devider}`;
+        tooltip.classList.add('visible');
+      }
+    } else {
+      tooltip.classList.remove('visible');
+    }
+  }
+  if(card && tooltip.classList.contains('visible')){
+    tooltip.style.left = (e.clientX+18)+'px';
+    tooltip.style.top = (e.clientY-70)+'px';
+  }
+});
+
+// ── SEARCH ─────────────────────────────────────────────────────────────
+
+document.addEventListener('keydown', e => {
+  if((e.ctrlKey||e.metaKey)&&e.key==='f'){e.preventDefault();searchOverlay.classList.add('active');searchInput.focus();searchInput.select()}
+  if(e.key==='Escape'){searchOverlay.classList.remove('active');searchInput.value='';searchResults.innerHTML='';resetHighlights()}
+});
+searchInput.addEventListener('input',()=>{
+  const q=searchInput.value.toLowerCase().trim();
+  searchResults.innerHTML='';
+  if(!q) return;
+  const matches = CARDS.filter(c => c.name.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||(c.meta&&c.meta.toLowerCase().includes(q))).slice(0,20);
+  matches.forEach(m=>{
+    const el=document.createElement('div');
+    el.className='sr-item';
+    el.innerHTML=`<span style="color:var(--white);font-weight:600">${m.name}</span><br>${m.desc.slice(0,140)}...`;
+    el.addEventListener('click',()=>{
+      flyToCard(m);
+      searchOverlay.classList.remove('active');
+      searchInput.value='';searchResults.innerHTML='';resetHighlights();
+      setTimeout(()=>{const card=document.querySelector(`[data-card-id="${m.id}"]`);if(card)card.classList.add('highlight');setTimeout(()=>card&&card.classList.remove('highlight'),1500)},400);
+    });
+    searchResults.appendChild(el);
+  });
+});
+function resetHighlights(){document.querySelectorAll('.card.highlight').forEach(c=>c.classList.remove('highlight'))}
+function flyToCard(cardData){
+  const tx=-(cardData.x+cardData.w/2)*1.2+window.innerWidth/2;
+  const ty=-(cardData.y+cardData.h/2)*1.2+window.innerHeight/2;
+  view.x=tx;view.y=ty;view.scale=1.2;updateTransform();
+}
+
+// Reset on double-click
+app.addEventListener('dblclick',e=>{if(e.target.closest('.card'))return;view.x=80;view.y=80;view.scale=0.55;updateTransform()});
+
+updateTransform();
+
+console.log('%c🏗️ Light Tower Insights Generator — Systems Blueprint %cReady','color:#c9a84c;font-size:16px;font-family:serif','color:#8b9cad');
+console.log('%c28 modules • 13 stages • 10 scoring dimensions • 7-stage editorial pipeline • 10 quality gates','color:#8b9cad;font-size:11px');
+</script>
+</body>
+</html>

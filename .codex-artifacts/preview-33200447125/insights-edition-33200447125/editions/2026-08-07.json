@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-08-07",
+  "generated_at": "2026-08-07T12:22:30+00:00",
+  "status": "ready",
+  "dek": "The few capital decisions worth understanding today—reported with scarcity, evidence, and a point of view.",
+  "flagship": null,
+  "briefs": [
+    {
+      "event_id": "29e13e891e98f61c",
+      "title": "Duke's $10B Equity Bet Hinges on Data Center Demand Critics Call 'Exaggerated'",
+      "subtitle": "The utility's massive spending plan for new gas plants assumes 15 GW of load growth, but state advocates say the numbers don't add up.",
+      "slug": "duke-10b-equity-gas-data-centers",
+      "url": "/insights/duke-10b-equity-gas-data-centers.html",
+      "category": "Capital Markets",
+      "format": "brief",
+      "format_label": "Intelligence Brief",
+      "franchise": {
+        "id": "energy",
+        "name": "Energy",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "must_read_score": 54,
+      "selection_tier": "daily_depth",
+      "read_time": 2,
+      "source_count": 1
+    }
+  ],
+  "culture_signal": null,
+  "data_note": null,
+  "deal_tape": [
+    {
+      "event_id": "d2de1544f55f5a0c",
+      "title": "Jobs Report Poses New Test for Warsh and the Fed",
+      "source": "NYT DealBook",
+      "source_url": "https://www.nytimes.com/2026/08/07/business/dealbook/jobs-warsh-fed-rates.html",
+      "published": "2026-08-07T11:03:15+00:00",
+      "must_read_score": 66,
+      "amounts": [],
+      "companies": [],
+      "markets": [],
+      "asset_classes": [],
+      "one_line": "Friday’s jobs report comes as investors increasingly expect the Federal Reserve to begin raising interest rates as soon as next month."
+    }
+  ],
+  "reader_prompt": {
+    "id": "2026-08-07-capital-assumption",
+    "question": "What story deserves a deeper Light Tower investigation next?",
+    "options": [
+      "Refinancing liquidity is healthier than it looks",
+      "Office recovery is broader than trophy assets",
+      "Private credit pricing still compensates for risk",
+      "Policy is now a larger variable than rates"
+    ]
+  },
+  "selection_summary": {
+    "raw_candidates": 0,
+    "distinct_events": 563,
+    "articles": 1,
+    "deal_tape_items": 1,
+    "duplicate_groups": 0,
+    "archive_repeats": 0,
+    "daily_target": 0,
+    "daily_target_met": true,
+    "no_flagship": true
+  }
+}

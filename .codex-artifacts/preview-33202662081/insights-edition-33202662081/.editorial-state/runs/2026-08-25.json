@@ -1,0 +1,616 @@
+{
+  "run_at": "2026-08-25T11:36:45.727497+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 721,
+  "documents_from_feeds": 618,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 671,
+  "documents_consolidated": 50,
+  "eligible": 79,
+  "enriched": 75,
+  "evidence_upgraded": 36,
+  "selected": 26,
+  "publication_candidates": 5,
+  "daily_target": 3,
+  "article_limit": 5,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 45,
+      "eligible": 7,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 355,
+      "eligible": 38,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 72,
+      "eligible": 14,
+      "selected": 8,
+      "target": 10,
+      "shortfall_reason": "only 8 of 14 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 112,
+      "eligible": 13,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 13 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 13,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "13 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 2,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 71,
+      "eligible": 5,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 16,
+    "tier_c": 10
+  },
+  "shortfalls": [
+    "banking_credit: only 4 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 8 of 14 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 3 of 13 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: 13 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "local_government: 2 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 72.4,
+    "mean": 22.4,
+    "stdev": 8.68,
+    "range_used": 72.4
+  },
+  "retrieval": {
+    "requested": 76,
+    "fetched": 74,
+    "from_cache": 0,
+    "blocked": 0,
+    "failed": 2,
+    "skipped_budget": 0,
+    "bytes_downloaded": 15980373,
+    "elapsed_ms": 62234,
+    "by_status": {
+      "full_text": 36,
+      "partial_text": 38,
+      "failed": 2
+    }
+  },
+  "novelty": {
+    "new": 664,
+    "already_published": 1,
+    "material_update": 1,
+    "minor_follow_up": 2,
+    "duplicate": 3
+  },
+  "memory": {
+    "events_remembered": 1606,
+    "published": 409,
+    "seen_but_not_run": 1197,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-25",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.35,
+    "spent_today_usd": 0.35,
+    "remaining_usd": 24.65,
+    "exhausted": false,
+    "total_calls": 5,
+    "refused_calls": 0,
+    "elapsed_seconds": 1090.2,
+    "by_stage": {
+      "generation": {
+        "calls": 5,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.35,
+        "seconds": 2262.2,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "d5b3c37d7fcdcc1d",
+        "usd": 0.07
+      },
+      {
+        "id": "1ba5fbc4143ee6ce",
+        "usd": 0.07
+      },
+      {
+        "id": "53fca768a5bfaa70",
+        "usd": 0.07
+      },
+      {
+        "id": "cf17f0067c19317d",
+        "usd": 0.07
+      },
+      {
+        "id": "5e374b938eccad3d",
+        "usd": 0.07
+      }
+    ]
+  },
+  "generation": {
+    "requested": 5,
+    "written": 1,
+    "needs_review": 1,
+    "held": 3,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 985.2,
+    "usd": 0.35,
+    "by_depth": {
+      "tier_b": 5
+    },
+    "results": [
+      {
+        "object_id": "d5b3c37d7fcdcc1d",
+        "title": "Amazon to Invest $6B to Build New Data Center Campus in Shreveport, Louisiana",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 4687) | Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 5378)"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 4687) | Invalid provider JSON object: Expecting ',' delimiter: line 34 column 6 (char 5378)"
+          }
+        },
+        "seconds": 280.6,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "1ba5fbc4143ee6ce",
+        "title": "Wells Fargo Moves To Foreclose On $1.3B Workspace Property Trust Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Wells Fargo Forecloses on $1.2B Workspace Portfolio\",\n  \"subtitle\": \"A 2023 extension failed to restore enough value or occupancy, leaving the CMBS trust with no equity cushion to protec | Could not parse JSON from response: {\n  \"title\": \"Wells Fargo Forecloses on $1.3B Workspace Portfolio\",\n  \"subtitle\": \"A two-year extension and new equity weren't enough to restore occupancy above 75%.\",\n  \"slug\": \"wells-fargo-workspace"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Wells Fargo Forecloses on $1.2B Workspace Portfolio\",\n  \"subtitle\": \"A 2023 extension failed to restore enough value or occupancy, leaving the CMBS trust with no equity cushion to protec | Could not parse JSON from response: {\n  \"title\": \"Wells Fargo Forecloses on $1.3B Workspace Portfolio\",\n  \"subtitle\": \"A two-year extension and new equity weren't enough to restore occupancy above 75%.\",\n  \"slug\": \"wells-fargo-workspace"
+          }
+        },
+        "seconds": 294.8,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "53fca768a5bfaa70",
+        "title": "Citi reports sustainable finance progress, sets new 2030 goals",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "draft_failed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft"
+        ],
+        "errors": [
+          "draft: LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ChunkedEncodingError: Response ended prematurely | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "failed",
+            "error": "LLM request exhausted provider chain: deepseek/deepseek-v4-pro: ChunkedEncodingError: Response ended prematurely | openai/gpt-4o: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+          }
+        },
+        "seconds": 303.9,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "cf17f0067c19317d",
+        "title": "Classical Christian School Acquires Permanent Upper West Side Home",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "review_required",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision"
+        ],
+        "errors": [
+          "final_revision: Invalid JSON contract after retry: Could not parse JSON from response: {\n  \"title\": \"Geneva School Buys a Permanent Manhattan Campus for $33.2 Million\",\n  \"subtitle\": \"A bankruptcy sale delivered a six-story Upper West Side campus, but the capital behind the purchase rem | Could not parse JSON from response: {\n  \"title\": \"Geneva School Buys a Permanent Manhattan Campus for $33.2 Million\",\n  \"subtitle\": \"A bankruptcy sale delivered a six-story Upper West Side campus, but the capital behind the purchase rem"
+        ],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately reports the $33.2 million sale price, 38,838 square feet, and the resulting $855 per-square-foot calculation. It correctly attributes the below-replacement-cost claim to Denham Wolf, distinguishes reported facts from calculated metrics and inference, and clearly identifies the undisclosed financing and capital stack as the central unknown. The incentive analysis for the buyer and bankruptcy estate is reasonable and consistent with the source evidence.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Paragraph openings become slightly repetitive with 'The headline number,' 'The notable absence,' 'The building itself,' and 'The unresolved question.'",
+              "'The building itself — six stories, 38,838 square feet — is the physical evidence' is abstract and a little awkward.",
+              "The financing gap is noted and then restated, which is useful but slightly repetitive."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong and specific: concrete size, price, location, court approval, and buyer/seller context without generic market fluff.",
+            "worst_sentence": "The building itself — six stories, 38,838 square feet — is the physical evidence.",
+            "summary": "A knowledgeable, clear analysis of a bankruptcy sale that correctly focuses on replacement cost and the undisclosed capital stack. Minor repetitive phrasing and one abstract sentence keep it from a top score.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [
+              "Article contains dossier-unverified claims (2 amounts, 0 companies, 0 addresses): amounts: $855 near 'nkruptcy Court in July. The arithmetic works out to roughly $855 per square foot. The buyer, The Geneva School of Manhat', $855 near 'and on what terms. That will tell the market more than the $855-per-square-foot price alone.</p>'"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          },
+          "final_revision": {
+            "status": "revision_failed"
+          }
+        },
+        "seconds": 678.2,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": false,
+        "needs_review": true
+      },
+      {
+        "object_id": "5e374b938eccad3d",
+        "title": "Private equity’s $860 billion zombie company problem",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately relays the PitchBook/Fortune figures and quotes, explains the value-creation and exit-multiple implications clearly, distinguishes reported data from analytical inference, and frames the LP underwriting questions appropriately. Minor analytical extrapolations are clearly presented as inference rather than sourced fact, so no material defect is present.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Minor: some sentences are dense with jargon such as 'zombified net asset value' and 'seven-to-ten-year age bucket,' which may require re-reading for non-PE readers.",
+              "Minor: the phrase 'the can being kicked' is idiomatic and slightly informal amid an otherwise analytical tone.",
+              "Minor: the opening crams multiple statistics together; one sharper stat could hook more cleanly, though the specificity still works."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Strong: opens with specific, eyebrow-raising data that immediately sets up the zombie problem.",
+            "worst_sentence": "The remaining path is operational improvement, and it arrived at exactly the point when the economy made that hardest.",
+            "summary": "A sharp, well-structured analysis of PE zombie inventory. It uses specific data and a knowledgeable voice, avoids AI/template clichés, and ends with a concrete LP disclosure test. Minor density and one slightly awkward sentence keep it from a higher score.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately attributes the PitchBook/Fortune figures, explains the meaning of the $860 billion zombie-asset estimate, and appropriately distinguishes reported facts from analytical inference. It addresses the central value-creation question, identifies the GP/LP incentive problem, and states the limits of aggregate data without inventing unsupported financial figures.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "The opening two sentences shift from funds older than seven years to companies held for five years or more, creating a slight logical mismatch.",
+              "Attribution to Walters is repeated multiple times in successive paragraphs, making the middle feel slightly formulaic.",
+              "A few abstractions reduce precision, such as 'the economy made that hardest.'",
+              "No significant AI language was detected; the prose uses direct attributions rather than clichés."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and anchored by a concrete $860 billion figure and source, though it reads more like a data lead than a narrative hook.",
+            "worst_sentence": "The remaining path is operational improvement, and it arrived at exactly the point when the economy made that hardest.",
+            "summary": "A strong analytical piece with a knowledgeable professional voice, logical flow, and a concrete concluding implication. It avoids AI clichés and formulaic transitions; the main weaknesses are minor data framing looseness and repetitive attribution in the middle.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 704.7,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 5,
+    "published": 1,
+    "skipped_existing": 0,
+    "skipped_review": 1,
+    "failed": 0,
+    "files_written": [
+      "insights/the-860-billion-zombie-inventory-private-equity-cannot-exit_social.png",
+      "insights/the-860-billion-zombie-inventory-private-equity-cannot-exit.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/the-860-billion-zombie-inventory-private-equity-cannot-exit_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "5e374b938eccad3d",
+        "title": "The $860 Billion Zombie Inventory Private Equity Cannot Exit",
+        "slug": "the-860-billion-zombie-inventory-private-equity-cannot-exit",
+        "url": "/insights/the-860-billion-zombie-inventory-private-equity-cannot-exit.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "d5b3c37d7fcdcc1d",
+        "slug": "",
+        "title": "Amazon to Invest $6B to Build New Data Center Campus in Shreveport, Louisiana",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "1ba5fbc4143ee6ce",
+        "slug": "",
+        "title": "Wells Fargo Moves To Foreclose On $1.3B Workspace Property Trust Portfolio",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "53fca768a5bfaa70",
+        "slug": "",
+        "title": "Citi reports sustainable finance progress, sets new 2030 goals",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "cf17f0067c19317d",
+        "slug": "",
+        "title": "Classical Christian School Acquires Permanent Upper West Side Home",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "flagged for review"
+      },
+      {
+        "object_id": "5e374b938eccad3d",
+        "slug": "the-860-billion-zombie-inventory-private-equity-cannot-exit",
+        "title": "Private equity’s $860 billion zombie company problem",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/the-860-billion-zombie-inventory-private-equity-cannot-exit.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 28,
+    "successful_calls": 18,
+    "failed_provider_attempts": 10,
+    "fallback_calls": 0,
+    "switches": 5,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.46,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 6.35,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.14,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.49,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.06,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 15.04,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 62.42,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.15,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 986.87,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.08,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence",
+    "published 1 of the daily target 3"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1090.23,
+  "status": "success",
+  "candidate_count": 721,
+  "event_count": 671,
+  "articles": [
+    {
+      "event_id": "5e374b938eccad3d",
+      "title": "The $860 Billion Zombie Inventory Private Equity Cannot Exit",
+      "slug": "the-860-billion-zombie-inventory-private-equity-cannot-exit",
+      "url": "/insights/the-860-billion-zombie-inventory-private-equity-cannot-exit.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [
+    "Classical Christian School Acquires Permanent Upper West Side Home"
+  ],
+  "article_count": 1
+}

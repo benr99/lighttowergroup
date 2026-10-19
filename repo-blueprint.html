@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Tower Group — Systems Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#08131c;
+  --surface:#0e1a28;
+  --text:#e8e4dc;
+  --muted:#8b9cad;
+  --accent:#c9a84c;
+  --accent-dim:rgba(201,168,76,0.18);
+  --accent-glow:rgba(201,168,76,0.35);
+  --gold:#c9a84c;
+  --gold-rgb:201,168,76;
+  --cream:#f5f4f0;
+  --navy:#08131c;
+  --white:#ffffff;
+  --line:rgba(201,168,76,0.12);
+  --line-strong:rgba(201,168,76,0.25);
+  --sans:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --mono:'JetBrains Mono','Cascadia Code',Consolas,monospace;
+  /* Card color tokens */
+  --c-orch:#d4a843;
+  --c-ingest:#5ba4cf;
+  --c-classify:#6dbdb0;
+  --c-score:#e8945c;
+  --c-editorial:#c08ed4;
+  --c-generate:#7eb8da;
+  --c-quality:#e06070;
+  --c-output:#5cba7d;
+  --c-infra:#8b9cad;
+  --c-public:#f0e8d8;
+  --c-config:#d0c080;
+  --c-state:#c07050;
+  --c-cicd:#8090b0;
+  --c-func:#90a8c0;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:var(--sans);color:var(--text)}
+#app{width:100%;height:100%;position:relative;cursor:grab}
+#app.panning{cursor:grabbing}
+#canvas-container{position:absolute;top:0;left:0;will-change:transform;transform-origin:0 0}
+#bg-grid{position:absolute;top:0;left:0;pointer-events:none}
+#title-area{position:absolute;left:140px;top:60px}
+#title-area h1{font-family:var(--serif);font-size:48px;font-weight:400;color:var(--gold);letter-spacing:0.02em;line-height:1.1}
+#title-area h1 span{display:block;font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+#title-area .subtitle{font-size:15px;color:var(--muted);margin-top:8px;font-family:var(--mono);letter-spacing:0.05em}
+#title-area .stats{display:flex;gap:28px;margin-top:16px}
+#title-area .stats .stat{font-family:var(--mono);font-size:12px;color:var(--muted)}
+#title-area .stats .stat b{color:var(--gold);font-weight:600}
+
+/* Swimlanes */
+.swimlane{position:absolute;left:40px;border-top:1px solid var(--line-strong)}
+.swimlane-label{position:absolute;left:40px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--bg);padding:4px 12px;border:1px solid var(--line-strong);border-radius:2px;z-index:2}
+
+/* Cards */
+.card{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:10px 12px;transition:all 0.18s ease;cursor:default;overflow:hidden}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 32px rgba(0,0,0,0.45),0 0 0 1px var(--accent-dim);z-index:100}
+.card .card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px}
+.card .card-name{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--white);word-break:break-all}
+.card .card-lines{font-family:var(--mono);font-size:9px;color:var(--muted);white-space:nowrap;margin-left:8px;flex-shrink:0}
+.card .card-desc{font-size:11px;line-height:1.45;color:var(--muted)}
+.card .card-meta{font-size:9px;color:var(--line-strong);margin-top:4px;font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card.accent-gold{border-left:2px solid var(--accent)}
+.card.accent-gold .card-name{color:var(--accent)}
+.card.accent-blue{border-left:2px solid #5ba4cf}
+.card.accent-blue .card-name{color:#5ba4cf}
+.card.accent-teal{border-left:2px solid #6dbdb0}
+.card.accent-teal .card-name{color:#6dbdb0}
+.card.accent-orange{border-left:2px solid #e8945c}
+.card.accent-orange .card-name{color:#e8945c}
+.card.accent-purple{border-left:2px solid #c08ed4}
+.card.accent-purple .card-name{color:#c08ed4}
+.card.accent-red{border-left:2px solid #e06070}
+.card.accent-red .card-name{color:#e06070}
+.card.accent-green{border-left:2px solid #5cba7d}
+.card.accent-green .card-name{color:#5cba7d}
+.card.accent-cream{border-left:2px solid #f0e8d8}
+.card.accent-cream .card-name{color:#f0e8d8}
+.card.accent-dim{border-left:2px solid var(--line-strong)}
+.card.accent-dim .card-name{color:var(--text)}
+
+/* Highlights */
+.card.highlight{animation:cardPulse 0.6s ease;border-color:var(--accent)!important;box-shadow:0 0 24px var(--accent-glow),0 0 0 1px var(--accent-dim)!important}
+@keyframes cardPulse{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+
+/* Tooltip */
+#tooltip{position:fixed;pointer-events:none;z-index:1000;background:var(--surface);border:1px solid var(--accent);border-radius:4px;padding:10px 14px;font-size:12px;line-height:1.5;max-width:320px;opacity:0;transition:opacity 0.12s;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+#tooltip .tt-name{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);margin-bottom:4px}
+#tooltip .tt-desc{color:var(--text);margin-bottom:4px}
+#tooltip .tt-meta{font-family:var(--mono);font-size:10px;color:var(--muted)}
+#tooltip.visible{opacity:1}
+
+/* Legend */
+#legend{position:fixed;bottom:24px;right:24px;z-index:500;background:rgba(14,26,40,0.94);border:1px solid var(--line-strong);border-radius:6px;padding:14px 16px;font-family:var(--mono);font-size:10px;backdrop-filter:blur(12px);transition:all 0.2s}
+#legend.collapsed{padding:8px 12px}
+#legend .leg-title{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+#legend .leg-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;color:var(--muted)}
+#legend .leg-swatch{width:10px;height:10px;border-radius:1px;flex-shrink:0}
+
+/* Search */
+#search-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2000;background:rgba(8,19,28,0.92);display:none;flex-direction:column;align-items:center;padding-top:80px;backdrop-filter:blur(8px)}
+#search-overlay.active{display:flex}
+#search-input{width:480px;max-width:90%;background:var(--surface);border:1px solid var(--line-strong);border-radius:6px;padding:14px 20px;font-family:var(--mono);font-size:16px;color:var(--white);outline:none;transition:border-color 0.2s}
+#search-input:focus{border-color:var(--accent)}
+#search-input::placeholder{color:var(--muted)}
+#search-results{margin-top:16px;width:480px;max-width:90%;max-height:50vh;overflow-y:auto}
+#search-results .sr-item{padding:8px 12px;cursor:pointer;border-radius:3px;font-size:12px;color:var(--muted);transition:all 0.12s;font-family:var(--mono)}
+#search-results .sr-item:hover{background:var(--surface);color:var(--gold)}
+#search-results .sr-item .sr-name{color:var(--white);font-weight:600}
+#search-hint{position:fixed;top:24px;right:24px;z-index:500;font-family:var(--mono);font-size:10px;color:var(--muted);background:rgba(14,26,40,0.8);padding:6px 12px;border-radius:3px;border:1px solid var(--line);pointer-events:none}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:2px}
+
+/* Section labels */
+.sec-label{position:absolute;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.04em;color:var(--text);z-index:1}
+.sec-label::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:8px;vertical-align:middle}
+
+/* Flow lines */
+.flow-line{stroke:var(--line-strong);stroke-width:1;fill:none;stroke-dasharray:6 4;opacity:0.5}
+.flow-line.solid{stroke-dasharray:none;opacity:0.35;stroke-width:1.5}
+.flow-line.primary{stroke:var(--accent);stroke-width:1.5;stroke-dasharray:none;opacity:0.45}
+.flow-dot{fill:var(--accent);opacity:0.6}
+
+/* Arrows */
+.arrow-head{fill:var(--line-strong);opacity:0.6}
+
+/* Watermark */
+#watermark{position:absolute;right:80px;bottom:300px;font-family:var(--serif);font-size:120px;color:var(--line);opacity:0.04;pointer-events:none;z-index:0;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="canvas-container">
+    <svg id="bg-grid" width="7600" height="9800"></svg>
+    <div id="watermark">LIGHT TOWER</div>
+
+    <div id="title-area" style="width:700px">
+      <h1><span>Autonomous Editorial Intelligence System</span>Light Tower Group<br>Systems Blueprint</h1>
+      <div class="subtitle">Commercial Real Estate Capital Advisory — AI Newsroom Architecture</div>
+      <div class="stats">
+        <div class="stat"><b>120+</b> source files</div>
+        <div class="stat"><b>7</b> sectors</div>
+        <div class="stat"><b>13</b> pipeline stages</div>
+        <div class="stat"><b>450+</b> published articles</div>
+      </div>
+    </div>
+
+    <div id="cards-layer"></div>
+  </div>
+</div>
+
+<div id="tooltip"></div>
+
+<div id="legend">
+  <div class="leg-title" onclick="this.parentElement.classList.toggle('collapsed')">LEGEND <span style="font-size:9px">▼</span></div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-orch)"></span> Orchestration</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-ingest)"></span> Ingestion</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-classify)"></span> Classification / Scoring</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-editorial)"></span> Editorial Selection</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-generate)"></span> Generation</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-quality)"></span> Quality / Governance</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-output)"></span> Publication / Output</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-config)"></span> Configuration</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-state)"></span> State / Memory</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-cicd)"></span> CI/CD / Deploy</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-public)"></span> Public Pages</div>
+  <div class="leg-row"><span class="leg-swatch" style="background:var(--c-func)"></span> Netlify Functions</div>
+</div>
+
+<div id="search-hint">Ctrl+F / Cmd+F to search</div>
+
+<div id="search-overlay">
+  <input id="search-input" type="text" placeholder="Search files, modules, descriptions..." autofocus>
+  <div id="search-results"></div>
+</div>
+
+<script>
+// ── DATA: All cards defined as objects ─────────────────────────────────
+
+const CARDS = [
+  // ── LAYER 7: CI/CD & DEPLOYMENT ──
+  {id:"ci-daily", x:140,y:9000,w:310,h:110,color:"cicd",name:"daily-insights-agent.yml",lines:"212",desc:"GitHub Actions — daily autonomous pipeline with schedule guard, validation, generation, artifact upload, auto-publish or PR review",meta:"Triggers 11:07 & 12:07 UTC → 07:07 NY time"},
+  {id:"ci-weekly", x:480,y:9000,w:240,h:80,color:"cicd",name:"weekly-health-check.yml",lines:"—",desc:"Weekly system health audit workflow",meta:".github/workflows/"},
+  {id:"ci-assign", x:750,y:9000,w:240,h:80,color:"cicd",name:"weekly-assignment-desk.yml",lines:"—",desc:"Weekly editorial assignment and retrospective",meta:".github/workflows/"},
+  {id:"ci-quality", x:1020,y:9000,w:200,h:80,color:"cicd",name:"quality.yml",lines:"—",desc:"Quality audit workflow for editorial output",meta:".github/workflows/"},
+  {id:"ci-netlify", x:1260,y:9000,w:280,h:110,color:"cicd",name:"netlify.toml",lines:"285",desc:"Deploy config — CSP security headers, redirects (blocks internal paths), per-path cache policies, SRI-like integrity",meta:"Production CDN configuration"},
+  {id:"ci-pkg", x:1570,y:9000,w:200,h:80,color:"cicd",name:"package.json",lines:"16",desc:"Node deps — @netlify/blobs for visitor analytics, JS syntax checks",meta:"engines >= node 20"},
+  {id:"ci-deploy", x:1800,y:9000,w:220,h:80,color:"cicd",name:"DEPLOYMENT.md",lines:"352",desc:"Historical deployment guide — legacy 8-phase pipeline, superseded by Curated Insights system",meta:"Reference only"},
+
+  // ── LAYER 6: STATE / MEMORY ──
+  {id:"st-sched", x:140,y:8100,w:280,h:105,color:"state",name:"scheduler.json",lines:"—",desc:"Single-scheduler lease — prevents duplicate daily runs. Set to 'github-actions' in production",meta:".editorial-state/"},
+  {id:"st-event", x:450,y:8100,w:290,h:105,color:"state",name:"event-memory.json",lines:"—",desc:"Persistent event fingerprint ledger — prevents re-publishing same transaction using title, amounts, parties, markets, assets, context",meta:".editorial-state/"},
+  {id:"st-srchealth", x:770,y:8100,w:240,h:80,color:"state",name:"source-health.json",lines:"—",desc:"Feed reliability tracking across cloud runs",meta:".editorial-state/"},
+  {id:"st-audience", x:1040,y:8100,w:220,h:80,color:"state",name:"audience-signals.json",lines:"—",desc:"Bounded audience learning weights",meta:".editorial-state/"},
+  {id:"st-dwatch", x:1290,y:8100,w:240,h:80,color:"state",name:"discovery-watchlist.json",lines:"—",desc:"Editable culture and original-reporting radar topics",meta:".editorial-state/"},
+  {id:"st-cand", x:1560,y:8100,w:240,h:80,color:"state",name:"candidate-audit.json",lines:"—",desc:"Full scored candidate pool — all 10 scoring dimensions per item",meta:".editorial-state/"},
+  {id:"st-pubdec", x:1830,y:8100,w:240,h:80,color:"state",name:"publication-decision.json",lines:"—",desc:"Auto-publish vs editorial review branch decision",meta:".editorial-state/"},
+  {id:"st-genfiles", x:2100,y:8100,w:220,h:80,color:"state",name:"generated-files.json",lines:"—",desc:"Manifest of files generated in current run — gate for safe Git publication",meta:".editorial-state/"},
+  {id:"st-runs", x:2350,y:8100,w:260,h:105,color:"state",name:"runs/YYYY-MM-DD.json",lines:"—",desc:"Daily editorial run records — scores, selections, decisions, output index",meta:".editorial-state/runs/"},
+  {id:"st-cp", x:2640,y:8100,w:180,h:80,color:"state",name:"checkpoints/",lines:"—",desc:"Resumable run checkpoints for long pipelines",meta:".editorial-state/"},
+
+  // ── LAYER 5: CONFIGURATION ──
+  {id:"cfg-sources", x:140,y:7300,w:300,h:130,color:"config",name:"sources.json",lines:"5094",desc:"150+ news sources — Commercial Observer, The Real Deal, Bisnow, Bloomberg, WSJ, Crain's, PERE, Reuters, Fed, SEC, FDIC + more. Each with sector tags, tiers, geographic scope, health state.",meta:"config/ — 7 sectors of source coverage"},
+  {id:"cfg-sectors", x:470,y:7300,w:260,h:100,color:"config",name:"sectors.json",lines:"40",desc:"7 sectors (CRE, PE, Data Centers, Energy, Banking, Fed/Macro, Local Gov) with subsectors and event types",meta:"config/"},
+  {id:"cfg-profiles", x:760,y:7300,w:240,h:80,color:"config",name:"scoring_profiles.json",lines:"—",desc:"Weight profiles for each sector's 10 scoring dimensions",meta:"config/"},
+  {id:"cfg-thresh", x:1030,y:7300,w:220,h:80,color:"config",name:"thresholds.json",lines:"—",desc:"Scoring tier thresholds (Tier 1 must-cover, Tier 2 recommended, Tier 3 useful)",meta:"config/"},
+  {id:"cfg-watch", x:1280,y:7300,w:240,h:80,color:"config",name:"watchlists.json",lines:"—",desc:"Entity recognition lists — companies, people, properties, markets",meta:"config/"},
+
+  // ── LAYER 4-H: INFRASTRUCTURE ──
+  {id:"inf-runtime", x:140,y:6700,w:300,h:105,color:"infra",name:"agent_runtime.py",lines:"146",desc:"Local scheduler — reads scheduler.json lease, syncs with origin/main via Git preflight, only publishes if lease matches",meta:"Handles git merge, push recovery, divergence detection"},
+  {id:"inf-schedpol", x:470,y:6700,w:240,h:80,color:"infra",name:"resolve_schedule_policy.py",lines:"—",desc:"DST-aware schedule guard — permits only cron trigger matching 07:07 NY time",meta:"EST/EDT safe"},
+  {id:"inf-router", x:740,y:6700,w:220,h:80,color:"infra",name:"model_router.py",lines:"—",desc:"LLM provider preflight — verifies DeepSeek API is reachable before generation",meta:"Provider health check"},
+  {id:"inf-cost", x:990,y:6700,w:200,h:80,color:"infra",name:"cost_tracker.py",lines:"—",desc:"Tracks API costs across runs — DeepSeek + NewsAPI spend monitoring",meta:"Cost accounting"},
+  {id:"inf-smoke", x:1220,y:6700,w:200,h:80,color:"infra",name:"provider_smoke.py",lines:"—",desc:"Provider health smoke test — quick API connectivity check",meta:"Pre-flight validation"},
+  {id:"inf-health", x:1450,y:6700,w:200,h:80,color:"infra",name:"health_report.py",lines:"—",desc:"System health reporting — summarizes run diagnostics",meta:"Monitoring"},
+  {id:"inf-setup", x:1680,y:6700,w:320,h:80,color:"infra",name:"setup_agent_runtime.ps1 + install_and_setup.ps1 + setup_scheduler.ps1 + setup_fonts.py",lines:"—",desc:"Setup scripts for Windows scheduler, fonts, and runtime environment",meta:"PowerShell + Python"},
+
+  // ── LAYER 4-G: PUBLICATION & OUTPUT ──
+  {id:"pub-publish", x:140,y:6000,w:320,h:115,color:"output",name:"publish_generated.py",lines:"93",desc:"Safe Git publication — only publishes files declared in generated-files.json manifest. Path traversal defense prevents writing outside repo.",meta:"Git add → commit → push to main or review branch"},
+  {id:"pub-edition", x:490,y:6000,w:310,h:115,color:"output",name:"edition_manager.py",lines:"293",desc:"Creates daily edition JSON — article summaries, Deal Tape, read times, source counts. Writes to editions/YYYY-MM-DD.json and latest-edition.json",meta:"Also builds feed.xml and sitemap.xml"},
+  {id:"pub-linkedin", x:830,y:6000,w:250,h:85,color:"output",name:"build_linkedin_post.py",lines:"—",desc:"Formats articles into LinkedIn post text with hooks",meta:"LinkedIn distribution"},
+  {id:"pub-social", x:1110,y:6000,w:240,h:85,color:"output",name:"social_image_generator.py",lines:"—",desc:"Generates _social.png sharing images for every article",meta:"OG image generation"},
+  {id:"pub-carousel", x:1380,y:6000,w:270,h:85,color:"output",name:"article_adapter.py",lines:"862",desc:"Transforms article HTML into LinkedIn carousel card decks — sentence extraction, compact formatting, tension/analysis words",meta:"LinkedIn PDF carousel pipeline"},
+
+  // ── LAYER 4-F: IDEAS PIPELINE ──
+  {id:"idea-gen", x:140,y:5400,w:320,h:115,color:"editorial",name:"ideas_generator_2026.py",lines:"449",desc:"Ideas pipeline orchestrator — scouts CRE/built-world stories, scores against 10-dimension Ideas rubric, produces Daily Ten draft JSONs",meta:"10-dim rubric: built_world_specificity, human_drama, power_politics, aesthetic_design, psychological_depth + more"},
+  {id:"idea-agent", x:490,y:5400,w:240,h:85,color:"editorial",name:"ideas_daily_agent.py",lines:"—",desc:"Daily Ideas orchestrator — runs the Ideas discovery-to-draft workflow",meta:"Daily scheduled run"},
+  {id:"idea-prompt", x:760,y:5400,w:220,h:85,color:"editorial",name:"ideas_prompts.py",lines:"—",desc:"Writing prompts for the Ideas editorial voice",meta:"Prompt engineering"},
+  {id:"idea-quality", x:1010,y:5400,w:220,h:85,color:"quality",name:"ideas_quality.py",lines:"—",desc:"Quality gates for Ideas content",meta:"Governance"},
+  {id:"idea-render", x:1260,y:5400,w:220,h:85,color:"output",name:"ideas_renderer.py",lines:"—",desc:"Renders Ideas HTML pages from draft JSONs",meta:"Output rendering"},
+
+  // ── LAYER 4-E: QUALITY & GOVERNANCE ──
+  {id:"qual-gov", x:140,y:4700,w:340,h:125,color:"quality",name:"content_governance.py",lines:"217",desc:"Deterministic safeguards — NEVER calls LLM. Blocks prompt injection, catches boilerplate/generic prose, detects near-duplicate titles, normalizes text. Independent control layer.",meta:"Critical: the only layer that cannot be gamed by model output"},
+  {id:"qual-voice", x:510,y:4700,w:240,h:85,color:"quality",name:"editorial_voice.py",lines:"—",desc:"Detects editorial quality issues — tone, depth, substance assessment",meta:"Referenced by content_governance"},
+  {id:"qual-validate", x:780,y:4700,w:240,h:85,color:"quality",name:"validate_publication.py",lines:"—",desc:"Pre-deployment validation of ALL public assets — HTML, feeds, sitemaps, manifests",meta:"Final gate before deployment"},
+  {id:"qual-validatepdf", x:1050,y:4700,w:220,h:85,color:"quality",name:"validate_pdf.py",lines:"—",desc:"PDF output validation — checks carousel PDFs are valid",meta:"PDF quality"},
+  {id:"qual-cp", x:1300,y:4700,w:200,h:85,color:"quality",name:"checkpoint.py",lines:"—",desc:"Saves and validates checkpoints during long pipeline runs",meta:"Resumability"},
+  {id:"qual-eval", x:1530,y:4700,w:240,h:85,color:"quality",name:"scoring_evaluation.py / scoring_recalibration.py",lines:"—",desc:"Evaluates and recalibrates scoring to prevent drift over time",meta:"Scoring integrity"},
+
+  // ── LAYER 4-D: GENERATION ──
+  {id:"gen-core", x:140,y:4000,w:330,h:120,color:"generate",name:"generation.py",lines:"439",desc:"Sector-aware article generation router — maps to 7 sector-specific system prompts (PE, Data Centers, Energy, Banking, Fed, Local Gov, CRE). 60+ article type routes.",meta:"Prompt routing + article type selection (fundraising_analysis, transaction_brief, deal_analysis, macro_brief, data_note, etc.)"},
+  {id:"gen-sectors", x:500,y:4000,w:260,h:95,color:"generate",name:"sector_prompts.py",lines:"—",desc:"Actual system prompt text for each sector's journalistic voice — PE, DC, Energy, Banking, Fed, Local Gov",meta:"7 sector-specific system prompts"},
+  {id:"gen-enhanced", x:790,y:4000,w:250,h:95,color:"generate",name:"enhanced_prompts.py",lines:"—",desc:"Curated edition SYSTEM_PROMPT_ENHANCED + USER_PROMPT_TEMPLATE for the edition mode",meta:"Edition-specific prompts"},
+  {id:"gen-updated", x:1070,y:4000,w:230,h:80,color:"generate",name:"UPDATED_PROMPTS_2026.py",lines:"—",desc:"Revised prompts for 2026 editorial standards",meta:"2026 prompt update"},
+  {id:"gen-adapter", x:1330,y:4000,w:260,h:95,color:"generate",name:"article_adapter.py",lines:"862",desc:"Transforms article HTML into LinkedIn carousel card decks with tension/analysis word scoring",meta:"PDF slide generation"},
+  {id:"gen-carousel", x:1620,y:4000,w:360,h:120,color:"generate",name:"carousel_script_agent_2026.py / auto_carousel_generator.py / pdf_carousel_generator.py / generate_carousel_pdf.py",lines:"—",desc:"Full LinkedIn carousel production pipeline — script generation, PDF conversion, auto-generation, and final PDF output",meta:"4-stage carousel pipeline"},
+  {id:"gen-linkedin", x:2010,y:4000,w:360,h:120,color:"generate",name:"linkedin_essay_agent.py / linkedin_thread_agent.py / linkedin_pdf_scheduler.py / linkedin_pdf_post.py / linkedin_auth.py / linkedin_engagement_scraper.py",lines:"—",desc:"Full LinkedIn distribution suite — essay/thread generation, PDF scheduling/posting, auth, and engagement analytics",meta:"6-file LinkedIn ecosystem"},
+  {id:"gen-pdf", x:2400,y:4000,w:230,h:80,color:"generate",name:"article_pdf_generator.py",lines:"—",desc:"Generates downloadable article PDFs from HTML",meta:"PDF output"},
+  {id:"gen-variants", x:2660,y:4000,w:200,h:80,color:"generate",name:"article_variants.py",lines:"—",desc:"Creates article format variations for A/B testing",meta:"Content variants"},
+
+  // ── LAYER 4-C: EDITORIAL SELECTION & ASSIGNMENT ──
+  {id:"ed-pl", x:140,y:3300,w:360,h:130,color:"editorial",name:"editorial_pipeline.py",lines:"916",desc:"7-STAGE EDITORIAL PIPELINE: 1)Analytical Brief 2)Prompt Assembly 3)Drafting(LLM) 4)Financial Review(LLM) 5)Editorial Review(LLM) 6)Fact Verification(deterministic) 7)Final Revision(LLM)",meta:"Core editorial engine — each stage has both LLM and deterministic components"},
+  {id:"ed-v2", x:530,y:3300,w:300,h:100,color:"editorial",name:"v2_editorial.py",lines:"401",desc:"Production bridge — converts typed v2 candidates into the research-dossier contract, invokes editorial pipeline. Legal risk detection, capital/policy anchor verification.",meta:"Non-editorial format rejection, tier assignment, reserve research (floor 45.0)"},
+  {id:"ed-bucketed", x:860,y:3300,w:300,h:100,color:"editorial",name:"bucketed_editorial.py",lines:"359",desc:"Volume-oriented routing — every relevant story goes to its proper editorial lane: CRE Capital Markets, CRE Transactions, Banking, PE, Policy/Rates",meta:"5 editorial lanes with pattern-based routing"},
+  {id:"ed-intel", x:1190,y:3300,w:280,h:100,color:"editorial",name:"editorial_intelligence.py",lines:"—",desc:"Event fingerprinting — creates stable event IDs from title concepts, parties, amounts, markets, asset classes. Similarity matching + archive comparison.",meta:"Prevents repeat coverage of same transaction"},
+  {id:"ed-cluster", x:1500,y:3300,w:240,h:85,color:"editorial",name:"event_clustering.py",lines:"—",desc:"Clusters headlines into distinct events, attaches corroborating source coverage from wider feed pool",meta:"Deduplication layer"},
+  {id:"ed-room", x:1770,y:3300,w:250,h:85,color:"editorial",name:"editorial_room.py",lines:"—",desc:"The assigning editor — decides format, length, whether to kill, defer, or shorten each candidate",meta:"Editorial judgment"},
+  {id:"ed-store", x:2050,y:3300,w:200,h:85,color:"editorial",name:"editorial_store.py",lines:"57",desc:"Persistence for daily editorial runs and weekly market reviews",meta:".editorial-state/runs/"},
+
+  // ── LAYER 4-B: CLASSIFICATION & SCORING ──
+  {id:"sc-engine", x:140,y:2600,w:350,h:125,color:"score",name:"scoring_engine.py",lines:"416",desc:"Deterministic 10-DIMENSION SCORING: financial_magnitude, party_significance, market_impact, strategic_relevance, policy_impact, novelty, source_quality, timeliness, editorial_potential, cross_sector_impact",meta:"Extracts financial values, MW, sqft. Entity recognition against watchlists. Sector-specific weight profiles."},
+  {id:"sc-edscore", x:520,y:2600,w:260,h:95,color:"score",name:"editorial_scoring.py / editorial_scorer.py",lines:"—",desc:"LLM-based must-read scoring — daily top news selection, weekly market review generation",meta:"DeepSeek-powered editorial selection"},
+  {id:"sc-ranking", x:810,y:2600,w:300,h:110,color:"score",name:"ranking.py",lines:"296",desc:"Within-sector ranking by composite score + DIVERSITY CONTROLS: no subsector >40%, no source >25%, no company >20%, min 3 subsectors",meta:"Cross-sector deduplication + tier assignment"},
+  {id:"sc-classify", x:1140,y:2600,w:300,h:110,color:"classify",name:"classification.py",lines:"295",desc:"Multi-label sector classifier — regex patterns, entity matching against watchlists, source-based priors. Optional LLM for ambiguous cases. Reads sectors.json + watchlists.json.",meta:"7 sectors: CRE, PE, Data Centers, Energy, Banking, Fed/Macro, Local Gov"},
+  {id:"sc-ctype", x:1470,y:2600,w:220,h:85,color:"classify",name:"content_typing.py",lines:"—",desc:"Content type classification — news_report, press_release, regulatory_filing, earnings_material, data_publication, etc.",meta:"Type gating"},
+
+  // ── LAYER 4-A: INGESTION ──
+  {id:"ing-orch", x:140,y:1740,w:380,h:140,color:"orch",name:"daily_news_agent.py",lines:"2842",desc:"ORCHESTRATOR — main entry point. Coordinates 13-stage pipeline from ingestion through publication. Handles --shadow, --dry-run, --pipeline-v2, --selection-mode edition. Loads .env, imports 20+ sub-modules.",meta:"The central nervous system. Calls EVERY module."},
+  {id:"ing-ingest", x:550,y:1740,w:330,h:115,color:"ingest",name:"ingestion.py",lines:"326",desc:"Fetches from 150+ RSS feeds + NewsAPI via feedparser. Threads parallel fetching (8 workers, 36hr lookback). Loads config/sources.json. Normalizes into CanonicalItem objects.",meta:"Tracks source health per run"},
+  {id:"ing-ci", x:910,y:1740,w:290,h:115,color:"ingest",name:"canonical_item.py",lines:"233",desc:"Unified data model — every story is a typed @dataclass with 40+ fields: identity, classification, geography, entities, scores, financial data",meta:"Replace ad-hoc dicts with typed, validatable structure"},
+  {id:"ing-io", x:1230,y:1740,w:320,h:115,color:"ingest",name:"intelligence_object.py",lines:"498",desc:"EVENT GROUPING — collapses multiple articles about the same transaction into one IntelligenceObject. Prevents 3 outlets covering same $500M deal from occupying 3 slots.",meta:"Versioned schema. ObjectClass: DISCRETE_EVENT, EVENT_UPDATE, DATA_RELEASE, MARKET_MOVEMENT, TREND, DISCLOSURE"},
+  {id:"ing-ns", x:1580,y:1740,w:240,h:85,color:"ingest",name:"news_sources.py",lines:"—",desc:"Source definitions — RSS_FEEDS, FEDERAL_RSS_FEEDS, CRE_KEYWORDS, EXCLUDE_KEYWORDS, NEWSAPI_QUERIES",meta:"Source universe"},
+  {id:"ing-sn", x:1850,y:1740,w:240,h:85,color:"ingest",name:"story_normalizer.py",lines:"—",desc:"Normalizes stories, checks for CRE editorial anchors and reported amounts ≥$10M",meta:"Content quality gating"},
+  {id:"ing-sh", x:2120,y:1740,w:260,h:85,color:"ingest",name:"source_health.py / source_health_probe.py",lines:"—",desc:"Feed reliability tracking — monitors which sources are alive/dead across runs",meta:"Source health ledger"},
+
+  // ── LAYER 3: NETLIFY FUNCTIONS ──
+  {id:"fn-nl", x:140,y:1200,w:220,h:85,color:"func",name:"newsletter-subscribe.js",lines:"—",desc:"Email signup via Resend API with segment routing",meta:"Netlify serverless"},
+  {id:"fn-ef", x:390,y:1200,w:220,h:85,color:"func",name:"editorial-feedback.js",lines:"—",desc:"Reader feedback collection for articles — Resend or webhook sink",meta:"Netlify serverless"},
+  {id:"fn-da", x:640,y:1200,w:250,h:85,color:"func",name:"analytics-dashboard.js + analytics-retention.js",lines:"—",desc:"Analytics API + scheduled data retention (Netlify Blobs)",meta:"Netlify serverless"},
+  {id:"fn-vt", x:920,y:1200,w:220,h:85,color:"func",name:"visitor-track.js + track-read.js",lines:"—",desc:"Page view and article read tracking",meta:"Netlify serverless"},
+  {id:"fn-cd", x:1170,y:1200,w:220,h:85,color:"func",name:"capital-diagnostic.js",lines:"—",desc:"Capital diagnostic tool backend",meta:"Netlify serverless"},
+  {id:"fn-ms", x:1420,y:1200,w:200,h:85,color:"func",name:"mandate-submit.js",lines:"—",desc:"Lead/mandate form processing",meta:"Netlify serverless"},
+  {id:"fn-dn", x:1650,y:1200,w:200,h:85,color:"func",name:"deal-notify.js",lines:"—",desc:"Deal alert notifications",meta:"Netlify serverless"},
+  {id:"fn-chat", x:1880,y:1200,w:160,h:85,color:"func",name:"chat.js",lines:"—",desc:"AI chat endpoint",meta:"Netlify serverless"},
+  {id:"fn-le", x:2070,y:1200,w:200,h:85,color:"func",name:"linkedin-essay.js",lines:"—",desc:"LinkedIn essay queue endpoint",meta:"Netlify serverless"},
+
+  // ── LAYER 2: CSS / JS / ASSETS ──
+  {id:"css-main", x:140,y:780,w:280,h:105,color:"public",name:"site.css",lines:"1380",desc:"Design system — CSS custom properties (--ltg-accent: #c9a84c gold, --ltg-bg: #f5f4f0 cream, --ltg-font-display: 'Playfair Display'). Responsive layout, nav, cards, typography scale.",meta:"Navy/gold/cream palette — institutional financial aesthetic"},
+  {id:"js-main", x:450,y:780,w:250,h:85,color:"public",name:"site.js",lines:"—",desc:"Global interactivity — nav scroll behavior, IntersectionObserver reveal animations, form handling, mobile menu",meta:"Client-side JS"},
+  {id:"js-va", x:730,y:780,w:220,h:85,color:"public",name:"visitor-analytics.js",lines:"—",desc:"Client-side tracking via Netlify Blobs — page views and visitor data",meta:"Analytics"},
+  {id:"js-chat", x:980,y:780,w:200,h:85,color:"public",name:"chat-widget.js",lines:"—",desc:"Live chat widget for client inquiries",meta:"Chat interface"},
+  {id:"css-ed", x:1210,y:780,w:240,h:85,color:"public",name:"edition.js + edition.css",lines:"—",desc:"Edition page interactivity and styling",meta:"Editions section"},
+  {id:"js-cd", x:1480,y:780,w:260,h:85,color:"public",name:"capital-diagnostic.js/css",lines:"—",desc:"Capital diagnostic tool — interactive form for sponsors to assess capital needs",meta:"Diagnostic tool"},
+  {id:"js-ad", x:1770,y:780,w:260,h:85,color:"public",name:"analytics-dashboard.js/css",lines:"—",desc:"Analytics dashboard — Netlify Identity-gated admin view of site metrics",meta:"Dashboard"},
+  {id:"js-exp", x:2060,y:780,w:220,h:85,color:"public",name:"experience-2026.js/css",lines:"—",desc:"Enhanced 2026 site experience bundle",meta:"UX enhancements"},
+
+  // ── LAYER 1: PUBLIC PAGES ──
+  {id:"pg-index", x:140,y:200,w:300,h:115,color:"public",name:"index.html",lines:"2778",desc:"HERO LANDING PAGE — schema.org SEO, lead-gen wizard, capital architecture imagery, IntersectionObserver scroll reveals",meta:""},
+  {id:"pg-services", x:470,y:200,w:200,h:80,color:"public",name:"services.html",lines:"—",desc:"Capital advisory services listing — all product categories",meta:""},
+  {id:"pg-about", x:700,y:200,w:180,h:80,color:"public",name:"about.html",lines:"—",desc:"Benjamin Rohr bio and firm story",meta:""},
+  {id:"pg-insights", x:910,y:200,w:330,h:130,color:"public",name:"insights.html + insights/*.html (450+)",lines:"—",desc:"DAILY INTELLIGENCE PUBLICATION — auto-generated articles about CRE deals, finance, policy. Each has _social.png + optional _article.pdf",meta:"Primary editorial product"},
+  {id:"pg-ideas", x:1270,y:200,w:260,h:100,color:"public",name:"ideas.html + ideas/*.html",lines:"—",desc:"IDEAS section — lighter, cultural takes on built-world stories. 10-dimension Ideas scoring rubric.",meta:"Cultural editorial product"},
+  {id:"pg-buildings", x:1560,y:200,w:240,h:85,color:"public",name:"buildings.html",lines:"—",desc:"NYC building database — tracked properties with detail pages",meta:"Property intelligence"},
+  {id:"pg-txns", x:1830,y:200,w:280,h:100,color:"public",name:"transactions.html + transactions.json",lines:"—",desc:"Live deal flow database — tracked transactions with amounts, parties, markets",meta:"Deal intelligence"},
+  {id:"pg-editions", x:2140,y:200,w:230,h:85,color:"public",name:"editions/*.json",lines:"—",desc:"Daily structured edition JSONs — full editorial packet per day",meta:"Edition archive"},
+  {id:"pg-products1", x:140,y:360,w:750,h:85,color:"public",name:"senior-debt.html / bridge-financing.html / construction-financing.html / preferred-equity.html",lines:"—",desc:"Product pages — Senior Debt, Bridge Financing, Construction Financing, Preferred Equity",meta:"Capital product detail pages"},
+  {id:"pg-products2", x:920,y:360,w:750,h:85,color:"public",name:"joint-venture-equity.html / cmbs.html / agency-lending.html / life-company-financing.html",lines:"—",desc:"Product pages — Joint Venture Equity, CMBS, Agency Lending, Life Company Financing",meta:"Capital product detail pages"},
+  {id:"pg-other", x:1700,y:360,w:520,h:85,color:"public",name:"research.html / privacy.html / sms-terms.html / 404.html",lines:"—",desc:"Supporting pages — research, privacy, SMS terms, 404",meta:"Utility pages"},
+  {id:"pg-seo", x:2250,y:360,w:300,h:85,color:"public",name:"feed.xml / sitemap.xml / robots.txt",lines:"—",desc:"Auto-rebuilt SEO/distribution files — rebuilt each publication run",meta:"Distribution"},
+
+  // ── ADDITIONAL UTILITY SCRIPTS ──
+  {id:"util-back", x:140,y:7350,w:700,h:85,color:"infra",name:"backfill_social_images.py / backfill_og_image.py / backfill_article_cta.py / cleanup_article_images.py / rebuild_articles.py / patch_nav_services.py",lines:"—",desc:"Maintenance utilities — social image backfill, OG image generation, CTA backfill, image cleanup, article rebuild, nav patching",meta:"Batch maintenance tools"},
+];
+
+// ── ZOOM & PAN ENGINE ──────────────────────────────────────────────────
+
+const app = document.getElementById('app');
+const container = document.getElementById('canvas-container');
+const tooltip = document.getElementById('tooltip');
+const searchOverlay = document.getElementById('search-overlay');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+
+let view = { x: 60, y: 60, scale: 0.52, minScale: 0.12, maxScale: 2.5 };
+let panning = false;
+let panStart = { x: 0, y: 0 };
+let viewStart = { x: 0, y: 0 };
+
+function updateTransform() {
+  container.style.transform = `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.scale})`;
+}
+
+// Mouse wheel zoom
+app.addEventListener('wheel', e => {
+  e.preventDefault();
+  const rect = app.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+
+  const zoomFactor = e.deltaY < 0 ? 1.08 : 1 / 1.08;
+  const newScale = Math.min(view.maxScale, Math.max(view.minScale, view.scale * zoomFactor));
+
+  // Zoom toward mouse position
+  view.x = mx - (mx - view.x) * (newScale / view.scale);
+  view.y = my - (my - view.y) * (newScale / view.scale);
+  view.scale = newScale;
+  updateTransform();
+}, { passive: false });
+
+// Pan
+app.addEventListener('mousedown', e => {
+  if (e.target.closest('.card')) return;
+  panning = true;
+  panStart = { x: e.clientX, y: e.clientY };
+  viewStart = { x: view.x, y: view.y };
+  app.classList.add('panning');
+});
+
+window.addEventListener('mousemove', e => {
+  if (!panning) return;
+  view.x = viewStart.x + (e.clientX - panStart.x);
+  view.y = viewStart.y + (e.clientY - panStart.y);
+  updateTransform();
+});
+
+window.addEventListener('mouseup', () => {
+  panning = false;
+  app.classList.remove('panning');
+});
+
+// Touch pan/zoom
+let touchDist0 = 0;
+app.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) {
+    panning = true;
+    panStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    viewStart = { x: view.x, y: view.y };
+  }
+  if (e.touches.length === 2) {
+    panning = false;
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    touchDist0 = Math.sqrt(dx * dx + dy * dy);
+  }
+});
+
+app.addEventListener('touchmove', e => {
+  if (panning && e.touches.length === 1) {
+    view.x = viewStart.x + (e.touches[0].clientX - panStart.x);
+    view.y = viewStart.y + (e.touches[0].clientY - panStart.y);
+    updateTransform();
+  }
+  if (e.touches.length === 2) {
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (touchDist0 > 0) {
+      const newScale = Math.min(view.maxScale, Math.max(view.minScale, view.scale * (dist / touchDist0)));
+      view.scale = newScale;
+      updateTransform();
+    }
+    touchDist0 = dist;
+  }
+});
+
+// ── TOOLTIP ────────────────────────────────────────────────────────────
+
+let currentTooltipCard = null;
+document.addEventListener('mousemove', e => {
+  const card = e.target.closest('.card');
+  if (card !== currentTooltipCard) {
+    currentTooltipCard = card;
+    if (card) {
+      const cid = card.dataset.cardId;
+      const data = CARDS.find(c => c.id === cid);
+      if (data) {
+        tooltip.innerHTML = `
+          <div class="tt-name">${data.name}</div>
+          <div class="tt-desc">${data.desc}</div>
+          <div class="tt-meta">${data.meta || ''}${data.lines !== '—' ? ' • ' + data.lines + ' lines' : ''}</div>
+        `;
+        tooltip.classList.add('visible');
+      }
+    } else {
+      tooltip.classList.remove('visible');
+    }
+  }
+  if (card && tooltip.classList.contains('visible')) {
+    tooltip.style.left = (e.clientX + 18) + 'px';
+    tooltip.style.top = (e.clientY - 60) + 'px';
+  }
+});
+
+// ── SEARCH ─────────────────────────────────────────────────────────────
+
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+    e.preventDefault();
+    searchOverlay.classList.add('active');
+    searchInput.focus();
+    searchInput.select();
+  }
+  if (e.key === 'Escape') {
+    searchOverlay.classList.remove('active');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+    resetHighlights();
+  }
+});
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.toLowerCase().trim();
+  searchResults.innerHTML = '';
+  if (!q) return;
+  const matches = CARDS.filter(c =>
+    c.name.toLowerCase().includes(q) ||
+    c.desc.toLowerCase().includes(q) ||
+    (c.meta && c.meta.toLowerCase().includes(q))
+  ).slice(0, 15);
+  matches.forEach(m => {
+    const el = document.createElement('div');
+    el.className = 'sr-item';
+    el.innerHTML = `<span class="sr-name">${m.name}</span><br>${m.desc.slice(0, 100)}...`;
+    el.addEventListener('click', () => {
+      flyToCard(m);
+      searchOverlay.classList.remove('active');
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+      resetHighlights();
+      setTimeout(() => {
+        const card = document.querySelector(`[data-card-id="${m.id}"]`);
+        if (card) card.classList.add('highlight');
+        setTimeout(() => card && card.classList.remove('highlight'), 1500);
+      }, 400);
+    });
+    searchResults.appendChild(el);
+  });
+});
+
+function resetHighlights() {
+  document.querySelectorAll('.card.highlight').forEach(c => c.classList.remove('highlight'));
+}
+
+function flyToCard(cardData) {
+  const tx = -(cardData.x + cardData.w / 2) * 1.2 + window.innerWidth / 2;
+  const ty = -(cardData.y + cardData.h / 2) * 1.2 + window.innerHeight / 2;
+  view.x = tx;
+  view.y = ty;
+  view.scale = 1.2;
+  updateTransform();
+}
+
+// ── RENDER CARDS ───────────────────────────────────────────────────────
+
+const cardsLayer = document.getElementById('cards-layer');
+
+function getCardAccentClass(color) {
+  const map = {
+    orch:'accent-gold', ingest:'accent-blue', classify:'accent-teal',
+    score:'accent-orange', editorial:'accent-purple', generate:'accent-blue',
+    quality:'accent-red', output:'accent-green', infra:'accent-dim',
+    public:'accent-cream', config:'accent-dim', state:'accent-orange',
+    cicd:'accent-dim', func:'accent-blue'
+  };
+  return map[color] || '';
+}
+
+CARDS.forEach(card => {
+  const el = document.createElement('div');
+  el.className = `card ${getCardAccentClass(card.color)}`;
+  el.dataset.cardId = card.id;
+  el.style.cssText = `
+    left:${card.x}px; top:${card.y}px;
+    width:${card.w}px; min-height:${card.h}px;
+  `;
+  el.innerHTML = `
+    <div class="card-header">
+      <span class="card-name">${card.name}</span>
+      ${card.lines !== '—' ? `<span class="card-lines">${card.lines} lines</span>` : ''}
+    </div>
+    <div class="card-desc">${card.desc}</div>
+    ${card.meta ? `<div class="card-meta">${card.meta}</div>` : ''}
+  `;
+  cardsLayer.appendChild(el);
+});
+
+// ── RENDER SECTION LABELS ──────────────────────────────────────────────
+
+const sections = [
+  {x:80,y:170,color:'#f0e8d8',label:'LAYER 1 — PUBLIC WEBSITE PAGES (The Storefront)'},
+  {x:80,y:750,color:'#f0e8d8',label:'LAYER 2 — CSS / JS BUNDLES (The Visual Shell)'},
+  {x:80,y:1170,color:'#90a8c0',label:'LAYER 3 — NETLIFY SERVERLESS FUNCTIONS (The Backend)'},
+  {x:80,y:1700,color:'#c9a84c',label:'LAYER 4-A — INGESTION & NORMALIZATION'},
+  {x:80,y:2560,color:'#c9a84c',label:'LAYER 4-B — CLASSIFICATION & SCORING'},
+  {x:80,y:3260,color:'#c9a84c',label:'LAYER 4-C — EDITORIAL SELECTION & ASSIGNMENT'},
+  {x:80,y:3960,color:'#c9a84c',label:'LAYER 4-D — ARTICLE GENERATION'},
+  {x:80,y:4660,color:'#c9a84c',label:'LAYER 4-E — QUALITY & GOVERNANCE (The Safeguards)'},
+  {x:80,y:5360,color:'#c9a84c',label:'LAYER 4-F — IDEAS PIPELINE (Parallel System)'},
+  {x:80,y:5960,color:'#c9a84c',label:'LAYER 4-G — PUBLICATION & OUTPUT'},
+  {x:80,y:6660,color:'#c9a84c',label:'LAYER 4-H — INFRASTRUCTURE & SCHEDULING'},
+  {x:80,y:7260,color:'#d0c080',label:'LAYER 5 — CONFIGURATION (The Rulebooks)'},
+  {x:80,y:8060,color:'#c07050',label:'LAYER 6 — DURABLE STATE (The Memory)'},
+  {x:80,y:8960,color:'#8090b0',label:'LAYER 7 — CI/CD & DEPLOYMENT (The Conductor)'},
+];
+
+sections.forEach(sec => {
+  const el = document.createElement('div');
+  el.className = 'sec-label';
+  el.style.cssText = `left:${sec.x}px;top:${sec.y}px;`;
+  el.innerHTML = sec.label;
+  const dot = el.querySelector('::before');
+  cardsLayer.appendChild(el);
+});
+
+// ── RENDER FLOW ARROWS (SVG) ──────────────────────────────────────────
+
+const svg = document.getElementById('bg-grid');
+const svgNS = 'http://www.w3.org/2000/svg';
+
+function drawArrow(x1, y1, x2, y2, cls = '') {
+  const path = document.createElementNS(svgNS, 'path');
+  const mx = (x1 + x2) / 2;
+  const d = `M${x1} ${y1} C${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`;
+  path.setAttribute('d', d);
+  path.setAttribute('class', `flow-line ${cls}`);
+  svg.appendChild(path);
+
+  // Arrowhead
+  const angle = Math.atan2(y2 - y2, x2 - mx);
+  const arrow = document.createElementNS(svgNS, 'polygon');
+  const s = 5;
+  const px = x2 - 4;
+  const py = y2;
+  arrow.setAttribute('points', `${px},${py} ${px-s},${py-s} ${px-s},${py+s}`);
+  arrow.setAttribute('class', 'arrow-head');
+  svg.appendChild(arrow);
+}
+
+// Major flow paths (curated, key connections)
+// Config → Ingestion
+drawArrow(290, 7380, 350, 1840, 'solid');
+// Sources → Ingestion
+drawArrow(300, 7380, 700, 1800, 'primary');
+// CanonicalItem → Classification
+drawArrow(1050, 1820, 1300, 2620, 'primary');
+// Classification → Scoring
+drawArrow(1290, 2660, 400, 2640, 'solid');
+// Scoring → Ranking
+drawArrow(660, 2650, 960, 2640, 'solid');
+// Ranking → Editorial Pipeline
+drawArrow(960, 2680, 380, 3360, 'primary');
+// Event Memory → Editorial
+drawArrow(600, 8150, 600, 3360, 'solid');
+// Editorial Pipeline → Generation
+drawArrow(380, 3400, 350, 4050, 'primary');
+// Generation → Content Governance
+drawArrow(300, 4100, 300, 4760, 'solid');
+// Content Governance → Publication
+drawArrow(300, 4780, 300, 6060, 'primary');
+// Publication → CI/CD
+drawArrow(300, 6120, 300, 9060, 'solid');
+// Scheduler → agent_runtime
+drawArrow(150, 8150, 280, 6760, 'solid');
+// agent_runtime → Orchestrator
+drawArrow(280, 6780, 320, 1840, 'solid');
+// Editorial Store → runs
+drawArrow(2150, 3360, 2500, 8160, 'solid');
+// State files → everywhere
+drawArrow(800, 8150, 200, 1860, 'solid');
+// Netlify → public pages
+drawArrow(300, 1280, 300, 500, 'solid');
+// Ideas → Ideas pages
+drawArrow(300, 5460, 1350, 500, 'solid');
+// Output → insights
+drawArrow(300, 6120, 1050, 500, 'primary');
+// Output → feeds
+drawArrow(300, 6120, 2350, 500, 'solid');
+// Watchlists → Classification
+drawArrow(1300, 7350, 1300, 2640, 'solid');
+
+// ── GRID LINES ─────────────────────────────────────────────────────────
+
+for (let x = 0; x < 7600; x += 100) {
+  const line = document.createElementNS(svgNS, 'line');
+  line.setAttribute('x1', x); line.setAttribute('y1', 0);
+  line.setAttribute('x2', x); line.setAttribute('y2', 9800);
+  line.setAttribute('stroke', 'rgba(201,168,76,0.04)');
+  line.setAttribute('stroke-width', '0.5');
+  svg.appendChild(line);
+}
+for (let y = 0; y < 9800; y += 100) {
+  const line = document.createElementNS(svgNS, 'line');
+  line.setAttribute('x1', 0); line.setAttribute('y1', y);
+  line.setAttribute('x2', 7600); line.setAttribute('y2', y);
+  line.setAttribute('stroke', 'rgba(201,168,76,0.04)');
+  line.setAttribute('stroke-width', '0.5');
+  svg.appendChild(line);
+}
+
+// ── DOTS AT CARD CENTERS ───────────────────────────────────────────────
+
+CARDS.forEach(card => {
+  const cx = card.x + card.w / 2;
+  const cy = card.y + card.h / 2;
+  const circle = document.createElementNS(svgNS, 'circle');
+  circle.setAttribute('cx', cx);
+  circle.setAttribute('cy', cy);
+  circle.setAttribute('r', '2');
+  circle.setAttribute('class', 'flow-dot');
+  svg.appendChild(circle);
+});
+
+// ── INIT ───────────────────────────────────────────────────────────────
+
+updateTransform();
+
+// Double-click to zoom to fit
+app.addEventListener('dblclick', e => {
+  if (e.target.closest('.card')) return;
+  view.x = 60;
+  view.y = 60;
+  view.scale = 0.52;
+  updateTransform();
+});
+
+console.log('%c🏗️ Light Tower Group — Systems Blueprint %cReady',
+  'color:#c9a84c;font-size:16px;font-family:serif',
+  'color:#8b9cad');
+console.log('%cDrag to pan • Scroll to zoom • Ctrl+F to search • Double-click to reset',
+  'color:#8b9cad;font-size:11px');
+console.log('%c120+ modules • 7 sectors • 13 pipeline stages • 450+ articles',
+  'color:#5ba4cf;font-size:11px');
+</script>
+</body>
+</html>

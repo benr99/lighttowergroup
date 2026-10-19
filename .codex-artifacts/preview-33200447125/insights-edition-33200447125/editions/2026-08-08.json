@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-08-08",
+  "generated_at": "2026-08-08T12:17:54+00:00",
+  "status": "ready",
+  "dek": "The few capital decisions worth understanding today—reported with scarcity, evidence, and a point of view.",
+  "flagship": null,
+  "briefs": [
+    {
+      "event_id": "d7cf51df7996a5b9",
+      "title": "Brookfield Crosses $1 Trillion as AI and Insurance Flood In",
+      "subtitle": "A record $77B quarter reveals a firm pivoting to sticky capital, but the economics remain opaque.",
+      "slug": "brookfield-trillion-ai-insurance-mandates",
+      "url": "/insights/brookfield-trillion-ai-insurance-mandates.html",
+      "category": "Capital Markets",
+      "format": "brief",
+      "format_label": "Intelligence Brief",
+      "franchise": {
+        "id": "private_equity",
+        "name": "Private Equity",
+        "promise": "Explain the capital decision, constraint, and consequence beneath the event."
+      },
+      "must_read_score": 57,
+      "selection_tier": "daily_depth",
+      "read_time": 1,
+      "source_count": 1
+    }
+  ],
+  "culture_signal": null,
+  "data_note": null,
+  "deal_tape": [
+    {
+      "event_id": "d2de1544f55f5a0c",
+      "title": "Jobs Report Poses New Test for Warsh and the Fed",
+      "source": "NYT DealBook",
+      "source_url": "https://www.nytimes.com/2026/08/07/business/dealbook/jobs-warsh-fed-rates.html",
+      "published": "2026-08-07T11:03:15+00:00",
+      "must_read_score": 61,
+      "amounts": [],
+      "companies": [],
+      "markets": [],
+      "asset_classes": [],
+      "one_line": "Friday’s jobs report comes as investors increasingly expect the Federal Reserve to begin raising interest rates as soon as next month."
+    }
+  ],
+  "reader_prompt": {
+    "id": "2026-08-08-capital-assumption",
+    "question": "What story deserves a deeper Light Tower investigation next?",
+    "options": [
+      "Refinancing liquidity is healthier than it looks",
+      "Office recovery is broader than trophy assets",
+      "Private credit pricing still compensates for risk",
+      "Policy is now a larger variable than rates"
+    ]
+  },
+  "selection_summary": {
+    "raw_candidates": 0,
+    "distinct_events": 431,
+    "articles": 1,
+    "deal_tape_items": 1,
+    "duplicate_groups": 0,
+    "archive_repeats": 0,
+    "daily_target": 0,
+    "daily_target_met": true,
+    "no_flagship": true
+  }
+}

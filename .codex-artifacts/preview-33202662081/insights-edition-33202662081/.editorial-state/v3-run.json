@@ -1,0 +1,826 @@
+{
+ "run_at": "2026-08-28T19:10:50.952294+00:00",
+ "pipeline_version": "v4.0",
+ "mode": "preview",
+ "documents_ingested": 793,
+ "documents_from_feeds": 705,
+ "documents_from_listings": 88,
+ "objects_after_clustering": 752,
+ "documents_consolidated": 41,
+ "eligible": 115,
+ "enriched": 250,
+ "evidence_upgraded": 165,
+ "selected": 21,
+ "publication_candidates": 21,
+ "daily_target": 70,
+ "article_limit": 70,
+ "daily_target_met": false,
+ "sectors": {
+  "banking_credit": {
+   "considered": 57,
+   "eligible": 16,
+   "selected": 2,
+   "target": 10,
+   "shortfall_reason": "only 2 of 16 eligible candidates cleared the floor, against a target of 10"
+  },
+  "commercial_real_estate": {
+   "considered": 390,
+   "eligible": 57,
+   "selected": 10,
+   "target": 10,
+   "shortfall_reason": ""
+  },
+  "data_centers": {
+   "considered": 69,
+   "eligible": 9,
+   "selected": 1,
+   "target": 10,
+   "shortfall_reason": "only 1 of 9 eligible candidates cleared the floor, against a target of 10"
+  },
+  "energy": {
+   "considered": 118,
+   "eligible": 10,
+   "selected": 0,
+   "target": 10,
+   "shortfall_reason": "10 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  },
+  "fed_macro": {
+   "considered": 37,
+   "eligible": 11,
+   "selected": 6,
+   "target": 10,
+   "shortfall_reason": "only 6 of 11 eligible candidates cleared the floor, against a target of 10"
+  },
+  "local_government": {
+   "considered": 6,
+   "eligible": 5,
+   "selected": 1,
+   "target": 10,
+   "shortfall_reason": "only 1 of 5 eligible candidates cleared the floor, against a target of 10"
+  },
+  "private_equity": {
+   "considered": 75,
+   "eligible": 7,
+   "selected": 1,
+   "target": 10,
+   "shortfall_reason": "only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+  }
+ },
+ "depth_counts": {
+  "tier_c": 12,
+  "tier_b": 9
+ },
+ "shortfalls": [
+  "banking_credit: only 2 of 16 eligible candidates cleared the floor, against a target of 10",
+  "data_centers: only 1 of 9 eligible candidates cleared the floor, against a target of 10",
+  "energy: 10 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+  "fed_macro: only 6 of 11 eligible candidates cleared the floor, against a target of 10",
+  "local_government: only 1 of 5 eligible candidates cleared the floor, against a target of 10",
+  "private_equity: only 1 of 7 eligible candidates cleared the floor, against a target of 10"
+ ],
+ "degenerate_measures": [],
+ "score_distribution": {
+  "min": 0.0,
+  "max": 66.4,
+  "mean": 24.2,
+  "stdev": 12.75,
+  "range_used": 66.4,
+  "median": 19.6,
+  "scale_max": 100
+ },
+ "retrieval": {
+  "requested": 253,
+  "fetched": 236,
+  "from_cache": 0,
+  "blocked": 12,
+  "failed": 5,
+  "skipped_budget": 0,
+  "bytes_downloaded": 56460374,
+  "elapsed_ms": 53615,
+  "by_status": {
+   "full_text": 164,
+   "partial_text": 72,
+   "blocked": 12,
+   "failed": 5
+  }
+ },
+ "novelty": {
+  "new": 665,
+  "minor_follow_up": 71,
+  "duplicate": 14,
+  "already_published": 1,
+  "material_update": 1
+ },
+ "memory": {
+  "events_remembered": 3368,
+  "published": 410,
+  "seen_but_not_run": 2958,
+  "lookback_days": 45
+ },
+ "spend": {
+  "date": "2026-08-28",
+  "daily_limit_usd": 25.0,
+  "spent_before_this_run_usd": 0.21,
+  "spent_this_run_usd": 0,
+  "spent_today_usd": 0.21,
+  "remaining_usd": 24.79,
+  "exhausted": false,
+  "total_calls": 0,
+  "refused_calls": 0,
+  "elapsed_seconds": 234.5,
+  "by_stage": {},
+  "most_expensive_articles": []
+ },
+ "generation": {
+  "pipeline": "v4",
+  "requested": 21,
+  "written": 12,
+  "needs_review": 0,
+  "failed": 9,
+  "skipped": 0,
+  "attempts": 31,
+  "elapsed_seconds": 46.77,
+  "provider_attempts": {
+   "deepseek": 31
+  },
+  "results": [
+   {
+    "object_id": "6bcda2fe91c3dffe",
+    "title": "Cortland Offloads 812 West Palm Beach Apartment Units for $208M",
+    "sector": "commercial_real_estate",
+    "depth": "tier_b",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 260 is outside 400-800"
+      ]
+     },
+     "dossier_hash": "bd92bed9fa15d2ea662f08c9b797a0a618f378122d8730c752dcd356bc24d9a9"
+    },
+    "seconds": 18.6,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "41e81311b8721d1f",
+    "title": "Cortland Sells West Palm Rental at Discount for $208M",
+    "sector": "commercial_real_estate",
+    "depth": "tier_b",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 265 is outside 400-800"
+      ]
+     },
+     "dossier_hash": "0f3abc64764bb80e56d0dfe91829e396781a7f6f4be9686831cf90f71dd7ff25"
+    },
+    "seconds": 15.2,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "3b8da65e69d24ae6",
+    "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+    "sector": "commercial_real_estate",
+    "depth": "tier_b",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 279 is outside 400-800"
+      ]
+     },
+     "dossier_hash": "fb2803d55955e0177052f49286c7351ab788df2c315094c054cab4582ac0967e"
+    },
+    "seconds": 20.1,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "c203fe282dea5459",
+    "title": "At Jackson Hole, the Fed Is Speaking to a Market That Never Sleeps",
+    "sector": "fed_macro",
+    "depth": "tier_b",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "91fb79b06d31d92cb7e25c31d8b796087f4db9c34b6eaa12fa8ef799c477549a"
+    },
+    "seconds": 12.5,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "461e06514522aafd",
+    "title": "Fed’s Warsh vows to continue inflation fight",
+    "sector": "fed_macro",
+    "depth": "tier_b",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 347 is outside 400-800"
+      ]
+     },
+     "dossier_hash": "ceb0a84dec18bb736d7fb43f6b553b726f500de0cf6c98c44455055414085f60"
+    },
+    "seconds": 21.8,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "f60117e8d97b7176",
+    "title": "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon",
+    "sector": "commercial_real_estate",
+    "depth": "tier_b",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 347 is outside 400-800"
+      ]
+     },
+     "dossier_hash": "ad932083bf4360826445cef50a6b6826d79873fc9e8a64a90938d2821a14ff89"
+    },
+    "seconds": 17.6,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "2049f4e71903eb17",
+    "title": "Fed OIG report outlines Trump administration efforts to scale back CFPB",
+    "sector": "fed_macro",
+    "depth": "tier_b",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 333 is outside 400-800"
+      ]
+     },
+     "dossier_hash": "0348fae41627d517479e2fe469a16a0328d8157f623c8986413a71e050410013"
+    },
+    "seconds": 16.8,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "d5ba6440b6f8294c",
+    "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+    "sector": "fed_macro",
+    "depth": "tier_b",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "44baec6bbf79f514ecac09efe674e51055b6b023070d1e110c2b88209ee676b9"
+    },
+    "seconds": 11.4,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "6556a26a8388f837",
+    "title": "Warsh furthers his push toward a ‘quieter Fed’",
+    "sector": "fed_macro",
+    "depth": "tier_b",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "da8cf4ec82a0c33c926dcb4c7a8bf1db6816a759bb2abe722ed9e148e88ee5e9"
+    },
+    "seconds": 13.2,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "f76f20d0345c8821",
+    "title": "IT Services Company Spending $45M on Mesa HQ",
+    "sector": "local_government",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "8c955edc3fe17d39e616cbdc5d6f935344c3f9a436d8d0c09f98cbca93719279"
+    },
+    "seconds": 5.8,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "37ee422cbbc08ca2",
+    "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+    "sector": "commercial_real_estate",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "4b3c17608869d23707e01afa053fff390d19e28aac8f4c8e909d583e33744412"
+    },
+    "seconds": 14.7,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "2223f7110ae9ad3c",
+    "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+    "sector": "data_centers",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "5bce954f8c82d00cf49bba8c655a714d9c38074c5b88b2e0a402f6a8fbce8bba"
+    },
+    "seconds": 8.1,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "2afcbf0fb4fed2e1",
+    "title": "Bonaventure Acquires Ownership Interest Maryland Apartment Community",
+    "sector": "commercial_real_estate",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "b4820e0ea08a4f2a3a6270d19f8752cf116c623dac3a8c6c562e8010a6f354ee"
+    },
+    "seconds": 5.6,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "1f28de7b812cd03b",
+    "title": "Colliers Facilitates $23.15M Sale of Coolidge Corner Collection Portfolio in Brookline",
+    "sector": "commercial_real_estate",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "5e0e47f526388d62c4f3d283b1fc67ef4a0c3ef86dcaffd086a2674791cf3595"
+    },
+    "seconds": 6.7,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "f1a79d7d24ec9db4",
+    "title": "JLL Arranges $13.5M Sale and Financing of 96-Room Residence Inn in Danvers Massachusetts",
+    "sector": "commercial_real_estate",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "0c5fbbb3a072218a9ec726e320bd605d08339092063f9d9c0618c4abbcf0613a"
+    },
+    "seconds": 6.3,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "d3e84fd73071f8a0",
+    "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
+    "sector": "commercial_real_estate",
+    "depth": "tier_c",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 151 is outside 180-380"
+      ]
+     },
+     "dossier_hash": "a966715f59629746b2062049228e2a33f506cb44ed883bfdeaac338bda7e9d9c"
+    },
+    "seconds": 9.7,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "3bb23e721f76f34a",
+    "title": "Ex-U.S. Bank exec's discrimination suit can continue: Judge",
+    "sector": "banking_credit",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "64fee628d475c14271d181e29adc6b6a5700fd60e1834c927ad02f3201936afe"
+    },
+    "seconds": 7.8,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "c1ed7944cae3a0e8",
+    "title": "Parts Town Unlimited Signs 538,450 SF Industrial Lease in Pendergrass, Georgia",
+    "sector": "commercial_real_estate",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "f08f7572a28ab922d37b81426d277f30569dc81e56e037e4b700639f93f87d62"
+    },
+    "seconds": 4.8,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "e355a11bc8cccbde",
+    "title": "Former Tennessee congressman hired by Truist",
+    "sector": "banking_credit",
+    "depth": "tier_c",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 147 is outside 180-380"
+      ]
+     },
+     "dossier_hash": "fca93cb80ea211ffae5ae69695695460bea2a88fe0ca0b4c9ccc9e66957bc67a"
+    },
+    "seconds": 12.2,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   },
+   {
+    "object_id": "fa4dd2d80956609d",
+    "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+    "sector": "fed_macro",
+    "depth": "tier_c",
+    "status": "completed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [],
+    "diagnostics": {
+     "attempts": 1,
+     "validation": {
+      "valid": true,
+      "codes": [],
+      "messages": []
+     },
+     "dossier_hash": "d50bf90689be8ac88926bdb61d1fe3643f9ea3f1063baed610d209651e849ca0"
+    },
+    "seconds": 5.7,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": true,
+    "needs_review": false
+   },
+   {
+    "object_id": "74471c1d82ce0492",
+    "title": "Capital F closes $17m debut fund targeting $15tn ‘female economy’, women make up nearly 85% of LP base",
+    "sector": "private_equity",
+    "depth": "tier_c",
+    "status": "failed",
+    "stages_run": [
+     "bounded_writer",
+     "local_validation"
+    ],
+    "errors": [
+     "word_count_out_of_range"
+    ],
+    "diagnostics": {
+     "attempts": 2,
+     "validation": {
+      "valid": false,
+      "codes": [
+       "word_count_out_of_range"
+      ],
+      "messages": [
+       "word count 108 is outside 180-380"
+      ]
+     },
+     "dossier_hash": "fd9ea0531c9145fd286fb8339e5a6db7585c41200fff3ba83f9b81cfe6d4395b"
+    },
+    "seconds": 11.2,
+    "usd": 0.0,
+    "skipped_reason": "",
+    "ok": false,
+    "needs_review": false
+   }
+  ]
+ },
+ "publication": {},
+ "provider": {
+  "provider": "deepseek",
+  "model": "deepseek-v4-pro",
+  "fallback": false,
+  "purpose": "writing",
+  "calls": 31,
+  "successful_calls": 31,
+  "failed_provider_attempts": 0,
+  "fallback_calls": 0,
+  "switches": 0,
+  "providers_used": [
+   "deepseek"
+  ]
+ },
+ "timings": [
+  {
+   "stage": "ingest feeds",
+   "seconds": 36.21,
+   "note": ""
+  },
+  {
+   "stage": "read index pages",
+   "seconds": 44.28,
+   "note": ""
+  },
+  {
+   "stage": "classify sectors",
+   "seconds": 0.16,
+   "note": ""
+  },
+  {
+   "stage": "cluster into events",
+   "seconds": 0.58,
+   "note": ""
+  },
+  {
+   "stage": "type and gate",
+   "seconds": 1.24,
+   "note": ""
+  },
+  {
+   "stage": "check against what we covered",
+   "seconds": 49.05,
+   "note": ""
+  },
+  {
+   "stage": "read the articles",
+   "seconds": 54.76,
+   "note": ""
+  },
+  {
+   "stage": "score importance",
+   "seconds": 0.17,
+   "note": ""
+  },
+  {
+   "stage": "choose the slates",
+   "seconds": 0.0,
+   "note": ""
+  },
+  {
+   "stage": "write the slate",
+   "seconds": 47.89,
+   "note": ""
+  },
+  {
+   "stage": "record what we saw",
+   "seconds": 0.14,
+   "note": ""
+  }
+ ],
+ "warnings": [
+  "9 of 21 article generations failed"
+ ],
+ "errors": [],
+ "elapsed_seconds": 234.47
+}

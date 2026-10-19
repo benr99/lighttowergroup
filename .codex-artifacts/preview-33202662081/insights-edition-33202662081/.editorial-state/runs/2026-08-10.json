@@ -1,0 +1,622 @@
+{
+  "run_at": "2026-08-10T14:30:02.778787+00:00",
+  "pipeline_version": "v3.0",
+  "mode": "publish",
+  "documents_ingested": 457,
+  "documents_from_feeds": 354,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 426,
+  "documents_consolidated": 31,
+  "eligible": 49,
+  "enriched": 48,
+  "evidence_upgraded": 19,
+  "selected": 3,
+  "publication_candidates": 3,
+  "daily_target": 3,
+  "article_limit": 3,
+  "daily_target_met": true,
+  "sectors": {
+    "banking_credit": {
+      "considered": 14,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "14 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "commercial_real_estate": {
+      "considered": 243,
+      "eligible": 27,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 27 eligible candidates cleared the floor, against a target of 10"
+    },
+    "data_centers": {
+      "considered": 43,
+      "eligible": 7,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "7 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "energy": {
+      "considered": 65,
+      "eligible": 9,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "9 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "fed_macro": {
+      "considered": 14,
+      "eligible": 4,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    },
+    "private_equity": {
+      "considered": 44,
+      "eligible": 1,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 1,
+    "tier_c": 2
+  },
+  "shortfalls": [
+    "banking_credit: 14 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "commercial_real_estate: only 3 of 27 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: 7 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "energy: 9 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "fed_macro: 4 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "local_government: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak",
+    "private_equity: 1 eligible candidates but none cleared the quality floor of 40; the day's material was genuinely weak"
+  ],
+  "degenerate_measures": [
+    "precedent",
+    "novelty",
+    "evidence"
+  ],
+  "score_distribution": {
+    "min": 9.1,
+    "max": 57.4,
+    "mean": 21.9,
+    "stdev": 7.4,
+    "range_used": 48.3
+  },
+  "retrieval": {
+    "requested": 48,
+    "fetched": 45,
+    "from_cache": 0,
+    "blocked": 2,
+    "failed": 1,
+    "skipped_budget": 0,
+    "bytes_downloaded": 8602010,
+    "elapsed_ms": 16723,
+    "by_status": {
+      "full_text": 19,
+      "partial_text": 26,
+      "failed": 1,
+      "blocked": 2
+    }
+  },
+  "novelty": {
+    "new": 409,
+    "minor_follow_up": 15,
+    "material_update": 1,
+    "already_published": 1
+  },
+  "memory": {
+    "events_remembered": 847,
+    "published": 404,
+    "seen_but_not_run": 443,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-08-10",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.21,
+    "spent_this_run_usd": 0.13,
+    "spent_today_usd": 0.34,
+    "remaining_usd": 24.66,
+    "exhausted": false,
+    "total_calls": 3,
+    "refused_calls": 0,
+    "elapsed_seconds": 384.5,
+    "by_stage": {
+      "generation": {
+        "calls": 3,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.13,
+        "seconds": 746.5,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "2384f8038aaa4bda",
+        "usd": 0.07
+      },
+      {
+        "id": "09e0e03765f4e669",
+        "usd": 0.03
+      },
+      {
+        "id": "1d95db161ad1e23c",
+        "usd": 0.03
+      }
+    ]
+  },
+  "generation": {
+    "requested": 3,
+    "written": 3,
+    "needs_review": 0,
+    "held": 0,
+    "skipped_budget": 0,
+    "failed": 0,
+    "elapsed_seconds": 321.1,
+    "usd": 0.13,
+    "by_depth": {
+      "tier_c": 2,
+      "tier_b": 1
+    },
+    "results": [
+      {
+        "object_id": "09e0e03765f4e669",
+        "title": "A $2.3 billion, 104-acre mixed-use development breaks ground south of Salt Lake City",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10,
+            "summary": "The article faithfully reports all disclosed project facts from the single source dossier, including scope, team, location, and opening timeline. It accurately notes the glaring absence of any named construction lender, equity partner, anchor office tenant, or capital-stack details—a silence the source itself confirms. The analysis between the lines (phased start, speculation on developer motive, office market uncertainty) is clearly framed as interpretive questions and does not present invented numbers or unsupported claims. It distinguishes what is known from what remains opaque and identifies the next signals to watch, meeting the editorial brief for a 240-430 word intelligence note.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "A specific, visual lede ('The digger is in the ground') immediately anchors the story in action and raises curiosity about the missing financial details.",
+            "worst_sentence": "The project includes 2.5 million square feet of office space at a moment when office demand nationally remains uncertain, though Salt Lake City's tech and finance in-migration could alter that equation locally.",
+            "summary": "A well-structured, voice-driven piece that uses a strong central metaphor to frame the disconnect between physical groundbreaking and opaque capital structure, with varied sentences and a resonant conclusion.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "no_issues"
+          }
+        },
+        "seconds": 167.0,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1d95db161ad1e23c",
+        "title": "Equity Residential and AvalonBay: Inside the $71B Mega Multifamily Merger",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately extracts key figures, quotes, and context from the sole source, properly attributing claims to the Commercial Observer. It synthesizes the reported facts into a coherent analytical narrative about a defensive consolidation driven by market conditions, supported by the source’s commentary on stock reaction, overlapping geographies, and the open question of earnings acceleration. No factual errors or unsupported claims were found. The article meets the brief’s expectation for a concise, evidence-bounded argument.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "Sentence length: 'According to a Commercial Observer report, the new company expects $175 million in cost synergies within 18 months, driven by overlapping operations in the same coastal markets: New York, San Francisco, Boston, and Washington, D.C., where roughly 95% of the two firms’ portfolios sit.' is overly dense and could be split for better readability."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "opening_quality": "Specific and engaging, with precise details and a record-setting context that immediately draws the reader in.",
+            "worst_sentence": "According to a Commercial Observer report, the new company expects $175 million in cost synergies within 18 months, driven by overlapping operations in the same coastal markets: New York, San Francisco, Boston, and Washington, D.C., where roughly 95% of the two firms’ portfolios sit.",
+            "summary": "The article is well-structured and professional, with a strong opening, varied sentences, and no AI clichés. Minor readability improvements could be made to one long sentence.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "summary": "The article accurately distills the Commercial Observer report, correctly attributing all key figures (apartment counts, enterprise value, synergies, stock moves) and analyst comments. The analysis of a defensive consolidation, coastal concentration risk, and the open question on earnings growth is directly supported by the source. The only minor imprecision is that the combined $71 billion figure is an enterprise value, not a sum of the previously stated market caps, but the article does not misrepresent what the number signifies. The piece is well within editorial bounds for a single-source intelligence brief.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Specific, strong hook with a date, company metrics, a record deal size, and a superlative comparison.",
+            "worst_sentence": "The all-stock transaction, expected to close later this year under the name Vivmark Residential, combines more than 180,000 apartments across over 600 communities, plus another 10,800 units under construction.",
+            "summary": "A tightly written, well-structured business article with varied sentence lengths, a professional voice, no AI clichés, and a conclusion that frames the deal’s central strategic question.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 258.4,
+        "usd": 0.03,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2384f8038aaa4bda",
+        "title": "What’s Driving CMBS Distress in the Top U.S. Metro Areas",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "analytical_brief",
+          "assemble_prompt",
+          "draft",
+          "financial_review",
+          "editorial_review",
+          "fact_verification",
+          "final_revision",
+          "financial_review",
+          "editorial_review",
+          "fact_verification"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "analytical_brief": {
+            "status": "completed"
+          },
+          "assemble_prompt": {
+            "status": "completed"
+          },
+          "draft": {
+            "status": "completed"
+          },
+          "financial_review": {
+            "issues": [
+              "The article states that '$956 million of it was multifamily' as a precise figure, but the source only provides an approximate percentage ('approximately 96 percent') and does not give an exact dollar amount for the multifamily portion of the newly distressed balance. This specific figure is unsupported and may misrepresent an approximation as a precise data point."
+            ],
+            "passed": false,
+            "score_1_10": 7,
+            "summary": "The article effectively translates dry CMBS data into a coherent narrative, explaining the shift from office to multifamily distress, concentration risks, and the implications for lenders and investors. However, it presents an unsourced and potentially imprecise dollar figure ($956 million) derived from an approximate percentage in the original reporting, which undermines factual rigor on a specific data point. All other numbers are accurately sourced and the analysis adds meaningful context.",
+            "status": "completed"
+          },
+          "editorial_review": {
+            "issues": [
+              "The sentence 'The numbers, drawn from CRED iQ data, paint a market rotating its problems.' is missing a word, likely 'picture of a market' or 'depict a market', making it slightly awkward."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Excellent: specific, surprising statistic with a direct address to the reader ('That is not a typo') that hooks immediately.",
+            "worst_sentence": "The numbers, drawn from CRED iQ data, paint a market rotating its problems.",
+            "summary": "A tightly written, analytically sharp article about the shift in CMBS distress from office to multifamily loans. The prose is professional yet lively, using metaphors effectively. A minor grammatical awkwardness in one sentence prevents a perfect score.",
+            "status": "completed"
+          },
+          "fact_verification": {
+            "issues": [
+              "Article contains dossier-unverified claims (1 amounts, 0 companies, 0 addresses): amounts: $956 million near 't newly delinquent or transferred to special servicing, and $956 million of it was multifamily. The distress migration t'"
+            ],
+            "passed": false,
+            "score_1_10": 6
+          },
+          "final_revision": {
+            "status": "revised"
+          },
+          "post_revision_financial_review": {
+            "issues": [
+              "The article states that the overall CMBS distress rate 'has barely budged since February,' but the source does not provide the February overall distress rate to support this claim. The assertion is unsupported by the dossier.",
+              "The analysis on loan modification runway, floating-rate debt, interest-rate caps, and rent plateaus is presented as typical for multifamily loans, but no evidence from the dossier corroborates these structural details. While the article offers a plausible interpretation, these specifics go beyond what the single source discloses, weakening analytical grounding."
+            ],
+            "passed": true,
+            "score_1_10": 8,
+            "summary": "The article accurately reports key figures from the CRED iQ data cited in the source, including distress rates by property type and metro area, and July delinquency events. It provides useful context on concentration risk and the rotation from office to multifamily distress. However, it makes one unsupported claim about the overall distress rate's stability since February and introduces structural loan details not present in the dossier, slightly reducing the rigor of its evidence-bounded analysis.",
+            "status": "completed"
+          },
+          "post_revision_editorial_review": {
+            "issues": [
+              "Use of 'paint a picture' is a cliché that slightly weakens an otherwise precise opening."
+            ],
+            "passed": true,
+            "score_1_10": 9,
+            "opening_quality": "Specific and arresting: the 96% figure and 'That is not a typo' immediately hook the reader with high-impact data.",
+            "worst_sentence": "The numbers, drawn from CRED iQ data, paint a picture of a market rotating its problems.",
+            "summary": "Sharp, data-driven analysis that moves from a striking July statistic to a coherent narrative of shifting distress from office to multifamily. The article balances big-picture context with concrete loan-level detail, avoids jargon traps, and ends with an actionable, pointed implication rather than a generic outlook. Minor cliché aside, writing is tight and professional.",
+            "status": "completed"
+          },
+          "post_revision_fact_verification": {
+            "issues": [],
+            "passed": true,
+            "score_1_10": 10
+          }
+        },
+        "seconds": 321.1,
+        "usd": 0.07,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 3,
+    "published": 3,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured_social.png",
+      "insights/a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured.html",
+      "insights/avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet_social.png",
+      "insights/avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet.html",
+      "insights/multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets_social.png",
+      "insights/multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured_related.json",
+      "insights/avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet_related.json",
+      "insights/multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "09e0e03765f4e669",
+        "title": "A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured",
+        "slug": "a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured",
+        "url": "/insights/a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 43,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1d95db161ad1e23c",
+        "title": "AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet",
+        "slug": "avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet",
+        "url": "/insights/avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2384f8038aaa4bda",
+        "title": "Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets",
+        "slug": "multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets",
+        "url": "/insights/multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "09e0e03765f4e669",
+        "slug": "a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured",
+        "title": "A $2.3 billion, 104-acre mixed-use development breaks ground south of Salt Lake City",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1d95db161ad1e23c",
+        "slug": "avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet",
+        "title": "Equity Residential and AvalonBay: Inside the $71B Mega Multifamily Merger",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2384f8038aaa4bda",
+        "slug": "multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets",
+        "title": "What’s Driving CMBS Distress in the Top U.S. Metro Areas",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 20,
+    "successful_calls": 16,
+    "failed_provider_attempts": 4,
+    "fallback_calls": 0,
+    "switches": 2,
+    "providers_used": [
+      "deepseek",
+      "openai"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 24.86,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 10.45,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.09,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.22,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.67,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 8.85,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 16.86,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 322.04,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 0.32,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.05,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "scoring measures with no discriminating power: precedent, novelty, evidence"
+  ],
+  "errors": [],
+  "elapsed_seconds": 384.51,
+  "status": "success",
+  "candidate_count": 457,
+  "event_count": 426,
+  "articles": [
+    {
+      "event_id": "09e0e03765f4e669",
+      "title": "A $2.3B Mixed-Use Bet Breaks Ground in Draper, With Capital Details Still Unpoured",
+      "slug": "a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured",
+      "url": "/insights/a-2-3b-mixed-use-bet-breaks-ground-in-draper-with-capital-details-still-unpoured.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 43,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1d95db161ad1e23c",
+      "title": "AvalonBay + Equity Residential: Inside the $71B Coastal Multifamily Bet",
+      "slug": "avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet",
+      "url": "/insights/avalonbay-equity-residential-inside-the-71b-coastal-multifamily-bet.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2384f8038aaa4bda",
+      "title": "Multifamily Now Drives New CMBS Distress as a Few Large Loans Tip Worst Markets",
+      "slug": "multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets",
+      "url": "/insights/multifamily-now-drives-new-cmbs-distress-as-a-few-large-loans-tip-worst-markets.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 3
+}

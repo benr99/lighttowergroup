@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "updated_at": null,
+  "newsapi_queries": [
+    "commercial real estate loan sale",
+    "CMBS delinquency",
+    "multifamily refinancing distress",
+    "office distress commercial real estate",
+    "industrial cap rate investment",
+    "data center power demand real estate",
+    "stadium arena subsidy real estate development",
+    "climate insurance commercial property",
+    "AI infrastructure data center development",
+    "regional bank CRE exposure loan",
+    "private equity real estate acquisition",
+    "REIT earnings guidance property",
+    "New York City zoning development",
+    "Brooklyn Queens multifamily development",
+    "Manhattan office lease recovery",
+    "construction loan commercial real estate",
+    "bridge loan refinancing CRE",
+    "rent stabilized multifamily New York"
+  ],
+  "structured_sources": {
+    "sec_edgar_rss": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&CIK=&type=&company=&dateb=&owner=include&start=0&count=40&output=atom",
+    "note": "Additional structured sources (NYC DOB permits, ACRIS) require scraper development — see scripts/structured_sources.py"
+  }
+}

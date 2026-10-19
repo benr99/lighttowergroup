@@ -1,0 +1,796 @@
+{
+ "run_at": "2026-08-28T19:10:50.952294+00:00",
+ "pipeline_version": "v4.0",
+ "count": 21,
+ "drafts": [
+  {
+   "object_id": "6bcda2fe91c3dffe",
+   "title": "Cortland Offloads 812 West Palm Beach Apartment Units for $208M",
+   "sector": "commercial_real_estate",
+   "depth": "tier_b",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 260 is outside 400-800"
+     ]
+    },
+    "dossier_hash": "bd92bed9fa15d2ea662f08c9b797a0a618f378122d8730c752dcd356bc24d9a9"
+   },
+   "seconds": 18.6,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "41e81311b8721d1f",
+   "title": "Cortland Sells West Palm Rental at Discount for $208M",
+   "sector": "commercial_real_estate",
+   "depth": "tier_b",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 265 is outside 400-800"
+     ]
+    },
+    "dossier_hash": "0f3abc64764bb80e56d0dfe91829e396781a7f6f4be9686831cf90f71dd7ff25"
+   },
+   "seconds": 15.2,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "3b8da65e69d24ae6",
+   "title": "Dwight Supplies $70M Refi on Newark Multifamily Tower",
+   "sector": "commercial_real_estate",
+   "depth": "tier_b",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 279 is outside 400-800"
+     ]
+    },
+    "dossier_hash": "fb2803d55955e0177052f49286c7351ab788df2c315094c054cab4582ac0967e"
+   },
+   "seconds": 20.1,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "c203fe282dea5459",
+   "title": "At Jackson Hole, the Fed Is Speaking to a Market That Never Sleeps",
+   "sector": "fed_macro",
+   "depth": "tier_b",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "91fb79b06d31d92cb7e25c31d8b796087f4db9c34b6eaa12fa8ef799c477549a"
+   },
+   "seconds": 12.5,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "At Jackson Hole, the Fed Is Speaking to a Market That Never Sleeps",
+    "excerpt": "As tokenized assets extend trading around the clock and automated systems continue to parse financial language, Bitget’s Gracy Chen argues that the Federal Reserve’s traditional model of deliberate, human-centered communication will need to evolve.",
+    "body_html": "<p>On Friday, Kevin Warsh will step to the lectern in Grand Teton National Park and deliver his first address as chair of the Federal Reserve. The setting is, as always, almost defiantly analog. The Kansas City Fed’s Jackson Hole Economic Symposium is invitation-only, deliberately small, held far from any trading floor and conducted at the considered pace of people who have the room to think. It is one of the most closely watched communications events in global finance, and almost nothing about how it is staged resembles the financial system that will receive it.</p><p>That is the mismatch worth sitting with. The Fed sets no interest rate at Jackson Hole. Its instrument there is language. A chair chooses words, and markets parse them for signals about what comes next. For most of the symposium’s history, the model assumed a particular kind of audience: one largely concentrated in a few time zones, made up of humans who would hear a speech, weigh it and position themselves accordingly. Each of those assumptions is now eroding. For a new chair whose every phrase is being scrutinized for the first time, that matters more than usual.</p><p>Many major American stocks that anchor most portfolios now trade around the clock in tokenized form, alongside derivatives that track them. When Warsh speaks, the response will not necessarily wait for New York to open. It can begin immediately, everywhere, across venues that never close. This is not a projection. Over the weekend of Jul. 13, significant geopolitical news broke while U.S. exchanges were closed, and on the platform Bitget, tokenized stock trading rose to more than ten times its typical weekend level. Investors were repricing their exposure to major American companies on a Saturday, while the primary venues where those companies list stayed shut.</p><p>Bring that dynamic to a Fed chair’s words, and the consequence sharpens. The interval that once sat between a speech and the market’s verdict has largely collapsed. The hours in which a phrase could be read in context, compared with previous statements and digested are disappearing. The words now land in a market that is global, continuous and ready to respond. Interpretation happens in real time.</p><p>This cuts two ways at once, and both should concern a policymaker. On one hand, it makes central-bank communication more consequential than ever: every clause can be priced almost instantly, with no cooling-off period in which a careful qualification can do its work. On the other, that same speed manufactures noise. A hedged sentence, read literally and at machine pace, can move prices before anyone has had time to weigh what it actually meant, producing volatility the chair neither intended nor, in substance, caused. The market’s reaction time has become shorter than the time it takes to understand what was said.</p><p>Increasingly, the first reader of a central banker’s words is not a person. A growing share of trading now runs through automated tools that parse language and, in some cases, act on it directly. Such a system does not wait for the morning or for anything. It reads the sentence and moves. It also reads literally, which is precisely the difficulty for an institution whose communication depends on nuance, sequencing and deliberate ambiguity. Human listeners can distinguish a passing qualification from a change in policy direction. A system trained to identify signals may be optimized to detect a change and trade on it. A market that is always open is the only market such a system can fully exploit, and the audience a Fed chair now addresses includes, in part, software that responds in milliseconds and does not do subtext.</p><p>None of this makes Jackson Hole obsolete. The price of money still matters more than almost anything traded against it, and a room of serious people thinking hard about it is no bad thing. But the model of communication built around that room will have to evolve. The Fed has adapted its communications before, adding press conferences, economic projections and plain-language summaries as its audience widened. The next adaptation is for an audience that never logs off and increasingly reads for the literal, machine-detectable signals: clearer, more continuous communication that is less reliant on the slow human digestion the annual-speech format quietly assumes.</p><p>Some of that reckoning has already begun. In the U.S., securities regulators are weighing rules that would give tokenized, around-the-clock versions of U.S. stocks a clearer regulatory path. The source material does not specify the precise scope or timing of those rules, but the direction is clear: the architecture around markets is beginning to catch up to a system that no longer pauses.</p>",
+    "format": "analysis",
+    "sources": [
+     {
+      "name": "Observer (general)",
+      "url": "https://observer.com/2026/08/kevin-warsh-jackson-hole-fed-24-hour-markets/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "c203fe282dea5459",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "461e06514522aafd",
+   "title": "Fed’s Warsh vows to continue inflation fight",
+   "sector": "fed_macro",
+   "depth": "tier_b",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 347 is outside 400-800"
+     ]
+    },
+    "dossier_hash": "ceb0a84dec18bb736d7fb43f6b553b726f500de0cf6c98c44455055414085f60"
+   },
+   "seconds": 21.8,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "f60117e8d97b7176",
+   "title": "Vivmark Residential Transfers $742M California Multifamily Portfolio from Avalon",
+   "sector": "commercial_real_estate",
+   "depth": "tier_b",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 347 is outside 400-800"
+     ]
+    },
+    "dossier_hash": "ad932083bf4360826445cef50a6b6826d79873fc9e8a64a90938d2821a14ff89"
+   },
+   "seconds": 17.6,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "2049f4e71903eb17",
+   "title": "Fed OIG report outlines Trump administration efforts to scale back CFPB",
+   "sector": "fed_macro",
+   "depth": "tier_b",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 333 is outside 400-800"
+     ]
+    },
+    "dossier_hash": "0348fae41627d517479e2fe469a16a0328d8157f623c8986413a71e050410013"
+   },
+   "seconds": 16.8,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "d5ba6440b6f8294c",
+   "title": "In Jackson Hole, Warsh Says Fed Policy Isn't Restrictive, Pledges To Tame Inflation",
+   "sector": "fed_macro",
+   "depth": "tier_b",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "44baec6bbf79f514ecac09efe674e51055b6b023070d1e110c2b88209ee676b9"
+   },
+   "seconds": 11.4,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "Warsh Signals Fed Policy Isn't Restrictive, Keeps Rate Hikes on the Table",
+    "excerpt": "In his first major Jackson Hole speech as Fed chair, Kevin Warsh said broad financial conditions are not restrictive and pledged to keep price stability the central bank's predominant focus.",
+    "body_html": "<p>Federal Reserve Chair Kevin Warsh used his first major Jackson Hole speech to deliver a clear message: the central bank does not see broad financial conditions as restrictive, and it is not moving toward rate relief. Speaking Friday morning in Wyoming, Warsh said credit and loan markets are showing few signs of policy restraint, even as he acknowledged strains in housing and agriculture.</p><p>\"Credit and loan markets are showing few signs of policy restraint,\" Warsh said. \"Certain sectors like housing and agriculture are showing strains, but on balance, I would be hard-pressed to describe broad financial conditions as restrictive.\"</p><p>The speech solidified Warsh's position as an inflation hawk. He said the Fed had done a good job on the employment side of its dual mandate but still had work to do to bring inflation down to the central bank's 2% target. \"Inflation is running above our 2% target, so the Fed's predominant focus right now should be on prices,\" he said.</p><p>Warsh described labor markets as broadly consistent with full employment, even after the U.S. lost 23,000 jobs in July, well off economists' forecasts of roughly 83,000 new jobs. The unemployment rate ticked down slightly to 4.1%. He acknowledged that recent graduates face hurdles, but said the current market remains robust.</p><p>The chair also used the speech to argue against the forward guidance that has been part of Fed communications since the Global Financial Crisis. He said the central bank should not encourage a regime in which market participants look primarily to the Fed for their next trade. \"If markets rely materially on the Fed's guidance and the Fed relies on market prices, we're more likely to be blinded to new developments,\" Warsh said.</p><p>For commercial real estate owners and investors, the speech is the latest and clearest signal that the Fed is not inching toward rate relief. Warsh said short-term interest rates are the central bank's predominant tool for achieving its dual mandate, and he pledged to lead a quieter and more purposeful central bank.</p><p>Warsh also framed the economy as being at a \"hinge point in history\" as artificial intelligence redefines paths to economic growth. He raised questions about whether AI adoption would produce a sustained productivity boost, how much competition would exist between leading models, and where capital would settle across materials providers, chipmakers, model operators, energy producers and cloud infrastructure providers. He said businesses are rapidly increasing capital expenditures while profit margins are at historical highs, and credit spreads on corporate bond issuance remain strong.</p><p>\"I'm impressed by the overall performance of the economy, which appears to have strengthened,\" Warsh said. But his broader message left room for future rate hikes as the central bank works to tame inflation.</p>",
+    "format": "analysis",
+    "sources": [
+     {
+      "name": "Bisnow (all markets)",
+      "url": "https://www.bisnow.com/news/national/capital-markets/jackson-hole-kevin-warsh-fed-policy-not-restrictive-pledges-tame-inflation"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "d5ba6440b6f8294c",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "6556a26a8388f837",
+   "title": "Warsh furthers his push toward a ‘quieter Fed’",
+   "sector": "fed_macro",
+   "depth": "tier_b",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "da8cf4ec82a0c33c926dcb4c7a8bf1db6816a759bb2abe722ed9e148e88ee5e9"
+   },
+   "seconds": 13.2,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "Warsh furthers his push toward a ‘quieter Fed’",
+    "excerpt": "In his first Jackson Hole address, new Federal Reserve Chair Kevin Warsh doubled down on a promise to cut “forward guidance” and a commitment to 2% inflation.",
+    "body_html": "<p>In his first Jackson Hole address, new Federal Reserve Chair Kevin Warsh reinforced a defining theme of his early tenure: the Federal Reserve should talk less about what it expects to do next and focus more on getting policy right. Speaking at the Kansas City Fed’s annual summit in Wyoming, Warsh framed his own remarks carefully. “You can call it an outline. You can call it a trail map. Just don't call it forward guidance,” he said.</p><p>The stance is consistent with the approach Warsh has taken since his first month as chair. At his first Federal Open Market Committee meeting in June, he oversaw the removal of wording in a previous policy statement that may have suggested the Fed anticipated trimming borrowing costs in the future. On Friday, he made clear that the shift is deliberate. “Transparency in communications about future policy decisions is not a virtue unto itself,” Warsh said. “Communications must be in service to the Fed's paramount responsibility: getting monetary policy right.”</p><p>Warsh argued that a “quieter Fed” is better positioned to meet its objectives and be held accountable for delivering on its remit. He said the Fed began pushing forward guidance during the 2007-08 financial crisis but that the practice had “overstayed its welcome.” In his view, an excessive focus on Fed signals can distort how markets process information. “Market participants will always try to anticipate what we will do next. But we should not indulge a regime in which market participants are looking primarily to the Fed for their next trade,” he said.</p><p>The risk, Warsh suggested, is a feedback loop in which markets depend on the Fed’s guidance and the Fed depends on market prices. That dynamic, he said, could leave policymakers “blinded to new developments, more likely to be caught unprepared for a turn of events, and more likely to commit errors in policymaking.” Cutting forward guidance, he argued, would help “get the relationship right between financial markets and the central bank.”</p><p>Warsh also addressed the Fed’s inflation mandate directly. Noting the amount of time that inflation has hovered above the central bank’s stated 2% target, he said, “The responsibility for 65 months of sustained, elevated inflation sits squarely with the central bank.” He added: “We must be confident that underlying inflation is moving to our objective, clearly and at sufficient speed. Otherwise, we have work to do.”</p><p>Beyond the immediate policy conjuncture, Warsh spoke briefly about artificial intelligence and its uncertain economic effects. “It's not obvious where the returns on capital will land or on what timescale,” he said. “Likewise, we don't yet know the equilibrium price of the tokens.” He said the Fed would examine these issues through a task force on productivity and jobs, though its recommendations would have no bearing on current policy decisions.</p><p>The address leaves open how much the Fed’s communication shift will change market behavior in practice. But the direction is clear: Warsh is attempting to reduce the central bank’s role as a source of forward-looking signals and to re-center its credibility on inflation outcomes rather than on guidance about future moves.</p>",
+    "format": "analysis",
+    "sources": [
+     {
+      "name": "Banking Dive",
+      "url": "https://www.bankingdive.com/news/fed-jackson-hole-forward-guidance-inflation-kevin-warsh/829101/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "6556a26a8388f837",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "f76f20d0345c8821",
+   "title": "IT Services Company Spending $45M on Mesa HQ",
+   "sector": "local_government",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "8c955edc3fe17d39e616cbdc5d6f935344c3f9a436d8d0c09f98cbca93719279"
+   },
+   "seconds": 5.8,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "IT Services Company Spending $45M on Mesa HQ",
+    "excerpt": "ER2 received Mesa Planning & Zoning Board approval for a new headquarters near Falcon Field Airport, planning to invest approximately $45 million in a 155,000-square-foot industrial building.",
+    "body_html": "<p>The Mesa Planning & Zoning Board has approved ER2's application for a new headquarters at the corner of McDowell and Greenfield roads. The IT services and technology equipment recycling company plans to invest approximately $45 million and nearly double its Valley footprint by building a 155,000-square-foot industrial headquarters on vacant land near Falcon Field Airport.</p><p>ER2 is currently headquartered in Mesa at 730 E. Southern Ave., with a Phoenix office at 1710 E. Washington St. The company began operations at its Mesa facility in 2012 and opened its Phoenix location in 2019 after outgrowing the Mesa site. ER2 is consolidating its two Valley facilities into one larger building, with the new space expected to support 250 to 300 employees.</p><p>The build-to-suit development will include a 155,597-square-foot light industrial building with a 132,544-square-foot first floor and a 23,043-square-foot second floor. Planned amenities include a fitness center, sauna, golf simulator, gaming coves, production studio, and covered parking. LGE Design Build is listed as the architect, and Hunter Engineering is the civil engineer.</p><p>Details on construction timing, financing, and expected completion were not included in the available report.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "Connect CRE",
+      "url": "https://www.connectcre.com/stories/it-services-company-spending-45m-on-mesa-hq/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "f76f20d0345c8821",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "37ee422cbbc08ca2",
+   "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+   "sector": "commercial_real_estate",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "4b3c17608869d23707e01afa053fff390d19e28aac8f4c8e909d583e33744412"
+   },
+   "seconds": 14.7,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "$36M renovation of historic Eastern Parkway Library breaks ground",
+    "excerpt": "Work has begun on the $36 million transformation of Crown Heights’ historic Eastern Parkway Library, expanding public space by more than 50 percent while preserving its century-old architecture.",
+    "body_html": "<p>Work has begun on the $36 million transformation of Crown Heights’ historic Eastern Parkway Library. Mayor Zohran Mamdani on Thursday announced the start of the project, which will expand public space at the century-old Brooklyn Public Library branch at 1044 Eastern Parkway by more than 50 percent while preserving its historic architecture. Led by the city’s Department of Design and Construction, the project is expected to be completed in summer 2028.</p><p>Established in 1914, the original two-story library was designed by Raymond F. Almirall and built as part of a $5.2 million gift from philanthropist Andrew Carnegie to establish a comprehensive library system across New York City. The Classical Revival-style building features a limestone facade and long, arched windows, with double-height reading rooms and mezzanines overlooking the lower level.</p><p>Designed by Allied Works, the renovation will expand the library’s public space by 12,250 square feet and add a 13,400-square-foot, three-story wing along Schenectady Avenue. A new glass facade will bring more natural light into the library and make the building fully ADA-compliant, with a new elevator and entrance ramp. The facility will include a multipurpose room, main reading room, teen zone, two children’s zones, a STEAM room, community room, and a classroom in the restored fireplace room.</p><p>The renovation will also add energy-efficient lighting and upgrade plumbing, HVAC, and fire alarm systems, with the library expected to achieve LEED Silver certification. Artwork by local artist Oasa DuVerney will be displayed through the Department of Cultural Affairs’ Percent for Art Program. During construction, services will continue at a temporary location provided by the Settlement Housing Fund, with furniture donated by IKEA and additional support from Amazon.</p><p>“The Eastern Parkway Library has served Brooklyn for over a century. The renovation—which will bring more natural light into the branch, add modern technology and create inspiring spaces—will ensure that Eastern Parkway Library can serve the community for another 100 years,” said Linda E. Johnson, President and CEO of BPL. The project is funded by the Office of the Mayor, the City Council, Brooklyn Borough President Antonio Reynoso, and the state Assembly.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "6sqft",
+      "url": "https://www.6sqft.com/36m-renovation-of-historic-eastern-parkway-library-breaks-ground/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "37ee422cbbc08ca2",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "2223f7110ae9ad3c",
+   "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+   "sector": "data_centers",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "5bce954f8c82d00cf49bba8c655a714d9c38074c5b88b2e0a402f6a8fbce8bba"
+   },
+   "seconds": 8.1,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "SK Telecom creates SK Horizon in $2.2B data center spin-off deal",
+    "excerpt": "SKT has spun off SK Broadband's data center assets to create SK Horizon, completing the restructuring needed to expand its AI data center business.",
+    "body_html": "<p>SK Telecom (SKT) is spinning off a division of its subsidiary, SK Broadband, to establish SK Horizon, a new entity focused on AI data center (AIDC) infrastructure and submarine cable operations. The South Korean operator signed deals with global investment firm KKR and a consortium made up of IMM Investment and Stonebridge Capital for a combined investment of 3.08 trillion Korean won (US$2.24 billion) in the new company.</p><p>Once the transaction is complete, KKR and the IMM-Stonebridge consortium will hold 29% and 20% stakes in SK Horizon respectively, while SKT will retain management control as the largest shareholder with a 51% stake. SKT aims to complete the spin-off from SK Broadband by the first quarter of next year, pending regulatory approvals and an extraordinary shareholders meeting.</p><p>SK Horizon will assume operation of eight existing data centers located in Seocho, Ilsan, Bundang, Gasan, Centum, Yangju and Pangyo, as well as two new AIDCs under construction in Ulsan and Guro. These facilities will provide a total IT capacity of 318MW. The company will also pursue phased expansion of its submarine cable infrastructure, which SKT describes as vital for global AI businesses.</p><p>According to SKT, the spin-off completes the governance restructuring required to accelerate its expansion into the AIDC sector. Last month, SKT established SK Hyper, a new $510 million subsidiary focused on building GW-scale AI data centers across South Korea, with the aim of reaching a total capacity of 15GW by 2035.</p><p>\"This governance restructuring is a proactive measure aimed at strengthening expertise and enabling faster execution in the AIDC business,\" said Kim Seong-soo, newly appointed CEO of SK Horizon. \"As an AIDC infrastructure company, we will continue to scale up SK Horizon and grow it into Korea's leading data center operator.\" Kim is also the CEO of SK Broadband, which will now focus on its fixed-line, media and enterprise businesses.</p><p>Under the restructuring, SKT will oversee the SK Group's AIDC business as a whole, setting business strategies and directions and collaborating with major global tech companies. SK Horizon will be responsible for expanding infrastructure, including existing key AIDCs and submarine cables, while SK Hyper will focus on business development for new AIDC projects.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "Light Reading",
+      "url": "https://www.lightreading.com/data-centers/sk-telecom-creates-sk-horizon-in-2-2b-data-center-spin-off-deal"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "2223f7110ae9ad3c",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "2afcbf0fb4fed2e1",
+   "title": "Bonaventure Acquires Ownership Interest Maryland Apartment Community",
+   "sector": "commercial_real_estate",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "b4820e0ea08a4f2a3a6270d19f8752cf116c623dac3a8c6c562e8010a6f354ee"
+   },
+   "seconds": 5.6,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "Bonaventure Acquires Ownership Interest Maryland Apartment Community",
+    "excerpt": "Bonaventure has acquired an ownership interest in Crescent at Chevy Chase, a 111-home community in Chevy Chase, Maryland, from Landmark Realty, Inc.",
+    "body_html": "<p>Bonaventure, an operator-led multifamily real estate investment firm with approximately $2.9 billion in assets under management, announced that it has acquired an ownership interest in Crescent at Chevy Chase, a 111-home community at 3929 Landmark Court in Chevy Chase, Maryland, from Landmark Realty, Inc., the Chevy Chase-based firm that developed the property.</p><p>The investment was made through Bonaventure Multifamily Income Trust (BMIT), a non-traded real estate investment trust sponsored by Bonaventure. Bonaventure has assumed asset management of the community, and Willow Bridge Property Company has been engaged as the property manager. Landmark Realty, which designed, developed and has operated Crescent since its delivery, remains a partner in the ownership group. Terms of the transaction were not disclosed.</p><p>Delivered in 2024, Crescent at Chevy Chase comprises 111 apartment homes averaging 846 square feet across studio, one-bedroom, two-bedroom and three-bedroom floor plans. The property sits directly adjacent to the future Connecticut Avenue station on the Maryland Purple Line, which is currently under construction and expected to open in late 2027, and offers direct access to the Capital Crescent Trail.</p><p>\"Crescent at Chevy Chase is a community we intend to own for a very long time,\" said Dwight Dunton, Chief Executive Officer of Bonaventure. Cushman & Wakefield and Greystone arranged financing for the transaction.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "Yield PRO",
+      "url": "https://yieldpro.com/2026/08/crescent-at-chevy-chase/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "2afcbf0fb4fed2e1",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "1f28de7b812cd03b",
+   "title": "Colliers Facilitates $23.15M Sale of Coolidge Corner Collection Portfolio in Brookline",
+   "sector": "commercial_real_estate",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "5e0e47f526388d62c4f3d283b1fc67ef4a0c3ef86dcaffd086a2674791cf3595"
+   },
+   "seconds": 6.7,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "Colliers Facilitates $23.15M Sale of Coolidge Corner Collection Portfolio in Brookline",
+    "excerpt": "Colliers announced the $23.15 million sale of the nine-building Coolidge Corner Collection in Brookline, Massachusetts, on behalf of Ramon Realty.",
+    "body_html": "<p>Colliers announced the $23.15 million sale of the Coolidge Corner Collection in Brookline, Massachusetts. The sale was facilitated on behalf of Ramon Realty by a Colliers team including Managing Director of Investment Sales Frank Petz, Senior Vice President Tim McGeary, Vice President Brett Curtis, and Senior Financial Analyst Matt Lombardi.</p><p>The nine-building, mixed-use portfolio includes properties at 223 and 229-231 St. Paul Street, 26-28 Browne Street, 395-397 Harvard Street, 7 Naples Road, and 1343 Beacon Street. It totals 65,262 square feet with 49 residential units and three commercial spaces, and was acquired by City Realty.</p><p>The offering attracted strong interest from local, regional, and national investors despite uncertainty surrounding the proposed statewide rent-control ballot initiative. The portfolio was 96% occupied, with only 12% of units fully renovated and 57% partially upgraded, leaving room for additional value through unit improvements.</p><p>\"The Coolidge Corner Collection represents the type of high-quality multifamily asset that will continue to attract investors,\" Petz said. \"The depth of interest we saw throughout the process, despite uncertainty surrounding the proposed rent-control ballot initiative, speaks to investors' conviction in Brookline and the opportunity for the portfolio to create additional value through continued unit improvements.\"</p><p>The sale follows the July expansion of Colliers' multifamily platform in Boston with the hires of McGeary and Curtis. Colliers reports $5.7 billion in annual revenues, 24,000 professionals, and $109 billion in assets under management.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "Yield PRO",
+      "url": "https://yieldpro.com/2026/08/7-naples-road/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "1f28de7b812cd03b",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "f1a79d7d24ec9db4",
+   "title": "JLL Arranges $13.5M Sale and Financing of 96-Room Residence Inn in Danvers Massachusetts",
+   "sector": "commercial_real_estate",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "0c5fbbb3a072218a9ec726e320bd605d08339092063f9d9c0618c4abbcf0613a"
+   },
+   "seconds": 6.3,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "JLL Arranges $13.5M Sale and Financing of 96-Room Residence Inn in Danvers, Massachusetts",
+    "excerpt": "JLL Capital Markets arranged the $13.5 million sale and financing of the 96-room Residence Inn Boston North Shore/Danvers, an extended-stay hotel with approved conversion rights to an 88-unit multifamily residential community.",
+    "body_html": "<p>JLL Capital Markets announced it arranged the $13.5 million sale and financing of the 96-room Residence Inn Boston North Shore/Danvers, an extended-stay hotel with approved conversion rights to an 88-unit multifamily residential community. The property is located at 51 Newbury St. in Danvers, Massachusetts, approximately 20 miles north of Boston.</p><p>JLL represented the seller, an affiliate of PEG Companies, Inc., in the transaction. Torrington acquired the asset and plans to move forward with a multifamily conversion after an initial period of continued hotel operations under the Residence Inn brand. JLL also worked on behalf of Torrington to secure financing for the acquisition.</p><p>Built in 1989 on 4.11 acres, the property sits at the junction of Interstate 95, U.S. Route 1 and Route 128, providing direct access to downtown Boston, Logan International Airport and the North Shore region. Current ownership secured municipal zoning approvals for an 88-unit apartment conversion from the Danvers Zoning Board of Appeals.</p><p>\"The North Shore continues to benefit from its position as a high-barrier suburban alternative to Boston, with strong fundamentals supporting both hospitality and residential demand,\" said JLL Hotels & Hospitality Senior Managing Director Alan Suzuki. \"Torrington recognized the value in acquiring an income-producing hotel asset with a de-risked pathway to capitalize on severe housing supply constraints and robust rental demand in one of Greater Boston's most connected suburban markets.\"</p><p>The property was delivered with brand and management agreements that allow the new owner flexibility to continue hotel operations or execute the residential conversion. The North Shore hotel market has seen no new supply in the past 10 years, while the multifamily sector maintains strong occupancy with minimal new construction, according to the announcement.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "Yield PRO",
+      "url": "https://yieldpro.com/2026/08/residence-inn-boston-north-shore-danvers/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "f1a79d7d24ec9db4",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "d3e84fd73071f8a0",
+   "title": "CP Capital acquires 200-unit, class A multifamily community in Athens, Ga.",
+   "sector": "commercial_real_estate",
+   "depth": "tier_c",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 151 is outside 180-380"
+     ]
+    },
+    "dossier_hash": "a966715f59629746b2062049228e2a33f506cb44ed883bfdeaac338bda7e9d9c"
+   },
+   "seconds": 9.7,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "3bb23e721f76f34a",
+   "title": "Ex-U.S. Bank exec's discrimination suit can continue: Judge",
+   "sector": "banking_credit",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "64fee628d475c14271d181e29adc6b6a5700fd60e1834c927ad02f3201936afe"
+   },
+   "seconds": 7.8,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "Ex-U.S. Bank exec's discrimination suit can continue: Judge",
+    "excerpt": "A federal magistrate judge ruled that Srini Nallasivan's discrimination, harassment and retaliation claims against U.S. Bank may proceed, while dismissing his defamation and blacklisting claims.",
+    "body_html": "<p>A former U.S. Bank executive's discrimination lawsuit can move forward, a federal judge has ruled. Srini Nallasivan, formerly the bank's chief AI and analytics officer, alleges discrimination, harassment and retaliation. U.S. Magistrate Judge David Keesler in North Carolina delivered a split ruling: Nallasivan's defamation and blacklisting claims were dismissed, but his discrimination, harassment and retaliation accusation \"is not time-barred and should, at this stage, be allowed to proceed.\"</p><p>Nallasivan was hired by U.S. Bank in 2018 after 12 years in tech-related executive roles at Bank of America and two years at AIG. He says he received \"glowing annual reviews\" until 2022. In September 2023, his supervisor was \"pushed out,\" and his work environment turned hostile, according to his lawyers. U.S. Bank accused him of being combative, aggressive and uncollaborative. In November, a white man took over as chief of artificial intelligence, a role Nallasivan had held since 2019. His lawyers argue the actions were intended to replace \"a person of color.\"</p><p>Nallasivan says U.S. Bank eliminated his job in January 2024 and later withdrew a promised severance of more than $100,000. After another financial firm offered him a job, the offer was withdrawn four days later, allegedly after a U.S. Bank employee spoke negatively about him. He is suing for lost wages and benefits, plus emotional distress damages of at least $100,000. U.S. Bank declined to comment on the ruling but previously said it disputed the claims and intended to \"defend ourselves vigorously.\"</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "American Banker",
+      "url": "https://www.americanbanker.com/news/ex-u-s-bank-execs-discrimination-suit-can-continue-judge"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "3bb23e721f76f34a",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "c1ed7944cae3a0e8",
+   "title": "Parts Town Unlimited Signs 538,450 SF Industrial Lease in Pendergrass, Georgia",
+   "sector": "commercial_real_estate",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "f08f7572a28ab922d37b81426d277f30569dc81e56e037e4b700639f93f87d62"
+   },
+   "seconds": 4.8,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "Parts Town Unlimited Signs 538,450 SF Industrial Lease in Pendergrass, Georgia",
+    "excerpt": "Parts Town Unlimited has signed a 538,450-square-foot, full-building lease at Jackson 85 North Business Park in Pendergrass, about 57 miles northeast of Atlanta via I-85.",
+    "body_html": "<p>Parts Town Unlimited has signed a 538,450-square-foot, full-building lease at Jackson 85 North Business Park in Pendergrass, Georgia, about 57 miles northeast of Atlanta via I-85. The owner is a joint venture between affiliates Trammell Crow Co. and CBRE Investment Management, which is acting as landlord on behalf of a fund it manages.</p><p>Parts Town Unlimited is a global parent company and distributor of original equipment manufacturer replacement parts for the food service, residential appliance and HVAC industries. The firm will move into Building One by the end of the year. According to Trammell Crow Co., the facility will be the company's largest fulfillment center to date.</p><p>Phase I of Jackson 85 North features two speculative warehouse buildings totaling more than 1.5 million square feet across 215 acres. Both cross-dock warehouses include 40-foot clear heights, 185-foot concrete truck courts, more than 290 dock door positions, four drive-in ramps and a 3,900-square-foot air-conditioned office area. The buildings also feature a roofing system that can accommodate future solar panels, ample electrical service and an ESFR fire protection system.</p><p>Financial terms of the lease were not disclosed in the available reporting.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "RE Business Online",
+      "url": "https://rebusinessonline.com/parts-town-unlimited-signs-538450-sf-industrial-lease-in-pendergrass-georgia/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "c1ed7944cae3a0e8",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "e355a11bc8cccbde",
+   "title": "Former Tennessee congressman hired by Truist",
+   "sector": "banking_credit",
+   "depth": "tier_c",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 147 is outside 180-380"
+     ]
+    },
+    "dossier_hash": "fca93cb80ea211ffae5ae69695695460bea2a88fe0ca0b4c9ccc9e66957bc67a"
+   },
+   "seconds": 12.2,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  },
+  {
+   "object_id": "fa4dd2d80956609d",
+   "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+   "sector": "fed_macro",
+   "depth": "tier_c",
+   "status": "completed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [],
+   "diagnostics": {
+    "attempts": 1,
+    "validation": {
+     "valid": true,
+     "codes": [],
+     "messages": []
+    },
+    "dossier_hash": "d50bf90689be8ac88926bdb61d1fe3643f9ea3f1063baed610d209651e849ca0"
+   },
+   "seconds": 5.7,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": true,
+   "needs_review": false,
+   "article": {
+    "title": "Kevin Warsh Notes Inflation Concerns But Offers No Clues as to Next Fed Decision",
+    "excerpt": "The Fed chair said in Jackson Hole that underlying inflation trends have not 'meaningfully improved.'",
+    "body_html": "<p>New Federal Reserve Chairman Kevin Warsh did not tip his hand Friday about whether an interest rate hike is on the horizon but did voice concerns about a continued trend of higher inflation. \"I stand here today committed to a discipline, not to a decision,\" Warsh said in prepared remarks at the central bank's annual symposium in Jackson Hole, Wyo. \"We must be confident that underlying inflation is moving to our objective, clearly and at sufficient speed. Otherwise, we have work to do.\"</p><p>Warsh, who assumed the Fed leadership post in June from Jerome Powell, stressed that the Federal Open Market Committee remains committed to keeping its 2 percent annual inflation rate as a target. He said that recent personal consumption expenditures and the consumer price index have performed \"better than expected,\" but also noted that underlying inflation trends have not \"meaningfully improved.\"</p><p>The FOMC maintained its benchmark interest rates at between 3.5 percent and 3.75 percent during Warsh's first two meetings. Warsh has sought to change the Fed's long-standing forward-guidance policy often used by markets when interpreting the central bank's data, a position he re-emphasized Friday. \"We determine the path of short-term interest rates, and market participants will always try to anticipate what we will do next,\" Warsh said. \"But we should not indulge a regime in which market participants are looking primarily to the Fed for their next trade.\"</p><p>The FOMC's next meeting is scheduled for Sept. 15-16. Markets have priced in about a 50 percent chance of a rate hike based on Investing.com's latest Fed rate monitor tool.</p>",
+    "format": "brief",
+    "sources": [
+     {
+      "name": "Commercial Observer",
+      "url": "https://commercialobserver.com/2026/08/kevin-warsh-jackson-hole-fed/"
+     }
+    ],
+    "evidence_level": "single_full_text",
+    "event_id": "fa4dd2d80956609d",
+    "research_evidence_level": "single_full_text"
+   }
+  },
+  {
+   "object_id": "74471c1d82ce0492",
+   "title": "Capital F closes $17m debut fund targeting $15tn ‘female economy’, women make up nearly 85% of LP base",
+   "sector": "private_equity",
+   "depth": "tier_c",
+   "status": "failed",
+   "stages_run": [
+    "bounded_writer",
+    "local_validation"
+   ],
+   "errors": [
+    "word_count_out_of_range"
+   ],
+   "diagnostics": {
+    "attempts": 2,
+    "validation": {
+     "valid": false,
+     "codes": [
+      "word_count_out_of_range"
+     ],
+     "messages": [
+      "word count 108 is outside 180-380"
+     ]
+    },
+    "dossier_hash": "fd9ea0531c9145fd286fb8339e5a6db7585c41200fff3ba83f9b81cfe6d4395b"
+   },
+   "seconds": 11.2,
+   "usd": 0.0,
+   "skipped_reason": "",
+   "ok": false,
+   "needs_review": false,
+   "article": null
+  }
+ ]
+}

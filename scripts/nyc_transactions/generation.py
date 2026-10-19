@@ -113,6 +113,13 @@ def build_deal_sheet_data_points(dossier: NycTransactionDossier, econ: DealEcono
                 "label": f"{econ.debt_instrument_label}{ltv_tag} · {econ.primary_lender}",
             }
         )
+    else:
+        points.append(
+            {
+                "value": "100% Cash",
+                "label": "Unencumbered All-Cash Closing · ACRIS Verified",
+            }
+        )
 
     if econ.implied_equity_usd and econ.implied_equity_usd > 0:
         points.append(
@@ -121,12 +128,26 @@ def build_deal_sheet_data_points(dossier: NycTransactionDossier, econ: DealEcono
                 "label": f"Implied Equity · {int(dossier.interest_conveyed_pct)}% Fee Simple",
             }
         )
+    else:
+        points.append(
+            {
+                "value": f"${econ.sale_price_usd:,.0f}",
+                "label": f"Implied Equity · {int(dossier.interest_conveyed_pct)}% Fee Simple",
+            }
+        )
 
     if econ.prior_sale_change_display and econ.prior_sale_price_usd:
         points.append(
             {
                 "value": econ.prior_sale_change_display.split("(")[0].strip(),
-                "label": f"Prior Sale: ${econ.prior_sale_price_usd:,.0f} ({econ.prior_sale_date})",
+                "label": f"Prior Sale: ${econ.prior_sale_price_usd:,.0f} ({_human_date(econ.prior_sale_date)})",
+            }
+        )
+    else:
+        points.append(
+            {
+                "value": f"{prop.lot_sqft:,} SF Lot",
+                "label": f"Built {prop.year_built or 'N/A'} · Closed {_human_date(dossier.closing_date)}",
             }
         )
 
@@ -331,12 +352,12 @@ def render_literary_story(dossier: NycTransactionDossier, econ: DealEconomics) -
             ).replace("aren'tstretching", "aren't stretching")
     else:
         p3 = (
-            f"<p>Notably, the deed hit the city register without a simultaneous acquisition mortgage—signaling an all-cash close "
-            f"or balance-sheet credit line that allowed {buyer_clean} to move with speed and certainty.</p>"
+            f"<p>Just as telling as the purchase price is what did not hit the city register alongside the deed: a senior mortgage. "
+            f"<strong>{buyer_clean}</strong> closed <strong>{prop.address}</strong> with <strong>{price_prose}</strong> of unencumbered equity—or an unsecured corporate line—allowing the buyers to move with immediate execution certainty.</p>"
         )
         p4 = (
-            f"<p>In a market where financing contingencies can stall a closing for sixty days, showing up with unencumbered equity at "
-            f"{ppsf_prose} remains the sharpest weapon a buyer can bring to the negotiating table—with the option to place permanent debt once initial leasing is complete.</p>"
+            f"<p>When financing contingencies can stall a New York closing for sixty days, showing up with {price_prose} in cash at "
+            f"{ppsf_prose} is the sharpest weapon a buyer can bring to the negotiating table—leaving the sponsorship free to recapitalize in the senior debt market once initial leasing and business-plan milestones are locked in.</p>"
         )
 
     # Section 3: From Our Desk (Ben Rohr's conversational takeaway + sharp kicker)
@@ -348,8 +369,8 @@ def render_literary_story(dossier: NycTransactionDossier, econ: DealEconomics) -
 
     p5 = (
         f"<p>When we look at {prop.address} on our placement desk at Light Tower Group, the lesson for New York sponsors comes down to "
-        f"the marriage of entry basis and lender selection. {buyer_clean} didn't try to fight the tape—they bought {prop.neighborhood} footage at "
-        f"{ppsf_prose} and paired it with the exact lender bucket built for this business plan. {desk_kicker}</p>"
+        f"the marriage of entry basis and capital structure. {buyer_clean} didn't try to fight the tape—they bought {prop.neighborhood} footage at "
+        f"{ppsf_prose} and structured the stack to match the asset's timeline. {desk_kicker}</p>"
     )
 
     body_html = scrub_ai_tells(

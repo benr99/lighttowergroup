@@ -1,0 +1,50 @@
+{
+ "schema_version": 1,
+ "run_at": "2026-08-28T18:41:59.008397+00:00",
+ "pipeline_version": "v2",
+ "dimensions": [
+  "financial_magnitude",
+  "party_significance",
+  "market_impact",
+  "strategic_relevance",
+  "policy_impact",
+  "novelty",
+  "source_quality",
+  "timeliness",
+  "editorial_potential",
+  "cross_sector_impact"
+ ],
+ "candidate_count": 1,
+ "candidates": [
+  {
+   "id": "0d9cac836346f389",
+   "headline": "Acme closes a $100 million financing",
+   "source_name": "Example Markets",
+   "source_tier": 2,
+   "url": "https://news.example.com/markets/acme-financing",
+   "primary_sector": "commercial_real_estate",
+   "secondary_sectors": [],
+   "subsector": "",
+   "event_type": "",
+   "classification_method": "",
+   "classification_confidence": 0.0,
+   "scores": {
+    "financial_magnitude": 0,
+    "party_significance": 0,
+    "market_impact": 0,
+    "strategic_relevance": 0,
+    "policy_impact": 0,
+    "novelty": 0,
+    "source_quality": 0,
+    "timeliness": 0,
+    "editorial_potential": 0,
+    "cross_sector_impact": 0
+   },
+   "composite": 72.0,
+   "scoring_profile": "",
+   "tier": "tier_2_strongly_recommended",
+   "selected_for_sector_slate": true,
+   "summary_words": 17
+  }
+ ]
+}

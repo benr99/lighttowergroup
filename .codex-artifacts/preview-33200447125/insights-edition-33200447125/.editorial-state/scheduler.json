@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "active_scheduler": "github-actions",
+  "reason": "A single cloud scheduler prevents duplicate same-day publication and does not depend on a local PC.",
+  "local_runtime_behavior": "The Windows task exits successfully without publishing while this lease belongs to github-actions."
+}
