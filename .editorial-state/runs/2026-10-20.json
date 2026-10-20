@@ -1,0 +1,2603 @@
+{
+  "run_at": "2026-10-20T15:37:41.080119+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 833,
+  "documents_from_feeds": 730,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 779,
+  "documents_consolidated": 54,
+  "eligible": 104,
+  "enriched": 250,
+  "evidence_upgraded": 140,
+  "selected": 26,
+  "publication_candidates": 26,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 56,
+      "eligible": 7,
+      "selected": 2,
+      "target": 10,
+      "shortfall_reason": "only 2 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 407,
+      "eligible": 58,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 80,
+      "eligible": 11,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 11 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 135,
+      "eligible": 19,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 19 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 19,
+      "eligible": 1,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 1 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 3,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "3 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 79,
+      "eligible": 8,
+      "selected": 4,
+      "target": 10,
+      "shortfall_reason": "only 4 of 8 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 13,
+    "tier_c": 13
+  },
+  "shortfalls": [
+    "banking_credit: only 2 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 4 of 11 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 5 of 19 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 1 of 1 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 3 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: only 4 of 8 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [],
+  "score_distribution": {
+    "min": 0.0,
+    "max": 73.0,
+    "mean": 35.1,
+    "stdev": 15.24,
+    "range_used": 73.0,
+    "median": 37.2,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 255,
+    "fetched": 233,
+    "from_cache": 0,
+    "blocked": 17,
+    "failed": 5,
+    "skipped_budget": 0,
+    "bytes_downloaded": 48596243,
+    "elapsed_ms": 51307,
+    "by_status": {
+      "full_text": 141,
+      "partial_text": 92,
+      "failed": 5,
+      "blocked": 17
+    }
+  },
+  "novelty": {
+    "new": 692,
+    "already_published": 11,
+    "material_update": 2,
+    "new_stage": 1,
+    "minor_follow_up": 73
+  },
+  "memory": {
+    "events_remembered": 18427,
+    "published": 1142,
+    "seen_but_not_run": 17285,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-20",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.6439,
+    "spent_today_usd": 0.6439,
+    "remaining_usd": 24.3561,
+    "exhausted": false,
+    "total_calls": 222,
+    "refused_calls": 0,
+    "elapsed_seconds": 1007.8,
+    "by_stage": {
+      "v4_verify": {
+        "calls": 158,
+        "input_tokens": 237288,
+        "output_tokens": 359477,
+        "usd": 0.5026,
+        "seconds": 3383.04,
+        "refused": 0
+      },
+      "v4_write": {
+        "calls": 64,
+        "input_tokens": 215547,
+        "output_tokens": 63874,
+        "usd": 0.1413,
+        "seconds": 513.83,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "346625c4106bb699",
+        "usd": 0.0431
+      },
+      {
+        "id": "616c2531c31a739c",
+        "usd": 0.0417
+      },
+      {
+        "id": "945e86f324c55550",
+        "usd": 0.0406
+      },
+      {
+        "id": "de8ae69d2f40771f",
+        "usd": 0.0395
+      },
+      {
+        "id": "1acd8bb84a15a622",
+        "usd": 0.0357
+      },
+      {
+        "id": "5a0d56db881b5988",
+        "usd": 0.0319
+      },
+      {
+        "id": "4f878c22f25868a6",
+        "usd": 0.0315
+      },
+      {
+        "id": "44b09e97c1ed9f4a",
+        "usd": 0.0278
+      },
+      {
+        "id": "6877e539510715d3",
+        "usd": 0.0274
+      },
+      {
+        "id": "7d664fed967fd141",
+        "usd": 0.026
+      }
+    ]
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 26,
+    "written": 23,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "withheld": 3,
+    "voiced": 11,
+    "voice": true,
+    "stop_reason": "",
+    "spend_usd": 0.6439,
+    "attempts": 64,
+    "elapsed_seconds": 750.92,
+    "provider_attempts": {
+      "deepseek": 64
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "5a0d56db881b5988",
+        "title": "Blackstone’s 2021 $1.3B CMBS Multifamily Loan Hits Special Servicing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "3be8fa34caee19461c2f141c51b0517de61df750ae932416cae7c866876f44b5",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "capital cycle",
+            "protagonist": "Blackstone",
+            "tension": "The loan's maturity default forced a special servicing transfer and a forbearance period, putting Blackstone's remaining equity and reputation on the line as it tries to sell assets in a still-strained multifamily market."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 125,
+            "paragraph_count": 3,
+            "warnings": [
+              "Sentences average 25 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "The opening paragraph is 51 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 8,
+            "kept_facts": 3,
+            "kept_takes": 0,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 25 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "The opening paragraph is 51 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "voice lines may not name anyone or anything",
+            "Adds rate cut motive not in cited facts.",
+            "Asserts an outcome about the maturity not supported.",
+            "a view or action may not add figures: 2021; a view or action may not add names: Blackstone; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "Assumes lender preference and adds borrower speed condition not in facts.",
+            "voice lines may not contain numbers"
+          ]
+        },
+        "seconds": 199.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "44b09e97c1ed9f4a",
+        "title": "A Third of Maturing Multifamily Debt Needs Cash Infusion to Refinance",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f3b1629ebc19d08d6406adcf715f13cb42fe26575593081b7ee56ac1b6e3516e",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "capital cycle",
+            "protagonist": "Borrowers of 2021–2022 vintage multifamily loans, exemplified by the owner of 20 Exchange Place.",
+            "tension": "A sudden 23-basis-point SOFR hike in September pushed 178 more loans below a 1.25x debt-service coverage test, adding $846 million to the equity gap overnight and concentrating pain in low-coupon loans from 2021–2022."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 427,
+            "paragraph_count": 6,
+            "warnings": [
+              "Split these sentences (over 35 words): “Some 46 percent of them, and 57 percent of…” (38 words)",
+              "Paragraph 2 has 91 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 22,
+            "rejected": 1,
+            "kept_facts": 18,
+            "kept_takes": 2,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Split these sentences (over 35 words): “Some 46 percent of them, and 57 percent of…” (38 words)",
+            "Paragraph 2 has 91 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 152.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "591849e547887bd9",
+        "title": "Boston Financial Closes $191M National Multi-Investor Fund",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e40a2d50d83ecceffd6e4351a4b8043a00e327d9378e95a070c22879781bb005",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "trust and institutions",
+            "protagonist": "Boston Financial",
+            "tension": "None apparent in the source; the announcement is a straightforward fund closing with no stated friction, counterparty tradeoff, or market pressure."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 189,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 4,
+            "kept_facts": 6,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add names: LIHTC",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a take must cite at least one verified fact in 'because'",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 143.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "5020753f95a835d8",
+        "title": "EQT to Acquire Real Estate Investment Firm Stockbridge in $375M Deal",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8f93fe184359db01b7ad2c12c09ad82876be5ef323fa68bde8bd29272c5d3914",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "EQT AB",
+            "tension": "The $175 million earnout tied to performance targets creates alignment but also risk: if Stockbridge's performance falters, EQT pays less, but the integration must succeed to unlock the full value. Additionally, the deal is subject to customary closing conditions and investor consents, adding uncertainty until Q1 2027."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 249,
+            "paragraph_count": 5,
+            "warnings": [
+              "Paragraph 4 has 105 words and 5 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 2,
+            "kept_facts": 10,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 4 has 105 words and 5 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "adopts EQT's stated rationale as writer's own reading",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 152.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "945e86f324c55550",
+        "title": "Blackstone closes latest energy transition fund at $8.7bn, backs several data center focused energy firms",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "1efd61e2285e1b73f807b03cd038be083b39961cd0770ebf7b0ce17cae051b8e",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "climate and risk",
+            "protagonist": "Blackstone",
+            "tension": "The fund is 50 percent larger than its predecessor and oversubscribed, but the firm is simultaneously facing delays in its Google data center joint venture, suggesting that even the largest capital allocators are navigating execution risk in the energy transition."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 220,
+            "paragraph_count": 5,
+            "warnings": [
+              "Paragraph 3 has 85 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 3,
+            "kept_facts": 5,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 3 has 85 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Assumes an AI power bottleneck and generalizes one fund to institutional capital without cited support.",
+            "Cites a data center JV delay but characterises it as execution risk in the energy transition without cited support.",
+            "fact rejected by the fact check",
+            "uses loaded labels the cited facts do not use: boom",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 292.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4f878c22f25868a6",
+        "title": "Ramp applies for national trust bank charter from OCC",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "85228cae265aaafec73108484cd882403c82151934c153ff587ffadae35b23a0",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "Ramp",
+            "tension": "Ramp's application lands amid a legal fight between the Independent Community Bankers of America and the OCC over trust charters for crypto and fintech firms, with the ICBA arguing these charters create a 'gaping hole in financial regulation' and put community banks at a 'severe competitive disadvantage.'"
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 176,
+            "paragraph_count": 5,
+            "warnings": [
+              "The opening paragraph is 60 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "These names do not appear in the dossier; remove them or use only names the sources gave: Easy"
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 4,
+            "kept_facts": 7,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 60 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "These names do not appear in the dossier; remove them or use only names the sources gave: Easy"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add names: OCC",
+            "fact rejected by the fact check",
+            "Cites no fact that ICBA has filed a lawsuit."
+          ]
+        },
+        "seconds": 195.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "346625c4106bb699",
+        "title": "Hedge Fund Two Sigma Cuts Staff And Backs Off Real Estate Business",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "25b1a6145e1abe99e137578e2c1e12f43bf5cdf452e559efc1943cb967eafaf0",
+          "mode": "voice",
+          "brief": {
+            "shape": "Who Blinked",
+            "lens": "capital cycle",
+            "protagonist": "Two Sigma Investments",
+            "tension": "Two Sigma's real estate fund attracted less than half its $2B target despite the firm's $85B AUM, forcing a retreat amid a broader slowdown in private real estate fundraising."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 233,
+            "paragraph_count": 8,
+            "warnings": [
+              "Paragraph 6 has 69 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 20,
+            "rejected": 7,
+            "kept_facts": 11,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 6 has 69 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a take must cite at least one verified fact in 'because'",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a view or action may not add names: Two, Sigma"
+          ]
+        },
+        "seconds": 279.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "2ec0d146e40e2676",
+        "title": "Deal Roundup: EQT strikes $6.5bn Cleanaway acquisition, Apax to buy Warburg’s stake in Odido",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f738f461737f6281576354a6e80eaa494d8534856ab6e11af0afb986ce5f53db",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "EQT",
+            "tension": "The tension is the premium: EQT is paying a 32.1% premium to Cleanaway’s share price before its initial approach became public in August. That price reflects a competitive process or a seller’s market for defensive infrastructure assets, but it also raises the bar for EQT to generate returns from a mature waste business with modest underlying operating profit of A$470.2 million on A$3.74 billion in net revenue."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 284,
+            "paragraph_count": 6,
+            "warnings": [
+              "Paragraph 4 has 68 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 58 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 17,
+            "rejected": 3,
+            "kept_facts": 11,
+            "kept_takes": 2,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 4 has 68 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 58 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "claims to know what someone is trying to do ('betting that'); no cited fact says so; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "Premise about higher financing costs is not in cited facts.",
+            "voice lines may not contain numbers; voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 102.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0b70bb33117c0eab",
+        "title": "Fintech Funding Fell 21% In Q3 As Deals Grew Scarcer",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e19cddd69eb043b4460368a80b9295c4558da415c97d03467b2becff16639e6b",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "capital cycle",
+            "protagonist": "Fintech startups and their investors",
+            "tension": "The market is bifurcated: a few AI-forward, market-leading startups command aggressive valuations and mega-rounds, while the rest face greater discipline and scarce capital. The decline is concentrated in large rounds, which drove 93% of the dollar drop."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 318,
+            "paragraph_count": 5,
+            "warnings": [
+              "Paragraph 4 has 136 words and 7 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 3,
+            "kept_facts": 11,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 4 has 136 words and 7 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "voice lines may not name anyone or anything",
+            "uses loaded labels the cited facts do not use: collapse"
+          ]
+        },
+        "seconds": 99.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "616c2531c31a739c",
+        "title": "Kayla Lee of Serhant: 5 Questions",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "5dd53578619df2797346c894cfa1560b903d27c55378522a7f28fcadccbfcd22",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Ritual",
+            "lens": "work and cities",
+            "protagonist": "Kayla Lee, a Serhant broker who has sold over $1 billion in real estate across more than 850 units in a decade.",
+            "tension": "None stated directly; the tension is implicit in her balancing act between Manhattan luxury resale and outer-borough new development, and the challenge of selling Queens as a desirable place to live."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "word count 80 is outside 100-520"
+            ],
+            "word_count": 80,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 6,
+            "kept_facts": 4,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 6.65
+        },
+        "seconds": 244.3,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "de8ae69d2f40771f",
+        "title": "Cottonwood Cuts Monthly Distribution 8.8%, Closes $175M JPMorgan Facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "64361167674b0b05ea8f38edb00730edc8ac9daab67f02cceb5b4d672d56e9f7",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "status and ambition",
+            "protagonist": "Cottonwood Communities Inc., a nontraded multifamily REIT",
+            "tension": "Cottonwood is cutting its shareholder payout for the second time in a year while simultaneously levering up to fund a $519.9 million portfolio acquisition—the classic tradeoff between current income and long-term growth, with the board explicitly tying the cut to 'strengthening distribution coverage'."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 236,
+            "paragraph_count": 6,
+            "warnings": [
+              "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “Cottonwood’s board said the reduced rate places greater emphasis…” (36 words)",
+              "Paragraph 2 has 69 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "60% of sentences start with “The”. Vary the openings.",
+              "These names do not appear in the dossier; remove them or use only names the sources gave: Easy"
+            ]
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 6,
+            "kept_facts": 7,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “Cottonwood’s board said the reduced rate places greater emphasis…” (36 words)",
+            "Paragraph 2 has 69 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "60% of sentences start with “The”. Vary the openings.",
+            "These names do not appear in the dossier; remove them or use only names the sources gave: Easy"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add names: REIT",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a view or action may not add names: Cottonwood, Mandel, REITs; attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "Implies the portfolio is less lendable, a hidden claim."
+          ]
+        },
+        "seconds": 243.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "439008739bd75119",
+        "title": "Factory-Built Modules Draw Federal Tax Credits for L.A. Workforce Housing",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0b2fbeb40682ecc2e5026d4c005c94c69f2c5b951244ebda783fa2430bec87d1",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "technology and land",
+            "protagonist": "Model/Z",
+            "tension": "The deal is a classic capital-stack exercise: $32 million in federal tax credits split between two community development entities, with tax credit investors Dudley Ventures and Valley National Bank taking the yield. The friction is the race to deploy credits against a one-year delivery window for 800 modular units, while the factory must scale from 500 modules produced to thousands more."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 217,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 2,
+            "kept_facts": 9,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Adds unmentioned goal/premise: L.A.'s workforce housing shortage.",
+            "Adds unmentioned outcome: factory line compresses schedules."
+          ]
+        },
+        "seconds": 152.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "1acd8bb84a15a622",
+        "title": "Nonprofit Buys FIU Student Housing Building For $169M: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 4,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a381ad9e436aa5d42ee6eb3d63f1d18a27ba66154199ff97df20394d40658c42",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Affordable Housing Preservation Corp. (AHPC)",
+            "tension": "The deal hinges on the ability of the bond financing to cover the purchase price and the property's operating costs while generating enough net cash flow to fund a scholarship program, all while the bonds are being paid off over time."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 162,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 6.41,
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 190.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "418faef3d4846085",
+        "title": "BGO, Banner Acquire 160K-SF Opa-Locka Cold Storage Facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8afe1dac7d9fffdf9f1a2dbb07260374aeaebc8ef736860e7e40e03d5255b554",
+          "mode": "facts",
+          "request_seconds": 5.41,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 139,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “approximately” that its quote carries"
+          ]
+        },
+        "seconds": 98.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cf3c3eb9c9add65d",
+        "title": "Seattle Life Science VC Plunges 58% to $396MM as Bay Area Funding Holds at $8.3B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0c98ea9b5c78a8bfdaf4545a113cf82ff18db2d3f1c47caf024cf325ebb1de1b",
+          "mode": "facts",
+          "request_seconds": 2.96,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "word count 50 is outside 60-300"
+            ],
+            "word_count": 50,
+            "paragraph_count": 2,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 5,
+            "rejected": 1,
+            "kept_facts": 3,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 65.6,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "6877e539510715d3",
+        "title": "Google expands partnership with Entergy Arkansas, will fund renewable energy and grid upgrades for West Memphis data center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "935f98ccac74689f4c0f7ea323cf3fc7b2939322d384aa6b144372b45efe8ba7",
+          "mode": "facts",
+          "request_seconds": 6.61,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 208,
+            "paragraph_count": 4,
+            "warnings": [
+              "Sentences average 26 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “Google stated in the release that the PPA was…” (43 words); “The companies claim the projects will result in \"$2.1…” (54 words)",
+              "Paragraph 3 has 61 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "62% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 0,
+            "kept_facts": 10,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 26 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “Google stated in the release that the PPA was…” (43 words); “The companies claim the projects will result in \"$2.1…” (54 words)",
+            "Paragraph 3 has 61 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "62% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 163.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "45f51cf6077125c0",
+        "title": "Blackwall quadruples valuation to $2.2B as websites wrangle an increasingly crowded internet",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "15b33d98749db0d1f4df415d73630ec2242dcc82ee5ba2831c567a99f4766b68",
+          "mode": "facts",
+          "request_seconds": 4.71,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 117,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 1,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source says Blackwall said it raised, but sentence states it as fact without attribution."
+          ]
+        },
+        "seconds": 86.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "08eab07ac0cb7efc",
+        "title": "The budget deficit swells, while the cost of debt rises",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a1325539c2fdf8cb3bc1444d51cb8530f73ccbb8fc77a8f154af3093fb5c7328",
+          "mode": "facts",
+          "request_seconds": 3.48,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 83,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 6,
+            "rejected": 1,
+            "kept_facts": 4,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Debt costs climb is not directly stated in source; source only says the cost of servicing debt is a driver and interest rates are rising."
+          ]
+        },
+        "seconds": 104.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7d664fed967fd141",
+        "title": "Alcoa Sells New York Smelter to Data Center Developer in $315m Deal",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "9608b07a4da8e702583982785346ddf0b84e45938b9c9514f42dac38d2540756",
+          "mode": "facts",
+          "request_seconds": 5.64,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 146,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 1,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "The sentence says Alcoa sells the Massena Smelter Site, but source says it sells parts of its former Massena East smelter in upstate New York, not the entire site."
+          ]
+        },
+        "seconds": 158.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "652f6adcbdb9806e",
+        "title": "CBRE acquires data center services firm Onnec",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "76d96986deeb8149cb94e8cdeacd63de953bb16e8778c42ff7d2c4bc5219fda1",
+          "mode": "facts",
+          "request_seconds": 4.8,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 71,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 4,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “approximately” that its quote carries",
+            "Source says CBRE announced a definitive agreement to acquire Onnec, with closing expected by the end of the year; it does not support that the acquisition has already been completed.",
+            "figures not in its quote: 2027",
+            "The sentence says 'that year' without specifying 2027; source states the projection is for 2027."
+          ]
+        },
+        "seconds": 147.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f9337ee08d30d39d",
+        "title": "Canada invests $270M for New Brunswick hydro, transmission development",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "7d678d68db25c9479b0efaf4d5036b5ad09c711f39dda4f56117eddd4ba9f39b",
+          "mode": "facts",
+          "request_seconds": 5.18,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 107,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 3,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source says the investment includes the loan; it does not say it anchors the project.",
+            "Source says the investment includes the loan; it does not say it anchors the project.",
+            "refers back to a deleted sentence, so its subject would be ambiguous"
+          ]
+        },
+        "seconds": 138.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "33faa00740cf3cb3",
+        "title": "Captona Closes Equity Investment With Nexamp in Large Community Solar Portfolio",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "604377a3364e7742e5486e58a5282e05a2863aa4c5697e26a4cb9bfcae9e75a4",
+          "mode": "facts",
+          "request_seconds": 5.83,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 132,
+            "paragraph_count": 3,
+            "warnings": [
+              "The opening paragraph is 53 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 2,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 53 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 55",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 120.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "ed26296997e20c70",
+        "title": "Dutch development bank finances 50 MW of solar in Ivory Coast",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a45b3e93c4d4b44c687ec029fd580506f997e1220b6f1cf8dd2aff29d971b11b",
+          "mode": "facts",
+          "request_seconds": 4.81,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 145,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 104.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3e8ad8428c47996e",
+        "title": "Norwegian, Danish funds invest in 500 MW Philippine solar project",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "87f333c4fc147ce901825c744b3b85c40d8325cc7c5347625ab08473bcdc6b1d",
+          "mode": "facts",
+          "request_seconds": 5.55,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 116,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 3,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 49",
+            "quote is longer than allowed",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 96.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "4366b4a988bff281",
+        "title": "Blackstone closes fifth Energy Transition Partners fund on $8.7bn",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "withheld",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "3ad80164eb1cf09fb0e3f74908738a9b19300860a1e10c28a9c377362feab18c",
+          "mode": "facts",
+          "request_seconds": 3.76,
+          "error_kind": "validation",
+          "validation": {
+            "valid": false,
+            "codes": [
+              "missing_field",
+              "word_count_out_of_range"
+            ],
+            "messages": [
+              "missing required field: excerpt",
+              "missing required field: body_html",
+              "word count 0 is outside 60-300"
+            ],
+            "word_count": 0,
+            "paragraph_count": 0,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 6,
+            "rejected": 6,
+            "kept_facts": 0,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          }
+        },
+        "seconds": 8.3,
+        "usd": 0.0,
+        "skipped_reason": "could not be verified against its sources",
+        "ok": false,
+        "needs_review": false
+      },
+      {
+        "object_id": "f336abbdfbb5093e",
+        "title": "Dems target Zillow-style co-marketing; review RESPA exposure",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "db9304c8b95b323255a366f97dd76356baaa98f5b20030a5ec211b83a63db5dd",
+          "mode": "facts",
+          "request_seconds": 6.52,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 144,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 2,
+            "kept_facts": 7,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "names not in or near its quote: FTC",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 156.0,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 26,
+    "published": 23,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing_social.png",
+      "insights/blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing.html",
+      "insights/a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance_social.png",
+      "insights/a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance.html",
+      "insights/boston-financial-closes-191m-national-multi-investor-fund_social.png",
+      "insights/boston-financial-closes-191m-national-multi-investor-fund.html",
+      "insights/eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal_social.png",
+      "insights/eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal.html",
+      "insights/blackstone-closes-8-7b-energy-fund-50-bigger_social.png",
+      "insights/blackstone-closes-8-7b-energy-fund-50-bigger.html",
+      "insights/ramp-files-for-trust-charter-after-1-85b-raise_social.png",
+      "insights/ramp-files-for-trust-charter-after-1-85b-raise.html",
+      "insights/hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business_social.png",
+      "insights/hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business.html",
+      "insights/deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake_social.png",
+      "insights/deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake.html",
+      "insights/fintech-funding-fell-21-in-q3-as-deals-grew-scarcer_social.png",
+      "insights/fintech-funding-fell-21-in-q3-as-deals-grew-scarcer.html",
+      "insights/cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility_social.png",
+      "insights/cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility.html",
+      "insights/factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing_social.png",
+      "insights/factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing.html",
+      "insights/nonprofit-pays-168-5m-for-fiu-student-tower_social.png",
+      "insights/nonprofit-pays-168-5m-for-fiu-student-tower.html",
+      "insights/bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility_social.png",
+      "insights/bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility.html",
+      "insights/google-inks-440mw-solar-ppa-for-west-memphis-data-center_social.png",
+      "insights/google-inks-440mw-solar-ppa-for-west-memphis-data-center.html",
+      "insights/blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd_social.png",
+      "insights/blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd.html",
+      "insights/the-budget-deficit-swells-while-the-cost-of-debt-rises_social.png",
+      "insights/the-budget-deficit-swells-while-the-cost-of-debt-rises.html",
+      "insights/alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal_social.png",
+      "insights/alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal.html",
+      "insights/cbre-acquires-data-center-services-firm-onnec_social.png",
+      "insights/cbre-acquires-data-center-services-firm-onnec.html",
+      "insights/canada-backs-nb-power-with-almost-270m-hydro-push_social.png",
+      "insights/canada-backs-nb-power-with-almost-270m-hydro-push.html",
+      "insights/captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio_social.png",
+      "insights/captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio.html",
+      "insights/fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package_social.png",
+      "insights/fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package.html",
+      "insights/norwegian-danish-funds-invest-in-500-mw-philippine-solar-project_social.png",
+      "insights/norwegian-danish-funds-invest-in-500-mw-philippine-solar-project.html",
+      "insights/booker-warren-push-ftc-probe-of-platform-lender-steering_social.png",
+      "insights/booker-warren-push-ftc-probe-of-platform-lender-steering.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing_related.json",
+      "insights/a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance_related.json",
+      "insights/boston-financial-closes-191m-national-multi-investor-fund_related.json",
+      "insights/eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal_related.json",
+      "insights/blackstone-closes-8-7b-energy-fund-50-bigger_related.json",
+      "insights/ramp-files-for-trust-charter-after-1-85b-raise_related.json",
+      "insights/hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business_related.json",
+      "insights/deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake_related.json",
+      "insights/fintech-funding-fell-21-in-q3-as-deals-grew-scarcer_related.json",
+      "insights/cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility_related.json",
+      "insights/factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing_related.json",
+      "insights/nonprofit-pays-168-5m-for-fiu-student-tower_related.json",
+      "insights/bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility_related.json",
+      "insights/google-inks-440mw-solar-ppa-for-west-memphis-data-center_related.json",
+      "insights/blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd_related.json",
+      "insights/the-budget-deficit-swells-while-the-cost-of-debt-rises_related.json",
+      "insights/alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal_related.json",
+      "insights/cbre-acquires-data-center-services-firm-onnec_related.json",
+      "insights/canada-backs-nb-power-with-almost-270m-hydro-push_related.json",
+      "insights/captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio_related.json",
+      "insights/fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package_related.json",
+      "insights/norwegian-danish-funds-invest-in-500-mw-philippine-solar-project_related.json",
+      "insights/booker-warren-push-ftc-probe-of-platform-lender-steering_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "5a0d56db881b5988",
+        "title": "Blackstone's $1.3B CMBS Loan Lands in Special Servicing",
+        "slug": "blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing",
+        "url": "/insights/blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 73,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "44b09e97c1ed9f4a",
+        "title": "A Third of Maturing Multifamily Debt Needs Cash Infusion to Refinance",
+        "slug": "a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance",
+        "url": "/insights/a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 69,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "591849e547887bd9",
+        "title": "Boston Financial Closes $191M National Multi-Investor Fund",
+        "slug": "boston-financial-closes-191m-national-multi-investor-fund",
+        "url": "/insights/boston-financial-closes-191m-national-multi-investor-fund.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "5020753f95a835d8",
+        "title": "EQT to Acquire Real Estate Investment Firm Stockbridge in $375M Deal",
+        "slug": "eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal",
+        "url": "/insights/eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 64,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "945e86f324c55550",
+        "title": "Blackstone Closes $8.7B Energy Fund, 50% Bigger",
+        "slug": "blackstone-closes-8-7b-energy-fund-50-bigger",
+        "url": "/insights/blackstone-closes-8-7b-energy-fund-50-bigger.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 63,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "4f878c22f25868a6",
+        "title": "Ramp Files for Trust Charter After $1.85B Raise",
+        "slug": "ramp-files-for-trust-charter-after-1-85b-raise",
+        "url": "/insights/ramp-files-for-trust-charter-after-1-85b-raise.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 61,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "346625c4106bb699",
+        "title": "Hedge Fund Two Sigma Cuts Staff And Backs Off Real Estate Business",
+        "slug": "hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business",
+        "url": "/insights/hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "2ec0d146e40e2676",
+        "title": "Deal Roundup: EQT strikes $6.5bn Cleanaway acquisition, Apax to buy Warburg’s stake in Odido",
+        "slug": "deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake",
+        "url": "/insights/deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0b70bb33117c0eab",
+        "title": "Fintech Funding Fell 21% In Q3 As Deals Grew Scarcer",
+        "slug": "fintech-funding-fell-21-in-q3-as-deals-grew-scarcer",
+        "url": "/insights/fintech-funding-fell-21-in-q3-as-deals-grew-scarcer.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "de8ae69d2f40771f",
+        "title": "Cottonwood Cuts Monthly Distribution 8.8%, Closes $175M JPMorgan Facility",
+        "slug": "cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility",
+        "url": "/insights/cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "439008739bd75119",
+        "title": "Factory-Built Modules Draw Federal Tax Credits for L.A. Workforce Housing",
+        "slug": "factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing",
+        "url": "/insights/factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing.html",
+        "category": "Market Commentary",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 52,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "1acd8bb84a15a622",
+        "title": "Nonprofit Pays $168.5M for FIU Student Tower",
+        "slug": "nonprofit-pays-168-5m-for-fiu-student-tower",
+        "url": "/insights/nonprofit-pays-168-5m-for-fiu-student-tower.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "418faef3d4846085",
+        "title": "BGO, Banner Acquire 160K-SF Opa-Locka Cold Storage Facility",
+        "slug": "bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility",
+        "url": "/insights/bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility.html",
+        "category": "Deal Intelligence",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "6877e539510715d3",
+        "title": "Google Inks 440MW Solar PPA for West Memphis Data Center",
+        "slug": "google-inks-440mw-solar-ppa-for-west-memphis-data-center",
+        "url": "/insights/google-inks-440mw-solar-ppa-for-west-memphis-data-center.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "45f51cf6077125c0",
+        "title": "Blackwall quadruples valuation to $2.2B as websites wrangle an increasingly crowded internet",
+        "slug": "blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd",
+        "url": "/insights/blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "08eab07ac0cb7efc",
+        "title": "The budget deficit swells, while the cost of debt rises",
+        "slug": "the-budget-deficit-swells-while-the-cost-of-debt-rises",
+        "url": "/insights/the-budget-deficit-swells-while-the-cost-of-debt-rises.html",
+        "category": "Market Analysis",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "7d664fed967fd141",
+        "title": "Alcoa Sells New York Smelter to Data Center Developer in $315m Deal",
+        "slug": "alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal",
+        "url": "/insights/alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "652f6adcbdb9806e",
+        "title": "CBRE acquires data center services firm Onnec",
+        "slug": "cbre-acquires-data-center-services-firm-onnec",
+        "url": "/insights/cbre-acquires-data-center-services-firm-onnec.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f9337ee08d30d39d",
+        "title": "Canada Backs NB Power With Almost $270M Hydro Push",
+        "slug": "canada-backs-nb-power-with-almost-270m-hydro-push",
+        "url": "/insights/canada-backs-nb-power-with-almost-270m-hydro-push.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "33faa00740cf3cb3",
+        "title": "Captona Closes Equity Investment With Nexamp in Large Community Solar Portfolio",
+        "slug": "captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio",
+        "url": "/insights/captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "ed26296997e20c70",
+        "title": "FMO Backs 50 MW Ivory Coast Solar With $62.3M Package",
+        "slug": "fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package",
+        "url": "/insights/fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3e8ad8428c47996e",
+        "title": "Norwegian, Danish funds invest in 500 MW Philippine solar project",
+        "slug": "norwegian-danish-funds-invest-in-500-mw-philippine-solar-project",
+        "url": "/insights/norwegian-danish-funds-invest-in-500-mw-philippine-solar-project.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f336abbdfbb5093e",
+        "title": "Booker, Warren Push FTC Probe of Platform Lender Steering",
+        "slug": "booker-warren-push-ftc-probe-of-platform-lender-steering",
+        "url": "/insights/booker-warren-push-ftc-probe-of-platform-lender-steering.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 41,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "5a0d56db881b5988",
+        "slug": "blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing",
+        "title": "Blackstone’s 2021 $1.3B CMBS Multifamily Loan Hits Special Servicing",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "44b09e97c1ed9f4a",
+        "slug": "a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance",
+        "title": "A Third of Maturing Multifamily Debt Needs Cash Infusion to Refinance",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance.html",
+        "reason": ""
+      },
+      {
+        "object_id": "591849e547887bd9",
+        "slug": "boston-financial-closes-191m-national-multi-investor-fund",
+        "title": "Boston Financial Closes $191M National Multi-Investor Fund",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/boston-financial-closes-191m-national-multi-investor-fund.html",
+        "reason": ""
+      },
+      {
+        "object_id": "5020753f95a835d8",
+        "slug": "eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal",
+        "title": "EQT to Acquire Real Estate Investment Firm Stockbridge in $375M Deal",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "945e86f324c55550",
+        "slug": "blackstone-closes-8-7b-energy-fund-50-bigger",
+        "title": "Blackstone closes latest energy transition fund at $8.7bn, backs several data center focused energy firms",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackstone-closes-8-7b-energy-fund-50-bigger.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4f878c22f25868a6",
+        "slug": "ramp-files-for-trust-charter-after-1-85b-raise",
+        "title": "Ramp applies for national trust bank charter from OCC",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/ramp-files-for-trust-charter-after-1-85b-raise.html",
+        "reason": ""
+      },
+      {
+        "object_id": "346625c4106bb699",
+        "slug": "hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business",
+        "title": "Hedge Fund Two Sigma Cuts Staff And Backs Off Real Estate Business",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business.html",
+        "reason": ""
+      },
+      {
+        "object_id": "2ec0d146e40e2676",
+        "slug": "deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake",
+        "title": "Deal Roundup: EQT strikes $6.5bn Cleanaway acquisition, Apax to buy Warburg’s stake in Odido",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0b70bb33117c0eab",
+        "slug": "fintech-funding-fell-21-in-q3-as-deals-grew-scarcer",
+        "title": "Fintech Funding Fell 21% In Q3 As Deals Grew Scarcer",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/fintech-funding-fell-21-in-q3-as-deals-grew-scarcer.html",
+        "reason": ""
+      },
+      {
+        "object_id": "616c2531c31a739c",
+        "slug": "",
+        "title": "Kayla Lee of Serhant: 5 Questions",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "de8ae69d2f40771f",
+        "slug": "cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility",
+        "title": "Cottonwood Cuts Monthly Distribution 8.8%, Closes $175M JPMorgan Facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility.html",
+        "reason": ""
+      },
+      {
+        "object_id": "439008739bd75119",
+        "slug": "factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing",
+        "title": "Factory-Built Modules Draw Federal Tax Credits for L.A. Workforce Housing",
+        "sector": "energy",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing.html",
+        "reason": ""
+      },
+      {
+        "object_id": "1acd8bb84a15a622",
+        "slug": "nonprofit-pays-168-5m-for-fiu-student-tower",
+        "title": "Nonprofit Buys FIU Student Housing Building For $169M: The South Florida Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/nonprofit-pays-168-5m-for-fiu-student-tower.html",
+        "reason": ""
+      },
+      {
+        "object_id": "418faef3d4846085",
+        "slug": "bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility",
+        "title": "BGO, Banner Acquire 160K-SF Opa-Locka Cold Storage Facility",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cf3c3eb9c9add65d",
+        "slug": "",
+        "title": "Seattle Life Science VC Plunges 58% to $396MM as Bay Area Funding Holds at $8.3B",
+        "sector": "commercial_real_estate",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "6877e539510715d3",
+        "slug": "google-inks-440mw-solar-ppa-for-west-memphis-data-center",
+        "title": "Google expands partnership with Entergy Arkansas, will fund renewable energy and grid upgrades for West Memphis data center",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/google-inks-440mw-solar-ppa-for-west-memphis-data-center.html",
+        "reason": ""
+      },
+      {
+        "object_id": "45f51cf6077125c0",
+        "slug": "blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd",
+        "title": "Blackwall quadruples valuation to $2.2B as websites wrangle an increasingly crowded internet",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd.html",
+        "reason": ""
+      },
+      {
+        "object_id": "08eab07ac0cb7efc",
+        "slug": "the-budget-deficit-swells-while-the-cost-of-debt-rises",
+        "title": "The budget deficit swells, while the cost of debt rises",
+        "sector": "fed_macro",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/the-budget-deficit-swells-while-the-cost-of-debt-rises.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7d664fed967fd141",
+        "slug": "alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal",
+        "title": "Alcoa Sells New York Smelter to Data Center Developer in $315m Deal",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal.html",
+        "reason": ""
+      },
+      {
+        "object_id": "652f6adcbdb9806e",
+        "slug": "cbre-acquires-data-center-services-firm-onnec",
+        "title": "CBRE acquires data center services firm Onnec",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/cbre-acquires-data-center-services-firm-onnec.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f9337ee08d30d39d",
+        "slug": "canada-backs-nb-power-with-almost-270m-hydro-push",
+        "title": "Canada invests $270M for New Brunswick hydro, transmission development",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/canada-backs-nb-power-with-almost-270m-hydro-push.html",
+        "reason": ""
+      },
+      {
+        "object_id": "33faa00740cf3cb3",
+        "slug": "captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio",
+        "title": "Captona Closes Equity Investment With Nexamp in Large Community Solar Portfolio",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio.html",
+        "reason": ""
+      },
+      {
+        "object_id": "ed26296997e20c70",
+        "slug": "fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package",
+        "title": "Dutch development bank finances 50 MW of solar in Ivory Coast",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3e8ad8428c47996e",
+        "slug": "norwegian-danish-funds-invest-in-500-mw-philippine-solar-project",
+        "title": "Norwegian, Danish funds invest in 500 MW Philippine solar project",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/norwegian-danish-funds-invest-in-500-mw-philippine-solar-project.html",
+        "reason": ""
+      },
+      {
+        "object_id": "4366b4a988bff281",
+        "slug": "",
+        "title": "Blackstone closes fifth Energy Transition Partners fund on $8.7bn",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "skipped",
+        "path": "",
+        "reason": "no article to publish"
+      },
+      {
+        "object_id": "f336abbdfbb5093e",
+        "slug": "booker-warren-push-ftc-probe-of-platform-lender-steering",
+        "title": "Dems target Zillow-style co-marketing; review RESPA exposure",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/booker-warren-push-ftc-probe-of-platform-lender-steering.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 64,
+    "successful_calls": 64,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 18.33,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 8.24,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.13,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.56,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 0.96,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 172.0,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 52.19,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.2,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 752.18,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 2.44,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.54,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "3 of 26 drafts were withheld because they could not be verified against their sources",
+    "published 23 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1007.79,
+  "status": "ready",
+  "candidate_count": 833,
+  "event_count": 779,
+  "articles": [
+    {
+      "event_id": "5a0d56db881b5988",
+      "title": "Blackstone's $1.3B CMBS Loan Lands in Special Servicing",
+      "slug": "blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing",
+      "url": "/insights/blackstone-s-1-3b-cmbs-loan-lands-in-special-servicing.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 73,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "44b09e97c1ed9f4a",
+      "title": "A Third of Maturing Multifamily Debt Needs Cash Infusion to Refinance",
+      "slug": "a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance",
+      "url": "/insights/a-third-of-maturing-multifamily-debt-needs-cash-infusion-to-refinance.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 69,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "591849e547887bd9",
+      "title": "Boston Financial Closes $191M National Multi-Investor Fund",
+      "slug": "boston-financial-closes-191m-national-multi-investor-fund",
+      "url": "/insights/boston-financial-closes-191m-national-multi-investor-fund.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "5020753f95a835d8",
+      "title": "EQT to Acquire Real Estate Investment Firm Stockbridge in $375M Deal",
+      "slug": "eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal",
+      "url": "/insights/eqt-to-acquire-real-estate-investment-firm-stockbridge-in-375m-deal.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 64,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "945e86f324c55550",
+      "title": "Blackstone Closes $8.7B Energy Fund, 50% Bigger",
+      "slug": "blackstone-closes-8-7b-energy-fund-50-bigger",
+      "url": "/insights/blackstone-closes-8-7b-energy-fund-50-bigger.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 63,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "4f878c22f25868a6",
+      "title": "Ramp Files for Trust Charter After $1.85B Raise",
+      "slug": "ramp-files-for-trust-charter-after-1-85b-raise",
+      "url": "/insights/ramp-files-for-trust-charter-after-1-85b-raise.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 61,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "346625c4106bb699",
+      "title": "Hedge Fund Two Sigma Cuts Staff And Backs Off Real Estate Business",
+      "slug": "hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business",
+      "url": "/insights/hedge-fund-two-sigma-cuts-staff-and-backs-off-real-estate-business.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "2ec0d146e40e2676",
+      "title": "Deal Roundup: EQT strikes $6.5bn Cleanaway acquisition, Apax to buy Warburg’s stake in Odido",
+      "slug": "deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake",
+      "url": "/insights/deal-roundup-eqt-strikes-6-5bn-cleanaway-acquisition-apax-to-buy-warburg-s-stake.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0b70bb33117c0eab",
+      "title": "Fintech Funding Fell 21% In Q3 As Deals Grew Scarcer",
+      "slug": "fintech-funding-fell-21-in-q3-as-deals-grew-scarcer",
+      "url": "/insights/fintech-funding-fell-21-in-q3-as-deals-grew-scarcer.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "de8ae69d2f40771f",
+      "title": "Cottonwood Cuts Monthly Distribution 8.8%, Closes $175M JPMorgan Facility",
+      "slug": "cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility",
+      "url": "/insights/cottonwood-cuts-monthly-distribution-8-8-closes-175m-jpmorgan-facility.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "439008739bd75119",
+      "title": "Factory-Built Modules Draw Federal Tax Credits for L.A. Workforce Housing",
+      "slug": "factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing",
+      "url": "/insights/factory-built-modules-draw-federal-tax-credits-for-l-a-workforce-housing.html",
+      "category": "Market Commentary",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 52,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "1acd8bb84a15a622",
+      "title": "Nonprofit Pays $168.5M for FIU Student Tower",
+      "slug": "nonprofit-pays-168-5m-for-fiu-student-tower",
+      "url": "/insights/nonprofit-pays-168-5m-for-fiu-student-tower.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "418faef3d4846085",
+      "title": "BGO, Banner Acquire 160K-SF Opa-Locka Cold Storage Facility",
+      "slug": "bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility",
+      "url": "/insights/bgo-banner-acquire-160k-sf-opa-locka-cold-storage-facility.html",
+      "category": "Deal Intelligence",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "6877e539510715d3",
+      "title": "Google Inks 440MW Solar PPA for West Memphis Data Center",
+      "slug": "google-inks-440mw-solar-ppa-for-west-memphis-data-center",
+      "url": "/insights/google-inks-440mw-solar-ppa-for-west-memphis-data-center.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "45f51cf6077125c0",
+      "title": "Blackwall quadruples valuation to $2.2B as websites wrangle an increasingly crowded internet",
+      "slug": "blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd",
+      "url": "/insights/blackwall-quadruples-valuation-to-2-2b-as-websites-wrangle-an-increasingly-crowd.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "08eab07ac0cb7efc",
+      "title": "The budget deficit swells, while the cost of debt rises",
+      "slug": "the-budget-deficit-swells-while-the-cost-of-debt-rises",
+      "url": "/insights/the-budget-deficit-swells-while-the-cost-of-debt-rises.html",
+      "category": "Market Analysis",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "7d664fed967fd141",
+      "title": "Alcoa Sells New York Smelter to Data Center Developer in $315m Deal",
+      "slug": "alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal",
+      "url": "/insights/alcoa-sells-new-york-smelter-to-data-center-developer-in-315m-deal.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "652f6adcbdb9806e",
+      "title": "CBRE acquires data center services firm Onnec",
+      "slug": "cbre-acquires-data-center-services-firm-onnec",
+      "url": "/insights/cbre-acquires-data-center-services-firm-onnec.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f9337ee08d30d39d",
+      "title": "Canada Backs NB Power With Almost $270M Hydro Push",
+      "slug": "canada-backs-nb-power-with-almost-270m-hydro-push",
+      "url": "/insights/canada-backs-nb-power-with-almost-270m-hydro-push.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "33faa00740cf3cb3",
+      "title": "Captona Closes Equity Investment With Nexamp in Large Community Solar Portfolio",
+      "slug": "captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio",
+      "url": "/insights/captona-closes-equity-investment-with-nexamp-in-large-community-solar-portfolio.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "ed26296997e20c70",
+      "title": "FMO Backs 50 MW Ivory Coast Solar With $62.3M Package",
+      "slug": "fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package",
+      "url": "/insights/fmo-backs-50-mw-ivory-coast-solar-with-62-3m-package.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3e8ad8428c47996e",
+      "title": "Norwegian, Danish funds invest in 500 MW Philippine solar project",
+      "slug": "norwegian-danish-funds-invest-in-500-mw-philippine-solar-project",
+      "url": "/insights/norwegian-danish-funds-invest-in-500-mw-philippine-solar-project.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f336abbdfbb5093e",
+      "title": "Booker, Warren Push FTC Probe of Platform Lender Steering",
+      "slug": "booker-warren-push-ftc-probe-of-platform-lender-steering",
+      "url": "/insights/booker-warren-push-ftc-probe-of-platform-lender-steering.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 41,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 23
+}
