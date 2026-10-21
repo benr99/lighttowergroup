@@ -1,0 +1,2742 @@
+{
+  "run_at": "2026-10-21T15:55:07.558420+00:00",
+  "pipeline_version": "v4.0",
+  "mode": "publish",
+  "documents_ingested": 833,
+  "documents_from_feeds": 730,
+  "documents_from_listings": 103,
+  "objects_after_clustering": 787,
+  "documents_consolidated": 46,
+  "eligible": 115,
+  "enriched": 250,
+  "evidence_upgraded": 145,
+  "selected": 26,
+  "publication_candidates": 26,
+  "daily_target": 70,
+  "article_limit": 70,
+  "daily_target_met": false,
+  "sectors": {
+    "banking_credit": {
+      "considered": 59,
+      "eligible": 7,
+      "selected": 5,
+      "target": 10,
+      "shortfall_reason": "only 5 of 7 eligible candidates cleared the floor, against a target of 10"
+    },
+    "commercial_real_estate": {
+      "considered": 426,
+      "eligible": 68,
+      "selected": 10,
+      "target": 10,
+      "shortfall_reason": ""
+    },
+    "data_centers": {
+      "considered": 73,
+      "eligible": 8,
+      "selected": 6,
+      "target": 10,
+      "shortfall_reason": "only 6 of 8 eligible candidates cleared the floor, against a target of 10"
+    },
+    "energy": {
+      "considered": 126,
+      "eligible": 15,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 15 eligible candidates cleared the floor, against a target of 10"
+    },
+    "fed_macro": {
+      "considered": 21,
+      "eligible": 4,
+      "selected": 1,
+      "target": 10,
+      "shortfall_reason": "only 1 of 4 eligible candidates cleared the floor, against a target of 10"
+    },
+    "local_government": {
+      "considered": 2,
+      "eligible": 0,
+      "selected": 0,
+      "target": 10,
+      "shortfall_reason": "2 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market"
+    },
+    "private_equity": {
+      "considered": 80,
+      "eligible": 13,
+      "selected": 3,
+      "target": 10,
+      "shortfall_reason": "only 3 of 13 eligible candidates cleared the floor, against a target of 10"
+    }
+  },
+  "depth_counts": {
+    "tier_b": 17,
+    "tier_c": 9
+  },
+  "shortfalls": [
+    "banking_credit: only 5 of 7 eligible candidates cleared the floor, against a target of 10",
+    "data_centers: only 6 of 8 eligible candidates cleared the floor, against a target of 10",
+    "energy: only 1 of 15 eligible candidates cleared the floor, against a target of 10",
+    "fed_macro: only 1 of 4 eligible candidates cleared the floor, against a target of 10",
+    "local_government: 2 candidates found but none described a real event; likely a discovery or classification problem, not a quiet market",
+    "private_equity: only 3 of 13 eligible candidates cleared the floor, against a target of 10"
+  ],
+  "degenerate_measures": [],
+  "score_distribution": {
+    "min": 4.7,
+    "max": 65.3,
+    "mean": 38.0,
+    "stdev": 13.37,
+    "range_used": 60.6,
+    "median": 38.1,
+    "scale_max": 100
+  },
+  "retrieval": {
+    "requested": 253,
+    "fetched": 229,
+    "from_cache": 0,
+    "blocked": 15,
+    "failed": 9,
+    "skipped_budget": 0,
+    "bytes_downloaded": 49290808,
+    "elapsed_ms": 57339,
+    "by_status": {
+      "full_text": 145,
+      "partial_text": 84,
+      "failed": 9,
+      "blocked": 15
+    }
+  },
+  "novelty": {
+    "new": 706,
+    "minor_follow_up": 76,
+    "already_published": 5
+  },
+  "memory": {
+    "events_remembered": 18953,
+    "published": 1168,
+    "seen_but_not_run": 17785,
+    "lookback_days": 45
+  },
+  "spend": {
+    "date": "2026-10-21",
+    "daily_limit_usd": 25.0,
+    "spent_before_this_run_usd": 0.0,
+    "spent_this_run_usd": 0.7651,
+    "spent_today_usd": 0.7651,
+    "remaining_usd": 24.2349,
+    "exhausted": false,
+    "total_calls": 252,
+    "refused_calls": 0,
+    "elapsed_seconds": 1364.2,
+    "by_stage": {
+      "v4_verify": {
+        "calls": 184,
+        "input_tokens": 282474,
+        "output_tokens": 430450,
+        "usd": 0.6013,
+        "seconds": 5177.82,
+        "refused": 0
+      },
+      "v4_write": {
+        "calls": 68,
+        "input_tokens": 243893,
+        "output_tokens": 75555,
+        "usd": 0.1638,
+        "seconds": 799.45,
+        "refused": 0
+      }
+    },
+    "most_expensive_articles": [
+      {
+        "id": "b4e9112bbb02ed8e",
+        "usd": 0.0528
+      },
+      {
+        "id": "f9b472f285dcb332",
+        "usd": 0.0466
+      },
+      {
+        "id": "b5a05837dc6a5542",
+        "usd": 0.0451
+      },
+      {
+        "id": "a75c26624a16e6dd",
+        "usd": 0.0445
+      },
+      {
+        "id": "d0bd6cf8879ec5be",
+        "usd": 0.0444
+      },
+      {
+        "id": "b1b28496e9ece5c9",
+        "usd": 0.0415
+      },
+      {
+        "id": "b4b5e30e0cd720a1",
+        "usd": 0.0383
+      },
+      {
+        "id": "63b4171abdea82ff",
+        "usd": 0.0357
+      },
+      {
+        "id": "b1ac0c0bef65d868",
+        "usd": 0.0347
+      },
+      {
+        "id": "f640af119f650d4c",
+        "usd": 0.0297
+      }
+    ]
+  },
+  "generation": {
+    "pipeline": "v4",
+    "requested": 26,
+    "written": 26,
+    "needs_review": 0,
+    "failed": 0,
+    "skipped": 0,
+    "withheld": 0,
+    "voiced": 15,
+    "voice": true,
+    "stop_reason": "",
+    "spend_usd": 0.7651,
+    "attempts": 68,
+    "elapsed_seconds": 1075.2,
+    "provider_attempts": {
+      "deepseek": 68
+    },
+    "provider_failures": 0,
+    "parse_failures": 0,
+    "validation_failures": 0,
+    "results": [
+      {
+        "object_id": "1d37a53cf8719626",
+        "title": "Apollo, UDR Forming $2-Billion Multifamily Joint Venture",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "7ca1712eb98265b80d68112191a503267737d3231654684301d5f16579c5879d",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "capital cycle",
+            "protagonist": "UDR, Inc.",
+            "tension": "The deal is structured as a cost-efficient capital solution, but the tension lies in the embedded tradeoff: UDR gives up two-thirds of the economics now in exchange for liquidity and a call option at a 7.00–7.50% fixed return starting in year five. That option price is both a ceiling on Apollo's upside and a test of whether UDR's portfolio can outperform that hurdle."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 109,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 17,
+            "rejected": 7,
+            "kept_facts": 8,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "voice lines may not name anyone or anything",
+            "a view or action may not add figures: 5; a view or action may not add names: REIT",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "Infers a hard return floor and finite exit not in cited facts.",
+            "Asserts what the market thinks about rents without basis.",
+            "a take must cite at least one verified fact in 'because'"
+          ]
+        },
+        "seconds": 232.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "cd71b625725c5c15",
+        "title": "Forge Atlanta Developer Admits $19M Accounting Error, Falls Further Behind On Its Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "80df0fc3fdd143eead1302697d2229b14c3ce2374e27eab87a6ab03f0e18e84d",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "trust and institutions",
+            "protagonist": "Webstar Technology Group",
+            "tension": "The restated liabilities ($19.8M vs $1.1M) and unpaid $34M mortgage expose a capital-stack that is far more fragile than the project's scale suggests."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 270,
+            "paragraph_count": 6,
+            "warnings": [
+              "Sentences average 25 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Split these sentences (over 35 words): “Webstar Technology Group revised its 2025 annual earnings report…” (38 words); “Webstar has been attempting to line up financing for…” (36 words)",
+              "Paragraph 5 has 84 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview.",
+              "These numbers are not in the dossier; remove them or restate using only dossier figures: 3"
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 2,
+            "kept_facts": 9,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 25 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Split these sentences (over 35 words): “Webstar Technology Group revised its 2025 annual earnings report…” (38 words); “Webstar has been attempting to line up financing for…” (36 words)",
+            "Paragraph 5 has 84 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview.",
+            "These numbers are not in the dossier; remove them or restate using only dossier figures: 3"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Asserts a factual characterization rather than a pure reaction.",
+            "Overgeneralizes from one company to a market-wide scarcity of institutional trust."
+          ]
+        },
+        "seconds": 165.4,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b4e9112bbb02ed8e",
+        "title": "Related Lands $750M Loan To Keep 'Broadway's Bedroom' Affordable: The N.Y. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "4b42b81c0626b49ea2eec49796bc3bd597a3094b6b15503d5d0a151840596c23",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "home and belonging",
+            "protagonist": "Related Cos. and its 1,689-unit Manhattan Plaza at 576 10th Ave.",
+            "tension": "The deal swaps agency debt for bank debt and locks in affordability commitments, but the sources don't reveal the new interest rate, amortization, or whether Related extracted cash out."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 231,
+            "paragraph_count": 6,
+            "warnings": [
+              "45% of sentences start with “The”. Vary the openings.",
+              "These names do not appear in the dossier; remove them or use only names the sources gave: A&amp"
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 2,
+            "kept_facts": 10,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 12.34,
+          "readability_warnings": [
+            "45% of sentences start with “The”. Vary the openings.",
+            "These names do not appear in the dossier; remove them or use only names the sources gave: A&amp"
+          ],
+          "sentences_rejected_by_fact_check": [
+            "drops the attribution (“said”, “according to”) that its quote carries",
+            "drops the attribution (“said”, “according to”) that its quote carries"
+          ]
+        },
+        "seconds": 387.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "63b4171abdea82ff",
+        "title": "Newmark Affiliate Arranges $369M Financing for 11 Florida Affordable Housing Properties",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c1d21fb0db1177a1276c69384993989abc6a1e1d1a22759c3344f0cb4df355ab",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "trust and institutions",
+            "protagonist": "Blackstone's April Housing",
+            "tension": "The deal's complexity—24 separate regulatory agreements—and the use of a buydown on the fixed-rate portion to maximize proceeds and support the financing strategy."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 153,
+            "paragraph_count": 6,
+            "warnings": [
+              "44% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 3,
+            "kept_facts": 7,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "44% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Asserts a truth-apt comparison about the number being more informative than a press release.",
+            "fact rejected by the fact check",
+            "a view or action may not add names: LIHTC"
+          ]
+        },
+        "seconds": 336.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a98770621928049c",
+        "title": "Billionaire residents of NYC’s famed Pierre remain in the dark after contested $2B sale collapsed",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d8bebff1e69b979cd5efc74dfdd3ec396ccaaeaaeb25c164cf3f4748b15f195c",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Building as Character",
+            "lens": "home and belonging",
+            "protagonist": "The co-op shareholders of The Pierre, including billionaires like Larry Ellison and Tory Burch, who face unresolved repair costs and potential assessments after the failed $2 billion buyout.",
+            "tension": "The collapsed sale leaves a repair funding gap: estimates range from $182 million to $400 million, with responsibility split between Taj Hotels and shareholders, and no agreement on who pays what."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 272,
+            "paragraph_count": 6,
+            "warnings": [
+              "Paragraph 4 has 68 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+            ]
+          },
+          "fact_check": {
+            "checked": 18,
+            "rejected": 3,
+            "kept_facts": 12,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 4 has 68 words and 4 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The excerpt must be one complete sentence of 40-200 characters that ends with a period. It is the card text and the LinkedIn preview."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "Assumes capital planning was deferred and that shareholders will get the bill though costs remain unresolved and deferral is not established."
+          ]
+        },
+        "seconds": 246.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f9b472f285dcb332",
+        "title": "Hines Closes $591M Multifamily DST Offering, Its Largest to Date",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c60769afc302a07d5b14da3b8fc479416e947e93f67f1c56f189a232b716898a",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "capital cycle",
+            "protagonist": "Hines Private Wealth Solutions",
+            "tension": "The offering is backed by two multifamily properties sourced from Hines Global Income Trust (HGIT), a nontraded REIT. The tension is the transfer of assets from HGIT to the DST—essentially Hines moving properties from one vehicle to another to serve different investor bases, while HGIT retains a gross asset value of $7.29 billion and has been actively buying other properties. This internal reallocation raises questions about HGIT's disposition strategy and the performance expectations for the DST investors."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 355,
+            "paragraph_count": 8,
+            "warnings": [
+              "Paragraph 2 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 22,
+            "rejected": 2,
+            "kept_facts": 17,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 2 has 63 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "claims multifamily supply pipelines are shrinking without cited support",
+            "a view or action may not add names: DSTs"
+          ]
+        },
+        "seconds": 381.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b5a05837dc6a5542",
+        "title": "Foreclosure Auction Set For Loop Office-To-Residential Conversion",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "fb2590c9e35b144b67b593146da5f8816c59c1a1d3eac068109250d1e7deae80",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Price Tells the Truth",
+            "lens": "capital cycle",
+            "protagonist": "Lindy Communities, a Pennsylvania-based multifamily investor, through its affiliate that purchased the loan note.",
+            "tension": "The property's floating-rate debt, taken when rates were near zero, ballooned debt service to $2.4M, outpacing net operating income of nearly $1.9M despite 97% occupancy, pushing the loan into default."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 339,
+            "paragraph_count": 9,
+            "warnings": [
+              "Split these sentences (over 35 words): “In 2018, LG Development Group and Marc Realty began…” (36 words)",
+              "Paragraph 3 has 61 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 23,
+            "rejected": 5,
+            "kept_facts": 15,
+            "kept_takes": 0,
+            "kept_voice": 3,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Split these sentences (over 35 words): “In 2018, LG Development Group and Marc Realty began…” (36 words)",
+            "Paragraph 3 has 61 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "The opening paragraph is 47 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "Assumes foreclosure and a goal to take the asset, which the cited facts do not support.",
+            "fact rejected by the fact check",
+            "uses loaded labels the cited facts do not use: discounts; states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'"
+          ]
+        },
+        "seconds": 366.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "a75c26624a16e6dd",
+        "title": "Kennedy Wilson’ Vintage Housing Buys Foreclosed San Diego Tower for Multifamily Redevelopment",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "f5158f51e57c1b636bde960655ad3421c9797fa20d28aa262a453527ee56b47e",
+          "mode": "voice",
+          "brief": {
+            "shape": "Who Blinked",
+            "lens": "capital cycle",
+            "protagonist": "Kennedy Wilson’s Vintage Housing",
+            "tension": "The lender A10 Capital sold the property at a loss and simultaneously provided $20 million in acquisition financing, effectively doubling down on the borrower’s conversion plan."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 219,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 7,
+            "kept_facts": 8,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "asserts the foreclosure doubles as a partnership; voice must not make factual claims",
+            "speculates lender's motive or choice to finance its own exit",
+            "asserts a pattern as fact; voice must not assert",
+            "states a sweeping claim about the market as fact; frame it as a reading with 'may' or 'I read'"
+          ]
+        },
+        "seconds": 385.7,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b1b28496e9ece5c9",
+        "title": "Affinius Capital Provides $94M Refi for Dallas-Area Industrial Property",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "8c760ddcf9f503aa5cba55cc5520d2868cbf058da16d57ffeff8ca198fe88583",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Lender's Question",
+            "lens": "capital cycle",
+            "protagonist": "Hillwood, the Perot-founded industrial developer",
+            "tension": "The loan proceeds are explicitly for lease-up, meaning the property is not yet stabilized; Affinius is underwriting future occupancy and rent growth in a market with rising supply, making the refinancing a bet on Hillwood's ability to fill 1.2 million square feet."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 183,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_takes": 2,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "hidden claim that lenders require lease-up thresholds"
+          ]
+        },
+        "seconds": 347.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "13bdf56d67042aca",
+        "title": "Colorado Breaks Ground on $806M I-270 Reconstruction",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "1d2b39472d0a54bd396a5cb61253f44cc066317dfbc2f9ed8d09cc645ed27dc2",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Clock",
+            "lens": "work and cities",
+            "protagonist": "Kiewit Corp., the contractor, and the Colorado Department of Transportation (CDOT) as the public sponsor of the $806 million I-270 reconstruction.",
+            "tension": "The source shows no explicit capital-stack friction, basis reset, maturity window, policy shift, or counterparty tradeoff. The tension is operational and temporal: a long construction window through 2033, active rail and river constraints, and the need to maintain traffic on a corridor with over 100,000 daily vehicles."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 156,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 2,
+            "kept_facts": 6,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add figures: 6, 8; a view or action may not add names: Sept"
+          ]
+        },
+        "seconds": 136.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b4b5e30e0cd720a1",
+        "title": "GENIUS Act Regulations: Final Rule",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 5,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "05a9d112c077923476ec45fd32cad7b26aeb7c6bd50a1e119d43f3451f970452",
+          "mode": "facts",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "The Office of the Comptroller of the Currency (OCC) and the entities it will regulate: national banks, federal savings associations, federal branches, foreign payment stablecoin issuers, and nonbank entities seeking federal qualified payment stablecoin issuer status.",
+            "tension": "The rule creates a federal licensing pathway for payment stablecoin issuers, shifting competitive dynamics between banks and nonbanks, and imposes new regulatory requirements that may raise costs or limit participation."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 120,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 2,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "voice_fallback": true,
+          "request_seconds": 9.94,
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "quote is longer than allowed",
+            "quote is longer than allowed",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 273.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b1ac0c0bef65d868",
+        "title": "A wave of new banks is about to shake up a normally staid industry",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c2b860aa6a6392a5cb275eef36550682ed6e9eb08590ed9f883f28df5e20677b",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "The Federal Reserve",
+            "tension": "Applicants are choosing national charters and structures exempt from the Bank Holding Company Act, creating a regulatory arbitrage that leaves the Fed with little direct authority over the new banks."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 206,
+            "paragraph_count": 6,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 15,
+            "rejected": 4,
+            "kept_facts": 9,
+            "kept_takes": 1,
+            "kept_voice": 1,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "a view or action may not add figures: 2; a view or action may not add names: Fed",
+            "voice lines may not name anyone or anything"
+          ]
+        },
+        "seconds": 274.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "7419d25457c918dd",
+        "title": "OCC leaves room for stablecoin yield maneuvers in final rule",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "01e6f5c34dfa1f5a01e9187f80eb155c9607c4c28391fc70229395dccde025e4",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Rule Changed",
+            "lens": "power and politics",
+            "protagonist": "The Office of the Comptroller of the Currency",
+            "tension": "The final rule keeps a technical ban on direct yield from issuers but removes a presumption against third-party rewards, creating a gray area where case-by-case rulings will decide what counts as prohibited interest."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 232,
+            "paragraph_count": 6,
+            "warnings": [
+              "Paragraph 5 has 102 words and 6 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+              "69% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 3,
+            "kept_facts": 12,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Paragraph 5 has 102 words and 6 sentences. Keep paragraphs to 3 sentences and 60 words; split it.",
+            "69% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Implies the deletion changed the competitive landscape as fact.",
+            "attributes a private state or decision (wants, fears, decided, knows...) to a party the facts do not support",
+            "Asserts every rewards program became a test case as fact."
+          ]
+        },
+        "seconds": 202.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "d0bd6cf8879ec5be",
+        "title": "Northwind Group Closes $1B Debt Fund",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "87f13c6e05e96d59ed10849c40d33af14f21010b802b859add16b9fcf93eb598",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Number That Doesn't Fit",
+            "lens": "capital cycle",
+            "protagonist": "Northwind Group, led by founder and managing partner Ran Eliasaf",
+            "tension": "Eliasaf acknowledges 'a question on values' amid rising rates, yet remains bullish on New York City due to supply constraints; the fund must balance aggressive deployment (nearly 60% deployed, targeting 90% by end of 2026) with conservatism in sponsor and property selection."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 131,
+            "paragraph_count": 5,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 9,
+            "kept_facts": 3,
+            "kept_takes": 0,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "a view or action may not add figures: 1.5",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "Adds unsupported timing, caution, and market claim."
+          ]
+        },
+        "seconds": 354.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0ee2338f98c0aee2",
+        "title": "CBRE Expands Data Center Footprint With $1B Acquisition Of Onnec Group",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "0b370a8ed37c642bcb36b620927a52c23ea837b5b9c6fb6f725eb7e006ba35cd",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "technology and land",
+            "protagonist": "CBRE",
+            "tension": "The deal is structured with $610M in cash plus up to $400M in growth incentives, meaning CBRE is paying a premium for immediate earnings accretion while betting on Onnec's ability to hit ambitious growth targets in a market where vacancy is already at a record-low 1.4%."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 258,
+            "paragraph_count": 6,
+            "warnings": [
+              "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "Paragraph 4 has 76 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+            ]
+          },
+          "fact_check": {
+            "checked": 14,
+            "rejected": 3,
+            "kept_facts": 10,
+            "kept_takes": 1,
+            "kept_voice": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "Paragraph 4 has 76 words and 3 sentences. Keep paragraphs to 3 sentences and 60 words; split it."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "asserts CBRE never owns a building, a fact not in the verified facts.",
+            "a view or action may not add names: CBRE",
+            "asserts a future competitive claim as fact."
+          ]
+        },
+        "seconds": 201.5,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "b73ceba740fed5c0",
+        "title": "CBRE’s Billion-Dollar Bet Follows Data Center Boom Inside the Racks",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "ba85e7b679aa16a9a6692455a66672667c095f714ec7bb6718b6f0225360d497",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "technology and land",
+            "protagonist": "CBRE",
+            "tension": "The deal pushes CBRE deeper into the hyperscale tech spending cycle, tying its earnings more tightly to a market CEO Bob Sulentic himself calls 'extremely frothy' — a concentration risk the sources explicitly flag."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 302,
+            "paragraph_count": 7,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 16,
+            "rejected": 1,
+            "kept_facts": 11,
+            "kept_takes": 2,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "States CBRE's motive as known and adds unsupported waiting-cost claim."
+          ]
+        },
+        "seconds": 136.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "f640af119f650d4c",
+        "title": "CBRE Acquires Data Center Equipment Provider Onnec Group for $610M",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "completed",
+        "stages_run": [
+          "voice_brief",
+          "voice_writer",
+          "fact_check",
+          "voice_gate",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 3,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "c840df35d653a9e5af8139fcc6d961c1c42333d0094eae354f63a39e7275db3f",
+          "mode": "voice",
+          "brief": {
+            "shape": "The Quiet Signal",
+            "lens": "status and ambition",
+            "protagonist": "CBRE",
+            "tension": "The deal is an all-cash acquisition with a heavy earnout tied to Onnec's growth targets—CBRE is paying a premium for a labor-intensive, low-margin business while simultaneously competing with its own clients (hyperscalers) who are increasingly insourcing data center operations."
+          },
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 180,
+            "paragraph_count": 6,
+            "warnings": [
+              "Sentences average 22 words. Aim for about 15 and stay under 18. Split long sentences; one idea each."
+            ]
+          },
+          "fact_check": {
+            "checked": 12,
+            "rejected": 4,
+            "kept_facts": 5,
+            "kept_takes": 1,
+            "kept_voice": 2,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 22 words. Aim for about 15 and stay under 18. Split long sentences; one idea each."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "fact rejected by the fact check",
+            "States CBRE's deliberate intention and that technical services lock in hyperscalers, neither supported by cited facts."
+          ]
+        },
+        "seconds": 228.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "dad99d609e469cc5",
+        "title": "Alcoa To Sell Idle Massena East Smelter Site For Up To $315M Data Center Build",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "d06ce150c61b7672fb18241c55c829a328b040ee11e2e58d01f6a6aa8af1e4cc",
+          "mode": "facts",
+          "request_seconds": 7.95,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 208,
+            "paragraph_count": 5,
+            "warnings": [
+              "The opening paragraph is 50 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 13,
+            "rejected": 1,
+            "kept_facts": 11,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "The opening paragraph is 50 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "drops the qualifier “plans” that its quote carries"
+          ]
+        },
+        "seconds": 149.6,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "bb0825eefa78ce75",
+        "title": "GENIUS Act: Revised Reporting Forms and Instructions for Permitted Payment Stablecoin Issuers Subject to the Jurisdiction of the Office of the Comptroller of the Currency",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "a9427e94172b68fbe2a43e31fb29c4e640f96e3d6e14b3970dc9d8402f3e2788",
+          "mode": "facts",
+          "request_seconds": 7.24,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 94,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 8,
+            "rejected": 0,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "The source says the OCC is finalizing, not that it has finalized.",
+            "quote is longer than allowed",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 140.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "0700505485ea2610",
+        "title": "Nuveen EIC provides Pivot Energy with $500m credit facility for solar, battery storage buildout",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 1,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "b464f07f9c935ed9253fe6a8b102aa01107ee46b272aa3479c75c68e214e9bfe",
+          "mode": "facts",
+          "request_seconds": 6.23,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 86,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 7,
+            "rejected": 0,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 57.2,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "024fd3a9a6a48176",
+        "title": "Foursquare co-founder says equity holders saw no returns from the company’s acquisition",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "90cecd27adc2bb05566ad18ae89027a8e40f71455383626ea1e7b264ae6b376c",
+          "mode": "facts",
+          "request_seconds": 5.75,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 110,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 2,
+            "kept_facts": 6,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "The source attributes this claim to Dennis Crowley; the sentence states it as fact.",
+            "The source attributes this to Crowley; the sentence states it as fact."
+          ]
+        },
+        "seconds": 195.1,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "c395b6760a0da868",
+        "title": "Duos secures cloud provider as customer for 20MW of data center capacity",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "54dd1cf6fe52d77988ce47b424de3c201a4b62ef466cbbe09ad5e2d85454fa61",
+          "mode": "facts",
+          "request_seconds": 5.96,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 99,
+            "paragraph_count": 3,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 4,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 10",
+            "drops the attribution (“said”, “according to”) that its quote carries",
+            "Source attributes these statements to Duos ('The company said'), but the sentence presents them as plain fact without attribution.",
+            "Source says this as part of Duos's statement, but sentence omits attribution."
+          ]
+        },
+        "seconds": 185.8,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "aa6b90f5e4dfbe8e",
+        "title": "EBRD-led lenders back 1.2 GW solar, 600 MWh storage plant in Egypt",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e5dc5ea3aa87932ffeb37c9dfc6e217dfbafc3a8324ef3802b9e34ab347bbbf6",
+          "mode": "facts",
+          "request_seconds": 6.01,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 77,
+            "paragraph_count": 4,
+            "warnings": []
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 5,
+            "kept_facts": 5,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [],
+          "sentences_rejected_by_fact_check": [
+            "Source says EBRD is arranging a loan of up to $265 million, not exactly $265 million, and attribution to EBRD is missing.",
+            "Omits the $30 million concessional financing component of the EBRD loan.",
+            "Source attributes this to EBRD's statement ('EBRD said it is arranging'), but sentence states it as fact without attribution.",
+            "Omits the $30 million concessional financing component of the EBRD loan.",
+            "Source says this is according to the EBRD, but sentence states it as fact without attribution."
+          ]
+        },
+        "seconds": 139.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "3d1daf84c9c3f3f2",
+        "title": "GENIUS Act: Waivers and Application Submission Guidance",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "e4c741c7308320684b2ce3cc361d82fed26912b04dbcd25dc8d282700e25e369",
+          "mode": "facts",
+          "request_seconds": 8.08,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 193,
+            "paragraph_count": 4,
+            "warnings": [
+              "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension.",
+              "50% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 11,
+            "rejected": 3,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 24 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "The opening paragraph is 49 words. Open with one or two short sentences that give the who, the number and the tension.",
+            "50% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "Source says OCC 'generally expects to grant requests for waivers' and applies to 'existing issuers currently operating in the United States,' not 'pending issuers' without the 'generally' qualifier.",
+            "quote is longer than allowed",
+            "quote is longer than allowed"
+          ]
+        },
+        "seconds": 140.9,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "545e13d06676e457",
+        "title": "OCC Advances U.S. Digital Asset Leadership with Final Rule to Implement GENIUS Act",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "adb29a23a6a992ba21acfe6c8b0fa45ad2e2c2817c7aeef25bfaafacf8bd348f",
+          "mode": "facts",
+          "request_seconds": 6.35,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 143,
+            "paragraph_count": 4,
+            "warnings": [
+              "75% of sentences start with “The”. Vary the openings."
+            ]
+          },
+          "fact_check": {
+            "checked": 10,
+            "rejected": 0,
+            "kept_facts": 8,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "75% of sentences start with “The”. Vary the openings."
+          ],
+          "sentences_rejected_by_fact_check": []
+        },
+        "seconds": 123.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      },
+      {
+        "object_id": "10c8902c919fc0f4",
+        "title": "Amazon withdraws application for data center campus at GWU site in Ashburn, Virginia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "completed",
+        "stages_run": [
+          "bounded_writer",
+          "fact_check",
+          "local_validation"
+        ],
+        "errors": [],
+        "diagnostics": {
+          "attempts": 2,
+          "provider": "deepseek",
+          "model": "deepseek-v4-pro",
+          "dossier_hash": "39e7259063c723da5a798708ba959bc51e845b34fd59795788d7a404d7af3652",
+          "mode": "facts",
+          "request_seconds": 6.32,
+          "error_kind": "validation",
+          "validation": {
+            "valid": true,
+            "codes": [],
+            "messages": [],
+            "word_count": 92,
+            "paragraph_count": 2,
+            "warnings": [
+              "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+              "The opening paragraph is 46 words. Open with one or two short sentences that give the who, the number and the tension."
+            ]
+          },
+          "fact_check": {
+            "checked": 9,
+            "rejected": 4,
+            "kept_facts": 4,
+            "kept_views": 0,
+            "verifier": "deepseek/deepseek-v4-pro"
+          },
+          "readability_warnings": [
+            "Sentences average 23 words. Aim for about 15 and stay under 18. Split long sentences; one idea each.",
+            "The opening paragraph is 46 words. Open with one or two short sentences that give the who, the number and the tension."
+          ],
+          "sentences_rejected_by_fact_check": [
+            "figures not in its quote: 427",
+            "The source does not attribute the land dedication or the $65m valuation to Randall; it states these as facts and later quotes Randall only about the parcels being ideal for arts/sports facilities.",
+            "refers back to a deleted sentence, so its subject would be ambiguous",
+            "names not in or near its quote: Josh"
+          ]
+        },
+        "seconds": 188.3,
+        "usd": 0.0,
+        "skipped_reason": "",
+        "ok": true,
+        "needs_review": false
+      }
+    ]
+  },
+  "publication": {
+    "requested": 26,
+    "published": 26,
+    "skipped_existing": 0,
+    "skipped_review": 0,
+    "failed": 0,
+    "files_written": [
+      "insights/apollo-udr-forming-2-billion-multifamily-joint-venture_social.png",
+      "insights/apollo-udr-forming-2-billion-multifamily-joint-venture.html",
+      "insights/forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its_social.png",
+      "insights/forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its.html",
+      "insights/related-lands-750m-wells-fargo-loan-on-manhattan-plaza_social.png",
+      "insights/related-lands-750m-wells-fargo-loan-on-manhattan-plaza.html",
+      "insights/blackstone-s-april-housing-lands-369m-fannie-mae-facility_social.png",
+      "insights/blackstone-s-april-housing-lands-369m-fannie-mae-facility.html",
+      "insights/billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2_social.png",
+      "insights/billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2.html",
+      "insights/hines-closes-591m-dst-its-largest-ever_social.png",
+      "insights/hines-closes-591m-dst-its-largest-ever.html",
+      "insights/foreclosure-auction-set-for-loop-office-to-residential-conversion_social.png",
+      "insights/foreclosure-auction-set-for-loop-office-to-residential-conversion.html",
+      "insights/kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r_social.png",
+      "insights/kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r.html",
+      "insights/affinius-capital-provides-94m-refi-for-dallas-area-industrial-property_social.png",
+      "insights/affinius-capital-provides-94m-refi-for-dallas-area-industrial-property.html",
+      "insights/colorado-breaks-ground-on-806m-i-270-reconstruction_social.png",
+      "insights/colorado-breaks-ground-on-806m-i-270-reconstruction.html",
+      "insights/occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027_social.png",
+      "insights/occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027.html",
+      "insights/a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry_social.png",
+      "insights/a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry.html",
+      "insights/occ-drops-stablecoin-yield-presumption_social.png",
+      "insights/occ-drops-stablecoin-yield-presumption.html",
+      "insights/northwind-group-closes-1b-debt-fund_social.png",
+      "insights/northwind-group-closes-1b-debt-fund.html",
+      "insights/cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group_social.png",
+      "insights/cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group.html",
+      "insights/cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks_social.png",
+      "insights/cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks.html",
+      "insights/cbre-drops-610m-on-data-center-installer-onnec_social.png",
+      "insights/cbre-drops-610m-on-data-center-installer-onnec.html",
+      "insights/alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build_social.png",
+      "insights/alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build.html",
+      "insights/genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable_social.png",
+      "insights/genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable.html",
+      "insights/nuveen-eic-backs-pivot-energy-with-500m-credit-facility_social.png",
+      "insights/nuveen-eic-backs-pivot-energy-with-500m-credit-facility.html",
+      "insights/foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu_social.png",
+      "insights/foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu.html",
+      "insights/duos-inks-20mw-colocation-deal-with-cloud-provider_social.png",
+      "insights/duos-inks-20mw-colocation-deal-with-cloud-provider.html",
+      "insights/ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt_social.png",
+      "insights/ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt.html",
+      "insights/genius-act-waivers-and-application-submission-guidance_social.png",
+      "insights/genius-act-waivers-and-application-submission-guidance.html",
+      "insights/occ-finalizes-genius-act-stablecoin-rule_social.png",
+      "insights/occ-finalizes-genius-act-stablecoin-rule.html",
+      "insights/amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi_social.png",
+      "insights/amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi.html",
+      "insights.json",
+      "feed.xml",
+      "sitemap.xml",
+      "insights/apollo-udr-forming-2-billion-multifamily-joint-venture_related.json",
+      "insights/forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its_related.json",
+      "insights/related-lands-750m-wells-fargo-loan-on-manhattan-plaza_related.json",
+      "insights/blackstone-s-april-housing-lands-369m-fannie-mae-facility_related.json",
+      "insights/billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2_related.json",
+      "insights/hines-closes-591m-dst-its-largest-ever_related.json",
+      "insights/foreclosure-auction-set-for-loop-office-to-residential-conversion_related.json",
+      "insights/kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r_related.json",
+      "insights/affinius-capital-provides-94m-refi-for-dallas-area-industrial-property_related.json",
+      "insights/colorado-breaks-ground-on-806m-i-270-reconstruction_related.json",
+      "insights/occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027_related.json",
+      "insights/a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry_related.json",
+      "insights/occ-drops-stablecoin-yield-presumption_related.json",
+      "insights/northwind-group-closes-1b-debt-fund_related.json",
+      "insights/cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group_related.json",
+      "insights/cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks_related.json",
+      "insights/cbre-drops-610m-on-data-center-installer-onnec_related.json",
+      "insights/alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build_related.json",
+      "insights/genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable_related.json",
+      "insights/nuveen-eic-backs-pivot-energy-with-500m-credit-facility_related.json",
+      "insights/foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu_related.json",
+      "insights/duos-inks-20mw-colocation-deal-with-cloud-provider_related.json",
+      "insights/ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt_related.json",
+      "insights/genius-act-waivers-and-application-submission-guidance_related.json",
+      "insights/occ-finalizes-genius-act-stablecoin-rule_related.json",
+      "insights/amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi_related.json"
+    ],
+    "articles": [
+      {
+        "event_id": "1d37a53cf8719626",
+        "title": "Apollo, UDR Forming $2-Billion Multifamily Joint Venture",
+        "slug": "apollo-udr-forming-2-billion-multifamily-joint-venture",
+        "url": "/insights/apollo-udr-forming-2-billion-multifamily-joint-venture.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 65,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "cd71b625725c5c15",
+        "title": "Forge Atlanta Developer Admits $19M Accounting Error, Falls Further Behind On Its Loan",
+        "slug": "forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its",
+        "url": "/insights/forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 60,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b4e9112bbb02ed8e",
+        "title": "Related Lands $750M Wells Fargo Loan on Manhattan Plaza",
+        "slug": "related-lands-750m-wells-fargo-loan-on-manhattan-plaza",
+        "url": "/insights/related-lands-750m-wells-fargo-loan-on-manhattan-plaza.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "63b4171abdea82ff",
+        "title": "Blackstone's April Housing Lands $369M Fannie Mae Facility",
+        "slug": "blackstone-s-april-housing-lands-369m-fannie-mae-facility",
+        "url": "/insights/blackstone-s-april-housing-lands-369m-fannie-mae-facility.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 59,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a98770621928049c",
+        "title": "Billionaire residents of NYC’s famed Pierre remain in the dark after contested $2B sale collapsed",
+        "slug": "billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2",
+        "url": "/insights/billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 58,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f9b472f285dcb332",
+        "title": "Hines Closes $591M DST, Its Largest Ever",
+        "slug": "hines-closes-591m-dst-its-largest-ever",
+        "url": "/insights/hines-closes-591m-dst-its-largest-ever.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b5a05837dc6a5542",
+        "title": "Foreclosure Auction Set For Loop Office-To-Residential Conversion",
+        "slug": "foreclosure-auction-set-for-loop-office-to-residential-conversion",
+        "url": "/insights/foreclosure-auction-set-for-loop-office-to-residential-conversion.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "a75c26624a16e6dd",
+        "title": "Kennedy Wilson’ Vintage Housing Buys Foreclosed San Diego Tower for Multifamily Redevelopment",
+        "slug": "kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r",
+        "url": "/insights/kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b1b28496e9ece5c9",
+        "title": "Affinius Capital Provides $94M Refi for Dallas-Area Industrial Property",
+        "slug": "affinius-capital-provides-94m-refi-for-dallas-area-industrial-property",
+        "url": "/insights/affinius-capital-provides-94m-refi-for-dallas-area-industrial-property.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 57,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "13bdf56d67042aca",
+        "title": "Colorado Breaks Ground on $806M I-270 Reconstruction",
+        "slug": "colorado-breaks-ground-on-806m-i-270-reconstruction",
+        "url": "/insights/colorado-breaks-ground-on-806m-i-270-reconstruction.html",
+        "category": "Deal Intelligence",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b4b5e30e0cd720a1",
+        "title": "OCC Finalizes GENIUS Act Stablecoin Rule, Effective January 18, 2027",
+        "slug": "occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027",
+        "url": "/insights/occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 56,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b1ac0c0bef65d868",
+        "title": "A wave of new banks is about to shake up a normally staid industry",
+        "slug": "a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry",
+        "url": "/insights/a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry.html",
+        "category": "Market Analysis",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 55,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "7419d25457c918dd",
+        "title": "OCC Drops Stablecoin Yield Presumption",
+        "slug": "occ-drops-stablecoin-yield-presumption",
+        "url": "/insights/occ-drops-stablecoin-yield-presumption.html",
+        "category": "Debt & Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 54,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "d0bd6cf8879ec5be",
+        "title": "Northwind Group Closes $1B Debt Fund",
+        "slug": "northwind-group-closes-1b-debt-fund",
+        "url": "/insights/northwind-group-closes-1b-debt-fund.html",
+        "category": "Private Equity",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0ee2338f98c0aee2",
+        "title": "CBRE Expands Data Center Footprint With $1B Acquisition Of Onnec Group",
+        "slug": "cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group",
+        "url": "/insights/cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "b73ceba740fed5c0",
+        "title": "CBRE’s Billion-Dollar Bet Follows Data Center Boom Inside the Racks",
+        "slug": "cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks",
+        "url": "/insights/cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 53,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "f640af119f650d4c",
+        "title": "CBRE Drops $610M on Data Center Installer Onnec",
+        "slug": "cbre-drops-610m-on-data-center-installer-onnec",
+        "url": "/insights/cbre-drops-610m-on-data-center-installer-onnec.html",
+        "category": "Data Centers",
+        "format": "analysis",
+        "source_count": 1,
+        "must_read_score": 50,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "dad99d609e469cc5",
+        "title": "Alcoa To Sell Idle Massena East Smelter Site For Up To $315M Data Center Build",
+        "slug": "alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build",
+        "url": "/insights/alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 49,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "bb0825eefa78ce75",
+        "title": "GENIUS Act: Revised Reporting Forms and Instructions for Permitted Payment Stablecoin Issuers Subject to the Jurisdiction of the Office of the Comptroller of the Currency",
+        "slug": "genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable",
+        "url": "/insights/genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "0700505485ea2610",
+        "title": "Nuveen EIC Backs Pivot Energy With $500M Credit Facility",
+        "slug": "nuveen-eic-backs-pivot-energy-with-500m-credit-facility",
+        "url": "/insights/nuveen-eic-backs-pivot-energy-with-500m-credit-facility.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 47,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_summary"
+      },
+      {
+        "event_id": "024fd3a9a6a48176",
+        "title": "Foursquare co-founder says equity holders saw no returns from the company’s acquisition",
+        "slug": "foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu",
+        "url": "/insights/foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu.html",
+        "category": "Private Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "c395b6760a0da868",
+        "title": "Duos inks 20MW colocation deal with cloud provider",
+        "slug": "duos-inks-20mw-colocation-deal-with-cloud-provider",
+        "url": "/insights/duos-inks-20mw-colocation-deal-with-cloud-provider.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 46,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "aa6b90f5e4dfbe8e",
+        "title": "EBRD-led lenders back 1.2 GW solar, 600 MWh storage plant in Egypt",
+        "slug": "ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt",
+        "url": "/insights/ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt.html",
+        "category": "Market Commentary",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 45,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "3d1daf84c9c3f3f2",
+        "title": "GENIUS Act: Waivers and Application Submission Guidance",
+        "slug": "genius-act-waivers-and-application-submission-guidance",
+        "url": "/insights/genius-act-waivers-and-application-submission-guidance.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "545e13d06676e457",
+        "title": "OCC Finalizes GENIUS Act Stablecoin Rule",
+        "slug": "occ-finalizes-genius-act-stablecoin-rule",
+        "url": "/insights/occ-finalizes-genius-act-stablecoin-rule.html",
+        "category": "Debt & Equity",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 44,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      },
+      {
+        "event_id": "10c8902c919fc0f4",
+        "title": "Amazon withdraws application for data center campus at GWU site in Ashburn, Virginia",
+        "slug": "amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi",
+        "url": "/insights/amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi.html",
+        "category": "Data Centers",
+        "format": "brief",
+        "source_count": 1,
+        "must_read_score": 42,
+        "selection_tier": "v3_daily_slate",
+        "evidence_level": "single_full_text"
+      }
+    ],
+    "results": [
+      {
+        "object_id": "1d37a53cf8719626",
+        "slug": "apollo-udr-forming-2-billion-multifamily-joint-venture",
+        "title": "Apollo, UDR Forming $2-Billion Multifamily Joint Venture",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/apollo-udr-forming-2-billion-multifamily-joint-venture.html",
+        "reason": ""
+      },
+      {
+        "object_id": "cd71b625725c5c15",
+        "slug": "forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its",
+        "title": "Forge Atlanta Developer Admits $19M Accounting Error, Falls Further Behind On Its Loan",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b4e9112bbb02ed8e",
+        "slug": "related-lands-750m-wells-fargo-loan-on-manhattan-plaza",
+        "title": "Related Lands $750M Loan To Keep 'Broadway's Bedroom' Affordable: The N.Y. Deal Sheet",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/related-lands-750m-wells-fargo-loan-on-manhattan-plaza.html",
+        "reason": ""
+      },
+      {
+        "object_id": "63b4171abdea82ff",
+        "slug": "blackstone-s-april-housing-lands-369m-fannie-mae-facility",
+        "title": "Newmark Affiliate Arranges $369M Financing for 11 Florida Affordable Housing Properties",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/blackstone-s-april-housing-lands-369m-fannie-mae-facility.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a98770621928049c",
+        "slug": "billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2",
+        "title": "Billionaire residents of NYC’s famed Pierre remain in the dark after contested $2B sale collapsed",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f9b472f285dcb332",
+        "slug": "hines-closes-591m-dst-its-largest-ever",
+        "title": "Hines Closes $591M Multifamily DST Offering, Its Largest to Date",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/hines-closes-591m-dst-its-largest-ever.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b5a05837dc6a5542",
+        "slug": "foreclosure-auction-set-for-loop-office-to-residential-conversion",
+        "title": "Foreclosure Auction Set For Loop Office-To-Residential Conversion",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/foreclosure-auction-set-for-loop-office-to-residential-conversion.html",
+        "reason": ""
+      },
+      {
+        "object_id": "a75c26624a16e6dd",
+        "slug": "kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r",
+        "title": "Kennedy Wilson’ Vintage Housing Buys Foreclosed San Diego Tower for Multifamily Redevelopment",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b1b28496e9ece5c9",
+        "slug": "affinius-capital-provides-94m-refi-for-dallas-area-industrial-property",
+        "title": "Affinius Capital Provides $94M Refi for Dallas-Area Industrial Property",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/affinius-capital-provides-94m-refi-for-dallas-area-industrial-property.html",
+        "reason": ""
+      },
+      {
+        "object_id": "13bdf56d67042aca",
+        "slug": "colorado-breaks-ground-on-806m-i-270-reconstruction",
+        "title": "Colorado Breaks Ground on $806M I-270 Reconstruction",
+        "sector": "commercial_real_estate",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/colorado-breaks-ground-on-806m-i-270-reconstruction.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b4b5e30e0cd720a1",
+        "slug": "occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027",
+        "title": "GENIUS Act Regulations: Final Rule",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b1ac0c0bef65d868",
+        "slug": "a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry",
+        "title": "A wave of new banks is about to shake up a normally staid industry",
+        "sector": "fed_macro",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry.html",
+        "reason": ""
+      },
+      {
+        "object_id": "7419d25457c918dd",
+        "slug": "occ-drops-stablecoin-yield-presumption",
+        "title": "OCC leaves room for stablecoin yield maneuvers in final rule",
+        "sector": "banking_credit",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/occ-drops-stablecoin-yield-presumption.html",
+        "reason": ""
+      },
+      {
+        "object_id": "d0bd6cf8879ec5be",
+        "slug": "northwind-group-closes-1b-debt-fund",
+        "title": "Northwind Group Closes $1B Debt Fund",
+        "sector": "private_equity",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/northwind-group-closes-1b-debt-fund.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0ee2338f98c0aee2",
+        "slug": "cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group",
+        "title": "CBRE Expands Data Center Footprint With $1B Acquisition Of Onnec Group",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group.html",
+        "reason": ""
+      },
+      {
+        "object_id": "b73ceba740fed5c0",
+        "slug": "cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks",
+        "title": "CBRE’s Billion-Dollar Bet Follows Data Center Boom Inside the Racks",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks.html",
+        "reason": ""
+      },
+      {
+        "object_id": "f640af119f650d4c",
+        "slug": "cbre-drops-610m-on-data-center-installer-onnec",
+        "title": "CBRE Acquires Data Center Equipment Provider Onnec Group for $610M",
+        "sector": "data_centers",
+        "depth": "tier_b",
+        "status": "published",
+        "path": "insights/cbre-drops-610m-on-data-center-installer-onnec.html",
+        "reason": ""
+      },
+      {
+        "object_id": "dad99d609e469cc5",
+        "slug": "alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build",
+        "title": "Alcoa To Sell Idle Massena East Smelter Site For Up To $315M Data Center Build",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build.html",
+        "reason": ""
+      },
+      {
+        "object_id": "bb0825eefa78ce75",
+        "slug": "genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable",
+        "title": "GENIUS Act: Revised Reporting Forms and Instructions for Permitted Payment Stablecoin Issuers Subject to the Jurisdiction of the Office of the Comptroller of the Currency",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable.html",
+        "reason": ""
+      },
+      {
+        "object_id": "0700505485ea2610",
+        "slug": "nuveen-eic-backs-pivot-energy-with-500m-credit-facility",
+        "title": "Nuveen EIC provides Pivot Energy with $500m credit facility for solar, battery storage buildout",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/nuveen-eic-backs-pivot-energy-with-500m-credit-facility.html",
+        "reason": ""
+      },
+      {
+        "object_id": "024fd3a9a6a48176",
+        "slug": "foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu",
+        "title": "Foursquare co-founder says equity holders saw no returns from the company’s acquisition",
+        "sector": "private_equity",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu.html",
+        "reason": ""
+      },
+      {
+        "object_id": "c395b6760a0da868",
+        "slug": "duos-inks-20mw-colocation-deal-with-cloud-provider",
+        "title": "Duos secures cloud provider as customer for 20MW of data center capacity",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/duos-inks-20mw-colocation-deal-with-cloud-provider.html",
+        "reason": ""
+      },
+      {
+        "object_id": "aa6b90f5e4dfbe8e",
+        "slug": "ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt",
+        "title": "EBRD-led lenders back 1.2 GW solar, 600 MWh storage plant in Egypt",
+        "sector": "energy",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt.html",
+        "reason": ""
+      },
+      {
+        "object_id": "3d1daf84c9c3f3f2",
+        "slug": "genius-act-waivers-and-application-submission-guidance",
+        "title": "GENIUS Act: Waivers and Application Submission Guidance",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/genius-act-waivers-and-application-submission-guidance.html",
+        "reason": ""
+      },
+      {
+        "object_id": "545e13d06676e457",
+        "slug": "occ-finalizes-genius-act-stablecoin-rule",
+        "title": "OCC Advances U.S. Digital Asset Leadership with Final Rule to Implement GENIUS Act",
+        "sector": "banking_credit",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/occ-finalizes-genius-act-stablecoin-rule.html",
+        "reason": ""
+      },
+      {
+        "object_id": "10c8902c919fc0f4",
+        "slug": "amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi",
+        "title": "Amazon withdraws application for data center campus at GWU site in Ashburn, Virginia",
+        "sector": "data_centers",
+        "depth": "tier_c",
+        "status": "published",
+        "path": "insights/amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi.html",
+        "reason": ""
+      }
+    ]
+  },
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "fallback": false,
+    "purpose": "writing",
+    "calls": 68,
+    "successful_calls": 68,
+    "failed_provider_attempts": 0,
+    "fallback_calls": 0,
+    "switches": 0,
+    "providers_used": [
+      "deepseek"
+    ]
+  },
+  "timings": [
+    {
+      "stage": "ingest feeds",
+      "seconds": 17.04,
+      "note": ""
+    },
+    {
+      "stage": "read index pages",
+      "seconds": 6.19,
+      "note": ""
+    },
+    {
+      "stage": "classify sectors",
+      "seconds": 0.17,
+      "note": ""
+    },
+    {
+      "stage": "cluster into events",
+      "seconds": 0.63,
+      "note": ""
+    },
+    {
+      "stage": "type and gate",
+      "seconds": 1.24,
+      "note": ""
+    },
+    {
+      "stage": "check against what we covered",
+      "seconds": 199.79,
+      "note": ""
+    },
+    {
+      "stage": "read the articles",
+      "seconds": 58.39,
+      "note": ""
+    },
+    {
+      "stage": "score importance",
+      "seconds": 0.27,
+      "note": ""
+    },
+    {
+      "stage": "choose the slates",
+      "seconds": 0.0,
+      "note": ""
+    },
+    {
+      "stage": "write the slate",
+      "seconds": 1076.53,
+      "note": ""
+    },
+    {
+      "stage": "publish",
+      "seconds": 3.26,
+      "note": ""
+    },
+    {
+      "stage": "record what we saw",
+      "seconds": 0.68,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "published 26 of the daily target 70"
+  ],
+  "errors": [],
+  "elapsed_seconds": 1364.21,
+  "status": "ready",
+  "candidate_count": 833,
+  "event_count": 787,
+  "articles": [
+    {
+      "event_id": "1d37a53cf8719626",
+      "title": "Apollo, UDR Forming $2-Billion Multifamily Joint Venture",
+      "slug": "apollo-udr-forming-2-billion-multifamily-joint-venture",
+      "url": "/insights/apollo-udr-forming-2-billion-multifamily-joint-venture.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 65,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "cd71b625725c5c15",
+      "title": "Forge Atlanta Developer Admits $19M Accounting Error, Falls Further Behind On Its Loan",
+      "slug": "forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its",
+      "url": "/insights/forge-atlanta-developer-admits-19m-accounting-error-falls-further-behind-on-its.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 60,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b4e9112bbb02ed8e",
+      "title": "Related Lands $750M Wells Fargo Loan on Manhattan Plaza",
+      "slug": "related-lands-750m-wells-fargo-loan-on-manhattan-plaza",
+      "url": "/insights/related-lands-750m-wells-fargo-loan-on-manhattan-plaza.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "63b4171abdea82ff",
+      "title": "Blackstone's April Housing Lands $369M Fannie Mae Facility",
+      "slug": "blackstone-s-april-housing-lands-369m-fannie-mae-facility",
+      "url": "/insights/blackstone-s-april-housing-lands-369m-fannie-mae-facility.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 59,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a98770621928049c",
+      "title": "Billionaire residents of NYC’s famed Pierre remain in the dark after contested $2B sale collapsed",
+      "slug": "billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2",
+      "url": "/insights/billionaire-residents-of-nyc-s-famed-pierre-remain-in-the-dark-after-contested-2.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 58,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f9b472f285dcb332",
+      "title": "Hines Closes $591M DST, Its Largest Ever",
+      "slug": "hines-closes-591m-dst-its-largest-ever",
+      "url": "/insights/hines-closes-591m-dst-its-largest-ever.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b5a05837dc6a5542",
+      "title": "Foreclosure Auction Set For Loop Office-To-Residential Conversion",
+      "slug": "foreclosure-auction-set-for-loop-office-to-residential-conversion",
+      "url": "/insights/foreclosure-auction-set-for-loop-office-to-residential-conversion.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "a75c26624a16e6dd",
+      "title": "Kennedy Wilson’ Vintage Housing Buys Foreclosed San Diego Tower for Multifamily Redevelopment",
+      "slug": "kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r",
+      "url": "/insights/kennedy-wilson-vintage-housing-buys-foreclosed-san-diego-tower-for-multifamily-r.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b1b28496e9ece5c9",
+      "title": "Affinius Capital Provides $94M Refi for Dallas-Area Industrial Property",
+      "slug": "affinius-capital-provides-94m-refi-for-dallas-area-industrial-property",
+      "url": "/insights/affinius-capital-provides-94m-refi-for-dallas-area-industrial-property.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 57,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "13bdf56d67042aca",
+      "title": "Colorado Breaks Ground on $806M I-270 Reconstruction",
+      "slug": "colorado-breaks-ground-on-806m-i-270-reconstruction",
+      "url": "/insights/colorado-breaks-ground-on-806m-i-270-reconstruction.html",
+      "category": "Deal Intelligence",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b4b5e30e0cd720a1",
+      "title": "OCC Finalizes GENIUS Act Stablecoin Rule, Effective January 18, 2027",
+      "slug": "occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027",
+      "url": "/insights/occ-finalizes-genius-act-stablecoin-rule-effective-january-18-2027.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 56,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b1ac0c0bef65d868",
+      "title": "A wave of new banks is about to shake up a normally staid industry",
+      "slug": "a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry",
+      "url": "/insights/a-wave-of-new-banks-is-about-to-shake-up-a-normally-staid-industry.html",
+      "category": "Market Analysis",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 55,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "7419d25457c918dd",
+      "title": "OCC Drops Stablecoin Yield Presumption",
+      "slug": "occ-drops-stablecoin-yield-presumption",
+      "url": "/insights/occ-drops-stablecoin-yield-presumption.html",
+      "category": "Debt & Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 54,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "d0bd6cf8879ec5be",
+      "title": "Northwind Group Closes $1B Debt Fund",
+      "slug": "northwind-group-closes-1b-debt-fund",
+      "url": "/insights/northwind-group-closes-1b-debt-fund.html",
+      "category": "Private Equity",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0ee2338f98c0aee2",
+      "title": "CBRE Expands Data Center Footprint With $1B Acquisition Of Onnec Group",
+      "slug": "cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group",
+      "url": "/insights/cbre-expands-data-center-footprint-with-1b-acquisition-of-onnec-group.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "b73ceba740fed5c0",
+      "title": "CBRE’s Billion-Dollar Bet Follows Data Center Boom Inside the Racks",
+      "slug": "cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks",
+      "url": "/insights/cbre-s-billion-dollar-bet-follows-data-center-boom-inside-the-racks.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 53,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "f640af119f650d4c",
+      "title": "CBRE Drops $610M on Data Center Installer Onnec",
+      "slug": "cbre-drops-610m-on-data-center-installer-onnec",
+      "url": "/insights/cbre-drops-610m-on-data-center-installer-onnec.html",
+      "category": "Data Centers",
+      "format": "analysis",
+      "source_count": 1,
+      "must_read_score": 50,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "dad99d609e469cc5",
+      "title": "Alcoa To Sell Idle Massena East Smelter Site For Up To $315M Data Center Build",
+      "slug": "alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build",
+      "url": "/insights/alcoa-to-sell-idle-massena-east-smelter-site-for-up-to-315m-data-center-build.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 49,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "bb0825eefa78ce75",
+      "title": "GENIUS Act: Revised Reporting Forms and Instructions for Permitted Payment Stablecoin Issuers Subject to the Jurisdiction of the Office of the Comptroller of the Currency",
+      "slug": "genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable",
+      "url": "/insights/genius-act-revised-reporting-forms-and-instructions-for-permitted-payment-stable.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "0700505485ea2610",
+      "title": "Nuveen EIC Backs Pivot Energy With $500M Credit Facility",
+      "slug": "nuveen-eic-backs-pivot-energy-with-500m-credit-facility",
+      "url": "/insights/nuveen-eic-backs-pivot-energy-with-500m-credit-facility.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 47,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_summary"
+    },
+    {
+      "event_id": "024fd3a9a6a48176",
+      "title": "Foursquare co-founder says equity holders saw no returns from the company’s acquisition",
+      "slug": "foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu",
+      "url": "/insights/foursquare-co-founder-says-equity-holders-saw-no-returns-from-the-company-s-acqu.html",
+      "category": "Private Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "c395b6760a0da868",
+      "title": "Duos inks 20MW colocation deal with cloud provider",
+      "slug": "duos-inks-20mw-colocation-deal-with-cloud-provider",
+      "url": "/insights/duos-inks-20mw-colocation-deal-with-cloud-provider.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 46,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "aa6b90f5e4dfbe8e",
+      "title": "EBRD-led lenders back 1.2 GW solar, 600 MWh storage plant in Egypt",
+      "slug": "ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt",
+      "url": "/insights/ebrd-led-lenders-back-1-2-gw-solar-600-mwh-storage-plant-in-egypt.html",
+      "category": "Market Commentary",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 45,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "3d1daf84c9c3f3f2",
+      "title": "GENIUS Act: Waivers and Application Submission Guidance",
+      "slug": "genius-act-waivers-and-application-submission-guidance",
+      "url": "/insights/genius-act-waivers-and-application-submission-guidance.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "545e13d06676e457",
+      "title": "OCC Finalizes GENIUS Act Stablecoin Rule",
+      "slug": "occ-finalizes-genius-act-stablecoin-rule",
+      "url": "/insights/occ-finalizes-genius-act-stablecoin-rule.html",
+      "category": "Debt & Equity",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 44,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    },
+    {
+      "event_id": "10c8902c919fc0f4",
+      "title": "Amazon withdraws application for data center campus at GWU site in Ashburn, Virginia",
+      "slug": "amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi",
+      "url": "/insights/amazon-withdraws-application-for-data-center-campus-at-gwu-site-in-ashburn-virgi.html",
+      "category": "Data Centers",
+      "format": "brief",
+      "source_count": 1,
+      "must_read_score": 42,
+      "selection_tier": "v3_daily_slate",
+      "evidence_level": "single_full_text"
+    }
+  ],
+  "held": [],
+  "article_count": 26
+}
