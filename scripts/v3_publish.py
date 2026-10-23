@@ -91,6 +91,10 @@ def _article_payload(draft: Any, obj: Any, slug: str) -> dict[str, Any]:
     # previews ending mid-word.
     article.setdefault("subtitle", trim_to_sentence(article.get("excerpt", ""), 160))
     article.setdefault("meta_description", trim_to_sentence(article.get("excerpt", ""), 200))
+    if str(obj.object_id).startswith("acris-"):
+        # A recorded NYC deed over $10M: filed with the Transaction Desk stories.
+        article.setdefault("category", "NYC $10M+ Transaction Desk")
+        article.setdefault("vertical", "nyc_transactions")
     article.setdefault("category", _category_for(obj.primary_sector))
     article.setdefault("sector", obj.primary_sector)
     now = datetime.now(timezone.utc)
