@@ -324,6 +324,8 @@ class ProductionRecordsEvidence(unittest.TestCase):
             return [], v4_generation.GenerationReport(requested=0)
 
         original = (v4_generation.write_all, model_router.select_provider, insights_v3._write_artifacts)
+        original_state = insights_v3.STATE_DIR
+        insights_v3.STATE_DIR = Path(tempfile.mkdtemp())  # the digest and preview takes land here
         v4_generation.write_all = fake_write_all
         model_router.select_provider = lambda for_writing=False: {"provider": "deepseek", "model": "m", "api_key": "k"}
         insights_v3._write_artifacts = lambda *a, **k: None
@@ -334,4 +336,5 @@ class ProductionRecordsEvidence(unittest.TestCase):
                     budget=__import__("budget").Budget(ledger_path=Path(tempfile.mkdtemp()) / "s.json"))
         finally:
             v4_generation.write_all, model_router.select_provider, insights_v3._write_artifacts = original
-        self.assertEqual(seen["state_dir"], insights_v3.STATE_DIR)
+            expected, insights_v3.STATE_DIR = insights_v3.STATE_DIR, original_state
+        self.assertEqual(seen["state_dir"], expected)

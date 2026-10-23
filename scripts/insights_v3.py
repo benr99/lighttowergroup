@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
@@ -102,6 +103,7 @@ class RunReport:
     memory: dict[str, Any] = field(default_factory=dict)
     spend: dict[str, Any] = field(default_factory=dict)
     generation: dict[str, Any] = field(default_factory=dict)
+    nyc_deeds: dict[str, Any] = field(default_factory=dict)
     publication: dict[str, Any] = field(default_factory=dict)
     provider: dict[str, Any] = field(default_factory=dict)
     timings: list[dict[str, Any]] = field(default_factory=list)
@@ -396,6 +398,30 @@ def run(
             if slate.shortfall_reason:
                 report.shortfalls.append(f"{sector}: {slate.shortfall_reason}")
 
+    # ── NYC $10M+ deeds ────────────────────────────────────────────────────
+    # Recorded deeds over $10 million join the slate as their own stories. Their only
+    # sources are the city's records (ACRIS deed, lots, parties; PLUTO building data),
+    # and they are written and fact-checked like every other story. Live runs only.
+    if (pipeline == "v4" and generate and items is None and slate_report is not None
+            and os.environ.get("NYC_DEED_DESK", "on").strip().lower() not in {"off", "0", "false", "no"}):
+        with stage("NYC deed records"):
+            try:
+                from nyc_transactions.acris_live import discover_deed_objects
+                limit = int(os.environ.get("NYC_DEED_DESK_LIMIT", "5"))
+                deed_objects, deed_report = discover_deed_objects(limit=limit)
+                known = {o.object_id for o in objects}
+                fresh = [o for o in deed_objects if o.object_id not in known]
+                objects.extend(fresh)
+                slate_report.publication_slate.extend(fresh)
+                report.nyc_deeds = {**deed_report.to_dict(), "added": len(fresh)}
+                if deed_report.errors:
+                    report.warnings.append("NYC deed records: " + "; ".join(deed_report.errors[:3]))
+                if verbose:
+                    print(f"  NYC deed records: {len(fresh)} new deals over $10M "
+                          f"({deed_report.considered} deeds checked)", flush=True)
+            except Exception as exc:  # noqa: BLE001
+                report.warnings.append(f"NYC deed records skipped: {type(exc).__name__}: {exc}"[:200])
+
     # ── write ──────────────────────────────────────────────────────────────
     # Off by default. When on, the selected slate is written concurrently at the
     # depth each story's evidence earned. Still returns drafts rather than
@@ -508,6 +534,22 @@ def run(
             except Exception as exc:  # noqa: BLE001
                 report.errors.append(f"publish failed: {type(exc).__name__}: {exc}"[:200])
 
+        # Quick Takes: a checked five-line post for each story that went out, added to the
+        # public feed (takes.json) before the release manifest is written, so it ships too.
+        if pipeline == "v4" and pub_report is not None and pub_report.articles:
+            with stage("write quick takes"):
+                try:
+                    from takes import write_takes
+                    day_takes = write_takes(state_dir or STATE_DIR, SITE_ROOT / "takes.json", budget=budget,
+                                            published=list(pub_report.articles))
+                    pub_report.files_written.append("takes.json")
+                    report.publication["takes"] = len(day_takes)
+                    if verbose:
+                        print(f"  Quick Takes: {len(day_takes)} written for "
+                              f"{len(pub_report.articles)} published stories", flush=True)
+                except Exception as exc:  # noqa: BLE001
+                    report.warnings.append(f"Quick Takes not written: {type(exc).__name__}: {exc}"[:200])
+
     with stage("record what we saw"):
         try:
             if store is not None:
@@ -551,17 +593,16 @@ def run(
         print(format_summary(report), flush=True)
     if pipeline == "v4" and generate:
         # The page Ben reads (every sentence beside its source quote) and the five-line health note.
-        # The day's LinkedIn roundup, built from the published (or, in preview, written) stories'
-        # verified sentences and checked again line by line. Written for Ben to paste; never posted.
-        try:
-            from linkedin_post import write as write_linkedin
-            linkedin = write_linkedin(state_dir or STATE_DIR, budget=budget)
-            report.publication.setdefault("linkedin_post", linkedin.status)
-            if verbose:
-                print(f"  LinkedIn post: {linkedin.status} ({len(linkedin.stories)} stories, "
-                      f"{len(linkedin.text)} characters)", flush=True)
-        except Exception as exc:  # noqa: BLE001
-            report.warnings.append(f"LinkedIn post not built: {type(exc).__name__}: {exc}"[:200])
+        # A preview writes its takes into its own folder, never into the public feed.
+        if not publish_articles:
+            try:
+                from takes import write_takes
+                target = state_dir or STATE_DIR
+                preview_takes = write_takes(target, target / "takes.json", budget=budget)
+                if verbose:
+                    print(f"  Quick Takes (preview): {len(preview_takes)} written", flush=True)
+            except Exception as exc:  # noqa: BLE001
+                report.warnings.append(f"Quick Takes not written: {type(exc).__name__}: {exc}"[:200])
         try:
             from daily_digest import build as build_digest
             digest, health = build_digest(state_dir or STATE_DIR)
