@@ -61,3 +61,12 @@ Ben: "Push it, voice on, and build the LinkedIn post as a bulleted story post."
 - Built `scripts/linkedin_post.py` (plan 7.5): a daily bulleted roundup in Ben's voice from the published stories' verified sentences, every line re-checked, one rewrite with the deletions quoted back; shown on the digest page (copy buttons) and the Actions run summary. On the Oct 9 rehearsal stories: 7 stories, 2,130 characters; the check deleted 3 lines (e.g. "$98M" for "$97.8 million", a name not in the facts).
 - Pushed to `main` (`cd89386`), set repo variable `INSIGHTS_VOICE=on`. Site quality CI passed.
 - First Actions preview (run 38171000498) found that production wrote no evidence files (no `--state-dir`), so the digest and post would have been empty; fixed and pushed (`39215d3`). A second preview had a single (withheld) candidate, so the post path on Actions is proven by tests and local runs; the first real proof is the 07:07 ET run.
+
+## Quick Takes and a safe deal desk (2026-10-23)
+
+Ben approved the Quick Takes plan (public feed inside the Intelligence page) and asked to keep and fix the $10M+ deal scanner.
+- Deal desk: the headline scanner that filled unknown fields with placeholders is retired; live deals come only from recorded deeds (ACRIS deed, lots, parties, mortgages; PLUTO building data) written out as record sheets and run through the normal v4 writer and claim gate. Live discovery check: 21 deeds over $10M considered, 8 already on the site, 11 condo units skipped, 2 new deals found (10 Park Terrace East, 310 West 80th Street).
+- Quick Takes: scripts/takes.py, the feed on insights.html#takes, the morning email (netlify/functions/takes-email.js), 12:07 and 16:37 runs, cross-run ranking. The daily roundup post is retired.
+- Found: the DeepSeek account is out of credit (HTTP 402); the Oct 22 morning run failed its provider preflight and published nothing. Messages now say so plainly.
+- Tests: 567 Python, 8 JS, publication validation; feed checked in a browser at desktop and phone width.
+- Not yet proven live (blocked by the 402): take quality and the deed stories' writing. Held off main until a live practice run passes.
