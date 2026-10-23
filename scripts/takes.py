@@ -96,6 +96,7 @@ class Take:
     lines: list[dict[str, str]]
     alternates: list[dict[str, Any]] = field(default_factory=list)
     rank: int = 0
+    score: float = 0.0  # the story's importance score; ranks takes across a day's runs
     dropped: list[str] = field(default_factory=list)
 
     def to_feed(self) -> dict[str, Any]:
@@ -246,7 +247,7 @@ def take_for(story: Story, writer: LLM, checker: LLM, *, today: str, published_a
         sector=story.sector, title=story.title, article_url=story.url, formula=formula,
         text="\n".join(l["text"] for l in lines), lines=lines,
         alternates=[{"formula": f, "text": "\n".join(l["text"] for l in ls)} for _, f, ls in built[1:]],
-        dropped=all_dropped,
+        dropped=all_dropped, score=float(story.score or 0.0),
     )
     return take
 
@@ -273,6 +274,11 @@ def merge_feed(path: Path, takes: list[Take], *, now: datetime | None = None) ->
     cutoff = ((now or new_york_now()) - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
     kept = [e for e in existing if e.get("id") not in fresh_ids and str(e.get("date") or "") >= cutoff]
     feed = [t.to_feed() for t in takes] + kept
+    # Rank each day's takes together, so a midday story can outrank a morning one.
+    for day in {str(t.date) for t in takes}:
+        same_day = sorted((e for e in feed if e.get("date") == day), key=lambda e: -float(e.get("score") or 0))
+        for rank, entry in enumerate(same_day, 1):
+            entry["rank"] = rank
     feed.sort(key=lambda e: (str(e.get("date") or ""), -int(e.get("rank") or 999)), reverse=True)
     feed = feed[:MAX_FEED]
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -301,10 +307,28 @@ def write_takes(run_dir: Path, feed_path: Path, *, budget: Any = None,
     return takes
 
 
+def summary_markdown(feed_path: Path, count: int = 5) -> str:
+    """The latest day's best takes as Markdown code blocks (for the GitHub run summary)."""
+    try:
+        feed = json.loads(Path(feed_path).read_text(encoding="utf-8")).get("takes", [])
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return "No takes found.\n"
+    if not feed:
+        return "No takes found.\n"
+    latest = max(str(t.get("date") or "") for t in feed)
+    best = sorted((t for t in feed if t.get("date") == latest), key=lambda t: t.get("rank") or 999)[:count]
+    fence = "`" * 3
+    return "".join(f"{fence}text\n{t.get('text', '')}\n{fence}\n" for t in best)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Write Quick Takes for a run folder (preview).")
     parser.add_argument("run_dir", type=Path)
+    parser.add_argument("--summary", action="store_true", help="print the latest day's best takes from a feed file")
     args = parser.parse_args()
+    if args.summary:
+        print(summary_markdown(args.run_dir), end="")
+        return 0
     from model_router import configure_state_dir
     configure_state_dir(args.run_dir)
     takes = write_takes(args.run_dir, args.run_dir / "takes.json")

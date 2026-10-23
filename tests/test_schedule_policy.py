@@ -45,6 +45,16 @@ class SchedulePolicyTests(unittest.TestCase):
         self.assertEqual(second["scheduled_local_time"], "07:07")
         self.assertEqual(second["skip"], "false")
 
+    def test_midday_and_afternoon_runs_follow_daylight_saving_too(self) -> None:
+        for day, active, inactive in ((date(2026, 7, 26), ("7 16 * * *", "37 20 * * *"), ("7 17 * * *", "37 21 * * *")),
+                                      (date(2026, 1, 15), ("7 17 * * *", "37 21 * * *"), ("7 16 * * *", "37 20 * * *"))):
+            for cron in active:
+                with self.subTest(day=day, cron=cron):
+                    self.assertEqual(resolve_policy(event_name="schedule", trigger_cron=cron, utc_date=day)["skip"], "false")
+            for cron in inactive:
+                with self.subTest(day=day, cron=cron):
+                    self.assertEqual(resolve_policy(event_name="schedule", trigger_cron=cron, utc_date=day)["skip"], "true")
+
     def test_manual_modes_are_explicit_and_never_skipped(self) -> None:
         for mode in ("shadow", "preview", "publish"):
             with self.subTest(mode=mode):

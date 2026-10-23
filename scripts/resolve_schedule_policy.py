@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 
 NEW_YORK = ZoneInfo("America/New_York")
 MANUAL_MODES = {"shadow", "preview", "publish"}
+RUN_SLOTS = ((7, 7), (12, 7), (16, 37))  # 07:07, 12:07 and 16:37 New York time
 
 
 def resolve_policy(
@@ -57,8 +58,10 @@ def resolve_policy(
     local_time = planned_utc.astimezone(NEW_YORK)
     local_hour = local_time.hour
     local_minute = local_time.minute
-    # Accept runs between 07:05 and 07:15 NY time (cron fires at 07:07 but may be delayed)
-    in_window = local_hour == 7 and 5 <= local_minute <= 15
+    # One slot per run, in New York time: the morning edition, then a midday and a
+    # late-afternoon run that pick up news as it breaks (memory skips covered stories).
+    # Each slot is registered twice in UTC; only the trigger landing on the slot runs.
+    in_window = any(local_hour == hour and abs(local_minute - minute) <= 8 for hour, minute in RUN_SLOTS)
     local_time_str = local_time.strftime("%H:%M")
     return {
         "skip": "false" if in_window else "true",

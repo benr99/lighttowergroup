@@ -120,6 +120,35 @@
       font-size: 1.4rem; color: var(--mid); line-height: 1.85; max-width: 560px;
     }
 
+    /* VIEW SWITCH + QUICK TAKES */
+    .view-switch { max-width: var(--container); margin: 0 auto; padding: 1.5rem 5rem 0; display: flex; gap: 0.5rem; }
+    @media (max-width: 1280px) { .view-switch { padding-left: 4rem; padding-right: 4rem; } }
+    @media (max-width: 1024px) { .view-switch { padding-left: 3rem; padding-right: 3rem; } }
+    @media (max-width: 768px)  { .view-switch { padding-left: 2rem; padding-right: 2rem; } }
+    @media (max-width: 480px)  { .view-switch { padding-left: 1.5rem; padding-right: 1.5rem; } }
+    .view-btn { background: none; border: 1px solid var(--line-strong); padding: 0.55rem 1.1rem; font: inherit; font-size: 0.72rem;
+      text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid); cursor: pointer; }
+    .view-btn.active { background: var(--text); color: var(--white); border-color: var(--text); }
+    .takes-section { max-width: 760px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+    .takes-section[hidden] { display: none; }
+    .takes-intro { color: var(--mid); font-size: 0.95rem; margin-bottom: 1.25rem; }
+    .takes-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; }
+    .takes-chip { background: none; border: 1px solid var(--line-strong); padding: 0.4rem 0.8rem; font: inherit; font-size: 0.75rem; cursor: pointer; color: var(--text); }
+    .takes-chip.active { border-color: var(--accent); background: rgba(201,168,76,0.12); }
+    .takes-count { color: var(--mid); font-size: 0.8rem; margin-left: auto; }
+    .take-card { background: var(--white); border: 1px solid var(--line); padding: 1.25rem 1.4rem; margin-bottom: 1rem; }
+    .take-card.posted { opacity: 0.55; }
+    .take-meta { display: flex; gap: 0.6rem; flex-wrap: wrap; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--mid); margin-bottom: 0.7rem; }
+    .take-meta .take-lead { color: var(--accent); font-weight: 600; }
+    .take-text { white-space: pre-wrap; font-size: 1.02rem; line-height: 1.55; color: var(--text); margin-bottom: 0.9rem; }
+    .take-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .take-btn { background: var(--text); color: var(--white); border: 1px solid var(--text); padding: 0.5rem 0.9rem; font: inherit; font-size: 0.75rem; cursor: pointer; }
+    .take-btn.secondary { background: none; color: var(--text); border-color: var(--line-strong); }
+    .take-read { margin-left: auto; font-size: 0.8rem; color: var(--mid); text-decoration: none; }
+    .take-read:hover { color: var(--accent); }
+    .takes-empty { color: var(--mid); padding: 2rem 0; }
+    @media (max-width: 768px) { .take-read { margin-left: 0; width: 100%; } }
+
     /* FILTERS */
     .weekly-feature { padding-top: 0; padding-bottom: 1.75rem; }
     .weekly-feature[hidden] { display: none; }
@@ -325,6 +354,11 @@
       <p id="newsletter-message" style="font-size:0.8rem;color:var(--accent);margin-top:0.5rem;" hidden></p>
     </div>
 
+    <div class="view-switch" role="tablist" aria-label="Choose a view">
+      <button class="view-btn active" id="view-analysis" role="tab" aria-selected="true" data-view="analysis">Analysis</button>
+      <button class="view-btn" id="view-takes" role="tab" aria-selected="false" data-view="takes">Quick Takes</button>
+    </div>
+
     <div class="insights-filters" aria-label="Filter Insights by sector">
       <button class="filter-btn active" data-filter="all" aria-pressed="true">All Sectors</button>
       <button class="filter-btn" data-filter="nyc_transactions" aria-pressed="false">NYC $10M+ Deals</button>
@@ -349,6 +383,16 @@
       </select>
       <p class="insights-count" id="insights-count" aria-live="polite">Loading research…</p>
     </div>
+
+    <section class="takes-section" id="takes-section" aria-label="Quick Takes" hidden>
+      <p class="takes-intro">The day's capital markets news in five lines or fewer. Every fact is checked against its source; the read is Ben's.</p>
+      <div class="takes-bar">
+        <button class="takes-chip active" data-scope="all">All takes</button>
+        <button class="takes-chip" data-scope="today">Today's best</button>
+        <span class="takes-count" id="takes-count" aria-live="polite"></span>
+      </div>
+      <div id="takes-list"><div class="takes-empty">Loading takes…</div></div>
+    </section>
 
     <section class="insights-section container">
       <div class="insights-grid" id="insights-grid">
@@ -631,6 +675,162 @@
         grid.appendChild(empty);
         count.textContent = 'Research temporarily unavailable';
       });
+  </script>
+
+  <script>
+    // Quick Takes: five-line, link-free posts built from the day's checked stories.
+    (function () {
+      const SECTOR_LABEL = {
+        commercial_real_estate: 'CRE', private_equity: 'Private Equity', data_centers: 'Data Centers', energy: 'Energy',
+        banking_credit: 'Banking', fed_macro: 'Fed & Macro', local_government: 'Government', nyc_transactions: 'NYC $10M+ Deals'
+      };
+      const POSTED_KEY = 'ltg-posted-takes';
+      const list = document.getElementById('takes-list');
+      const counter = document.getElementById('takes-count');
+      const takesSection = document.getElementById('takes-section');
+      const analysisParts = [document.getElementById('weekly-feature'), document.querySelector('.insights-tools'),
+                             document.querySelector('.insights-section')];
+      let takes = [];
+      let loaded = false;
+      let scope = 'all';
+      const angle = {};
+
+      function readPosted() {
+        try { return new Set(JSON.parse(localStorage.getItem(POSTED_KEY) || '[]')); } catch (e) { return new Set(); }
+      }
+      function savePosted(set) {
+        try { localStorage.setItem(POSTED_KEY, JSON.stringify(Array.from(set).slice(-2000))); } catch (e) { /* private mode */ }
+      }
+      function sectorOf(take) {
+        const id = String(take.object_id || '');
+        return (id.indexOf('acris-') === 0 || id.indexOf('nyc-deal') === 0) ? 'nyc_transactions' : (take.sector || '');
+      }
+      function todayInNewYork() {
+        try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date()); }
+        catch (e) { return new Date().toISOString().slice(0, 10); }
+      }
+      function versions(take) {
+        return [take.text].concat((take.alternates || []).map(function (a) { return a.text; })).filter(Boolean);
+      }
+      function fallbackCopy(text) {
+        const area = document.createElement('textarea');
+        area.value = text; area.setAttribute('readonly', ''); area.style.position = 'fixed'; area.style.opacity = '0';
+        document.body.appendChild(area); area.select();
+        try { document.execCommand('copy'); } catch (e) { /* nothing more to try */ }
+        document.body.removeChild(area);
+      }
+      function copyText(text, btn) {
+        const done = function () {
+          if (!btn) return;
+          const old = btn.textContent; btn.textContent = 'Copied ✓';
+          setTimeout(function () { btn.textContent = old; }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+        } else { fallbackCopy(text); done(); }
+      }
+      function makeButton(label, cls, onClick) {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'take-btn' + (cls ? ' ' + cls : ''); b.textContent = label;
+        b.addEventListener('click', onClick);
+        return b;
+      }
+      function card(take, posted) {
+        const box = document.createElement('article');
+        box.className = 'take-card' + (posted.has(take.id) ? ' posted' : '');
+        const meta = document.createElement('div');
+        meta.className = 'take-meta';
+        if (take.date === todayInNewYork() && take.rank && take.rank <= 5) {
+          const lead = document.createElement('span'); lead.className = 'take-lead'; lead.textContent = "Today's best"; meta.appendChild(lead);
+        }
+        [SECTOR_LABEL[sectorOf(take)] || 'Markets', formatDate(take.date)].forEach(function (t) {
+          const span = document.createElement('span'); span.textContent = t; meta.appendChild(span);
+        });
+        const text = document.createElement('p');
+        text.className = 'take-text';
+        const all = versions(take);
+        text.textContent = all[(angle[take.id] || 0) % all.length];
+        const actions = document.createElement('div');
+        actions.className = 'take-actions';
+        actions.appendChild(makeButton('Copy', '', function (e) { copyText(text.textContent, e.currentTarget); }));
+        actions.appendChild(makeButton('Post on LinkedIn', 'secondary', function (e) {
+          copyText(text.textContent, e.currentTarget);
+          window.open('https://www.linkedin.com/feed/?shareActive=true&text=' + encodeURIComponent(text.textContent), '_blank', 'noopener');
+        }));
+        if (all.length > 1) {
+          actions.appendChild(makeButton('Another angle', 'secondary', function () {
+            angle[take.id] = ((angle[take.id] || 0) + 1) % all.length;
+            text.textContent = all[angle[take.id]];
+          }));
+        }
+        actions.appendChild(makeButton(posted.has(take.id) ? 'Posted ✓' : 'Mark posted', 'secondary', function (e) {
+          const set = readPosted();
+          if (set.has(take.id)) { set.delete(take.id); } else { set.add(take.id); }
+          savePosted(set);
+          box.classList.toggle('posted', set.has(take.id));
+          e.currentTarget.textContent = set.has(take.id) ? 'Posted ✓' : 'Mark posted';
+        }));
+        if (take.article_url) {
+          const read = document.createElement('a');
+          read.className = 'take-read'; read.href = take.article_url; read.textContent = 'Read the analysis →';
+          actions.appendChild(read);
+        }
+        box.append(meta, text, actions);
+        return box;
+      }
+      function render() {
+        if (!loaded) return;
+        const posted = readPosted();
+        const today = todayInNewYork();
+        const filter = typeof activeFilter === 'string' ? activeFilter : 'all';
+        const shown = takes.filter(function (t) {
+          if (filter !== 'all' && sectorOf(t) !== filter) return false;
+          if (scope === 'today') return t.date === today && t.rank && t.rank <= 5;
+          return true;
+        });
+        list.replaceChildren();
+        if (!shown.length) {
+          const empty = document.createElement('div');
+          empty.className = 'takes-empty';
+          empty.textContent = scope === 'today' ? 'No takes yet today. They arrive after the morning run.' : 'No takes match this view yet.';
+          list.appendChild(empty);
+        } else {
+          shown.slice(0, 120).forEach(function (t) { list.appendChild(card(t, posted)); });
+        }
+        counter.textContent = shown.length + (shown.length === 1 ? ' take' : ' takes');
+      }
+      function load() {
+        if (loaded) { render(); return; }
+        fetch('/takes.json', { cache: 'no-cache' })
+          .then(function (r) { return r.ok ? r.json() : { takes: [] }; })
+          .then(function (data) { takes = Array.isArray(data.takes) ? data.takes : []; loaded = true; render(); })
+          .catch(function () { loaded = true; takes = []; render(); });
+      }
+      function show(view) {
+        const takesView = view === 'takes';
+        const a = document.getElementById('view-analysis');
+        const t = document.getElementById('view-takes');
+        a.classList.toggle('active', !takesView); t.classList.toggle('active', takesView);
+        a.setAttribute('aria-selected', String(!takesView)); t.setAttribute('aria-selected', String(takesView));
+        takesSection.hidden = !takesView;
+        analysisParts.forEach(function (el) { if (el) el.style.display = takesView ? 'none' : ''; });
+        if (takesView) {
+          load();
+          if (location.hash !== '#takes') history.replaceState(null, '', '#takes');
+        } else if (location.hash === '#takes') {
+          history.replaceState(null, '', location.pathname);
+        }
+      }
+      document.querySelectorAll('.view-btn').forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.view); }); });
+      document.querySelectorAll('.takes-chip').forEach(function (c) {
+        c.addEventListener('click', function () {
+          document.querySelectorAll('.takes-chip').forEach(function (x) { x.classList.toggle('active', x === c); });
+          scope = c.dataset.scope; render();
+        });
+      });
+      document.querySelectorAll('.filter-btn').forEach(function (b) { b.addEventListener('click', function () { setTimeout(render, 0); }); });
+      if (location.hash === '#takes') show('takes');
+    })();
   </script>
 
   <script src="/chat-widget.js?v=20260726"></script>

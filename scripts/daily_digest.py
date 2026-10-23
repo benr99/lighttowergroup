@@ -47,7 +47,18 @@ def load_run(run_dir: Path) -> dict[str, Any]:
         except OSError:
             return ""
     return {"report": report, "drafts": drafts, "evidence": evidence,
-            "linkedin": text("linkedin-post.txt"), "linkedin_comment": text("linkedin-comment.txt")}
+            "takes": _today_takes(run_dir)}
+
+
+def _today_takes(run_dir: Path) -> list[dict[str, Any]]:
+    """The run's takes: the run folder's feed in a preview, the site feed after publishing."""
+    for path in (Path(run_dir) / "takes.json", Path(run_dir).parent / "takes.json"):
+        feed = _load(path)
+        if isinstance(feed, dict) and feed.get("takes"):
+            takes = feed["takes"]
+            latest = max(str(t.get("date") or "") for t in takes)
+            return sorted((t for t in takes if t.get("date") == latest), key=lambda t: t.get("rank") or 999)
+    return []
 
 
 def summary(run: dict[str, Any]) -> dict[str, Any]:
@@ -140,17 +151,19 @@ def _story(ev: dict[str, Any]) -> str:
 </section>"""
 
 
-def _linkedin(run: dict[str, Any]) -> str:
-    post, comment = run.get("linkedin") or "", run.get("linkedin_comment") or ""
-    if not post:
+def _takes(run: dict[str, Any]) -> str:
+    takes = run.get("takes") or []
+    if not takes:
         return ""
+    cards = "".join(
+        f'<div class="take"><p class="muted">{i}. {_e((t.get("sector") or "").replace("_", " "))} · {_e(t.get("formula"))}</p>'
+        f'<pre id="take-{i}">{_e(t.get("text"))}</pre>'
+        f"<button type=\"button\" onclick=\"navigator.clipboard.writeText(document.getElementById('take-{i}').textContent)\">Copy</button></div>"
+        for i, t in enumerate(takes, 1))
     return f"""<section class="story linkedin">
-<h2>Today's LinkedIn post</h2>
-<p class="muted">Every line was checked again against the stories' verified sentences. Paste the post, then the first comment.</p>
-<button type="button" onclick="navigator.clipboard.writeText(document.getElementById('li-post').textContent)">Copy post</button>
-<pre id="li-post">{_e(post)}</pre>
-<button type="button" onclick="navigator.clipboard.writeText(document.getElementById('li-comment').textContent)">Copy first comment</button>
-<pre id="li-comment">{_e(comment)}</pre>
+<h2>Today's Quick Takes ({len(takes)})</h2>
+<p class="muted">Best first. Every fact line was checked again against the story's verified sentences.</p>
+{cards}
 </section>"""
 
 
@@ -203,7 +216,7 @@ Opinion lines show the facts they cite. Everything the checker cut is listed und
 <div><b>{s['withheld']}</b>withheld</div><div><b>{s['skipped'] + s['failed']}</b>skipped or failed</div>
 <div><b>{s['sentences_kept']}</b>sentences kept</div><div><b>{s['sentences_cut']}</b>sentences cut</div>
 <div><b>${s['spend_run']:.2f}</b>spent</div><div><b>{s['minutes']}</b>minutes</div></div>
-{_linkedin(run)}
+{_takes(run)}
 {f'<h3>Notes</h3><ul>{notes}</ul>' if notes else ''}
 {stories or '<p>No stories were published in this run.</p>'}
 {f'<h3>Not published</h3><ul class="cut">{other_rows}</ul>' if other_rows else ''}

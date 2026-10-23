@@ -9,6 +9,12 @@ on:
     # time through both EDT and EST without a twice-yearly manual cron edit.
     - cron: "7 11 * * *"
     - cron: "7 12 * * *"
+    # Midday (12:07) and late-afternoon (16:37) New York runs write takes and
+    # articles for news that broke since the morning; covered stories are skipped.
+    - cron: "7 16 * * *"
+    - cron: "7 17 * * *"
+    - cron: "37 20 * * *"
+    - cron: "37 21 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -110,7 +116,7 @@ jobs:
           node --check edition.js
           node --check netlify/functions/newsletter-subscribe.js
           node --check netlify/functions/editorial-feedback.js
-          node --test tests/netlify-functions.test.js
+          node --test tests/netlify-functions.test.js tests/takes-email.test.js
 
       - name: Preflight the configured writing provider
         if: steps.policy.outputs.skip != 'true'
@@ -182,7 +188,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           python scripts/validate_publication.py
-          node --test tests/netlify-functions.test.js
+          node --test tests/netlify-functions.test.js tests/takes-email.test.js
 
       - name: Write the edition report
         if: always() && steps.policy.outputs.skip != 'true'
@@ -195,17 +201,12 @@ jobs:
             echo "The ${{ steps.policy.outputs.mode }} run completed without changing public files." >> "$GITHUB_STEP_SUMMARY"
             echo "See the build log and retained editorial artifact for the full output." >> "$GITHUB_STEP_SUMMARY"
           fi
-          if [[ -s .editorial-state/linkedin-post.txt ]]; then
+          if [[ -s takes.json || -s .editorial-state/takes.json ]]; then
+            FEED=takes.json; [[ -s "$FEED" ]] || FEED=.editorial-state/takes.json
             {
               echo ""
-              echo "## Today's LinkedIn post (copy and paste)"
-              echo '```text'
-              cat .editorial-state/linkedin-post.txt
-              echo '```'
-              echo "### First comment"
-              echo '```text'
-              cat .editorial-state/linkedin-comment.txt
-              echo '```'
+              echo "## Today's best Quick Takes (also emailed to Ben)"
+              python scripts/takes.py --summary "$FEED"
             } >> "$GITHUB_STEP_SUMMARY"
           fi
           if [[ -s .editorial-state/health.txt ]]; then
@@ -213,21 +214,32 @@ jobs:
           fi
 
       - name: Fail visibly on zero-output publication
+        id: health
         if: always() && steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
         shell: bash
+        env:
+          SLOT: ${{ steps.policy.outputs.scheduled_local_time }}
         run: |
           if [[ ! -f .editorial-state/publication-decision.json ]]; then
             echo "No publication decision was produced; treating the run as a pipeline failure." >&2
             exit 1
           fi
           python - <<'PY'
-          import json
+          import json, os
           from pathlib import Path
           decision = json.loads(Path('.editorial-state/publication-decision.json').read_text())
           status = decision.get('edition_status')
           count = int(decision.get('article_count') or 0)
           failed = int(decision.get('failed_count') or 0)
-          print(f"publication health: status={status} articles={count} failed={failed}")
+          slot = os.environ.get('SLOT', '')
+          print(f"publication health: status={status} articles={count} failed={failed} slot={slot}")
+          # The midday and afternoon runs only add news that broke since the morning; a quiet
+          # news cycle there is normal, publishes nothing and opens no review.
+          if count == 0 and not failed and slot not in ('07:07', 'manual'):
+              with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+                  out.write('nothing_new=true\n')
+              print('no new stories since the last run; nothing to publish')
+              raise SystemExit(0)
           if failed or count == 0 or status != 'ready':
               raise SystemExit('publication health gate failed; inspect the run artifact')
           PY
@@ -247,7 +259,7 @@ jobs:
           retention-days: 30
 
       - name: Resolve automatic publication or editorial review
-        if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
+        if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish' && steps.health.outputs.nothing_new != 'true'
         id: publication
         shell: bash
         run: |
@@ -262,7 +274,7 @@ jobs:
           fi
 
       - name: Publish the validated generated files
-        if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish'
+        if: steps.policy.outputs.skip != 'true' && steps.policy.outputs.mode == 'publish' && steps.health.outputs.nothing_new != 'true'
         run: >-
           python scripts/publish_generated.py
           --branch "${{ steps.publication.outputs.branch }}"
@@ -272,7 +284,8 @@ jobs:
         if: >-
           steps.policy.outputs.skip != 'true' &&
           steps.policy.outputs.mode == 'publish' &&
-          steps.publication.outputs.branch == 'main'
+          steps.publication.outputs.branch == 'main' &&
+          steps.health.outputs.nothing_new != 'true'
         shell: bash
         run: |
           RELEASE_SHA="$(git rev-parse HEAD)"
@@ -288,7 +301,8 @@ jobs:
         if: >-
           steps.policy.outputs.skip != 'true' &&
           steps.policy.outputs.mode == 'publish' &&
-          steps.publication.outputs.branch != 'main'
+          steps.publication.outputs.branch != 'main' &&
+          steps.health.outputs.nothing_new != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
