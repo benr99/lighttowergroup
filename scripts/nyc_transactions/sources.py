@@ -1293,122 +1293,12 @@ def discover_live_nyc_transactions(
     existing_slugs_or_ids: set[str] | None = None,
     timeout: int = 8,
 ) -> list[NycTransactionDossier]:
-    """Scan NYC RSS feeds and ACRIS for newly announced/emerged >$10M NYC property sales.
+    """Retired 2026-10-23: it built dossiers from headlines and filled unknown fields
+    (building size, year built, tax lot, seller, broker) with placeholders.
 
-    Enforces strict eligibility:
-    - Must have a verifiable street address (never a raw truncated headline)
-    - Must be physically inside the 5 NYC boroughs (excludes "Manhattan investor buys in Stamford" or "Brooklyn Park, MN")
-    - Excludes single residential penthouse/condo unit resales
-    - Extracts the named buyer principal from the headline
+    Live deals now come only from recorded deeds, through ``nyc_transactions.acris_live``,
+    and are written and fact-checked by the main v4 writer inside the daily run.
     """
-    seen = set(existing_slugs_or_ids or set())
-    discovered: list[NycTransactionDossier] = []
+    return []
 
-    feed_urls: list[tuple[str, str]] = [
-        ("Commercial Observer", "https://commercialobserver.com/feed/"),
-        ("New York YIMBY", "https://newyorkyimby.com/feed"),
-        ("Bisnow New York", "https://www.bisnow.com/rss/new-york"),
-    ]
 
-    for source_name, url in feed_urls:
-        try:
-            req = urllib.request.Request(
-                url,
-                headers={"User-Agent": "Mozilla/5.0 (compatible; LightTowerNYCDesk/1.0)"},
-            )
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                xml_data = resp.read()
-        except Exception:
-            continue
-
-        for item in _extract_rss_items(xml_data):
-            title_clean = item["title"].split(" - ")[0].strip()
-            combined = f"{title_clean} {item['description']}"
-            if not _SALE_VERB_RE.search(combined):
-                continue
-            if _OUT_OF_NYC_RE.search(combined) or _SINGLE_RES_CONDO_RE.search(combined):
-                continue
-
-            price_match = _PRICE_MILLION_RE.search(combined)
-            if not price_match:
-                continue
-            price_m = float(price_match.group(1))
-            sale_price = price_m * 1_000_000.0
-            if sale_price <= 10_000_000.0:
-                continue
-
-            # Require a real street address match
-            addr_match = _ADDRESS_RE.search(combined)
-            if not addr_match:
-                continue
-            address = addr_match.group(1).strip()
-
-            borough = ""
-            neighborhood = ""
-            for b_name, b_re in _NYC_BOROUGH_PATTERNS:
-                m = b_re.search(combined)
-                if m:
-                    borough = b_name
-                    matched_tok = m.group(1)
-                    neighborhood = matched_tok if matched_tok.lower() != b_name.lower() else b_name
-                    break
-            if not borough:
-                continue
-
-            buyer_match = _BUYER_HEADLINE_RE.search(title_clean)
-            if not buyer_match:
-                continue
-            buyer_name = buyer_match.group(1).strip()
-            if buyer_name.lower() in {"news", "just sold", "report", "nyc", "new york", "developer", "investor"}:
-                continue
-
-            tx_id = "nyc-live-" + re.sub(r"[^a-z0-9]+", "-", f"{address}-{int(price_m)}m".lower()).strip("-")
-            if tx_id in seen:
-                continue
-
-            closing_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-            if item.get("pubDate"):
-                try:
-                    dt = parsedate_to_datetime(item["pubDate"])
-                    closing_iso = dt.strftime("%Y-%m-%d")
-                except Exception:
-                    pass
-
-            seen.add(tx_id)
-            discovered.append(
-                NycTransactionDossier(
-                    transaction_id=tx_id,
-                    property_info=PropertyIdentity(
-                        address=address,
-                        borough=borough,
-                        neighborhood=neighborhood,
-                        bbl=f"{ {'Manhattan':'1','Bronx':'2','Brooklyn':'3','Queens':'4','Staten Island':'5'}[borough] }-01000-0001",
-                        building_class="O4",
-                        asset_type="Commercial / Multifamily Property",
-                        gross_sqft=100_000,
-                        lot_sqft=12_500,
-                        buildable_sqft=100_000,
-                        total_units=1,
-                        residential_units=0,
-                        stories=10,
-                        year_built=1980,
-                        zoning="Commercial / Mixed-Use",
-                        is_single_condo_or_coop_unit=False,
-                    ),
-                    sale_price_usd=sale_price,
-                    closing_date=closing_iso,
-                    recorded_date=closing_iso,
-                    buyer=buyer_name,
-                    seller=f"{neighborhood} Selling Ownership",
-                    broker="New York Capital Markets Advisory",
-                    sources=[{"name": f"{source_name} — {title_clean}", "url": item["link"]}],
-                    notes=[
-                        f"{title_clean}.",
-                        item["description"][:360],
-                        f"SUBHEAD::Inside {buyer_name}'s {neighborhood} Play",
-                        f"KICKER::Every >$10 million closing that clears the {borough} tape right now resets the comp sheet for sponsors lining up debt and equity in the submarket.",
-                    ],
-                )
-            )
-
-    return discovered
