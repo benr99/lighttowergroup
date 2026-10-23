@@ -120,5 +120,17 @@ class TakeTests(unittest.TestCase):
         self.assertEqual(json.loads(path.read_text(encoding="utf-8"))["takes"][0]["chars"], len(today[0].text))
 
 
+    def test_a_later_run_is_ranked_with_the_morning_takes(self):
+        path = Path(tempfile.mkdtemp()) / "takes.json"
+        today = takes.new_york_now().strftime("%Y-%m-%d")
+        path.write_text(json.dumps({"takes": [
+            {"id": "take-morning", "date": today, "rank": 1, "score": 50.0, "text": "morning"}]}), encoding="utf-8")
+        midday = self.build({"takes": [GOOD]}, stories=[story(1)])  # score 79
+        feed = takes.merge_feed(path, midday)
+        ranks = {e["id"]: e["rank"] for e in feed}
+        self.assertEqual(ranks["take-obj1"], 1)
+        self.assertEqual(ranks["take-morning"], 2)
+
+
 if __name__ == "__main__":
     unittest.main()

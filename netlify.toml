@@ -7,6 +7,11 @@
 [functions."analytics-retention"]
   schedule = "@daily"
 
+# Emails Ben the day's five best Quick Takes (from /takes.json, published by the morning run).
+# Hourly 12:30-16:30 UTC (8:30 am-12:30 pm New York in summer); sends once per day.
+[functions."takes-email"]
+  schedule = "30 12-16 * * *"
+
 [[redirects]]
   from   = "/command-center"
   to     = "/analytics-dashboard.html"
@@ -283,3 +288,9 @@
   [headers.values]
     Cache-Control = "no-store"
     X-Content-Type-Options = "nosniff"
+
+# The Quick Takes feed is read fresh by the Intelligence page and the morning email.
+[[headers]]
+  for = "/takes.json"
+  [headers.values]
+    Cache-Control = "no-cache"
