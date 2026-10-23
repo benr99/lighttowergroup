@@ -466,9 +466,11 @@ def _chat(
             continue
         status = int(getattr(response, "status_code", 200))
         text = str(getattr(response, "text", "") or "")
-        if status in (401, 403) or (status == 429 and "insufficient" in text.lower()):
+        if status in (401, 402, 403) or (status == 429 and "insufficient" in text.lower()):
+            reason = (f"{name} account is out of credit (HTTP {status}): top up the balance"
+                      if status in (402, 429) else f"{name} refused the API key (HTTP {status})")
             if health is not None:
-                health.failed(f"{name} refused the key or has no credit (HTTP {status})", permanent=True)
+                health.failed(reason, permanent=True)
             log_provider_event(event, outcome="failed", provider=name, model=model, error=f"HTTP {status}")
             response.raise_for_status()
             raise requests.HTTPError(f"HTTP {status}", response=response)

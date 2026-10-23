@@ -105,6 +105,9 @@ def provider_chain(
     return chain
 
 
+_NO_CREDIT: set[str] = set()  # providers that answered 402 Payment Required this run
+
+
 def check_provider_health(
     provider: str,
     api_key: str | None,
@@ -121,6 +124,8 @@ def check_provider_health(
                 json={"model": model or DEEPSEEK_MODEL, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 4},
                 timeout=15,
             )
+            if resp.status_code == 402:
+                _NO_CREDIT.add(provider)
             return resp.status_code == 200
         elif provider == "openai":
             resp = requests.post(
@@ -157,6 +162,10 @@ def select_provider(for_writing: bool = False, *, pauses: tuple[float, ...] = (0
                 return config
     if not tried:
         raise RuntimeError("No LLM provider available: DEEPSEEK_API_KEY is not set.")
+    broke = [name for name in tried if name in _NO_CREDIT]
+    if broke:
+        raise RuntimeError(f"No LLM provider available: the {', '.join(broke)} account is out of credit "
+                           "(HTTP 402 Payment Required). Top up the balance and re-run.")
     raise RuntimeError(f"No LLM provider available: {', '.join(tried)} did not answer.")
 
 
