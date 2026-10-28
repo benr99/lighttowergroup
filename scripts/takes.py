@@ -38,7 +38,7 @@ TAKES_VERSION = "takes-1"
 MAX_LINES = 5
 MAX_CHARS = 450
 MIN_FACTS = 3          # a story needs this many verified sentences to carry a take
-KEEP_DAYS = 45         # the feed keeps this much history
+KEEP_DAYS = 90         # the feed keeps this much history
 MAX_FEED = 800
 WORKERS = 6
 

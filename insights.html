@@ -735,12 +735,17 @@
         b.addEventListener('click', onClick);
         return b;
       }
-      function card(take, posted) {
+      function activeDay() {
+        const ny = todayInNewYork();
+        if (takes.some(function (t) { return t.date === ny; })) return ny;
+        return takes.reduce(function (m, t) { return String(t.date || '') > m ? String(t.date || '') : m; }, '') || ny;
+      }
+      function card(take, posted, leadDay) {
         const box = document.createElement('article');
         box.className = 'take-card' + (posted.has(take.id) ? ' posted' : '');
         const meta = document.createElement('div');
         meta.className = 'take-meta';
-        if (take.date === todayInNewYork() && take.rank && take.rank <= 5) {
+        if (take.date === leadDay && take.rank && take.rank <= 5) {
           const lead = document.createElement('span'); lead.className = 'take-lead'; lead.textContent = "Today's best"; meta.appendChild(lead);
         }
         [SECTOR_LABEL[sectorOf(take)] || 'Markets', formatDate(take.date)].forEach(function (t) {
@@ -781,7 +786,7 @@
       function render() {
         if (!loaded) return;
         const posted = readPosted();
-        const today = todayInNewYork();
+        const today = activeDay();
         const filter = typeof activeFilter === 'string' ? activeFilter : 'all';
         const shown = takes.filter(function (t) {
           if (filter !== 'all' && sectorOf(t) !== filter) return false;
@@ -795,7 +800,7 @@
           empty.textContent = scope === 'today' ? 'No takes yet today. They arrive after the morning run.' : 'No takes match this view yet.';
           list.appendChild(empty);
         } else {
-          shown.slice(0, 120).forEach(function (t) { list.appendChild(card(t, posted)); });
+          shown.slice(0, 120).forEach(function (t) { list.appendChild(card(t, posted, today)); });
         }
         counter.textContent = shown.length + (shown.length === 1 ? ' take' : ' takes');
       }
